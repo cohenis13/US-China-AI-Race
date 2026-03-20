@@ -1433,16 +1433,31 @@ function renderFrontierModels(data) {
   document.getElementById('fm-meta').textContent =
     `Tracking ${trackedCount} curated labs · ${activeCount} active in this 30-day window`;
 
-  // Interpretive note (rendered after lab breakdown so NVIDIA share is known)
+  // Interpretive note — dynamic based on current US vs China counts
   const nvidiaCount = (data.models || []).filter(m => m.lab_name === 'NVIDIA').length;
   const nvidiaShare = us > 0 ? Math.round(nvidiaCount / us * 100) : 0;
   const nvidiaClause = nvidiaShare >= 20
-    ? ` (NVIDIA alone accounts for roughly ${nvidiaShare}% of US updates, spanning robotics, medical imaging, and other specialized domains)`
+    ? ` (NVIDIA accounts for a large share of US updates, spanning robotics, medical imaging, and other specialized domains.)`
     : '';
-  document.getElementById('fm-interp').innerHTML =
-    `In this 30-day window, US-based tracked labs show higher public model-update activity on Hugging Face` +
-    `${nvidiaClause}; China's activity is more concentrated across a smaller set of labs. ` +
-    `<span style="color:var(--t3);">Does not include closed-source models (GPT-4, Claude, Gemini) or models published outside Hugging Face.</span>`;
+
+  let mainSentence;
+  if (us > cn) {
+    mainSentence =
+      `In this 30-day window, US-based tracked labs show higher public model-update activity on Hugging Face${nvidiaClause} ` +
+      `China's activity appears more concentrated among a smaller set of tracked labs.`;
+  } else if (cn > us) {
+    mainSentence =
+      `In this 30-day window, China-based tracked labs show higher public model-update activity on Hugging Face, ` +
+      `while US activity appears more concentrated among a smaller set of tracked labs.` +
+      (nvidiaClause ? ` ${nvidiaClause}` : '');
+  } else {
+    mainSentence =
+      `In this 30-day window, US and China show broadly similar levels of public model-update activity on Hugging Face.` +
+      (nvidiaClause ? ` ${nvidiaClause}` : '');
+  }
+
+  const caveat = `<span style="color:var(--t3);">Does not include closed-source models (GPT-4, Claude, Gemini) or models published outside Hugging Face.</span>`;
+  document.getElementById('fm-interp').innerHTML = mainSentence + ' ' + caveat;
 
   buildBarChart(us, cn, oth, unk);
   renderLabBreakdown(data.models || []);

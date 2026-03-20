@@ -1,11 +1,11 @@
 {
   "dimension": "adoption",
   "metric_key": "ai_procurement_notices",
-  "description": "Placeholder — run fetch_adoption.py or trigger the GitHub Actions workflow to populate with live data.",
-  "fetched_at": null,
+  "description": "Count of AI-related government procurement contract awards and notices over a rolling 12-month window. US: federal contract awards from USASpending.gov. China: central government notices from CCGP (best-effort). A proxy for visible institutional AI deployment intent — not a complete or symmetric measure of adoption.",
+  "fetched_at": "2026-03-20T17:20:38.104481+00:00",
   "window_days": 365,
-  "start_date": null,
-  "end_date": null,
+  "start_date": "2025-03-20",
+  "end_date": "2026-03-20",
   "search_keywords": {
     "US": [
       "artificial intelligence",
@@ -20,32 +20,113 @@
   },
   "summary": {
     "US": {
-      "procurement_count": 0,
+      "procurement_count": 10,
       "source": "USASpending.gov",
-      "available": false,
-      "confidence": "low"
+      "available": true,
+      "confidence": "medium"
     },
     "China": {
       "procurement_count": null,
       "source": "CCGP (中国政府采购网)",
       "available": false,
       "confidence": "unavailable",
-      "note": "Data not yet fetched. Trigger the 'Update Adoption Data' GitHub Actions workflow."
+      "note": "CCGP returned a response but the total count could not be parsed. The page structure may have changed. China count is unavailable for this snapshot."
     }
   },
-  "top_examples": [],
+  "top_examples": [
+    {
+      "award_id": "W911QX20C0023",
+      "recipient": "ECS FEDERAL, LLC",
+      "amount": 118579059.35,
+      "date": "2020-04-23",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "140D0421C0002",
+      "recipient": "TUKNIK GOVERNMENT SERVICES LLC",
+      "amount": 106725460.68,
+      "date": "2020-12-23",
+      "agency": "Department of the Interior",
+      "country": "US"
+    },
+    {
+      "award_id": "W911QX25C0002",
+      "recipient": "ECS FEDERAL, LLC",
+      "amount": 46636622.67,
+      "date": "2025-01-30",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "1333BJ20F00280017",
+      "recipient": "ACCENTURE FEDERAL SERVICES LLC",
+      "amount": 44076744.6,
+      "date": "2019-10-31",
+      "agency": "Department of Commerce",
+      "country": "US"
+    },
+    {
+      "award_id": "W911QX22C0029",
+      "recipient": "MORSECORP, INC",
+      "amount": 41434075.13,
+      "date": "2022-08-26",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "1333BJ24C00280005",
+      "recipient": "ACCENTURE FEDERAL SERVICES LLC",
+      "amount": 28378495.75,
+      "date": "2024-07-01",
+      "agency": "Department of Commerce",
+      "country": "US"
+    },
+    {
+      "award_id": "89243320FFE400258",
+      "recipient": "GOLDBELT OPERATIONS SUPPORT SERVICES, LLC",
+      "amount": 16822170.0,
+      "date": "2020-09-17",
+      "agency": "Department of Energy",
+      "country": "US"
+    },
+    {
+      "award_id": "N6600125C0019",
+      "recipient": "DOMINO DATA LAB INC",
+      "amount": 16536422.33,
+      "date": "2025-03-14",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "FA873023CB027",
+      "recipient": "NEXTGEN FEDERAL SYSTEMS LLC",
+      "amount": 16334283.61,
+      "date": "2023-09-25",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "75FCMC23F0001",
+      "recipient": "INDEX ANALYTICS LLC",
+      "amount": 15932044.68,
+      "date": "2023-09-28",
+      "agency": "Department of Health and Human Services",
+      "country": "US"
+    }
+  ],
   "source": {
     "primary_us": {
       "name": "USASpending.gov",
       "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-      "note": "Official US federal spending data. No API key required."
+      "note": "Official US federal spending data (OMB / Treasury). Counts federal contract awards (types A–D) where the description matches AI-related keywords using OR logic. No API key required. Covers federal government only."
     },
     "primary_cn": {
       "name": "CCGP (中国政府采购网)",
       "url": "http://www.ccgp.gov.cn",
-      "note": "China central government procurement portal. Best-effort scrape."
+      "note": "China's official central-government procurement portal. Scraped via public search interface. May be inaccessible from non-Chinese IP addresses. Covers central-level procurement only."
     }
   },
-  "methodology_note": "Government procurement actions used as adoption proxy — stronger signal than mentions or job postings. US: USASpending.gov federal contract awards. China: CCGP central procurement notices (best-effort, may be blocked from non-Chinese IPs).",
-  "caveats": "Scope asymmetry: US = federal only, China = central CCGP only. Transparency asymmetry: US data is far more automatable. China null count = data unavailable, not zero procurement."
+  "methodology_note": "Government procurement actions are used as an adoption proxy because they represent a binding institutional decision to acquire AI — stronger than mentions, job postings, or expressed intent. US: keyword search across federal contract award descriptions via the USASpending.gov API (official OMB/Treasury data, no auth required). China: keyword search on CCGP, China's central procurement portal, via public HTML search interface. The two sources differ in scope, reporting norms, and accessibility. US data covers the full federal government with high automation reliability. China data covers only the central government and may be inaccessible from non-Chinese IP addresses (GitHub Actions runners are US-based Azure). Counts reflect procurement orders placed, not confirmed deployment outcomes. Updated daily.",
+  "caveats": "1. Scope asymmetry: US covers federal government only (not state/local/private). China covers central CCGP only (not provincial/local/military). 2. Transparency asymmetry: US procurement is far more transparent and automatable than China's. The observed US/China ratio reflects this gap, not necessarily a proportional difference in actual AI adoption. 3. Keyword coverage: AI-related keyword matching is broad — counts include contracts for AI research, consulting, and tools alongside operational deployment. 4. China availability: CCGP frequently blocks non-Chinese IPs. When blocked, China count is null (not zero) — absence of data ≠ absence of procurement. 5. Both figures measure observable procurement signals, not deployment outcomes."
 }

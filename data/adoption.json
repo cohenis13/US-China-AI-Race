@@ -1,46 +1,40 @@
 {
   "dimension": "adoption",
-  "metric_key": "ai_adoption_signals",
-  "description": "Government procurement of AI-related contracts as a proxy for institutional AI deployment activity. Not a total adoption census — coverage differs across countries due to public reporting systems.",
-  "fetched_at": "2026-03-20T17:46:57.482439+00:00",
-  "last_updated": "2026-03-20T17:46:57.482439+00:00",
-  "window_days": 365,
-  "start_date": "2025-03-20",
-  "end_date": "2026-03-20",
-  "procurement": {
+  "metric_key": "filing_adoption_rate",
+  "description": "AI adoption proxy: share of major listed companies whose latest annual filing (10-K or 20-F) shows evidence of AI deployment or operational AI use.",
+  "fetched_at": null,
+  "last_updated": null,
+  "filing_window": {"start": null, "end": null, "months": 30},
+  "classification": {
+    "deployment": "Filing mentions \"generative AI\" or \"large language model\" — strong operational AI signal.",
+    "strategic": "Filing mentions \"artificial intelligence\" but not above terms — strategy/planning language.",
+    "unknown": "Filing not found or EDGAR API inaccessible — excluded from rate."
+  },
+  "summary": {
     "US": {
-      "count": 10,
-      "status": "ok",
-      "source": "USASpending.gov",
-      "source_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-      "keywords": ["artificial intelligence","machine learning","generative AI","large language model","AI system"],
-      "note": "Federal contracts (types A–D) with AI keywords in award descriptions. Filtered by action_date — contract start dates in examples may predate the window for multi-year contracts. Federal only."
+      "sample_size": 25,
+      "adoption_positive": null,
+      "strategic_only": null,
+      "unknown": null,
+      "adoption_rate": null,
+      "denominator": null
     },
     "China": {
-      "count": null,
-      "status": "blocked",
-      "source": "CCGP (中国政府采购网)",
-      "source_url": "http://search.ccgp.gov.cn/bxsearch",
-      "keywords": ["人工智能"],
-      "note": "Central-government procurement notices only. CCGP is frequently inaccessible from non-Chinese IPs — null ≠ zero procurement."
+      "sample_size": 20,
+      "adoption_positive": null,
+      "strategic_only": null,
+      "unknown": null,
+      "adoption_rate": null,
+      "denominator": null
     }
   },
-  "top_examples": [
-    {"award_id": "W911QX20C0023", "recipient": "ECS FEDERAL, LLC", "amount": 118579059.35, "contract_start": "2020-04-23", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "140D0421C0002", "recipient": "TUKNIK GOVERNMENT SERVICES LLC", "amount": 106725460.68, "contract_start": "2020-12-23", "agency": "Department of the Interior", "description": "", "country": "US"},
-    {"award_id": "W911QX25C0002", "recipient": "ECS FEDERAL, LLC", "amount": 46636622.67, "contract_start": "2025-01-30", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "1333BJ20F00280017", "recipient": "ACCENTURE FEDERAL SERVICES LLC", "amount": 44076744.6, "contract_start": "2019-10-31", "agency": "Department of Commerce", "description": "", "country": "US"},
-    {"award_id": "W911QX22C0029", "recipient": "MORSECORP, INC", "amount": 41434075.13, "contract_start": "2022-08-26", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "1333BJ24C00280005", "recipient": "ACCENTURE FEDERAL SERVICES LLC", "amount": 28378495.75, "contract_start": "2024-07-01", "agency": "Department of Commerce", "description": "", "country": "US"},
-    {"award_id": "89243320FFE400258", "recipient": "GOLDBELT OPERATIONS SUPPORT SERVICES, LLC", "amount": 16822170.0, "contract_start": "2020-09-17", "agency": "Department of Energy", "description": "", "country": "US"},
-    {"award_id": "N6600125C0019", "recipient": "DOMINO DATA LAB INC", "amount": 16536422.33, "contract_start": "2025-03-14", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "FA873023CB027", "recipient": "NEXTGEN FEDERAL SYSTEMS LLC", "amount": 16334283.61, "contract_start": "2023-09-25", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "75FCMC23F0001", "recipient": "INDEX ANALYTICS LLC", "amount": 15932044.68, "contract_start": "2023-09-28", "agency": "Department of Health and Human Services", "description": "", "country": "US"}
-  ],
-  "examples_note": "Sorted by award amount. 'Contract Start' = period_of_performance_start_date and may predate the window — contracts appear because a procurement action occurred within the last 12 months.",
-  "source_urls": {
-    "usaspending": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-    "ccgp": "http://www.ccgp.gov.cn"
+  "firms": [],
+  "source": {
+    "name": "SEC EDGAR Full-Text Search (EFTS)",
+    "url": "https://efts.sec.gov/LATEST/search-index",
+    "us_form": "10-K (annual report, US domestic companies)",
+    "cn_form": "20-F (annual report, foreign private issuers — Chinese ADRs)"
   },
-  "methodology_note": "Procurement captures binding institutional decisions to acquire AI systems — a stronger and more automatable signal than self-reported surveys. US data covers the full federal government via a public API. China data covers only central-government notices on CCGP, which is frequently inaccessible from outside China. This asymmetry reflects the design of public reporting systems, not analysis choice. Private-sector AI deployment and sub-national government activity are not captured."
+  "methodology_note": "Adoption rate = companies with deployment signal / known-sample companies × 100. 'Deployment signal' = filing mentions \"generative AI\" or \"large language model\". US sample: ~25 major S&P 500 companies. China sample: ~20 major Chinese ADRs filing 20-F with the SEC. Does NOT include Tencent, ByteDance, CATL, or other non-SEC filers. Compare directionally — absolute rates reflect the curated sample, not all firms.",
+  "caveats": "1. China sample = US-listed ADRs only (tech-heavy). 2. Deployment terms may appear in risk disclosures alongside confirmed use. 3. Entity name matching may miss some filings; unknowns excluded from rate. 4. 30-month window captures the latest annual filing regardless of fiscal year end."
 }

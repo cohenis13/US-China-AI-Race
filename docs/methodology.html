@@ -1,335 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methodology — U.S. vs China AI Race Tracker</title>
-<style>
-:root {
-  --bg: #f5f4f0; --bg-card: #fff; --t1: #0d1520; --t2: #3d5066;
-  --t3: #7c8fa0; --border: rgba(0,0,0,0.09); --us: #1a3a5c; --cn: #b5413e; --r: 6px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  background: var(--bg); color: var(--t1); line-height: 1.7;
-  -webkit-font-smoothing: antialiased; font-size: 14.5px;
-}
-.accent-bar { height: 3px; background: linear-gradient(to right, var(--us) 50%, var(--cn) 50%); }
-.page { max-width: 740px; margin: 0 auto; padding: 0 32px 64px; }
-header { padding: 28px 0 22px; border-bottom: 1px solid var(--border); margin-bottom: 36px; }
-.back-link { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--t3); text-decoration: none; }
-.back-link:hover { color: var(--t2); }
-h1 { font-size: 1.65rem; font-weight: 800; letter-spacing: -.03em; margin: 14px 0 6px; }
-.sub { font-size: .85rem; color: var(--t2); }
-h2 { font-size: 1rem; font-weight: 700; color: var(--t1); margin: 32px 0 10px; padding-top: 8px; border-top: 1px solid var(--border); }
-h3 { font-size: .9rem; font-weight: 700; color: var(--t2); margin: 20px 0 6px; }
-p { color: var(--t2); margin-bottom: 12px; font-size: .88rem; }
-ul, ol { padding-left: 20px; color: var(--t2); font-size: .88rem; margin-bottom: 12px; }
-li { margin-bottom: 6px; line-height: 1.6; }
-code {
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-  font-size: .82rem; background: rgba(0,0,0,0.05);
-  padding: 1px 5px; border-radius: 3px; color: var(--t1);
-}
-.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 22px; margin-bottom: 18px; }
-.caveat { background: rgba(181,65,62,0.05); border: 1px solid rgba(181,65,62,0.15); border-radius: var(--r); padding: 14px 18px; margin-bottom: 18px; }
-.caveat-hdr { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--cn); margin-bottom: 6px; }
-.schema-row { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: .83rem; align-items: baseline; }
-.schema-row:last-child { border-bottom: none; }
-.schema-field { font-family: 'SF Mono', 'Fira Code', monospace; font-size: .78rem; color: var(--us); min-width: 160px; }
-.schema-desc { color: var(--t2); }
-footer { border-top: 1px solid var(--border); padding-top: 16px; font-size: 10.5px; color: var(--t3); }
-a { color: var(--us); }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methodology — U.S.–China AI Race Tracker</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f8fafc; --bg-card: #ffffff; --border: #e2e8f0;
+      --t1: #0f172a; --t2: #334155; --t3: #64748b;
+      --accent: #1a6295; --r: 8px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220; --bg-card: #131e2e; --border: #1e2d3e;
+        --t1: #dde5ee; --t2: #8ba3bb; --t3: #4d6678; --accent: #4a9fd4;
+      }
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+           background: var(--bg); color: var(--t1); font-size: 14px; line-height: 1.7; }
+    .page { max-width: 740px; margin: 0 auto; padding: 48px 24px 80px; }
+    .back { display: inline-block; margin-bottom: 32px; color: var(--accent);
+            text-decoration: none; font-size: 13px; font-weight: 600; }
+    .back:hover { text-decoration: underline; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { color: var(--t3); font-size: 13px; margin-bottom: 40px; }
+    h2 { font-size: 1rem; font-weight: 700; margin: 36px 0 12px;
+         padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 0.9rem; font-weight: 700; color: var(--t2); margin: 20px 0 6px; }
+    p  { margin-bottom: 12px; color: var(--t2); }
+    ul { margin: 8px 0 14px 20px; color: var(--t2); }
+    li { margin-bottom: 4px; }
+    code { font-family: monospace; font-size: 12px; background: var(--border);
+           padding: 1px 5px; border-radius: 4px; color: var(--t1); }
+    .caveat { background: var(--bg-card); border: 1px solid var(--border);
+              border-left: 3px solid var(--accent);
+              border-radius: var(--r); padding: 14px 18px; margin: 16px 0; }
+    .caveat p { margin: 0; font-size: 13px; }
+    .dim-badge { display: inline-block; padding: 2px 9px; border-radius: 10px;
+                 font-size: 10px; font-weight: 700; letter-spacing: .08em;
+                 text-transform: uppercase; background: rgba(74,159,212,0.12);
+                 color: var(--accent); margin-right: 6px; }
+  </style>
 </head>
 <body>
-<div class="accent-bar"></div>
 <div class="page">
-  <header>
-    <a class="back-link" href="../index.html">← Back to Dashboard</a>
-    <h1>Methodology</h1>
-    <p class="sub">How we measure the U.S.–China AI race &nbsp;·&nbsp; Data sources, classification logic, and limitations</p>
-  </header>
+  <a class="back" href="/">&larr; Back to dashboard</a>
 
-  <h2>Overview</h2>
+  <h1>Methodology</h1>
+  <p class="subtitle">How the U.S.–China AI Race Tracker measures each dimension — sources, proxies, and known limitations.</p>
+
+  <!-- ── Adoption ──────────────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Adoption</span> AI Adoption in the Economy</h2>
+
+  <h3>What this measures</h3>
   <p>
-    This tracker measures the U.S.–China AI competition across six dimensions: frontier models, compute,
-    domestic adoption, global diffusion, talent, and energy. The goal is not a single authoritative ranking —
-    it is a structured, transparent, and regularly updated view of publicly observable signals across each dimension.
+    The share of major listed companies in each country whose latest annual filing contains
+    evidence of AI deployment, integration, or operational AI use. This is a
+    country-comparable public proxy for economy-wide AI adoption among large firms —
+    not a complete measure of all firms or all AI usage.
+  </p>
+
+  <h3>Why public company filings</h3>
+  <p>
+    Annual reports (10-K for US companies, 20-F for foreign private issuers) are legally
+    required, publicly searchable, and consistent across companies and years. When a company
+    discloses use of "generative AI" or "large language models" in its annual filing, it is
+    describing operational reality — not just marketing copy. These disclosures are more
+    verifiable than surveys and more automatable than manually curated data.
+    The same data source (SEC EDGAR) covers both the US and China samples, making the
+    comparison structurally symmetric at the data-source level.
+  </p>
+
+  <h3>Sample construction</h3>
+  <p>
+    <strong>U.S. sample (~25 companies):</strong> Major S&amp;P 500 companies spanning
+    Technology, Finance, Healthcare, Retail, Consumer, Industrial, Telecom, Energy, and Media
+    sectors. All file 10-K annual reports with the SEC.
   </p>
   <p>
-    We prioritize transparency over precision. Every metric includes its source, its classification logic,
-    and an honest assessment of its limitations. When data is uncertain, we say so rather than forcing a clean answer.
+    <strong>China sample (~20 companies):</strong> Major Chinese companies that file 20-F
+    annual reports with the SEC as foreign private issuers — primarily technology, e-commerce,
+    automotive, and logistics firms (Alibaba, Baidu, JD.com, PDD Holdings, NIO, Xpeng, etc.).
+    These are the largest Chinese companies with US exchange listings.
+    The full list of sampled companies is shown in the dashboard table.
   </p>
 
+  <h3>How "AI deployment" is defined</h3>
+  <p>Each company's annual filing is searched for deployment-specific AI language:</p>
+  <ul>
+    <li><strong>Deployment signal (positive):</strong> Filing mentions <code>"generative AI"</code>
+        or <code>"large language model"</code>. These terms are specific to post-2022 AI
+        integration and reliably indicate meaningful operational engagement when they appear
+        in an annual report.</li>
+    <li><strong>Strategic mention only:</strong> Filing mentions <code>"artificial intelligence"</code>
+        but not the above terms. AI is acknowledged as a strategic topic but without
+        deployment-specific language. Counted in the denominator but not as "positive."</li>
+    <li><strong>Not found:</strong> No filing found for the company in the search window,
+        or the EDGAR API was inaccessible. Excluded from the adoption rate entirely.</li>
+  </ul>
+  <p>
+    <strong>Adoption rate</strong> = Companies with deployment signal &divide;
+    (Deployment + Strategic-only companies) &times; 100.
+  </p>
+
+  <h3>Data source and automation</h3>
+  <p>
+    SEC EDGAR Full-Text Search (EFTS) at <code>efts.sec.gov/LATEST/search-index</code>.
+    Queries are run per company using the <code>entity</code> parameter to filter to that
+    company's filings within a 30-month rolling window — long enough to capture the latest
+    annual filing regardless of fiscal year end. The script runs automatically daily via
+    GitHub Actions and writes <code>data/adoption.json</code>.
+  </p>
+
+  <h3>What this metric does NOT capture</h3>
+  <ul>
+    <li>Companies that do not file with the SEC: Tencent, ByteDance, Huawei, CATL, ICBC,
+        and the vast majority of Chinese firms.</li>
+    <li>Small and medium enterprises, private companies, or state-owned enterprises.</li>
+    <li>AI use disclosed only in supplemental materials, press releases, or non-EDGAR filings.</li>
+    <li>Verified deployment outcomes — disclosures are self-reported and may include
+        early-stage or aspirational language alongside confirmed deployments.</li>
+    <li>Consumer AI usage (individuals using AI tools).</li>
+    <li>Sectors not represented in the curated sample.</li>
+  </ul>
+
+  <h3>Key limitations and biases</h3>
   <div class="caveat">
-    <div class="caveat-hdr">Important caveat — v1 scope</div>
-    <p style="margin:0;">
-      The current live metric is a v1 prototype measuring lab activity on Hugging Face Hub.
-      It is a useful proxy, not a comprehensive census of all frontier AI development.
-      See the Frontier Models section below for details.
-    </p>
+    <p><strong>China sample bias:</strong> Chinese technology companies are disproportionately
+    represented among US-listed Chinese ADRs. This makes the China ADR sample tech-heavy,
+    whereas the US sample is more sector-diverse. The China adoption rate likely overstates
+    economy-wide Chinese AI adoption. Compare directionally and with this caveat in mind.</p>
   </div>
-
-  <h2>Dimension 1 — Frontier Models (Live)</h2>
-
-  <h3>What we measure</h3>
-  <p>
-    <strong>Public model update activity on Hugging Face Hub from tracked labs in the last 30 days.</strong>
-    This is a proxy metric for lab output velocity — not a definitive ranking of frontier model capability.
-    It counts how many models a curated set of known AI labs have updated or published on
-    <a href="https://huggingface.co" target="_blank">Hugging Face Hub</a> within a rolling 30-day window.
-  </p>
-
-  <h3>Why this metric</h3>
-  <p>
-    Hugging Face Hub is the dominant public repository for open and semi-open AI models.
-    Major US and China frontier labs publish or mirror their model weights and updates there.
-    The cadence of updates is a reasonable signal of research activity and output velocity.
-    It is the most consistently available, automatically retrievable public signal for cross-country lab comparison —
-    even though it is an imperfect proxy (see Limitations below).
-  </p>
-
-  <h3>Data source</h3>
-  <div class="card">
-    <p style="margin:0;"><strong>Hugging Face Hub API</strong><br>
-    Endpoint: <code>https://huggingface.co/api/models?author=&lt;org&gt;&amp;sort=lastModified&amp;direction=-1</code><br>
-    Updated: daily at 06:00 UTC via GitHub Actions<br>
-    Coverage: public models only (closed-weight models not included)
-    </p>
-  </div>
-
-  <h3>Classification logic</h3>
-  <p>
-    Labs are classified by country using a manually maintained mapping file:
-    <code>data/labs.json</code>. Each entry specifies the lab name, country,
-    and one or more Hugging Face author slugs. Four categories are used:
-  </p>
-  <ul>
-    <li><strong>US:</strong> OpenAI, Anthropic, Google/DeepMind, Meta AI, Microsoft, NVIDIA, Cohere, Allen AI, Stability AI, xAI, Apple, Amazon, Together AI, Salesforce AI</li>
-    <li><strong>China:</strong> Alibaba/Qwen, DeepSeek, Zhipu AI/THUDM, 01.AI, Baidu, ByteDance, Shanghai AI Lab, Moonshot AI, MiniMax, Tencent, Huawei/Noah's Ark Lab</li>
-    <li><strong>Other (non-US/China):</strong> Identified labs headquartered outside the US and China. Currently tracked: Mistral AI (France). These labs are clearly classifiable but are not part of the US–China bilateral comparison — they are shown separately so they do not distort the primary counts.</li>
-    <li><strong>Unknown:</strong> Any lab author not matched in <code>labs.json</code>, or any entry whose country origin is genuinely unclear.</li>
-  </ul>
-  <p>
-    The lab list is intentionally conservative — we only include labs with a clear, established frontier-model or open-model track record.
-    <code>data/labs.json</code> is editable; corrections and additions can be submitted via the project repository.
-  </p>
-
-  <h3>NVIDIA caveat</h3>
   <div class="caveat">
-    <div class="caveat-hdr">Note on NVIDIA's contribution to the US count</div>
-    <p style="margin:0;">
-      NVIDIA frequently accounts for a large share of US model updates under this metric,
-      but its HF publishing activity differs from that of frontier LLM labs in important ways.
-      NVIDIA publishes specialized models across many non-LLM domains (robotics, medical imaging,
-      weather forecasting, protein structure prediction) and also re-hosts some third-party model weights —
-      including China-origin models such as Kimi, Qwen, and GLM — under its own HF account.
-      All of these count toward the US total under this metric's methodology.
-      Readers comparing US and China raw counts should be aware that NVIDIA's volume
-      reflects broad multi-domain publishing, not general-purpose frontier LLM output alone.
-      The lab-by-lab breakdown table on the dashboard allows readers to inspect NVIDIA's
-      contribution and adjust their interpretation accordingly.
-    </p>
+    <p><strong>Filing language:</strong> Both US (10-K) and China ADR (20-F) filings are in
+    English, making search terms consistent. However, China ADR filings may use different
+    language conventions to describe AI than purely domestic Chinese reports would.</p>
+  </div>
+  <div class="caveat">
+    <p><strong>Risk disclosure inflation:</strong> Annual reports often mention AI in risk
+    factor sections alongside confirmed deployments. Our terms ("generative AI", "large
+    language model") are specific enough to filter out most generic risk mentions, but some
+    false positives may remain.</p>
   </div>
 
-  <h3>Limitations</h3>
-  <ul>
-    <li><strong>Closed models excluded:</strong> Flagship closed-weight models (GPT-4o, Claude 3.5/4, Gemini Ultra) do not appear on HF Hub and are not counted. This understates the effective frontier capability of US labs in particular.</li>
-    <li><strong>China undercount:</strong> Some China-affiliated labs publish primarily to domestic platforms (ModelScope, WiseModel, etc.) rather than HF Hub. This may understate China's actual model output velocity.</li>
-    <li><strong>Volume ≠ capability:</strong> A lab releasing many fine-tuned checkpoints or domain-specific models appears more active than one releasing a single major model per quarter. High counts do not imply greater frontier capability.</li>
-    <li><strong>Rolling window:</strong> The 30-day window is rolling, so counts shift each day even without new releases.</li>
-    <li><strong>Lab list scope:</strong> Only labs in <code>data/labs.json</code> are tracked. Independent researchers and smaller organizations are not included.</li>
-  </ul>
-
-  <h2>Dimension 2 — Talent (Live)</h2>
-
-  <h3>What we measure</h3>
+  <!-- ── Frontier Models ───────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Frontier Models</span> Model Update Activity</h2>
   <p>
-    <strong>The headline comparison is US vs. China: how many AI-related research papers in the last 12 months have at least one author affiliated with a US institution, and how many have at least one author affiliated with a Chinese institution.</strong>
-    This is a proxy for institutional research activity — not a measure of researcher headcount, citation impact, or overall talent quality.
-    OpenAlex is a global index, so rest-of-world data is available and shown as context, but it is not the primary story.
-  </p>
-
-  <h3>Why this metric</h3>
-  <p>
-    Research publication volume is a consistently available public signal for institutional AI activity. OpenAlex was chosen over
-    arXiv's own API because OpenAlex pre-computes institution-to-country mappings from publisher metadata, yielding far lower
-    unknown rates than keyword matching against raw author strings. OpenAlex indexes papers from most major academic publishers
-    and preprint servers including arXiv, IEEE, ACM, Nature, and others, making it broader in scope.
-    The main chart displays US and China only; rest-of-world totals are reported as a context note.
-  </p>
-
-  <h3>Data source</h3>
-  <div class="card">
-    <p style="margin:0;"><strong>OpenAlex API</strong><br>
-    Endpoint: <code>https://api.openalex.org/works</code><br>
-    Filter: <code>concepts.id:C154945302|C119857082|C204321447|C31972630,from_publication_date:YYYY-MM-DD</code><br>
-    Concepts: Artificial Intelligence (C154945302), Machine Learning (C119857082), Natural Language Processing (C204321447), Computer Vision (C31972630)<br>
-    Group by: <code>authorships.institutions.country_code</code><br>
-    Updated: daily at 07:00 UTC via GitHub Actions<br>
-    Coverage: papers indexed by OpenAlex matching the above concept IDs
-    </p>
-  </div>
-
-  <h3>How country attribution works</h3>
-  <p>
-    OpenAlex links each author to their institution using publisher-provided affiliation metadata, then maps institutions to
-    countries using ISO 3166-1 alpha-2 country codes. This is done at ingest time by OpenAlex — the tracker does not
-    perform any keyword matching.
+    Measures public model update activity on Hugging Face Hub from a curated list of tracked
+    AI labs. Counts new model versions published by US-attributed vs China-attributed labs
+    in the rolling 12-month window.
   </p>
   <p>
-    A single API call with <code>group_by=authorships.institutions.country_code</code> returns the full country breakdown
-    for the 12-month window in one response. The count for each country reflects the number of papers where at least one
-    author has an identified institution in that country.
-  </p>
-  <p><strong>Attribution is non-exclusive.</strong> A paper with both US and Chinese co-authors is counted once in the US total
-  and once in the China total. This means the sum of all country counts can exceed the total paper count.
-  The dashboard shows both <em>total papers</em> (unique papers) and <em>total attributed</em> (sum of all country attributions)
-  to make this visible.</p>
-
-  <p>Four summary categories are used:</p>
-  <ul>
-    <li><strong>US:</strong> Papers where at least one author has an institution in the United States (country code: US)</li>
-    <li><strong>China:</strong> Papers where at least one author has an institution in China (country code: CN)</li>
-    <li><strong>Other:</strong> Papers attributed to any other country, not counting US or CN attributions</li>
-    <li><strong>Unknown:</strong> Papers where no author has any identified institutional affiliation in OpenAlex</li>
-  </ul>
-
-  <p>
-    In the per-paper table, each paper is assigned a single <em>primary country</em> label based on its full list of author countries:
-  </p>
-  <ul>
-    <li>US only (possibly with other non-China countries) → <strong>US</strong></li>
-    <li>China only (possibly with other non-US countries) → <strong>China</strong></li>
-    <li>Both US and China → <strong>Mixed</strong></li>
-    <li>Other countries only → <strong>Other</strong></li>
-    <li>No identified affiliations → <strong>Unknown</strong></li>
-  </ul>
-
-  <h3>Dashboard framing</h3>
-  <p>
-    The main chart shows US and China only. OpenAlex is a global index and rest-of-world paper counts are substantial
-    (the sum of all other countries exceeds either the US or China totals individually, because it aggregates ~198 countries).
-    Showing Other as a primary bar would dominate the chart and obscure the US–China comparison, which is the purpose of this tracker.
-    Rest-of-world totals are reported as a context note beneath the stat boxes. Unknown is a metadata coverage note, not a headline figure.
+    <strong>What this does not capture:</strong> Closed models (GPT-4o, Claude, Gemini Ultra)
+    are not counted. Labs are classified by country of the primary organization.
   </p>
 
-  <h3>Limitations</h3>
-  <ul>
-    <li><strong>Volume ≠ quality:</strong> Paper count does not measure citation impact, benchmark performance, or practical significance. A high count does not imply greater frontier capability.</li>
-    <li><strong>China undercount:</strong> Chinese researchers may publish to domestic platforms (CNKI, WiseModel, domestic journals) not well-indexed by OpenAlex. This likely understates China's total research output.</li>
-    <li><strong>Double-counting of collaborations:</strong> Papers with multinational author teams are counted in each country represented. US–China collaborations inflate both countries' totals relative to the total paper count.</li>
-    <li><strong>Unknown reflects missing metadata:</strong> Papers classified as Unknown have no institutional affiliation recorded in OpenAlex. This can reflect preprints without publisher metadata, independent researchers, or affiliation data not yet ingested by OpenAlex. For concept-tagged AI papers, Unknown rates are typically near zero.</li>
-    <li><strong>Concept classification:</strong> OpenAlex assigns concept tags algorithmically. Some AI-adjacent papers may be missed; some tangentially related papers may be included.</li>
-    <li><strong>Coverage lag:</strong> OpenAlex may index some papers with a delay after publication, particularly for venues with slower metadata pipelines.</li>
-  </ul>
-
-  <h2>Dimension 3 — Compute (Live)</h2>
-
-  <h3>What we measure</h3>
+  <!-- ── Compute ────────────────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Compute</span> High-Performance Computing Capacity</h2>
   <p>
-    <strong>The headline comparison is US vs. China: aggregate HPL benchmark performance (Rmax, in PFlop/s)
-    from the most recent TOP500 supercomputer list.</strong>
-    System count is shown as a secondary supporting metric.
-    This is a proxy for disclosed high-end compute infrastructure — not a direct measure of AI training capacity.
-  </p>
-
-  <h3>Why HPL performance, not system count</h3>
-  <p>
-    System count treats a small GPU cluster the same as an exascale machine. Aggregate Rmax weights each system
-    by its benchmark performance, so a single exascale machine contributes proportionally more than hundreds of
-    smaller systems. This makes it a better proxy for total high-end compute capacity.
-  </p>
-
-  <h3>Data source</h3>
-  <div class="card">
-    <p style="margin:0;"><strong>TOP500 — full XML download</strong><br>
-    URL: <code>https://www.top500.org/lists/top500/YYYY/MM/download/TOP500_YYYYMM_all.xml</code><br>
-    Metric: HPL Rmax (High Performance Linpack benchmark). Source unit is GFlop/s; stored as PFlop/s (÷ 1,000,000).<br>
-    Coverage: all 500 systems in the edition (complete list, not a sample)<br>
-    Updated: twice yearly (June and November) — script auto-detects the latest edition<br>
-    Country: as reported by the submitting institution to TOP500 (dedicated XML field, no inference required)
-    </p>
-  </div>
-
-  <h3>How country attribution works</h3>
-  <p>
-    Country is taken directly from the TOP500 list as reported by the submitting institution.
-    Systems are mapped to four buckets:
-  </p>
-  <ul>
-    <li><strong>US:</strong> Country = "United States"</li>
-    <li><strong>China:</strong> Country = "China"</li>
-    <li><strong>Other:</strong> Any other identified country</li>
-    <li><strong>Unknown:</strong> Missing country field (rare)</li>
-  </ul>
-  <p>
-    The main chart shows US and China only. Other is reported as a context note.
-  </p>
-
-  <h3>Limitations</h3>
-  <ul>
-    <li><strong>Excludes private AI clusters:</strong> Large GPU training farms (e.g. internal clusters at major AI labs) are not listed on TOP500 unless voluntarily submitted. This likely understates both US and Chinese AI compute capacity.</li>
-    <li><strong>Disclosed systems only:</strong> TOP500 only includes systems voluntarily submitted. Country-level totals reflect disclosed capacity and may understate broader compute infrastructure.</li>
-    <li><strong>Not AI-specific:</strong> TOP500 systems include weather forecasting, nuclear simulation, and other HPC workloads — not exclusively AI training. HPL performance does not directly translate to AI training throughput.</li>
-    <li><strong>Snapshot, not continuous:</strong> The list is updated twice yearly. Capacity added between editions is not reflected until the next update.</li>
-    <li><strong>HPL ≠ AI performance:</strong> The HPL benchmark measures dense linear algebra performance. AI training uses different hardware (GPUs, TPUs) and workloads; HPL scores are an imperfect proxy.</li>
-  </ul>
-
-  <h2>Data Schema</h2>
-  <p>All live metrics are stored in versioned JSON files under <code>data/</code>. The current schema:</p>
-  <div class="card">
-    <div class="schema-row"><span class="schema-field">dimension</span><span class="schema-desc">Which of the six dimensions this data belongs to</span></div>
-    <div class="schema-row"><span class="schema-field">metric_key</span><span class="schema-desc">Specific metric identifier within that dimension</span></div>
-    <div class="schema-row"><span class="schema-field">fetched_at</span><span class="schema-desc">ISO 8601 UTC timestamp of when the data was fetched</span></div>
-    <div class="schema-row"><span class="schema-field">window_days</span><span class="schema-desc">Rolling time window in days</span></div>
-    <div class="schema-row"><span class="schema-field">source.name</span><span class="schema-desc">Human-readable source name</span></div>
-    <div class="schema-row"><span class="schema-field">source.url</span><span class="schema-desc">URL of the data source or API endpoint</span></div>
-    <div class="schema-row"><span class="schema-field">summary</span><span class="schema-desc">Aggregated counts by country (US, China, Other, Unknown, total)</span></div>
-    <div class="schema-row"><span class="schema-field">models</span><span class="schema-desc">Array of individual model records with lab, country, and timestamp</span></div>
-    <div class="schema-row"><span class="schema-field">methodology_note</span><span class="schema-desc">Plain-language description of classification logic and caveats</span></div>
-  </div>
-
-  <h2>Automation</h2>
-  <p>
-    Live data is refreshed daily by a GitHub Actions workflow (<code>.github/workflows/update_frontier_models.yml</code>).
-    The workflow runs the Python fetch script, commits the updated JSON to the repo, and Vercel automatically
-    re-deploys the site with the new data.
+    Aggregate HPL Rmax benchmark performance (PFlop/s) and system count from the full TOP500
+    supercomputer list, grouped by country. Updated twice yearly (June and November).
   </p>
   <p>
-    A manual run can be triggered at any time from the GitHub Actions tab using the <strong>workflow_dispatch</strong> trigger.
+    <strong>What this does not capture:</strong> Private AI clusters, cloud GPU farms, and
+    systems not submitted to TOP500. China operates exascale systems not in TOP500, so its
+    disclosed capacity is likely a significant undercount.
   </p>
 
-  <h2>Static Scores</h2>
+  <!-- ── Talent ─────────────────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Talent</span> AI Research Output</h2>
   <p>
-    The radar chart and dimension scores on the main dashboard are manually assessed, analytical scores — not derived from a single data source.
-    They represent a qualitative comparative judgment across the six dimensions, drawing on publicly available evidence.
-    They are updated periodically as conditions change, not automatically.
-  </p>
-  <p>
-    Confidence designations (High / Medium / Lower) reflect the quality and availability of public data for each dimension,
-    not the degree of U.S.–China divergence.
+    Volume of AI research papers from US- and China-affiliated institutions, sourced from
+    OpenAlex over the last 12 months. A proxy for research output, not researcher headcount
+    or citation impact. Papers with multinational authorship are counted in each country
+    represented.
   </p>
 
-  <h2>Coming Next</h2>
-  <p>Future dimensions will follow the same pattern: one clear public data source, one v1 metric, transparent classification, automated refresh. Planned additions:</p>
-  <ul>
-    <li><strong>Compute:</strong> GPU shipment data, cloud capacity estimates, data center construction announcements</li>
-    <li><strong>Talent:</strong> AI paper authorship by country (arXiv/Semantic Scholar), top-conference representation</li>
-    <li><strong>Domestic Adoption:</strong> AI startup density, enterprise AI deployment surveys, government AI procurement</li>
-    <li><strong>Global Diffusion:</strong> International model adoption, cloud infrastructure deployment by region</li>
-    <li><strong>Energy:</strong> Data center power capacity, grid expansion data, renewable energy commitments</li>
-  </ul>
-
-  <footer>
-    <p>
-      All data is sourced from publicly available APIs and datasets. No classified or proprietary information is used.
-      Source code and data files are available in the project GitHub repository.
-    </p>
-  </footer>
-
+  <hr style="border:none;border-top:1px solid var(--border);margin:40px 0 24px;" />
+  <p style="font-size:12px;color:var(--t3);">
+    Data and code are provided for research, educational, and policy purposes.
+    Source attribution required for republication.
+    &mdash; <a href="/" style="color:var(--accent);">Return to dashboard</a>
+  </p>
 </div>
 </body>
 </html>

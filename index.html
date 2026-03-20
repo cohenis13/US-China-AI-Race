@@ -1526,9 +1526,10 @@ footer {
     <div class="card live-card">
       <div class="live-card-top">
         <div>
-          <div class="live-card-title">Observable AI Deployment — Government Procurement (Last 12 Months)</div>
+          <div class="live-card-title">AI Adoption in the Economy</div>
           <div class="live-card-sub">
-            Public procurement activity as a proxy for institutional AI deployment — not a complete measure of adoption
+            Share of major listed companies with AI deployment evidence in their latest annual filing &nbsp;&mdash;&nbsp;
+            a public proxy for economy-wide AI adoption among large firms
           </div>
         </div>
         <div class="live-status">
@@ -1542,64 +1543,69 @@ footer {
       <!-- Data / content (hidden until loaded) -->
       <div id="ado-content" style="display:none;">
 
-        <!-- Stat boxes -->
+        <!-- Adoption rate stat boxes -->
         <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
           <div class="fm-stat us">
-            <div class="fm-stat-num" id="ado-us-count">—</div>
-            <div class="fm-stat-lbl">US Federal AI Contracts</div>
+            <div class="fm-stat-num" id="ado-us-rate">—</div>
+            <div class="fm-stat-lbl">U.S. Adoption Rate</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;" id="ado-us-detail"></div>
           </div>
           <div class="fm-stat cn">
-            <div class="fm-stat-num" id="ado-cn-count">—</div>
-            <div class="fm-stat-lbl" id="ado-cn-lbl">China Gov't Notices</div>
+            <div class="fm-stat-num" id="ado-cn-rate">—</div>
+            <div class="fm-stat-lbl">China ADR Adoption Rate</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;" id="ado-cn-detail"></div>
           </div>
         </div>
 
-        <!-- Chart -->
-        <div id="ado-chart-wrap" class="fm-chart-wrap">
-          <div class="fm-chart-label">AI-related procurement actions — rolling 12-month window</div>
-          <canvas id="adoBarChart" height="48"></canvas>
+        <!-- Adoption rate comparison chart -->
+        <div class="fm-chart-wrap" id="ado-chart-wrap">
+          <div class="fm-chart-label">AI deployment disclosure rate — % of sampled companies (latest annual filing)</div>
+          <canvas id="adoRateChart" height="48"></canvas>
         </div>
         <div id="ado-chart-note" class="chart-unavail-note" style="display:none;"></div>
 
-        <!-- Interpretation -->
+        <!-- Interpretive sentence -->
         <div class="fm-interp" id="ado-interp"></div>
 
-        <!-- Contract examples table -->
-        <div class="fm-tbl-wrap detail-wrap" id="ado-examples-wrap">
+        <!-- Company classification table -->
+        <div class="fm-tbl-wrap detail-wrap" id="ado-firms-wrap">
           <div class="detail-section-hdr">
-            <span class="detail-lbl">Largest US AI-related procurement actions — rolling window</span>
+            <span class="detail-lbl">Sampled companies — AI deployment signal in latest filing</span>
           </div>
           <table class="fm-tbl">
             <thead>
               <tr>
-                <th>Recipient</th>
-                <th>Agency</th>
-                <th class="r">Amount</th>
-                <th class="r">Contract Start</th>
+                <th>Company</th>
+                <th>Sector</th>
+                <th>Country</th>
+                <th>Filing</th>
+                <th>Signal</th>
               </tr>
             </thead>
-            <tbody id="ado-examples-body">
-              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+            <tbody id="ado-firms-body">
+              <tr><td colspan="5" class="fm-placeholder">—</td></tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Single caveat + footer -->
+        <!-- Footer -->
         <div class="fm-footer">
           <p class="fm-footer-note">
-            Public procurement is a proxy for institutional deployment. Coverage differs across countries due to reporting systems — US federal data is fully accessible via API; comparable China data is limited in public sources.
+            "Deployment signal" = filing mentions "generative AI" or "large language model."
+            "Strategic only" = filing mentions AI broadly but not the above terms.
+            US sample: major S&amp;P 500 companies (10-K). China sample: major US-listed Chinese ADRs (20-F).
+            China sample does not include Tencent, ByteDance, or non-SEC filers.
           </p>
           <div class="fm-footer-links">
-            Sources: <a href="https://api.usaspending.gov" target="_blank" rel="noopener">USASpending.gov</a>,
-            <a href="http://www.ccgp.gov.cn" target="_blank" rel="noopener">CCGP</a>
+            Source: <a href="https://efts.sec.gov" target="_blank" rel="noopener">SEC EDGAR Full-Text Search</a>
           </div>
         </div>
 
       </div><!-- /ado-content -->
 
-      <!-- Error state -->
+      <!-- Error / pending state -->
       <div id="ado-error" class="fm-placeholder" style="display:none;">
-        Unable to load live data. Check back after the daily GitHub Actions run,
+        Data pending first workflow run. Check back after the daily GitHub Actions refresh,
         or see <a href="data/adoption.json">data/adoption.json</a>.
       </div>
 
@@ -2417,32 +2423,44 @@ async function loadCompute() {
 }
 
 /* ── Adoption ────────────────────────────────────────────────── */
-let adoBarChart;
+let adoRateChart;
 
-function fmtDollars(n) {
-  if (n == null || n === '') return '—';
-  n = Number(n);
-  if (isNaN(n) || n === 0) return '—';
-  if (n >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
-  if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
-  if (n >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
-  return '$' + n.toFixed(0);
+const ADO_SIGNAL_LABELS = {
+  deployment: 'Deployment signal',
+  strategic:  'Strategic mention',
+  unknown:    'Not found',
+};
+const ADO_SIGNAL_COLORS = {
+  deployment: { us: 'rgba(26,98,162,0.85)',  cn: 'rgba(181,65,62,0.85)'  },
+  strategic:  { us: 'rgba(26,98,162,0.35)',  cn: 'rgba(181,65,62,0.35)'  },
+  unknown:    { us: 'rgba(120,140,160,0.35)', cn: 'rgba(120,140,160,0.35)' },
+};
+
+function fmtRate(r) {
+  if (r == null) return '—';
+  return r.toFixed(0) + '%';
 }
 
-function buildAdoptionChart(entries) {
+function buildAdoptionRateChart(usRate, cnRate) {
   const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
   const tickColor = isDark ? '#4d6678' : '#9ca3af';
 
-  if (adoBarChart) { adoBarChart.destroy(); adoBarChart = null; }
+  if (adoRateChart) { adoRateChart.destroy(); adoRateChart = null; }
 
-  const ctx = document.getElementById('adoBarChart').getContext('2d');
-  adoBarChart = new Chart(ctx, {
+  const entries = [];
+  if (usRate != null) entries.push({ label: 'United States', rate: usRate, bgColor: 'rgba(26,58,92,0.75)', border: US_COLOR });
+  if (cnRate != null) entries.push({ label: 'China ADRs',    rate: cnRate, bgColor: 'rgba(181,65,62,0.75)', border: CN_COLOR });
+
+  if (entries.length === 0) return;
+
+  const ctx = document.getElementById('adoRateChart').getContext('2d');
+  adoRateChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels:   entries.map(e => e.label),
       datasets: [{
-        data:            entries.map(e => e.count),
+        data:            entries.map(e => e.rate),
         backgroundColor: entries.map(e => e.bgColor),
         borderColor:     entries.map(e => e.border),
         borderWidth: 1.5,
@@ -2461,14 +2479,14 @@ function buildAdoptionChart(entries) {
           borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
           padding: { x: 12, y: 10 }, cornerRadius: 5,
           callbacks: {
-            label: ctx => '  ' + ctx.parsed.x.toLocaleString() + ' AI procurement actions in window',
+            label: ctx => '  ' + ctx.parsed.x.toFixed(1) + '% of sampled companies show AI deployment signal',
           }
         }
       },
       scales: {
         x: {
-          beginAtZero: true,
-          ticks: { color: tickColor, font: { size: 10 } },
+          beginAtZero: true, max: 100,
+          ticks: { color: tickColor, font: { size: 10 }, callback: v => v + '%' },
           grid:  { color: gridColor },
         },
         y: {
@@ -2478,70 +2496,89 @@ function buildAdoptionChart(entries) {
       }
     }
   });
-  window._adoBarChart = adoBarChart;
+  window._adoRateChart = adoRateChart;
+}
+
+function signalChip(classification) {
+  if (classification === 'deployment') {
+    return '<span style="display:inline-block;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(34,197,94,0.12);color:#16a34a;">Deployment</span>';
+  }
+  if (classification === 'strategic') {
+    return '<span style="display:inline-block;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(234,179,8,0.13);color:#b45309;">Strategic</span>';
+  }
+  return '<span style="display:inline-block;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(156,163,175,0.14);color:var(--t3);">Not found</span>';
 }
 
 function renderAdoption(data) {
-  const proc  = data.procurement || {};
-  const usProc = proc.US    || { count: null, status: 'unavailable' };
-  const cnProc = proc.China || { count: null, status: 'unavailable' };
+  const summary = data.summary || {};
+  const usAgg   = summary.US    || {};
+  const cnAgg   = summary.China || {};
+  const firms   = data.firms    || [];
 
   document.getElementById('ado-fetched-at').textContent = fmtFetchedAt(data.fetched_at || data.last_updated);
 
   // ── Stat boxes ───────────────────────────────────────────────────────────
-  document.getElementById('ado-us-count').textContent = usProc.count != null ? usProc.count.toLocaleString() : '—';
+  const usRate = usAgg.adoption_rate;
+  const cnRate = cnAgg.adoption_rate;
+  document.getElementById('ado-us-rate').textContent = fmtRate(usRate);
+  document.getElementById('ado-cn-rate').textContent = fmtRate(cnRate);
 
-  const cnAvailable = cnProc.count != null;
-  document.getElementById('ado-cn-count').textContent = cnAvailable ? cnProc.count.toLocaleString() : 'Limited visibility';
-  const cnLbl = document.getElementById('ado-cn-lbl');
-  if (cnLbl) cnLbl.textContent = cnAvailable ? 'China Gov\'t Notices' : 'China Gov\'t Notices';
-
-  // ── Chart — only countries with real numeric counts ───────────────────────
-  const chartEntries = [];
-  if (usProc.count != null) {
-    chartEntries.push({ label: 'United States', count: usProc.count, bgColor: 'rgba(26,58,92,0.75)', border: US_COLOR });
+  const usDetailEl = document.getElementById('ado-us-detail');
+  const cnDetailEl = document.getElementById('ado-cn-detail');
+  if (usDetailEl && usAgg.adoption_positive != null) {
+    usDetailEl.textContent = `${usAgg.adoption_positive} of ${usAgg.denominator} companies`;
   }
-  if (cnAvailable) {
-    chartEntries.push({ label: 'China', count: cnProc.count, bgColor: 'rgba(181,65,62,0.75)', border: CN_COLOR });
+  if (cnDetailEl && cnAgg.adoption_positive != null) {
+    cnDetailEl.textContent = `${cnAgg.adoption_positive} of ${cnAgg.denominator} companies`;
   }
 
+  // ── Chart ────────────────────────────────────────────────────────────────
   const chartWrap = document.getElementById('ado-chart-wrap');
   const chartNote = document.getElementById('ado-chart-note');
-  if (chartEntries.length > 0) {
-    buildAdoptionChart(chartEntries);
+  if (usRate != null || cnRate != null) {
+    buildAdoptionRateChart(usRate, cnRate);
     chartWrap.style.display = '';
-    chartNote.style.display = cnAvailable ? 'none' : '';
-    if (!cnAvailable) chartNote.textContent = 'China CCGP data not available from this runner — China omitted from chart.';
+    chartNote.style.display = 'none';
   } else {
     chartWrap.style.display = 'none';
     chartNote.style.display = '';
-    chartNote.textContent = 'Chart omitted — no numeric procurement data available for this snapshot.';
+    chartNote.textContent = 'Chart will render after the first workflow run.';
   }
 
   // ── Interpretation ───────────────────────────────────────────────────────
   const interpEl = document.getElementById('ado-interp');
-  if (interpEl) {
-    if (usProc.count != null && cnAvailable) {
-      interpEl.textContent = 'US federal procurement shows higher observable AI deployment activity in this window.';
-    } else if (usProc.count != null) {
-      interpEl.textContent = 'US federal procurement provides the clearest observable signal of AI deployment; comparable China data is limited in public sources.';
+  if (interpEl && usRate != null && cnRate != null) {
+    const diff = Math.abs(usRate - cnRate);
+    if (diff < 5) {
+      interpEl.textContent = 'U.S. and Chinese listed firms show broadly similar rates of visible AI deployment disclosures in the latest filing window.';
+    } else if (usRate > cnRate) {
+      interpEl.textContent = 'U.S. listed firms show a higher rate of visible AI deployment disclosures in the latest filing window.';
     } else {
-      interpEl.textContent = '';
+      interpEl.textContent = 'Chinese listed firms show a higher rate of visible AI deployment disclosures in the latest filing window.';
     }
+  } else if (interpEl) {
+    interpEl.textContent = '';
   }
 
-  // ── Examples table ───────────────────────────────────────────────────────
-  const examples = data.top_examples || [];
-  const tbody    = document.getElementById('ado-examples-body');
-  if (examples.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:12px 0;text-align:center;color:var(--t3);">No examples available — check back after the next workflow run.</td></tr>';
+  // ── Company table ─────────────────────────────────────────────────────────
+  const tbody = document.getElementById('ado-firms-body');
+  if (firms.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" class="fm-placeholder" style="padding:14px 0;text-align:center;color:var(--t3);">Data pending — check back after the next workflow run.</td></tr>';
   } else {
-    tbody.innerHTML = examples.map(e => `
+    // Sort: deployment first, then strategic, then unknown; within group by country then name
+    const order = { deployment: 0, strategic: 1, unknown: 2 };
+    const sorted = [...firms].sort((a, b) =>
+      (order[a.classification] - order[b.classification]) ||
+      a.country.localeCompare(b.country) ||
+      a.name.localeCompare(b.name)
+    );
+    tbody.innerHTML = sorted.map(f => `
       <tr>
-        <td style="color:var(--t2);">${truncate(e.recipient || '—', 40)}</td>
-        <td style="color:var(--t2);">${truncate(e.agency || '—', 36)}</td>
-        <td class="r" style="color:var(--t2);white-space:nowrap;">${fmtDollars(e.amount)}</td>
-        <td class="r" style="color:var(--t3);white-space:nowrap;">${fmtDate(e.contract_start || e.date || '')}</td>
+        <td style="color:var(--t2);font-weight:500;">${f.name}</td>
+        <td style="color:var(--t3);font-size:11px;">${f.sector || '—'}</td>
+        <td>${countryChip(f.country)}</td>
+        <td style="color:var(--t3);font-size:11px;">${f.form || '—'}</td>
+        <td>${signalChip(f.classification)}</td>
       </tr>
     `).join('');
   }
@@ -2549,7 +2586,7 @@ function renderAdoption(data) {
   document.getElementById('ado-loading').style.display = 'none';
   document.getElementById('ado-error').style.display   = 'none';
   document.getElementById('ado-content').style.display = 'block';
-  setupCollapsible('ado-examples-body', 'ado-examples-wrap', 5);
+  setupCollapsible('ado-firms-body', 'ado-firms-wrap', 8);
 }
 
 async function loadAdoption() {
@@ -2557,6 +2594,7 @@ async function loadAdoption() {
     const resp = await fetch('data/adoption.json?t=' + Date.now());
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
+    // Show error state only if the file has never been populated by the script
     if (!data.fetched_at && !data.last_updated) throw new Error('No data yet');
     renderAdoption(data);
   } catch (err) {

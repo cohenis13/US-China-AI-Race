@@ -1,27 +1,29 @@
 {
   "dimension": "compute",
   "metric_key": "top500_compute_capacity",
-  "description": "Aggregate HPL benchmark performance (Rmax, PFlop/s) and system count from the TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
-  "fetched_at": "2026-03-20T05:28:17.462290+00:00",
+  "description": "Aggregate HPL benchmark performance (Rmax, PFlop/s) and system count from the full TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
+  "fetched_at": "2026-03-20T05:38:05.983818+00:00",
   "list_edition": "2025/11",
-  "rmax_unit": "PFlop/s",
+  "total_systems_parsed": 500,
+  "is_complete": true,
   "source": {
     "name": "TOP500",
     "url": "https://www.top500.org",
-    "note": "HPL Rmax in PFlop/s (raw unit from table: pflops). List updated twice yearly (June and November). Country parsed from system cell metadata."
+    "xml_download": "https://www.top500.org/lists/top500/2025/11/download/TOP500_202511_all.xml",
+    "note": "Full TOP500 XML download. Rmax in GFlop/s in source; stored as PFlop/s. List updated twice yearly (June and November). Country as reported by TOP500 submitters."
   },
   "summary": {
     "US": {
-      "systems": 1,
-      "rmax_pflops": 1809.0
+      "systems": 171,
+      "rmax_pflops": 6961.3
     },
     "China": {
-      "systems": 0,
-      "rmax_pflops": 0.0
+      "systems": 40,
+      "rmax_pflops": 204.9
     },
     "Other": {
-      "systems": 9,
-      "rmax_pflops": 5901.9
+      "systems": 289,
+      "rmax_pflops": 7827.2
     },
     "Unknown": {
       "systems": 0,
@@ -31,64 +33,124 @@
   "top_systems": [
     {
       "rank": 1,
-      "name": "El Capitan- HPE Cray EX255a, AMD 4th Gen EPYC 24C 1.8GHz, AMD Instinct MI300A, Slingshot-11, TOSS,",
+      "name": "El Capitan",
       "country": "US",
       "rmax_pflops": 1809.0
     },
     {
       "rank": 2,
-      "name": "Frontier- HPE Cray EX235a, AMD Optimized 3rd Generation EPYC 64C 2GHz, AMD Instinct MI250X, Slingshot-11, HPE Cray OS,",
-      "country": "Other",
+      "name": "Frontier",
+      "country": "US",
       "rmax_pflops": 1353.0
     },
     {
       "rank": 3,
-      "name": "Aurora- HPE Cray EX - Intel Exascale Compute Blade, Xeon CPU Max 9470 52C 2.4GHz, Intel Data Center GPU Max, Slingshot-11,",
-      "country": "Other",
+      "name": "Aurora",
+      "country": "US",
       "rmax_pflops": 1012.0
     },
     {
       "rank": 4,
-      "name": "JUPITER Booster- BullSequana XH3000, GH Superchip 72C 3GHz, NVIDIA GH200 Superchip, Quad-Rail NVIDIA InfiniBand NDR200, RedHat Enterprise Linux,",
+      "name": "JUPITER Booster",
       "country": "Other",
       "rmax_pflops": 1000.0
     },
     {
       "rank": 5,
-      "name": "Eagle- Microsoft NDv5, Xeon Platinum 8480C 48C 2GHz, NVIDIA H100, NVIDIA Infiniband NDR,",
-      "country": "Other",
+      "name": "Eagle",
+      "country": "US",
       "rmax_pflops": 561.2
     },
     {
       "rank": 6,
-      "name": "HPC6- HPE Cray EX235a, AMD Optimized 3rd Generation EPYC 64C 2GHz, AMD Instinct MI250X, Slingshot-11, RHEL 8.9,",
+      "name": "HPC6",
       "country": "Other",
       "rmax_pflops": 477.9
     },
     {
       "rank": 7,
-      "name": "Supercomputer Fugaku- Supercomputer Fugaku, A64FX 48C 2.2GHz, Tofu interconnect D,",
+      "name": "Supercomputer Fugaku",
       "country": "Other",
       "rmax_pflops": 442.01
     },
     {
       "rank": 8,
-      "name": "Alps- HPE Cray EX254n, NVIDIA Grace 72C 3.1GHz, NVIDIA GH200 Superchip, Slingshot-11, HPE Cray OS,",
+      "name": "Alps",
       "country": "Other",
       "rmax_pflops": 434.9
     },
     {
       "rank": 9,
-      "name": "LUMI- HPE Cray EX235a, AMD Optimized 3rd Generation EPYC 64C 2GHz, AMD Instinct MI250X, Slingshot-11,",
+      "name": "LUMI",
       "country": "Other",
       "rmax_pflops": 379.7
     },
     {
       "rank": 10,
-      "name": "Leonardo- BullSequana XH2000, Xeon Platinum 8358 32C 2.6GHz, NVIDIA A100 SXM4 64 GB, Quad-rail NVIDIA HDR100 Infiniband,",
+      "name": "Leonardo",
       "country": "Other",
       "rmax_pflops": 241.2
+    },
+    {
+      "rank": 11,
+      "name": "Isambard-AI phase 2",
+      "country": "Other",
+      "rmax_pflops": 216.5
+    },
+    {
+      "rank": 12,
+      "name": "Tuolumne",
+      "country": "US",
+      "rmax_pflops": 208.1
+    },
+    {
+      "rank": 13,
+      "name": "ISEG2",
+      "country": "Other",
+      "rmax_pflops": 202.4
+    },
+    {
+      "rank": 14,
+      "name": "MareNostrum 5 ACC",
+      "country": "Other",
+      "rmax_pflops": 175.3
+    },
+    {
+      "rank": 15,
+      "name": "Discovery 6",
+      "country": "US",
+      "rmax_pflops": 164.2
+    },
+    {
+      "rank": 16,
+      "name": "ABCI 3.0",
+      "country": "Other",
+      "rmax_pflops": 145.1
+    },
+    {
+      "rank": 17,
+      "name": "CHIE-4",
+      "country": "Other",
+      "rmax_pflops": 135.4
+    },
+    {
+      "rank": 18,
+      "name": "Shaheen III - GPU",
+      "country": "Other",
+      "rmax_pflops": 122.8
+    },
+    {
+      "rank": 19,
+      "name": "Eos NVIDIA DGX SuperPOD",
+      "country": "US",
+      "rmax_pflops": 121.4
+    },
+    {
+      "rank": 20,
+      "name": "MAXIMUS-384",
+      "country": "US",
+      "rmax_pflops": 114.5
     }
   ],
-  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by benchmark performance, capturing total capacity rather than just headcount. System count is secondary. Both are from the TOP500 list, which ranks the 500 most powerful non-distributed systems globally. Excludes private AI clusters, cloud GPU farms, and systems below TOP500 threshold. China has not submitted known exascale systems to TOP500 since 2021; its disclosed capacity is a significant undercount of actual capacity."
+  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by benchmark score, capturing total capacity not just headcount. System count is a secondary supporting metric. Source is the full TOP500 XML download (all 500 systems). Country is as reported by the submitting institution to TOP500. Excludes private AI clusters, cloud GPU farms, and any systems not submitted. China stopped submitting known exascale-class systems to TOP500 after 2021; its disclosed capacity is a significant undercount of actual capacity."
 }

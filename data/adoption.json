@@ -2,8 +2,8 @@
   "dimension": "adoption",
   "metric_key": "ai_adoption_signals",
   "description": "Government procurement of AI-related contracts as a proxy for institutional AI deployment activity. Not a total adoption census — coverage differs across countries due to public reporting systems.",
-  "fetched_at": "2026-03-20T17:46:57.482439+00:00",
-  "last_updated": "2026-03-20T17:46:57.482439+00:00",
+  "fetched_at": "2026-03-20T20:25:52.378074+00:00",
+  "last_updated": "2026-03-20T20:25:52.378074+00:00",
   "window_days": 365,
   "start_date": "2025-03-20",
   "end_date": "2026-03-20",
@@ -13,29 +13,117 @@
       "status": "ok",
       "source": "USASpending.gov",
       "source_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-      "keywords": ["artificial intelligence","machine learning","generative AI","large language model","AI system"],
+      "keywords": [
+        "artificial intelligence",
+        "machine learning",
+        "generative AI",
+        "large language model",
+        "AI system"
+      ],
       "note": "Federal contracts (types A–D) with AI keywords in award descriptions. Filtered by action_date — contract start dates in examples may predate the window for multi-year contracts. Federal only."
     },
     "China": {
       "count": null,
-      "status": "blocked",
+      "status": "partial",
       "source": "CCGP (中国政府采购网)",
       "source_url": "http://search.ccgp.gov.cn/bxsearch",
-      "keywords": ["人工智能"],
+      "keywords": [
+        "人工智能"
+      ],
       "note": "Central-government procurement notices only. CCGP is frequently inaccessible from non-Chinese IPs — null ≠ zero procurement."
     }
   },
   "top_examples": [
-    {"award_id": "W911QX20C0023", "recipient": "ECS FEDERAL, LLC", "amount": 118579059.35, "contract_start": "2020-04-23", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "140D0421C0002", "recipient": "TUKNIK GOVERNMENT SERVICES LLC", "amount": 106725460.68, "contract_start": "2020-12-23", "agency": "Department of the Interior", "description": "", "country": "US"},
-    {"award_id": "W911QX25C0002", "recipient": "ECS FEDERAL, LLC", "amount": 46636622.67, "contract_start": "2025-01-30", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "1333BJ20F00280017", "recipient": "ACCENTURE FEDERAL SERVICES LLC", "amount": 44076744.6, "contract_start": "2019-10-31", "agency": "Department of Commerce", "description": "", "country": "US"},
-    {"award_id": "W911QX22C0029", "recipient": "MORSECORP, INC", "amount": 41434075.13, "contract_start": "2022-08-26", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "1333BJ24C00280005", "recipient": "ACCENTURE FEDERAL SERVICES LLC", "amount": 28378495.75, "contract_start": "2024-07-01", "agency": "Department of Commerce", "description": "", "country": "US"},
-    {"award_id": "89243320FFE400258", "recipient": "GOLDBELT OPERATIONS SUPPORT SERVICES, LLC", "amount": 16822170.0, "contract_start": "2020-09-17", "agency": "Department of Energy", "description": "", "country": "US"},
-    {"award_id": "N6600125C0019", "recipient": "DOMINO DATA LAB INC", "amount": 16536422.33, "contract_start": "2025-03-14", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "FA873023CB027", "recipient": "NEXTGEN FEDERAL SYSTEMS LLC", "amount": 16334283.61, "contract_start": "2023-09-25", "agency": "Department of Defense", "description": "", "country": "US"},
-    {"award_id": "75FCMC23F0001", "recipient": "INDEX ANALYTICS LLC", "amount": 15932044.68, "contract_start": "2023-09-28", "agency": "Department of Health and Human Services", "description": "", "country": "US"}
+    {
+      "award_id": "W911QX20C0023",
+      "recipient": "ECS FEDERAL, LLC",
+      "amount": 118579059.35,
+      "contract_start": "2020-04-23",
+      "agency": "Department of Defense",
+      "description": "RESEARCH AND DEVELOPMENT EFFORT TO DESIGN AND DEVELOP PROTOTYPES TO ARTIFICIAL INTELLIGENCE/MACHINE ",
+      "country": "US"
+    },
+    {
+      "award_id": "140D0421C0002",
+      "recipient": "TUKNIK GOVERNMENT SERVICES LLC",
+      "amount": 106725460.68,
+      "contract_start": "2020-12-23",
+      "agency": "Department of the Interior",
+      "description": "INFORMATION TECHNOLOGY (IT), ARTIFICIAL INTELLIGENCE (AI), AND MACHINE LEARNING (ML) PROGRAMMATIC SU",
+      "country": "US"
+    },
+    {
+      "award_id": "W911QX25C0002",
+      "recipient": "ECS FEDERAL, LLC",
+      "amount": 46636622.67,
+      "contract_start": "2025-01-30",
+      "agency": "Department of Defense",
+      "description": "CONTRACT TO RESEARCH, DEVELOP, MODIFY, DEPLOY, OPERATE, AND MAINTAIN ARTIFICIAL INTELLIGENCE/MACHINE",
+      "country": "US"
+    },
+    {
+      "award_id": "1333BJ20F00280017",
+      "recipient": "ACCENTURE FEDERAL SERVICES LLC",
+      "amount": 44076744.6,
+      "contract_start": "2019-10-31",
+      "agency": "Department of Commerce",
+      "description": "IMPROVE PATENT SEARCH WITH ARTIFICIAL INTELLIGENCE CONTRACTOR SUPPORT FOR RFI PROTOTYPE POP&FPOP: 6 ",
+      "country": "US"
+    },
+    {
+      "award_id": "W911QX22C0029",
+      "recipient": "MORSECORP, INC",
+      "amount": 41434075.13,
+      "contract_start": "2022-08-26",
+      "agency": "Department of Defense",
+      "description": "ADVANCED TEST AND EVALUATION (T&E) FOR THE EXPONENTIAL PACE OF ARTIFICIAL INTELLIGENCE / MACHINE LEA",
+      "country": "US"
+    },
+    {
+      "award_id": "1333BJ24C00280005",
+      "recipient": "ACCENTURE FEDERAL SERVICES LLC",
+      "amount": 28378495.75,
+      "contract_start": "2024-07-01",
+      "agency": "Department of Commerce",
+      "description": "PATENT SEARCH ARTIFICIAL INTELLIGENCE MODELS AND LABOR. THIS ACTION IS AWARDED PURSUANT TO THE USPTO",
+      "country": "US"
+    },
+    {
+      "award_id": "89243320FFE400258",
+      "recipient": "GOLDBELT OPERATIONS SUPPORT SERVICES, LLC",
+      "amount": 16822170.0,
+      "contract_start": "2020-09-17",
+      "agency": "Department of Energy",
+      "description": "CENTER FOR DATA ANALYTICS AND MACHINE LEARNING (NETL B83 CDAML)PROJECT",
+      "country": "US"
+    },
+    {
+      "award_id": "N6600125C0019",
+      "recipient": "DOMINO DATA LAB INC",
+      "amount": 16536422.33,
+      "contract_start": "2025-03-14",
+      "agency": "Department of Defense",
+      "description": "ACCELERATED MACHINE LEARNING SOFTWARE",
+      "country": "US"
+    },
+    {
+      "award_id": "FA873023CB027",
+      "recipient": "NEXTGEN FEDERAL SYSTEMS LLC",
+      "amount": 16334283.61,
+      "contract_start": "2023-09-25",
+      "agency": "Department of Defense",
+      "description": "WEATHER MACHINE LEARNING PLATFORM OPERATIONS (WXMLP OPS)",
+      "country": "US"
+    },
+    {
+      "award_id": "75FCMC23F0001",
+      "recipient": "INDEX ANALYTICS LLC",
+      "amount": 15932044.68,
+      "contract_start": "2023-09-28",
+      "agency": "Department of Health and Human Services",
+      "description": "ARTIFICIAL INTELLIGENCE THROUGH MACHINE LEARNED MODELING (AIMM)",
+      "country": "US"
+    }
   ],
   "examples_note": "Sorted by award amount. 'Contract Start' = period_of_performance_start_date and may predate the window — contracts appear because a procurement action occurred within the last 12 months.",
   "source_urls": {

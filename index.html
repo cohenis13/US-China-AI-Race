@@ -256,6 +256,17 @@ h1 {
 .section-module-hdr.oth-accent {
   border-left-color: var(--oth);
 }
+.signal-grp { margin-bottom: 22px; }
+.signal-grp + .signal-grp { padding-top: 18px; border-top: 1px solid var(--border); }
+.signal-grp-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.signal-grp-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--t2); }
+.signal-grp-src  { font-size: 10px; color: var(--t3); }
+.status-badge { display: inline-block; margin-top: 3px; padding: 2px 7px; border-radius: 10px; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.status-badge.ok          { background: rgba(34,197,94,0.12);  color: #16a34a; }
+.status-badge.partial     { background: rgba(234,179,8,0.13);  color: #b45309; }
+.status-badge.blocked     { background: rgba(239,68,68,0.11);  color: #dc2626; }
+.status-badge.error       { background: rgba(239,68,68,0.11);  color: #dc2626; }
+.status-badge.unavailable { background: rgba(156,163,175,0.14); color: var(--t3); }
 .section-module-lbl {
   font-size: 11px;
   font-weight: 700;
@@ -1524,15 +1535,13 @@ footer {
     <div class="card live-card">
       <div class="live-card-top">
         <div>
-          <div class="live-card-title">AI Procurement &amp; Deployment Notices — Last 12 Months</div>
+          <div class="live-card-title">AI Adoption Signals — Last 12 Months</div>
           <div class="live-card-sub">
-            Government AI contract awards and procurement notices — a proxy for visible institutional AI deployment intent, not a complete measure of adoption &nbsp;·&nbsp; Sources: USASpending.gov (US), CCGP (China)
+            Two proxies for visible AI adoption: government procurement orders and public company filing disclosures &nbsp;·&nbsp; Sources: USASpending.gov, CCGP, SEC EDGAR
           </div>
         </div>
         <div class="live-status">
-          <div class="live-updated">
-            Last fetched: <span id="ado-fetched-at">—</span>
-          </div>
+          <div class="live-updated">Last fetched: <span id="ado-fetched-at">—</span></div>
         </div>
       </div>
 
@@ -1542,20 +1551,72 @@ footer {
       <!-- Data / content (hidden until loaded) -->
       <div id="ado-content" style="display:none;">
 
-        <!-- Primary stat boxes: US vs China -->
-        <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
-          <div class="fm-stat us">
-            <div class="fm-stat-num" id="ado-us-count">—</div>
-            <div class="fm-stat-lbl">US Federal AI Contracts</div>
+        <!-- Signal 1: Government Procurement -->
+        <div class="signal-grp">
+          <div class="signal-grp-hdr">
+            <span class="signal-grp-lbl">Signal 1 &mdash; Government Procurement</span>
+            <span class="signal-grp-src">USASpending.gov &nbsp;·&nbsp; CCGP</span>
           </div>
-          <div class="fm-stat cn">
-            <div class="fm-stat-num" id="ado-cn-count">—</div>
-            <div class="fm-stat-lbl">China Gov't AI Notices</div>
+          <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
+            <div class="fm-stat us">
+              <div class="fm-stat-num" id="ado-us-count">—</div>
+              <div class="fm-stat-lbl">US Federal AI Contracts</div>
+              <div id="ado-us-proc-badge"></div>
+            </div>
+            <div class="fm-stat cn">
+              <div class="fm-stat-num" id="ado-cn-count">—</div>
+              <div class="fm-stat-lbl">China Gov't AI Notices</div>
+              <div id="ado-cn-proc-badge"></div>
+            </div>
           </div>
-        </div>
 
-        <!-- Secondary context note -->
-        <div id="ado-context-note" style="font-size:12px;color:var(--t3);margin:6px 0 2px;"></div>
+          <!-- Bar chart: procurement only -->
+          <div class="fm-chart-wrap">
+            <div class="fm-chart-label">Government AI procurement notices / contract awards — rolling 12-month window</div>
+            <canvas id="adoBarChart" height="48"></canvas>
+          </div>
+
+          <!-- Top examples table (US federal contracts) -->
+          <div class="fm-tbl-wrap detail-wrap" id="ado-examples-wrap">
+            <div class="detail-section-hdr">
+              <span class="detail-lbl">Top US federal AI contract awards (by value)</span>
+            </div>
+            <table class="fm-tbl">
+              <thead>
+                <tr>
+                  <th>Recipient</th>
+                  <th>Agency</th>
+                  <th class="r">Amount</th>
+                  <th class="r">Date</th>
+                </tr>
+              </thead>
+              <tbody id="ado-examples-body">
+                <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /signal-grp 1 -->
+
+        <!-- Signal 2: Company Filings (EDGAR) -->
+        <div class="signal-grp">
+          <div class="signal-grp-hdr">
+            <span class="signal-grp-lbl">Signal 2 &mdash; Public Company Filings</span>
+            <span class="signal-grp-src">SEC EDGAR 10-K &nbsp;·&nbsp; 20-F</span>
+          </div>
+          <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
+            <div class="fm-stat us">
+              <div class="fm-stat-num" id="ado-us-edgar">—</div>
+              <div class="fm-stat-lbl">US Companies (10-K)</div>
+              <div id="ado-us-edgar-badge"></div>
+            </div>
+            <div class="fm-stat cn">
+              <div class="fm-stat-num" id="ado-cn-edgar">—</div>
+              <div class="fm-stat-lbl">Foreign Issuers Proxy (20-F)</div>
+              <div id="ado-cn-edgar-badge"></div>
+            </div>
+          </div>
+          <div id="ado-edgar-note" style="font-size:11px;color:var(--t3);margin-top:6px;line-height:1.5;"></div>
+        </div><!-- /signal-grp 2 -->
 
         <!-- Tracking meta -->
         <div class="fm-meta" id="ado-meta"></div>
@@ -1563,45 +1624,23 @@ footer {
         <!-- Interpretive note -->
         <div class="fm-interp" id="ado-interp"></div>
 
-        <!-- Bar chart -->
-        <div class="fm-chart-wrap">
-          <div class="fm-chart-label">AI procurement / deployment notices by country — rolling 12-month window</div>
-          <canvas id="adoBarChart" height="48"></canvas>
-        </div>
-
-        <!-- Top examples table (US federal contracts) -->
-        <div class="fm-tbl-wrap detail-wrap" id="ado-examples-wrap">
-          <div class="detail-section-hdr">
-            <span class="detail-lbl">Top US federal AI contract awards (by value)</span>
-          </div>
-          <table class="fm-tbl">
-            <thead>
-              <tr>
-                <th>Recipient</th>
-                <th>Agency</th>
-                <th class="r">Amount</th>
-                <th class="r">Date</th>
-              </tr>
-            </thead>
-            <tbody id="ado-examples-body">
-              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- Scope caveat box -->
         <div class="fm-context-note" style="display:block;">
-          <strong>Scope caveat:</strong> US figure = federal contract awards only (not state/local/private). China figure = central CCGP notices only — significant undercount expected, and CCGP may be inaccessible from automated runners on non-Chinese IPs (null &ne; zero). The observed US/China ratio reflects a <em>transparency asymmetry</em>, not necessarily a proportional difference in AI adoption rates. Compare directionally only.
+          <strong>Coverage caveat:</strong>
+          Signal 1 — US = federal contracts only; China = central CCGP notices (frequently blocked from non-CN IPs — null &ne; zero).
+          Signal 2 — US = 10-K domestic filers; China proxy = 20-F foreign issuers (primarily Chinese ADRs, not exclusively China).
+          The US/China ratio on both signals reflects a <em>transparency asymmetry</em>, not a proportional difference in adoption rates. Compare directionally only.
         </div>
 
         <!-- Footer citation -->
         <div class="fm-footer">
           <p class="fm-footer-note">
-            A procurement order indicates an institution is actively acquiring AI — a stronger signal than mentions or plans. Neither source captures private-sector AI deployment or confirmed deployment outcomes.
+            Procurement orders indicate binding institutional decisions to acquire AI — stronger than mentions or plans. Filing disclosures indicate self-reported deployment activity. Neither signal captures private-sector AI deployment or confirmed outcomes.
           </p>
           <div class="fm-footer-links">
             Sources: <a href="https://api.usaspending.gov" target="_blank" rel="noopener">USASpending.gov</a>,
-            <a href="http://www.ccgp.gov.cn" target="_blank" rel="noopener">CCGP</a><br>
+            <a href="http://www.ccgp.gov.cn" target="_blank" rel="noopener">CCGP</a>,
+            <a href="https://efts.sec.gov/LATEST/search-index" target="_blank" rel="noopener">SEC EDGAR</a><br>
             <a href="docs/methodology.html" target="_blank">Full methodology →</a>
           </div>
         </div>
@@ -2440,6 +2479,12 @@ function fmtDollars(n) {
   return '$' + n.toFixed(0);
 }
 
+function statusBadge(status) {
+  const safe = (status || 'unavailable').toLowerCase().replace(/[^a-z]/g, '');
+  const label = { ok: 'ok', partial: 'partial', blocked: 'blocked', error: 'error', unavailable: 'no data' }[safe] || safe;
+  return `<span class="status-badge ${safe}">${label}</span>`;
+}
+
 function buildAdoptionChart(usCount, cnCount) {
   const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
@@ -2491,59 +2536,65 @@ function buildAdoptionChart(usCount, cnCount) {
 }
 
 function renderAdoption(data) {
-  const s  = data.summary || {};
-  const us = s.US    || { procurement_count: 0, available: false };
-  const cn = s.China || { procurement_count: null, available: false };
+  const sig     = data.signals || {};
+  const govProc = sig.government_procurement || {};
+  const filings = sig.company_filings        || {};
 
-  const usCount = us.procurement_count || 0;
-  const cnAvail = cn.available === true;
-  const cnCount = cnAvail ? (cn.procurement_count || 0) : 0;
+  const usProc  = govProc.US          || { count: null, status: 'unavailable', confidence: 'unavailable' };
+  const cnProc  = govProc.China       || { count: null, status: 'unavailable', confidence: 'unavailable' };
+  const usEdgar = filings.US          || { count: null, status: 'unavailable', confidence: 'unavailable' };
+  const cnEdgar = filings.China_proxy || { count: null, status: 'unavailable', confidence: 'unavailable' };
 
   document.getElementById('ado-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
-  document.getElementById('ado-us-count').textContent   = usCount.toLocaleString();
-  document.getElementById('ado-cn-count').textContent   = cnAvail ? cnCount.toLocaleString() : '—';
 
-  // Context note — explain China null if needed
-  const ctxNote = cnAvail
-    ? `China confidence: ${cn.confidence} — central CCGP notices only; significant undercount expected`
-    : 'China: automated data not available from CCGP (may be blocked from non-CN IPs — null ≠ zero)';
-  document.getElementById('ado-context-note').textContent = ctxNote;
+  // Signal 1 — Government Procurement
+  document.getElementById('ado-us-count').textContent    = usProc.count  != null ? usProc.count.toLocaleString()  : '—';
+  document.getElementById('ado-cn-count').textContent    = cnProc.count  != null ? cnProc.count.toLocaleString()  : '—';
+  document.getElementById('ado-us-proc-badge').innerHTML = statusBadge(usProc.status);
+  document.getElementById('ado-cn-proc-badge').innerHTML = statusBadge(cnProc.status);
+
+  // Signal 2 — Company Filings
+  document.getElementById('ado-us-edgar').textContent      = usEdgar.count != null ? usEdgar.count.toLocaleString() : '—';
+  document.getElementById('ado-cn-edgar').textContent      = cnEdgar.count != null ? cnEdgar.count.toLocaleString() : '—';
+  document.getElementById('ado-us-edgar-badge').innerHTML  = statusBadge(usEdgar.status);
+  document.getElementById('ado-cn-edgar-badge').innerHTML  = statusBadge(cnEdgar.status);
+  document.getElementById('ado-edgar-note').textContent    =
+    '20-F proxy covers all foreign private issuers on US exchanges (primarily Chinese ADRs — not exclusively China). ' +
+    'Counts annual filings with "AI deployment" (exact phrase), not deployment instances.';
 
   // Meta line
   const win = data.window_days || 365;
-  const usKw = (data.search_keywords?.US || ['artificial intelligence']).join('", "');
-  const cnKw = (data.search_keywords?.China || ['人工智能'])[0];
+  const query = sig.company_filings?.query || 'AI deployment';
   document.getElementById('ado-meta').textContent =
-    `${win}-day rolling window · US keywords: "${usKw}" · China keyword: "${cnKw}"`;
+    `${win}-day rolling window · Procurement: keyword OR search · Filings: exact phrase "${query}"`;
 
-  // Interpretive sentence
-  let interp;
-  if (!cnAvail) {
-    interp =
-      `US federal agencies issued ${usCount.toLocaleString()} AI-related contract awards in this window. ` +
-      `China CCGP data was not accessible from the automated runner — the bilateral comparison is incomplete for this snapshot.`;
-  } else if (usCount > cnCount) {
-    interp =
-      `US federal agencies show higher visible AI procurement activity (${usCount.toLocaleString()} federal contract awards vs ` +
-      `${cnCount.toLocaleString()} CCGP central notices). ` +
-      `Note: the US figure reflects a higher-transparency procurement environment and broader keyword coverage.`;
-  } else if (cnCount > usCount) {
-    interp =
-      `China's CCGP shows more central-government AI procurement notices (${cnCount.toLocaleString()} vs ` +
-      `${usCount.toLocaleString()} US federal contracts). ` +
-      `Interpret with caution: transparency and scope differ significantly between sources.`;
-  } else {
-    interp =
-      `US and China show broadly similar visible AI procurement signals in this snapshot ` +
-      `(${usCount.toLocaleString()} US contracts vs ${cnCount.toLocaleString()} China notices). Compare directionally only.`;
+  // Interpretive note
+  let interp = '';
+  if (usProc.count != null) {
+    interp += `US federal agencies: ${usProc.count.toLocaleString()} AI-related contract awards. `;
   }
-  const caveat = `<span style="color:var(--t3);">Counts reflect procurement orders placed, not confirmed deployment outcomes. US/China ratio reflects a transparency asymmetry, not necessarily a proportional adoption difference.</span>`;
-  document.getElementById('ado-interp').innerHTML = interp + ' ' + caveat;
+  if (cnProc.status === 'blocked') {
+    interp += 'China CCGP inaccessible from automated runner (blocked — null \u2260 zero). ';
+  } else if (cnProc.count != null) {
+    interp += `China CCGP: ${cnProc.count.toLocaleString()} central-government AI procurement notices. `;
+  }
+  if (usEdgar.count != null) {
+    interp += `SEC EDGAR: ${usEdgar.count.toLocaleString()} US 10-K filings mention \u201CAI deployment\u201D`;
+    if (cnEdgar.count != null) {
+      interp += `, vs ${cnEdgar.count.toLocaleString()} foreign-issuer 20-F filings.`;
+    } else {
+      interp += '.';
+    }
+  }
+  const caveat = ` <span style="color:var(--t3);">Counts reflect procurement orders placed / filing mentions, not confirmed deployment outcomes. US/China ratio reflects transparency asymmetry.</span>`;
+  document.getElementById('ado-interp').innerHTML = interp + caveat;
 
-  // Chart — use 0 for China if unavailable (chart label will note limitation)
-  buildAdoptionChart(usCount, cnCount);
+  // Chart — Signal 1 procurement only (chart bar is 0 for null/unavailable China)
+  const usChartCount = usProc.count  || 0;
+  const cnChartCount = cnProc.count  || 0;
+  buildAdoptionChart(usChartCount, cnChartCount);
 
-  // Top examples table (US federal contracts)
+  // Examples table (US federal contracts from Signal 1)
   const examples = data.top_examples || [];
   const tbody    = document.getElementById('ado-examples-body');
   if (examples.length === 0) {

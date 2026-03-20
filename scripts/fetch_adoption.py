@@ -1,32 +1,26 @@
 #!/usr/bin/env python3
 """
-Fetch AI Adoption proxy data from public government procurement databases.
+Fetch AI Adoption proxy data from two public signals.
 
-WHAT THIS MEASURES
-  Visible institutional AI deployment — specifically, government procurement
-  actions (contract awards and tender notices) for AI-related systems and
-  services. A procurement order is a stronger adoption signal than a mention,
-  a posting, or a plan: it means an institution is actively acquiring AI.
+SIGNAL 1 — Government Procurement
+  US:    USASpending.gov federal contract awards (keyword search, no auth)
+  China: CCGP central procurement notices (HTML scraping, best-effort)
 
-PRIMARY SOURCE — United States: USASpending.gov
-  - Official US federal spending data (OMB / Treasury)
-  - No API key required
-  - Counts federal contract awards whose descriptions match AI-related keywords
-  - Award types A–D (contracts only — excludes grants, loans, cooperative agreements)
-  - Rolling 12-month window
-
-PRIMARY SOURCE — China: CCGP (中国政府采购网 / China Government Procurement Network)
-  - China's official central-government procurement portal
-  - Best-effort HTML scraping via public search interface
-  - GitHub Actions runners (Azure US East IPs) are frequently blocked by CCGP
-  - If inaccessible, outputs null with an explanatory note — does NOT abort
-  - Keyword: 人工智能 (artificial intelligence)
+SIGNAL 2 — Public Company Filings (SEC EDGAR)
+  US proxy:    10-K filings mentioning "AI deployment" (US domestic companies)
+  China proxy: 20-F filings mentioning "AI deployment" (foreign private
+               issuers — primarily Chinese ADRs on US exchanges, not exclusively
+               Chinese companies)
 
 KNOWN LIMITATION — TRANSPARENCY ASYMMETRY
   US procurement data is substantially more transparent and automatable than
-  Chinese procurement data. Observed US/China ratios therefore reflect this
-  asymmetry and should NOT be interpreted as proportional measures of actual
-  AI adoption rates. This is documented in the output methodology_note.
+  Chinese procurement data. CCGP frequently blocks non-Chinese IP addresses
+  (GitHub Actions runners are Azure US East). When blocked, China procurement
+  count is null — absence of data ≠ absence of procurement.
+
+  SEC EDGAR 20-F filings are a China proxy only: they cover all foreign
+  companies listed on US exchanges, with Chinese ADRs as the dominant segment.
+  This overstates "China" relative to the 10-K US figure.
 
 Outputs to data/adoption.json.
 
@@ -78,9 +72,13 @@ US_KEYWORDS = [
 # CCGP results (which cannot be server-side deduplicated via scraping)
 CN_KEYWORD_ZH = "人工智能"   # artificial intelligence
 
-# ── API Endpoints ──────────────────────────────────────────────────────────────
-USASPENDING_URL = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
-CCGP_SEARCH_URL = "http://search.ccgp.gov.cn/bxsearch"
+# EDGAR exact-phrase query for company filing signal
+EDGAR_QUERY = "AI deployment"
+
+# ── API Endpoints ─────────────────────────────────────────────────────────────
+USASPENDING_URL  = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
+CCGP_SEARCH_URL  = "http://search.ccgp.gov.cn/bxsearch"
+EDGAR_SEARCH_URL = "https://efts.sec.gov/LATEST/search-index"
 
 US_HEADERS = {
     "User-Agent": (
@@ -91,7 +89,7 @@ US_HEADERS = {
     "Accept":       "application/json",
 }
 
-# Use browser-like headers for CCGP to minimize IP-based rejection
+# Use browser-like headers for CCGP to minimise IP-based rejection
 CN_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -103,6 +101,14 @@ CN_HEADERS = {
     "Accept-Encoding": "gzip, deflate",
 }
 
+EDGAR_HEADERS = {
+    "User-Agent": (
+        "us-china-ai-tracker/1.0 "
+        "(public research dashboard; github.com/cohenis13/US-China-AI-Race)"
+    ),
+    "Accept": "application/json",
+}
+
 
 # ── Date helpers ──────────────────────────────────────────────────────────────
 def date_range() -> tuple[str, str]:
@@ -112,7 +118,7 @@ def date_range() -> tuple[str, str]:
     return str(start), str(end)
 
 
-# ── US Procurement: USASpending.gov ───────────────────────────────────────────
+# ── Signal 1a: US Procurement — USASpending.gov ───────────────────────────────
 def fetch_us_procurement(start_date: str, end_date: str) -> dict:
     """
     Fetch US federal AI contract award count from USASpending.gov.
@@ -120,16 +126,16 @@ def fetch_us_procurement(start_date: str, end_date: str) -> dict:
     Uses the /api/v2/search/spending_by_award/ endpoint.
     The 'keywords' filter applies OR logic — a single query returns a
     deduplicated count of all contracts matching any of US_KEYWORDS.
-    Award type codes A–D = contracts (Purchase Orders, Delivery Orders,
-    BPA Calls, Definitive Contracts). Grants and loans excluded.
+    Award type codes A–D = contracts only (excludes grants, loans, etc.).
 
-    Returns dict with keys: count, examples, available, confidence
+    Returns dict with: count, examples, status, confidence
+    Status values: "ok" | "error"
     """
     payload = {
         "filters": {
-            "keywords":         US_KEYWORDS,       # OR — single deduped query
+            "keywords":         US_KEYWORDS,
             "time_period":      [{"start_date": start_date, "end_date": end_date}],
-            "award_type_codes": ["A", "B", "C", "D"],   # contracts only
+            "award_type_codes": ["A", "B", "C", "D"],
         },
         "fields": [
             "Award ID",
@@ -155,7 +161,6 @@ def fetch_us_procurement(start_date: str, end_date: str) -> dict:
         resp.raise_for_status()
         data = resp.json()
 
-        # Extract total count — try multiple possible field paths defensively
         total_meta = data.get("total_metadata") or {}
         count = (
             total_meta.get("count")
@@ -164,13 +169,9 @@ def fetch_us_procurement(start_date: str, end_date: str) -> dict:
         )
         count = int(count) if count else 0
 
-        results  = data.get("results", [])
-        log.info(
-            "US procurement: %d AI-related federal contract awards (last %d days)",
-            count, WINDOW_DAYS,
-        )
+        results = data.get("results", [])
+        log.info("US procurement: %d federal AI contract awards (last %d days)", count, WINDOW_DAYS)
 
-        # Normalize example records
         examples = []
         for r in results[:MAX_EXAMPLES]:
             agency = r.get("Awarding Agency") or r.get("Awarding Sub Agency") or ""
@@ -186,39 +187,38 @@ def fetch_us_procurement(start_date: str, end_date: str) -> dict:
         return {
             "count":      count,
             "examples":   examples,
-            "available":  True,
+            "status":     "ok",
             "confidence": "medium",
-            # "medium" because keyword matching captures AI-related contracts
-            # broadly (includes AI consulting, tools, research), not only
-            # confirmed operational deployments.
+            "note": (
+                "Federal contract awards (types A–D) whose descriptions match AI keywords "
+                "(OR logic, deduplicated). Federal government only — excludes state, "
+                "local, and private sector."
+            ),
         }
 
     except Exception as e:
         log.error("US procurement fetch failed: %s", e)
         return {
-            "count":      0,
+            "count":      None,
             "examples":   [],
-            "available":  False,
+            "status":     "error",
             "confidence": "low",
-            "error":      str(e),
+            "note":       f"Fetch failed: {e}",
         }
 
 
-# ── China Procurement: CCGP ────────────────────────────────────────────────────
+# ── Signal 1b: China Procurement — CCGP ───────────────────────────────────────
 def _parse_ccgp_total(html: str) -> int | None:
     """
     Extract total result count from a CCGP search results page.
-
-    CCGP displays totals in multiple possible patterns depending on result
-    volume and page layout. We try patterns from most to least specific.
-    Returns None if no count can be reliably extracted.
+    Tries patterns from most to least specific. Returns None if not found.
     """
     patterns = [
-        r'共\s*找到\s*([\d,]+)\s*条',      # 共找到X条
-        r'共\s*([\d,]+)\s*条\s*信息',       # 共X条信息
-        r'共\s*([\d,]+)\s*条',              # 共X条
-        r'找到相关信息\s*([\d,]+)\s*条',    # 找到相关信息X条
-        r'结果共\s*([\d,]+)\s*条',          # 结果共X条
+        r'共\s*找到\s*([\d,]+)\s*条',
+        r'共\s*([\d,]+)\s*条\s*信息',
+        r'共\s*([\d,]+)\s*条',
+        r'找到相关信息\s*([\d,]+)\s*条',
+        r'结果共\s*([\d,]+)\s*条',
     ]
     for pat in patterns:
         m = re.search(pat, html)
@@ -235,12 +235,10 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
     Fetch China government AI procurement notice count from CCGP.
 
     CCGP date format: YYYY:MM:DD (colon-separated, not hyphen).
-    Single keyword (人工智能) to avoid cross-keyword double-counting
-    that cannot be deduplicated via HTML scraping.
+    Single keyword (人工智能) to avoid cross-keyword double-counting.
 
-    Returns dict with keys: count (or None), available, confidence, note
+    Status values: "ok" | "partial" | "blocked" | "error"
     """
-    # CCGP uses colon-separated dates
     start_ccgp = start_date.replace("-", ":")
     end_ccgp   = end_date.replace("-", ":")
 
@@ -250,8 +248,8 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
         "kw":         CN_KEYWORD_ZH,
         "start_time": start_ccgp,
         "end_time":   end_ccgp,
-        "timeType":   "6",      # by announcement date
-        "dbselect":   "bidx",   # procurement notice index
+        "timeType":   "6",
+        "dbselect":   "bidx",
         "pinMu":      "0",
         "bidType":    "0",
     }
@@ -265,17 +263,14 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
         )
         resp.raise_for_status()
 
-        # Validate response is HTML, not a redirect or error page
         ct = resp.headers.get("content-type", "")
         if len(resp.content) < 500:
             raise ValueError(
-                f"Response too short ({len(resp.content)} bytes) — likely blocked or login redirect"
+                f"Response too short ({len(resp.content)} bytes) — likely blocked or redirect"
             )
         if "html" not in ct and "text" not in ct:
             raise ValueError(f"Unexpected content-type: {ct}")
 
-        # Decode — CCGP often uses GB18030 or GBK encoding
-        # Try UTF-8 first, fall back to GB18030
         try:
             html = resp.content.decode("utf-8")
         except UnicodeDecodeError:
@@ -291,7 +286,7 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
             )
             return {
                 "count":      None,
-                "available":  False,
+                "status":     "partial",
                 "confidence": "unavailable",
                 "note": (
                     "CCGP returned a response but the total count could not be parsed. "
@@ -302,25 +297,18 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
         log.info("CN procurement: %d notices for '%s' (last %d days)", count, CN_KEYWORD_ZH, WINDOW_DAYS)
         return {
             "count":      count,
-            "available":  True,
+            "status":     "ok",
             "confidence": "low",
-            # "low" because:
-            # 1. Only central-level procurement; sub-national excluded
-            # 2. HTML scraping is fragile and may undercount
-            # 3. Reports only notices matching one keyword — broader AI
-            #    procurement may use different Chinese terminology
             "note": (
-                "Central-government procurement notices only (CCGP). "
-                "Sub-national (provincial / municipal) procurement not captured. "
+                f"Central-government procurement notices only (CCGP). "
                 f"Keyword: '{CN_KEYWORD_ZH}' (artificial intelligence). "
-                "Likely significant undercount of total government AI procurement. "
-                "China's procurement reporting is substantially less automatable "
-                "than US federal procurement data."
+                "Sub-national (provincial / municipal) procurement not captured. "
+                "Likely significant undercount of total government AI procurement."
             ),
         }
 
     except requests.exceptions.Timeout:
-        log.warning("CCGP: timed out — server may be blocking this IP (GitHub Actions = Azure US East)")
+        log.warning("CCGP: timed out — likely blocked (GitHub Actions = Azure US East IPs)")
     except requests.exceptions.ConnectionError as e:
         log.warning("CCGP: connection error — %s", e)
     except Exception as e:
@@ -328,135 +316,248 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
 
     return {
         "count":      None,
-        "available":  False,
+        "status":     "blocked",
         "confidence": "unavailable",
         "note": (
             "CCGP was inaccessible from the automated runner. "
             "GitHub Actions (Azure US East IPs) are commonly blocked by CCGP. "
-            "China government procurement data is not available for this snapshot. "
-            "This is a known infrastructure limitation, not a data absence."
+            "This is a known infrastructure limitation — null ≠ zero procurement."
         ),
     }
 
 
-# ── Sanity checks ──────────────────────────────────────────────────────────────
-def sanity_check(us_data: dict) -> None:
-    """Abort if US data is clearly broken (the primary required signal)."""
-    if not us_data["available"]:
-        log.error("FAIL: US procurement data unavailable — aborting")
-        sys.exit(1)
-    if us_data["count"] == 0:
-        log.error(
-            "FAIL: US procurement count = 0 over %d days — "
-            "keyword filter may be broken or API changed",
-            WINDOW_DAYS,
+# ── Signal 2: Company Filings — SEC EDGAR ─────────────────────────────────────
+def fetch_edgar(form_type: str, start_date: str, end_date: str) -> dict:
+    """
+    Count SEC EDGAR filings of a given form type mentioning the exact phrase
+    "AI deployment" in the specified date range.
+
+    form_type: "10-K" (US domestic companies, filed annually)
+               "20-F" (foreign private issuers — primarily Chinese ADRs on US
+                       exchanges, not exclusively Chinese companies)
+
+    Uses the public EFTS full-text search API — no authentication required.
+
+    Status values: "ok" (10-K) | "partial" (20-F, proxy coverage) | "error"
+    """
+    params = {
+        "q":         f'"{EDGAR_QUERY}"',
+        "forms":     form_type,
+        "dateRange": "custom",
+        "startdt":   start_date,
+        "enddt":     end_date,
+    }
+    label     = f"EDGAR {form_type}"
+    is_proxy  = (form_type == "20-F")
+
+    try:
+        resp = requests.get(
+            EDGAR_SEARCH_URL,
+            params=params,
+            headers=EDGAR_HEADERS,
+            timeout=REQUEST_TIMEOUT,
         )
+        resp.raise_for_status()
+        data = resp.json()
+
+        # Response shape: {"hits": {"total": {"value": N, "relation": "eq"}, "hits": [...]}}
+        # Some older versions return {"hits": {"total": N, ...}}
+        hits_block = data.get("hits", {})
+        total      = hits_block.get("total")
+        if isinstance(total, dict):
+            count = int(total.get("value", 0))
+        elif total is not None:
+            count = int(total)
+        else:
+            raise ValueError(f"Unexpected response shape — keys: {list(data.keys())}")
+
+        log.info('%s: %d filings with "%s" (last %d days)', label, count, EDGAR_QUERY, WINDOW_DAYS)
+
+        if is_proxy:
+            return {
+                "count":      count,
+                "status":     "partial",
+                "confidence": "low",
+                "note": (
+                    "20-F filings cover all foreign private issuers listed on US exchanges. "
+                    "Chinese ADRs are the largest segment but this is not exclusively China. "
+                    "Treat as a directional China proxy — likely overstates China vs the "
+                    "10-K US figure. Counts filings (one per company per year), "
+                    "not deployment instances."
+                ),
+            }
+        else:
+            return {
+                "count":      count,
+                "status":     "ok",
+                "confidence": "medium",
+                "note": (
+                    f'US domestic company 10-K annual reports mentioning "{EDGAR_QUERY}" '
+                    "(exact phrase). Counts filings (one per company per year), not "
+                    "deployment instances. Excludes companies that do not file with SEC."
+                ),
+            }
+
+    except Exception as e:
+        log.error("%s fetch failed: %s", label, e)
+        return {
+            "count":      None,
+            "status":     "error",
+            "confidence": "low",
+            "note":       f"Fetch failed: {e}",
+        }
+
+
+# ── Sanity checks ─────────────────────────────────────────────────────────────
+def sanity_check(us_proc: dict, us_edgar: dict) -> None:
+    """Abort if all primary US signals failed, or if procurement count is zero."""
+    both_errored = (us_proc["status"] == "error" and us_edgar["status"] == "error")
+    if both_errored:
+        log.error("FAIL: Both US signals returned errors — aborting")
         sys.exit(1)
-    log.info("Sanity check passed: US count = %d", us_data["count"])
+
+    if us_proc["status"] == "ok":
+        if (us_proc.get("count") or 0) == 0:
+            log.error(
+                "FAIL: US procurement count = 0 over %d days — "
+                "keyword filter or API may be broken",
+                WINDOW_DAYS,
+            )
+            sys.exit(1)
+        log.info("Sanity check: US procurement = %d (ok)", us_proc["count"])
+
+    if us_edgar["status"] in ("ok", "partial"):
+        log.info("Sanity check: US EDGAR 10-K = %d (ok)", us_edgar.get("count", 0))
 
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
     start_date, end_date = date_range()
     log.info("Window: %s → %s (%d days)", start_date, end_date, WINDOW_DAYS)
 
-    log.info("Fetching US procurement data (USASpending.gov) …")
-    us_data = fetch_us_procurement(start_date, end_date)
+    log.info("Signal 1a: US procurement (USASpending.gov) …")
+    us_proc  = fetch_us_procurement(start_date, end_date)
 
-    log.info("Fetching China procurement data (CCGP) …")
-    cn_data = fetch_cn_procurement(start_date, end_date)
+    log.info("Signal 1b: China procurement (CCGP) …")
+    cn_proc  = fetch_cn_procurement(start_date, end_date)
 
-    sanity_check(us_data)
+    log.info('Signal 2a: US company filings (EDGAR 10-K, "%s") …', EDGAR_QUERY)
+    us_edgar = fetch_edgar("10-K", start_date, end_date)
 
-    if not cn_data["available"]:
+    log.info('Signal 2b: China proxy filings (EDGAR 20-F, "%s") …', EDGAR_QUERY)
+    cn_edgar = fetch_edgar("20-F", start_date, end_date)
+
+    sanity_check(us_proc, us_edgar)
+
+    if cn_proc["status"] in ("blocked", "error"):
         log.warning(
-            "China data unavailable — output will reflect US data only. "
-            "China count will be null (not zero)."
+            "China procurement unavailable (status: %s) — null ≠ zero procurement.",
+            cn_proc["status"],
         )
 
     output = {
-        "dimension":    "adoption",
-        "metric_key":   "ai_procurement_notices",
+        "dimension":  "adoption",
+        "metric_key": "ai_adoption_signals",
         "description": (
-            "Count of AI-related government procurement contract awards and notices "
-            "over a rolling 12-month window. "
-            "US: federal contract awards from USASpending.gov. "
-            "China: central government notices from CCGP (best-effort). "
-            "A proxy for visible institutional AI deployment intent — "
-            "not a complete or symmetric measure of adoption."
+            "Two-signal proxy for AI adoption: (1) government procurement actions "
+            "(contract awards and tender notices) and (2) public company annual filing "
+            "mentions of AI deployment. Neither signal is a complete or symmetric measure. "
+            "US data is substantially more transparent and automatable than China data."
         ),
-        "fetched_at":    datetime.now(timezone.utc).isoformat(),
-        "window_days":   WINDOW_DAYS,
-        "start_date":    start_date,
-        "end_date":      end_date,
-        "search_keywords": {
-            "US":    US_KEYWORDS,
-            "China": [CN_KEYWORD_ZH],
-        },
-        "summary": {
-            "US": {
-                "procurement_count": us_data["count"],
-                "source":            "USASpending.gov",
-                "available":         us_data["available"],
-                "confidence":        us_data["confidence"],
+        "fetched_at":  datetime.now(timezone.utc).isoformat(),
+        "window_days": WINDOW_DAYS,
+        "start_date":  start_date,
+        "end_date":    end_date,
+        "signals": {
+            "government_procurement": {
+                "description": (
+                    "Government AI contract awards and procurement notices — binding "
+                    "institutional decisions to acquire AI. Stronger adoption signal "
+                    "than mentions or expressed intent."
+                ),
+                "keywords": {
+                    "US":    US_KEYWORDS,
+                    "China": [CN_KEYWORD_ZH],
+                },
+                "US": {
+                    "count":      us_proc.get("count"),
+                    "status":     us_proc["status"],
+                    "confidence": us_proc["confidence"],
+                    "source":     "USASpending.gov",
+                    "note":       us_proc.get("note", ""),
+                },
+                "China": {
+                    "count":      cn_proc.get("count"),
+                    "status":     cn_proc["status"],
+                    "confidence": cn_proc["confidence"],
+                    "source":     "CCGP (中国政府采购网)",
+                    "note":       cn_proc.get("note", ""),
+                },
             },
-            "China": {
-                "procurement_count": cn_data.get("count"),    # may be null
-                "source":            "CCGP (中国政府采购网)",
-                "available":         cn_data["available"],
-                "confidence":        cn_data["confidence"],
-                "note":              cn_data.get("note", ""),
+            "company_filings": {
+                "description": (
+                    f'Public company annual filings mentioning "{EDGAR_QUERY}" '
+                    "(exact phrase) via SEC EDGAR full-text search. "
+                    "US: 10-K (domestic companies). "
+                    "China proxy: 20-F (foreign private issuers — primarily Chinese ADRs)."
+                ),
+                "query": EDGAR_QUERY,
+                "US": {
+                    "count":      us_edgar.get("count"),
+                    "status":     us_edgar["status"],
+                    "confidence": us_edgar["confidence"],
+                    "source":     "SEC EDGAR (10-K filings)",
+                    "note":       us_edgar.get("note", ""),
+                },
+                "China_proxy": {
+                    "count":      cn_edgar.get("count"),
+                    "status":     cn_edgar["status"],
+                    "confidence": cn_edgar["confidence"],
+                    "source":     "SEC EDGAR (20-F filings)",
+                    "note":       cn_edgar.get("note", ""),
+                },
             },
         },
-        "top_examples": us_data.get("examples", []),
+        "top_examples": us_proc.get("examples", []),
         "source": {
-            "primary_us": {
+            "usaspending": {
                 "name": "USASpending.gov",
                 "url":  "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-                "note": (
-                    "Official US federal spending data (OMB / Treasury). "
-                    "Counts federal contract awards (types A–D) where the description "
-                    "matches AI-related keywords using OR logic. "
-                    "No API key required. Covers federal government only."
-                ),
+                "note": "Official US federal spending data (OMB / Treasury). No API key required.",
             },
-            "primary_cn": {
+            "ccgp": {
                 "name": "CCGP (中国政府采购网)",
                 "url":  "http://www.ccgp.gov.cn",
-                "note": (
-                    "China's official central-government procurement portal. "
-                    "Scraped via public search interface. "
-                    "May be inaccessible from non-Chinese IP addresses. "
-                    "Covers central-level procurement only."
-                ),
+                "note": "China's official central-government procurement portal. HTML scraping, best-effort.",
+            },
+            "edgar": {
+                "name": "SEC EDGAR Full-Text Search (EFTS)",
+                "url":  "https://efts.sec.gov/LATEST/search-index",
+                "note": "Public full-text search across SEC filings. No API key required.",
             },
         },
         "methodology_note": (
-            "Government procurement actions are used as an adoption proxy because "
-            "they represent a binding institutional decision to acquire AI — "
-            "stronger than mentions, job postings, or expressed intent. "
-            "US: keyword search across federal contract award descriptions via "
-            "the USASpending.gov API (official OMB/Treasury data, no auth required). "
-            "China: keyword search on CCGP, China's central procurement portal, "
-            "via public HTML search interface. "
-            "The two sources differ in scope, reporting norms, and accessibility. "
-            "US data covers the full federal government with high automation reliability. "
-            "China data covers only the central government and may be inaccessible "
-            "from non-Chinese IP addresses (GitHub Actions runners are US-based Azure). "
-            "Counts reflect procurement orders placed, not confirmed deployment outcomes. "
-            "Updated daily."
+            "Signal 1 (Government Procurement): Procurement actions represent binding "
+            "institutional decisions to acquire AI — stronger signal than mentions or plans. "
+            "US: keyword OR search across federal contract award descriptions via the "
+            "USASpending.gov API (official OMB/Treasury data). "
+            "China: single-keyword search on CCGP public HTML interface (best-effort, "
+            "often blocked from US IP addresses). "
+            "Signal 2 (Company Filings): SEC EDGAR full-text search for the exact phrase "
+            f'"{EDGAR_QUERY}" in annual reports. '
+            "10-K = US domestic companies; 20-F = foreign private issuers listed on US "
+            "exchanges (primarily Chinese ADRs — not exclusively China). "
+            "Counts filings per year, not deployment instances. "
+            "Updated daily via GitHub Actions."
         ),
         "caveats": (
-            "1. Scope asymmetry: US covers federal government only (not state/local/private). "
-            "China covers central CCGP only (not provincial/local/military). "
-            "2. Transparency asymmetry: US procurement is far more transparent and "
-            "automatable than China's. The observed US/China ratio reflects this gap, "
-            "not necessarily a proportional difference in actual AI adoption. "
-            "3. Keyword coverage: AI-related keyword matching is broad — counts include "
-            "contracts for AI research, consulting, and tools alongside operational deployment. "
-            "4. China availability: CCGP frequently blocks non-Chinese IPs. When blocked, "
-            "China count is null (not zero) — absence of data ≠ absence of procurement. "
-            "5. Both figures measure observable procurement signals, not deployment outcomes."
+            "1. Scope asymmetry: US = federal government + US-listed companies. "
+            "China = central CCGP notices (often blocked from US IPs) + ADR proxy (non-exclusive). "
+            "2. Transparency asymmetry: US data is far more automatable. "
+            "Observed US/China ratios reflect this gap, not proportional adoption differences. "
+            "3. CCGP null = inaccessible from runner, not zero procurement. "
+            "4. 20-F proxy overstates 'China' — includes all foreign private issuers. "
+            "5. Counts reflect procurement orders placed / filing mentions, not deployment outcomes."
         ),
     }
 
@@ -465,15 +566,12 @@ def main() -> None:
     log.info("")
     log.info("Output: %s", OUTPUT_FILE)
     log.info("Window: %s → %s", start_date, end_date)
-    log.info(
-        "  US:    %d contracts  (confidence: %s)",
-        us_data["count"], us_data["confidence"],
-    )
-    log.info(
-        "  China: %s notices    (confidence: %s)",
-        cn_data.get("count", "N/A"), cn_data["confidence"],
-    )
-    log.info("  Examples included: %d", len(output["top_examples"]))
+    log.info("Signal 1 — Government Procurement:")
+    log.info("  US:           %s contracts  (status: %s)", us_proc.get("count"), us_proc["status"])
+    log.info("  China:        %s notices    (status: %s)", cn_proc.get("count"), cn_proc["status"])
+    log.info("Signal 2 — Company Filings (EDGAR):")
+    log.info("  US 10-K:      %s filings    (status: %s)", us_edgar.get("count"), us_edgar["status"])
+    log.info("  20-F proxy:   %s filings    (status: %s)", cn_edgar.get("count"), cn_edgar["status"])
 
 
 if __name__ == "__main__":

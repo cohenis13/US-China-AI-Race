@@ -1,51 +1,70 @@
 {
   "dimension": "adoption",
-  "metric_key": "ai_procurement_notices",
+  "metric_key": "ai_adoption_signals",
   "description": "Placeholder — run fetch_adoption.py or trigger the GitHub Actions workflow to populate with live data.",
   "fetched_at": null,
   "window_days": 365,
   "start_date": null,
   "end_date": null,
-  "search_keywords": {
-    "US": [
-      "artificial intelligence",
-      "machine learning",
-      "generative AI",
-      "large language model",
-      "AI system"
-    ],
-    "China": [
-      "人工智能"
-    ]
-  },
-  "summary": {
-    "US": {
-      "procurement_count": 0,
-      "source": "USASpending.gov",
-      "available": false,
-      "confidence": "low"
+  "signals": {
+    "government_procurement": {
+      "description": "Government AI contract awards and procurement notices.",
+      "keywords": {
+        "US": ["artificial intelligence", "machine learning", "generative AI", "large language model", "AI system"],
+        "China": ["人工智能"]
+      },
+      "US": {
+        "count": null,
+        "status": "unavailable",
+        "confidence": "unavailable",
+        "source": "USASpending.gov",
+        "note": "Data not yet fetched. Trigger the 'Update Adoption Data' GitHub Actions workflow."
+      },
+      "China": {
+        "count": null,
+        "status": "unavailable",
+        "confidence": "unavailable",
+        "source": "CCGP (中国政府采购网)",
+        "note": "Data not yet fetched. CCGP may be inaccessible from non-Chinese IPs."
+      }
     },
-    "China": {
-      "procurement_count": null,
-      "source": "CCGP (中国政府采购网)",
-      "available": false,
-      "confidence": "unavailable",
-      "note": "Data not yet fetched. Trigger the 'Update Adoption Data' GitHub Actions workflow."
+    "company_filings": {
+      "description": "Public company annual filings mentioning \"AI deployment\" (exact phrase) via SEC EDGAR.",
+      "query": "AI deployment",
+      "US": {
+        "count": null,
+        "status": "unavailable",
+        "confidence": "unavailable",
+        "source": "SEC EDGAR (10-K filings)",
+        "note": "Data not yet fetched. Trigger the 'Update Adoption Data' GitHub Actions workflow."
+      },
+      "China_proxy": {
+        "count": null,
+        "status": "unavailable",
+        "confidence": "unavailable",
+        "source": "SEC EDGAR (20-F filings)",
+        "note": "20-F filings = all foreign private issuers on US exchanges (primarily Chinese ADRs, not exclusively China). Data not yet fetched."
+      }
     }
   },
   "top_examples": [],
   "source": {
-    "primary_us": {
+    "usaspending": {
       "name": "USASpending.gov",
       "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
       "note": "Official US federal spending data. No API key required."
     },
-    "primary_cn": {
+    "ccgp": {
       "name": "CCGP (中国政府采购网)",
       "url": "http://www.ccgp.gov.cn",
-      "note": "China central government procurement portal. Best-effort scrape."
+      "note": "China central government procurement portal. Best-effort HTML scraping."
+    },
+    "edgar": {
+      "name": "SEC EDGAR Full-Text Search (EFTS)",
+      "url": "https://efts.sec.gov/LATEST/search-index",
+      "note": "Public full-text search across SEC filings. No API key required."
     }
   },
-  "methodology_note": "Government procurement actions used as adoption proxy — stronger signal than mentions or job postings. US: USASpending.gov federal contract awards. China: CCGP central procurement notices (best-effort, may be blocked from non-Chinese IPs).",
-  "caveats": "Scope asymmetry: US = federal only, China = central CCGP only. Transparency asymmetry: US data is far more automatable. China null count = data unavailable, not zero procurement."
+  "methodology_note": "Two-signal proxy: (1) government procurement actions (binding institutional decisions to acquire AI) and (2) public company annual filing mentions of AI deployment. US data is substantially more automatable and transparent than China data.",
+  "caveats": "1. Scope asymmetry: US = federal + SEC-listed companies. China = central CCGP (often blocked from US IPs) + foreign ADR proxy (non-exclusive). 2. CCGP null = inaccessible, not zero procurement. 3. 20-F proxy overstates China (covers all foreign issuers). 4. Counts reflect orders/mentions, not deployment outcomes."
 }

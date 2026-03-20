@@ -3,13 +3,18 @@
 Fetch supercomputer data from the TOP500 list and aggregate by country.
 
 Scrapes the TOP500 HTML list pages (server-rendered, no API key required).
-Extracts system name, country, and Rmax HPL performance (TFlop/s) for all
-500 systems across 10 paginated pages, then aggregates into US / China /
-Other / Unknown totals.
+Extracts system name, country, and Rmax HPL performance for all 500 systems,
+then aggregates into US / China / Other / Unknown totals.
 
-Two metrics are produced:
-  - Aggregate HPL Rmax performance (PFlop/s) — PRIMARY
-  - System count per country — SECONDARY
+Key implementation notes:
+  - Country is embedded inside the "System" <td> cell (not a separate column).
+    The cell has <br>-separated lines: Name / Site / Manufacturer / Country / Year.
+    We parse country as the line immediately before the 4-digit year.
+  - The table reports Rmax in PFlop/s (not TFlop/s) on current editions.
+    We detect the unit from the column header and store accordingly.
+  - TOP500 shows 10 systems per page. 500 systems = 50 pages.
+    We stop early if a page returns 0 new systems or returns duplicates
+    of the first page (protection against pagination not working).
 
 Outputs to data/compute.json.
 
@@ -35,7 +40,7 @@ except ImportError:
 try:
     from bs4 import BeautifulSoup
 except ImportError:
-    print("Error: 'beautifulsoup4' package is required. Run: pip install beautifulsoup4")
+    print("Error: 'beautifulsoup4' required. Run: pip install beautifulsoup4")
     sys.exit(1)
 
 # ── Logging ──────────────────────────────────────────────────────
@@ -54,18 +59,17 @@ OUTPUT_FILE = ROOT / "data" / "compute.json"
 TOP500_BASE      = "https://www.top500.org"
 TOP500_LISTS_URL = f"{TOP500_BASE}/lists/top500/"
 FALLBACK_LIST    = f"{TOP500_BASE}/lists/top500/2025/11/"
-SYSTEMS_PER_PAGE = 50
-TOTAL_PAGES      = 10   # 10 pages × 50 systems = 500
+MAX_PAGES        = 60    # safety ceiling; 50 pages × 10 systems = 500
+TARGET_SYSTEMS   = 500
 REQUEST_TIMEOUT  = 30
-RATE_LIMIT_SLEEP = 1.5
-MAX_SYSTEMS_OUT  = 20   # top systems to include in the JSON detail array
+RATE_LIMIT_SLEEP = 1.2
+MAX_SYSTEMS_OUT  = 20
 
 HEADERS = {
-    "User-Agent": "us-china-ai-tracker/1.0 (research dashboard; public data)"
+    "User-Agent": "us-china-ai-tracker/1.0 (public research dashboard)"
 }
 
 # Exact TOP500 country name → summary bucket
-# All other non-empty values → "Other"
 COUNTRY_BUCKETS = {
     "United States": "US",
     "China":         "China",
@@ -74,34 +78,15 @@ COUNTRY_BUCKETS = {
 
 # ── Helpers ───────────────────────────────────────────────────────
 
-def classify_country(country_name: str) -> str:
-    """Map a TOP500 country name to US / China / Other / Unknown."""
-    name = (country_name or "").strip()
+def classify_country(name: str) -> str:
+    name = (name or "").strip()
     if not name:
         return "Unknown"
     return COUNTRY_BUCKETS.get(name, "Other")
 
 
-def parse_rmax(text: str) -> float:
-    """Parse a Rmax cell value to a float. Returns 0.0 on failure."""
-    try:
-        return float(text.replace(",", "").strip())
-    except (ValueError, AttributeError):
-        return 0.0
-
-
-def to_pflops(tflops: float) -> float:
-    """Convert TFlop/s to PFlop/s, rounded to 2 decimal places."""
-    return round(tflops / 1000, 2)
-
-
-# ── List URL detection ────────────────────────────────────────────
-
 def get_latest_list_url() -> str:
-    """
-    Fetch the TOP500 lists index and return the URL of the most recent list.
-    Falls back to FALLBACK_LIST if detection fails.
-    """
+    """Return the URL of the most recent TOP500 list, or FALLBACK_LIST."""
     try:
         resp = requests.get(TOP500_LISTS_URL, headers=HEADERS, timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
@@ -111,9 +96,8 @@ def get_latest_list_url() -> str:
         for a in soup.find_all("a", href=True):
             m = pattern.search(a["href"])
             if m:
-                year, month = int(m.group(1)), int(m.group(2))
-                full_url = f"{TOP500_BASE}{m.group(0).rstrip('/')}/"
-                candidates.append((year, month, full_url))
+                candidates.append((int(m.group(1)), int(m.group(2)),
+                                   f"{TOP500_BASE}{m.group(0).rstrip('/')}/"))
         if candidates:
             candidates.sort(reverse=True)
             url = candidates[0][2]
@@ -125,33 +109,97 @@ def get_latest_list_url() -> str:
     return FALLBACK_LIST
 
 
-# ── HTML table parsing ────────────────────────────────────────────
+# ── Country extraction from System cell ───────────────────────────
 
-def find_column_indices(header_cells: list) -> dict:
+def extract_country_from_system_cell(td) -> str:
     """
-    Given header cells (list of BeautifulSoup elements), return a dict
-    mapping semantic names to column indices. Values may be None if not found.
+    Extract the country from a TOP500 'System' table cell.
+
+    The cell layout (separated by <br> tags) is:
+        System Name
+        Site / Location
+        Manufacturer
+        Country          ← we want this
+        Year
+
+    Strategy: replace <br> with newlines, split into lines, find the last
+    4-digit year line, return the line immediately before it.
+    """
+    # Clone the cell to avoid mutating the parse tree
+    cell_copy = BeautifulSoup(str(td), "html.parser").find()
+    if cell_copy is None:
+        return ""
+
+    for br in cell_copy.find_all("br"):
+        br.replace_with("\n")
+
+    raw = cell_copy.get_text()
+    lines = [l.strip() for l in raw.split("\n") if l.strip()]
+
+    # Find the last line that looks like a 4-digit year (1990–2030)
+    year_idx = None
+    for i in range(len(lines) - 1, -1, -1):
+        if re.fullmatch(r"(19|20)\d{2}", lines[i]):
+            year_idx = i
+            break
+
+    if year_idx is not None and year_idx > 0:
+        return lines[year_idx - 1]
+
+    # Fallback: last line that isn't a year
+    for line in reversed(lines):
+        if not re.fullmatch(r"(19|20)\d{2}", line):
+            return line
+
+    return ""
+
+
+# ── Table column detection ────────────────────────────────────────
+
+def find_columns(header_cells: list) -> dict:
+    """
+    Return a dict of semantic name → column index from header cells.
+    Also returns 'rmax_unit': 'pflops' or 'tflops' (default tflops).
     """
     col: dict = {}
+    rmax_unit = "tflops"  # conservative default
     for i, th in enumerate(header_cells):
         text = th.get_text(strip=True).lower()
         if "rank" in text and "rank" not in col:
             col["rank"] = i
-        if ("system" in text or text == "name") and "name" not in col:
-            col["name"] = i
-        if "country" in text and "country" not in col:
-            col["country"] = i
+        if ("system" in text or text == "name") and "system" not in col:
+            col["system"] = i
         if "rmax" in text and "rmax" not in col:
             col["rmax"] = i
-        if "site" in text and "site" not in col:
-            col["site"] = i
+            if "pflop" in text:
+                rmax_unit = "pflops"
+            elif "tflop" in text:
+                rmax_unit = "tflops"
+    col["rmax_unit"] = rmax_unit
     return col
 
 
-def fetch_page(list_url: str, page: int) -> list[dict]:
+def parse_rmax(text: str) -> float:
+    try:
+        return float(text.replace(",", "").strip())
+    except (ValueError, AttributeError):
+        return 0.0
+
+
+def to_pflops(value: float, unit: str) -> float:
+    """Convert a raw Rmax value to PFlop/s based on detected unit."""
+    if unit == "tflops":
+        return round(value / 1000, 3)
+    # Already in PFlop/s
+    return round(value, 3)
+
+
+# ── Page fetching ─────────────────────────────────────────────────
+
+def fetch_page(list_url: str, page: int) -> tuple[list[dict], dict]:
     """
-    Fetch one paginated page of the TOP500 list.
-    Returns a list of system dicts: {rank, name, country_raw, country, rmax_tflops}.
+    Fetch one page of the TOP500 list.
+    Returns (systems, col_info) where col_info contains unit metadata.
     """
     url = f"{list_url}?page={page}"
     try:
@@ -159,135 +207,140 @@ def fetch_page(list_url: str, page: int) -> list[dict]:
         resp.raise_for_status()
     except requests.exceptions.RequestException as e:
         log.warning("Page %d fetch failed: %s", page, e)
-        return []
+        return [], {}
 
     soup = BeautifulSoup(resp.text, "html.parser")
     table = soup.find("table")
     if not table:
-        log.warning("Page %d: no <table> element found in HTML", page)
-        return []
+        log.warning("Page %d: no <table> found", page)
+        return [], {}
 
     rows = table.find_all("tr")
     if len(rows) < 2:
-        log.warning("Page %d: table has fewer than 2 rows", page)
-        return []
+        return [], {}
 
-    # Detect column layout from header row
     header_cells = rows[0].find_all(["th", "td"])
-    col = find_column_indices(header_cells)
+    col = find_columns(header_cells)
+    rmax_unit = col.pop("rmax_unit", "tflops")
 
-    if "rmax" not in col:
-        log.warning("Page %d: could not locate Rmax column in headers: %s",
-                    page, [c.get_text(strip=True) for c in header_cells])
+    log.debug("Page %d — columns: %s  rmax_unit: %s", page, col, rmax_unit)
 
     systems = []
     for row in rows[1:]:
         cells = row.find_all(["td", "th"])
-        if len(cells) < 3:
+        if len(cells) < 2:
             continue
 
         # Rank
-        try:
-            rank = int(cells[col.get("rank", 0)].get_text(strip=True).replace(",", ""))
-        except (ValueError, IndexError, KeyError):
-            rank = 0
+        rank = 0
+        if "rank" in col:
+            try:
+                rank = int(cells[col["rank"]].get_text(strip=True).replace(",", ""))
+            except (ValueError, IndexError):
+                pass
 
-        # System name (first 10 tokens to keep it concise)
-        name_idx = col.get("name", 1)
-        try:
-            raw_name = cells[name_idx].get_text(separator=" ", strip=True)
-            name = " ".join(raw_name.split()[:10])
-        except (IndexError, KeyError):
-            name = ""
-
-        # Country — prefer dedicated Country column; fall back to last segment of Site cell
+        # System name + country (both from the System cell)
+        name = ""
         country_raw = ""
-        if "country" in col:
-            try:
-                country_raw = cells[col["country"]].get_text(strip=True)
-            except IndexError:
-                pass
-        if not country_raw and "site" in col:
-            try:
-                site_text = cells[col["site"]].get_text(strip=True)
-                parts = [p.strip() for p in site_text.split(",")]
-                country_raw = parts[-1] if parts else ""
-            except IndexError:
-                pass
+        sys_idx = col.get("system", 1)
+        if sys_idx < len(cells):
+            td = cells[sys_idx]
+            # Name: text of the first <a> tag inside the cell, or first line
+            a_tag = td.find("a")
+            if a_tag:
+                name = a_tag.get_text(strip=True)
+            # Country: from <br>-delimited structure
+            country_raw = extract_country_from_system_cell(td)
 
-        # Rmax (TFlop/s)
-        rmax = 0.0
-        if "rmax" in col:
-            try:
-                rmax = parse_rmax(cells[col["rmax"]].get_text(strip=True))
-            except IndexError:
-                pass
+        # Rmax
+        rmax_raw = 0.0
+        if "rmax" in col and col["rmax"] < len(cells):
+            rmax_raw = parse_rmax(cells[col["rmax"]].get_text(strip=True))
 
         systems.append({
             "rank":        rank,
             "name":        name,
             "country_raw": country_raw,
             "country":     classify_country(country_raw),
-            "rmax_tflops": rmax,
+            "rmax_pflops": to_pflops(rmax_raw, rmax_unit),
         })
 
-    return systems
+    return systems, {"rmax_unit": rmax_unit}
 
 
 # ── Main ──────────────────────────────────────────────────────────
 
 def main() -> None:
     list_url = get_latest_list_url()
-
-    # Extract edition label (e.g. "2025/11") from URL for the JSON
     parts = list_url.rstrip("/").split("/")
     list_edition = f"{parts[-2]}/{parts[-1]}" if len(parts) >= 2 else "unknown"
-
-    log.info("Fetching TOP500 list edition: %s", list_edition)
+    log.info("List edition: %s", list_edition)
 
     all_systems: list[dict] = []
-    for page in range(1, TOTAL_PAGES + 1):
-        log.info("  Page %d/%d …", page, TOTAL_PAGES)
-        systems = fetch_page(list_url, page)
-        log.info("    → %d systems parsed", len(systems))
+    first_page_ranks: set[int] = set()
+    rmax_unit_detected = "tflops"
+
+    for page in range(1, MAX_PAGES + 1):
+        log.info("  Page %d …", page)
+        systems, meta = fetch_page(list_url, page)
+
+        if not systems:
+            log.info("  Page %d returned no systems — stopping", page)
+            break
+
+        if meta.get("rmax_unit"):
+            rmax_unit_detected = meta["rmax_unit"]
+
+        page_ranks = {s["rank"] for s in systems}
+
+        # Stop if this page's ranks are identical to page 1 (pagination not working)
+        if page == 1:
+            first_page_ranks = page_ranks
+        elif page_ranks == first_page_ranks:
+            log.warning("Page %d returned same systems as page 1 — pagination not supported, stopping", page)
+            break
+
         all_systems.extend(systems)
-        if page < TOTAL_PAGES:
-            time.sleep(RATE_LIMIT_SLEEP)
+        log.info("    → %d systems (total so far: %d)", len(systems), len(all_systems))
+
+        if len(all_systems) >= TARGET_SYSTEMS:
+            log.info("  Reached %d systems — done", len(all_systems))
+            break
+
+        time.sleep(RATE_LIMIT_SLEEP)
 
     if not all_systems:
         log.error("No systems fetched — aborting")
         sys.exit(1)
 
-    log.info("Total systems fetched: %d", len(all_systems))
+    log.info("Rmax unit detected: %s", rmax_unit_detected)
+    log.info("Total systems: %d", len(all_systems))
+
+    # Sample country distribution for debugging
+    country_sample = {}
+    for s in all_systems[:20]:
+        c = s["country"]
+        country_sample[c] = country_sample.get(c, 0) + 1
+    log.info("Country sample (first 20): %s", country_sample)
 
     # ── Aggregate ────────────────────────────────────────────────
     buckets: dict[str, dict] = {
-        "US":      {"systems": 0, "rmax_tflops": 0.0},
-        "China":   {"systems": 0, "rmax_tflops": 0.0},
-        "Other":   {"systems": 0, "rmax_tflops": 0.0},
-        "Unknown": {"systems": 0, "rmax_tflops": 0.0},
+        "US":      {"systems": 0, "rmax_pflops": 0.0},
+        "China":   {"systems": 0, "rmax_pflops": 0.0},
+        "Other":   {"systems": 0, "rmax_pflops": 0.0},
+        "Unknown": {"systems": 0, "rmax_pflops": 0.0},
     }
     for s in all_systems:
         b = s["country"]
         buckets[b]["systems"]     += 1
-        buckets[b]["rmax_tflops"] += s["rmax_tflops"]
+        buckets[b]["rmax_pflops"] = round(buckets[b]["rmax_pflops"] + s["rmax_pflops"], 3)
 
-    summary = {
-        bucket: {
-            "systems":     data["systems"],
-            "rmax_pflops": to_pflops(data["rmax_tflops"]),
-        }
-        for bucket, data in buckets.items()
-    }
+    summary = {k: {"systems": v["systems"], "rmax_pflops": round(v["rmax_pflops"], 1)}
+               for k, v in buckets.items()}
 
-    # Top systems for the dashboard detail table
     top_systems = [
-        {
-            "rank":        s["rank"],
-            "name":        s["name"],
-            "country":     s["country"],
-            "rmax_pflops": to_pflops(s["rmax_tflops"]),
-        }
+        {"rank": s["rank"], "name": s["name"],
+         "country": s["country"], "rmax_pflops": s["rmax_pflops"]}
         for s in sorted(all_systems, key=lambda x: x["rank"])[:MAX_SYSTEMS_OUT]
     ]
 
@@ -298,34 +351,33 @@ def main() -> None:
         "dimension":    "compute",
         "metric_key":   "top500_compute_capacity",
         "description": (
-            "Aggregate HPL benchmark performance (Rmax, in PFlop/s) and system count "
+            "Aggregate HPL benchmark performance (Rmax, PFlop/s) and system count "
             "from the TOP500 supercomputer list, grouped by country. "
             "A proxy for national high-end compute capacity. "
             "Does not capture private AI clusters or non-TOP500 systems."
         ),
         "fetched_at":   datetime.now(timezone.utc).isoformat(),
         "list_edition": list_edition,
+        "rmax_unit":    "PFlop/s",
         "source": {
             "name": "TOP500",
             "url":  "https://www.top500.org",
             "note": (
-                "HPL (High Performance Linpack) Rmax benchmark in PFlop/s. "
+                f"HPL Rmax in PFlop/s (raw unit from table: {rmax_unit_detected}). "
                 "List updated twice yearly (June and November). "
-                "Country as reported by TOP500."
+                "Country parsed from system cell metadata."
             ),
         },
         "summary": summary,
         "top_systems": top_systems,
         "methodology_note": (
-            "Aggregate HPL Rmax performance is the primary metric — it weights systems by "
-            "size, capturing total compute capacity rather than just headcount. "
-            "System count is a secondary supporting metric. "
-            "Both are sourced from the TOP500 list, which ranks the 500 most powerful "
-            "non-distributed computer systems globally using the HPL benchmark. "
-            "This metric excludes private AI training clusters not submitted to TOP500, "
-            "systems below the TOP500 threshold, and cloud AI accelerator capacity. "
-            "It is a proxy for disclosed high-end compute infrastructure, "
-            "not a direct measure of AI training capacity."
+            "Aggregate HPL Rmax performance is the primary metric — it weights systems "
+            "by benchmark performance, capturing total capacity rather than just headcount. "
+            "System count is secondary. Both are from the TOP500 list, which ranks the 500 "
+            "most powerful non-distributed systems globally. "
+            "Excludes private AI clusters, cloud GPU farms, and systems below TOP500 threshold. "
+            "China has not submitted known exascale systems to TOP500 since 2021; "
+            "its disclosed capacity is a significant undercount of actual capacity."
         ),
     }
 
@@ -333,10 +385,10 @@ def main() -> None:
 
     log.info("")
     log.info("Output written to: %s", OUTPUT_FILE)
-    log.info("%-8s  %3s systems  %10.1f PFlop/s", "US",      us["systems"],    us["rmax_pflops"])
-    log.info("%-8s  %3s systems  %10.1f PFlop/s", "China",   china["systems"], china["rmax_pflops"])
-    log.info("%-8s  %3s systems  %10.1f PFlop/s", "Other",   summary["Other"]["systems"],   summary["Other"]["rmax_pflops"])
-    log.info("%-8s  %3s systems  %10.1f PFlop/s", "Unknown", summary["Unknown"]["systems"], summary["Unknown"]["rmax_pflops"])
+    for bucket, data in summary.items():
+        log.info("  %-8s  %3d systems  %8.1f PFlop/s", bucket, data["systems"], data["rmax_pflops"])
+    log.info("  US vs China: %.1f vs %.1f PFlop/s  (%d vs %d systems)",
+             us["rmax_pflops"], china["rmax_pflops"], us["systems"], china["systems"])
 
 
 if __name__ == "__main__":

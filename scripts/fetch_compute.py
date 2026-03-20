@@ -249,7 +249,7 @@ def sanity_check(systems: list[dict], edition_str: str) -> None:
     if us_count == 0:
         log.warning("US = 0 systems — unexpected for a TOP500 snapshot")
     if china_count == 0:
-        log.warning("China = 0 systems — may reflect TOP500 submission gap (China stopped submitting exascale systems ~2021)")
+        log.warning("China = 0 systems — TOP500 captures disclosed systems only; actual capacity may differ")
 
 
 # ── Main ──────────────────────────────────────────────────────────
@@ -335,8 +335,7 @@ def main() -> None:
             "Source is the full TOP500 XML download (all 500 systems). "
             "Country is as reported by the submitting institution to TOP500. "
             "Excludes private AI clusters, cloud GPU farms, and any systems not submitted. "
-            "China stopped submitting known exascale-class systems to TOP500 after 2021; "
-            "its disclosed capacity is a significant undercount of actual capacity."
+            "TOP500 captures disclosed systems only — country-level totals may understate broader compute capacity."
         ),
     }
 

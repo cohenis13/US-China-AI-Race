@@ -1848,6 +1848,13 @@ function fmtPflops(pflops) {
   return pflops.toLocaleString(undefined, {maximumFractionDigits: 1}) + ' PFlop/s';
 }
 
+// Always format in EFlop/s — used for Compute stat boxes and chart so both
+// countries display in the same unit regardless of magnitude.
+function fmtEflops(pflops) {
+  if (pflops === 0) return '—';
+  return (pflops / 1000).toFixed(2) + ' EFlop/s';
+}
+
 function buildComputeChart(usPerf, cnPerf) {
   const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
@@ -1878,7 +1885,7 @@ function buildComputeChart(usPerf, cnPerf) {
           borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
           padding: { x: 12, y: 10 }, cornerRadius: 5,
           callbacks: {
-            label: (ctx) => '  ' + fmtPflops(ctx.parsed.x) + ' HPL Rmax'
+            label: (ctx) => '  ' + fmtEflops(ctx.parsed.x) + ' HPL Rmax'
           }
         }
       },
@@ -1886,7 +1893,7 @@ function buildComputeChart(usPerf, cnPerf) {
         x: {
           beginAtZero: true,
           ticks: { color: tickColor, font: { size: 10 },
-                   callback: (v) => v >= 1000 ? (v/1000).toFixed(0)+' E' : v+' P' },
+                   callback: (v) => (v / 1000).toFixed(1) + ' E' },
           grid: { color: gridColor },
         },
         y: {
@@ -1905,8 +1912,8 @@ function renderCompute(data) {
   const cn = s.China || { systems: 0, rmax_pflops: 0 };
   const ot = s.Other || { systems: 0, rmax_pflops: 0 };
 
-  document.getElementById('cmp-us-perf').textContent   = fmtPflops(us.rmax_pflops);
-  document.getElementById('cmp-cn-perf').textContent   = fmtPflops(cn.rmax_pflops);
+  document.getElementById('cmp-us-perf').textContent   = fmtEflops(us.rmax_pflops);
+  document.getElementById('cmp-cn-perf').textContent   = fmtEflops(cn.rmax_pflops);
   document.getElementById('cmp-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
   // Secondary system-count note
@@ -1924,13 +1931,13 @@ function renderCompute(data) {
   let interp;
   const ratio = cn.rmax_pflops > 0 ? us.rmax_pflops / cn.rmax_pflops : Infinity;
   if (ratio > 1.05) {
-    interp = `US-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtPflops(us.rmax_pflops)} vs ${fmtPflops(cn.rmax_pflops)} HPL Rmax).`;
+    interp = `US-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtEflops(us.rmax_pflops)} vs ${fmtEflops(cn.rmax_pflops)} HPL Rmax).`;
   } else if (ratio < 0.95) {
-    interp = `China-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtPflops(cn.rmax_pflops)} vs ${fmtPflops(us.rmax_pflops)} HPL Rmax).`;
+    interp = `China-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtEflops(cn.rmax_pflops)} vs ${fmtEflops(us.rmax_pflops)} HPL Rmax).`;
   } else {
-    interp = `US and China show broadly similar aggregate high-end compute capacity in this snapshot (${fmtPflops(us.rmax_pflops)} vs ${fmtPflops(cn.rmax_pflops)} HPL Rmax).`;
+    interp = `US and China show broadly similar aggregate high-end compute capacity in this snapshot (${fmtEflops(us.rmax_pflops)} vs ${fmtEflops(cn.rmax_pflops)} HPL Rmax).`;
   }
-  const caveat = `<span style="color:var(--t3);">TOP500 captures disclosed systems only. China does not submit all known exascale systems to TOP500, so its capacity may be undercounted.</span>`;
+  const caveat = `<span style="color:var(--t3);">TOP500 captures disclosed systems only — country-level totals may understate broader compute capacity.</span>`;
   document.getElementById('cmp-interp').innerHTML = interp + ' ' + caveat;
 
   // Chart

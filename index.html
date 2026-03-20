@@ -754,15 +754,29 @@ footer {
 
         <!-- Lab breakdown -->
         <div class="fm-tbl-wrap">
-          <div class="fm-tbl-label">Contributing labs — model updates by lab (last 30 days)</div>
+          <div class="fm-tbl-label">Contributing labs — models updated &amp; total downloads (last 30 days)</div>
           <div class="fm-lab-grid">
             <div>
               <div class="fm-lab-hdr us">United States</div>
-              <table class="fm-lab-tbl"><tbody id="fm-labs-us"></tbody></table>
+              <table class="fm-lab-tbl">
+                <thead><tr>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:left;">Lab</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Models</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px 8px;border-bottom:1px solid var(--border-md);text-align:right;">Downloads</th>
+                </tr></thead>
+                <tbody id="fm-labs-us"></tbody>
+              </table>
             </div>
             <div>
               <div class="fm-lab-hdr cn">China</div>
-              <table class="fm-lab-tbl"><tbody id="fm-labs-cn"></tbody></table>
+              <table class="fm-lab-tbl">
+                <thead><tr>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:left;">Lab</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Models</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px 8px;border-bottom:1px solid var(--border-md);text-align:right;">Downloads</th>
+                </tr></thead>
+                <tbody id="fm-labs-cn"></tbody>
+              </table>
             </div>
           </div>
           <div class="fm-context-note" id="fm-context-note" style="display:none;">

@@ -112,8 +112,13 @@ def fetch_country_breakdown(filter_str: str) -> tuple[dict, int]:
     total_papers = data.get("meta", {}).get("count", 0)
     breakdown: dict[str | None, int] = {}
     for group in data.get("group_by", []):
-        key   = group.get("key")          # None = no affiliation; else ISO 2-letter code
-        count = group.get("count", 0)
+        raw_key = group.get("key")        # URL like "https://openalex.org/countries/US", or null
+        count   = group.get("count", 0)
+        # Extract ISO 2-letter code from the URL (e.g. ".../countries/US" → "US")
+        if raw_key:
+            key = raw_key.split("/")[-1]  # "US", "CN", "GB", etc.
+        else:
+            key = None                    # no institutional affiliation
         breakdown[key] = count
 
     log.info("  Total papers matching filter: %d", total_papers)
@@ -191,12 +196,18 @@ def fetch_recent_papers(filter_str: str, n: int = MAX_PAPERS_TABLE) -> list[dict
 # ── Main ──────────────────────────────────────────────────────────
 
 def main() -> None:
-    cutoff     = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
-    cutoff_str = cutoff.date().isoformat()   # YYYY-MM-DD
+    today      = datetime.now(timezone.utc).date()
+    cutoff     = today - timedelta(days=WINDOW_DAYS)
+    cutoff_str = cutoff.isoformat()    # YYYY-MM-DD  (start of window)
+    today_str  = today.isoformat()     # YYYY-MM-DD  (cap future-dated papers)
 
-    filter_str = f"concepts.id:{CONCEPTS},from_publication_date:{cutoff_str}"
+    filter_str = (
+        f"concepts.id:{CONCEPTS},"
+        f"from_publication_date:{cutoff_str},"
+        f"to_publication_date:{today_str}"
+    )
 
-    log.info("Window: last %d days (after %s UTC)", WINDOW_DAYS, cutoff_str)
+    log.info("Window: %s → %s (%d days)", cutoff_str, today_str, WINDOW_DAYS)
     log.info("Concepts: %s", CONCEPTS)
 
     # ── Call 1: country breakdown ────────────────────────────────

@@ -373,8 +373,18 @@ h1 {
 .fm-meta {
   font-size: 10.5px;
   color: var(--t3);
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   letter-spacing: .01em;
+}
+.fm-interp {
+  font-size: 11.5px;
+  color: var(--t2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--border-md);
+  border-radius: 0 4px 4px 0;
 }
 
 /* ── Live Footer ─────────────────────────────────────────────── */
@@ -767,9 +777,12 @@ footer {
         <!-- Tracking meta -->
         <div class="fm-meta" id="fm-meta"></div>
 
+        <!-- Interpretive note -->
+        <div class="fm-interp" id="fm-interp"></div>
+
         <!-- Bar chart -->
         <div class="fm-chart-wrap">
-          <div class="fm-chart-label">Model updates by country — rolling 30-day window</div>
+          <div class="fm-chart-label">Model updates on Hugging Face by country — rolling 30-day window (tracked labs only)</div>
           <canvas id="fmBarChart" height="72"></canvas>
         </div>
 
@@ -1419,6 +1432,17 @@ function renderFrontierModels(data) {
   const activeCount  = new Set((data.models || []).map(m => m.lab_name || m.author)).size;
   document.getElementById('fm-meta').textContent =
     `Tracking ${trackedCount} curated labs · ${activeCount} active in this 30-day window`;
+
+  // Interpretive note (rendered after lab breakdown so NVIDIA share is known)
+  const nvidiaCount = (data.models || []).filter(m => m.lab_name === 'NVIDIA').length;
+  const nvidiaShare = us > 0 ? Math.round(nvidiaCount / us * 100) : 0;
+  const nvidiaClause = nvidiaShare >= 20
+    ? ` (NVIDIA alone accounts for roughly ${nvidiaShare}% of US updates, spanning robotics, medical imaging, and other specialized domains)`
+    : '';
+  document.getElementById('fm-interp').innerHTML =
+    `In this 30-day window, US-based tracked labs show higher public model-update activity on Hugging Face` +
+    `${nvidiaClause}; China's activity is more concentrated across a smaller set of labs. ` +
+    `<span style="color:var(--t3);">Does not include closed-source models (GPT-4, Claude, Gemini) or models published outside Hugging Face.</span>`;
 
   buildBarChart(us, cn, oth, unk);
   renderLabBreakdown(data.models || []);

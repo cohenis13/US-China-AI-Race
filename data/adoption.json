@@ -1,68 +1,28 @@
 {
   "dimension": "adoption",
   "metric_key": "ai_adoption_signals",
-  "description": "Two-signal proxy for observable AI deployment in public records. Signal 1: government procurement orders. Signal 2: public company annual report disclosures. This is NOT a total adoption census — coverage is structurally asymmetric.",
+  "description": "Government procurement of AI-related contracts as a proxy for institutional AI deployment activity. Not a total adoption census — coverage differs across countries due to public reporting systems.",
   "fetched_at": "2026-03-20T17:46:57.482439+00:00",
   "last_updated": "2026-03-20T17:46:57.482439+00:00",
   "window_days": 365,
   "start_date": "2025-03-20",
   "end_date": "2026-03-20",
-  "provisional": true,
-  "score_updated": false,
-  "signals": {
-    "government_procurement": {
-      "description": "Government AI procurement orders — contracts awarded or modified within the rolling window.",
-      "keywords": {
-        "US": ["artificial intelligence","machine learning","generative AI","large language model","AI system"],
-        "China": ["人工智能"]
-      },
-      "US": {
-        "count": 10,
-        "status": "ok",
-        "confidence": "medium",
-        "source": "USASpending.gov",
-        "source_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-        "note": "Federal contract awards (types A-D) with AI keywords in award descriptions. Action-date filter limits to the rolling window; contract start dates in examples may predate the window. Federal only."
-      },
-      "China": {
-        "count": null,
-        "status": "partial",
-        "confidence": "unavailable",
-        "source": "CCGP (中国政府采购网)",
-        "source_url": "http://search.ccgp.gov.cn/bxsearch",
-        "note": "CCGP returned a response but the total count could not be parsed. Central-government only; sub-national procurement not captured."
-      }
+  "procurement": {
+    "US": {
+      "count": 10,
+      "status": "ok",
+      "source": "USASpending.gov",
+      "source_url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "keywords": ["artificial intelligence","machine learning","generative AI","large language model","AI system"],
+      "note": "Federal contracts (types A–D) with AI keywords in award descriptions. Filtered by action_date — contract start dates in examples may predate the window for multi-year contracts. Federal only."
     },
-    "company_disclosures": {
-      "description": "Annual reports mentioning \"generative AI\" in SEC EDGAR full-text search. US: 10-K domestic companies. China proxy: 20-F foreign private issuers (Chinese ADRs dominant). Deployment rate = matching filers ÷ total filers in period.",
-      "query_term": "generative AI",
-      "query_terms": ["generative AI", "large language model"],
-      "US": {
-        "count": null,
-        "total_filers": null,
-        "issuers_scanned": null,
-        "filings_scanned": null,
-        "deploy_rate_pct": null,
-        "sample_entities": [],
-        "status": "unavailable",
-        "confidence": "unavailable",
-        "source": "SEC EDGAR (10-K filings)",
-        "source_url": "https://efts.sec.gov/LATEST/search-index",
-        "note": "v4 script uses 'generative AI' — will populate on next workflow run."
-      },
-      "China_proxy": {
-        "count": null,
-        "total_filers": null,
-        "issuers_scanned": null,
-        "filings_scanned": null,
-        "deploy_rate_pct": null,
-        "sample_entities": [],
-        "status": "unavailable",
-        "confidence": "unavailable",
-        "source": "SEC EDGAR (20-F filings)",
-        "source_url": "https://efts.sec.gov/LATEST/search-index",
-        "note": "20-F = all foreign private issuers on US exchanges (Chinese ADRs dominant, not exclusively China). Will populate on next workflow run."
-      }
+    "China": {
+      "count": null,
+      "status": "blocked",
+      "source": "CCGP (中国政府采购网)",
+      "source_url": "http://search.ccgp.gov.cn/bxsearch",
+      "keywords": ["人工智能"],
+      "note": "Central-government procurement notices only. CCGP is frequently inaccessible from non-Chinese IPs — null ≠ zero procurement."
     }
   },
   "top_examples": [
@@ -77,32 +37,10 @@
     {"award_id": "FA873023CB027", "recipient": "NEXTGEN FEDERAL SYSTEMS LLC", "amount": 16334283.61, "contract_start": "2023-09-25", "agency": "Department of Defense", "description": "", "country": "US"},
     {"award_id": "75FCMC23F0001", "recipient": "INDEX ANALYTICS LLC", "amount": 15932044.68, "contract_start": "2023-09-28", "agency": "Department of Health and Human Services", "description": "", "country": "US"}
   ],
-  "examples_note": "Examples sorted by award amount (largest first). 'Contract Start' = period_of_performance_start_date, which may predate the rolling window. Contracts appear because a procurement action (award or modification) fell within the window.",
-  "sample_size": 10,
-  "issuers_scanned": {"US": null, "China_proxy": null},
-  "filings_scanned": {"US": null, "China_proxy": null},
-  "coverage_note": "Coverage asymmetry reflects the design of public reporting systems, not an analytical choice. US: full federal procurement API + all US SEC-registered companies. China: central procurement portal only (often inaccessible remotely) + US-exchange-listed Chinese ADRs only. This is documented, not hidden.",
-  "composite_us": {
-    "score": 0.5,
-    "confidence": "low",
-    "provisional": true,
-    "components": [{"name": "government_procurement", "score": 0.5, "input": 10, "note": "log10-scaled; 2000 actions ≈ 5 pts"}],
-    "note": "Transparent proxy score for US observable AI adoption. Components: procurement (log-scaled) + EDGAR disclosure rate. Not a validated index — compare directionally only."
-  },
-  "composite_china": {
-    "score": 0.0,
-    "confidence": "no-data",
-    "provisional": true,
-    "components": [],
-    "note": "No signals available — CCGP partial, EDGAR pending."
-  },
-  "confidence": "medium",
+  "examples_note": "Sorted by award amount. 'Contract Start' = period_of_performance_start_date and may predate the window — contracts appear because a procurement action occurred within the last 12 months.",
   "source_urls": {
     "usaspending": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
-    "ccgp": "http://www.ccgp.gov.cn",
-    "edgar_efts": "https://efts.sec.gov/LATEST/search-index"
+    "ccgp": "http://www.ccgp.gov.cn"
   },
-  "methodology_note": "Adoption is a proxy for observable deployment, not total adoption. Procurement captures institutional purchase/rollout intent. Public company filings capture self-reported generative AI use. Both signals are subject to reporting asymmetries: US data is substantially more automatable than China data. Compare directionally only.",
-  "coverage_note": "Coverage is asymmetric by design of public reporting systems. US: full federal procurement API + all SEC-registered public companies. China: central procurement portal only (often inaccessible remotely) + US-exchange-listed Chinese ADRs only.",
-  "caveats": "1. CCGP null = inaccessible from runner, not zero procurement. 2. 20-F proxy includes non-Chinese foreign issuers. 3. 'Generative AI' disclosures include strategy mentions alongside confirmed deployments. 4. Contract start dates in examples may predate the rolling window. 5. Composite scores are transparent proxies, not validated adoption indices."
+  "methodology_note": "Procurement captures binding institutional decisions to acquire AI systems — a stronger and more automatable signal than self-reported surveys. US data covers the full federal government via a public API. China data covers only central-government notices on CCGP, which is frequently inaccessible from outside China. This asymmetry reflects the design of public reporting systems, not analysis choice. Private-sector AI deployment and sub-national government activity are not captured."
 }

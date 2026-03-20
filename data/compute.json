@@ -2,7 +2,7 @@
   "dimension": "compute",
   "metric_key": "top500_compute_capacity",
   "description": "Aggregate HPL benchmark performance (Rmax, PFlop/s) and system count from the full TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
-  "fetched_at": "2026-03-20T05:38:05.983818+00:00",
+  "fetched_at": "2026-03-20T05:44:08.985980+00:00",
   "list_edition": "2025/11",
   "total_systems_parsed": 500,
   "is_complete": true,
@@ -152,5 +152,5 @@
       "rmax_pflops": 114.5
     }
   ],
-  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by benchmark score, capturing total capacity not just headcount. System count is a secondary supporting metric. Source is the full TOP500 XML download (all 500 systems). Country is as reported by the submitting institution to TOP500. Excludes private AI clusters, cloud GPU farms, and any systems not submitted. China stopped submitting known exascale-class systems to TOP500 after 2021; its disclosed capacity is a significant undercount of actual capacity."
+  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by benchmark score, capturing total capacity not just headcount. System count is a secondary supporting metric. Source is the full TOP500 XML download (all 500 systems). Country is as reported by the submitting institution to TOP500. Excludes private AI clusters, cloud GPU farms, and any systems not submitted. TOP500 captures disclosed systems only — country-level totals may understate broader compute capacity."
 }

@@ -1,153 +1,94 @@
 {
   "dimension": "compute",
   "metric_key": "top500_compute_capacity",
-  "description": "Aggregate HPL benchmark performance (Rmax, in PFlop/s) and system count from the TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
-  "fetched_at": "2026-03-20T05:15:45.585046+00:00",
+  "description": "Aggregate HPL benchmark performance (Rmax, PFlop/s) and system count from the TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
+  "fetched_at": "2026-03-20T05:28:17.462290+00:00",
   "list_edition": "2025/11",
+  "rmax_unit": "PFlop/s",
   "source": {
     "name": "TOP500",
     "url": "https://www.top500.org",
-    "note": "HPL (High Performance Linpack) Rmax benchmark in PFlop/s. List updated twice yearly (June and November). Country as reported by TOP500."
+    "note": "HPL Rmax in PFlop/s (raw unit from table: pflops). List updated twice yearly (June and November). Country parsed from system cell metadata."
   },
   "summary": {
     "US": {
-      "systems": 0,
-      "rmax_pflops": 0.0
+      "systems": 1,
+      "rmax_pflops": 1809.0
     },
     "China": {
       "systems": 0,
       "rmax_pflops": 0.0
     },
     "Other": {
-      "systems": 0,
-      "rmax_pflops": 0.0
+      "systems": 9,
+      "rmax_pflops": 5901.9
     },
     "Unknown": {
-      "systems": 100,
-      "rmax_pflops": 77.11
+      "systems": 0,
+      "rmax_pflops": 0.0
     }
   },
   "top_systems": [
     {
       "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
-    },
-    {
-      "rank": 1,
-      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.81
+      "name": "El Capitan- HPE Cray EX255a, AMD 4th Gen EPYC 24C 1.8GHz, AMD Instinct MI300A, Slingshot-11, TOSS,",
+      "country": "US",
+      "rmax_pflops": 1809.0
     },
     {
       "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "name": "Frontier- HPE Cray EX235a, AMD Optimized 3rd Generation EPYC 64C 2GHz, AMD Instinct MI250X, Slingshot-11, HPE Cray OS,",
+      "country": "Other",
+      "rmax_pflops": 1353.0
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 3,
+      "name": "Aurora- HPE Cray EX - Intel Exascale Compute Blade, Xeon CPU Max 9470 52C 2.4GHz, Intel Data Center GPU Max, Slingshot-11,",
+      "country": "Other",
+      "rmax_pflops": 1012.0
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 4,
+      "name": "JUPITER Booster- BullSequana XH3000, GH Superchip 72C 3GHz, NVIDIA GH200 Superchip, Quad-Rail NVIDIA InfiniBand NDR200, RedHat Enterprise Linux,",
+      "country": "Other",
+      "rmax_pflops": 1000.0
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 5,
+      "name": "Eagle- Microsoft NDv5, Xeon Platinum 8480C 48C 2GHz, NVIDIA H100, NVIDIA Infiniband NDR,",
+      "country": "Other",
+      "rmax_pflops": 561.2
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 6,
+      "name": "HPC6- HPE Cray EX235a, AMD Optimized 3rd Generation EPYC 64C 2GHz, AMD Instinct MI250X, Slingshot-11, RHEL 8.9,",
+      "country": "Other",
+      "rmax_pflops": 477.9
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 7,
+      "name": "Supercomputer Fugaku- Supercomputer Fugaku, A64FX 48C 2.2GHz, Tofu interconnect D,",
+      "country": "Other",
+      "rmax_pflops": 442.01
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 8,
+      "name": "Alps- HPE Cray EX254n, NVIDIA Grace 72C 3.1GHz, NVIDIA GH200 Superchip, Slingshot-11, HPE Cray OS,",
+      "country": "Other",
+      "rmax_pflops": 434.9
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 9,
+      "name": "LUMI- HPE Cray EX235a, AMD Optimized 3rd Generation EPYC 64C 2GHz, AMD Instinct MI250X, Slingshot-11,",
+      "country": "Other",
+      "rmax_pflops": 379.7
     },
     {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
-    },
-    {
-      "rank": 2,
-      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
-      "country": "Unknown",
-      "rmax_pflops": 1.35
+      "rank": 10,
+      "name": "Leonardo- BullSequana XH2000, Xeon Platinum 8358 32C 2.6GHz, NVIDIA A100 SXM4 64 GB, Quad-rail NVIDIA HDR100 Infiniband,",
+      "country": "Other",
+      "rmax_pflops": 241.2
     }
   ],
-  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by size, capturing total compute capacity rather than just headcount. System count is a secondary supporting metric. Both are sourced from the TOP500 list, which ranks the 500 most powerful non-distributed computer systems globally using the HPL benchmark. This metric excludes private AI training clusters not submitted to TOP500, systems below the TOP500 threshold, and cloud AI accelerator capacity. It is a proxy for disclosed high-end compute infrastructure, not a direct measure of AI training capacity."
+  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by benchmark performance, capturing total capacity rather than just headcount. System count is secondary. Both are from the TOP500 list, which ranks the 500 most powerful non-distributed systems globally. Excludes private AI clusters, cloud GPU farms, and systems below TOP500 threshold. China has not submitted known exascale systems to TOP500 since 2021; its disclosed capacity is a significant undercount of actual capacity."
 }

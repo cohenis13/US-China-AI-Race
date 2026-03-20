@@ -2,7 +2,7 @@
   "dimension": "adoption",
   "metric_key": "ai_adoption_signals",
   "description": "Two-signal proxy for AI adoption: (1) government procurement actions (contract awards and tender notices) and (2) public company annual filing mentions of AI deployment. Neither signal is a complete or symmetric measure. US data is substantially more transparent and automatable than China data.",
-  "fetched_at": "2026-03-20T17:20:38.104481+00:00",
+  "fetched_at": "2026-03-20T17:46:57.482439+00:00",
   "window_days": 365,
   "start_date": "2025-03-20",
   "end_date": "2026-03-20",
@@ -10,60 +10,150 @@
     "government_procurement": {
       "description": "Government AI contract awards and procurement notices — binding institutional decisions to acquire AI. Stronger adoption signal than mentions or expressed intent.",
       "keywords": {
-        "US": ["artificial intelligence", "machine learning", "generative AI", "large language model", "AI system"],
-        "China": ["人工智能"]
+        "US": [
+          "artificial intelligence",
+          "machine learning",
+          "generative AI",
+          "large language model",
+          "AI system"
+        ],
+        "China": [
+          "人工智能"
+        ]
       },
       "US": {
         "count": 10,
         "status": "ok",
         "confidence": "medium",
         "source": "USASpending.gov",
-        "note": "Federal contract awards (types A-D) whose descriptions match AI keywords (OR logic, deduplicated). Federal government only."
+        "note": "Federal contract awards (types A–D) whose descriptions match AI keywords (OR logic, deduplicated). Federal government only — excludes state, local, and private sector."
       },
       "China": {
         "count": null,
         "status": "partial",
         "confidence": "unavailable",
-        "source": "CCGP",
-        "note": "CCGP returned a response but the total count could not be parsed. China count unavailable for this snapshot."
+        "source": "CCGP (中国政府采购网)",
+        "note": "CCGP returned a response but the total count could not be parsed. The page structure may have changed. China count is unavailable for this snapshot."
       }
     },
     "company_filings": {
-      "description": "Public company annual filings mentioning AI deployment (exact phrase) via SEC EDGAR. US: 10-K. China proxy: 20-F (foreign private issuers, primarily Chinese ADRs).",
+      "description": "Public company annual filings mentioning \"AI deployment\" (exact phrase) via SEC EDGAR full-text search. US: 10-K (domestic companies). China proxy: 20-F (foreign private issuers — primarily Chinese ADRs).",
       "query": "AI deployment",
       "US": {
         "count": null,
-        "status": "unavailable",
-        "confidence": "unavailable",
+        "status": "error",
+        "confidence": "low",
         "source": "SEC EDGAR (10-K filings)",
-        "note": "Will be populated on next workflow run using upgraded fetch_adoption.py (v2)."
+        "note": "Fetch failed: 403 Client Error: Forbidden for url: https://efts.sec.gov/LATEST/search-index?q=%22AI+deployment%22&forms=10-K&dateRange=custom&startdt=2025-03-20&enddt=2026-03-20"
       },
       "China_proxy": {
         "count": null,
-        "status": "unavailable",
-        "confidence": "unavailable",
+        "status": "error",
+        "confidence": "low",
         "source": "SEC EDGAR (20-F filings)",
-        "note": "20-F = all foreign private issuers on US exchanges (primarily Chinese ADRs, not exclusively China). Will be populated on next workflow run."
+        "note": "Fetch failed: 403 Client Error: Forbidden for url: https://efts.sec.gov/LATEST/search-index?q=%22AI+deployment%22&forms=20-F&dateRange=custom&startdt=2025-03-20&enddt=2026-03-20"
       }
     }
   },
   "top_examples": [
-    {"award_id": "W911QX20C0023", "recipient": "ECS FEDERAL, LLC", "amount": 118579059.35, "date": "2020-04-23", "agency": "Department of Defense", "country": "US"},
-    {"award_id": "140D0421C0002", "recipient": "TUKNIK GOVERNMENT SERVICES LLC", "amount": 106725460.68, "date": "2020-12-23", "agency": "Department of the Interior", "country": "US"},
-    {"award_id": "W911QX25C0002", "recipient": "ECS FEDERAL, LLC", "amount": 46636622.67, "date": "2025-01-30", "agency": "Department of Defense", "country": "US"},
-    {"award_id": "1333BJ20F00280017", "recipient": "ACCENTURE FEDERAL SERVICES LLC", "amount": 44076744.6, "date": "2019-10-31", "agency": "Department of Commerce", "country": "US"},
-    {"award_id": "W911QX22C0029", "recipient": "MORSECORP, INC", "amount": 41434075.13, "date": "2022-08-26", "agency": "Department of Defense", "country": "US"},
-    {"award_id": "1333BJ24C00280005", "recipient": "ACCENTURE FEDERAL SERVICES LLC", "amount": 28378495.75, "date": "2024-07-01", "agency": "Department of Commerce", "country": "US"},
-    {"award_id": "89243320FFE400258", "recipient": "GOLDBELT OPERATIONS SUPPORT SERVICES, LLC", "amount": 16822170.0, "date": "2020-09-17", "agency": "Department of Energy", "country": "US"},
-    {"award_id": "N6600125C0019", "recipient": "DOMINO DATA LAB INC", "amount": 16536422.33, "date": "2025-03-14", "agency": "Department of Defense", "country": "US"},
-    {"award_id": "FA873023CB027", "recipient": "NEXTGEN FEDERAL SYSTEMS LLC", "amount": 16334283.61, "date": "2023-09-25", "agency": "Department of Defense", "country": "US"},
-    {"award_id": "75FCMC23F0001", "recipient": "INDEX ANALYTICS LLC", "amount": 15932044.68, "date": "2023-09-28", "agency": "Department of Health and Human Services", "country": "US"}
+    {
+      "award_id": "W911QX20C0023",
+      "recipient": "ECS FEDERAL, LLC",
+      "amount": 118579059.35,
+      "date": "2020-04-23",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "140D0421C0002",
+      "recipient": "TUKNIK GOVERNMENT SERVICES LLC",
+      "amount": 106725460.68,
+      "date": "2020-12-23",
+      "agency": "Department of the Interior",
+      "country": "US"
+    },
+    {
+      "award_id": "W911QX25C0002",
+      "recipient": "ECS FEDERAL, LLC",
+      "amount": 46636622.67,
+      "date": "2025-01-30",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "1333BJ20F00280017",
+      "recipient": "ACCENTURE FEDERAL SERVICES LLC",
+      "amount": 44076744.6,
+      "date": "2019-10-31",
+      "agency": "Department of Commerce",
+      "country": "US"
+    },
+    {
+      "award_id": "W911QX22C0029",
+      "recipient": "MORSECORP, INC",
+      "amount": 41434075.13,
+      "date": "2022-08-26",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "1333BJ24C00280005",
+      "recipient": "ACCENTURE FEDERAL SERVICES LLC",
+      "amount": 28378495.75,
+      "date": "2024-07-01",
+      "agency": "Department of Commerce",
+      "country": "US"
+    },
+    {
+      "award_id": "89243320FFE400258",
+      "recipient": "GOLDBELT OPERATIONS SUPPORT SERVICES, LLC",
+      "amount": 16822170.0,
+      "date": "2020-09-17",
+      "agency": "Department of Energy",
+      "country": "US"
+    },
+    {
+      "award_id": "N6600125C0019",
+      "recipient": "DOMINO DATA LAB INC",
+      "amount": 16536422.33,
+      "date": "2025-03-14",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "FA873023CB027",
+      "recipient": "NEXTGEN FEDERAL SYSTEMS LLC",
+      "amount": 16334283.61,
+      "date": "2023-09-25",
+      "agency": "Department of Defense",
+      "country": "US"
+    },
+    {
+      "award_id": "75FCMC23F0001",
+      "recipient": "INDEX ANALYTICS LLC",
+      "amount": 15932044.68,
+      "date": "2023-09-28",
+      "agency": "Department of Health and Human Services",
+      "country": "US"
+    }
   ],
   "source": {
-    "usaspending": {"name": "USASpending.gov", "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/", "note": "Official US federal spending data. No API key required."},
-    "ccgp": {"name": "CCGP", "url": "http://www.ccgp.gov.cn", "note": "China central government procurement portal. HTML scraping, best-effort."},
-    "edgar": {"name": "SEC EDGAR Full-Text Search (EFTS)", "url": "https://efts.sec.gov/LATEST/search-index", "note": "Public full-text search across SEC filings. No API key required."}
+    "usaspending": {
+      "name": "USASpending.gov",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "note": "Official US federal spending data (OMB / Treasury). No API key required."
+    },
+    "ccgp": {
+      "name": "CCGP (中国政府采购网)",
+      "url": "http://www.ccgp.gov.cn",
+      "note": "China's official central-government procurement portal. HTML scraping, best-effort."
+    },
+    "edgar": {
+      "name": "SEC EDGAR Full-Text Search (EFTS)",
+      "url": "https://efts.sec.gov/LATEST/search-index",
+      "note": "Public full-text search across SEC filings. No API key required."
+    }
   },
-  "methodology_note": "Signal 1 (Government Procurement): binding decisions to acquire AI — stronger signal than mentions. US via USASpending.gov API; China via CCGP HTML scraping (often blocked from US IPs). Signal 2 (Company Filings): SEC EDGAR full-text search for 'AI deployment' in annual reports. 10-K = US domestic; 20-F = foreign issuers (primarily Chinese ADRs, not exclusively China). Updated daily.",
-  "caveats": "1. Scope asymmetry: US = federal + US-listed companies; China = central CCGP (often blocked) + ADR proxy (non-exclusive). 2. CCGP null = inaccessible, not zero. 3. 20-F overstates China. 4. Counts are orders/mentions, not deployment outcomes."
+  "methodology_note": "Signal 1 (Government Procurement): Procurement actions represent binding institutional decisions to acquire AI — stronger signal than mentions or plans. US: keyword OR search across federal contract award descriptions via the USASpending.gov API (official OMB/Treasury data). China: single-keyword search on CCGP public HTML interface (best-effort, often blocked from US IP addresses). Signal 2 (Company Filings): SEC EDGAR full-text search for the exact phrase \"AI deployment\" in annual reports. 10-K = US domestic companies; 20-F = foreign private issuers listed on US exchanges (primarily Chinese ADRs — not exclusively China). Counts filings per year, not deployment instances. Updated daily via GitHub Actions.",
+  "caveats": "1. Scope asymmetry: US = federal government + US-listed companies. China = central CCGP notices (often blocked from US IPs) + ADR proxy (non-exclusive). 2. Transparency asymmetry: US data is far more automatable. Observed US/China ratios reflect this gap, not proportional adoption differences. 3. CCGP null = inaccessible from runner, not zero procurement. 4. 20-F proxy overstates 'China' — includes all foreign private issuers. 5. Counts reflect procurement orders placed / filing mentions, not deployment outcomes."
 }

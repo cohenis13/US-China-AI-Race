@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-20T03:38:19.359678+00:00",
+  "fetched_at": "2026-03-20T03:54:14.742869+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,232 +10,231 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 0,
-    "China": 0,
-    "Other": 998442,
+    "US": 126624,
+    "China": 226452,
+    "Other": 644893,
     "Unknown": 0,
-    "total_papers": 1463105,
-    "total_attributed": 998442
+    "total_papers": 1462450,
+    "total_attributed": 997969
   },
   "top_countries": [
     {
-      "country_code": "https://openalex.org/countries/CN",
-      "count": 226466
+      "country_code": "CN",
+      "count": 226452
     },
     {
-      "country_code": "https://openalex.org/countries/US",
-      "count": 126666
+      "country_code": "US",
+      "count": 126624
     },
     {
-      "country_code": "https://openalex.org/countries/JP",
-      "count": 79018
+      "country_code": "JP",
+      "count": 79014
     },
     {
-      "country_code": "https://openalex.org/countries/IN",
-      "count": 74233
+      "country_code": "IN",
+      "count": 74200
     },
     {
-      "country_code": "https://openalex.org/countries/GB",
-      "count": 40922
+      "country_code": "GB",
+      "count": 40898
     },
     {
-      "country_code": "https://openalex.org/countries/DE",
-      "count": 31750
+      "country_code": "DE",
+      "count": 31724
     },
     {
-      "country_code": "https://openalex.org/countries/ID",
-      "count": 26756
+      "country_code": "ID",
+      "count": 26755
     },
     {
-      "country_code": "https://openalex.org/countries/IT",
-      "count": 20287
+      "country_code": "IT",
+      "count": 20265
     },
     {
-      "country_code": "https://openalex.org/countries/CA",
-      "count": 20248
+      "country_code": "CA",
+      "count": 20238
     },
     {
-      "country_code": "https://openalex.org/countries/FR",
-      "count": 19546
+      "country_code": "FR",
+      "count": 19414
     }
   ],
   "papers": [
     {
-      "id": "https://openalex.org/W3015352082",
-      "title": "The construct of institutional distance through the lens of diverse institutional perspectives: Review, analysis, and future directions.",
+      "id": "https://openalex.org/W7133575957",
+      "title": "Deep Learning Across Domains: The Role of Representations in Biochemical and Biological Data",
       "authors": [
-        "Tatiana Kostova",
-        "Sjoerd Beugelsdijk",
-        "R. Scott"
+        "Alessia Lucia Prete"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2050-01-01",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125433533",
-      "title": "Role-Based Task Distribution in YAWL",
+      "id": "https://openalex.org/W7114932394",
+      "title": "Predicted Protein Structure Data in the RAISE Project",
       "authors": [
-        "Andreas V. Hense"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2046-02-26",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7105905842",
-      "title": "Supplementary data: “Is metaphony (and sound change) sensitive to grammatical category? The case of verbs in the dialects of the Lausberg area\" (Phonology)",
-      "authors": [
-        "Greca, Pia",
-        "Harrington, Jonathan"
+        "Kong, Lupeng"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2041-01-01",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7114991344",
-      "title": "Consciousness, Self-Consciousness, and the Nested Vacuum Structure: A Transdisciplinary Model Integrating Biological Coherence (Θ), Mind (Ψ), Culture (Logos), and the Meta Vacuum (𝒱)",
+      "id": "https://openalex.org/W7138096203",
+      "title": "Intelligent Markets: Deep Learning Models for Predicting Stock Trends",
       "authors": [
-        "Schmieke, Marcus"
+        "Shweta Mayor Sabharwal",
+        "Ms. Nitu Sharma",
+        "Dr. Arti Awasthi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2035-12-12",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7115176317",
-      "title": "Consciousness, Self-Consciousness, and the Nested Vacuum Structure: A Transdisciplinary Model Integrating Biological Coherence (Θ), Mind (Ψ), Culture (Logos), and the Meta Vacuum (𝒱)",
+      "id": "https://openalex.org/W7138074560",
+      "title": "Intelligent Markets: Deep Learning Models for Predicting Stock Trends",
       "authors": [
-        "Schmieke, Marcus"
+        "Shweta Mayor Sabharwal",
+        "Ms. Nitu Sharma",
+        "Dr. Arti Awasthi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2035-12-12",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7126002787",
-      "title": "Visualizing grammars across space and time (ViGramm) (resp. Diego Pescarini)",
+      "id": "https://openalex.org/W7134099078",
+      "title": "Rational design and data-driven strategies to optimize bioconjugation processes in antibody-drug conjugates",
       "authors": [
-        "Stella Retali-Medori"
+        "Angiolini Lorenzo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7132295924",
+      "title": "Diep leren en verklaarbaarheid bij forensische leeftijdschatting van tanden",
+      "authors": [
+        "Barkın Büyükçakır"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130270562",
+      "title": "Efficient Data Driven Algorithms for TactileData Processing in Embedded and WearableSystems",
+      "authors": [
+        "Mohamad Yaacoub"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134872755",
+      "title": "Diep Leren en Verklaarbaarheid bij Forensische Leeftijdschatting op basis van tandheelkundige data",
+      "authors": [
+        "Barkin Büyükçakir"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7129189767",
+      "title": "Development of a Cluster Analysis Framework for quality control by Resonance Testing in Additive Manufacturing",
+      "authors": [
+        "Daniele Candelaresi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-19",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128880515",
+      "title": "Microarchitectural Espionage: FPGA-Based Security Analysis of Branch Prediction in RISC-V Out-of-Order Cores",
+      "authors": [
+        "Mahreen Khan",
+        "Bin Mohd Shahfie, Muhammad, Emir",
+        "Maria Mushtaq"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2031-06-01",
+      "published": "2026-03-19",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128405138",
-      "title": "Essays on Financial Machine Learning: Nonlinearity, Predictability and Data-Theory Integration",
+      "id": "https://openalex.org/W7128668080",
+      "title": "Image context and dynamics:next step for decision support in healthcare?",
       "authors": [
-        "Yinuo Wang"
+        "Sveta Zinger"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2031-01-01",
+      "published": "2026-03-19",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134252063",
-      "title": "Depth of Processing, learner aptitude, and the acquisition of L2 English grammatical structures",
+      "id": "https://openalex.org/W7130279013",
+      "title": "High Accuracy Is Not Enough: Epistemic Bias in Machine Learning Task Formulation",
       "authors": [
-        "Shweta Nigam"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2031-01-01",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128533681",
-      "title": "Mathematical modelling of epidemics, evolution and social interaction",
-      "authors": [
-        "Wajid Ali"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2031-01-01",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128488639",
-      "title": "Comparative assessment of AGAMOUS function in the Brassicaceae",
-      "authors": [
-        "Jesse McCarthy"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2031-01-01",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128624139",
-      "title": "Combating Data and Target Shifts in Visual Tasks",
-      "authors": [
-        "Zhaorui Tan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2031-01-01",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128501788",
-      "title": "APPLICATION OF MACHINE LEARNING FOR MASS CYTOMETRY DATA ANALYSIS OF CHRONIC LYMPHOCYTIC LEUKAEMIA",
-      "authors": [
-        "Muizdeen Raji"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2031-01-01",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7106116102",
-      "title": "PAGAD: Projective Adversarial Generator for Image Anomaly Detection",
-      "authors": [
-        "MohammadiRaouf, Saman",
-        "Amirmazlaghani, Maryam"
+        "Grazia Garzo",
+        "Alessandro Palumbo"
       ],
       "countries": [
-        "IR"
+        "IT",
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2030-01-01",
+      "published": "2026-03-19",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7106142489",
-      "title": "PAGAD: Projective Adversarial Generator for Image Anomaly Detection",
+      "id": "https://openalex.org/W7134997818",
+      "title": "Intelligent Reconfigurable Intelligent Surface Control Using Machine Learning for Future Wireless Communications",
       "authors": [
-        "MohammadiRaouf, Saman",
-        "Amirmazlaghani, Maryam"
-      ],
-      "countries": [
-        "IR"
-      ],
-      "primary_country": "Other",
-      "published": "2030-01-01",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W3194895376",
-      "title": "Decision responsiveness and the legitimacy of public agencies data set",
-      "authors": [
-        "Ben Seyd"
+        "Muhammad Abul Hassan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2030-01-01",
+      "published": "2026-03-19",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128101547",
+      "title": "Model idealnego chińsko-angielsko-polskiego słownika terminologicznego dla dziedzin nieuwarunkowanych kulturowo",
+      "authors": [
+        "Andrzej Swoboda"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-19",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128747075",
+      "title": "Development and integration of Machine Learning models for optimising production processes in Software-as-a-Service solutions",
+      "authors": [
+        "Mateo Del Gallo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-19",
       "source": "openalex"
     }
   ],

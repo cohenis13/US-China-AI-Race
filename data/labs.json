@@ -1,0 +1,168 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-19",
+  "description": "Manual mapping of AI labs to countries for Hugging Face Hub classification. Edit this file to add, remove, or reclassify labs. hf_authors are the organization slugs as they appear on huggingface.co.",
+  "country_codes": {
+    "US": "United States",
+    "China": "China",
+    "Unknown": "Other / Unknown (not US or China)"
+  },
+  "labs": [
+    {
+      "name": "OpenAI",
+      "country": "US",
+      "hf_authors": ["openai"],
+      "notes": "San Francisco, CA. Developer of GPT-4o, o1, o3, Sora."
+    },
+    {
+      "name": "Anthropic",
+      "country": "US",
+      "hf_authors": ["anthropic"],
+      "notes": "San Francisco, CA. Developer of Claude series."
+    },
+    {
+      "name": "Google / DeepMind",
+      "country": "US",
+      "hf_authors": ["google", "google-deepmind"],
+      "notes": "Mountain View, CA / London, UK. Developer of Gemini, Gemma. Classified as US since Google is a US company."
+    },
+    {
+      "name": "Meta AI",
+      "country": "US",
+      "hf_authors": ["facebook", "meta-llama"],
+      "notes": "Menlo Park, CA. Developer of Llama series."
+    },
+    {
+      "name": "Microsoft",
+      "country": "US",
+      "hf_authors": ["microsoft"],
+      "notes": "Redmond, WA. Developer of Phi series. Primary investor in OpenAI."
+    },
+    {
+      "name": "NVIDIA",
+      "country": "US",
+      "hf_authors": ["nvidia"],
+      "notes": "Santa Clara, CA. Developer of Nemotron, Minitron."
+    },
+    {
+      "name": "Allen Institute for AI",
+      "country": "US",
+      "hf_authors": ["allenai"],
+      "notes": "Seattle, WA. Developer of OLMo, Tulu, Dolma."
+    },
+    {
+      "name": "Salesforce AI",
+      "country": "US",
+      "hf_authors": ["Salesforce"],
+      "notes": "San Francisco, CA. Developer of xGen, CodeT5, BLIP."
+    },
+    {
+      "name": "Cohere",
+      "country": "US",
+      "hf_authors": ["CohereForAI"],
+      "notes": "Toronto/San Francisco. Developer of Command series, Aya."
+    },
+    {
+      "name": "Apple",
+      "country": "US",
+      "hf_authors": ["apple"],
+      "notes": "Cupertino, CA. On-device models, OpenELM."
+    },
+    {
+      "name": "Amazon",
+      "country": "US",
+      "hf_authors": ["amazon"],
+      "notes": "Seattle, WA. Titan models."
+    },
+    {
+      "name": "Stability AI",
+      "country": "US",
+      "hf_authors": ["stabilityai"],
+      "notes": "San Francisco, CA. Stable Diffusion, Stable LM series."
+    },
+    {
+      "name": "Together AI",
+      "country": "US",
+      "hf_authors": ["togethercomputer"],
+      "notes": "San Francisco, CA. Open model research."
+    },
+    {
+      "name": "xAI",
+      "country": "US",
+      "hf_authors": ["xai-org"],
+      "notes": "San Francisco, CA. Developer of Grok."
+    },
+    {
+      "name": "Mistral AI",
+      "country": "Unknown",
+      "hf_authors": ["mistralai"],
+      "notes": "Paris, France. Frontier model lab. Classified as Unknown — France is neither US nor China. Included for completeness."
+    },
+    {
+      "name": "Alibaba / Qwen",
+      "country": "China",
+      "hf_authors": ["Qwen"],
+      "notes": "Hangzhou. Alibaba DAMO Academy. Developer of Qwen, Qwen-VL, Qwen-Coder."
+    },
+    {
+      "name": "DeepSeek",
+      "country": "China",
+      "hf_authors": ["deepseek-ai"],
+      "notes": "Beijing / Hangzhou. Developer of DeepSeek-V2, V3, R1."
+    },
+    {
+      "name": "Zhipu AI / THUDM",
+      "country": "China",
+      "hf_authors": ["THUDM"],
+      "notes": "Beijing. Tsinghua University spinout. Developer of ChatGLM, CogVLM."
+    },
+    {
+      "name": "01.AI",
+      "country": "China",
+      "hf_authors": ["01-ai"],
+      "notes": "Beijing. Developer of Yi series."
+    },
+    {
+      "name": "Baidu",
+      "country": "China",
+      "hf_authors": ["baidu"],
+      "notes": "Beijing. Developer of ERNIE series."
+    },
+    {
+      "name": "ByteDance",
+      "country": "China",
+      "hf_authors": ["ByteDance-Seed"],
+      "notes": "Beijing. Developer of Doubao, Seed series."
+    },
+    {
+      "name": "Shanghai AI Lab",
+      "country": "China",
+      "hf_authors": ["internlm"],
+      "notes": "Shanghai. Developer of InternLM series."
+    },
+    {
+      "name": "Moonshot AI",
+      "country": "China",
+      "hf_authors": ["moonshotai"],
+      "notes": "Beijing. Developer of Kimi."
+    },
+    {
+      "name": "MiniMax",
+      "country": "China",
+      "hf_authors": ["MiniMaxAI"],
+      "notes": "Shanghai. Developer of MiniMax-Text series."
+    },
+    {
+      "name": "Tencent",
+      "country": "China",
+      "hf_authors": ["tencent"],
+      "notes": "Shenzhen. Hunyuan model series."
+    },
+    {
+      "name": "Huawei / Noah's Ark Lab",
+      "country": "China",
+      "hf_authors": ["huawei-noah"],
+      "notes": "Shenzhen. Pangu model series."
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — U.S. vs China AI Race Tracker</title>
+<style>
+:root {
+  --bg: #f5f4f0; --bg-card: #fff; --t1: #0d1520; --t2: #3d5066;
+  --t3: #7c8fa0; --border: rgba(0,0,0,0.09); --us: #1a3a5c; --cn: #b5413e; --r: 6px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg); color: var(--t1); line-height: 1.7;
+  -webkit-font-smoothing: antialiased; font-size: 14.5px;
+}
+.accent-bar { height: 3px; background: linear-gradient(to right, var(--us) 50%, var(--cn) 50%); }
+.page { max-width: 740px; margin: 0 auto; padding: 0 32px 64px; }
+header { padding: 28px 0 22px; border-bottom: 1px solid var(--border); margin-bottom: 36px; }
+.back-link { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--t3); text-decoration: none; }
+.back-link:hover { color: var(--t2); }
+h1 { font-size: 1.65rem; font-weight: 800; letter-spacing: -.03em; margin: 14px 0 6px; }
+.sub { font-size: .85rem; color: var(--t2); }
+h2 { font-size: 1rem; font-weight: 700; color: var(--t1); margin: 32px 0 10px; padding-top: 8px; border-top: 1px solid var(--border); }
+h3 { font-size: .9rem; font-weight: 700; color: var(--t2); margin: 20px 0 6px; }
+p { color: var(--t2); margin-bottom: 12px; font-size: .88rem; }
+ul, ol { padding-left: 20px; color: var(--t2); font-size: .88rem; margin-bottom: 12px; }
+li { margin-bottom: 6px; line-height: 1.6; }
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: .82rem; background: rgba(0,0,0,0.05);
+  padding: 1px 5px; border-radius: 3px; color: var(--t1);
+}
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 22px; margin-bottom: 18px; }
+.caveat { background: rgba(181,65,62,0.05); border: 1px solid rgba(181,65,62,0.15); border-radius: var(--r); padding: 14px 18px; margin-bottom: 18px; }
+.caveat-hdr { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--cn); margin-bottom: 6px; }
+.schema-row { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: .83rem; align-items: baseline; }
+.schema-row:last-child { border-bottom: none; }
+.schema-field { font-family: 'SF Mono', 'Fira Code', monospace; font-size: .78rem; color: var(--us); min-width: 160px; }
+.schema-desc { color: var(--t2); }
+footer { border-top: 1px solid var(--border); padding-top: 16px; font-size: 10.5px; color: var(--t3); }
+a { color: var(--us); }
+</style>
+</head>
+<body>
+<div class="accent-bar"></div>
+<div class="page">
+  <header>
+    <a class="back-link" href="../index.html">← Back to Dashboard</a>
+    <h1>Methodology</h1>
+    <p class="sub">How we measure the U.S.–China AI race &nbsp;·&nbsp; Data sources, classification logic, and limitations</p>
+  </header>
+
+  <h2>Overview</h2>
+  <p>
+    This tracker measures the U.S.–China AI competition across six dimensions: frontier models, compute,
+    domestic adoption, global diffusion, talent, and energy. The goal is not a single authoritative ranking —
+    it is a structured, transparent, and regularly updated view of publicly observable signals across each dimension.
+  </p>
+  <p>
+    We prioritize transparency over precision. Every metric includes its source, its classification logic,
+    and an honest assessment of its limitations. When data is uncertain, we say so rather than forcing a clean answer.
+  </p>
+
+  <div class="caveat">
+    <div class="caveat-hdr">Important caveat — v1 scope</div>
+    <p style="margin:0;">
+      The current live metric is a v1 prototype measuring lab activity on Hugging Face Hub.
+      It is a useful proxy, not a comprehensive census of all frontier AI development.
+      See the Frontier Models section below for details.
+    </p>
+  </div>
+
+  <h2>Dimension 1 — Frontier Models (Live)</h2>
+
+  <h3>What we measure</h3>
+  <p>
+    The number of models updated on <a href="https://huggingface.co" target="_blank">Hugging Face Hub</a>
+    in the last 30 days, broken down by US-affiliated and China-affiliated labs.
+  </p>
+
+  <h3>Why this metric</h3>
+  <p>
+    Hugging Face Hub is the dominant public repository for open and semi-open AI models.
+    Major US and China frontier labs publish or mirror their model weights and updates there.
+    The cadence of updates is a reasonable proxy for research activity and output velocity —
+    even if it does not capture closed models (GPT-4o, Claude, Gemini Ultra) directly.
+  </p>
+
+  <h3>Data source</h3>
+  <div class="card">
+    <p style="margin:0;"><strong>Hugging Face Hub API</strong><br>
+    Endpoint: <code>https://huggingface.co/api/models?author=&lt;org&gt;&amp;sort=lastModified&amp;direction=-1</code><br>
+    Updated: daily at 06:00 UTC via GitHub Actions<br>
+    Coverage: public models only
+    </p>
+  </div>
+
+  <h3>Classification logic</h3>
+  <p>
+    Labs are classified by country using a manually maintained mapping file:
+    <code>data/labs.json</code>. Each entry specifies the lab name, country,
+    and one or more Hugging Face author slugs.
+  </p>
+  <ul>
+    <li><strong>US:</strong> OpenAI, Anthropic, Google/DeepMind, Meta AI, Microsoft, NVIDIA, Cohere, Allen AI, Stability AI, xAI, Apple, Amazon, Together AI, Salesforce AI</li>
+    <li><strong>China:</strong> Alibaba/Qwen, DeepSeek, Zhipu AI/THUDM, 01.AI, Baidu, ByteDance, Shanghai AI Lab, Moonshot AI, MiniMax, Tencent, Huawei</li>
+    <li><strong>Unknown:</strong> Labs based outside the US and China (e.g., Mistral AI in France) and any unmatched model authors</li>
+  </ul>
+  <p>
+    The lab list is intentionally conservative — we only include labs with a clear, established frontier-model track record.
+    The file is editable; anyone can submit a correction or addition.
+  </p>
+
+  <h3>Limitations</h3>
+  <ul>
+    <li>Closed frontier models (GPT-4o, Claude 3.5, Gemini Ultra) do not appear in HF Hub and are not counted.</li>
+    <li>A single lab can release many small models in one month, inflating its count relative to labs that release fewer, larger models.</li>
+    <li>Some China-affiliated labs may publish to domestic platforms (ModelScope, etc.) rather than HF Hub, understating China's activity.</li>
+    <li>The 30-day window is rolling, so counts will change each day even without new releases.</li>
+    <li>This measures update cadence, not model capability. A lab updating checkpoints frequently looks more active than one that releases one major model per quarter.</li>
+  </ul>
+
+  <h2>Data Schema</h2>
+  <p>All live metrics are stored in versioned JSON files under <code>data/</code>. The current schema:</p>
+  <div class="card">
+    <div class="schema-row"><span class="schema-field">dimension</span><span class="schema-desc">Which of the six dimensions this data belongs to</span></div>
+    <div class="schema-row"><span class="schema-field">metric_key</span><span class="schema-desc">Specific metric identifier within that dimension</span></div>
+    <div class="schema-row"><span class="schema-field">fetched_at</span><span class="schema-desc">ISO 8601 UTC timestamp of when the data was fetched</span></div>
+    <div class="schema-row"><span class="schema-field">window_days</span><span class="schema-desc">Rolling time window in days</span></div>
+    <div class="schema-row"><span class="schema-field">source.name</span><span class="schema-desc">Human-readable source name</span></div>
+    <div class="schema-row"><span class="schema-field">source.url</span><span class="schema-desc">URL of the data source or API endpoint</span></div>
+    <div class="schema-row"><span class="schema-field">summary</span><span class="schema-desc">Aggregated counts by country (US, China, Unknown, total)</span></div>
+    <div class="schema-row"><span class="schema-field">models</span><span class="schema-desc">Array of individual model records with lab, country, and timestamp</span></div>
+    <div class="schema-row"><span class="schema-field">methodology_note</span><span class="schema-desc">Plain-language description of classification logic and caveats</span></div>
+  </div>
+
+  <h2>Automation</h2>
+  <p>
+    Live data is refreshed daily by a GitHub Actions workflow (<code>.github/workflows/update_frontier_models.yml</code>).
+    The workflow runs the Python fetch script, commits the updated JSON to the repo, and Vercel automatically
+    re-deploys the site with the new data.
+  </p>
+  <p>
+    A manual run can be triggered at any time from the GitHub Actions tab using the <strong>workflow_dispatch</strong> trigger.
+  </p>
+
+  <h2>Static Scores</h2>
+  <p>
+    The radar chart and dimension scores on the main dashboard are manually assessed, analytical scores — not derived from a single data source.
+    They represent a qualitative comparative judgment across the six dimensions, drawing on publicly available evidence.
+    They are updated periodically as conditions change, not automatically.
+  </p>
+  <p>
+    Confidence designations (High / Medium / Lower) reflect the quality and availability of public data for each dimension,
+    not the degree of U.S.–China divergence.
+  </p>
+
+  <h2>Coming Next</h2>
+  <p>Future dimensions will follow the same pattern: one clear public data source, one v1 metric, transparent classification, automated refresh. Planned additions:</p>
+  <ul>
+    <li><strong>Compute:</strong> GPU shipment data, cloud capacity estimates, data center construction announcements</li>
+    <li><strong>Talent:</strong> AI paper authorship by country (arXiv/Semantic Scholar), top-conference representation</li>
+    <li><strong>Domestic Adoption:</strong> AI startup density, enterprise AI deployment surveys, government AI procurement</li>
+    <li><strong>Global Diffusion:</strong> International model adoption, cloud infrastructure deployment by region</li>
+    <li><strong>Energy:</strong> Data center power capacity, grid expansion data, renewable energy commitments</li>
+  </ul>
+
+  <footer>
+    <p>
+      All data is sourced from publicly available APIs and datasets. No classified or proprietary information is used.
+      Source code and data files are available in the project GitHub repository.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

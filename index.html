@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.S. vs China AI Race — Strategic Capability Tracker (2026)</title>
+<meta name="description" content="Live comparative tracker of US and China AI capabilities across frontier models, compute, talent, adoption, diffusion, and energy.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+/* ── Variables ─────────────────────────────────────────────────── */
+:root {
+  --bg:        #f5f4f0;
+  --bg-card:   #ffffff;
+  --bg-alt:    #f9f8f6;
+  --t1:        #0d1520;
+  --t2:        #3d5066;
+  --t3:        #7c8fa0;
+  --border:    rgba(0,0,0,0.07);
+  --border-md: rgba(0,0,0,0.12);
+  --us:        #1a3a5c;
+  --us-a:      rgba(26,58,92,0.09);
+  --us-b:      rgba(26,58,92,0.20);
+  --cn:        #b5413e;
+  --cn-a:      rgba(181,65,62,0.08);
+  --cn-b:      rgba(181,65,62,0.20);
+  --unk:       #6b7280;
+  --unk-a:     rgba(107,114,128,0.10);
+  --shadow:    0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.07);
+  --r: 6px;
+  --live: #16a34a;
+}
+[data-theme="dark"] {
+  --bg:        #0c1822;
+  --bg-card:   #112030;
+  --bg-alt:    #0e1d2b;
+  --t1:        #dde5ee;
+  --t2:        #7a97b0;
+  --t3:        #4d6678;
+  --border:    rgba(255,255,255,0.06);
+  --border-md: rgba(255,255,255,0.11);
+  --us-a:      rgba(26,58,92,0.28);
+  --us-b:      rgba(26,58,92,0.50);
+  --cn-a:      rgba(181,65,62,0.16);
+  --cn-b:      rgba(181,65,62,0.32);
+  --shadow:    0 1px 3px rgba(0,0,0,0.28);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.36);
+}
+
+/* ── Reset ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14.5px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--t1);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background .3s, color .3s;
+}
+
+/* ── Accent Bar ───────────────────────────────────────────────── */
+.accent-bar {
+  height: 3px;
+  background: linear-gradient(to right, var(--us) 50%, var(--cn) 50%);
+}
+
+/* ── Page ────────────────────────────────────────────────────── */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 40px 56px;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+header {
+  padding: 30px 0 26px;
+  border-bottom: 1px solid var(--border-md);
+  margin-bottom: 30px;
+}
+.hdr-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.hdr-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.theme-btn {
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--t3);
+  background: none;
+  border: 1px solid var(--border-md);
+  border-radius: 4px;
+  padding: 5px 13px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.theme-btn:hover { background: var(--border); color: var(--t2); }
+h1 {
+  font-size: 2.05rem;
+  font-weight: 800;
+  letter-spacing: -.036em;
+  line-height: 1.1;
+  color: var(--t1);
+  margin-bottom: 5px;
+}
+.hdr-year {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 10px;
+}
+.hdr-desc {
+  font-size: .87rem;
+  color: var(--t2);
+  max-width: 560px;
+  line-height: 1.55;
+}
+
+/* ── Section Label ───────────────────────────────────────────── */
+.lbl {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 11px;
+}
+.lbl-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.lbl-row .lbl { margin-bottom: 0; }
+
+/* ── Card ────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+
+/* ── Live Badge ──────────────────────────────────────────────── */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--live);
+  background: rgba(22,163,74,0.10);
+  border: 1px solid rgba(22,163,74,0.22);
+  border-radius: 20px;
+  padding: 2px 9px;
+}
+.live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--live);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+
+/* ── Live Section ────────────────────────────────────────────── */
+.live-section {
+  margin-bottom: 28px;
+}
+.live-card {
+  padding: 22px 24px 18px;
+}
+.live-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.live-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 3px;
+}
+.live-card-sub {
+  font-size: 11.5px;
+  color: var(--t2);
+}
+.live-status {
+  text-align: right;
+  flex-shrink: 0;
+}
+.live-updated {
+  font-size: 10px;
+  color: var(--t3);
+  line-height: 1.7;
+}
+
+/* ── Stat Boxes ──────────────────────────────────────────────── */
+.fm-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.fm-stat {
+  border-radius: 5px;
+  padding: 14px 16px;
+  border: 1px solid var(--border-md);
+}
+.fm-stat.us  { background: var(--us-a);  border-color: var(--us-b); }
+.fm-stat.cn  { background: var(--cn-a);  border-color: var(--cn-b); }
+.fm-stat.unk { background: var(--unk-a); }
+.fm-stat-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.fm-stat.us  .fm-stat-num { color: var(--us); }
+.fm-stat.cn  .fm-stat-num { color: var(--cn); }
+.fm-stat.unk .fm-stat-num { color: var(--unk); }
+.fm-stat-lbl {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--t3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ── Bar Chart ───────────────────────────────────────────────── */
+.fm-chart-wrap {
+  margin-bottom: 20px;
+}
+.fm-chart-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 8px;
+}
+
+/* ── Recent Models Table ─────────────────────────────────────── */
+.fm-tbl-wrap {
+  margin-bottom: 16px;
+}
+.fm-tbl-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 8px;
+}
+.fm-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.fm-tbl th {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--t3);
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--border-md);
+  text-align: left;
+}
+.fm-tbl th.r { text-align: right; }
+.fm-tbl td {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--t2);
+}
+.fm-tbl tr:last-child td { border-bottom: none; }
+.fm-tbl td.model-id {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 10.5px;
+  color: var(--t1);
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fm-tbl td.r { text-align: right; }
+.country-chip {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 3px;
+}
+.country-chip.us  { background: var(--us-a);  color: var(--us);  border: 1px solid var(--us-b); }
+.country-chip.cn  { background: var(--cn-a);  color: var(--cn);  border: 1px solid var(--cn-b); }
+.country-chip.unk { background: var(--unk-a); color: var(--unk); border: 1px solid var(--border-md); }
+
+/* ── Live Footer ─────────────────────────────────────────────── */
+.fm-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.fm-footer-note {
+  font-size: 10.5px;
+  color: var(--t3);
+  line-height: 1.55;
+  max-width: 540px;
+}
+.fm-footer-links {
+  font-size: 10.5px;
+  color: var(--t3);
+  white-space: nowrap;
+  text-align: right;
+}
+.fm-footer-links a {
+  color: var(--t3);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.fm-footer-links a:hover { color: var(--t2); }
+
+/* ── Loading / Error States ──────────────────────────────────── */
+.fm-placeholder {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--t3);
+}
+
+/* ── Main 2-col ──────────────────────────────────────────────── */
+.main-grid {
+  display: grid;
+  grid-template-columns: 54% 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: start;
+}
+
+/* ── Radar Card ──────────────────────────────────────────────── */
+.radar-card { padding: 22px 20px 18px; }
+.radar-wrap {
+  width: 100%;
+  max-width: 355px;
+  margin: 0 auto;
+}
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--t2);
+}
+.legend-line {
+  width: 24px;
+  height: 2.5px;
+  border-radius: 2px;
+}
+.conf-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 11px;
+  flex-wrap: wrap;
+}
+.conf-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  color: var(--t3);
+}
+.cdot {
+  border-radius: 50%;
+  background: var(--t3);
+  flex-shrink: 0;
+}
+.cdot.h { width: 9px; height: 9px; }
+.cdot.m { width: 6px; height: 6px; opacity: .7; }
+.cdot.l { width: 4px; height: 4px; opacity: .45; }
+
+/* ── Right Column ────────────────────────────────────────────── */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Insight Card ─────────────────────────────────────────────── */
+.insight-card { padding: 20px 22px; }
+.insight-list { list-style: none; }
+.insight-item {
+  padding: 11px 0 11px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: .835rem;
+  color: var(--t2);
+  line-height: 1.52;
+  position: relative;
+}
+.insight-item:last-child { border-bottom: none; padding-bottom: 0; }
+.insight-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--t3);
+}
+.insight-item strong { color: var(--t1); font-weight: 700; }
+
+/* ── Score Table Card ─────────────────────────────────────────── */
+.score-card { padding: 18px 22px; }
+.score-tbl { width: 100%; border-collapse: collapse; }
+.score-tbl th {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 0 0 9px;
+  border-bottom: 1px solid var(--border-md);
+  text-align: left;
+  color: var(--t3);
+}
+.score-tbl th.r { text-align: right; }
+.score-tbl th.us-h { color: var(--us); }
+.score-tbl th.cn-h { color: var(--cn); }
+.score-tbl td {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  font-size: 12px;
+}
+.score-tbl tr:last-child td { border-bottom: none; }
+.dim-lbl { color: var(--t2); font-weight: 500; }
+.sval {
+  text-align: right;
+  font-weight: 700;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  padding-left: 10px;
+}
+.sval.us { color: var(--us); }
+.sval.cn { color: var(--cn); }
+.chip {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 3px;
+  float: right;
+}
+.chip.us  { background: var(--us-a); color: var(--us); }
+.chip.cn  { background: var(--cn-a); color: var(--cn); }
+.chip.tie { background: rgba(124,143,160,.12); color: var(--t3); }
+
+/* ── Section Divider ─────────────────────────────────────────── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border-md);
+  margin: 8px 0 28px;
+}
+
+/* ── Constraints ─────────────────────────────────────────────── */
+.constraints-section { margin-bottom: 24px; }
+.constraints-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.ccard { padding: 20px 22px; }
+.ccard-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 2.5px solid;
+}
+.ccard.us .ccard-hdr { border-color: var(--us); }
+.ccard.cn .ccard-hdr { border-color: var(--cn); }
+.ccard-title { font-size: 12.5px; font-weight: 700; }
+.ccard.us .ccard-title { color: var(--us); }
+.ccard.cn .ccard-title { color: var(--cn); }
+.c-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.c-item { display: flex; gap: 11px; align-items: flex-start; }
+.c-ico {
+  width: 27px;
+  height: 27px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-style: normal;
+}
+.ccard.us .c-ico { background: var(--us-a); color: var(--us); }
+.ccard.cn .c-ico { background: var(--cn-a); color: var(--cn); }
+.c-body { font-size: 12.5px; line-height: 1.45; }
+.c-body strong { display: block; font-weight: 700; color: var(--t1); font-size: 12px; margin-bottom: 2px; }
+.c-body span { color: var(--t2); }
+
+/* ── Outlook ─────────────────────────────────────────────────── */
+.outlook-section { margin-bottom: 36px; }
+.timeline-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.swing-card {
+  padding: 19px 20px 16px;
+  position: relative;
+  overflow: hidden;
+}
+.swing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.swing-card.s-us::before   { background: var(--us); }
+.swing-card.s-cn::before   { background: var(--cn); }
+.swing-card.s-both::before { background: linear-gradient(to right, var(--us) 50%, var(--cn) 50%); }
+.swing-num {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 7px;
+}
+.swing-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.swing-desc {
+  font-size: 11.5px;
+  color: var(--t2);
+  line-height: 1.5;
+  margin-bottom: 13px;
+}
+.stags { display: flex; gap: 6px; flex-wrap: wrap; }
+.stag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+.stag.us   { background: var(--us-a); color: var(--us); border: 1px solid var(--us-b); }
+.stag.cn   { background: var(--cn-a); color: var(--cn); border: 1px solid var(--cn-b); }
+.stag.both { background: rgba(124,143,160,.1); color: var(--t3); border: 1px solid var(--border-md); }
+
+/* ── Footer ──────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border-md);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ft-note { font-size: 10.5px; color: var(--t3); line-height: 1.6; max-width: 640px; }
+.ft-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--t3);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* ── Print ───────────────────────────────────────────────────── */
+@media print {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  body { background: var(--bg) !important; }
+  .accent-bar { position: relative !important; }
+  .theme-btn { display: none !important; }
+  * { transition: none !important; }
+  .page { padding: 0 24px 32px; }
+  @page { margin: 12mm 15mm; }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 780px) {
+  .main-grid, .constraints-grid, .timeline-strip,
+  .fm-stats { grid-template-columns: 1fr; }
+  h1 { font-size: 1.55rem; }
+  .page { padding: 0 20px 40px; }
+  .fm-footer { flex-direction: column; }
+  .fm-footer-links { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="accent-bar"></div>
+
+<div class="page">
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <header>
+    <div class="hdr-top">
+      <span class="hdr-eyebrow">Strategic Assessment &nbsp;·&nbsp; AI Geopolitics Initiative &nbsp;·&nbsp; 2026</span>
+      <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">◑ &nbsp;Dark Mode</button>
+    </div>
+    <h1>U.S. vs China AI Race</h1>
+    <div class="hdr-year">Strategic Capability Tracker (2026)</div>
+    <p class="hdr-desc">
+      Comparative assessment across frontier capability, infrastructure, and diffusion.
+      Live metrics refresh automatically from public data sources.
+    </p>
+  </header>
+
+  <!-- ── Live Frontier Models Section ────────────────────────── -->
+  <section class="live-section" id="frontier-models">
+    <div class="lbl-row">
+      <p class="lbl">Frontier Models &nbsp;—&nbsp; Live Tracker</p>
+      <span class="live-badge"><span class="live-dot"></span>Auto-updated daily</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">Model Update Activity — Last 30 Days</div>
+          <div class="live-card-sub">
+            Number of models updated on Hugging Face Hub by US and China labs &nbsp;·&nbsp; Source: Hugging Face Hub API
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">
+            Last fetched: <span id="fm-fetched-at">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div id="fm-loading" class="fm-placeholder">Loading live data…</div>
+
+      <!-- Data / content (hidden until loaded) -->
+      <div id="fm-content" style="display:none;">
+
+        <!-- Stat boxes -->
+        <div class="fm-stats">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="fm-us-count">—</div>
+            <div class="fm-stat-lbl">United States</div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="fm-cn-count">—</div>
+            <div class="fm-stat-lbl">China</div>
+          </div>
+          <div class="fm-stat unk">
+            <div class="fm-stat-num" id="fm-unk-count">—</div>
+            <div class="fm-stat-lbl">Other / Unknown</div>
+          </div>
+        </div>
+
+        <!-- Bar chart -->
+        <div class="fm-chart-wrap">
+          <div class="fm-chart-label">Model updates by country — rolling 30-day window</div>
+          <canvas id="fmBarChart" height="72"></canvas>
+        </div>
+
+        <!-- Recent models table -->
+        <div class="fm-tbl-wrap">
+          <div class="fm-tbl-label">Recent model updates (latest 15)</div>
+          <table class="fm-tbl">
+            <thead>
+              <tr>
+                <th>Model ID</th>
+                <th>Lab</th>
+                <th class="r">Country</th>
+                <th class="r">Updated</th>
+              </tr>
+            </thead>
+            <tbody id="fm-models-body">
+              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Footer citation -->
+        <div class="fm-footer">
+          <p class="fm-footer-note" id="fm-methodology-note">
+            Models attributed to countries via curated lab mapping (data/labs.json).
+            Only models modified within the rolling 30-day window are counted.
+            Labs outside the US and China are classified as Unknown.
+            This is a proxy for lab activity, not a census of all frontier models.
+          </p>
+          <div class="fm-footer-links">
+            Source: <a href="https://huggingface.co/api/models" target="_blank" rel="noopener">Hugging Face Hub API</a><br>
+            <a href="docs/methodology.html" target="_blank">Full methodology →</a>
+          </div>
+        </div>
+
+      </div><!-- /fm-content -->
+
+      <!-- Error state (hidden by default) -->
+      <div id="fm-error" class="fm-placeholder" style="display:none;">
+        Unable to load live data. Check back after the first GitHub Actions run,
+        or see <a href="data/frontier_models.json">data/frontier_models.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ── Core Scorecard + Strategic Snapshot ─────────────────── -->
+  <section class="main-grid">
+
+    <!-- Radar Chart -->
+    <div>
+      <p class="lbl">Core Scorecard &nbsp;—&nbsp; Radar Chart</p>
+      <div class="card radar-card">
+        <div class="radar-wrap">
+          <canvas id="radarChart"></canvas>
+        </div>
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-line" style="background:var(--us);"></div>
+            United States
+          </div>
+          <div class="legend-item">
+            <div class="legend-line" style="background:var(--cn);"></div>
+            China
+          </div>
+        </div>
+        <div class="conf-row">
+          <div class="conf-item"><div class="cdot h"></div> High confidence</div>
+          <div class="conf-item"><div class="cdot m"></div> Medium confidence</div>
+          <div class="conf-item"><div class="cdot l"></div> Lower confidence</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategic Snapshot + Scores -->
+    <div class="right-col">
+      <div>
+        <p class="lbl">Strategic Snapshot &nbsp;—&nbsp; Executive Insights</p>
+        <div class="card insight-card">
+          <ul class="insight-list">
+            <li class="insight-item">
+              <strong>The U.S. leads at the technological frontier</strong> and in advanced compute, driven by dominant GPU infrastructure and the concentration of frontier model labs.
+            </li>
+            <li class="insight-item">
+              <strong>China leads in energy capacity</strong> and rapid industrial-scale adoption, with deployment speed outpacing most Western economies by a material margin.
+            </li>
+            <li class="insight-item">
+              <strong>Diffusion speed may matter more</strong> than peak benchmark performance as AI transitions from research into production-scale economic deployment.
+            </li>
+            <li class="insight-item">
+              <strong>The binding constraints:</strong> chips for China; power and permitting for the United States.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <p class="lbl">Dimension Scores &nbsp;—&nbsp; Comparative</p>
+        <div class="card score-card">
+          <table class="score-tbl">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th class="r us-h">U.S.</th>
+                <th class="r cn-h">China</th>
+                <th class="r">Edge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="dim-lbl">Frontier Models</td>
+                <td class="sval us">8.0</td>
+                <td class="sval cn">6.5</td>
+                <td><span class="chip us">+1.5 US</span></td>
+              </tr>
+              <tr>
+                <td class="dim-lbl">Compute</td>
+                <td class="sval us">9.0</td>
+                <td class="sval cn">6.0</td>
+                <td><span class="chip us">+3.0 US</span></td>
+              </tr>
+              <tr>
+                <td class="dim-lbl">Adoption</td>
+                <td class="sval us">6.0</td>
+                <td class="sval cn">7.5</td>
+                <td><span class="chip cn">+1.5 CN</span></td>
+              </tr>
+              <tr>
+                <td class="dim-lbl">Diffusion</td>
+                <td class="sval us">7.0</td>
+                <td class="sval cn">7.0</td>
+                <td><span class="chip tie">Parity</span></td>
+              </tr>
+              <tr>
+                <td class="dim-lbl">Energy</td>
+                <td class="sval us">6.0</td>
+                <td class="sval cn">8.0</td>
+                <td><span class="chip cn">+2.0 CN</span></td>
+              </tr>
+              <tr>
+                <td class="dim-lbl">Talent</td>
+                <td class="sval us">8.0</td>
+                <td class="sval cn">7.0</td>
+                <td><span class="chip us">+1.0 US</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Binding Constraints ──────────────────────────────────── -->
+  <section class="constraints-section">
+    <p class="lbl">Binding Constraints &nbsp;—&nbsp; Structural Bottlenecks</p>
+    <div class="constraints-grid">
+
+      <div class="card ccard us">
+        <div class="ccard-hdr">
+          <span style="font-size:1.25rem;line-height:1;">🇺🇸</span>
+          <span class="ccard-title">U.S. Bottlenecks</span>
+        </div>
+        <ul class="c-list">
+          <li class="c-item">
+            <i class="c-ico">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4.5 13.5H11L10 22l10-12h-6.5L13 2z"/></svg>
+            </i>
+            <div class="c-body">
+              <strong>Grid Capacity &amp; Interconnection Delays</strong>
+              <span>Multi-year interconnection queues and aging transmission infrastructure are constraining large-scale data center buildout across key U.S. regions.</span>
+            </div>
+          </li>
+          <li class="c-item">
+            <i class="c-ico">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm1 14.93V15a1 1 0 0 0-2 0v1.93A8 8 0 0 1 4.07 13H6a1 1 0 0 0 0-2H4.07A8 8 0 0 1 11 4.07V6a1 1 0 0 0 2 0V4.07A8 8 0 0 1 19.93 11H18a1 1 0 0 0 0 2h1.93A8 8 0 0 1 13 16.93z"/></svg>
+            </i>
+            <div class="c-body">
+              <strong>Energy Scaling Constraints</strong>
+              <span>Electricity demand from AI workloads is outpacing generation investment across major U.S. grids, with critical shortfalls projected through 2027.</span>
+            </div>
+          </li>
+          <li class="c-item">
+            <i class="c-ico">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </i>
+            <div class="c-body">
+              <strong>Immigration &amp; Talent Retention Risks</strong>
+              <span>H-1B uncertainty and visa processing backlogs create structural friction in recruiting and retaining international AI researchers and engineers.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card ccard cn">
+        <div class="ccard-hdr">
+          <span style="font-size:1.25rem;line-height:1;">🇨🇳</span>
+          <span class="ccard-title">China Bottlenecks</span>
+        </div>
+        <ul class="c-list">
+          <li class="c-item">
+            <i class="c-ico">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </i>
+            <div class="c-body">
+              <strong>Advanced Semiconductor Access</strong>
+              <span>Restricted access to sub-7nm logic and high-bandwidth memory materially limits the scale and capability of frontier training clusters.</span>
+            </div>
+          </li>
+          <li class="c-item">
+            <i class="c-ico">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V7a3 3 0 0 1 3-3zm0 10a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+            </i>
+            <div class="c-body">
+              <strong>Export Controls on Cutting-Edge GPUs</strong>
+              <span>BIS regulations on H100/H200-class hardware and derivatives cap training cluster scale and throttle access to leading AI accelerators.</span>
+            </div>
+          </li>
+          <li class="c-item">
+            <i class="c-ico">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </i>
+            <div class="c-body">
+              <strong>Geopolitical Supply Chain Exposure</strong>
+              <span>Dependence on Taiwan-fabricated semiconductors and Dutch lithography equipment creates a durable structural vulnerability to external shock.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Near-Term Outlook ─────────────────────────────────────── -->
+  <section class="outlook-section">
+    <p class="lbl">Near-Term Outlook &nbsp;—&nbsp; 1–3 Year Swing Factors</p>
+    <div class="timeline-strip">
+
+      <div class="card swing-card s-both">
+        <div class="swing-num">Factor 01</div>
+        <div class="swing-title">Export Control Tightening or Loosening</div>
+        <div class="swing-desc">
+          Further BIS restrictions would deepen China's compute deficit and widen the U.S. frontier lead. Partial rollbacks or new licensing carve-outs could materially narrow the gap within 12–18 months.
+        </div>
+        <div class="stags">
+          <span class="stag us">&#8593; U.S. if tightened</span>
+          <span class="stag cn">&#8593; China if loosened</span>
+        </div>
+      </div>
+
+      <div class="card swing-card s-cn">
+        <div class="swing-num">Factor 02</div>
+        <div class="swing-title">Breakthrough in Model Efficiency</div>
+        <div class="swing-desc">
+          A step-change in compute efficiency — architectural or training-method breakthroughs — disproportionately benefits the compute-constrained actor. Historically favors the trailing party.
+        </div>
+        <div class="stags">
+          <span class="stag cn">&#8593; China benefit</span>
+          <span class="stag both">Contested</span>
+        </div>
+      </div>
+
+      <div class="card swing-card s-us">
+        <div class="swing-num">Factor 03</div>
+        <div class="swing-title">Major Power Infrastructure Acceleration</div>
+        <div class="swing-desc">
+          Federal permitting reform, accelerated SMR deployment, or high-voltage DC grid expansion would directly resolve the United States' primary AI scaling bottleneck.
+        </div>
+        <div class="stags">
+          <span class="stag us">&#8593; U.S. benefit</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <footer>
+    <p class="ft-note">
+      Assessment based on publicly available data and comparative strategic analysis (2026). Not derived from classified sources.<br>
+      Live metrics auto-refresh daily via GitHub Actions. Static scores are analytical and relative — not absolute cardinal measures.
+      Confidence designations reflect data availability and analyst consensus.
+    </p>
+    <div class="ft-tag">
+      AI Geopolitics Initiative<br>
+      <a href="docs/methodology.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Methodology →</a>
+    </div>
+  </footer>
+
+</div><!-- /page -->
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   THEME
+══════════════════════════════════════════════════════════════ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn  = document.getElementById('themeBtn');
+  const dark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', dark ? 'light' : 'dark');
+  btn.textContent = dark ? '◑ \u00a0Dark Mode' : '☀ \u00a0Light Mode';
+  updateRadarTheme();
+  if (window._fmBarChart) updateBarTheme();
+}
+
+(function detectTheme() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.addEventListener('DOMContentLoaded', function () {
+      const b = document.getElementById('themeBtn');
+      if (b) b.textContent = '☀ \u00a0Light Mode';
+    });
+  }
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   RADAR CHART
+══════════════════════════════════════════════════════════════ */
+const US_COLOR = '#1a3a5c';
+const CN_COLOR = '#b5413e';
+
+const DIMS = ['Frontier\nModels', 'Compute', 'Adoption', 'Diffusion', 'Energy', 'Talent'];
+
+const DIM_META = {
+  'Frontier\nModels': { desc: 'Relative capability at the leading edge of foundation model development, including benchmark performance and architectural innovation.', conf: 'Medium confidence' },
+  'Compute':          { desc: 'GPU stock, cloud compute capacity, national data center footprint, and sovereign compute investment programs.', conf: 'High confidence' },
+  'Adoption':         { desc: 'Rate and scale of AI deployment across enterprise, government, and consumer applications domestically.', conf: 'Lower confidence' },
+  'Diffusion':        { desc: 'Speed of AI technology spread across economic sectors and partner geographies, including deployment infrastructure.', conf: 'Lower confidence' },
+  'Energy':           { desc: 'Available and planned electricity generation and grid capacity dedicated to AI and large-scale data center workloads.', conf: 'High confidence' },
+  'Talent':           { desc: 'AI researcher density, top-tier publication output, immigration dynamics, and elite-institution talent pipeline.', conf: 'Medium confidence' },
+};
+
+const PT_R  = [4.5, 7, 3, 3, 7, 4.5];
+const PT_HR = [6.5, 9, 5, 5, 9, 6.5];
+
+function chartPalette() {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  return {
+    grid:   dark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.08)',
+    angle:  dark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)',
+    ticks:  dark ? '#4d6678' : '#9ca3af',
+    labels: dark ? '#7a97b0' : '#3d5066',
+  };
+}
+
+function wrapText(text, maxLen) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(w => {
+    const candidate = line ? line + ' ' + w : w;
+    if (candidate.length > maxLen) { if (line) lines.push(line); line = w; }
+    else line = candidate;
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+let radarChart;
+
+function buildRadarChart() {
+  const p   = chartPalette();
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: DIMS,
+      datasets: [
+        {
+          label: 'United States',
+          data: [8, 9, 6, 7, 6, 8],
+          backgroundColor: 'rgba(26,58,92,0.12)',
+          borderColor: US_COLOR, borderWidth: 2.5,
+          pointBackgroundColor: US_COLOR,
+          pointBorderColor: 'rgba(255,255,255,0.85)', pointBorderWidth: 1.5,
+          pointRadius: PT_R, pointHoverRadius: PT_HR,
+          pointHoverBackgroundColor: US_COLOR,
+        },
+        {
+          label: 'China',
+          data: [6.5, 6, 7.5, 7, 8, 7],
+          backgroundColor: 'rgba(181,65,62,0.09)',
+          borderColor: CN_COLOR, borderWidth: 2.5,
+          pointBackgroundColor: CN_COLOR,
+          pointBorderColor: 'rgba(255,255,255,0.85)', pointBorderWidth: 1.5,
+          pointRadius: PT_R, pointHoverRadius: PT_HR,
+          pointHoverBackgroundColor: CN_COLOR,
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true, aspectRatio: 1,
+      scales: {
+        r: {
+          min: 0, max: 10,
+          ticks: { stepSize: 2, color: p.ticks, font: { size: 9 }, backdropColor: 'transparent' },
+          grid: { color: p.grid },
+          angleLines: { color: p.angle },
+          pointLabels: { color: p.labels, font: { size: 11, weight: '600' }, padding: 6 }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 14, y: 12 }, cornerRadius: 5,
+          titleFont: { size: 12, weight: '700' }, bodyFont: { size: 11 },
+          callbacks: {
+            title: (items) => items[0].label.replace('\n', ' '),
+            label: (ctx) => ' ' + ctx.dataset.label + ': \u00a0' + ctx.parsed.r + ' / 10',
+            afterBody: (items) => {
+              if (!items.length) return [];
+              const meta = DIM_META[items[0].label];
+              if (!meta) return [];
+              return ['', ...wrapText(meta.desc, 48), '', '\u25cf Confidence: ' + meta.conf];
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function updateRadarTheme() {
+  if (!radarChart) return;
+  const p = chartPalette();
+  radarChart.options.scales.r.ticks.color       = p.ticks;
+  radarChart.options.scales.r.grid.color        = p.grid;
+  radarChart.options.scales.r.angleLines.color  = p.angle;
+  radarChart.options.scales.r.pointLabels.color = p.labels;
+  radarChart.update('none');
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LIVE FRONTIER MODELS DATA
+══════════════════════════════════════════════════════════════ */
+
+function relativeTime(isoStr) {
+  if (!isoStr) return '—';
+  const then = new Date(isoStr);
+  const now  = new Date();
+  const diffMs = now - then;
+  const diffDays = Math.floor(diffMs / 86400000);
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return 'Yesterday';
+  if (diffDays < 7)  return diffDays + 'd ago';
+  if (diffDays < 30) return Math.floor(diffDays / 7) + 'w ago';
+  return then.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function fmtFetchedAt(isoStr) {
+  if (!isoStr) return 'pending first run';
+  const d = new Date(isoStr);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    + ', ' + d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+}
+
+function countryChip(country) {
+  if (country === 'US')    return '<span class="country-chip us">US</span>';
+  if (country === 'China') return '<span class="country-chip cn">China</span>';
+  return '<span class="country-chip unk">Other</span>';
+}
+
+let fmBarChart;
+
+function buildBarChart(us, cn, unk) {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  const ctx = document.getElementById('fmBarChart').getContext('2d');
+  fmBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['United States', 'China', 'Other / Unknown'],
+      datasets: [{
+        data: [us, cn, unk],
+        backgroundColor: [
+          'rgba(26,58,92,0.75)',
+          'rgba(181,65,62,0.75)',
+          'rgba(107,114,128,0.50)',
+        ],
+        borderColor: [US_COLOR, CN_COLOR, '#6b7280'],
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: {
+            label: (ctx) => '  ' + ctx.parsed.x + ' model updates (last 30 days)'
+          }
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true,
+          ticks: { color: tickColor, font: { size: 10 }, stepSize: 1 },
+          grid:  { color: gridColor },
+        },
+        y: {
+          ticks: { color: tickColor, font: { size: 11, weight: '600' } },
+          grid:  { display: false },
+        }
+      }
+    }
+  });
+  window._fmBarChart = fmBarChart;
+}
+
+function updateBarTheme() {
+  if (!fmBarChart) return;
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+  fmBarChart.options.scales.x.ticks.color = tickColor;
+  fmBarChart.options.scales.x.grid.color  = gridColor;
+  fmBarChart.options.scales.y.ticks.color = tickColor;
+  fmBarChart.update('none');
+}
+
+function renderFrontierModels(data) {
+  const s = data.summary || {};
+  const us  = s.US      || 0;
+  const cn  = s.China   || 0;
+  const unk = s.Unknown || 0;
+
+  document.getElementById('fm-us-count').textContent  = us;
+  document.getElementById('fm-cn-count').textContent  = cn;
+  document.getElementById('fm-unk-count').textContent = unk;
+  document.getElementById('fm-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
+
+  if (data.methodology_note) {
+    document.getElementById('fm-methodology-note').textContent = data.methodology_note;
+  }
+
+  buildBarChart(us, cn, unk);
+
+  const models = (data.models || []).slice(0, 15);
+  const tbody = document.getElementById('fm-models-body');
+  if (models.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No model updates in the last 30 days — check back after the first workflow run.</td></tr>';
+  } else {
+    tbody.innerHTML = models.map(m => `
+      <tr>
+        <td class="model-id"><a href="https://huggingface.co/${m.model_id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">${m.model_id}</a></td>
+        <td style="color:var(--t2);">${m.lab_name || m.author}</td>
+        <td class="r">${countryChip(m.country)}</td>
+        <td class="r" style="color:var(--t3);white-space:nowrap;">${relativeTime(m.last_modified)}</td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('fm-loading').style.display  = 'none';
+  document.getElementById('fm-error').style.display    = 'none';
+  document.getElementById('fm-content').style.display  = 'block';
+}
+
+async function loadFrontierModels() {
+  try {
+    const resp = await fetch('data/frontier_models.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    renderFrontierModels(data);
+  } catch (err) {
+    console.warn('Failed to load frontier_models.json:', err);
+    document.getElementById('fm-loading').style.display = 'none';
+    document.getElementById('fm-error').style.display   = 'block';
+  }
+}
+
+/* ── Init ────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', function () {
+  buildRadarChart();
+  loadFrontierModels();
+});
+</script>
+
+</body>
+</html>

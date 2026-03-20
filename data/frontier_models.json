@@ -1,0 +1,20 @@
+{
+  "dimension": "frontier_models",
+  "metric_key": "recent_model_updates",
+  "description": "Number of models updated in the last 30 days, by US vs China labs. Source: Hugging Face Hub.",
+  "fetched_at": null,
+  "window_days": 30,
+  "source": {
+    "name": "Hugging Face Hub API",
+    "url": "https://huggingface.co/api/models",
+    "note": "Models filtered by a curated list of known US and China labs (data/labs.json)."
+  },
+  "summary": {
+    "US": 0,
+    "China": 0,
+    "Unknown": 0,
+    "total": 0
+  },
+  "models": [],
+  "methodology_note": "Data not yet fetched. Trigger the GitHub Actions workflow manually from the Actions tab, or wait for the first scheduled run at 06:00 UTC."
+}

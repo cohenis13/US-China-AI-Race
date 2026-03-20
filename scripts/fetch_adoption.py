@@ -1,44 +1,35 @@
 #!/usr/bin/env python3
 """
-Fetch AI Adoption proxy data — two-signal model.
+Fetch AI Adoption proxy data — two-signal model (v4).
 
 WHAT THIS MEASURES
-  Observable AI deployment activity in public records:
-  (1) Government procurement orders — binding institutional decisions to acquire AI.
-  (2) Corporate annual report disclosures — companies reporting generative AI use.
-
-  This is a proxy for visible deployment, not total adoption.
+  Observable AI deployment signals in public records.
+  This is a proxy for visible adoption, NOT a total adoption census.
 
 SIGNAL 1 — GOVERNMENT PROCUREMENT
-  US:    USASpending.gov federal contract awards (API, no auth)
-         Counts contracts with AI keywords in award descriptions.
-         Time window applied via action_date (the transaction date).
-  China: CCGP (中国政府采购网) — best-effort HTML scraping.
+  US:    USASpending.gov federal contract awards — keyword match in award descriptions.
+         The time_period filter applies to the action_date (transaction date), so a
+         multi-year contract originally signed years ago may appear if a new procurement
+         action (modification, increment) fell within the window.
+  China: CCGP (中国政府采购网) — HTML scraping, best-effort.
          GitHub Actions (Azure US East IPs) are frequently blocked.
-         When blocked: status="blocked", count=null. Null ≠ zero.
+         status="blocked" when inaccessible. null ≠ zero procurement.
 
-SIGNAL 2 — CORPORATE FILING DISCLOSURES (SEC EDGAR)
-  US proxy:    10-K annual reports mentioning "generative AI"
-               (covers all US SEC-registered companies).
-  China proxy: 20-F annual reports mentioning "generative AI"
-               (covers foreign private issuers on US exchanges;
-               Chinese ADRs are the dominant segment but not exclusive).
-  Query term: "generative AI" — specific to the current AI wave.
-              May include companies exploring generative AI, not only
-              those with confirmed deployments. See methodology_note.
-  Total filers: also queries the EFTS API without a keyword filter to
-                compute a deployment-rate denominator.
+SIGNAL 2 — PUBLIC COMPANY DEPLOYMENT DISCLOSURES
+  US:    SEC EDGAR 10-K annual reports mentioning deployment-oriented AI language.
+         Queries the EDGAR EFTS full-text search API with a representative set of
+         deployment terms. Returns count + sample company names from results.
+  China: SEC EDGAR 20-F annual reports from foreign private issuers.
+         Chinese ADRs are the dominant segment (~40% of 20-F filers) but this is
+         not exclusively Chinese companies.
+         Coverage asymmetry: Tencent, ByteDance, Meituan etc. are not in EDGAR.
 
-KNOWN LIMITATIONS
-  1. Scope asymmetry: US data is far more transparent and automatable.
-  2. CCGP null = access blocked from runner, not zero procurement.
-  3. 20-F proxy: Chinese ADRs are the largest segment of 20-F filers,
-     but the proxy includes other foreign issuers (European, Korean, etc.).
-  4. Procurement count reflects explicit AI keyword mentions in award
-     descriptions — likely understates total AI-related federal spending.
-  5. "generative AI" in a 10-K may include strategy mentions alongside
-     confirmed deployments. Treat as a disclosure signal, not a confirmed
-     deployment count.
+COVERAGE HONESTY
+  Both signals are subject to structural transparency asymmetries:
+  - US data is substantially more automatable.
+  - China procurement data is frequently inaccessible from US-based runners.
+  - Chinese company disclosures in EDGAR cover US-listed ADRs only.
+  These asymmetries are documented in the output, not hidden.
 
 Outputs to data/adoption.json.
 
@@ -74,25 +65,34 @@ ROOT        = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "data" / "adoption.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
-WINDOW_DAYS     = 365   # rolling 12-month window
-REQUEST_TIMEOUT = 30    # seconds per HTTP request
-MAX_EXAMPLES    = 10    # US federal contract examples to include
+WINDOW_DAYS        = 365   # rolling 12-month window
+REQUEST_TIMEOUT    = 30    # seconds per HTTP request
+MAX_EXAMPLES       = 10    # US procurement examples
+EDGAR_SAMPLE_SIZE  = 20    # max entity names to extract from EDGAR results
+EDGAR_RETRY_COUNT  = 2     # retries on 429/403
+EDGAR_SLEEP_SECS   = 1.0   # pause between EDGAR API calls (SEC rate limit: 10 req/s)
 
-# Signal 1 — Government Procurement keyword sets
-US_KEYWORDS = [
+# Signal 1 — Government Procurement
+US_KEYWORDS   = [
     "artificial intelligence",
     "machine learning",
     "generative AI",
     "large language model",
     "AI system",
 ]
-CN_KEYWORD_ZH = "人工智能"   # artificial intelligence
+CN_KEYWORD_ZH = "人工智能"
 
-# Signal 2 — EDGAR disclosure term
-# "generative AI" is specific to the post-2022 AI wave and broadly used in
-# annual reports to indicate meaningful AI engagement. Avoids the overly narrow
-# "AI deployment" exact phrase while remaining more specific than just "AI".
-EDGAR_TERM = "generative AI"
+# Signal 2 — Company Deployment Disclosures
+# "generative AI" is the primary term: specific to the post-2022 AI wave,
+# broadly used in annual reports to indicate meaningful AI engagement.
+# We supplement with "large language model" as a second specific term.
+EDGAR_TERMS = [
+    "generative AI",
+    "large language model",
+]
+# Primary term for headline count (to avoid double-counting from two queries).
+# Secondary terms used for coverage notes.
+EDGAR_PRIMARY_TERM = "generative AI"
 
 # ── API endpoints ─────────────────────────────────────────────────────────────
 USASPENDING_URL  = "https://api.usaspending.gov/api/v2/search/spending_by_award/"
@@ -101,8 +101,8 @@ EDGAR_SEARCH_URL = "https://efts.sec.gov/LATEST/search-index"
 
 US_HEADERS = {
     "User-Agent": (
-        "us-china-ai-tracker/1.0 "
-        "(public research; github.com/cohenis13/US-China-AI-Race)"
+        "us-china-ai-tracker (non-commercial public research; "
+        "github.com/cohenis13/US-China-AI-Race)"
     ),
     "Content-Type": "application/json",
     "Accept":       "application/json",
@@ -117,12 +117,15 @@ CN_HEADERS = {
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
     "Accept-Encoding": "gzip, deflate",
 }
+# SEC explicitly requires a descriptive User-Agent with contact info.
 EDGAR_HEADERS = {
     "User-Agent": (
-        "us-china-ai-tracker/1.0 "
-        "(public research; github.com/cohenis13/US-China-AI-Race)"
+        "us-china-ai-tracker (non-commercial public research; "
+        "github.com/cohenis13/US-China-AI-Race)"
     ),
-    "Accept": "application/json",
+    "Accept":          "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate, br",
 }
 
 
@@ -141,33 +144,30 @@ def fetch_us_procurement(start_date: str, end_date: str) -> dict:
     """
     Count US federal AI contract awards from USASpending.gov.
 
-    - time_period filter applies to the action_date (transaction date),
-      not the contract start date. This is why returned examples may show
-      "Contract Start" dates outside the rolling window — those are the
-      period_of_performance_start_date, which can predate the action.
-    - Sort by Award Amount (desc) to surface the largest AI-related contracts.
-    - Award types A–D = contracts only (excludes grants, loans, IDVs).
-
-    Returns: count, examples, status, confidence
+    The time_period filter applies to action_date (the transaction date),
+    not period_of_performance_start_date. Multi-year contracts can appear
+    in this window even if they originated years ago, as long as a recent
+    procurement action (modification, increment) fell within the window.
+    This explains why 'Contract Start' dates in examples may predate the window.
     """
     payload = {
         "filters": {
             "keywords":         US_KEYWORDS,
             "time_period":      [{"start_date": start_date, "end_date": end_date}],
-            "award_type_codes": ["A", "B", "C", "D"],
+            "award_type_codes": ["A", "B", "C", "D"],   # contracts only
         },
         "fields": [
             "Award ID",
             "Recipient Name",
             "Award Amount",
-            "Start Date",           # period_of_performance_start_date (may predate window)
+            "Start Date",          # = period_of_performance_start_date
             "Awarding Agency",
             "Awarding Sub Agency",
             "Description",
         ],
         "page":  1,
         "limit": MAX_EXAMPLES,
-        "sort":  "Award Amount",
+        "sort":  "Award Amount",   # largest first (most notable)
         "order": "desc",
     }
 
@@ -189,53 +189,49 @@ def fetch_us_procurement(start_date: str, end_date: str) -> dict:
         )
         count = int(count) if count else 0
 
-        results  = data.get("results", [])
-        log.info(
-            "US procurement: %d federal AI contract awards in window "
-            "(sorted by award amount; contract start dates may predate window)",
-            count,
-        )
-
         examples = []
-        for r in results[:MAX_EXAMPLES]:
+        for r in data.get("results", [])[:MAX_EXAMPLES]:
             agency = r.get("Awarding Agency") or r.get("Awarding Sub Agency") or ""
             desc   = r.get("Description") or ""
             examples.append({
                 "award_id":       r.get("Award ID", ""),
                 "recipient":      r.get("Recipient Name", ""),
                 "amount":         r.get("Award Amount"),
-                # "Start Date" from USASpending = period_of_performance_start_date.
-                # This is the contract start date, which may predate the rolling
-                # window. The action_date (which triggered inclusion in the window)
-                # is not returned by this endpoint.
+                # "Start Date" = period_of_performance_start_date.
+                # May predate the rolling window — see examples_note in output.
                 "contract_start": r.get("Start Date", ""),
                 "agency":         agency,
-                "description":    desc[:120] if desc else "",
+                "description":    desc[:100] if desc else "",
                 "country":        "US",
             })
 
+        log.info(
+            "US procurement: %d federal AI contract awards "
+            "(action_date within window; contract start dates may predate it)",
+            count,
+        )
         return {
             "count":      count,
             "examples":   examples,
             "status":     "ok",
             "confidence": "medium",
             "note": (
-                "Federal contract awards (types A–D) with AI keywords in award descriptions. "
-                "Action-date filter limits to the rolling window; contract start dates "
-                "shown in examples may predate the window (multi-year contracts). "
-                "Federal government only — excludes state, local, and private sector. "
-                "Likely understates total federal AI spend (not all contracts use explicit AI keywords)."
+                "Federal contract awards (types A–D) with AI keywords in descriptions. "
+                "Filtered by action_date (the transaction date) — contract start dates "
+                "shown may predate the window for multi-year contracts. "
+                "Federal only; excludes state, local, and private sector. "
+                "Likely understates total AI spend: not all AI contracts use explicit keywords."
             ),
         }
 
     except Exception as e:
         log.error("US procurement fetch failed: %s", e)
         return {
-            "count":      None,
-            "examples":   [],
-            "status":     "error",
+            "count":    None,
+            "examples": [],
+            "status":   "error",
             "confidence": "low",
-            "note":       f"Fetch failed: {e}",
+            "note":     f"Fetch failed: {e}",
         }
 
 
@@ -266,11 +262,9 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
     Count China central-government AI procurement notices from CCGP.
 
     CCGP date format: YYYY:MM:DD (colon-separated, not hyphen).
-    Single keyword to avoid cross-term double-counting from HTML scraping.
-    GitHub Actions (Azure US East IPs) are commonly blocked — status="blocked"
-    when inaccessible. Blocked ≠ zero procurement.
-
-    Returns: count (or None), status, confidence
+    Single keyword avoids cross-term double-counting via HTML scraping.
+    GitHub Actions (Azure US East IPs) are commonly blocked — status="blocked".
+    Blocked ≠ zero procurement.
     """
     start_ccgp = start_date.replace("-", ":")
     end_ccgp   = end_date.replace("-", ":")
@@ -299,7 +293,7 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
         ct = resp.headers.get("content-type", "")
         if len(resp.content) < 500:
             raise ValueError(
-                f"Response too short ({len(resp.content)} bytes) — likely blocked/redirect"
+                f"Response too short ({len(resp.content)} bytes) — likely blocked"
             )
         if "html" not in ct and "text" not in ct:
             raise ValueError(f"Unexpected content-type: {ct!r}")
@@ -313,8 +307,7 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
 
         if count is None:
             log.warning(
-                "CCGP: result count not found in response HTML "
-                "(len=%d, status=%d) — page structure may have changed",
+                "CCGP: count not found in response (len=%d, status=%d)",
                 len(html), resp.status_code,
             )
             return {
@@ -323,29 +316,24 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
                 "confidence": "unavailable",
                 "note": (
                     "CCGP returned a response but the total count could not be parsed. "
-                    "Page structure may have changed. "
-                    "Central-government only; sub-national procurement not captured."
+                    "Page structure may have changed. Central-government only."
                 ),
             }
 
-        log.info(
-            "CN procurement: %d notices for '%s' in window",
-            count, CN_KEYWORD_ZH,
-        )
+        log.info("CN procurement: %d notices for '%s'", count, CN_KEYWORD_ZH)
         return {
             "count":      count,
             "status":     "ok",
             "confidence": "low",
             "note": (
                 f"Central-government procurement notices only (CCGP). "
-                f"Keyword: '{CN_KEYWORD_ZH}' (artificial intelligence). "
-                "Sub-national procurement not captured. "
+                f"Keyword: '{CN_KEYWORD_ZH}'. Sub-national procurement not captured. "
                 "Significant undercount of total government AI procurement expected."
             ),
         }
 
     except requests.exceptions.Timeout:
-        log.warning("CCGP: timed out (likely blocked — Azure US East IPs)")
+        log.warning("CCGP: timed out — likely blocked (Azure US East IPs)")
     except requests.exceptions.ConnectionError as e:
         log.warning("CCGP: connection error — %s", e)
     except Exception as e:
@@ -356,8 +344,8 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
         "status":     "blocked",
         "confidence": "unavailable",
         "note": (
-            "CCGP was inaccessible from the automated runner. "
-            "GitHub Actions runs on Azure US East IPs, which CCGP commonly blocks. "
+            "CCGP inaccessible from automated runner. "
+            "GitHub Actions runs on Azure US East IPs, commonly blocked by CCGP. "
             "null ≠ zero — China government AI procurement is ongoing; "
             "only the data pipeline is blocked."
         ),
@@ -365,150 +353,212 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# SIGNAL 2 — Corporate Filing Disclosures (SEC EDGAR EFTS)
+# SIGNAL 2 — Public Company Deployment Disclosures (SEC EDGAR EFTS)
 # ─────────────────────────────────────────────────────────────────────────────
-def _edgar_count(params: dict, label: str, retries: int = 2) -> int | None:
+def _edgar_request(session: requests.Session, params: dict, label: str) -> dict | None:
     """
-    Execute one EDGAR EFTS query and return the total hit count.
+    Execute one EDGAR EFTS HTTP request with retry on 429/403.
 
-    Retries up to `retries` times with exponential backoff to handle
-    transient rate-limits (GitHub Actions IPs may be throttled by SEC).
-    Returns None on any error after all retries.
+    Returns the parsed JSON response dict, or None on failure.
+    SEC rate limit: 10 requests/second per IP.
+    Sleeps EDGAR_SLEEP_SECS before each call to stay well under limit.
     """
-    for attempt in range(retries + 1):
+    time.sleep(EDGAR_SLEEP_SECS)   # conservative pacing
+
+    for attempt in range(EDGAR_RETRY_COUNT + 1):
         try:
             if attempt > 0:
-                delay = 2 ** attempt     # 2s, 4s backoff
-                log.info("%s: retry %d/%d after %ds backoff …", label, attempt, retries, delay)
-                time.sleep(delay)
+                backoff = 3 * (2 ** (attempt - 1))   # 3s, 6s
+                log.info("%s: retry %d after %ds backoff …", label, attempt, backoff)
+                time.sleep(backoff)
 
-            resp = requests.get(
+            resp = session.get(
                 EDGAR_SEARCH_URL,
                 params=params,
                 headers=EDGAR_HEADERS,
                 timeout=REQUEST_TIMEOUT,
             )
-            resp.raise_for_status()
-            data = resp.json()
 
-            hits_block = data.get("hits", {})
-            total      = hits_block.get("total")
-            if isinstance(total, dict):
-                count = int(total.get("value", 0))
-            elif total is not None:
-                count = int(total)
-            else:
+            if resp.status_code in (403, 429):
                 log.warning(
-                    "%s: unexpected EFTS response shape — keys: %s",
-                    label, list(data.keys()),
+                    "%s: HTTP %d from EDGAR — likely rate-limit/IP block",
+                    label, resp.status_code,
                 )
-                return None
+                if attempt < EDGAR_RETRY_COUNT:
+                    continue
+                return None   # all retries exhausted
 
-            log.info("%s: %d filings", label, count)
-            return count
+            resp.raise_for_status()
+            return resp.json()
 
         except requests.exceptions.HTTPError as e:
-            if resp.status_code == 429 or resp.status_code == 403:
-                log.warning("%s: HTTP %d (rate limit / access denied) — %s", label, resp.status_code, e)
-                if attempt < retries:
-                    continue   # will retry with backoff
-            else:
-                log.error("%s: HTTP error — %s", label, e)
+            log.error("%s: HTTP error — %s", label, e)
             break
-
         except Exception as e:
-            log.error("%s: EDGAR query failed — %s", label, e)
+            log.error("%s: request failed — %s", label, e)
             break
 
     return None
 
 
+def _parse_edgar_response(data: dict, label: str) -> tuple[int | None, list[str]]:
+    """
+    Extract (total_count, entity_name_list) from an EDGAR EFTS response.
+
+    Returns (None, []) if the response shape is unexpected.
+    Entity names are extracted from the hits array when present.
+    """
+    if data is None:
+        return None, []
+
+    hits_block = data.get("hits", {})
+    total      = hits_block.get("total")
+
+    if isinstance(total, dict):
+        count = int(total.get("value", 0))
+    elif total is not None:
+        count = int(total)
+    else:
+        log.warning("%s: unexpected EFTS response shape — keys: %s", label, list(data.keys()))
+        return None, []
+
+    # Extract sample entity names from the hits array.
+    # EDGAR EFTS returns individual filings; we deduplicate by entity_name.
+    entities_seen = set()
+    entity_names  = []
+    for hit in hits_block.get("hits", []):
+        src  = hit.get("_source", {})
+        name = src.get("entity_name") or src.get("display_names", [{}])[0].get("name", "")
+        name = name.strip()
+        if name and name not in entities_seen:
+            entities_seen.add(name)
+            entity_names.append(name)
+            if len(entity_names) >= EDGAR_SAMPLE_SIZE:
+                break
+
+    log.info("%s: %d filings; sample entities: %s", label, count, entity_names[:5] or "none")
+    return count, entity_names
+
+
 def fetch_edgar(form_type: str, start_date: str, end_date: str) -> dict:
     """
-    Count SEC EDGAR filings of a given form type that mention EDGAR_TERM
-    within the rolling window, plus the total filers for context.
+    Count SEC EDGAR filings mentioning deployment-oriented AI language.
+
+    Primary term: EDGAR_PRIMARY_TERM (headline count).
+    Denominator:  total filers using a term present in virtually every annual
+                  report ("results of operations") — gives deployment rate %.
 
     form_type:
-      "10-K"  — US domestic public companies (annual report)
-      "20-F"  — Foreign private issuers; Chinese ADRs are the largest
-                segment (~40% of 20-F filers by count) but not exclusive.
+      "10-K" — US domestic public companies
+      "20-F" — Foreign private issuers (Chinese ADRs dominant but not exclusive)
 
-    Two queries:
-      (a) With query term  → deployment-disclosure count
-      (b) Without keyword  → total filers denominator
-    Deployment rate = (a) / (b) — expressed as a percentage.
-
-    Status:
-      "ok"      — 10-K (US domestic companies)
-      "partial"  — 20-F (proxy coverage; not exclusively China)
-      "error"   — fetch failed
+    Also returns:
+      sample_entities — up to 20 company names from search results
+      status:
+        "ok"      — 10-K (US companies)
+        "partial"  — 20-F (proxy coverage; not exclusively China)
+        "blocked"  — EDGAR returned 403/429 on all retries
+        "error"   — unexpected failure
     """
-    label     = f"EDGAR {form_type}"
-    is_proxy  = (form_type == "20-F")
-    base_date = {"forms": form_type, "dateRange": "custom", "startdt": start_date, "enddt": end_date}
+    label    = f"EDGAR {form_type}"
+    is_proxy = (form_type == "20-F")
+    base     = {
+        "forms":     form_type,
+        "dateRange": "custom",
+        "startdt":   start_date,
+        "enddt":     end_date,
+    }
 
-    # (a) Filings mentioning the deployment term
-    deploy_count = _edgar_count(
-        {**base_date, "q": f'"{EDGAR_TERM}"'},
-        f"{label} with '{EDGAR_TERM}'",
+    session = requests.Session()
+
+    # (a) Primary term query — headline count + sample entity names
+    data_a = _edgar_request(
+        session,
+        {**base, "q": f'"{EDGAR_PRIMARY_TERM}"'},
+        f"{label} '{EDGAR_PRIMARY_TERM}'",
     )
 
-    # (b) Total filings in the period (denominator) — use a term present in
-    # virtually every annual report as a proxy for "all filers"
-    total_filers = _edgar_count(
-        {**base_date, "q": '"results of operations"'},
-        f"{label} total filers proxy",
-    )
+    if data_a is None:
+        log.warning("%s: primary query failed (likely 403/429) — marking blocked", label)
+        return {
+            "count":           None,
+            "total_filers":    None,
+            "deploy_rate_pct": None,
+            "sample_entities": [],
+            "status":          "blocked",
+            "confidence":      "unavailable",
+            "note": (
+                "EDGAR EFTS was inaccessible from the automated runner (HTTP 403/429). "
+                "GitHub Actions IPs may be throttled by the SEC. null ≠ zero disclosures. "
+                "Retry on next workflow run."
+            ),
+        }
+
+    deploy_count, sample_entities = _parse_edgar_response(data_a, f"{label} primary")
 
     if deploy_count is None:
         return {
-            "count":         None,
-            "total_filers":  total_filers,
-            "status":        "error",
-            "confidence":    "low",
-            "note":          "EDGAR query failed — see logs.",
+            "count":           None,
+            "total_filers":    None,
+            "deploy_rate_pct": None,
+            "sample_entities": [],
+            "status":          "error",
+            "confidence":      "low",
+            "note":            "EDGAR response shape unexpected — see logs.",
         }
 
-    deploy_rate = None
+    # (b) Denominator query — total filers (term in virtually every annual report)
+    data_b = _edgar_request(
+        session,
+        {**base, "q": '"results of operations"'},
+        f"{label} total-filers proxy",
+    )
+    total_filers, _ = _parse_edgar_response(data_b, f"{label} denominator")
+
+    deploy_rate: float | None = None
     if total_filers and total_filers > 0:
         deploy_rate = round(deploy_count / total_filers * 100, 1)
 
+    session.close()
+
     log.info(
-        "%s: %d of ~%d filers mention '%s' (%.1f%%)",
+        "%s: %d of ~%s filers mention '%s' (%.1f%%)",
         label,
         deploy_count,
-        total_filers or 0,
-        EDGAR_TERM,
+        total_filers or "?",
+        EDGAR_PRIMARY_TERM,
         deploy_rate or 0.0,
     )
 
     if is_proxy:
         note = (
-            f"20-F filings cover all foreign private issuers listed on US exchanges. "
-            f"Chinese ADRs are the largest segment (~40% of filers) but this is not "
-            f"exclusively China — also includes European, Korean, and other issuers. "
-            f"Counts {form_type} annual reports mentioning \"{EDGAR_TERM}\". "
-            f"Treat as a directional proxy, not a China-specific count. "
-            f"Deployment rate = filers mentioning term ÷ total 20-F filers in period."
+            f"20-F annual reports mentioning \"{EDGAR_PRIMARY_TERM}\". "
+            "Covers all foreign private issuers on US exchanges — "
+            "Chinese ADRs (Alibaba, Baidu, JD, PDD…) are the dominant segment "
+            "but this is not exclusively China. Tencent, ByteDance, Meituan "
+            "(HK/private) are NOT covered. "
+            "Treat as a directional China proxy, not a China-specific count. "
+            "Deployment rate = matching filers ÷ total 20-F filers in period."
         )
         status = "partial"
     else:
         note = (
-            f"US domestic public company annual reports (10-K) mentioning "
-            f"\"{EDGAR_TERM}\". "
-            f"May include strategy/exploration mentions alongside confirmed deployments. "
-            f"Counts filings (typically one per company per year). "
-            f"Deployment rate = filers mentioning term ÷ total 10-K filers in period."
+            f"US domestic 10-K annual reports mentioning \"{EDGAR_PRIMARY_TERM}\". "
+            "May include strategy/exploration alongside confirmed deployments. "
+            "Deployment rate = matching filers ÷ total 10-K filers in period."
         )
         status = "ok"
 
     return {
-        "count":         deploy_count,
-        "total_filers":  total_filers,
+        "count":           deploy_count,
+        "total_filers":    total_filers,
         "deploy_rate_pct": deploy_rate,
-        "status":        status,
-        "confidence":    "low" if is_proxy else "medium",
-        "note":          note,
+        "sample_entities": sample_entities,
+        "issuers_scanned": total_filers,
+        "filings_scanned": total_filers,
+        "status":          status,
+        "confidence":      "low" if is_proxy else "medium",
+        "note":            note,
     }
 
 
@@ -517,69 +567,73 @@ def fetch_edgar(form_type: str, start_date: str, end_date: str) -> dict:
 # ─────────────────────────────────────────────────────────────────────────────
 def compute_composite(proc: dict, edgar: dict, label: str) -> dict:
     """
-    Compute a transparent composite adoption proxy score (0–10).
+    Transparent composite adoption proxy score (0–10).
 
-    Components (each 0–5 points):
-      Procurement: log-scaled count / baseline. Baseline chosen so that
-        ~2,000 contracts (estimated US annual AI procurement on EDGAR-visible
-        keywords) maps to ~5 points. For China, same scale if available.
-      EDGAR rate: deployment_rate_pct / 20 * 5 (20% rate → 5 pts).
+    Two components, each 0–5 points:
+    - Procurement: log10-scaled. 1 action→~0.5 pt; 100→~3; 2000→5.
+    - EDGAR rate:  deploy_rate_pct / 20 × 5. 20% rate → 5 pts.
 
     Confidence:
-      high   — both signals available
-      medium — one signal available
-      low    — no signals available or all blocked
+      "medium"  — both signals available
+      "low"     — one signal
+      "no-data" — no signals
+
+    Provisional = True if any signal is blocked, partial, or error.
     """
     import math
 
     components = []
     score      = 0.0
+    provisional = False
 
-    # Procurement component (0–5 pts)
-    if proc.get("status") in ("ok",) and proc.get("count") is not None:
-        # log scale so score doesn't collapse for small counts
-        # 1 contract → ~0.5; 100 → ~3; 2000 → ~5
-        proc_pts = min(math.log10(max(proc["count"], 1) + 1) / math.log10(2001) * 5, 5.0)
-        proc_pts = round(proc_pts, 2)
-        score   += proc_pts
+    # Procurement component
+    if proc.get("status") == "ok" and proc.get("count") is not None:
+        pts   = min(math.log10(max(proc["count"], 1) + 1) / math.log10(2001) * 5, 5.0)
+        pts   = round(pts, 2)
+        score += pts
         components.append({
             "name":  "government_procurement",
-            "score": proc_pts,
+            "score": pts,
             "input": proc["count"],
-            "note":  "log10-scaled; 2000 contracts ≈ 5 pts",
+            "note":  "log10-scaled; 2000 actions ≈ 5 pts",
         })
+    elif proc.get("status") in ("blocked", "partial", "error", "unavailable"):
+        provisional = True
 
-    # EDGAR component (0–5 pts)
+    # EDGAR component
     rate = edgar.get("deploy_rate_pct")
     if edgar.get("status") in ("ok", "partial") and rate is not None:
-        edgar_pts = min(rate / 20 * 5, 5.0)
-        edgar_pts = round(edgar_pts, 2)
-        score    += edgar_pts
+        pts   = min(rate / 20 * 5, 5.0)
+        pts   = round(pts, 2)
+        score += pts
         components.append({
-            "name":  "company_filings",
-            "score": edgar_pts,
+            "name":  "company_disclosures",
+            "score": pts,
             "input": rate,
-            "note":  "deploy_rate_pct / 20 * 5; 20% → 5 pts",
+            "note":  "deploy_rate_pct / 20 × 5; 20% → 5 pts",
         })
+        if edgar.get("status") == "partial":
+            provisional = True
+    elif edgar.get("status") in ("blocked", "error", "unavailable"):
+        provisional = True
 
-    # Confidence
-    n_signals = len(components)
-    if n_signals >= 2:
-        confidence = "medium"     # both signals contribute
-    elif n_signals == 1:
-        confidence = "low"        # only one signal
+    n = len(components)
+    if n >= 2:
+        confidence = "medium"
+    elif n == 1:
+        confidence = "low"
     else:
         confidence = "no-data"
 
     return {
-        "score":      round(score, 1),
-        "confidence": confidence,
-        "components": components,
+        "score":       round(score, 1),
+        "confidence":  confidence,
+        "provisional": provisional,
+        "components":  components,
         "note": (
-            f"Transparent proxy score for {label} AI adoption visibility. "
-            "Two-component: government procurement (log-scaled) + EDGAR disclosure rate. "
-            "Score reflects observable public signals, not total adoption. "
-            "Not directly comparable across countries due to coverage asymmetry."
+            f"Transparent proxy score for {label} observable AI adoption. "
+            "Components: procurement (log-scaled) + EDGAR disclosure rate. "
+            "Not a validated index — compare directionally only."
         ),
     }
 
@@ -588,9 +642,12 @@ def compute_composite(proc: dict, edgar: dict, label: str) -> dict:
 # SANITY CHECK
 # ─────────────────────────────────────────────────────────────────────────────
 def sanity_check(us_proc: dict, us_edgar: dict) -> None:
-    """Abort if both primary US signals have errored out."""
-    if us_proc["status"] == "error" and us_edgar["status"] == "error":
-        log.error("FAIL: Both US signals returned errors — aborting")
+    """
+    Abort only if both primary US signals fail completely.
+    Partial / blocked signals are not abort conditions.
+    """
+    if us_proc["status"] == "error" and us_edgar["status"] in ("error", "blocked"):
+        log.error("FAIL: Both US signals are in error/blocked state — aborting")
         sys.exit(1)
 
     if us_proc["status"] == "ok" and (us_proc.get("count") or 0) == 0:
@@ -621,10 +678,10 @@ def main() -> None:
     log.info("Signal 1b — China procurement (CCGP) …")
     cn_proc  = fetch_cn_procurement(start_date, end_date)
 
-    log.info('Signal 2a — US company filings (EDGAR 10-K, "%s") …', EDGAR_TERM)
+    log.info('Signal 2a — US disclosures (EDGAR 10-K, "%s") …', EDGAR_PRIMARY_TERM)
     us_edgar = fetch_edgar("10-K", start_date, end_date)
 
-    log.info('Signal 2b — China proxy filings (EDGAR 20-F, "%s") …', EDGAR_TERM)
+    log.info('Signal 2b — China proxy disclosures (EDGAR 20-F, "%s") …', EDGAR_PRIMARY_TERM)
     cn_edgar = fetch_edgar("20-F", start_date, end_date)
 
     sanity_check(us_proc, us_edgar)
@@ -633,30 +690,48 @@ def main() -> None:
     composite_us    = compute_composite(us_proc, us_edgar, "US")
     composite_china = compute_composite(cn_proc, cn_edgar, "China")
 
+    # Overall provisional flag: True if any signal is not "ok"
+    any_blocked = any(
+        s in ("blocked", "partial", "error", "unavailable")
+        for s in [
+            us_proc["status"], cn_proc["status"],
+            us_edgar["status"], cn_edgar["status"],
+        ]
+    )
+
     now = datetime.now(timezone.utc).isoformat()
 
     output = {
-        "dimension":    "adoption",
-        "metric_key":   "ai_adoption_signals",
+        "dimension":   "adoption",
+        "metric_key":  "ai_adoption_signals",
         "description": (
-            "Two-signal proxy for observable AI deployment activity. "
-            "Signal 1: government procurement orders (binding institutional decisions). "
-            "Signal 2: corporate annual report disclosures of generative AI. "
-            "Neither signal is a complete or symmetric measure of total adoption."
+            "Two-signal proxy for observable AI deployment in public records. "
+            "Signal 1: government procurement orders. "
+            "Signal 2: public company annual report disclosures. "
+            "This is NOT a total adoption census — coverage is structurally asymmetric."
         ),
         "fetched_at":   now,
-        "last_updated": now,           # alias for downstream compatibility
+        "last_updated": now,
         "window_days":  WINDOW_DAYS,
         "start_date":   start_date,
         "end_date":     end_date,
+
+        # Provisional: true until both signals are stable and symmetric.
+        # score_updated: true only if composite scores are reliable enough to
+        # update the scorecard (requires both signals to be "ok" or "partial").
+        "provisional":    any_blocked,
+        "score_updated":  (
+            composite_us["confidence"] in ("medium", "low")
+            and composite_china["confidence"] in ("medium", "low")
+        ),
 
         "signals": {
             "government_procurement": {
                 "description": (
                     "Government AI procurement orders — contracts awarded or modified "
-                    "within the rolling window. US: federal contracts with AI keywords. "
-                    "China: central-government procurement notices (CCGP, best-effort). "
-                    "Counts the action_date transaction, not contract start date."
+                    "within the rolling window. "
+                    "US: federal contracts with AI keywords (action_date filtered). "
+                    "China: CCGP central-government notices (best-effort; often blocked)."
                 ),
                 "keywords": {
                     "US":    US_KEYWORDS,
@@ -680,60 +755,53 @@ def main() -> None:
                 },
             },
 
-            "company_filings": {
+            "company_disclosures": {
                 "description": (
-                    f"Public company annual filings mentioning \"{EDGAR_TERM}\" "
+                    f"Annual reports mentioning \"{EDGAR_PRIMARY_TERM}\" "
                     "in SEC EDGAR full-text search. "
                     "US: 10-K domestic companies. "
-                    "China proxy: 20-F foreign private issuers (primarily Chinese ADRs). "
+                    "China proxy: 20-F foreign private issuers (Chinese ADRs dominant). "
                     "Deployment rate = matching filers ÷ total filers in period."
                 ),
-                "query_term":  EDGAR_TERM,
-                "query_terms": [EDGAR_TERM],   # list for forward-compatibility
+                "query_term":  EDGAR_PRIMARY_TERM,
+                "query_terms": EDGAR_TERMS,
                 "US": {
-                    "count":            us_edgar.get("count"),
-                    "total_filers":     us_edgar.get("total_filers"),
-                    "deploy_rate_pct":  us_edgar.get("deploy_rate_pct"),
-                    "status":           us_edgar["status"],
-                    "confidence":       us_edgar["confidence"],
-                    "source":           "SEC EDGAR (10-K filings)",
-                    "source_url":       "https://efts.sec.gov/LATEST/search-index",
-                    "note":             us_edgar.get("note", ""),
+                    "count":           us_edgar.get("count"),
+                    "total_filers":    us_edgar.get("total_filers"),
+                    "issuers_scanned": us_edgar.get("issuers_scanned"),
+                    "filings_scanned": us_edgar.get("filings_scanned"),
+                    "deploy_rate_pct": us_edgar.get("deploy_rate_pct"),
+                    "sample_entities": us_edgar.get("sample_entities", []),
+                    "status":          us_edgar["status"],
+                    "confidence":      us_edgar["confidence"],
+                    "source":          "SEC EDGAR (10-K filings)",
+                    "source_url":      "https://efts.sec.gov/LATEST/search-index",
+                    "note":            us_edgar.get("note", ""),
                 },
                 "China_proxy": {
-                    "count":            cn_edgar.get("count"),
-                    "total_filers":     cn_edgar.get("total_filers"),
-                    "deploy_rate_pct":  cn_edgar.get("deploy_rate_pct"),
-                    "status":           cn_edgar["status"],
-                    "confidence":       cn_edgar["confidence"],
-                    "source":           "SEC EDGAR (20-F filings)",
-                    "source_url":       "https://efts.sec.gov/LATEST/search-index",
-                    "note":             cn_edgar.get("note", ""),
+                    "count":           cn_edgar.get("count"),
+                    "total_filers":    cn_edgar.get("total_filers"),
+                    "issuers_scanned": cn_edgar.get("issuers_scanned"),
+                    "filings_scanned": cn_edgar.get("filings_scanned"),
+                    "deploy_rate_pct": cn_edgar.get("deploy_rate_pct"),
+                    "sample_entities": cn_edgar.get("sample_entities", []),
+                    "status":          cn_edgar["status"],
+                    "confidence":      cn_edgar["confidence"],
+                    "source":          "SEC EDGAR (20-F filings)",
+                    "source_url":      "https://efts.sec.gov/LATEST/search-index",
+                    "note":            cn_edgar.get("note", ""),
                 },
             },
         },
 
-        # US federal contract examples — sorted by award amount (largest first).
-        # "contract_start" = period_of_performance_start_date, which may predate
-        # the search window. Contracts appear because a procurement action
-        # (award or modification) occurred within the rolling window.
-        "top_examples":    us_proc.get("examples", []),
+        "top_examples":   us_proc.get("examples", []),
         "examples_note": (
             "Examples sorted by award amount (largest first). "
-            "'Contract Start' = period_of_performance_start_date, which may predate "
-            "the rolling window. Contracts appear because a procurement action "
-            "(award or modification) fell within the window."
+            "'Contract Start' = period_of_performance_start_date — may predate the "
+            "rolling window because a procurement action (modification/increment) "
+            "occurred within the window for a multi-year contract."
         ),
-
-        "sample_size":       len(us_proc.get("examples", [])),
-        "issuers_scanned":   {
-            "US":          us_edgar.get("total_filers"),
-            "China_proxy": cn_edgar.get("total_filers"),
-        },
-        "filings_scanned":   {
-            "US":          us_edgar.get("total_filers"),
-            "China_proxy": cn_edgar.get("total_filers"),
-        },
+        "sample_size":    len(us_proc.get("examples", [])),
 
         "composite_us":    composite_us,
         "composite_china": composite_china,
@@ -747,35 +815,33 @@ def main() -> None:
 
         "methodology_note": (
             "Adoption is a proxy for observable deployment, not total adoption. "
-            "Procurement captures institutional purchase/rollout intent — "
-            "a binding decision to acquire AI is stronger evidence than strategy mentions. "
-            "Public company filings capture self-reported generative AI use in annual reports. "
-            "Both signals are subject to reporting and accessibility asymmetries: "
-            "US data is substantially more automatable than China data. "
-            "The US/China ratio reflects this transparency gap, not necessarily a "
-            "proportional difference in actual AI adoption rates. "
-            "CCGP null = pipeline blocked (not zero procurement). "
-            "20-F proxy covers all foreign-listed issuers, not China exclusively. "
+            "Procurement captures binding institutional decisions to acquire AI. "
+            "Company disclosures capture self-reported generative AI use in annual reports, "
+            "which may include strategy/exploration alongside confirmed deployments. "
+            "Both signals are subject to structural transparency asymmetries: "
+            "US data is substantially more automatable. "
+            "China procurement (CCGP) is frequently inaccessible from US runners. "
+            "China corporate coverage (20-F) covers US-listed ADRs only — "
+            "not Tencent, ByteDance, or Meituan. "
             "Compare directionally only."
         ),
 
         "coverage_note": (
-            "Coverage is asymmetric by design of public reporting systems, not by analysis choice. "
-            "US: full federal procurement API + all SEC-registered public companies. "
+            "Coverage asymmetry reflects the design of public reporting systems, "
+            "not an analytical choice. "
+            "US: full federal procurement API + all US SEC-registered companies. "
             "China: central procurement portal only (often inaccessible remotely) + "
-            "US-exchange-listed Chinese ADRs only (Alibaba, Baidu, JD, PDD, etc.). "
-            "Chinese companies listed exclusively on domestic or HK exchanges are not captured. "
-            "This is a known and documented limitation."
+            "US-exchange-listed Chinese ADRs only. "
+            "This is documented, not hidden."
         ),
 
         "caveats": (
-            "1. Scope asymmetry: US = federal + US-listed public companies; "
-            "China = central CCGP notices (often blocked) + Chinese ADRs (non-exclusive). "
-            "2. CCGP null = inaccessible from runner, not zero procurement. "
-            "3. 20-F proxy includes non-Chinese foreign issuers. "
-            "4. 'Generative AI' disclosures include strategy mentions alongside deployments. "
-            "5. Contract start dates in examples may predate the rolling window. "
-            "6. Composite scores are transparent proxies, not validated adoption indices."
+            "1. CCGP null = pipeline blocked, not zero procurement. "
+            "2. 20-F proxy includes non-Chinese foreign issuers. "
+            "3. Disclosure counts may include strategy mentions alongside deployments. "
+            "4. Contract start dates in examples may predate the rolling window. "
+            "5. Composite scores are transparent proxies, not validated indices. "
+            "6. If provisional=true, do not use scores for direct US–China comparison."
         ),
     }
 
@@ -784,23 +850,24 @@ def main() -> None:
     log.info("")
     log.info("═══ Output: %s", OUTPUT_FILE)
     log.info("  Window: %s → %s", start_date, end_date)
+    log.info("  Provisional: %s  |  score_updated: %s", output["provisional"], output["score_updated"])
     log.info("  Signal 1 — Government Procurement:")
-    log.info("    US:   %6s  (status: %s)", us_proc.get("count"), us_proc["status"])
-    log.info("    CN:   %6s  (status: %s)", cn_proc.get("count"), cn_proc["status"])
-    log.info("  Signal 2 — EDGAR '%s' disclosures:", EDGAR_TERM)
+    log.info("    US:        %6s  (status: %s)", us_proc.get("count"), us_proc["status"])
+    log.info("    China:     %6s  (status: %s)", cn_proc.get("count"), cn_proc["status"])
+    log.info("  Signal 2 — Company Disclosures (EDGAR '%s'):", EDGAR_PRIMARY_TERM)
     log.info(
-        "    US 10-K:  %s of ~%s filers  (%.1f%%) (status: %s)",
+        "    US 10-K:   %6s of ~%s  (%.1f%%)  (status: %s)",
         us_edgar.get("count"), us_edgar.get("total_filers"),
         us_edgar.get("deploy_rate_pct") or 0.0, us_edgar["status"],
     )
     log.info(
-        "    20-F:     %s of ~%s filers  (%.1f%%) (status: %s)",
+        "    20-F:      %6s of ~%s  (%.1f%%)  (status: %s)",
         cn_edgar.get("count"), cn_edgar.get("total_filers"),
         cn_edgar.get("deploy_rate_pct") or 0.0, cn_edgar["status"],
     )
-    log.info("  Composite:  US=%.1f (%s)  China=%.1f (%s)",
-             composite_us["score"],    composite_us["confidence"],
-             composite_china["score"], composite_china["confidence"])
+    log.info("  Composite:  US=%.1f (%s, prov=%s)  China=%.1f (%s, prov=%s)",
+             composite_us["score"],    composite_us["confidence"],    composite_us["provisional"],
+             composite_china["score"], composite_china["confidence"], composite_china["provisional"])
 
 
 if __name__ == "__main__":

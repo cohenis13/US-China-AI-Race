@@ -271,6 +271,8 @@ h1 {
 .deploy-rate strong { color: var(--t2); }
 .chart-unavail-note { font-size: 10.5px; color: var(--t3); font-style: italic; margin-top: 4px; }
 .examples-note { font-size: 10px; color: var(--t3); margin-top: 5px; line-height: 1.4; padding: 4px 0; border-top: 1px solid var(--border); }
+.provisional-badge { display: inline-flex; align-items: center; gap: 4px; margin-left: 8px; padding: 2px 8px; border-radius: 10px; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: rgba(234,179,8,0.13); color: #b45309; border: 1px solid rgba(234,179,8,0.25); vertical-align: middle; }
+.sample-entities { font-size: 10.5px; color: var(--t3); margin-top: 6px; line-height: 1.5; }
 .section-module-lbl {
   font-size: 11px;
   font-weight: 700;
@@ -1497,9 +1499,9 @@ footer {
               </tr>
               <tr>
                 <td class="dim-lbl">Adoption</td>
-                <td class="sval us">6.0</td>
-                <td class="sval cn">7.5</td>
-                <td><span class="chip cn">+1.5 CN</span></td>
+                <td class="sval us" id="score-ado-us">6.0</td>
+                <td class="sval cn" id="score-ado-cn">7.5</td>
+                <td id="score-ado-edge"><span class="chip cn">+1.5 CN</span></td>
               </tr>
               <tr>
                 <td class="dim-lbl">Diffusion</td>
@@ -1531,7 +1533,7 @@ footer {
   <section class="live-section" id="adoption">
     <div class="section-module-hdr oth-accent">
       <div>
-        <div class="section-module-lbl">Adoption &nbsp;—&nbsp; Live Tracker</div>
+        <div class="section-module-lbl">Adoption &nbsp;—&nbsp; Live Tracker<span id="ado-provisional-badge" style="display:none;" class="provisional-badge">Coverage limited</span></div>
       </div>
       <span class="live-badge"><span class="live-dot"></span>Auto-updated daily</span>
     </div>
@@ -1605,25 +1607,27 @@ footer {
           </div>
         </div><!-- /signal-grp 1 -->
 
-        <!-- ── Signal 2: Corporate Filing Disclosures ────────────── -->
+        <!-- ── Signal 2: Public Company Deployment Disclosures ──── -->
         <div class="signal-grp">
           <div class="signal-grp-hdr">
-            <span class="signal-grp-lbl">Signal 2 &mdash; Corporate Generative AI Disclosures</span>
+            <span class="signal-grp-lbl">Signal 2 &mdash; Public Company Deployment Disclosures</span>
             <span class="signal-grp-src">SEC EDGAR 10-K &nbsp;·&nbsp; 20-F</span>
           </div>
 
           <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
             <div class="fm-stat us">
               <div class="fm-stat-num" id="ado-us-edgar">—</div>
-              <div class="fm-stat-lbl">US Annual Reports (10-K)</div>
+              <div class="fm-stat-lbl">US Public Companies (10-K)</div>
               <div id="ado-us-edgar-badge"></div>
               <div class="deploy-rate" id="ado-us-rate"></div>
+              <div class="sample-entities" id="ado-us-entities"></div>
             </div>
             <div class="fm-stat cn">
               <div class="fm-stat-num" id="ado-cn-edgar">—</div>
-              <div class="fm-stat-lbl">Chinese ADR Proxy (20-F)</div>
+              <div class="fm-stat-lbl">Foreign Issuers incl. Chinese ADRs (20-F)</div>
               <div id="ado-cn-edgar-badge"></div>
               <div class="deploy-rate" id="ado-cn-rate"></div>
+              <div class="sample-entities" id="ado-cn-entities"></div>
             </div>
           </div>
           <div id="ado-edgar-note" style="font-size:11px;color:var(--t3);margin-top:7px;line-height:1.55;"></div>
@@ -2552,14 +2556,14 @@ function buildAdoptionChart(entries) {
 }
 
 function renderAdoption(data) {
-  const sig     = data.signals || {};
-  const govProc = sig.government_procurement || {};
-  const filings = sig.company_filings        || {};
+  const sig        = data.signals || {};
+  const govProc    = sig.government_procurement || {};
+  const disclosures = sig.company_disclosures   || {};
 
-  const usProc  = govProc.US          || { count: null, status: 'unavailable' };
-  const cnProc  = govProc.China       || { count: null, status: 'unavailable' };
-  const usEdgar = filings.US          || { count: null, status: 'unavailable' };
-  const cnEdgar = filings.China_proxy || { count: null, status: 'unavailable' };
+  const usProc  = govProc.US            || { count: null, status: 'unavailable' };
+  const cnProc  = govProc.China         || { count: null, status: 'unavailable' };
+  const usEdgar = disclosures.US        || { count: null, status: 'unavailable' };
+  const cnEdgar = disclosures.China_proxy || { count: null, status: 'unavailable' };
 
   document.getElementById('ado-fetched-at').textContent = fmtFetchedAt(data.fetched_at || data.last_updated);
 
@@ -2652,23 +2656,42 @@ function renderAdoption(data) {
       : '';
   }
 
+  // ── Signal 2: Sample entities ─────────────────────────────────────────────
+  const usEntitiesEl = document.getElementById('ado-us-entities');
+  const cnEntitiesEl = document.getElementById('ado-cn-entities');
+  if (usEntitiesEl) {
+    const names = usEdgar.sample_entities || [];
+    usEntitiesEl.textContent = names.length > 0 ? 'e.g. ' + names.slice(0, 5).join(', ') : '';
+  }
+  if (cnEntitiesEl) {
+    const names = cnEdgar.sample_entities || [];
+    cnEntitiesEl.textContent = names.length > 0 ? 'e.g. ' + names.slice(0, 5).join(', ') : '';
+  }
+
   // EDGAR explanatory note
-  const term  = (filings.query_term || 'generative AI');
+  const term  = (disclosures.query_term || 'generative AI');
   const eNote = document.getElementById('ado-edgar-note');
   if (eNote) {
     eNote.innerHTML =
       `Counts annual reports (10-K / 20-F) mentioning <em>"${term}"</em> ` +
       'in SEC EDGAR full-text search. ' +
       'Deployment rate = matching filers &divide; total filers in period. ' +
-      '20-F proxy covers all foreign private issuers on US exchanges — ' +
+      '20-F covers all foreign private issuers on US exchanges — ' +
       'Chinese ADRs (Alibaba, Baidu, JD, PDD…) are the dominant segment but this is not China-exclusive. ' +
       'Disclosures may include strategy alongside confirmed deployments.';
+  }
+
+  // ── Provisional badge ─────────────────────────────────────────────────────
+  const provBadge = document.getElementById('ado-provisional-badge');
+  if (provBadge) {
+    provBadge.style.display = data.provisional ? '' : 'none';
   }
 
   // ── Meta line ────────────────────────────────────────────────────────────
   const win = data.window_days || 365;
   document.getElementById('ado-meta').textContent =
-    `${win}-day rolling window  ·  Signal 1: federal contract keyword search  ·  Signal 2: EDGAR full-text "${term}"`;
+    `${win}-day rolling window  ·  Signal 1: federal contract keyword search  ·  Signal 2: EDGAR full-text "${term}"` +
+    (data.provisional ? '  ·  provisional (some signals limited)' : '');
 
   // ── Interpretive note ────────────────────────────────────────────────────
   let interp = '';
@@ -2694,6 +2717,29 @@ function renderAdoption(data) {
   }
   const caveat = ` <span style="color:var(--t3);">Proxy for visible deployment, not total adoption. Transparency asymmetry exists — compare directionally.</span>`;
   document.getElementById('ado-interp').innerHTML = interp + (interp ? caveat : '');
+
+  // ── Scorecard update (only if score_updated flag is set) ─────────────────
+  if (data.score_updated && data.composite_us && data.composite_china) {
+    const usScore  = data.composite_us.score;
+    const cnScore  = data.composite_china.score;
+    const usEl     = document.getElementById('score-ado-us');
+    const cnEl     = document.getElementById('score-ado-cn');
+    const edgeEl   = document.getElementById('score-ado-edge');
+    if (usEl && cnEl && usScore != null && cnScore != null) {
+      usEl.textContent = usScore.toFixed(1);
+      cnEl.textContent = cnScore.toFixed(1);
+      if (edgeEl) {
+        const diff = +(usScore - cnScore).toFixed(1);
+        if (diff > 0) {
+          edgeEl.innerHTML = `<span class="chip us">+${diff} US</span>`;
+        } else if (diff < 0) {
+          edgeEl.innerHTML = `<span class="chip cn">+${Math.abs(diff)} CN</span>`;
+        } else {
+          edgeEl.innerHTML = `<span class="chip tie">Parity</span>`;
+        }
+      }
+    }
+  }
 
   document.getElementById('ado-loading').style.display = 'none';
   document.getElementById('ado-error').style.display   = 'none';

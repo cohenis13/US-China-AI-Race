@@ -1,12 +1,14 @@
 {
   "dimension": "adoption",
   "metric_key": "ai_adoption_signals",
-  "description": "Two-signal proxy for observable AI deployment activity. Signal 1: government procurement orders. Signal 2: corporate annual report disclosures of generative AI. Neither signal is a complete or symmetric measure of total adoption.",
+  "description": "Two-signal proxy for observable AI deployment in public records. Signal 1: government procurement orders. Signal 2: public company annual report disclosures. This is NOT a total adoption census — coverage is structurally asymmetric.",
   "fetched_at": "2026-03-20T17:46:57.482439+00:00",
   "last_updated": "2026-03-20T17:46:57.482439+00:00",
   "window_days": 365,
   "start_date": "2025-03-20",
   "end_date": "2026-03-20",
+  "provisional": true,
+  "score_updated": false,
   "signals": {
     "government_procurement": {
       "description": "Government AI procurement orders — contracts awarded or modified within the rolling window.",
@@ -31,24 +33,30 @@
         "note": "CCGP returned a response but the total count could not be parsed. Central-government only; sub-national procurement not captured."
       }
     },
-    "company_filings": {
-      "description": "Public company annual filings mentioning \"generative AI\" in SEC EDGAR full-text search. US: 10-K domestic companies. China proxy: 20-F foreign private issuers (primarily Chinese ADRs).",
+    "company_disclosures": {
+      "description": "Annual reports mentioning \"generative AI\" in SEC EDGAR full-text search. US: 10-K domestic companies. China proxy: 20-F foreign private issuers (Chinese ADRs dominant). Deployment rate = matching filers ÷ total filers in period.",
       "query_term": "generative AI",
-      "query_terms": ["generative AI"],
+      "query_terms": ["generative AI", "large language model"],
       "US": {
         "count": null,
         "total_filers": null,
+        "issuers_scanned": null,
+        "filings_scanned": null,
         "deploy_rate_pct": null,
+        "sample_entities": [],
         "status": "unavailable",
         "confidence": "unavailable",
         "source": "SEC EDGAR (10-K filings)",
         "source_url": "https://efts.sec.gov/LATEST/search-index",
-        "note": "Previous run used 'AI deployment' term (403 from EDGAR). v3 script uses 'generative AI' — will populate on next workflow run."
+        "note": "v4 script uses 'generative AI' — will populate on next workflow run."
       },
       "China_proxy": {
         "count": null,
         "total_filers": null,
+        "issuers_scanned": null,
+        "filings_scanned": null,
         "deploy_rate_pct": null,
+        "sample_entities": [],
         "status": "unavailable",
         "confidence": "unavailable",
         "source": "SEC EDGAR (20-F filings)",
@@ -73,15 +81,18 @@
   "sample_size": 10,
   "issuers_scanned": {"US": null, "China_proxy": null},
   "filings_scanned": {"US": null, "China_proxy": null},
+  "coverage_note": "Coverage asymmetry reflects the design of public reporting systems, not an analytical choice. US: full federal procurement API + all US SEC-registered companies. China: central procurement portal only (often inaccessible remotely) + US-exchange-listed Chinese ADRs only. This is documented, not hidden.",
   "composite_us": {
     "score": 0.5,
     "confidence": "low",
-    "components": [{"name": "government_procurement", "score": 0.5, "input": 10, "note": "log10-scaled; 2000 contracts = 5 pts"}],
-    "note": "Transparent proxy score for US AI adoption visibility."
+    "provisional": true,
+    "components": [{"name": "government_procurement", "score": 0.5, "input": 10, "note": "log10-scaled; 2000 actions ≈ 5 pts"}],
+    "note": "Transparent proxy score for US observable AI adoption. Components: procurement (log-scaled) + EDGAR disclosure rate. Not a validated index — compare directionally only."
   },
   "composite_china": {
     "score": 0.0,
     "confidence": "no-data",
+    "provisional": true,
     "components": [],
     "note": "No signals available — CCGP partial, EDGAR pending."
   },

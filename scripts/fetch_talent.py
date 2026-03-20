@@ -1,35 +1,32 @@
 #!/usr/bin/env python3
 """
-Fetch AI research paper data from arXiv API.
+Fetch AI research paper data from OpenAlex API.
 
-Classifies papers by country using keyword matching against:
-  1. Author affiliation fields (when provided by arXiv — sparse)
-  2. Abstract text (fallback — more common but noisier)
+Uses OpenAlex's group_by endpoint to count AI papers by country of institution
+for the last 12 months. OpenAlex pre-computes institution affiliations for most
+papers, so Unknown rates are far lower than approaches based on keyword matching
+against raw arXiv metadata.
 
-Institution keywords are maintained in data/institutions.json.
+Two API calls are made per run:
+  1. group_by(country_code) — full country breakdown + total count in one call
+  2. recent papers         — 15 most recent papers for the dashboard table
 
-Outputs cleaned, timestamped data to data/talent.json.
+No API key is required. We add an email to the User-Agent header to join
+OpenAlex's "polite pool" (higher rate limits). Update MAILTO below if desired.
+
+Outputs to data/talent.json.
 
 Usage:
     pip install requests
     python scripts/fetch_talent.py
 
 This script is designed to run locally or via GitHub Actions.
-
-IMPORTANT NOTE ON COVERAGE:
-arXiv does not expose a bulk download API for date-filtered results beyond
-2000 records per query. For large categories like cs.LG and cs.CV (which
-receive thousands of submissions per month), this script samples the most
-recent 2000 papers rather than covering the full 12-month window. The
-methodology_note in the output JSON documents this limitation explicitly.
 """
 
 import json
-import re
 import sys
 import time
 import logging
-import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -49,188 +46,143 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # ── Paths ────────────────────────────────────────────────────────
-ROOT              = Path(__file__).resolve().parent.parent
-INSTITUTIONS_FILE = ROOT / "data" / "institutions.json"
-OUTPUT_FILE       = ROOT / "data" / "talent.json"
+ROOT        = Path(__file__).resolve().parent.parent
+OUTPUT_FILE = ROOT / "data" / "talent.json"
 
 # ── Config ───────────────────────────────────────────────────────
-WINDOW_DAYS      = 365           # Filter cutoff: only keep papers newer than this
-ARXIV_API_BASE   = "http://export.arxiv.org/api/query"
-REQUEST_TIMEOUT  = 60            # seconds — arXiv can be slow for large result sets
-RATE_LIMIT_SLEEP = 3.0           # arXiv requests: wait 3s between calls (their guideline)
-RESULTS_PER_CAT  = 2000          # max papers per category (arXiv API upper bound)
-MAX_AUTHORS_OUT  = 5             # cap author list in output JSON to keep file size down
+WINDOW_DAYS     = 365
+OPENALEX_BASE   = "https://api.openalex.org/works"
+REQUEST_TIMEOUT = 30
+RATE_LIMIT_SLEEP = 1.0   # be polite; OpenAlex asks for a pause between requests
+MAX_AUTHORS_OUT  = 3
+MAX_PAPERS_TABLE = 15
 
-# AI-relevant arXiv categories to query
-CATEGORIES = ["cs.AI", "cs.LG", "cs.CL", "cs.CV"]
+# OpenAlex concept IDs for AI/ML/NLP/CV
+# These are stable identifiers in OpenAlex's concept taxonomy.
+CONCEPTS = "C154945302|C119857082|C204321447|C31972630"
+# C154945302 = Artificial Intelligence
+# C119857082 = Machine Learning
+# C204321447 = Natural Language Processing
+# C31972630  = Computer Vision
 
-# arXiv Atom namespace map
-ATOM_NS  = "http://www.w3.org/2005/Atom"
-ARXIV_NS = "http://arxiv.org/schemas/atom"
+# Email for OpenAlex polite pool — update to a real contact if desired.
+# See: https://docs.openalex.org/how-to-use-the-api/rate-limits-and-authentication
+MAILTO = "ai-tracker@github-actions"
 
-
-# ── Institution loading and pattern compilation ───────────────────
-
-def load_institutions() -> dict:
-    """Load institution keyword lists from data/institutions.json."""
-    if not INSTITUTIONS_FILE.exists():
-        log.error("institutions.json not found at %s", INSTITUTIONS_FILE)
-        sys.exit(1)
-    with open(INSTITUTIONS_FILE, encoding="utf-8") as f:
-        return json.load(f)
+# Country codes that count as "US" or "China" for the summary
+US_CODE = "US"
+CN_CODE = "CN"
 
 
-def compile_patterns(keywords: list[str]) -> list[re.Pattern]:
-    """Compile a list of keyword strings into word-boundary regex patterns."""
-    return [
-        re.compile(r"\b" + re.escape(kw) + r"\b", re.IGNORECASE)
-        for kw in keywords
-    ]
+# ── API helpers ───────────────────────────────────────────────────
 
-
-def build_pattern_sets(institutions: dict) -> dict:
-    """
-    Return compiled patterns for affiliation and abstract matching.
-
-    Structure:
-      {
-        "affiliation": {"US": [...], "China": [...], "Other": [...]},
-        "abstract":    {"US": [...], "China": [...], "Other": [...]},
-      }
-    """
-    return {
-        "affiliation": {
-            "US":    compile_patterns(institutions["us"]["affiliation"]),
-            "China": compile_patterns(institutions["china"]["affiliation"]),
-            "Other": compile_patterns(institutions["other"]["affiliation"]),
-        },
-        "abstract": {
-            "US":    compile_patterns(institutions["us"]["abstract"]),
-            "China": compile_patterns(institutions["china"]["abstract"]),
-            "Other": compile_patterns(institutions["other"]["abstract"]),
-        },
-    }
-
-
-# ── Classification ────────────────────────────────────────────────
-
-def score_text(text: str, patterns_by_country: dict[str, list]) -> dict[str, int]:
-    """Count keyword hits per country for a single text string."""
-    scores = {c: 0 for c in patterns_by_country}
-    for country, pats in patterns_by_country.items():
-        for pat in pats:
-            if pat.search(text):
-                scores[country] += 1
-    return scores
-
-
-def classify_paper(affiliations: list[str], abstract: str, pattern_sets: dict) -> str:
-    """
-    Classify a paper as US / China / Other / Unknown.
-
-    Strategy:
-    - If affiliation fields are present, use them (more reliable).
-    - Otherwise fall back to the first 600 chars of abstract text.
-    - If both US and China score > 0, mark Unknown (likely collaboration).
-    - Return the country with the highest score, or Unknown if tied / zero.
-    """
-    if affiliations:
-        text = " | ".join(affiliations)
-        patterns = pattern_sets["affiliation"]
-    else:
-        text = abstract[:600]
-        patterns = pattern_sets["abstract"]
-
-    scores = score_text(text, patterns)
-
-    us    = scores["US"]
-    china = scores["China"]
-    other = scores["Other"]
-
-    # Mixed US+China signals → Unknown (can't attribute cleanly)
-    if us > 0 and china > 0:
-        return "Unknown"
-
-    best_count = max(us, china, other)
-    if best_count == 0:
-        return "Unknown"
-
-    if us == best_count:
-        return "US"
-    if china == best_count:
-        return "China"
-    return "Other"
-
-
-# ── arXiv API fetching ────────────────────────────────────────────
-
-def fetch_papers_for_category(category: str, cutoff: datetime) -> list[dict]:
-    """
-    Fetch up to RESULTS_PER_CAT papers for one arXiv category.
-
-    Returns only papers published after cutoff (sorted descending, so we
-    stop early once we hit a paper older than the window).
-    """
-    url = (
-        f"{ARXIV_API_BASE}"
-        f"?search_query=cat:{category}"
-        f"&sortBy=submittedDate&sortOrder=descending"
-        f"&start=0&max_results={RESULTS_PER_CAT}"
-    )
-
+def openalex_get(params: dict) -> dict | None:
+    """Make a GET request to OpenAlex and return parsed JSON, or None on failure."""
+    headers = {"User-Agent": f"ai-race-tracker/1.0 (mailto:{MAILTO})"}
     try:
-        resp = requests.get(url, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(OPENALEX_BASE, params=params, headers=headers,
+                            timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
+        return resp.json()
     except requests.exceptions.RequestException as e:
-        log.warning("Request failed for category '%s': %s", category, e)
-        return []
+        log.warning("OpenAlex request failed: %s", e)
+        return None
 
-    try:
-        root = ET.fromstring(resp.content)
-    except ET.ParseError as e:
-        log.warning("XML parse error for category '%s': %s", category, e)
+
+# ── Country breakdown ─────────────────────────────────────────────
+
+def fetch_country_breakdown(filter_str: str) -> tuple[dict, int]:
+    """
+    Fetch paper counts grouped by institution country code.
+
+    Returns:
+      - breakdown: {country_code: count} (None key = no affiliation)
+      - total_papers: total papers matching the filter (from meta.count)
+    """
+    params = {
+        "filter":   filter_str,
+        "group_by": "authorships.institutions.country_code",
+        "per_page": 200,   # ~195 UN country codes; 200 covers all in one page
+        "mailto":   MAILTO,
+    }
+    data = openalex_get(params)
+    if data is None:
+        return {}, 0
+
+    total_papers = data.get("meta", {}).get("count", 0)
+    breakdown: dict[str | None, int] = {}
+    for group in data.get("group_by", []):
+        key   = group.get("key")          # None = no affiliation; else ISO 2-letter code
+        count = group.get("count", 0)
+        breakdown[key] = count
+
+    log.info("  Total papers matching filter: %d", total_papers)
+    log.info("  Country groups returned:      %d", len(breakdown))
+    return breakdown, total_papers
+
+
+# ── Recent papers ─────────────────────────────────────────────────
+
+def derive_primary_country(countries: list[str]) -> str:
+    """
+    Derive a single primary-country label from a paper's full country list.
+
+    Rules:
+      - US only (possibly + Other)  → "US"
+      - China only (possibly + Other) → "China"
+      - Both US and China            → "Mixed"
+      - Other countries only         → "Other"
+      - No countries                 → "Unknown"
+    """
+    country_set = set(countries)
+    has_us = US_CODE in country_set
+    has_cn = CN_CODE in country_set
+
+    if has_us and has_cn:
+        return "Mixed"
+    if has_us:
+        return "US"
+    if has_cn:
+        return "China"
+    if country_set:
+        return "Other"
+    return "Unknown"
+
+
+def fetch_recent_papers(filter_str: str, n: int = MAX_PAPERS_TABLE) -> list[dict]:
+    """Fetch n most recent AI papers with authorship details."""
+    params = {
+        "filter":   filter_str,
+        "sort":     "publication_date:desc",
+        "per_page": n,
+        "select":   "id,title,publication_date,authorships",
+        "mailto":   MAILTO,
+    }
+    data = openalex_get(params)
+    if data is None:
         return []
 
     papers = []
-    for entry in root.findall(f"{{{ATOM_NS}}}entry"):
-        # Published date
-        published_str = (entry.findtext(f"{{{ATOM_NS}}}published") or "").strip()
-        try:
-            published_dt = datetime.fromisoformat(published_str.replace("Z", "+00:00"))
-        except ValueError:
-            continue
-
-        # Papers are sorted newest-first; once we hit one older than cutoff, stop
-        if published_dt < cutoff:
-            break
-
-        arxiv_id = (entry.findtext(f"{{{ATOM_NS}}}id") or "").strip()
-        title    = (entry.findtext(f"{{{ATOM_NS}}}title") or "").strip().replace("\n", " ")
-        abstract = (entry.findtext(f"{{{ATOM_NS}}}summary") or "").strip().replace("\n", " ")
-
-        authors      = []
-        affiliations = []
-        for author_el in entry.findall(f"{{{ATOM_NS}}}author"):
-            name = (author_el.findtext(f"{{{ATOM_NS}}}name") or "").strip()
+    for p in data.get("results", []):
+        # Extract author names and institution country codes
+        authors  = []
+        countries: list[str] = []
+        for auth in p.get("authorships", []):
+            name = (auth.get("author") or {}).get("display_name", "")
             if name:
                 authors.append(name)
-            affil = (author_el.findtext(f"{{{ARXIV_NS}}}affiliation") or "").strip()
-            if affil:
-                affiliations.append(affil)
-
-        cats = [
-            c.get("term", "")
-            for c in entry.findall(f"{{{ATOM_NS}}}category")
-        ]
+            for code in auth.get("countries", []):
+                if code and code not in countries:
+                    countries.append(code)
 
         papers.append({
-            "id":           arxiv_id,
-            "title":        title,
-            "authors":      authors,
-            "affiliations": affiliations,
-            "abstract":     abstract,
-            "published":    published_str,
-            "categories":   cats,
+            "id":              p.get("id", ""),
+            "title":           p.get("title", "") or "",
+            "authors":         authors[:MAX_AUTHORS_OUT],
+            "countries":       countries,
+            "primary_country": derive_primary_country(countries),
+            "published":       p.get("publication_date", ""),
+            "source":          "openalex",
         })
 
     return papers
@@ -239,96 +191,97 @@ def fetch_papers_for_category(category: str, cutoff: datetime) -> list[dict]:
 # ── Main ──────────────────────────────────────────────────────────
 
 def main() -> None:
-    institutions  = load_institutions()
-    pattern_sets  = build_pattern_sets(institutions)
-    cutoff        = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
+    cutoff     = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
+    cutoff_str = cutoff.date().isoformat()   # YYYY-MM-DD
 
-    log.info("Window: last %d days (after %s UTC)", WINDOW_DAYS, cutoff.date())
-    log.info("Categories: %s", ", ".join(CATEGORIES))
-    log.info("Max papers per category: %d", RESULTS_PER_CAT)
+    filter_str = f"concepts.id:{CONCEPTS},from_publication_date:{cutoff_str}"
 
-    # ── Fetch and deduplicate papers across categories ────────────
-    seen_ids: set[str] = set()
-    all_raw:  list[dict] = []
+    log.info("Window: last %d days (after %s UTC)", WINDOW_DAYS, cutoff_str)
+    log.info("Concepts: %s", CONCEPTS)
 
-    for cat in CATEGORIES:
-        log.info("Fetching: %s", cat)
-        papers = fetch_papers_for_category(cat, cutoff)
-        new_count = 0
-        for p in papers:
-            if p["id"] not in seen_ids:
-                seen_ids.add(p["id"])
-                all_raw.append(p)
-                new_count += 1
-        log.info("  → %d returned, %d new after dedup", len(papers), new_count)
-        time.sleep(RATE_LIMIT_SLEEP)
+    # ── Call 1: country breakdown ────────────────────────────────
+    log.info("Fetching country breakdown via group_by …")
+    breakdown, total_papers = fetch_country_breakdown(filter_str)
 
-    log.info("Total unique papers within window: %d", len(all_raw))
+    if not breakdown:
+        log.error("group_by call returned no data — aborting")
+        sys.exit(1)
 
-    # ── Classify ──────────────────────────────────────────────────
-    summary = {"US": 0, "China": 0, "Other": 0, "Unknown": 0}
-    output_papers: list[dict] = []
+    # Aggregate into US / China / Other / Unknown
+    us_count      = breakdown.get(US_CODE, 0)
+    china_count   = breakdown.get(CN_CODE, 0)
+    unknown_count = breakdown.get(None, 0) + breakdown.get("", 0)  # no affiliation
+    other_count   = sum(
+        cnt for code, cnt in breakdown.items()
+        if code not in (US_CODE, CN_CODE, None, "")
+    )
+    total_attributed = us_count + china_count + other_count
+    # Note: total_attributed may exceed total_papers because multinational
+    # papers are counted once per country they appear in.
 
-    for p in all_raw:
-        country = classify_paper(p["affiliations"], p["abstract"], pattern_sets)
-        summary[country] += 1
-        output_papers.append({
-            "id":         p["id"],
-            "title":      p["title"],
-            "authors":    p["authors"][:MAX_AUTHORS_OUT],
-            "country":    country,
-            "published":  p["published"],
-            "categories": p["categories"],
-            "source":     "arxiv",
-        })
+    # Top 10 countries for the methodology section
+    top_countries = sorted(
+        [
+            {"country_code": k, "count": v}
+            for k, v in breakdown.items()
+            if k and k not in ("",)
+        ],
+        key=lambda x: x["count"],
+        reverse=True,
+    )[:10]
 
-    # Sort newest first
-    output_papers.sort(key=lambda x: x["published"], reverse=True)
-    total = len(output_papers)
+    time.sleep(RATE_LIMIT_SLEEP)
 
-    # ── Build output ──────────────────────────────────────────────
+    # ── Call 2: recent papers ────────────────────────────────────
+    log.info("Fetching %d most recent papers for table …", MAX_PAPERS_TABLE)
+    recent_papers = fetch_recent_papers(filter_str)
+    log.info("  → %d papers retrieved", len(recent_papers))
+
+    # ── Build output ─────────────────────────────────────────────
     output = {
         "dimension":   "talent",
-        "metric_key":  "papers_last_12_months",
+        "metric_key":  "ai_papers_by_country_12m",
         "description": (
-            f"AI-related research papers (cs.AI, cs.LG, cs.CL, cs.CV) "
-            f"sampled from arXiv in the last {WINDOW_DAYS} days, classified "
-            "by country of institution. A proxy for research output velocity, "
-            "not a complete census of all AI research activity."
+            f"AI-related research papers (Artificial Intelligence, Machine Learning, "
+            f"NLP, Computer Vision concepts) published in the last {WINDOW_DAYS} days, "
+            "counted by country of author institution. Source: OpenAlex. "
+            "A proxy for research output, not a complete measure of talent or capability."
         ),
         "fetched_at":  datetime.now(timezone.utc).isoformat(),
         "window_days": WINDOW_DAYS,
         "source": {
-            "name": "arXiv API",
-            "url":  ARXIV_API_BASE,
+            "name": "OpenAlex API",
+            "url":  OPENALEX_BASE,
             "note": (
-                f"Up to {RESULTS_PER_CAT} papers per category, sorted by submission "
-                "date descending. Deduplicated across categories. Public submissions only."
+                "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. "
+                "Papers with authors from multiple countries are counted in each country. "
+                "OpenAlex pre-computes institutional affiliations from publisher metadata."
             ),
         },
         "summary": {
-            "US":      summary["US"],
-            "China":   summary["China"],
-            "Other":   summary["Other"],
-            "Unknown": summary["Unknown"],
-            "total":   total,
+            "US":               us_count,
+            "China":            china_count,
+            "Other":            other_count,
+            "Unknown":          unknown_count,
+            "total_papers":     total_papers,
+            "total_attributed": total_attributed,
         },
-        "papers": output_papers,
+        "top_countries": top_countries,
+        "papers": recent_papers,
         "methodology_note": (
-            "Papers are classified by country using keyword matching against author "
-            "affiliation fields (when provided by arXiv) or the first 600 characters "
-            "of each abstract as a fallback. arXiv does not reliably include affiliation "
-            "metadata, so most classification relies on abstract text — this introduces "
-            "noise and a higher Unknown rate than ideal. "
-            "Papers with both US and China keyword matches are classified as Unknown "
-            "(likely international collaborations). "
-            f"Coverage is capped at {RESULTS_PER_CAT} papers per category due to API limits. "
-            "For high-volume categories (cs.LG, cs.CV), this covers only the most recent "
-            "weeks or months of the 12-month window, not the full year. "
-            "The metric measures arXiv submission volume, not citation impact, "
+            "Paper counts are sourced from OpenAlex, which indexes most major academic "
+            "publishers and preprint servers (including arXiv). Each paper is counted "
+            "once for each country where at least one author has an identified institution. "
+            "A paper with US and Chinese co-authors is counted in both US and China totals "
+            "— the sum of country counts therefore exceeds the total paper count. "
+            "Country classification relies on OpenAlex's institution-to-country mapping, "
+            "which uses ISO 3166-1 alpha-2 country codes. "
+            "Unknown = papers where no author has any identified institutional affiliation "
+            "in OpenAlex. "
+            "This metric measures output volume — it does not capture citation impact, "
             "researcher headcount, or research quality. "
-            "Chinese institutions may also publish to domestic preprint platforms "
-            "(ChinaXiv, etc.), which are not captured here."
+            "Coverage may exclude some journals or publishers not indexed by OpenAlex. "
+            "Chinese researchers may also publish to venues not well-indexed internationally."
         ),
     }
 
@@ -337,8 +290,9 @@ def main() -> None:
     log.info("")
     log.info("Output written to: %s", OUTPUT_FILE)
     log.info(
-        "Summary: US=%d  China=%d  Other=%d  Unknown=%d  Total=%d",
-        summary["US"], summary["China"], summary["Other"], summary["Unknown"], total,
+        "Summary: US=%d  China=%d  Other=%d  Unknown=%d  Total=%d  Attributed=%d",
+        us_count, china_count, other_count, unknown_count,
+        total_papers, total_attributed,
     )
 
 

@@ -324,6 +324,7 @@ h1 {
 .country-chip.us  { background: var(--us-a);  color: var(--us);  border: 1px solid var(--us-b); }
 .country-chip.cn  { background: var(--cn-a);  color: var(--cn);  border: 1px solid var(--cn-b); }
 .country-chip.oth { background: var(--oth-a); color: var(--oth); border: 1px solid var(--oth-b); }
+.country-chip.mix { background: rgba(124,107,58,0.09); color: #7c6b3a; border: 1px solid rgba(124,107,58,0.22); }
 .country-chip.unk { background: var(--unk-a); color: var(--unk); border: 1px solid var(--border-md); }
 
 /* ── Lab Breakdown ───────────────────────────────────────────── */
@@ -888,7 +889,7 @@ footer {
         <div>
           <div class="live-card-title">AI Research Output — Last 12 Months</div>
           <div class="live-card-sub">
-            AI research papers on arXiv (cs.AI, cs.LG, cs.CL, cs.CV) from tracked institutions — a proxy for research output, not a complete measure of talent or capability &nbsp;·&nbsp; Source: arXiv API
+            AI research papers (AI, ML, NLP, CV concepts) from OpenAlex — a proxy for research output, not a complete measure of talent or capability &nbsp;·&nbsp; Source: OpenAlex API
           </div>
         </div>
         <div class="live-status">
@@ -932,7 +933,7 @@ footer {
 
         <!-- Bar chart -->
         <div class="fm-chart-wrap">
-          <div class="fm-chart-label">AI research papers on arXiv by country — last 12 months (sampled, tracked institutions)</div>
+          <div class="fm-chart-label">AI research papers on OpenAlex by country — last 12 months (author-institution attribution)</div>
           <canvas id="talBarChart" height="72"></canvas>
         </div>
 
@@ -957,11 +958,12 @@ footer {
         <!-- Footer citation -->
         <div class="fm-footer">
           <p class="fm-footer-note">
-            Classification uses keyword matching on author affiliations and abstract text — a transparent but imperfect method.
-            High Unknown rates reflect missing affiliation metadata in arXiv submissions, not unclassifiable research.
+            Country attribution uses OpenAlex's pre-computed institution-to-country mapping (ISO 3166-1 codes).
+            Papers with authors at US and Chinese institutions are counted in both totals — counts are not exclusive.
+            Unknown = papers where no author has an identified institution in OpenAlex.
           </p>
           <div class="fm-footer-links">
-            Source: <a href="http://export.arxiv.org/api/query" target="_blank" rel="noopener">arXiv API</a><br>
+            Source: <a href="https://api.openalex.org/works" target="_blank" rel="noopener">OpenAlex API</a><br>
             <a href="docs/methodology.html" target="_blank">Full methodology →</a>
           </div>
         </div>
@@ -1396,6 +1398,7 @@ function countryChip(country) {
   if (country === 'US')    return '<span class="country-chip us">US</span>';
   if (country === 'China') return '<span class="country-chip cn">China</span>';
   if (country === 'Other') return '<span class="country-chip oth">Other</span>';
+  if (country === 'Mixed') return '<span class="country-chip mix">Mixed</span>';
   return '<span class="country-chip unk">Unknown</span>';
 }
 
@@ -1634,7 +1637,7 @@ function buildTalentChart(us, cn, oth, unk) {
           borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
           padding: { x: 12, y: 10 }, cornerRadius: 5,
           callbacks: {
-            label: (ctx) => '  ' + ctx.parsed.x + ' papers (sampled, last 12 months)'
+            label: (ctx) => '  ' + ctx.parsed.x.toLocaleString() + ' papers (author-country attributions, last 12 months)'
           }
         }
       },
@@ -1673,39 +1676,43 @@ function renderTalent(data) {
   const oth = s.Other   || 0;
   const unk = s.Unknown || 0;
 
-  document.getElementById('tal-us-count').textContent  = us;
-  document.getElementById('tal-cn-count').textContent  = cn;
-  document.getElementById('tal-oth-count').textContent = oth;
-  document.getElementById('tal-unk-count').textContent = unk;
+  // Format large numbers with thousands separators
+  const fmt = n => n.toLocaleString();
+
+  document.getElementById('tal-us-count').textContent  = fmt(us);
+  document.getElementById('tal-cn-count').textContent  = fmt(cn);
+  document.getElementById('tal-oth-count').textContent = fmt(oth);
+  document.getElementById('tal-unk-count').textContent = fmt(unk);
   document.getElementById('tal-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  // Meta line
-  const total = s.total || (us + cn + oth + unk);
-  const unknownPct = total > 0 ? Math.round(unk / total * 100) : 0;
+  // Meta line — total papers + coverage note
+  const total = s.total_papers || 0;
+  const attributed = s.total_attributed || (us + cn + oth);
+  const covPct = total > 0 ? Math.round(attributed / total * 100) : 0;
   document.getElementById('tal-meta').textContent =
-    `${total.toLocaleString()} papers sampled · ${unknownPct}% unclassified (missing affiliation metadata)`;
+    `${fmt(total)} total AI papers in 12-month window · ${fmt(attributed)} author-country attributions (papers with multinational teams counted per country)`;
 
   // Interpretive note — dynamic based on US vs China
   let mainSentence;
   if (us > cn) {
     mainSentence =
-      'In this sample, US-based institutions account for more classified AI research papers on arXiv, ' +
-      'though China\'s output remains substantial and may be undercounted due to domestic publishing platforms.';
+      `In this 12-month window, US-affiliated institutions appear on more AI papers than China-affiliated institutions (${fmt(us)} vs ${fmt(cn)}). ` +
+      `China's output remains substantial and may be undercounted due to domestic publishing platforms not indexed by OpenAlex.`;
   } else if (cn > us) {
     mainSentence =
-      'In this sample, China-based institutions account for more classified AI research papers on arXiv, ' +
-      'while US output also remains significant.';
+      `In this 12-month window, China-affiliated institutions appear on more AI papers than US-affiliated institutions (${fmt(cn)} vs ${fmt(us)}). ` +
+      `US output also remains significant.`;
   } else {
     mainSentence =
-      'In this sample, US and China show broadly similar levels of classified AI research papers on arXiv.';
+      `In this 12-month window, US and China show broadly similar levels of AI research output (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
   }
-  const caveat = `<span style="color:var(--t3);">Does not include papers published outside arXiv, or research from institutions not in the tracked keyword list.</span>`;
+  const caveat = `<span style="color:var(--t3);">Papers are counted once for each country with an affiliated author; a US–China co-authored paper increments both totals. Does not include venues not indexed by OpenAlex.</span>`;
   document.getElementById('tal-interp').innerHTML = mainSentence + ' ' + caveat;
 
   // Chart
   buildTalentChart(us, cn, oth, unk);
 
-  // Recent papers table
+  // Recent papers table — use primary_country for chip
   const papers = (data.papers || []).slice(0, 15);
   const tbody  = document.getElementById('tal-papers-body');
   if (papers.length === 0) {
@@ -1715,7 +1722,7 @@ function renderTalent(data) {
       <tr>
         <td class="model-id"><a href="${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" title="${p.title}">${truncate(p.title, 72)}</a></td>
         <td style="color:var(--t2);">${p.authors && p.authors[0] ? p.authors[0] : '—'}</td>
-        <td class="r">${countryChip(p.country)}</td>
+        <td class="r">${countryChip(p.primary_country || p.country || 'Unknown')}</td>
         <td class="r" style="color:var(--t3);white-space:nowrap;">${fmtDate(p.published)}</td>
       </tr>
     `).join('');
@@ -1731,8 +1738,7 @@ async function loadTalent() {
     const resp = await fetch('data/talent.json?t=' + Date.now());
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
-    // If the placeholder JSON has no papers and no fetched_at, show error state
-    if (!data.fetched_at || data.summary.total === 0) {
+    if (!data.fetched_at || (data.summary.total_papers === 0 && data.summary.US === 0)) {
       throw new Error('No data yet');
     }
     renderTalent(data);

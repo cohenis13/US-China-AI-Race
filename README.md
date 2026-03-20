@@ -131,12 +131,12 @@ pip install requests
 python scripts/fetch_frontier_models.py
 # → writes data/frontier_models.json
 
-# Talent (arXiv API)
+# Talent (OpenAlex API)
 python scripts/fetch_talent.py
 # → writes data/talent.json
 ```
 
-The Talent script fetches up to 2,000 papers per category from arXiv and may take 1–2 minutes to complete (arXiv rate-limits requests to 3 seconds apart).
+The Talent script makes two calls to the OpenAlex API (country breakdown + recent papers) and completes in a few seconds.
 
 ---
 
@@ -166,7 +166,7 @@ See [docs/methodology.html](docs/methodology.html) for:
 
 **Key caveat — Frontier Models (v1):** Measures public model update activity on Hugging Face Hub from tracked labs — a proxy for lab output velocity, not a definitive ranking of frontier model capability. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. Labs are classified into four categories: US, China, Other (identified non-US/non-China labs), and Unknown.
 
-**Key caveat — Talent (v1):** Measures AI paper submission volume on arXiv (cs.AI, cs.LG, cs.CL, cs.CV) — a proxy for research output, not a measure of researcher headcount, citation impact, or capability. High Unknown rates reflect missing affiliation metadata in arXiv, not unclassifiable research. Coverage is capped at 2,000 papers per category due to API limits; large categories (cs.LG, cs.CV) are undersampled.
+**Key caveat — Talent (v1):** Measures AI research paper volume from OpenAlex (AI, ML, NLP, CV concepts) over the last 12 months — a proxy for research output, not a measure of researcher headcount, citation impact, or capability. Papers are attributed by country of author institution using OpenAlex's pre-computed affiliation data. Multinational papers are counted in each country represented, so country totals can exceed the total paper count. Unknown reflects papers with no identified institutional affiliation in OpenAlex.
 
 ---
 

@@ -50,6 +50,7 @@ Usage:
 import json
 import re
 import sys
+import time
 import logging
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -366,37 +367,60 @@ def fetch_cn_procurement(start_date: str, end_date: str) -> dict:
 # ─────────────────────────────────────────────────────────────────────────────
 # SIGNAL 2 — Corporate Filing Disclosures (SEC EDGAR EFTS)
 # ─────────────────────────────────────────────────────────────────────────────
-def _edgar_count(params: dict, label: str) -> int | None:
+def _edgar_count(params: dict, label: str, retries: int = 2) -> int | None:
     """
     Execute one EDGAR EFTS query and return the total hit count.
-    Returns None on any error.
+
+    Retries up to `retries` times with exponential backoff to handle
+    transient rate-limits (GitHub Actions IPs may be throttled by SEC).
+    Returns None on any error after all retries.
     """
-    try:
-        resp = requests.get(
-            EDGAR_SEARCH_URL,
-            params=params,
-            headers=EDGAR_HEADERS,
-            timeout=REQUEST_TIMEOUT,
-        )
-        resp.raise_for_status()
-        data = resp.json()
+    for attempt in range(retries + 1):
+        try:
+            if attempt > 0:
+                delay = 2 ** attempt     # 2s, 4s backoff
+                log.info("%s: retry %d/%d after %ds backoff …", label, attempt, retries, delay)
+                time.sleep(delay)
 
-        hits_block = data.get("hits", {})
-        total      = hits_block.get("total")
-        if isinstance(total, dict):
-            count = int(total.get("value", 0))
-        elif total is not None:
-            count = int(total)
-        else:
-            log.warning("%s: unexpected EFTS response shape — keys: %s", label, list(data.keys()))
-            return None
+            resp = requests.get(
+                EDGAR_SEARCH_URL,
+                params=params,
+                headers=EDGAR_HEADERS,
+                timeout=REQUEST_TIMEOUT,
+            )
+            resp.raise_for_status()
+            data = resp.json()
 
-        log.info("%s: %d filings", label, count)
-        return count
+            hits_block = data.get("hits", {})
+            total      = hits_block.get("total")
+            if isinstance(total, dict):
+                count = int(total.get("value", 0))
+            elif total is not None:
+                count = int(total)
+            else:
+                log.warning(
+                    "%s: unexpected EFTS response shape — keys: %s",
+                    label, list(data.keys()),
+                )
+                return None
 
-    except Exception as e:
-        log.error("%s: EDGAR query failed — %s", label, e)
-        return None
+            log.info("%s: %d filings", label, count)
+            return count
+
+        except requests.exceptions.HTTPError as e:
+            if resp.status_code == 429 or resp.status_code == 403:
+                log.warning("%s: HTTP %d (rate limit / access denied) — %s", label, resp.status_code, e)
+                if attempt < retries:
+                    continue   # will retry with backoff
+            else:
+                log.error("%s: HTTP error — %s", label, e)
+            break
+
+        except Exception as e:
+            log.error("%s: EDGAR query failed — %s", label, e)
+            break
+
+    return None
 
 
 def fetch_edgar(form_type: str, start_date: str, end_date: str) -> dict:

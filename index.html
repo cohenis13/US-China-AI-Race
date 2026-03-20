@@ -887,9 +887,9 @@ footer {
     <div class="card live-card">
       <div class="live-card-top">
         <div>
-          <div class="live-card-title">AI Research Output — Last 12 Months</div>
+          <div class="live-card-title">AI Research Output — US vs. China, Last 12 Months</div>
           <div class="live-card-sub">
-            AI research papers (AI, ML, NLP, CV concepts) from OpenAlex — a proxy for research output, not a complete measure of talent or capability &nbsp;·&nbsp; Source: OpenAlex API
+            Papers tagged with AI, ML, NLP, or Computer Vision concepts on OpenAlex — a proxy for institutional research activity, not a complete measure of talent &nbsp;·&nbsp; Source: OpenAlex API
           </div>
         </div>
         <div class="live-status">
@@ -905,7 +905,7 @@ footer {
       <!-- Data / content (hidden until loaded) -->
       <div id="tal-content" style="display:none;">
 
-        <!-- Stat boxes -->
+        <!-- Stat boxes: US vs China (primary comparison) -->
         <div class="fm-stats">
           <div class="fm-stat us">
             <div class="fm-stat-num" id="tal-us-count">—</div>
@@ -915,15 +915,9 @@ footer {
             <div class="fm-stat-num" id="tal-cn-count">—</div>
             <div class="fm-stat-lbl">China</div>
           </div>
-          <div class="fm-stat oth">
-            <div class="fm-stat-num" id="tal-oth-count">—</div>
-            <div class="fm-stat-lbl">Other (non-US/China)</div>
-          </div>
-          <div class="fm-stat unk">
-            <div class="fm-stat-num" id="tal-unk-count">—</div>
-            <div class="fm-stat-lbl">Unknown</div>
-          </div>
         </div>
+        <!-- Secondary context: Other + Unknown (de-emphasized) -->
+        <div id="tal-context-note" style="font-size:12px;color:var(--t3);margin:6px 0 2px;"></div>
 
         <!-- Tracking meta -->
         <div class="fm-meta" id="tal-meta"></div>
@@ -933,8 +927,8 @@ footer {
 
         <!-- Bar chart -->
         <div class="fm-chart-wrap">
-          <div class="fm-chart-label">AI research papers on OpenAlex by country — last 12 months (author-institution attribution)</div>
-          <canvas id="talBarChart" height="72"></canvas>
+          <div class="fm-chart-label">US vs. China — AI research papers on OpenAlex, last 12 months (author-institution attribution)</div>
+          <canvas id="talBarChart" height="48"></canvas>
         </div>
 
         <!-- Recent papers table -->
@@ -958,8 +952,9 @@ footer {
         <!-- Footer citation -->
         <div class="fm-footer">
           <p class="fm-footer-note">
+            Primary comparison is US vs. China. Rest-of-world papers exist but are not the focus of this tracker.
             Country attribution uses OpenAlex's pre-computed institution-to-country mapping (ISO 3166-1 codes).
-            Papers with authors at US and Chinese institutions are counted in both totals — counts are not exclusive.
+            Papers with authors at both US and Chinese institutions are counted in both totals — counts are not exclusive.
             Unknown = papers where no author has an identified institution in OpenAlex.
           </p>
           <div class="fm-footer-links">
@@ -1602,7 +1597,7 @@ async function loadFrontierModels() {
 /* ── Talent ──────────────────────────────────────────────────── */
 let talBarChart;
 
-function buildTalentChart(us, cn, oth, unk) {
+function buildTalentChart(us, cn) {
   const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
   const tickColor = isDark ? '#4d6678' : '#9ca3af';
@@ -1611,16 +1606,14 @@ function buildTalentChart(us, cn, oth, unk) {
   talBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['United States', 'China', 'Other (non-US/China)', 'Unknown'],
+      labels: ['United States', 'China'],
       datasets: [{
-        data: [us, cn, oth, unk],
+        data: [us, cn],
         backgroundColor: [
           'rgba(26,58,92,0.75)',
           'rgba(181,65,62,0.75)',
-          'rgba(45,125,120,0.65)',
-          'rgba(107,114,128,0.50)',
         ],
-        borderColor: [US_COLOR, CN_COLOR, '#2d7d78', '#6b7280'],
+        borderColor: [US_COLOR, CN_COLOR],
         borderWidth: 1.5,
         borderRadius: 4,
       }]
@@ -1676,41 +1669,42 @@ function renderTalent(data) {
   const oth = s.Other   || 0;
   const unk = s.Unknown || 0;
 
-  // Format large numbers with thousands separators
   const fmt = n => n.toLocaleString();
 
+  // Primary stat boxes: US and China only
   document.getElementById('tal-us-count').textContent  = fmt(us);
   document.getElementById('tal-cn-count').textContent  = fmt(cn);
-  document.getElementById('tal-oth-count').textContent = fmt(oth);
-  document.getElementById('tal-unk-count').textContent = fmt(unk);
   document.getElementById('tal-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  // Meta line — total papers + coverage note
+  // Secondary context note (Other + Unknown, de-emphasized)
+  const ctxParts = [];
+  if (oth > 0) ctxParts.push(`Rest-of-world (non-US/China): ${fmt(oth)} attributions — shown for completeness, not the headline comparison`);
+  if (unk > 0) ctxParts.push(`Unknown affiliation: ${fmt(unk)} papers`);
+  document.getElementById('tal-context-note').textContent = ctxParts.join(' · ');
+
+  // Meta line
   const total = s.total_papers || 0;
   const attributed = s.total_attributed || (us + cn + oth);
-  const covPct = total > 0 ? Math.round(attributed / total * 100) : 0;
   document.getElementById('tal-meta').textContent =
-    `${fmt(total)} total AI papers in 12-month window · ${fmt(attributed)} author-country attributions (papers with multinational teams counted per country)`;
+    `${fmt(total)} total AI papers in 12-month window · ${fmt(attributed)} author-country attributions (multinational papers counted once per country)`;
 
-  // Interpretive note — dynamic based on US vs China
+  // Interpretive sentence — US vs China only
   let mainSentence;
   if (us > cn) {
     mainSentence =
-      `In this 12-month window, US-affiliated institutions appear on more AI papers than China-affiliated institutions (${fmt(us)} vs ${fmt(cn)}). ` +
-      `China's output remains substantial and may be undercounted due to domestic publishing platforms not indexed by OpenAlex.`;
+      `US-based institutions produce more AI research output in this 12-month window (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
   } else if (cn > us) {
     mainSentence =
-      `In this 12-month window, China-affiliated institutions appear on more AI papers than US-affiliated institutions (${fmt(cn)} vs ${fmt(us)}). ` +
-      `US output also remains significant.`;
+      `China-based institutions produce more AI research output in this 12-month window (${fmt(cn)} vs ${fmt(us)} author-country attributions).`;
   } else {
     mainSentence =
-      `In this 12-month window, US and China show broadly similar levels of AI research output (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
+      `US and China show broadly similar AI research output in this 12-month window (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
   }
-  const caveat = `<span style="color:var(--t3);">Papers are counted once for each country with an affiliated author; a US–China co-authored paper increments both totals. Does not include venues not indexed by OpenAlex.</span>`;
+  const caveat = `<span style="color:var(--t3);">Each paper is counted once per country with an affiliated author; a US–China co-authored paper increments both totals. China's output may be undercounted — domestic venues are less represented in OpenAlex.</span>`;
   document.getElementById('tal-interp').innerHTML = mainSentence + ' ' + caveat;
 
-  // Chart
-  buildTalentChart(us, cn, oth, unk);
+  // Chart: US vs China only
+  buildTalentChart(us, cn);
 
   // Recent papers table — use primary_country for chip
   const papers = (data.papers || []).slice(0, 15);

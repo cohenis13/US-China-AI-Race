@@ -147,9 +147,9 @@ a { color: var(--us); }
 
   <h3>What we measure</h3>
   <p>
-    <strong>AI-related research papers published in the last 12 months, counted by country of author institution.</strong>
-    This is a proxy for research output volume — not a measure of researcher headcount, citation impact, or overall talent quality.
-    Papers are attributed to countries using pre-computed institutional affiliation data from OpenAlex, covering the full 12-month window.
+    <strong>The headline comparison is US vs. China: how many AI-related research papers in the last 12 months have at least one author affiliated with a US institution, and how many have at least one author affiliated with a Chinese institution.</strong>
+    This is a proxy for institutional research activity — not a measure of researcher headcount, citation impact, or overall talent quality.
+    OpenAlex is a global index, so rest-of-world data is available and shown as context, but it is not the primary story.
   </p>
 
   <h3>Why this metric</h3>
@@ -158,6 +158,7 @@ a { color: var(--us); }
     arXiv's own API because OpenAlex pre-computes institution-to-country mappings from publisher metadata, yielding far lower
     unknown rates than keyword matching against raw author strings. OpenAlex indexes papers from most major academic publishers
     and preprint servers including arXiv, IEEE, ACM, Nature, and others, making it broader in scope.
+    The main chart displays US and China only; rest-of-world totals are reported as a context note.
   </p>
 
   <h3>Data source</h3>
@@ -207,12 +208,20 @@ a { color: var(--us); }
     <li>No identified affiliations → <strong>Unknown</strong></li>
   </ul>
 
+  <h3>Dashboard framing</h3>
+  <p>
+    The main chart shows US and China only. OpenAlex is a global index and rest-of-world paper counts are substantial
+    (the sum of all other countries exceeds either the US or China totals individually, because it aggregates ~198 countries).
+    Showing Other as a primary bar would dominate the chart and obscure the US–China comparison, which is the purpose of this tracker.
+    Rest-of-world totals are reported as a context note beneath the stat boxes. Unknown is a metadata coverage note, not a headline figure.
+  </p>
+
   <h3>Limitations</h3>
   <ul>
     <li><strong>Volume ≠ quality:</strong> Paper count does not measure citation impact, benchmark performance, or practical significance. A high count does not imply greater frontier capability.</li>
     <li><strong>China undercount:</strong> Chinese researchers may publish to domestic platforms (CNKI, WiseModel, domestic journals) not well-indexed by OpenAlex. This likely understates China's total research output.</li>
     <li><strong>Double-counting of collaborations:</strong> Papers with multinational author teams are counted in each country represented. US–China collaborations inflate both countries' totals relative to the total paper count.</li>
-    <li><strong>Unknown reflects missing metadata:</strong> Papers classified as Unknown have no institutional affiliation recorded in OpenAlex. This can reflect preprints without publisher metadata, independent researchers, or affiliation data not yet ingested by OpenAlex.</li>
+    <li><strong>Unknown reflects missing metadata:</strong> Papers classified as Unknown have no institutional affiliation recorded in OpenAlex. This can reflect preprints without publisher metadata, independent researchers, or affiliation data not yet ingested by OpenAlex. For concept-tagged AI papers, Unknown rates are typically near zero.</li>
     <li><strong>Concept classification:</strong> OpenAlex assigns concept tags algorithmically. Some AI-adjacent papers may be missed; some tangentially related papers may be included.</li>
     <li><strong>Coverage lag:</strong> OpenAlex may index some papers with a delay after publication, particularly for venues with slower metadata pipelines.</li>
   </ul>

@@ -2,8 +2,8 @@
   "dimension": "adoption",
   "metric_key": "ai_adoption_signals",
   "description": "Two-signal proxy for observable AI deployment activity. Signal 1: government procurement orders. Signal 2: corporate annual report disclosures of generative AI. Neither signal is a complete or symmetric measure of total adoption.",
-  "fetched_at": "2026-03-20T17:20:38.104481+00:00",
-  "last_updated": "2026-03-20T17:20:38.104481+00:00",
+  "fetched_at": "2026-03-20T17:46:57.482439+00:00",
+  "last_updated": "2026-03-20T17:46:57.482439+00:00",
   "window_days": 365,
   "start_date": "2025-03-20",
   "end_date": "2026-03-20",
@@ -11,7 +11,7 @@
     "government_procurement": {
       "description": "Government AI procurement orders — contracts awarded or modified within the rolling window.",
       "keywords": {
-        "US": ["artificial intelligence", "machine learning", "generative AI", "large language model", "AI system"],
+        "US": ["artificial intelligence","machine learning","generative AI","large language model","AI system"],
         "China": ["人工智能"]
       },
       "US": {
@@ -32,7 +32,7 @@
       }
     },
     "company_filings": {
-      "description": "Public company annual filings mentioning \"generative AI\" in SEC EDGAR. US: 10-K domestic companies. China proxy: 20-F foreign private issuers (primarily Chinese ADRs).",
+      "description": "Public company annual filings mentioning \"generative AI\" in SEC EDGAR full-text search. US: 10-K domestic companies. China proxy: 20-F foreign private issuers (primarily Chinese ADRs).",
       "query_term": "generative AI",
       "query_terms": ["generative AI"],
       "US": {
@@ -43,7 +43,7 @@
         "confidence": "unavailable",
         "source": "SEC EDGAR (10-K filings)",
         "source_url": "https://efts.sec.gov/LATEST/search-index",
-        "note": "Will be populated on next workflow run (v3 fetch script)."
+        "note": "Previous run used 'AI deployment' term (403 from EDGAR). v3 script uses 'generative AI' — will populate on next workflow run."
       },
       "China_proxy": {
         "count": null,
@@ -53,7 +53,7 @@
         "confidence": "unavailable",
         "source": "SEC EDGAR (20-F filings)",
         "source_url": "https://efts.sec.gov/LATEST/search-index",
-        "note": "20-F = all foreign private issuers on US exchanges (Chinese ADRs dominant, not exclusively China). Will be populated on next workflow run."
+        "note": "20-F = all foreign private issuers on US exchanges (Chinese ADRs dominant, not exclusively China). Will populate on next workflow run."
       }
     }
   },
@@ -77,13 +77,13 @@
     "score": 0.5,
     "confidence": "low",
     "components": [{"name": "government_procurement", "score": 0.5, "input": 10, "note": "log10-scaled; 2000 contracts = 5 pts"}],
-    "note": "Transparent proxy score for US AI adoption visibility. Two-component: government procurement (log-scaled) + EDGAR disclosure rate."
+    "note": "Transparent proxy score for US AI adoption visibility."
   },
   "composite_china": {
     "score": 0.0,
     "confidence": "no-data",
     "components": [],
-    "note": "No signals currently available — CCGP blocked, EDGAR data pending next workflow run."
+    "note": "No signals available — CCGP partial, EDGAR pending."
   },
   "confidence": "medium",
   "source_urls": {

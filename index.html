@@ -370,6 +370,12 @@ h1 {
   line-height: 1.55;
 }
 .fm-context-note strong { color: var(--t2); font-weight: 600; }
+.fm-meta {
+  font-size: 10.5px;
+  color: var(--t3);
+  margin-bottom: 14px;
+  letter-spacing: .01em;
+}
 
 /* ── Live Footer ─────────────────────────────────────────────── */
 .fm-footer {
@@ -750,13 +756,16 @@ footer {
           </div>
           <div class="fm-stat oth">
             <div class="fm-stat-num" id="fm-oth-count">—</div>
-            <div class="fm-stat-lbl">Other</div>
+            <div class="fm-stat-lbl">Other (non-US/China)</div>
           </div>
           <div class="fm-stat unk">
             <div class="fm-stat-num" id="fm-unk-count">—</div>
             <div class="fm-stat-lbl">Unknown</div>
           </div>
         </div>
+
+        <!-- Tracking meta -->
+        <div class="fm-meta" id="fm-meta"></div>
 
         <!-- Bar chart -->
         <div class="fm-chart-wrap">
@@ -773,7 +782,7 @@ footer {
               <table class="fm-lab-tbl">
                 <thead><tr>
                   <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:left;">Lab</th>
-                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Models</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Updated (30d)</th>
                   <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px 8px;border-bottom:1px solid var(--border-md);text-align:right;">Downloads (all-time)</th>
                 </tr></thead>
                 <tbody id="fm-labs-us"></tbody>
@@ -784,18 +793,18 @@ footer {
               <table class="fm-lab-tbl">
                 <thead><tr>
                   <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:left;">Lab</th>
-                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Models</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Updated (30d)</th>
                   <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px 8px;border-bottom:1px solid var(--border-md);text-align:right;">Downloads (all-time)</th>
                 </tr></thead>
                 <tbody id="fm-labs-cn"></tbody>
               </table>
             </div>
             <div>
-              <div class="fm-lab-hdr oth">Other</div>
+              <div class="fm-lab-hdr oth">Other (non-US/China)</div>
               <table class="fm-lab-tbl">
                 <thead><tr>
                   <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:left;">Lab</th>
-                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Models</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Updated (30d)</th>
                   <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px 8px;border-bottom:1px solid var(--border-md);text-align:right;">Downloads (all-time)</th>
                 </tr></thead>
                 <tbody id="fm-labs-oth"></tbody>
@@ -1287,7 +1296,7 @@ function buildBarChart(us, cn, oth, unk) {
   fmBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['United States', 'China', 'Other', 'Unknown'],
+      labels: ['United States', 'China', 'Other (non-US/China)', 'Unknown'],
       datasets: [{
         data: [us, cn, oth, unk],
         backgroundColor: [
@@ -1382,7 +1391,7 @@ function renderLabBreakdown(models) {
   document.getElementById('fm-labs-cn').innerHTML  = cnLabs.map(l => row(l, 'cn')).join('');
   document.getElementById('fm-labs-oth').innerHTML = othLabs.length
     ? othLabs.map(l => row(l, 'oth')).join('')
-    : '<tr><td colspan="3" style="color:var(--t3);font-size:11px;padding:8px 0;">No activity in this window</td></tr>';
+    : '<tr><td class="lab-name" style="color:var(--t3);">Mistral AI</td><td style="text-align:right;color:var(--t3);">—</td><td class="lab-dl" style="color:var(--t3);" title="No updates in this 30-day window">no updates</td></tr>';
 
   // Show the NVIDIA context note if NVIDIA count is dominant (>30% of US total)
   const nvidiaCount = (labs['NVIDIA'] || {}).count || 0;
@@ -1404,6 +1413,12 @@ function renderFrontierModels(data) {
   document.getElementById('fm-oth-count').textContent = oth;
   document.getElementById('fm-unk-count').textContent = unk;
   document.getElementById('fm-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
+
+  // Tracked / active labs meta line
+  const trackedCount = data.labs_tracked || '—';
+  const activeCount  = new Set((data.models || []).map(m => m.lab_name || m.author)).size;
+  document.getElementById('fm-meta').textContent =
+    `Tracking ${trackedCount} curated labs · ${activeCount} active in this 30-day window`;
 
   buildBarChart(us, cn, oth, unk);
   renderLabBreakdown(data.models || []);

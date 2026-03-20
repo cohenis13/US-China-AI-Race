@@ -169,8 +169,9 @@ def main() -> None:
     total         = len(all_models)
 
     output = {
-        "dimension":   "frontier_models",
-        "metric_key":  "recent_model_updates",
+        "dimension":    "frontier_models",
+        "metric_key":   "recent_model_updates",
+        "labs_tracked": len(labs),
         "description": (
             f"Public model update activity on Hugging Face Hub from tracked labs "
             f"in the last {WINDOW_DAYS} days, classified by lab country (US / China / Other / Unknown). "

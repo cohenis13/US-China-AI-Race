@@ -320,6 +320,49 @@ h1 {
 .country-chip.cn  { background: var(--cn-a);  color: var(--cn);  border: 1px solid var(--cn-b); }
 .country-chip.unk { background: var(--unk-a); color: var(--unk); border: 1px solid var(--border-md); }
 
+/* ── Lab Breakdown ───────────────────────────────────────────── */
+.fm-lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.fm-lab-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding-bottom: 7px;
+  margin-bottom: 0;
+  border-bottom: 2px solid;
+}
+.fm-lab-hdr.us { color: var(--us); border-color: var(--us); }
+.fm-lab-hdr.cn { color: var(--cn); border-color: var(--cn); }
+.fm-lab-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+.fm-lab-tbl td {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--t2);
+  vertical-align: middle;
+}
+.fm-lab-tbl tr:last-child td { border-bottom: none; }
+.fm-lab-tbl td.lab-name { font-weight: 600; color: var(--t1); }
+.fm-lab-tbl td.lab-count { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.fm-lab-tbl td.lab-count.us { color: var(--us); }
+.fm-lab-tbl td.lab-count.cn { color: var(--cn); }
+.fm-lab-tbl td.lab-dl { text-align: right; color: var(--t3); font-size: 10.5px; padding-left: 8px; }
+.fm-context-note {
+  font-size: 10.5px;
+  color: var(--t3);
+  background: var(--bg-alt);
+  border: 1px solid var(--border-md);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 10px;
+  line-height: 1.55;
+}
+.fm-context-note strong { color: var(--t2); font-weight: 600; }
+
 /* ── Live Footer ─────────────────────────────────────────────── */
 .fm-footer {
   display: flex;
@@ -709,6 +752,27 @@ footer {
           <canvas id="fmBarChart" height="72"></canvas>
         </div>
 
+        <!-- Lab breakdown -->
+        <div class="fm-tbl-wrap">
+          <div class="fm-tbl-label">Contributing labs — model updates by lab (last 30 days)</div>
+          <div class="fm-lab-grid">
+            <div>
+              <div class="fm-lab-hdr us">United States</div>
+              <table class="fm-lab-tbl"><tbody id="fm-labs-us"></tbody></table>
+            </div>
+            <div>
+              <div class="fm-lab-hdr cn">China</div>
+              <table class="fm-lab-tbl"><tbody id="fm-labs-cn"></tbody></table>
+            </div>
+          </div>
+          <div class="fm-context-note" id="fm-context-note" style="display:none;">
+            <strong>Note on US count:</strong> NVIDIA accounts for a large share of US model updates.
+            NVIDIA publishes across many domains — robotics, medical imaging, weather forecasting, protein structure —
+            not only frontier LLMs. It also re-hosts some China-origin models (Kimi, Qwen, GLM) under its HF account,
+            which count toward the US total. The China count is comparatively unaffected by this dynamic.
+          </div>
+        </div>
+
         <!-- Recent models table -->
         <div class="fm-tbl-wrap">
           <div class="fm-tbl-label">Recent model updates (latest 15)</div>
@@ -729,11 +793,9 @@ footer {
 
         <!-- Footer citation -->
         <div class="fm-footer">
-          <p class="fm-footer-note" id="fm-methodology-note">
-            Models attributed to countries via curated lab mapping (data/labs.json).
-            Only models modified within the rolling 30-day window are counted.
-            Labs outside the US and China are classified as Unknown.
-            This is a proxy for lab activity, not a census of all frontier models.
+          <p class="fm-footer-note">
+            Counts reflect all model types published by tracked labs — not exclusively frontier LLMs.
+            Download figures indicate community engagement. See lab breakdown above for per-lab detail.
           </p>
           <div class="fm-footer-links">
             Source: <a href="https://huggingface.co/api/models" target="_blank" rel="noopener">Hugging Face Hub API</a><br>
@@ -1240,6 +1302,48 @@ function updateBarTheme() {
   fmBarChart.update('none');
 }
 
+function fmtDownloads(n) {
+  if (!n) return '—';
+  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000)    return (n / 1000).toFixed(0) + 'K';
+  return n.toString();
+}
+
+function renderLabBreakdown(models) {
+  // Aggregate by lab
+  const labs = {};
+  for (const m of models) {
+    const key = m.lab_name || m.author;
+    if (!labs[key]) labs[key] = { name: key, country: m.country, count: 0, downloads: 0 };
+    labs[key].count++;
+    labs[key].downloads += m.downloads || 0;
+  }
+
+  const usLabs = Object.values(labs)
+    .filter(l => l.country === 'US')
+    .sort((a, b) => b.count - a.count);
+  const cnLabs = Object.values(labs)
+    .filter(l => l.country === 'China')
+    .sort((a, b) => b.count - a.count);
+
+  const row = (lab, cls) => `
+    <tr>
+      <td class="lab-name">${lab.name}</td>
+      <td class="lab-count ${cls}">${lab.count}</td>
+      <td class="lab-dl">${fmtDownloads(lab.downloads)}</td>
+    </tr>`;
+
+  document.getElementById('fm-labs-us').innerHTML = usLabs.map(l => row(l, 'us')).join('');
+  document.getElementById('fm-labs-cn').innerHTML = cnLabs.map(l => row(l, 'cn')).join('');
+
+  // Show the NVIDIA context note if NVIDIA count is dominant (>30% of US total)
+  const nvidiaCount = (labs['NVIDIA'] || {}).count || 0;
+  const usTotal = usLabs.reduce((s, l) => s + l.count, 0);
+  if (nvidiaCount > 0 && nvidiaCount / usTotal > 0.3) {
+    document.getElementById('fm-context-note').style.display = 'block';
+  }
+}
+
 function renderFrontierModels(data) {
   const s = data.summary || {};
   const us  = s.US      || 0;
@@ -1251,11 +1355,8 @@ function renderFrontierModels(data) {
   document.getElementById('fm-unk-count').textContent = unk;
   document.getElementById('fm-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  if (data.methodology_note) {
-    document.getElementById('fm-methodology-note').textContent = data.methodology_note;
-  }
-
   buildBarChart(us, cn, unk);
+  renderLabBreakdown(data.models || []);
 
   const models = (data.models || []).slice(0, 15);
   const tbody = document.getElementById('fm-models-body');

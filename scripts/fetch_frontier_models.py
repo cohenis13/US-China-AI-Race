@@ -111,11 +111,19 @@ def fetch_models_for_author(author: str, cutoff: datetime) -> list[dict]:
 
 
 def classify_country(country: str) -> str:
-    """Normalize country label to US / China / Unknown."""
+    """Normalize country label to US / China / Other / Unknown.
+
+    - US      : US-headquartered lab
+    - China   : China-headquartered lab
+    - Other   : identified lab headquartered outside US and China (e.g. Mistral AI)
+    - Unknown : genuinely unclassifiable or not in labs.json
+    """
     if country == "US":
         return "US"
     if country == "China":
         return "China"
+    if country == "Other":
+        return "Other"
     return "Unknown"
 
 
@@ -156,6 +164,7 @@ def main() -> None:
     # Build summary counts
     us_count      = raw_summary.get("US", 0)
     china_count   = raw_summary.get("China", 0)
+    other_count   = raw_summary.get("Other", 0)
     unknown_count = raw_summary.get("Unknown", 0)
     total         = len(all_models)
 
@@ -163,19 +172,21 @@ def main() -> None:
         "dimension":   "frontier_models",
         "metric_key":  "recent_model_updates",
         "description": (
-            f"Number of models updated in the last {WINDOW_DAYS} days, "
-            "by US vs China labs. Source: Hugging Face Hub."
+            f"Public model update activity on Hugging Face Hub from tracked labs "
+            f"in the last {WINDOW_DAYS} days, classified by lab country (US / China / Other / Unknown). "
+            "This is a proxy metric for lab activity, not a definitive ranking of frontier model capability."
         ),
         "fetched_at":  datetime.now(timezone.utc).isoformat(),
         "window_days": WINDOW_DAYS,
         "source": {
             "name": "Hugging Face Hub API",
             "url":  HF_API_BASE,
-            "note": "Models filtered by a curated list of known US and China labs (data/labs.json).",
+            "note": "Models filtered by a curated list of known labs (data/labs.json). Public models only.",
         },
         "summary": {
             "US":      us_count,
             "China":   china_count,
+            "Other":   other_count,
             "Unknown": unknown_count,
             "total":   total,
         },
@@ -183,11 +194,17 @@ def main() -> None:
         "methodology_note": (
             "Models are attributed to countries based on the manual lab mapping in "
             "data/labs.json. Only models last modified within the rolling 30-day "
-            "window are counted. Labs based outside the US and China (e.g., Mistral AI "
-            "in France) are classified as Unknown. This is an imperfect proxy — it "
-            "captures lab activity on Hugging Face Hub, not a comprehensive census of "
-            "all frontier models globally. The lab list is intentionally conservative "
-            "and editable."
+            "window are counted. Four categories are used: US (US-headquartered labs), "
+            "China (China-headquartered labs), Other (identified labs outside US and China, "
+            "e.g. Mistral AI in France), and Unknown (genuinely unclassifiable). "
+            "This is an imperfect proxy — it captures public model update activity on "
+            "Hugging Face Hub, not a comprehensive census of all frontier AI development. "
+            "Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. "
+            "China-affiliated labs that publish primarily to domestic platforms "
+            "(ModelScope, etc.) may be undercounted. "
+            "NVIDIA publishes models across many specialized domains (robotics, medical imaging, "
+            "weather forecasting) and re-hosts some third-party model weights; its raw count "
+            "may not reflect general-purpose frontier model activity."
         ),
     }
 
@@ -195,8 +212,8 @@ def main() -> None:
 
     log.info("")
     log.info("Output written to: %s", OUTPUT_FILE)
-    log.info("Summary: US=%d  China=%d  Unknown=%d  Total=%d",
-             us_count, china_count, unknown_count, total)
+    log.info("Summary: US=%d  China=%d  Other=%d  Unknown=%d  Total=%d",
+             us_count, china_count, other_count, unknown_count, total)
 
 
 if __name__ == "__main__":

@@ -23,6 +23,9 @@
   --cn:        #b5413e;
   --cn-a:      rgba(181,65,62,0.08);
   --cn-b:      rgba(181,65,62,0.20);
+  --oth:       #2d7d78;
+  --oth-a:     rgba(45,125,120,0.08);
+  --oth-b:     rgba(45,125,120,0.20);
   --unk:       #6b7280;
   --unk-a:     rgba(107,114,128,0.10);
   --shadow:    0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
@@ -220,7 +223,7 @@ h1 {
 /* ── Stat Boxes ──────────────────────────────────────────────── */
 .fm-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   margin-bottom: 20px;
 }
@@ -231,6 +234,7 @@ h1 {
 }
 .fm-stat.us  { background: var(--us-a);  border-color: var(--us-b); }
 .fm-stat.cn  { background: var(--cn-a);  border-color: var(--cn-b); }
+.fm-stat.oth { background: var(--oth-a); border-color: var(--oth-b); }
 .fm-stat.unk { background: var(--unk-a); }
 .fm-stat-num {
   font-size: 2.2rem;
@@ -242,6 +246,7 @@ h1 {
 }
 .fm-stat.us  .fm-stat-num { color: var(--us); }
 .fm-stat.cn  .fm-stat-num { color: var(--cn); }
+.fm-stat.oth .fm-stat-num { color: var(--oth); }
 .fm-stat.unk .fm-stat-num { color: var(--unk); }
 .fm-stat-lbl {
   font-size: 10.5px;
@@ -318,12 +323,13 @@ h1 {
 }
 .country-chip.us  { background: var(--us-a);  color: var(--us);  border: 1px solid var(--us-b); }
 .country-chip.cn  { background: var(--cn-a);  color: var(--cn);  border: 1px solid var(--cn-b); }
+.country-chip.oth { background: var(--oth-a); color: var(--oth); border: 1px solid var(--oth-b); }
 .country-chip.unk { background: var(--unk-a); color: var(--unk); border: 1px solid var(--border-md); }
 
 /* ── Lab Breakdown ───────────────────────────────────────────── */
 .fm-lab-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
   margin-bottom: 4px;
 }
@@ -336,8 +342,9 @@ h1 {
   margin-bottom: 0;
   border-bottom: 2px solid;
 }
-.fm-lab-hdr.us { color: var(--us); border-color: var(--us); }
-.fm-lab-hdr.cn { color: var(--cn); border-color: var(--cn); }
+.fm-lab-hdr.us  { color: var(--us);  border-color: var(--us); }
+.fm-lab-hdr.cn  { color: var(--cn);  border-color: var(--cn); }
+.fm-lab-hdr.oth { color: var(--oth); border-color: var(--oth); }
 .fm-lab-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
 .fm-lab-tbl td {
   padding: 5px 0;
@@ -348,8 +355,9 @@ h1 {
 .fm-lab-tbl tr:last-child td { border-bottom: none; }
 .fm-lab-tbl td.lab-name { font-weight: 600; color: var(--t1); }
 .fm-lab-tbl td.lab-count { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
-.fm-lab-tbl td.lab-count.us { color: var(--us); }
-.fm-lab-tbl td.lab-count.cn { color: var(--cn); }
+.fm-lab-tbl td.lab-count.us  { color: var(--us); }
+.fm-lab-tbl td.lab-count.cn  { color: var(--cn); }
+.fm-lab-tbl td.lab-count.oth { color: var(--oth); }
 .fm-lab-tbl td.lab-dl { text-align: right; color: var(--t3); font-size: 10.5px; padding-left: 8px; }
 .fm-context-note {
   font-size: 10.5px;
@@ -673,8 +681,8 @@ footer {
 
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 780px) {
-  .main-grid, .constraints-grid, .timeline-strip,
-  .fm-stats { grid-template-columns: 1fr; }
+  .main-grid, .constraints-grid, .timeline-strip { grid-template-columns: 1fr; }
+  .fm-stats { grid-template-columns: repeat(2, 1fr); }
   h1 { font-size: 1.55rem; }
   .page { padding: 0 20px 40px; }
   .fm-footer { flex-direction: column; }
@@ -714,7 +722,7 @@ footer {
         <div>
           <div class="live-card-title">Model Update Activity — Last 30 Days</div>
           <div class="live-card-sub">
-            Number of models updated on Hugging Face Hub by US and China labs &nbsp;·&nbsp; Source: Hugging Face Hub API
+            Public model update activity on Hugging Face Hub from tracked labs — a proxy for lab activity, not a definitive frontier-model ranking &nbsp;·&nbsp; Source: Hugging Face Hub API
           </div>
         </div>
         <div class="live-status">
@@ -740,9 +748,13 @@ footer {
             <div class="fm-stat-num" id="fm-cn-count">—</div>
             <div class="fm-stat-lbl">China</div>
           </div>
+          <div class="fm-stat oth">
+            <div class="fm-stat-num" id="fm-oth-count">—</div>
+            <div class="fm-stat-lbl">Other</div>
+          </div>
           <div class="fm-stat unk">
             <div class="fm-stat-num" id="fm-unk-count">—</div>
-            <div class="fm-stat-lbl">Other / Unknown</div>
+            <div class="fm-stat-lbl">Unknown</div>
           </div>
         </div>
 
@@ -778,12 +790,26 @@ footer {
                 <tbody id="fm-labs-cn"></tbody>
               </table>
             </div>
+            <div>
+              <div class="fm-lab-hdr oth">Other</div>
+              <table class="fm-lab-tbl">
+                <thead><tr>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:left;">Lab</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px;border-bottom:1px solid var(--border-md);text-align:right;">Models</th>
+                  <th style="font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:6px 0 7px 8px;border-bottom:1px solid var(--border-md);text-align:right;">Downloads (all-time)</th>
+                </tr></thead>
+                <tbody id="fm-labs-oth"></tbody>
+              </table>
+            </div>
           </div>
           <div class="fm-context-note" id="fm-context-note" style="display:none;">
-            <strong>Note on US count:</strong> NVIDIA accounts for a large share of US model updates.
-            NVIDIA publishes across many domains — robotics, medical imaging, weather forecasting, protein structure —
-            not only frontier LLMs. It also re-hosts some China-origin models (Kimi, Qwen, GLM) under its HF account,
-            which count toward the US total. The China count is comparatively unaffected by this dynamic.
+            <strong>Context — NVIDIA in the US count:</strong> NVIDIA accounts for a large share of US model updates,
+            but its HF activity differs from other frontier labs. NVIDIA publishes specialized models across many domains
+            (robotics, medical imaging, weather forecasting, protein structure) and re-hosts some third-party model weights
+            (including China-origin models such as Kimi, Qwen, and GLM) under its own HF account.
+            These all count toward the US total under this metric's methodology.
+            Readers comparing US and China counts should be aware that NVIDIA's volume reflects broad
+            multi-domain publishing, not general-purpose frontier LLM output alone.
           </div>
         </div>
 
@@ -1246,12 +1272,13 @@ function fmtFetchedAt(isoStr) {
 function countryChip(country) {
   if (country === 'US')    return '<span class="country-chip us">US</span>';
   if (country === 'China') return '<span class="country-chip cn">China</span>';
-  return '<span class="country-chip unk">Other</span>';
+  if (country === 'Other') return '<span class="country-chip oth">Other</span>';
+  return '<span class="country-chip unk">Unknown</span>';
 }
 
 let fmBarChart;
 
-function buildBarChart(us, cn, unk) {
+function buildBarChart(us, cn, oth, unk) {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
   const tickColor = isDark ? '#4d6678' : '#9ca3af';
@@ -1260,15 +1287,16 @@ function buildBarChart(us, cn, unk) {
   fmBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['United States', 'China', 'Other / Unknown'],
+      labels: ['United States', 'China', 'Other', 'Unknown'],
       datasets: [{
-        data: [us, cn, unk],
+        data: [us, cn, oth, unk],
         backgroundColor: [
           'rgba(26,58,92,0.75)',
           'rgba(181,65,62,0.75)',
+          'rgba(45,125,120,0.65)',
           'rgba(107,114,128,0.50)',
         ],
-        borderColor: [US_COLOR, CN_COLOR, '#6b7280'],
+        borderColor: [US_COLOR, CN_COLOR, '#2d7d78', '#6b7280'],
         borderWidth: 1.5,
         borderRadius: 4,
       }]
@@ -1339,6 +1367,9 @@ function renderLabBreakdown(models) {
   const cnLabs = Object.values(labs)
     .filter(l => l.country === 'China')
     .sort((a, b) => b.count - a.count);
+  const othLabs = Object.values(labs)
+    .filter(l => l.country === 'Other')
+    .sort((a, b) => b.count - a.count);
 
   const row = (lab, cls) => `
     <tr>
@@ -1347,8 +1378,11 @@ function renderLabBreakdown(models) {
       <td class="lab-dl">${fmtDownloads(lab.downloads)}</td>
     </tr>`;
 
-  document.getElementById('fm-labs-us').innerHTML = usLabs.map(l => row(l, 'us')).join('');
-  document.getElementById('fm-labs-cn').innerHTML = cnLabs.map(l => row(l, 'cn')).join('');
+  document.getElementById('fm-labs-us').innerHTML  = usLabs.map(l => row(l, 'us')).join('');
+  document.getElementById('fm-labs-cn').innerHTML  = cnLabs.map(l => row(l, 'cn')).join('');
+  document.getElementById('fm-labs-oth').innerHTML = othLabs.length
+    ? othLabs.map(l => row(l, 'oth')).join('')
+    : '<tr><td colspan="3" style="color:var(--t3);font-size:11px;padding:8px 0;">No activity in this window</td></tr>';
 
   // Show the NVIDIA context note if NVIDIA count is dominant (>30% of US total)
   const nvidiaCount = (labs['NVIDIA'] || {}).count || 0;
@@ -1362,14 +1396,16 @@ function renderFrontierModels(data) {
   const s = data.summary || {};
   const us  = s.US      || 0;
   const cn  = s.China   || 0;
+  const oth = s.Other   || 0;
   const unk = s.Unknown || 0;
 
   document.getElementById('fm-us-count').textContent  = us;
   document.getElementById('fm-cn-count').textContent  = cn;
+  document.getElementById('fm-oth-count').textContent = oth;
   document.getElementById('fm-unk-count').textContent = unk;
   document.getElementById('fm-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  buildBarChart(us, cn, unk);
+  buildBarChart(us, cn, oth, unk);
   renderLabBreakdown(data.models || []);
 
   const models = (data.models || []).slice(0, 15);

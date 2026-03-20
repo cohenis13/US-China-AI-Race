@@ -110,7 +110,7 @@ The lab-to-country mapping is in `data/labs.json`. To add a lab:
 }
 ```
 
-Valid country values: `"US"`, `"China"`, `"Unknown"`
+Valid country values: `"US"`, `"China"`, `"Other"` (identified lab outside US/China), `"Unknown"` (genuinely unclassifiable)
 
 The `hf_authors` array accepts one or more Hugging Face organization slugs (as they appear in huggingface.co/ORG_SLUG).
 
@@ -153,7 +153,7 @@ See [docs/methodology.html](docs/methodology.html) for:
 - Classification logic (how labs are assigned to countries)
 - Known limitations and caveats
 
-**Key caveat for v1:** The frontier models metric counts model updates on Hugging Face Hub — a useful proxy for lab activity, but not a complete census of all frontier AI development (closed models like GPT-4o are not included).
+**Key caveat for v1:** The frontier models metric measures public model update activity on Hugging Face Hub from tracked labs — a proxy for lab output velocity, not a definitive ranking of frontier model capability. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. Labs are classified into four categories: US, China, Other (identified non-US/non-China labs), and Unknown.
 
 ---
 

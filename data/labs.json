@@ -5,7 +5,8 @@
   "country_codes": {
     "US": "United States",
     "China": "China",
-    "Unknown": "Other / Unknown (not US or China)"
+    "Other": "Other (identified lab outside US and China)",
+    "Unknown": "Unknown (origin unclear or not classified)"
   },
   "labs": [
     {
@@ -94,9 +95,9 @@
     },
     {
       "name": "Mistral AI",
-      "country": "Unknown",
+      "country": "Other",
       "hf_authors": ["mistralai"],
-      "notes": "Paris, France. Frontier model lab. Classified as Unknown — France is neither US nor China. Included for completeness."
+      "notes": "Paris, France. Frontier model lab. Classified as Other — a clearly identified non-US, non-China lab."
     },
     {
       "name": "Alibaba / Qwen",

@@ -76,16 +76,19 @@ a { color: var(--us); }
 
   <h3>What we measure</h3>
   <p>
-    The number of models updated on <a href="https://huggingface.co" target="_blank">Hugging Face Hub</a>
-    in the last 30 days, broken down by US-affiliated and China-affiliated labs.
+    <strong>Public model update activity on Hugging Face Hub from tracked labs in the last 30 days.</strong>
+    This is a proxy metric for lab output velocity — not a definitive ranking of frontier model capability.
+    It counts how many models a curated set of known AI labs have updated or published on
+    <a href="https://huggingface.co" target="_blank">Hugging Face Hub</a> within a rolling 30-day window.
   </p>
 
   <h3>Why this metric</h3>
   <p>
     Hugging Face Hub is the dominant public repository for open and semi-open AI models.
     Major US and China frontier labs publish or mirror their model weights and updates there.
-    The cadence of updates is a reasonable proxy for research activity and output velocity —
-    even if it does not capture closed models (GPT-4o, Claude, Gemini Ultra) directly.
+    The cadence of updates is a reasonable signal of research activity and output velocity.
+    It is the most consistently available, automatically retrievable public signal for cross-country lab comparison —
+    even though it is an imperfect proxy (see Limitations below).
   </p>
 
   <h3>Data source</h3>
@@ -93,7 +96,7 @@ a { color: var(--us); }
     <p style="margin:0;"><strong>Hugging Face Hub API</strong><br>
     Endpoint: <code>https://huggingface.co/api/models?author=&lt;org&gt;&amp;sort=lastModified&amp;direction=-1</code><br>
     Updated: daily at 06:00 UTC via GitHub Actions<br>
-    Coverage: public models only
+    Coverage: public models only (closed-weight models not included)
     </p>
   </div>
 
@@ -101,25 +104,43 @@ a { color: var(--us); }
   <p>
     Labs are classified by country using a manually maintained mapping file:
     <code>data/labs.json</code>. Each entry specifies the lab name, country,
-    and one or more Hugging Face author slugs.
+    and one or more Hugging Face author slugs. Four categories are used:
   </p>
   <ul>
     <li><strong>US:</strong> OpenAI, Anthropic, Google/DeepMind, Meta AI, Microsoft, NVIDIA, Cohere, Allen AI, Stability AI, xAI, Apple, Amazon, Together AI, Salesforce AI</li>
-    <li><strong>China:</strong> Alibaba/Qwen, DeepSeek, Zhipu AI/THUDM, 01.AI, Baidu, ByteDance, Shanghai AI Lab, Moonshot AI, MiniMax, Tencent, Huawei</li>
-    <li><strong>Unknown:</strong> Labs based outside the US and China (e.g., Mistral AI in France) and any unmatched model authors</li>
+    <li><strong>China:</strong> Alibaba/Qwen, DeepSeek, Zhipu AI/THUDM, 01.AI, Baidu, ByteDance, Shanghai AI Lab, Moonshot AI, MiniMax, Tencent, Huawei/Noah's Ark Lab</li>
+    <li><strong>Other:</strong> Identified labs headquartered outside the US and China. Currently: Mistral AI (France). These are clearly classifiable but not part of the US–China bilateral comparison.</li>
+    <li><strong>Unknown:</strong> Any lab author not matched in <code>labs.json</code>, or any entry whose country origin is genuinely unclear.</li>
   </ul>
   <p>
-    The lab list is intentionally conservative — we only include labs with a clear, established frontier-model track record.
-    The file is editable; anyone can submit a correction or addition.
+    The lab list is intentionally conservative — we only include labs with a clear, established frontier-model or open-model track record.
+    <code>data/labs.json</code> is editable; corrections and additions can be submitted via the project repository.
   </p>
+
+  <h3>NVIDIA caveat</h3>
+  <div class="caveat">
+    <div class="caveat-hdr">Note on NVIDIA's contribution to the US count</div>
+    <p style="margin:0;">
+      NVIDIA frequently accounts for a large share of US model updates under this metric,
+      but its HF publishing activity differs from that of frontier LLM labs in important ways.
+      NVIDIA publishes specialized models across many non-LLM domains (robotics, medical imaging,
+      weather forecasting, protein structure prediction) and also re-hosts some third-party model weights —
+      including China-origin models such as Kimi, Qwen, and GLM — under its own HF account.
+      All of these count toward the US total under this metric's methodology.
+      Readers comparing US and China raw counts should be aware that NVIDIA's volume
+      reflects broad multi-domain publishing, not general-purpose frontier LLM output alone.
+      The lab-by-lab breakdown table on the dashboard allows readers to inspect NVIDIA's
+      contribution and adjust their interpretation accordingly.
+    </p>
+  </div>
 
   <h3>Limitations</h3>
   <ul>
-    <li>Closed frontier models (GPT-4o, Claude 3.5, Gemini Ultra) do not appear in HF Hub and are not counted.</li>
-    <li>A single lab can release many small models in one month, inflating its count relative to labs that release fewer, larger models.</li>
-    <li>Some China-affiliated labs may publish to domestic platforms (ModelScope, etc.) rather than HF Hub, understating China's activity.</li>
-    <li>The 30-day window is rolling, so counts will change each day even without new releases.</li>
-    <li>This measures update cadence, not model capability. A lab updating checkpoints frequently looks more active than one that releases one major model per quarter.</li>
+    <li><strong>Closed models excluded:</strong> Flagship closed-weight models (GPT-4o, Claude 3.5/4, Gemini Ultra) do not appear on HF Hub and are not counted. This understates the effective frontier capability of US labs in particular.</li>
+    <li><strong>China undercount:</strong> Some China-affiliated labs publish primarily to domestic platforms (ModelScope, WiseModel, etc.) rather than HF Hub. This may understate China's actual model output velocity.</li>
+    <li><strong>Volume ≠ capability:</strong> A lab releasing many fine-tuned checkpoints or domain-specific models appears more active than one releasing a single major model per quarter. High counts do not imply greater frontier capability.</li>
+    <li><strong>Rolling window:</strong> The 30-day window is rolling, so counts shift each day even without new releases.</li>
+    <li><strong>Lab list scope:</strong> Only labs in <code>data/labs.json</code> are tracked. Independent researchers and smaller organizations are not included.</li>
   </ul>
 
   <h2>Data Schema</h2>
@@ -131,7 +152,7 @@ a { color: var(--us); }
     <div class="schema-row"><span class="schema-field">window_days</span><span class="schema-desc">Rolling time window in days</span></div>
     <div class="schema-row"><span class="schema-field">source.name</span><span class="schema-desc">Human-readable source name</span></div>
     <div class="schema-row"><span class="schema-field">source.url</span><span class="schema-desc">URL of the data source or API endpoint</span></div>
-    <div class="schema-row"><span class="schema-field">summary</span><span class="schema-desc">Aggregated counts by country (US, China, Unknown, total)</span></div>
+    <div class="schema-row"><span class="schema-field">summary</span><span class="schema-desc">Aggregated counts by country (US, China, Other, Unknown, total)</span></div>
     <div class="schema-row"><span class="schema-field">models</span><span class="schema-desc">Array of individual model records with lab, country, and timestamp</span></div>
     <div class="schema-row"><span class="schema-field">methodology_note</span><span class="schema-desc">Plain-language description of classification logic and caveats</span></div>
   </div>

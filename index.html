@@ -253,6 +253,9 @@ h1 {
 .section-module-hdr.neutral-accent {
   border-left-color: var(--border-md);
 }
+.section-module-hdr.oth-accent {
+  border-left-color: var(--oth);
+}
 .section-module-lbl {
   font-size: 11px;
   font-weight: 700;
@@ -995,6 +998,8 @@ footer {
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#compute" class="nav-link">Compute</a>
       <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#adoption" class="nav-link">Adoption</a>
+      <div class="nav-sep" aria-hidden="true"></div>
       <a href="#constraints" class="nav-link">Constraints</a>
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#outlook" class="nav-link">Outlook</a>
@@ -1505,6 +1510,111 @@ footer {
       </div>
     </div>
 
+  </section>
+
+  <!-- ── Live Adoption Section ───────────────────────────────── -->
+  <section class="live-section" id="adoption">
+    <div class="section-module-hdr oth-accent">
+      <div>
+        <div class="section-module-lbl">Adoption &nbsp;—&nbsp; Live Tracker</div>
+      </div>
+      <span class="live-badge"><span class="live-dot"></span>Auto-updated daily</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">AI Procurement &amp; Deployment Notices — Last 12 Months</div>
+          <div class="live-card-sub">
+            Government AI contract awards and procurement notices — a proxy for visible institutional AI deployment intent, not a complete measure of adoption &nbsp;·&nbsp; Sources: USASpending.gov (US), CCGP (China)
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">
+            Last fetched: <span id="ado-fetched-at">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div id="ado-loading" class="fm-placeholder">Loading live data…</div>
+
+      <!-- Data / content (hidden until loaded) -->
+      <div id="ado-content" style="display:none;">
+
+        <!-- Primary stat boxes: US vs China -->
+        <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="ado-us-count">—</div>
+            <div class="fm-stat-lbl">US Federal AI Contracts</div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="ado-cn-count">—</div>
+            <div class="fm-stat-lbl">China Gov't AI Notices</div>
+          </div>
+        </div>
+
+        <!-- Secondary context note -->
+        <div id="ado-context-note" style="font-size:12px;color:var(--t3);margin:6px 0 2px;"></div>
+
+        <!-- Tracking meta -->
+        <div class="fm-meta" id="ado-meta"></div>
+
+        <!-- Interpretive note -->
+        <div class="fm-interp" id="ado-interp"></div>
+
+        <!-- Bar chart -->
+        <div class="fm-chart-wrap">
+          <div class="fm-chart-label">AI procurement / deployment notices by country — rolling 12-month window</div>
+          <canvas id="adoBarChart" height="48"></canvas>
+        </div>
+
+        <!-- Top examples table (US federal contracts) -->
+        <div class="fm-tbl-wrap detail-wrap" id="ado-examples-wrap">
+          <div class="detail-section-hdr">
+            <span class="detail-lbl">Top US federal AI contract awards (by value)</span>
+          </div>
+          <table class="fm-tbl">
+            <thead>
+              <tr>
+                <th>Recipient</th>
+                <th>Agency</th>
+                <th class="r">Amount</th>
+                <th class="r">Date</th>
+              </tr>
+            </thead>
+            <tbody id="ado-examples-body">
+              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Scope caveat box -->
+        <div class="fm-context-note" style="display:block;">
+          <strong>Scope caveat:</strong> US figure = federal contract awards only (not state/local/private). China figure = central CCGP notices only — significant undercount expected, and CCGP may be inaccessible from automated runners on non-Chinese IPs (null &ne; zero). The observed US/China ratio reflects a <em>transparency asymmetry</em>, not necessarily a proportional difference in AI adoption rates. Compare directionally only.
+        </div>
+
+        <!-- Footer citation -->
+        <div class="fm-footer">
+          <p class="fm-footer-note">
+            A procurement order indicates an institution is actively acquiring AI — a stronger signal than mentions or plans. Neither source captures private-sector AI deployment or confirmed deployment outcomes.
+          </p>
+          <div class="fm-footer-links">
+            Sources: <a href="https://api.usaspending.gov" target="_blank" rel="noopener">USASpending.gov</a>,
+            <a href="http://www.ccgp.gov.cn" target="_blank" rel="noopener">CCGP</a><br>
+            <a href="docs/methodology.html" target="_blank">Full methodology →</a>
+          </div>
+        </div>
+
+      </div><!-- /ado-content -->
+
+      <!-- Error state -->
+      <div id="ado-error" class="fm-placeholder" style="display:none;">
+        Unable to load live data. Check back after the first GitHub Actions run,
+        or see <a href="data/adoption.json">data/adoption.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
   </section>
 
   <!-- ── Binding Constraints ──────────────────────────────────── -->
@@ -2317,6 +2427,158 @@ async function loadCompute() {
   }
 }
 
+/* ── Adoption ────────────────────────────────────────────────── */
+let adoBarChart;
+
+function fmtDollars(n) {
+  if (n == null || n === '') return '—';
+  n = Number(n);
+  if (isNaN(n) || n === 0) return '—';
+  if (n >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
+  if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+  return '$' + n.toFixed(0);
+}
+
+function buildAdoptionChart(usCount, cnCount) {
+  const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  const ctx = document.getElementById('adoBarChart').getContext('2d');
+  adoBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['United States', 'China'],
+      datasets: [{
+        data: [usCount, cnCount],
+        backgroundColor: ['rgba(26,58,92,0.75)', 'rgba(181,65,62,0.75)'],
+        borderColor:     [US_COLOR, CN_COLOR],
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: {
+            label: (ctx) => '  ' + ctx.parsed.x.toLocaleString() + ' AI procurement notices / contract awards'
+          }
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true,
+          ticks: { color: tickColor, font: { size: 10 } },
+          grid:  { color: gridColor },
+        },
+        y: {
+          ticks: { color: tickColor, font: { size: 11, weight: '600' } },
+          grid:  { display: false },
+        }
+      }
+    }
+  });
+  window._adoBarChart = adoBarChart;
+}
+
+function renderAdoption(data) {
+  const s  = data.summary || {};
+  const us = s.US    || { procurement_count: 0, available: false };
+  const cn = s.China || { procurement_count: null, available: false };
+
+  const usCount = us.procurement_count || 0;
+  const cnAvail = cn.available === true;
+  const cnCount = cnAvail ? (cn.procurement_count || 0) : 0;
+
+  document.getElementById('ado-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
+  document.getElementById('ado-us-count').textContent   = usCount.toLocaleString();
+  document.getElementById('ado-cn-count').textContent   = cnAvail ? cnCount.toLocaleString() : '—';
+
+  // Context note — explain China null if needed
+  const ctxNote = cnAvail
+    ? `China confidence: ${cn.confidence} — central CCGP notices only; significant undercount expected`
+    : 'China: automated data not available from CCGP (may be blocked from non-CN IPs — null ≠ zero)';
+  document.getElementById('ado-context-note').textContent = ctxNote;
+
+  // Meta line
+  const win = data.window_days || 365;
+  const usKw = (data.search_keywords?.US || ['artificial intelligence']).join('", "');
+  const cnKw = (data.search_keywords?.China || ['人工智能'])[0];
+  document.getElementById('ado-meta').textContent =
+    `${win}-day rolling window · US keywords: "${usKw}" · China keyword: "${cnKw}"`;
+
+  // Interpretive sentence
+  let interp;
+  if (!cnAvail) {
+    interp =
+      `US federal agencies issued ${usCount.toLocaleString()} AI-related contract awards in this window. ` +
+      `China CCGP data was not accessible from the automated runner — the bilateral comparison is incomplete for this snapshot.`;
+  } else if (usCount > cnCount) {
+    interp =
+      `US federal agencies show higher visible AI procurement activity (${usCount.toLocaleString()} federal contract awards vs ` +
+      `${cnCount.toLocaleString()} CCGP central notices). ` +
+      `Note: the US figure reflects a higher-transparency procurement environment and broader keyword coverage.`;
+  } else if (cnCount > usCount) {
+    interp =
+      `China's CCGP shows more central-government AI procurement notices (${cnCount.toLocaleString()} vs ` +
+      `${usCount.toLocaleString()} US federal contracts). ` +
+      `Interpret with caution: transparency and scope differ significantly between sources.`;
+  } else {
+    interp =
+      `US and China show broadly similar visible AI procurement signals in this snapshot ` +
+      `(${usCount.toLocaleString()} US contracts vs ${cnCount.toLocaleString()} China notices). Compare directionally only.`;
+  }
+  const caveat = `<span style="color:var(--t3);">Counts reflect procurement orders placed, not confirmed deployment outcomes. US/China ratio reflects a transparency asymmetry, not necessarily a proportional adoption difference.</span>`;
+  document.getElementById('ado-interp').innerHTML = interp + ' ' + caveat;
+
+  // Chart — use 0 for China if unavailable (chart label will note limitation)
+  buildAdoptionChart(usCount, cnCount);
+
+  // Top examples table (US federal contracts)
+  const examples = data.top_examples || [];
+  const tbody    = document.getElementById('ado-examples-body');
+  if (examples.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:12px 0;text-align:center;color:var(--t3);">No examples available — check back after the first workflow run.</td></tr>';
+  } else {
+    tbody.innerHTML = examples.map(e => `
+      <tr>
+        <td style="color:var(--t2);">${truncate(e.recipient || '—', 40)}</td>
+        <td style="color:var(--t2);">${truncate(e.agency || '—', 38)}</td>
+        <td class="r" style="color:var(--t2);white-space:nowrap;">${fmtDollars(e.amount)}</td>
+        <td class="r" style="color:var(--t3);white-space:nowrap;">${fmtDate(e.date)}</td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('ado-loading').style.display = 'none';
+  document.getElementById('ado-error').style.display   = 'none';
+  document.getElementById('ado-content').style.display = 'block';
+  setupCollapsible('ado-examples-body', 'ado-examples-wrap', 5);
+}
+
+async function loadAdoption() {
+  try {
+    const resp = await fetch('data/adoption.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    if (!data.fetched_at) throw new Error('No data yet');
+    renderAdoption(data);
+  } catch (err) {
+    console.warn('Failed to load adoption.json:', err);
+    document.getElementById('ado-loading').style.display = 'none';
+    document.getElementById('ado-error').style.display   = 'block';
+  }
+}
+
 /* ── Collapsible Tables ──────────────────────────────────────── */
 function setupCollapsible(tbodyId, wrapperId, threshold) {
   const tbody = document.getElementById(tbodyId);
@@ -2354,6 +2616,7 @@ document.addEventListener('DOMContentLoaded', function () {
   loadFrontierModels();
   loadTalent();
   loadCompute();
+  loadAdoption();
 });
 </script>
 

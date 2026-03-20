@@ -1,0 +1,51 @@
+{
+  "dimension": "adoption",
+  "metric_key": "ai_procurement_notices",
+  "description": "Placeholder — run fetch_adoption.py or trigger the GitHub Actions workflow to populate with live data.",
+  "fetched_at": null,
+  "window_days": 365,
+  "start_date": null,
+  "end_date": null,
+  "search_keywords": {
+    "US": [
+      "artificial intelligence",
+      "machine learning",
+      "generative AI",
+      "large language model",
+      "AI system"
+    ],
+    "China": [
+      "人工智能"
+    ]
+  },
+  "summary": {
+    "US": {
+      "procurement_count": 0,
+      "source": "USASpending.gov",
+      "available": false,
+      "confidence": "low"
+    },
+    "China": {
+      "procurement_count": null,
+      "source": "CCGP (中国政府采购网)",
+      "available": false,
+      "confidence": "unavailable",
+      "note": "Data not yet fetched. Trigger the 'Update Adoption Data' GitHub Actions workflow."
+    }
+  },
+  "top_examples": [],
+  "source": {
+    "primary_us": {
+      "name": "USASpending.gov",
+      "url": "https://api.usaspending.gov/api/v2/search/spending_by_award/",
+      "note": "Official US federal spending data. No API key required."
+    },
+    "primary_cn": {
+      "name": "CCGP (中国政府采购网)",
+      "url": "http://www.ccgp.gov.cn",
+      "note": "China central government procurement portal. Best-effort scrape."
+    }
+  },
+  "methodology_note": "Government procurement actions used as adoption proxy — stronger signal than mentions or job postings. US: USASpending.gov federal contract awards. China: CCGP central procurement notices (best-effort, may be blocked from non-Chinese IPs).",
+  "caveats": "Scope asymmetry: US = federal only, China = central CCGP only. Transparency asymmetry: US data is far more automatable. China null count = data unavailable, not zero procurement."
+}

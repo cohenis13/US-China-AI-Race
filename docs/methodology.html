@@ -245,11 +245,12 @@ a { color: var(--us); }
 
   <h3>Data source</h3>
   <div class="card">
-    <p style="margin:0;"><strong>TOP500</strong><br>
-    URL: <code>https://www.top500.org/lists/top500/YYYY/MM/</code><br>
-    Metric: HPL Rmax (High Performance Linpack benchmark, measured in TFlop/s, stored as PFlop/s)<br>
+    <p style="margin:0;"><strong>TOP500 — full XML download</strong><br>
+    URL: <code>https://www.top500.org/lists/top500/YYYY/MM/download/TOP500_YYYYMM_all.xml</code><br>
+    Metric: HPL Rmax (High Performance Linpack benchmark). Source unit is GFlop/s; stored as PFlop/s (÷ 1,000,000).<br>
+    Coverage: all 500 systems in the edition (complete list, not a sample)<br>
     Updated: twice yearly (June and November) — script auto-detects the latest edition<br>
-    Coverage: 500 most powerful non-distributed computer systems globally
+    Country: as reported by the submitting institution to TOP500 (dedicated XML field, no inference required)
     </p>
   </div>
 

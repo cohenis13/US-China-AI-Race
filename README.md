@@ -144,7 +144,7 @@ python scripts/fetch_compute.py
 
 The Talent script makes two calls to the OpenAlex API and completes in a few seconds.
 
-The Compute script scrapes 10 pages of the TOP500 list (~15 seconds with polite rate limiting) and produces two metrics: aggregate HPL Rmax performance (primary) and system count (secondary).
+The Compute script downloads the full TOP500 XML file (~600 KB, all 500 systems) and produces two metrics: aggregate HPL Rmax performance in PFlop/s (primary) and system count (secondary). Rmax is stored in GFlop/s in the source and converted to PFlop/s.
 
 ---
 

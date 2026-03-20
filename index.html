@@ -988,7 +988,7 @@ footer {
         <div>
           <div class="live-card-title">High-End Compute Capacity — Latest TOP500 Snapshot</div>
           <div class="live-card-sub">
-            Aggregate HPL benchmark performance and system count from the TOP500 supercomputer list — a proxy for frontier compute capacity, not a complete measure of AI compute &nbsp;·&nbsp; Source: TOP500
+            Aggregate HPL benchmark performance and system count from the full TOP500 supercomputer list (all 500 systems) — a proxy for frontier compute capacity, not a complete measure of AI compute &nbsp;·&nbsp; Source: TOP500
           </div>
         </div>
         <div class="live-status">
@@ -1910,14 +1910,15 @@ function renderCompute(data) {
   document.getElementById('cmp-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
   // Secondary system-count note
-  const edition = data.list_edition ? ` (${data.list_edition} edition)` : '';
+  const edition = data.list_edition ? ` · ${data.list_edition} edition` : '';
+  const parsed  = data.total_systems_parsed || (us.systems + cn.systems + ot.systems + (s.Unknown ? s.Unknown.systems : 0));
+  const complete = data.is_complete !== false ? 'full list' : `${parsed} systems parsed`;
   document.getElementById('cmp-sys-note').textContent =
     `System count: US ${us.systems}, China ${cn.systems}, Other ${ot.systems}${edition}`;
 
   // Meta line
-  const total = (us.systems + cn.systems + ot.systems + (s.Unknown ? s.Unknown.systems : 0));
   document.getElementById('cmp-meta').textContent =
-    `${total} systems in this TOP500 snapshot · HPL Rmax is the primary signal (total benchmark performance, not system count)`;
+    `${parsed} systems parsed from ${complete}${edition} · HPL Rmax is the primary signal (total benchmark performance, not system count)`;
 
   // Interpretive sentence
   let interp;

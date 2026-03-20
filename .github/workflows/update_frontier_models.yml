@@ -26,10 +26,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install -r requirements.txt
 
       - name: Fetch frontier models data
         run: python scripts/fetch_frontier_models.py

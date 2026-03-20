@@ -12,8 +12,8 @@ A credible, data-driven tracker that measures the U.S.–China AI race using pub
 
 **Six dimensions tracked:**
 1. Frontier Models ← *live data (v1)*
-2. Compute
-3. Talent
+2. Talent ← *live data (v1)*
+3. Compute
 4. Domestic Adoption
 5. Global Diffusion
 6. Energy
@@ -44,13 +44,17 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 /
 ├── index.html                  Main dashboard
 ├── data/
-│   ├── frontier_models.json    Live data output (auto-updated)
-│   └── labs.json               Manual lab-to-country mapping (edit this)
+│   ├── frontier_models.json    Live data output — Frontier Models (auto-updated)
+│   ├── talent.json             Live data output — Talent (auto-updated)
+│   ├── labs.json               Manual lab-to-country mapping (Frontier Models)
+│   └── institutions.json       Institution keyword lists (Talent classification)
 ├── scripts/
-│   └── fetch_frontier_models.py  Data fetch script
+│   ├── fetch_frontier_models.py  Frontier Models fetch script
+│   └── fetch_talent.py           Talent fetch script
 ├── .github/
 │   └── workflows/
-│       └── update_frontier_models.yml  Daily refresh
+│       ├── update_frontier_models.yml  Daily refresh (06:00 UTC)
+│       └── update_talent.yml           Daily refresh (07:00 UTC)
 ├── docs/
 │   └── methodology.html        Methodology page
 └── README.md
@@ -116,16 +120,23 @@ The `hf_authors` array accepts one or more Hugging Face organization slugs (as t
 
 ---
 
-## Running the fetch script locally
+## Running the fetch scripts locally
 
 If you have Python 3.9+ installed:
 
 ```bash
 pip install requests
+
+# Frontier Models (Hugging Face Hub)
 python scripts/fetch_frontier_models.py
+# → writes data/frontier_models.json
+
+# Talent (arXiv API)
+python scripts/fetch_talent.py
+# → writes data/talent.json
 ```
 
-Output will be written to `data/frontier_models.json`.
+The Talent script fetches up to 2,000 papers per category from arXiv and may take 1–2 minutes to complete (arXiv rate-limits requests to 3 seconds apart).
 
 ---
 
@@ -153,7 +164,9 @@ See [docs/methodology.html](docs/methodology.html) for:
 - Classification logic (how labs are assigned to countries)
 - Known limitations and caveats
 
-**Key caveat for v1:** The frontier models metric measures public model update activity on Hugging Face Hub from tracked labs — a proxy for lab output velocity, not a definitive ranking of frontier model capability. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. Labs are classified into four categories: US, China, Other (identified non-US/non-China labs), and Unknown.
+**Key caveat — Frontier Models (v1):** Measures public model update activity on Hugging Face Hub from tracked labs — a proxy for lab output velocity, not a definitive ranking of frontier model capability. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. Labs are classified into four categories: US, China, Other (identified non-US/non-China labs), and Unknown.
+
+**Key caveat — Talent (v1):** Measures AI paper submission volume on arXiv (cs.AI, cs.LG, cs.CL, cs.CV) — a proxy for research output, not a measure of researcher headcount, citation impact, or capability. High Unknown rates reflect missing affiliation metadata in arXiv, not unclassifiable research. Coverage is capped at 2,000 papers per category due to API limits; large categories (cs.LG, cs.CV) are undersampled.
 
 ---
 

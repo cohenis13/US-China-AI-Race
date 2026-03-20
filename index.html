@@ -876,6 +876,107 @@ footer {
     </div><!-- /live-card -->
   </section>
 
+  <!-- ── Live Talent Section ──────────────────────────────────── -->
+  <section class="live-section" id="talent">
+    <div class="lbl-row">
+      <p class="lbl">Talent &nbsp;—&nbsp; Live Tracker</p>
+      <span class="live-badge"><span class="live-dot"></span>Auto-updated daily</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">AI Research Output — Last 12 Months</div>
+          <div class="live-card-sub">
+            AI research papers on arXiv (cs.AI, cs.LG, cs.CL, cs.CV) from tracked institutions — a proxy for research output, not a complete measure of talent or capability &nbsp;·&nbsp; Source: arXiv API
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">
+            Last fetched: <span id="tal-fetched-at">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div id="tal-loading" class="fm-placeholder">Loading live data…</div>
+
+      <!-- Data / content (hidden until loaded) -->
+      <div id="tal-content" style="display:none;">
+
+        <!-- Stat boxes -->
+        <div class="fm-stats">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="tal-us-count">—</div>
+            <div class="fm-stat-lbl">United States</div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="tal-cn-count">—</div>
+            <div class="fm-stat-lbl">China</div>
+          </div>
+          <div class="fm-stat oth">
+            <div class="fm-stat-num" id="tal-oth-count">—</div>
+            <div class="fm-stat-lbl">Other (non-US/China)</div>
+          </div>
+          <div class="fm-stat unk">
+            <div class="fm-stat-num" id="tal-unk-count">—</div>
+            <div class="fm-stat-lbl">Unknown</div>
+          </div>
+        </div>
+
+        <!-- Tracking meta -->
+        <div class="fm-meta" id="tal-meta"></div>
+
+        <!-- Interpretive note -->
+        <div class="fm-interp" id="tal-interp"></div>
+
+        <!-- Bar chart -->
+        <div class="fm-chart-wrap">
+          <div class="fm-chart-label">AI research papers on arXiv by country — last 12 months (sampled, tracked institutions)</div>
+          <canvas id="talBarChart" height="72"></canvas>
+        </div>
+
+        <!-- Recent papers table -->
+        <div class="fm-tbl-wrap">
+          <div class="fm-tbl-label">Recent papers — latest 15 (sorted by submission date)</div>
+          <table class="fm-tbl">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>First Author</th>
+                <th class="r">Country</th>
+                <th class="r">Published</th>
+              </tr>
+            </thead>
+            <tbody id="tal-papers-body">
+              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Footer citation -->
+        <div class="fm-footer">
+          <p class="fm-footer-note">
+            Classification uses keyword matching on author affiliations and abstract text — a transparent but imperfect method.
+            High Unknown rates reflect missing affiliation metadata in arXiv submissions, not unclassifiable research.
+          </p>
+          <div class="fm-footer-links">
+            Source: <a href="http://export.arxiv.org/api/query" target="_blank" rel="noopener">arXiv API</a><br>
+            <a href="docs/methodology.html" target="_blank">Full methodology →</a>
+          </div>
+        </div>
+
+      </div><!-- /tal-content -->
+
+      <!-- Error state (hidden by default) -->
+      <div id="tal-error" class="fm-placeholder" style="display:none;">
+        Unable to load live data. Check back after the first GitHub Actions run,
+        or see <a href="data/talent.json">data/talent.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
+  </section>
+
   <hr class="section-divider">
 
   <!-- ── Core Scorecard + Strategic Snapshot ─────────────────── -->
@@ -1495,10 +1596,158 @@ async function loadFrontierModels() {
   }
 }
 
+/* ── Talent ──────────────────────────────────────────────────── */
+let talBarChart;
+
+function buildTalentChart(us, cn, oth, unk) {
+  const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  const ctx = document.getElementById('talBarChart').getContext('2d');
+  talBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['United States', 'China', 'Other (non-US/China)', 'Unknown'],
+      datasets: [{
+        data: [us, cn, oth, unk],
+        backgroundColor: [
+          'rgba(26,58,92,0.75)',
+          'rgba(181,65,62,0.75)',
+          'rgba(45,125,120,0.65)',
+          'rgba(107,114,128,0.50)',
+        ],
+        borderColor: [US_COLOR, CN_COLOR, '#2d7d78', '#6b7280'],
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: {
+            label: (ctx) => '  ' + ctx.parsed.x + ' papers (sampled, last 12 months)'
+          }
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true,
+          ticks: { color: tickColor, font: { size: 10 }, stepSize: 1 },
+          grid:  { color: gridColor },
+        },
+        y: {
+          ticks: { color: tickColor, font: { size: 11, weight: '600' } },
+          grid:  { display: false },
+        }
+      }
+    }
+  });
+  window._talBarChart = talBarChart;
+}
+
+function fmtDate(isoStr) {
+  if (!isoStr) return '—';
+  try {
+    const d = new Date(isoStr);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  } catch { return isoStr.slice(0, 10); }
+}
+
+function truncate(str, n) {
+  return str && str.length > n ? str.slice(0, n) + '…' : str;
+}
+
+function renderTalent(data) {
+  const s   = data.summary || {};
+  const us  = s.US      || 0;
+  const cn  = s.China   || 0;
+  const oth = s.Other   || 0;
+  const unk = s.Unknown || 0;
+
+  document.getElementById('tal-us-count').textContent  = us;
+  document.getElementById('tal-cn-count').textContent  = cn;
+  document.getElementById('tal-oth-count').textContent = oth;
+  document.getElementById('tal-unk-count').textContent = unk;
+  document.getElementById('tal-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
+
+  // Meta line
+  const total = s.total || (us + cn + oth + unk);
+  const unknownPct = total > 0 ? Math.round(unk / total * 100) : 0;
+  document.getElementById('tal-meta').textContent =
+    `${total.toLocaleString()} papers sampled · ${unknownPct}% unclassified (missing affiliation metadata)`;
+
+  // Interpretive note — dynamic based on US vs China
+  let mainSentence;
+  if (us > cn) {
+    mainSentence =
+      'In this sample, US-based institutions account for more classified AI research papers on arXiv, ' +
+      'though China\'s output remains substantial and may be undercounted due to domestic publishing platforms.';
+  } else if (cn > us) {
+    mainSentence =
+      'In this sample, China-based institutions account for more classified AI research papers on arXiv, ' +
+      'while US output also remains significant.';
+  } else {
+    mainSentence =
+      'In this sample, US and China show broadly similar levels of classified AI research papers on arXiv.';
+  }
+  const caveat = `<span style="color:var(--t3);">Does not include papers published outside arXiv, or research from institutions not in the tracked keyword list.</span>`;
+  document.getElementById('tal-interp').innerHTML = mainSentence + ' ' + caveat;
+
+  // Chart
+  buildTalentChart(us, cn, oth, unk);
+
+  // Recent papers table
+  const papers = (data.papers || []).slice(0, 15);
+  const tbody  = document.getElementById('tal-papers-body');
+  if (papers.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No papers found — check back after the first workflow run.</td></tr>';
+  } else {
+    tbody.innerHTML = papers.map(p => `
+      <tr>
+        <td class="model-id"><a href="${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" title="${p.title}">${truncate(p.title, 72)}</a></td>
+        <td style="color:var(--t2);">${p.authors && p.authors[0] ? p.authors[0] : '—'}</td>
+        <td class="r">${countryChip(p.country)}</td>
+        <td class="r" style="color:var(--t3);white-space:nowrap;">${fmtDate(p.published)}</td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('tal-loading').style.display = 'none';
+  document.getElementById('tal-error').style.display   = 'none';
+  document.getElementById('tal-content').style.display = 'block';
+}
+
+async function loadTalent() {
+  try {
+    const resp = await fetch('data/talent.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    // If the placeholder JSON has no papers and no fetched_at, show error state
+    if (!data.fetched_at || data.summary.total === 0) {
+      throw new Error('No data yet');
+    }
+    renderTalent(data);
+  } catch (err) {
+    console.warn('Failed to load talent.json:', err);
+    document.getElementById('tal-loading').style.display = 'none';
+    document.getElementById('tal-error').style.display   = 'block';
+  }
+}
+
 /* ── Init ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
   buildRadarChart();
   loadFrontierModels();
+  loadTalent();
 });
 </script>
 

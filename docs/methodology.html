@@ -143,6 +143,75 @@ a { color: var(--us); }
     <li><strong>Lab list scope:</strong> Only labs in <code>data/labs.json</code> are tracked. Independent researchers and smaller organizations are not included.</li>
   </ul>
 
+  <h2>Dimension 2 — Talent (Live)</h2>
+
+  <h3>What we measure</h3>
+  <p>
+    <strong>A sample of AI-related research papers submitted to arXiv in the last 12 months, classified by country of institution.</strong>
+    This is a proxy for research output velocity — not a measure of researcher headcount, citation impact, or overall talent quality.
+    It counts how many papers in four AI-relevant arXiv categories (cs.AI, cs.LG, cs.CL, cs.CV) can be attributed to US, China, or other institutions
+    based on keyword matching against available metadata.
+  </p>
+
+  <h3>Why this metric</h3>
+  <p>
+    arXiv is the dominant preprint repository for AI/ML research. The vast majority of published AI work — from both US and China labs —
+    appears on arXiv before or alongside peer-reviewed publication. Submission volume is an imperfect but consistently available
+    public signal for research output and institutional activity.
+  </p>
+
+  <h3>Data source</h3>
+  <div class="card">
+    <p style="margin:0;"><strong>arXiv API</strong><br>
+    Endpoint: <code>http://export.arxiv.org/api/query?search_query=cat:&lt;category&gt;&amp;sortBy=submittedDate</code><br>
+    Categories: cs.AI, cs.LG, cs.CL, cs.CV<br>
+    Updated: daily at 07:00 UTC via GitHub Actions<br>
+    Coverage: public arXiv submissions only
+    </p>
+  </div>
+
+  <h3>Classification logic</h3>
+  <p>
+    Papers are classified by country using keyword matching against a curated institution list in
+    <code>data/institutions.json</code>. Two matching strategies are used in priority order:
+  </p>
+  <ol>
+    <li><strong>Affiliation field:</strong> arXiv occasionally provides explicit affiliation metadata for authors. When present, this is matched against institution keywords.</li>
+    <li><strong>Abstract text (fallback):</strong> When no affiliation is available, the first 600 characters of the abstract are searched for institution names. This is less reliable — many abstracts do not mention institutions explicitly.</li>
+  </ol>
+  <p>Four categories are used:</p>
+  <ul>
+    <li><strong>US:</strong> Papers matching US university or company keywords (MIT, Stanford, Google Research, OpenAI, etc.)</li>
+    <li><strong>China:</strong> Papers matching China institution keywords (Tsinghua, Peking University, Baidu, ByteDance, etc.)</li>
+    <li><strong>Other (non-US/China):</strong> Papers matching other identified institutions (Oxford, ETH Zurich, University of Toronto, etc.)</li>
+    <li><strong>Unknown:</strong> Papers where no institution keyword matched, or where both US and China keywords matched (likely international collaborations).</li>
+  </ul>
+  <p>
+    The institution keyword list is maintained in <code>data/institutions.json</code> and is editable.
+  </p>
+
+  <h3>API sampling limitation</h3>
+  <div class="caveat">
+    <div class="caveat-hdr">Important — this is a sample, not complete coverage</div>
+    <p style="margin:0;">
+      The arXiv API returns at most 2,000 results per query. For high-volume categories like cs.LG
+      (~3,000–4,000 papers/month) and cs.CV (~2,500/month), the 2,000-paper cap means the data
+      reflects the most recent weeks or months of the 12-month window, not the full year.
+      Lower-volume categories like cs.AI (~400/month) are substantially more complete.
+      The dashboard labels this as "sampled" to make this limitation visible.
+    </p>
+  </div>
+
+  <h3>Limitations</h3>
+  <ul>
+    <li><strong>High Unknown rate:</strong> arXiv does not require authors to provide affiliation metadata. Most papers are classified from abstract text alone, which often does not mention institutions. Unknown rates of 50–70% are expected and reflect missing metadata, not unclassifiable research.</li>
+    <li><strong>China undercount:</strong> Chinese researchers may submit to domestic preprint platforms (ChinaXiv, etc.) rather than arXiv. This understates China's total research output.</li>
+    <li><strong>Volume ≠ quality:</strong> Paper count does not measure citation impact, benchmark performance, or practical significance. A high count does not imply frontier capability.</li>
+    <li><strong>Collaboration ambiguity:</strong> Papers with both US and China keyword matches are classified as Unknown. International collaborations are therefore underrepresented in the named-country counts.</li>
+    <li><strong>Keyword precision:</strong> Common institution abbreviations (e.g., "MIT", "CMU") may match in unexpected contexts. Specific long-form names are more reliable.</li>
+    <li><strong>Recency bias:</strong> Because papers are fetched sorted by submission date (newest first), samples for high-volume categories skew toward very recent submissions.</li>
+  </ul>
+
   <h2>Data Schema</h2>
   <p>All live metrics are stored in versioned JSON files under <code>data/</code>. The current schema:</p>
   <div class="card">

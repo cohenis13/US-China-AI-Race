@@ -1,0 +1,21 @@
+{
+  "dimension": "talent",
+  "metric_key": "papers_last_12_months",
+  "description": "AI-related research papers (cs.AI, cs.LG, cs.CL, cs.CV) sampled from arXiv in the last 12 months, classified by country of institution. A proxy for research output velocity, not a complete census.",
+  "fetched_at": null,
+  "window_days": 365,
+  "source": {
+    "name": "arXiv API",
+    "url": "http://export.arxiv.org/api/query",
+    "note": "Data not yet fetched. Run scripts/fetch_talent.py or trigger the GitHub Actions workflow."
+  },
+  "summary": {
+    "US": 0,
+    "China": 0,
+    "Other": 0,
+    "Unknown": 0,
+    "total": 0
+  },
+  "papers": [],
+  "methodology_note": "Placeholder — run fetch_talent.py to populate."
+}

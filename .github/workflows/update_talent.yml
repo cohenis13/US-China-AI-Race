@@ -1,0 +1,46 @@
+name: Update Talent Data
+
+on:
+  schedule:
+    # Run daily at 07:00 UTC (1 hour after frontier models to avoid overlap)
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    # Also allow manual runs from the GitHub Actions UI
+    # Go to: Actions tab → "Update Talent Data" → Run workflow
+
+permissions:
+  contents: write   # needed to commit and push data/talent.json
+
+jobs:
+  update-talent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20   # arXiv fetches can be slow for large result sets
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch talent data
+        run: python scripts/fetch_talent.py
+
+      - name: Commit and push if data changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/talent.json
+          if git diff --cached --quiet; then
+            echo "No changes to data — skipping commit."
+          else
+            git commit -m "data: update talent [$(date -u +'%Y-%m-%d')]"
+            git push
+          fi

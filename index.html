@@ -976,6 +976,102 @@ footer {
 
   <hr class="section-divider">
 
+  <!-- ── Live Compute Section ─────────────────────────────────── -->
+  <section class="live-section" id="compute">
+    <div class="lbl-row">
+      <p class="lbl">Compute &nbsp;—&nbsp; Live Tracker</p>
+      <span class="live-badge"><span class="live-dot"></span>Auto-updated daily</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">High-End Compute Capacity — Latest TOP500 Snapshot</div>
+          <div class="live-card-sub">
+            Aggregate HPL benchmark performance and system count from the TOP500 supercomputer list — a proxy for frontier compute capacity, not a complete measure of AI compute &nbsp;·&nbsp; Source: TOP500
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">
+            Last fetched: <span id="cmp-fetched-at">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div id="cmp-loading" class="fm-placeholder">Loading live data…</div>
+
+      <!-- Data / content (hidden until loaded) -->
+      <div id="cmp-content" style="display:none;">
+
+        <!-- Primary stat boxes: US vs China HPL performance -->
+        <div class="fm-stats">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="cmp-us-perf">—</div>
+            <div class="fm-stat-lbl">United States &nbsp;<span style="font-weight:400;font-size:11px;opacity:.7;">HPL Rmax</span></div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="cmp-cn-perf">—</div>
+            <div class="fm-stat-lbl">China &nbsp;<span style="font-weight:400;font-size:11px;opacity:.7;">HPL Rmax</span></div>
+          </div>
+        </div>
+        <!-- Secondary context: system count -->
+        <div id="cmp-sys-note" style="font-size:12px;color:var(--t3);margin:6px 0 2px;"></div>
+
+        <!-- Tracking meta -->
+        <div class="fm-meta" id="cmp-meta"></div>
+
+        <!-- Interpretive note -->
+        <div class="fm-interp" id="cmp-interp"></div>
+
+        <!-- Primary bar chart: HPL performance US vs China -->
+        <div class="fm-chart-wrap">
+          <div class="fm-chart-label">Aggregate HPL Rmax by country — latest TOP500 snapshot</div>
+          <canvas id="cmpPerfChart" height="48"></canvas>
+        </div>
+
+        <!-- Top systems table -->
+        <div class="fm-tbl-wrap">
+          <div class="fm-tbl-label">Top 20 systems — latest TOP500 snapshot</div>
+          <table class="fm-tbl">
+            <thead>
+              <tr>
+                <th class="r" style="width:36px;">#</th>
+                <th>System</th>
+                <th class="r">Country</th>
+                <th class="r">HPL Rmax</th>
+              </tr>
+            </thead>
+            <tbody id="cmp-systems-body">
+              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Footer citation -->
+        <div class="fm-footer">
+          <p class="fm-footer-note">
+            Primary metric is aggregate HPL Rmax (benchmark performance), not system count.
+            TOP500 does not include private AI clusters, cloud GPU farms, or systems below the TOP500 threshold.
+            List updated twice yearly (June and November).
+          </p>
+          <div class="fm-footer-links">
+            Source: <a href="https://www.top500.org" target="_blank" rel="noopener">TOP500</a><br>
+            <a href="docs/methodology.html" target="_blank">Full methodology →</a>
+          </div>
+        </div>
+
+      </div><!-- /cmp-content -->
+
+      <!-- Error state -->
+      <div id="cmp-error" class="fm-placeholder" style="display:none;">
+        Unable to load live data. Check back after the first GitHub Actions run,
+        or see <a href="data/compute.json">data/compute.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
+  </section>
+
   <!-- ── Core Scorecard + Strategic Snapshot ─────────────────── -->
   <section class="main-grid">
 
@@ -1743,11 +1839,145 @@ async function loadTalent() {
   }
 }
 
+/* ── Compute ─────────────────────────────────────────────────── */
+let cmpPerfChart;
+
+function fmtPflops(pflops) {
+  if (pflops === 0) return '—';
+  if (pflops >= 1000) return (pflops / 1000).toFixed(1) + ' EFlop/s';
+  return pflops.toLocaleString(undefined, {maximumFractionDigits: 1}) + ' PFlop/s';
+}
+
+function buildComputeChart(usPerf, cnPerf) {
+  const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  const ctx = document.getElementById('cmpPerfChart').getContext('2d');
+  cmpPerfChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['United States', 'China'],
+      datasets: [{
+        data: [usPerf, cnPerf],
+        backgroundColor: ['rgba(26,58,92,0.75)', 'rgba(181,65,62,0.75)'],
+        borderColor:     [US_COLOR, CN_COLOR],
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: {
+            label: (ctx) => '  ' + fmtPflops(ctx.parsed.x) + ' HPL Rmax'
+          }
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true,
+          ticks: { color: tickColor, font: { size: 10 },
+                   callback: (v) => v >= 1000 ? (v/1000).toFixed(0)+' E' : v+' P' },
+          grid: { color: gridColor },
+        },
+        y: {
+          ticks: { color: tickColor, font: { size: 11, weight: '600' } },
+          grid:  { display: false },
+        }
+      }
+    }
+  });
+  window._cmpPerfChart = cmpPerfChart;
+}
+
+function renderCompute(data) {
+  const s  = data.summary || {};
+  const us = s.US    || { systems: 0, rmax_pflops: 0 };
+  const cn = s.China || { systems: 0, rmax_pflops: 0 };
+  const ot = s.Other || { systems: 0, rmax_pflops: 0 };
+
+  document.getElementById('cmp-us-perf').textContent   = fmtPflops(us.rmax_pflops);
+  document.getElementById('cmp-cn-perf').textContent   = fmtPflops(cn.rmax_pflops);
+  document.getElementById('cmp-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
+
+  // Secondary system-count note
+  const edition = data.list_edition ? ` (${data.list_edition} edition)` : '';
+  document.getElementById('cmp-sys-note').textContent =
+    `System count: US ${us.systems}, China ${cn.systems}, Other ${ot.systems}${edition}`;
+
+  // Meta line
+  const total = (us.systems + cn.systems + ot.systems + (s.Unknown ? s.Unknown.systems : 0));
+  document.getElementById('cmp-meta').textContent =
+    `${total} systems in this TOP500 snapshot · HPL Rmax is the primary signal (total benchmark performance, not system count)`;
+
+  // Interpretive sentence
+  let interp;
+  const ratio = cn.rmax_pflops > 0 ? us.rmax_pflops / cn.rmax_pflops : Infinity;
+  if (ratio > 1.05) {
+    interp = `US-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtPflops(us.rmax_pflops)} vs ${fmtPflops(cn.rmax_pflops)} HPL Rmax).`;
+  } else if (ratio < 0.95) {
+    interp = `China-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtPflops(cn.rmax_pflops)} vs ${fmtPflops(us.rmax_pflops)} HPL Rmax).`;
+  } else {
+    interp = `US and China show broadly similar aggregate high-end compute capacity in this snapshot (${fmtPflops(us.rmax_pflops)} vs ${fmtPflops(cn.rmax_pflops)} HPL Rmax).`;
+  }
+  const caveat = `<span style="color:var(--t3);">TOP500 captures disclosed systems only. China does not submit all known exascale systems to TOP500, so its capacity may be undercounted.</span>`;
+  document.getElementById('cmp-interp').innerHTML = interp + ' ' + caveat;
+
+  // Chart
+  buildComputeChart(us.rmax_pflops, cn.rmax_pflops);
+
+  // Top systems table
+  const systems = (data.top_systems || []).slice(0, 20);
+  const tbody = document.getElementById('cmp-systems-body');
+  if (systems.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No data yet — check back after the first workflow run.</td></tr>';
+  } else {
+    tbody.innerHTML = systems.map(s => `
+      <tr>
+        <td class="r" style="color:var(--t3);font-size:11px;">${s.rank}</td>
+        <td class="model-id" style="max-width:320px;" title="${s.name}">${truncate(s.name, 55)}</td>
+        <td class="r">${countryChip(s.country)}</td>
+        <td class="r" style="color:var(--t2);white-space:nowrap;font-size:12px;">${fmtPflops(s.rmax_pflops)}</td>
+      </tr>
+    `).join('');
+  }
+
+  document.getElementById('cmp-loading').style.display = 'none';
+  document.getElementById('cmp-error').style.display   = 'none';
+  document.getElementById('cmp-content').style.display = 'block';
+}
+
+async function loadCompute() {
+  try {
+    const resp = await fetch('data/compute.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    if (!data.fetched_at || (data.summary.US.systems === 0 && data.summary.China.systems === 0)) {
+      throw new Error('No data yet');
+    }
+    renderCompute(data);
+  } catch (err) {
+    console.warn('Failed to load compute.json:', err);
+    document.getElementById('cmp-loading').style.display = 'none';
+    document.getElementById('cmp-error').style.display   = 'block';
+  }
+}
+
 /* ── Init ────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
   buildRadarChart();
   loadFrontierModels();
   loadTalent();
+  loadCompute();
 });
 </script>
 

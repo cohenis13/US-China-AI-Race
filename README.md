@@ -13,7 +13,7 @@ A credible, data-driven tracker that measures the U.S.–China AI race using pub
 **Six dimensions tracked:**
 1. Frontier Models ← *live data (v1)*
 2. Talent ← *live data (v1)*
-3. Compute
+3. Compute ← *live data (v1)*
 4. Domestic Adoption
 5. Global Diffusion
 6. Energy
@@ -50,11 +50,13 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 │   └── institutions.json       Institution keyword lists (Talent classification)
 ├── scripts/
 │   ├── fetch_frontier_models.py  Frontier Models fetch script
-│   └── fetch_talent.py           Talent fetch script
+│   ├── fetch_talent.py           Talent fetch script
+│   └── fetch_compute.py          Compute fetch script
 ├── .github/
 │   └── workflows/
 │       ├── update_frontier_models.yml  Daily refresh (06:00 UTC)
-│       └── update_talent.yml           Daily refresh (07:00 UTC)
+│       ├── update_talent.yml           Daily refresh (07:00 UTC)
+│       └── update_compute.yml          Daily refresh (08:00 UTC)
 ├── docs/
 │   └── methodology.html        Methodology page
 └── README.md
@@ -134,9 +136,15 @@ python scripts/fetch_frontier_models.py
 # Talent (OpenAlex API)
 python scripts/fetch_talent.py
 # → writes data/talent.json
+
+# Compute (TOP500 HTML scrape)
+python scripts/fetch_compute.py
+# → writes data/compute.json
 ```
 
-The Talent script makes two calls to the OpenAlex API (country breakdown + recent papers) and completes in a few seconds.
+The Talent script makes two calls to the OpenAlex API and completes in a few seconds.
+
+The Compute script scrapes 10 pages of the TOP500 list (~15 seconds with polite rate limiting) and produces two metrics: aggregate HPL Rmax performance (primary) and system count (secondary).
 
 ---
 
@@ -167,6 +175,8 @@ See [docs/methodology.html](docs/methodology.html) for:
 **Key caveat — Frontier Models (v1):** Measures public model update activity on Hugging Face Hub from tracked labs — a proxy for lab output velocity, not a definitive ranking of frontier model capability. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. Labs are classified into four categories: US, China, Other (identified non-US/non-China labs), and Unknown.
 
 **Key caveat — Talent (v1):** Measures AI research paper volume from OpenAlex (AI, ML, NLP, CV concepts) over the last 12 months — a proxy for research output, not a measure of researcher headcount, citation impact, or capability. Papers are attributed by country of author institution using OpenAlex's pre-computed affiliation data. Multinational papers are counted in each country represented, so country totals can exceed the total paper count. Unknown reflects papers with no identified institutional affiliation in OpenAlex.
+
+**Key caveat — Compute (v1):** Measures aggregate HPL Rmax benchmark performance and system count from the TOP500 supercomputer list — a proxy for disclosed high-end compute capacity, not a direct measure of AI training capability. Excludes private AI clusters and systems not submitted to TOP500. China is known to operate exascale systems not listed on TOP500, so its disclosed capacity is likely a significant undercount.
 
 ---
 

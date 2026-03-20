@@ -1,0 +1,20 @@
+{
+  "dimension": "compute",
+  "metric_key": "top500_compute_capacity",
+  "description": "Aggregate HPL benchmark performance (Rmax, in PFlop/s) and system count from the TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
+  "fetched_at": null,
+  "list_edition": null,
+  "source": {
+    "name": "TOP500",
+    "url": "https://www.top500.org",
+    "note": "Data not yet fetched. Run scripts/fetch_compute.py or trigger the GitHub Actions workflow."
+  },
+  "summary": {
+    "US":      { "systems": 0, "rmax_pflops": 0.0 },
+    "China":   { "systems": 0, "rmax_pflops": 0.0 },
+    "Other":   { "systems": 0, "rmax_pflops": 0.0 },
+    "Unknown": { "systems": 0, "rmax_pflops": 0.0 }
+  },
+  "top_systems": [],
+  "methodology_note": "Placeholder — run fetch_compute.py to populate."
+}

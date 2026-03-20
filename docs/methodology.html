@@ -226,6 +226,57 @@ a { color: var(--us); }
     <li><strong>Coverage lag:</strong> OpenAlex may index some papers with a delay after publication, particularly for venues with slower metadata pipelines.</li>
   </ul>
 
+  <h2>Dimension 3 — Compute (Live)</h2>
+
+  <h3>What we measure</h3>
+  <p>
+    <strong>The headline comparison is US vs. China: aggregate HPL benchmark performance (Rmax, in PFlop/s)
+    from the most recent TOP500 supercomputer list.</strong>
+    System count is shown as a secondary supporting metric.
+    This is a proxy for disclosed high-end compute infrastructure — not a direct measure of AI training capacity.
+  </p>
+
+  <h3>Why HPL performance, not system count</h3>
+  <p>
+    System count treats a small GPU cluster the same as an exascale machine. Aggregate Rmax weights each system
+    by its benchmark performance, so a single exascale machine contributes proportionally more than hundreds of
+    smaller systems. This makes it a better proxy for total high-end compute capacity.
+  </p>
+
+  <h3>Data source</h3>
+  <div class="card">
+    <p style="margin:0;"><strong>TOP500</strong><br>
+    URL: <code>https://www.top500.org/lists/top500/YYYY/MM/</code><br>
+    Metric: HPL Rmax (High Performance Linpack benchmark, measured in TFlop/s, stored as PFlop/s)<br>
+    Updated: twice yearly (June and November) — script auto-detects the latest edition<br>
+    Coverage: 500 most powerful non-distributed computer systems globally
+    </p>
+  </div>
+
+  <h3>How country attribution works</h3>
+  <p>
+    Country is taken directly from the TOP500 list as reported by the submitting institution.
+    Systems are mapped to four buckets:
+  </p>
+  <ul>
+    <li><strong>US:</strong> Country = "United States"</li>
+    <li><strong>China:</strong> Country = "China"</li>
+    <li><strong>Other:</strong> Any other identified country</li>
+    <li><strong>Unknown:</strong> Missing country field (rare)</li>
+  </ul>
+  <p>
+    The main chart shows US and China only. Other is reported as a context note.
+  </p>
+
+  <h3>Limitations</h3>
+  <ul>
+    <li><strong>Excludes private AI clusters:</strong> Large GPU training farms (e.g. internal clusters at major AI labs) are not listed on TOP500 unless voluntarily submitted. This likely understates both US and Chinese AI compute capacity.</li>
+    <li><strong>China undercount:</strong> China is known to operate exascale-class systems (e.g. Tianhe-3 successors) that have not been submitted to TOP500 since 2021. The disclosed TOP500 data significantly understates China's actual high-end compute capacity.</li>
+    <li><strong>Not AI-specific:</strong> TOP500 systems include weather forecasting, nuclear simulation, and other HPC workloads — not exclusively AI training. HPL performance does not directly translate to AI training throughput.</li>
+    <li><strong>Snapshot, not continuous:</strong> The list is updated twice yearly. Capacity added between editions is not reflected until the next update.</li>
+    <li><strong>HPL ≠ AI performance:</strong> The HPL benchmark measures dense linear algebra performance. AI training uses different hardware (GPUs, TPUs) and workloads; HPL scores are an imperfect proxy.</li>
+  </ul>
+
   <h2>Data Schema</h2>
   <p>All live metrics are stored in versioned JSON files under <code>data/</code>. The current schema:</p>
   <div class="card">

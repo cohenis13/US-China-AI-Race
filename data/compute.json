@@ -2,19 +2,152 @@
   "dimension": "compute",
   "metric_key": "top500_compute_capacity",
   "description": "Aggregate HPL benchmark performance (Rmax, in PFlop/s) and system count from the TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
-  "fetched_at": null,
-  "list_edition": null,
+  "fetched_at": "2026-03-20T05:10:16.263641+00:00",
+  "list_edition": "2025/11",
   "source": {
     "name": "TOP500",
     "url": "https://www.top500.org",
-    "note": "Data not yet fetched. Run scripts/fetch_compute.py or trigger the GitHub Actions workflow."
+    "note": "HPL (High Performance Linpack) Rmax benchmark in PFlop/s. List updated twice yearly (June and November). Country as reported by TOP500."
   },
   "summary": {
-    "US":      { "systems": 0, "rmax_pflops": 0.0 },
-    "China":   { "systems": 0, "rmax_pflops": 0.0 },
-    "Other":   { "systems": 0, "rmax_pflops": 0.0 },
-    "Unknown": { "systems": 0, "rmax_pflops": 0.0 }
+    "US": {
+      "systems": 0,
+      "rmax_pflops": 0.0
+    },
+    "China": {
+      "systems": 0,
+      "rmax_pflops": 0.0
+    },
+    "Other": {
+      "systems": 0,
+      "rmax_pflops": 0.0
+    },
+    "Unknown": {
+      "systems": 100,
+      "rmax_pflops": 77.11
+    }
   },
-  "top_systems": [],
-  "methodology_note": "Placeholder — run fetch_compute.py to populate."
+  "top_systems": [
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 1,
+      "name": "El Capitan - HPE Cray EX255a, AMD 4th Gen EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.81
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    },
+    {
+      "rank": 2,
+      "name": "Frontier - HPE Cray EX235a, AMD Optimized 3rd Generation EPYC",
+      "country": "Unknown",
+      "rmax_pflops": 1.35
+    }
+  ],
+  "methodology_note": "Aggregate HPL Rmax performance is the primary metric — it weights systems by size, capturing total compute capacity rather than just headcount. System count is a secondary supporting metric. Both are sourced from the TOP500 list, which ranks the 500 most powerful non-distributed computer systems globally using the HPL benchmark. This metric excludes private AI training clusters not submitted to TOP500, systems below the TOP500 threshold, and cloud AI accelerator capacity. It is a proxy for disclosed high-end compute infrastructure, not a direct measure of AI training capacity."
 }

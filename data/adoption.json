@@ -1,40 +1,453 @@
 {
   "dimension": "adoption",
   "metric_key": "filing_adoption_rate",
-  "description": "AI adoption proxy: share of major listed companies whose latest annual filing (10-K or 20-F) shows evidence of AI deployment or operational AI use.",
-  "fetched_at": null,
-  "last_updated": null,
-  "filing_window": {"start": null, "end": null, "months": 30},
+  "description": "AI adoption proxy: share of major listed companies whose latest annual filing (10-K or 20-F) shows evidence of AI deployment, based on SEC EDGAR full-text search for deployment-specific language.",
+  "fetched_at": "2026-03-21T03:35:32.756851+00:00",
+  "last_updated": "2026-03-21T03:35:32.756851+00:00",
+  "filing_window": {
+    "start": "2023-10-03",
+    "end": "2026-03-21",
+    "months": 30
+  },
+  "edgar_available": {
+    "US": false,
+    "China": false
+  },
   "classification": {
-    "deployment": "Filing mentions \"generative AI\" or \"large language model\" — strong operational AI signal.",
-    "strategic": "Filing mentions \"artificial intelligence\" but not above terms — strategy/planning language.",
-    "unknown": "Filing not found or EDGAR API inaccessible — excluded from rate."
+    "deployment": "Annual filing mentions \"generative AI\" or \"large language model\" — strong evidence of operational AI engagement.",
+    "strategic": "Annual filing located but does not mention the above terms — AI referenced broadly without deployment-specific language.",
+    "unknown": "Filing not matched by CIK or EDGAR API was inaccessible — excluded from the adoption rate."
   },
   "summary": {
     "US": {
       "sample_size": 25,
-      "adoption_positive": null,
-      "strategic_only": null,
-      "unknown": null,
-      "adoption_rate": null,
-      "denominator": null
+      "adoption_positive": 0,
+      "strategic_only": 0,
+      "unknown": 25,
+      "denominator": 0,
+      "adoption_rate": null
     },
     "China": {
       "sample_size": 20,
-      "adoption_positive": null,
-      "strategic_only": null,
-      "unknown": null,
-      "adoption_rate": null,
-      "denominator": null
+      "adoption_positive": 0,
+      "strategic_only": 0,
+      "unknown": 20,
+      "denominator": 0,
+      "adoption_rate": null
     }
   },
-  "firms": [],
+  "firms": [
+    {
+      "name": "Microsoft",
+      "cik": "789019",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Apple",
+      "cik": "320193",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Alphabet",
+      "cik": "1652044",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Amazon",
+      "cik": "1018724",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Meta Platforms",
+      "cik": "1326801",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Nvidia",
+      "cik": "1045810",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Salesforce",
+      "cik": "1108524",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Adobe",
+      "cik": "796343",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "IBM",
+      "cik": "51143",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "ServiceNow",
+      "cik": "1373715",
+      "country": "US",
+      "sector": "Technology",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "JPMorgan Chase",
+      "cik": "19617",
+      "country": "US",
+      "sector": "Finance",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Goldman Sachs",
+      "cik": "886982",
+      "country": "US",
+      "sector": "Finance",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Bank of America",
+      "cik": "70858",
+      "country": "US",
+      "sector": "Finance",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Citigroup",
+      "cik": "831001",
+      "country": "US",
+      "sector": "Finance",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "UnitedHealth Group",
+      "cik": "72971",
+      "country": "US",
+      "sector": "Healthcare",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Johnson & Johnson",
+      "cik": "200406",
+      "country": "US",
+      "sector": "Healthcare",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Walmart",
+      "cik": "104169",
+      "country": "US",
+      "sector": "Retail",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Home Depot",
+      "cik": "354950",
+      "country": "US",
+      "sector": "Retail",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Procter & Gamble",
+      "cik": "80424",
+      "country": "US",
+      "sector": "Consumer",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Honeywell",
+      "cik": "773840",
+      "country": "US",
+      "sector": "Industrial",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Boeing",
+      "cik": "12927",
+      "country": "US",
+      "sector": "Industrial",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "AT&T",
+      "cik": "732717",
+      "country": "US",
+      "sector": "Telecom",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Verizon",
+      "cik": "732712",
+      "country": "US",
+      "sector": "Telecom",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "ExxonMobil",
+      "cik": "34088",
+      "country": "US",
+      "sector": "Energy",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Walt Disney",
+      "cik": "1001039",
+      "country": "US",
+      "sector": "Media",
+      "form": "10-K",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Alibaba",
+      "cik": "1577552",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Baidu",
+      "cik": "1330479",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "JD.com",
+      "cik": "1549802",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "PDD Holdings",
+      "cik": "1631574",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "NetEase",
+      "cik": "1108320",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Trip.com",
+      "cik": "1323761",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Bilibili",
+      "cik": "1729173",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "iQIYI",
+      "cik": "1745020",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "NIO",
+      "cik": "1741830",
+      "country": "China",
+      "sector": "Automotive",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Xpeng",
+      "cik": "1792789",
+      "country": "China",
+      "sector": "Automotive",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Li Auto",
+      "cik": "1786973",
+      "country": "China",
+      "sector": "Automotive",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "ZTO Express",
+      "cik": "1666134",
+      "country": "China",
+      "sector": "Logistics",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Vipshop",
+      "cik": "1521332",
+      "country": "China",
+      "sector": "Retail",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "New Oriental",
+      "cik": "1191791",
+      "country": "China",
+      "sector": "Education",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Yum China",
+      "cik": "1674930",
+      "country": "China",
+      "sector": "Consumer",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Kanzhun",
+      "cik": "1822966",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Full Truck Alliance",
+      "cik": "1821722",
+      "country": "China",
+      "sector": "Logistics",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "JOYY",
+      "cik": "1441874",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Lufax",
+      "cik": "1821945",
+      "country": "China",
+      "sector": "Finance",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    },
+    {
+      "name": "Agora",
+      "cik": "1816613",
+      "country": "China",
+      "sector": "Technology",
+      "form": "20-F",
+      "classification": "unknown",
+      "note": "EDGAR unavailable"
+    }
+  ],
   "source": {
     "name": "SEC EDGAR Full-Text Search (EFTS)",
     "url": "https://efts.sec.gov/LATEST/search-index",
-    "us_form": "10-K (annual report, US domestic companies)",
-    "cn_form": "20-F (annual report, foreign private issuers — Chinese ADRs)"
+    "us_form": "10-K (US domestic companies)",
+    "cn_form": "20-F (foreign private issuers — Chinese ADRs)"
   },
-  "methodology_note": "Adoption rate = companies with deployment signal / known-sample companies × 100. 'Deployment signal' = filing mentions \"generative AI\" or \"large language model\". US sample: ~25 major S&P 500 companies. China sample: ~20 major Chinese ADRs filing 20-F with the SEC. Does NOT include Tencent, ByteDance, CATL, or other non-SEC filers. Compare directionally — absolute rates reflect the curated sample, not all firms.",
-  "caveats": "1. China sample = US-listed ADRs only (tech-heavy). 2. Deployment terms may appear in risk disclosures alongside confirmed use. 3. Entity name matching may miss some filings; unknowns excluded from rate. 4. 30-month window captures the latest annual filing regardless of fiscal year end."
+  "methodology_note": "Adoption rate = deployment-positive companies / (deployment + strategic) × 100. Strong-term search ('generative AI' or 'large language model') is run across all 10-K (or 20-F) filings in the window; results are matched by CIK. Companies with a valid CIK not found in strong-term results are classified as 'strategic' (AI mentioned broadly). Unknown = CIK mismatch or API blocked. US sample: ~25 major S&P 500 companies. China sample: ~20 major Chinese ADRs (SEC filers only — not Tencent, ByteDance). China sample is tech-sector-heavy; compare directionally."
 }

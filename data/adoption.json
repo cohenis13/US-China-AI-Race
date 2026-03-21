@@ -2,8 +2,8 @@
   "dimension": "adoption",
   "metric_key": "filing_adoption_rate",
   "description": "AI adoption proxy: share of major listed companies whose latest annual filing (10-K or 20-F) shows evidence of AI deployment, based on SEC EDGAR full-text search for deployment-specific language.",
-  "fetched_at": "2026-03-21T03:35:32.756851+00:00",
-  "last_updated": "2026-03-21T03:35:32.756851+00:00",
+  "fetched_at": "2026-03-21T09:56:22.168035+00:00",
+  "last_updated": "2026-03-21T09:56:22.168035+00:00",
   "filing_window": {
     "start": "2023-10-03",
     "end": "2026-03-21",

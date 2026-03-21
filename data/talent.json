@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-20T09:06:40.309639+00:00",
+  "fetched_at": "2026-03-21T07:55:59.973767+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,56 +10,101 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 126624,
-    "China": 226452,
-    "Other": 644893,
+    "US": 128633,
+    "China": 230776,
+    "Other": 652954,
     "Unknown": 0,
-    "total_papers": 1462450,
-    "total_attributed": 997969
+    "total_papers": 1481529,
+    "total_attributed": 1012363
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 226452
+      "count": 230776
     },
     {
       "country_code": "US",
-      "count": 126624
+      "count": 128633
     },
     {
       "country_code": "JP",
-      "count": 79014
+      "count": 79292
     },
     {
       "country_code": "IN",
-      "count": 74200
+      "count": 75117
     },
     {
       "country_code": "GB",
-      "count": 40898
+      "count": 41555
     },
     {
       "country_code": "DE",
-      "count": 31724
+      "count": 32149
     },
     {
       "country_code": "ID",
-      "count": 26755
-    },
-    {
-      "country_code": "IT",
-      "count": 20265
+      "count": 26827
     },
     {
       "country_code": "CA",
-      "count": 20238
+      "count": 20575
+    },
+    {
+      "country_code": "IT",
+      "count": 20498
     },
     {
       "country_code": "FR",
-      "count": 19414
+      "count": 19629
     }
   ],
   "papers": [
+    {
+      "id": "https://openalex.org/W7130255187",
+      "title": "You Walkin' to Me? How Footstep Sound Primes Anticipation in Virtual Pedestrian Collision Avoidance",
+      "authors": [
+        "Aline Hufschmitt",
+        "Agathe Bilhaut",
+        "Ludovic Hoyet"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128651078",
+      "title": "Exploring Non-Euclidean Geometry Through Virtual and Real Experiences to Unlock Non-Experts' Intuition",
+      "authors": [
+        "Maé Mavromatis",
+        "Ronan Gaugne",
+        "Rémi Coulon"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134221962",
+      "title": "Anchor-based Haptics: Portable Interfaces Leveraging Real Surfaces to Display Grounded Forces for 3D Shape Simulation in VR",
+      "authors": [
+        "Julien Manson",
+        "Anatole Lécuyer",
+        "Sylvain Dubois"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7133575957",
       "title": "Deep Learning Across Domains: The Role of Representations in Biochemical and Biological Data",
@@ -72,10 +117,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7114932394",
-      "title": "Predicted Protein Structure Data in the RAISE Project",
+      "id": "https://openalex.org/W7138885435",
+      "title": "Defining “Chinese tragedy”: a terminological point of view",
       "authors": [
-        "Kong, Lupeng"
+        "Tian Gu"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -83,12 +128,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138096203",
-      "title": "Intelligent Markets: Deep Learning Models for Predicting Stock Trends",
+      "id": "https://openalex.org/W7139053601",
+      "title": "Tools to convert ONNX files (NCHW) to TensorFlow format (NHWC)",
       "authors": [
-        "Shweta Mayor Sabharwal",
-        "Ms. Nitu Sharma",
-        "Dr. Arti Awasthi"
+        "Katsuya Hyodo"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -96,12 +139,12 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138074560",
-      "title": "Intelligent Markets: Deep Learning Models for Predicting Stock Trends",
+      "id": "https://openalex.org/W7139016105",
+      "title": "Microseismic source localization method based on ABC-CS improved fusion algorithm",
       "authors": [
-        "Shweta Mayor Sabharwal",
-        "Ms. Nitu Sharma",
-        "Dr. Arti Awasthi"
+        "Wenfeng Tu",
+        "Chao Jia",
+        "Liping Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -109,132 +152,110 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134099078",
-      "title": "Rational design and data-driven strategies to optimize bioconjugation processes in antibody-drug conjugates",
+      "id": "https://openalex.org/W7138833514",
+      "title": "Data-Driven Discovery of Process–Structure Relationships in Additive Manufacturing via Featurization from Kinetic Monte Carlo Simulations and Interpretable Machine Learning",
       "authors": [
-        "Angiolini Lorenzo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7132295924",
-      "title": "Diep leren en verklaarbaarheid bij forensische leeftijdschatting van tanden",
-      "authors": [
-        "Barkın Büyükçakır"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130270562",
-      "title": "Efficient Data Driven Algorithms for TactileData Processing in Embedded and WearableSystems",
-      "authors": [
-        "Mohamad Yaacoub"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134872755",
-      "title": "Diep Leren en Verklaarbaarheid bij Forensische Leeftijdschatting op basis van tandheelkundige data",
-      "authors": [
-        "Barkin Büyükçakir"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7129189767",
-      "title": "Development of a Cluster Analysis Framework for quality control by Resonance Testing in Additive Manufacturing",
-      "authors": [
-        "Daniele Candelaresi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-19",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128880515",
-      "title": "Microarchitectural Espionage: FPGA-Based Security Analysis of Branch Prediction in RISC-V Out-of-Order Cores",
-      "authors": [
-        "Mahreen Khan",
-        "Bin Mohd Shahfie, Muhammad, Emir",
-        "Maria Mushtaq"
+        "Dipayan Sanpui",
+        "Henry H. Chan",
+        "Aditya Koneru"
       ],
       "countries": [
-        "FR"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-03-19",
+      "primary_country": "US",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128668080",
-      "title": "Image context and dynamics:next step for decision support in healthcare?",
+      "id": "https://openalex.org/W7138845182",
+      "title": "3D human pose keypoints and corresponding joint angle calculation for vision-based WMSD risk assessments",
       "authors": [
-        "Sveta Zinger"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-19",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130279013",
-      "title": "High Accuracy Is Not Enough: Epistemic Bias in Machine Learning Task Formulation",
-      "authors": [
-        "Grazia Garzo",
-        "Alessandro Palumbo"
+        "Leyang Wen",
+        "Daeho Kim",
+        "Veeru Talreja"
       ],
       "countries": [
-        "IT",
-        "FR"
+        "US",
+        "CA",
+        "NL"
+      ],
+      "primary_country": "US",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138908503",
+      "title": "A Web-Based AI System for Eye Disease and Severity Prediction Using Oct Image",
+      "authors": [
+        "Kavya Shree S",
+        "Dr.Kaliappan M",
+        "Dr.  Anandhi S.V"
+      ],
+      "countries": [
+        "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-03-19",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134997818",
-      "title": "Intelligent Reconfigurable Intelligent Surface Control Using Machine Learning for Future Wireless Communications",
+      "id": "https://openalex.org/W7138935516",
+      "title": "ФОРМУВАННЯ ІНТЕГРОВАНОЇ ЦИФРОВОЇ ЕКОСИСТЕМИ ЯК ФАКТОР ПІДВИЩЕННЯ ЕФЕКТИВНОСТІ УПРАВЛІННЯ ПРОЄКТНИМИ КОМАНДАМИ",
       "authors": [
-        "Muhammad Abul Hassan"
+        "Світлана Миколаївна Подзігун",
+        "Наталія Малярчук",
+        "Оксана Вікторівна Литвин"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-19",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128101547",
-      "title": "Model idealnego chińsko-angielsko-polskiego słownika terminologicznego dla dziedzin nieuwarunkowanych kulturowo",
+      "id": "https://openalex.org/W7138948943",
+      "title": "Enhancing personalized suicide risk prediction for VA patients by integrating discrete natural language processing models",
       "authors": [
-        "Andrzej Swoboda"
+        "Monica Dimambro",
+        "Joshua Levy",
+        "Jiang Gui"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-19",
+      "published": "2026-03-20",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128747075",
-      "title": "Development and integration of Machine Learning models for optimising production processes in Software-as-a-Service solutions",
+      "id": "https://openalex.org/W7138980671",
+      "title": "A KoBART-Based Model for Detecting Online Grooming Risk in Korean Conversations",
       "authors": [
-        "Mateo Del Gallo"
+        "Jun-kyu Kang",
+        "Min-su Jung",
+        "Seongmin Kim"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-19",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139043069",
+      "title": "Проектирование информационно-аналитической системы прогнозирования индекса потребительских цен в Российской Федерации: архитектура, методы и инструменты",
+      "authors": [
+        "А.Н. Тодуа",
+        "В.А. Китов"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-20",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W3085080766",
+      "title": "The Mental Lexicon",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-20",
       "source": "openalex"
     }
   ],

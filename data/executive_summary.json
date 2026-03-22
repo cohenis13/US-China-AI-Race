@@ -1,0 +1,187 @@
+{
+  "fetched_at": "2026-03-22T18:00:00+00:00",
+  "generated_from": [
+    "frontier_models",
+    "talent",
+    "compute",
+    "adoption",
+    "diffusion",
+    "energy"
+  ],
+  "missing_dimensions": [],
+  "dimensions": [
+    {
+      "key": "frontier_models",
+      "label": "Frontier Models",
+      "radar_label": "Frontier\nModels",
+      "us_score": 7.5,
+      "china_score": 2.5,
+      "winner": "US",
+      "delta": 5.0,
+      "edge": "+5.0 US",
+      "confidence": "Medium confidence",
+      "score_method": "count_share",
+      "caveat": "Reflects 30-day model update activity on Hugging Face Hub — a proxy for lab output velocity, not a definitive capability ranking. China's frontier capability (DeepSeek R1, Qwen series) is broader than HF Hub counts alone capture. Counts reflect only US- and China-attributed labs in data/labs.json.",
+      "source_file": "data/frontier_models.json"
+    },
+    {
+      "key": "talent",
+      "label": "Talent",
+      "radar_label": "Talent",
+      "us_score": 3.6,
+      "china_score": 6.4,
+      "winner": "China",
+      "delta": 2.8,
+      "edge": "+2.8 CN",
+      "confidence": "Medium confidence",
+      "score_method": "count_share",
+      "caveat": "Reflects AI research paper volume from OpenAlex over 12 months — a proxy for research output, not researcher quality, citation impact, or headcount. China leads on volume; the US tends to lead on top-cited work.",
+      "source_file": "data/talent.json"
+    },
+    {
+      "key": "compute",
+      "label": "Compute",
+      "radar_label": "Compute",
+      "us_score": 9.5,
+      "china_score": 0.5,
+      "winner": "US",
+      "delta": 9.0,
+      "edge": "+9.0 US",
+      "confidence": "High confidence (TOP500 only)",
+      "score_method": "count_share",
+      "caveat": "TOP500 list data only. China operates multiple exascale-class systems that have NOT been submitted to TOP500 — this score significantly understates China's actual HPC capacity. US private AI cluster infrastructure (xAI Colossus, Meta clusters, etc.) is also excluded.",
+      "source_file": "data/compute.json"
+    },
+    {
+      "key": "adoption",
+      "label": "Adoption",
+      "radar_label": "Adoption",
+      "us_score": 6.2,
+      "china_score": 7.4,
+      "winner": "China",
+      "delta": 1.2,
+      "edge": "+1.2 CN",
+      "confidence": "Lower confidence",
+      "score_method": "composite_0_100",
+      "caveat": "Composite of enterprise AI adoption rate and industrial robot density. China's enterprise figure is estimated from regional data (medium confidence). Does not capture consumer AI usage, SME adoption, or AI quality/depth.",
+      "source_file": "data/adoption.json"
+    },
+    {
+      "key": "diffusion",
+      "label": "Diffusion",
+      "radar_label": "Diffusion",
+      "us_score": 6.7,
+      "china_score": 3.3,
+      "winner": "US",
+      "delta": 3.4,
+      "edge": "+3.4 US",
+      "confidence": "Lower confidence",
+      "score_method": "composite_share_100",
+      "caveat": "Share of combined US+China: HF open-model downloads (55%) + cloud platform footprint (45%). Undercounts Chinese model reach via ModelScope and domestic platforms. Does not capture closed-API usage or hardware export reach.",
+      "source_file": "data/diffusion.json"
+    },
+    {
+      "key": "energy",
+      "label": "Energy",
+      "radar_label": "Energy",
+      "us_score": 3.6,
+      "china_score": 7.4,
+      "winner": "China",
+      "delta": 3.8,
+      "edge": "+3.8 CN",
+      "confidence": "High confidence",
+      "score_method": "composite_0_100",
+      "caveat": "Composite of electricity capacity addition rate (40%), data center demand headroom (35%), and grid connection speed (25%). Measures AI scaling capacity, not total energy. Does not capture private energy arrangements or nuclear buildout.",
+      "source_file": "data/energy.json"
+    }
+  ],
+  "current_read": "U.S. leads in Compute, Frontier Models, and Diffusion; China leads in Energy, Talent, and Adoption.",
+  "strategic_insights": [
+    {
+      "bold": "The U.S. leads on disclosed compute, frontier model activity, and global diffusion",
+      "rest": " — driven by dominant GPU infrastructure, frontier lab concentration, and the global reach of US open-source models. Note: Compute score reflects TOP500 data only and understates China\u2019s actual capacity."
+    },
+    {
+      "bold": "China leads in Energy, Talent, and Adoption",
+      "rest": " — particularly in energy infrastructure scaling capacity and AI research paper volume, where China\u2019s structural advantages are most pronounced (+3.8 points in Energy)."
+    },
+    {
+      "bold": "Adoption is the most closely contested dimension",
+      "rest": " on these proxies (gap: 1.2 points on the 0\u201310 scale) \u2014 both countries are operating at broadly comparable levels here."
+    },
+    {
+      "bold": "The binding constraints differ structurally",
+      "rest": ": export controls on advanced chips are China\u2019s most salient bottleneck; grid interconnection delays and power permitting are the most acute constraint on continued U.S. AI data center expansion."
+    }
+  ],
+  "score_table": [
+    {
+      "key": "frontier_models",
+      "dimension": "Frontier Models",
+      "us": 7.5,
+      "china": 2.5,
+      "winner": "US",
+      "delta": 5.0,
+      "edge": "+5.0 US"
+    },
+    {
+      "key": "compute",
+      "dimension": "Compute",
+      "us": 9.5,
+      "china": 0.5,
+      "winner": "US",
+      "delta": 9.0,
+      "edge": "+9.0 US"
+    },
+    {
+      "key": "adoption",
+      "dimension": "Adoption",
+      "us": 6.2,
+      "china": 7.4,
+      "winner": "China",
+      "delta": 1.2,
+      "edge": "+1.2 CN"
+    },
+    {
+      "key": "diffusion",
+      "dimension": "Diffusion",
+      "us": 6.7,
+      "china": 3.3,
+      "winner": "US",
+      "delta": 3.4,
+      "edge": "+3.4 US"
+    },
+    {
+      "key": "energy",
+      "dimension": "Energy",
+      "us": 3.6,
+      "china": 7.4,
+      "winner": "China",
+      "delta": 3.8,
+      "edge": "+3.8 CN"
+    },
+    {
+      "key": "talent",
+      "dimension": "Talent",
+      "us": 3.6,
+      "china": 6.4,
+      "winner": "China",
+      "delta": 2.8,
+      "edge": "+2.8 CN"
+    }
+  ],
+  "radar_chart_data": {
+    "order": [
+      "frontier_models",
+      "compute",
+      "adoption",
+      "diffusion",
+      "energy",
+      "talent"
+    ],
+    "us": [7.5, 9.5, 6.2, 6.7, 3.6, 3.6],
+    "china": [2.5, 0.5, 7.4, 3.3, 7.4, 6.4]
+  },
+  "normalization_note": "Frontier Models, Talent, and Compute are scored as share-of-combined (US\u2009+\u2009China\u2009=\u200910 by construction). Adoption, Diffusion, and Energy use their 0\u2013100 composite scores divided by 10, giving independent scores that do not necessarily sum to 10.",
+  "confidence_note": "Compute score (TOP500 only) significantly understates China\u2019s actual HPC capacity. Frontier Models score reflects HF Hub activity only. See data/executive_summary.json dimension caveats and docs/methodology.html for full details."
+}

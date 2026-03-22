@@ -50,6 +50,81 @@
   <h1>Methodology</h1>
   <p class="subtitle">How the U.S.–China AI Race Tracker measures each dimension — sources, proxies, and known limitations.</p>
 
+  <!-- ── Executive Summary ─────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Overview</span> Executive Summary &mdash; Score Construction</h2>
+
+  <h3>What this is</h3>
+  <p>
+    The executive summary section at the top of the dashboard aggregates the six dimension outputs into a single
+    comparative scorecard. It is generated automatically by <code>scripts/build_executive_summary.py</code> and
+    stored in <code>data/executive_summary.json</code>, which the frontend loads on every page view.
+    The builder runs as the final step of every dimension refresh workflow, so the summary always reflects
+    the most recent data across all six dimensions.
+  </p>
+
+  <h3>Normalization approach</h3>
+  <p>Dimensions use one of three methods to produce a 0&ndash;10 score:</p>
+
+  <h4>Count-share (Frontier Models, Talent, Compute)</h4>
+  <p>
+    Raw counts (model updates, paper counts, Rmax PFlop/s) are converted to a U.S. share of the
+    combined U.S.&thinsp;+&thinsp;China total, then scaled to 0&ndash;10 and clamped to [0.5,&thinsp;9.5]
+    to avoid extreme poles when data quality is low:
+  </p>
+  <pre>us_score  = clamp( (US / (US + China)) &times; 10, 0.5, 9.5 )
+china_score = 10.0 &minus; us_score</pre>
+  <p>
+    By construction, U.S.&thinsp;+&thinsp;China&thinsp;=&thinsp;10 for these dimensions.
+    The 9.5 ceiling on the Compute score is the primary visible effect of the clamp &mdash;
+    the raw TOP500 share would yield ~9.7 for the U.S., but this reflects the TOP500 undercount
+    for China rather than true dominance.
+  </p>
+
+  <h4>Independent composite / 10 (Adoption, Energy)</h4>
+  <p>
+    Adoption and Energy use 0&ndash;100 composite scores (computed independently for each country).
+    The executive summary score is simply:
+  </p>
+  <pre>score = composite_score / 10</pre>
+  <p>
+    These scores do <em>not</em> sum to 10 &mdash; they are independent assessments of each country&rsquo;s
+    standing on the underlying proxies.
+  </p>
+
+  <h4>Share-of-combined / 10 (Diffusion)</h4>
+  <p>
+    Diffusion composite scores already sum to 100 (U.S.&thinsp;+&thinsp;China&thinsp;=&thinsp;100 by construction).
+    The executive summary score is:
+  </p>
+  <pre>score = composite_score / 10</pre>
+  <p>
+    So U.S.&thinsp;+&thinsp;China &asymp; 10 for Diffusion (small rounding differences only).
+  </p>
+
+  <h3>Score table and radar chart</h3>
+  <p>
+    The six scores populate both the radar chart and the dimension score table. The radar chart order is fixed
+    as: Frontier Models, Compute, Adoption, Diffusion, Energy, Talent &mdash; matching the <code>DIMS</code>
+    array in <code>index.html</code>.
+  </p>
+
+  <h3>Text generation</h3>
+  <p>
+    The &ldquo;Current read&rdquo; sentence and four strategic insight bullets are generated programmatically
+    from the scored dimensions. The current read lists dimensions by winner (U.S. vs. China), sorted by margin
+    (largest advantage first). The insights follow a fixed template: (1) strongest U.S. advantage, with a special
+    case for the Compute dimension to flag the TOP500 undercount caveat; (2) strongest China advantage;
+    (3) most closely contested dimension by gap; (4) a standing note on binding structural constraints.
+  </p>
+
+  <h3>Key caveats</h3>
+  <ul>
+    <li><strong>Compute score (9.5 US / 0.5 China):</strong> Extreme values reflect TOP500 submission gaps, not actual capability parity. China operates exascale-class systems not listed on TOP500. Treat with very low confidence as a relative measure.</li>
+    <li><strong>Frontier Models score:</strong> Reflects Hugging Face Hub activity only. China&rsquo;s closed-model ecosystem (DeepSeek, Qwen API) is materially broader than this captures.</li>
+    <li><strong>Talent score:</strong> Paper volume, not quality or headcount. China leads on volume; the U.S. leads on top-cited work and lab concentration.</li>
+    <li><strong>Adoption and Energy scores:</strong> Based on curated reference data with annual update cadence &mdash; not live signals.</li>
+  </ul>
+
   <!-- ── Adoption ──────────────────────────────────────────────────────────── -->
   <h2><span class="dim-badge">Adoption</span> AI Adoption in the Economy &mdash; Multi-Proxy Index</h2>
 

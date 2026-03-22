@@ -1029,12 +1029,12 @@ footer {
       Live metrics refresh automatically from public data sources.
     </p>
     <div class="glance-strip">
-      <span class="glance-pill"><span class="glance-pill-dot"></span>3 Dimensions Live</span>
+      <span class="glance-pill"><span class="glance-pill-dot"></span>6 Dimensions Live</span>
       <span class="glance-pill"><span class="glance-pill-dot green"></span>Auto-updated daily</span>
       <span class="glance-pill"><span class="glance-pill-dot cn"></span>Source: Public APIs</span>
     </div>
     <div class="takeaway-strip">
-      <strong>Current read:</strong> US leads in frontier models and disclosed compute; China leads in AI adoption and energy capacity; talent output remains competitive — China ahead by paper volume, US ahead by lab concentration and citation impact.
+      <strong>Current read:</strong> <span id="current-read-text">Loading…</span>
     </div>
   </header>
 
@@ -1440,19 +1440,7 @@ footer {
           </div>
         </div>
         <div class="card insight-card">
-          <ul class="insight-list">
-            <li class="insight-item">
-              <strong>The U.S. leads at the technological frontier</strong> and in advanced compute, driven by dominant GPU infrastructure and the concentration of frontier model labs.
-            </li>
-            <li class="insight-item">
-              <strong>China leads in energy capacity</strong> and rapid industrial-scale adoption, with deployment speed outpacing most Western economies by a material margin.
-            </li>
-            <li class="insight-item">
-              <strong>Diffusion speed may matter more</strong> than peak benchmark performance as AI transitions from research into production-scale economic deployment.
-            </li>
-            <li class="insight-item">
-              <strong>The binding constraints:</strong> chips for China; power and permitting for the United States.
-            </li>
+          <ul class="insight-list" id="insight-list">
           </ul>
         </div>
       </div>
@@ -1473,43 +1461,7 @@ footer {
                 <th class="r">Edge</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td class="dim-lbl">Frontier Models</td>
-                <td class="sval us">8.0</td>
-                <td class="sval cn">6.5</td>
-                <td><span class="chip us">+1.5 US</span></td>
-              </tr>
-              <tr>
-                <td class="dim-lbl">Compute</td>
-                <td class="sval us">9.0</td>
-                <td class="sval cn">6.0</td>
-                <td><span class="chip us">+3.0 US</span></td>
-              </tr>
-              <tr>
-                <td class="dim-lbl">Adoption</td>
-                <td class="sval us">6.0</td>
-                <td class="sval cn">7.5</td>
-                <td><span class="chip cn">+1.5 CN</span></td>
-              </tr>
-              <tr>
-                <td class="dim-lbl">Diffusion</td>
-                <td class="sval us">7.0</td>
-                <td class="sval cn">7.0</td>
-                <td><span class="chip tie">Parity</span></td>
-              </tr>
-              <tr>
-                <td class="dim-lbl">Energy</td>
-                <td class="sval us">6.0</td>
-                <td class="sval cn">8.0</td>
-                <td><span class="chip cn">+2.0 CN</span></td>
-              </tr>
-              <tr>
-                <td class="dim-lbl">Talent</td>
-                <td class="sval us">8.0</td>
-                <td class="sval cn">7.0</td>
-                <td><span class="chip us">+1.0 US</span></td>
-              </tr>
+            <tbody id="score-tbody">
             </tbody>
           </table>
         </div>
@@ -1980,7 +1932,7 @@ function wrapText(text, maxLen) {
 
 let radarChart;
 
-function buildRadarChart() {
+function buildRadarChart(usData, cnData) {
   const p   = chartPalette();
   const ctx = document.getElementById('radarChart').getContext('2d');
   radarChart = new Chart(ctx, {
@@ -1990,7 +1942,7 @@ function buildRadarChart() {
       datasets: [
         {
           label: 'United States',
-          data: [8, 9, 6, 7, 6, 8],
+          data: usData,
           backgroundColor: 'rgba(26,58,92,0.12)',
           borderColor: US_COLOR, borderWidth: 2.5,
           pointBackgroundColor: US_COLOR,
@@ -2000,7 +1952,7 @@ function buildRadarChart() {
         },
         {
           label: 'China',
-          data: [6.5, 6, 7.5, 7, 8, 7],
+          data: cnData,
           backgroundColor: 'rgba(181,65,62,0.09)',
           borderColor: CN_COLOR, borderWidth: 2.5,
           pointBackgroundColor: CN_COLOR,
@@ -2053,6 +2005,72 @@ function updateRadarTheme() {
   radarChart.options.scales.r.angleLines.color  = p.angle;
   radarChart.options.scales.r.pointLabels.color = p.labels;
   radarChart.update('none');
+}
+
+function updateRadarData(usData, cnData) {
+  if (!radarChart) return;
+  radarChart.data.datasets[0].data = usData;
+  radarChart.data.datasets[1].data = cnData;
+  radarChart.update();
+}
+
+function renderExecutiveSummary(data) {
+  // Current read
+  const crEl = document.getElementById('current-read-text');
+  if (crEl) crEl.textContent = data.current_read || '';
+
+  // Insight bullets
+  const ul = document.getElementById('insight-list');
+  if (ul && data.strategic_insights) {
+    ul.innerHTML = data.strategic_insights.map(ins =>
+      `<li class="insight-item"><strong>${ins.bold}</strong>${ins.rest}</li>`
+    ).join('');
+  }
+
+  // Score table
+  const tbody = document.getElementById('score-tbody');
+  if (tbody && data.score_table) {
+    tbody.innerHTML = data.score_table.map(row => {
+      const cls = row.winner === 'US' ? 'us' : row.winner === 'China' ? 'cn' : 'tie';
+      return `<tr>
+        <td class="dim-lbl">${row.dimension}</td>
+        <td class="sval us">${row.us.toFixed(1)}</td>
+        <td class="sval cn">${row.china.toFixed(1)}</td>
+        <td><span class="chip ${cls}">${row.edge}</span></td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Radar chart
+  const rd = data.radar_chart_data;
+  if (rd && rd.us && rd.china) {
+    if (radarChart) {
+      updateRadarData(rd.us, rd.china);
+    } else {
+      buildRadarChart(rd.us, rd.china);
+    }
+  }
+}
+
+function loadExecutiveSummary() {
+  // Build a placeholder radar with zeroed data while fetching
+  buildRadarChart(
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0]
+  );
+  fetch('data/executive_summary.json')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => renderExecutiveSummary(data))
+    .catch(err => {
+      console.warn('executive_summary.json load failed:', err);
+      // Fall back to a static radar so the chart is usable
+      updateRadarData(
+        [7.5, 9.5, 6.2, 6.7, 3.6, 3.6],
+        [2.5, 0.5, 7.4, 3.3, 7.4, 6.4]
+      );
+      const crEl = document.getElementById('current-read-text');
+      if (crEl) crEl.textContent = 'Summary data unavailable — see individual dimension sections below.';
+    });
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -3085,7 +3103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     page.insertBefore(scorecard, frontierSection);
     page.insertBefore(divider, frontierSection);
   }
-  buildRadarChart();
+  loadExecutiveSummary();
   loadFrontierModels();
   loadTalent();
   loadCompute();

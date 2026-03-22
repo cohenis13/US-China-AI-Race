@@ -33,11 +33,14 @@ jobs:
       - name: Fetch compute data
         run: python scripts/fetch_compute.py
 
+      - name: Rebuild executive summary
+        run: python scripts/build_executive_summary.py
+
       - name: Commit and push if data changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/compute.json
+          git add data/compute.json data/executive_summary.json
           if git diff --cached --quiet; then
             echo "No changes to data — skipping commit."
           else

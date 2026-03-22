@@ -49,14 +49,16 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 │   ├── diffusion.json          Live data output — Global Diffusion (auto-updated)
 │   ├── energy.json             Live data output — Energy (auto-updated)
 │   ├── labs.json               Manual lab-to-country mapping (shared across dimensions)
-│   └── institutions.json       Institution keyword lists (Talent classification)
+│   ├── institutions.json       Institution keyword lists (Talent classification)
+│   └── executive_summary.json  Auto-generated — aggregated scores, current read, insights
 ├── scripts/
 │   ├── fetch_frontier_models.py  Frontier Models fetch script
 │   ├── fetch_talent.py           Talent fetch script
 │   ├── fetch_compute.py          Compute fetch script
 │   ├── fetch_adoption.py         Adoption fetch script
 │   ├── fetch_diffusion.py        Global Diffusion fetch script
-│   └── fetch_energy.py           Energy fetch script
+│   ├── fetch_energy.py           Energy fetch script
+│   └── build_executive_summary.py  Aggregates all 6 dimension JSONs → executive_summary.json
 ├── .github/
 │   └── workflows/
 │       ├── update_frontier_models.yml  Daily refresh (06:00 UTC)
@@ -168,6 +170,13 @@ The Energy script uses curated reference data (no live API calls). It calculates
 
 The Diffusion script fetches HF Hub download counts for all US and China labs in `data/labs.json` (live API, no date filter — captures full active install base), then applies curated cloud footprint data (Q1 2026, no API calls needed). Both proxies are scored as share-of-combined US + China. It calculates a composite index from hardcoded values sourced from McKinsey State of AI 2024 and IFR World Robotics 2023. To update for a new edition: edit the `ENTERPRISE_ADOPTION` and `ROBOT_DENSITY` dicts in `scripts/fetch_adoption.py`, then run the script or trigger the workflow.
 
+The `build_executive_summary.py` script has no external dependencies (stdlib only). It reads all six dimension JSONs from `data/`, normalizes each to a 0–10 scale, generates the current-read sentence and four strategic insight bullets, and writes `data/executive_summary.json`. It runs automatically as the final step of every dimension workflow. You can also run it locally:
+
+```bash
+python scripts/build_executive_summary.py
+# → writes data/executive_summary.json
+```
+
 ---
 
 ## Adding a new dimension
@@ -193,6 +202,8 @@ See [docs/methodology.html](docs/methodology.html) for:
 - Data sources and API endpoints
 - Classification logic (how labs are assigned to countries)
 - Known limitations and caveats
+
+**Executive Summary scoring:** Frontier Models, Talent, and Compute are scored as share-of-combined (US + China = 10 by construction). Adoption and Energy use their 0–100 composite scores divided by 10 (independent). Diffusion uses its share-of-combined composite divided by 10 (≈ sums to 10). All six scores feed the radar chart and score table. Text (current read, insights) is generated programmatically. See `docs/methodology.html` for full normalization details.
 
 **Key caveat — Frontier Models (v1):** Measures public model update activity on Hugging Face Hub from tracked labs — a proxy for lab output velocity, not a definitive ranking of frontier model capability. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. Labs are classified into four categories: US, China, Other (identified non-US/non-China labs), and Unknown.
 

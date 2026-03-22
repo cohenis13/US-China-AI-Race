@@ -1,67 +1,203 @@
 {
   "dimension": "diffusion",
   "metric_key": "ai_diffusion_composite_index",
-  "title": "Global AI Diffusion \u2014 U.S. vs China",
-  "subtitle": "Share of combined U.S.\u2013China global AI diffusion footprint, measured by open-model ecosystem reach and cloud infrastructure coverage. U.S. + China scores sum to 100.",
+  "title": "Global AI Diffusion — U.S. vs China",
+  "subtitle": "Share of combined U.S.–China global AI diffusion footprint, measured by open-model ecosystem reach and cloud infrastructure coverage. U.S. + China scores sum to 100.",
   "description": "A two-proxy composite index measuring how far U.S. and Chinese AI stacks have spread beyond their home markets. Combines HF open-model monthly downloads (live, from data/labs.json tracked labs) with cloud AI platform international footprint (curated, annually reviewed). Both proxies are scored as share-of-combined so U.S. + China = 100.",
-  "fetched_at": "2026-03-22T12:00:00+00:00",
-  "last_updated": "2026-03-22T12:00:00+00:00",
-  "_bootstrap_note": "Seed values used before first live workflow run. HF download shares estimated from known model popularity (Meta Llama, Google Gemma families dominate global downloads vs Qwen/DeepSeek). Cloud footprint from official provider documentation Q1 2026. Will be replaced by live data on first workflow run.",
+  "fetched_at": "2026-03-22T17:53:57.857926+00:00",
+  "last_updated": "2026-03-22T17:53:57.857926+00:00",
   "summary": {
     "US": {
-      "composite_score": 74.1,
+      "composite_score": 66.9,
       "effective_weights": {
         "hf_downloads": 0.55,
         "cloud_footprint": 0.45
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": null,
+          "raw_value": 384180829,
           "unit": "monthly downloads (HF Hub)",
-          "share_score": 75.0,
+          "share_score": 61.9,
           "coverage": "high",
-          "note": "Estimated bootstrap value \u2014 will be replaced by live API data on first workflow run. US labs (Meta Llama, Google Gemma, Stability AI, etc.) dominate HF downloads globally.",
-          "lab_detail": []
+          "note": "Sum of monthly downloads across top-100 models per US-attributed lab on Hugging Face Hub. Labs sourced from data/labs.json.",
+          "lab_detail": [
+            {
+              "lab": "OpenAI",
+              "author": "openai",
+              "downloads": 75266682
+            },
+            {
+              "lab": "Anthropic",
+              "author": "anthropic",
+              "downloads": 0
+            },
+            {
+              "lab": "Google / DeepMind",
+              "author": "google",
+              "downloads": 88503505
+            },
+            {
+              "lab": "Google / DeepMind",
+              "author": "google-deepmind",
+              "downloads": 0
+            },
+            {
+              "lab": "Meta AI",
+              "author": "facebook",
+              "downloads": 60140765
+            },
+            {
+              "lab": "Meta AI",
+              "author": "meta-llama",
+              "downloads": 32164159
+            },
+            {
+              "lab": "Microsoft",
+              "author": "microsoft",
+              "downloads": 41110464
+            },
+            {
+              "lab": "NVIDIA",
+              "author": "nvidia",
+              "downloads": 18140210
+            },
+            {
+              "lab": "Allen Institute for AI",
+              "author": "allenai",
+              "downloads": 6160430
+            },
+            {
+              "lab": "Salesforce AI",
+              "author": "Salesforce",
+              "downloads": 11041490
+            },
+            {
+              "lab": "Cohere",
+              "author": "CohereForAI",
+              "downloads": 0
+            },
+            {
+              "lab": "Apple",
+              "author": "apple",
+              "downloads": 13039078
+            },
+            {
+              "lab": "Amazon",
+              "author": "amazon",
+              "downloads": 33069583
+            },
+            {
+              "lab": "Stability AI",
+              "author": "stabilityai",
+              "downloads": 5489270
+            },
+            {
+              "lab": "Together AI",
+              "author": "togethercomputer",
+              "downloads": 35899
+            },
+            {
+              "lab": "xAI",
+              "author": "xai-org",
+              "downloads": 19294
+            }
+          ]
         },
         "cloud_footprint": {
           "raw_value": 190,
           "unit": "international countries/territories",
           "share_score": 73.1,
           "coverage": "high",
-          "note": "Combined international footprint of AWS, Microsoft Azure, and Google Cloud AI/ML platform services \u2014 Q1 2026 official provider documentation. Deduplicated country/territory estimate.",
+          "note": "Combined international footprint of AWS, Microsoft Azure, and Google Cloud AI/ML platform services — Q1 2026 official provider documentation. Deduplicated country/territory estimate.",
           "providers": "AWS + Microsoft Azure + Google Cloud"
         }
       }
     },
     "China": {
-      "composite_score": 25.9,
+      "composite_score": 33.1,
       "effective_weights": {
         "hf_downloads": 0.55,
         "cloud_footprint": 0.45
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": null,
+          "raw_value": 236511407,
           "unit": "monthly downloads (HF Hub)",
-          "share_score": 25.0,
+          "share_score": 38.1,
           "coverage": "high",
-          "note": "Estimated bootstrap value \u2014 will be replaced by live API data on first workflow run. China labs (Qwen, DeepSeek, THUDM) have significant but smaller HF footprint than US labs.",
-          "lab_detail": []
+          "note": "Sum of monthly downloads across top-100 models per China-attributed lab on Hugging Face Hub. Labs sourced from data/labs.json.",
+          "lab_detail": [
+            {
+              "lab": "Alibaba / Qwen",
+              "author": "Qwen",
+              "downloads": 213318761
+            },
+            {
+              "lab": "DeepSeek",
+              "author": "deepseek-ai",
+              "downloads": 15450171
+            },
+            {
+              "lab": "Zhipu AI / THUDM",
+              "author": "THUDM",
+              "downloads": 0
+            },
+            {
+              "lab": "01.AI",
+              "author": "01-ai",
+              "downloads": 258285
+            },
+            {
+              "lab": "Baidu",
+              "author": "baidu",
+              "downloads": 146811
+            },
+            {
+              "lab": "ByteDance",
+              "author": "ByteDance-Seed",
+              "downloads": 258334
+            },
+            {
+              "lab": "Shanghai AI Lab",
+              "author": "internlm",
+              "downloads": 719158
+            },
+            {
+              "lab": "Moonshot AI",
+              "author": "moonshotai",
+              "downloads": 4481834
+            },
+            {
+              "lab": "MiniMax",
+              "author": "MiniMaxAI",
+              "downloads": 806621
+            },
+            {
+              "lab": "Tencent",
+              "author": "tencent",
+              "downloads": 976491
+            },
+            {
+              "lab": "Huawei / Noah's Ark Lab",
+              "author": "huawei-noah",
+              "downloads": 94941
+            }
+          ]
         },
         "cloud_footprint": {
           "raw_value": 70,
           "unit": "international countries/territories",
           "share_score": 26.9,
           "coverage": "high",
-          "note": "Combined international footprint of Alibaba Cloud, Huawei Cloud, and Tencent Cloud AI/ML platform services \u2014 Q1 2026 official provider documentation. Deduplicated country/territory estimate.",
+          "note": "Combined international footprint of Alibaba Cloud, Huawei Cloud, and Tencent Cloud AI/ML platform services — Q1 2026 official provider documentation. Deduplicated country/territory estimate.",
           "providers": "Alibaba Cloud + Huawei Cloud + Tencent Cloud"
         }
       }
     }
   },
-  "interpretive_sentence": "U.S.-origin AI stacks account for approximately 74.1% of the measured U.S.\u2013China global diffusion footprint (48.2-point lead over China). On open-model downloads, U.S. accounts for 75.0% of the combined U.S.\u2013China total.",
+  "interpretive_sentence": "U.S.-origin AI stacks account for approximately 66.9% of the measured U.S.–China global diffusion footprint (33.8-point lead over China). On open-model downloads, U.S. accounts for 61.9% of the combined U.S.–China total.",
   "composite_construction": {
-    "method": "Both proxies are scored as share-of-combined (US + China = 100). HF downloads: (country_downloads / total_downloads) \u00d7 100. Cloud footprint: (country_countries / total_countries) \u00d7 100. Composite = 0.55 \u00d7 hf_share + 0.45 \u00d7 cloud_share. By construction, US composite + China composite = 100.",
+    "method": "Both proxies are scored as share-of-combined (US + China = 100). HF downloads: (country_downloads / total_downloads) × 100. Cloud footprint: (country_countries / total_countries) × 100. Composite = 0.55 × hf_share + 0.45 × cloud_share. By construction, US composite + China composite = 100.",
     "weights": {
       "hf_downloads": 0.55,
       "cloud_footprint": 0.45
@@ -72,8 +208,8 @@
     "hf_downloads": {
       "source_name": "Hugging Face Hub API",
       "source_url": "https://huggingface.co/api/models",
-      "definition": "Sum of monthly downloads across top-100 most-downloaded models per tracked lab. No date filter \u2014 captures full active install base.",
-      "update_cadence": "Daily (live API \u2014 downloads reflect trailing 30 days)",
+      "definition": "Sum of monthly downloads across top-100 most-downloaded models per tracked lab. No date filter — captures full active install base.",
+      "update_cadence": "Daily (live API — downloads reflect trailing 30 days)",
       "labs_source": "data/labs.json (shared with all live dimensions)"
     },
     "cloud_footprint": {
@@ -81,11 +217,11 @@
       "source_url": "https://aws.amazon.com/about-aws/global-infrastructure/",
       "edition": "Q1 2026",
       "definition": "International countries/territories served by major cloud AI/ML platform services (combined, deduplicated estimate)",
-      "update_cadence": "Annual review \u2014 update when providers announce significant geographic expansion"
+      "update_cadence": "Annual review — update when providers announce significant geographic expansion"
     }
   },
-  "methodology_note": "This index measures external diffusion \u2014 how far U.S. and Chinese AI stacks have spread beyond their home markets \u2014 not domestic adoption. HF downloads are the strongest live signal: a model being downloaded globally indicates active embedding in foreign products and pipelines. Cloud footprint measures the infrastructure layer through which AI services are delivered internationally. Known limitations: HF Hub undercounts Chinese models that are primarily distributed through domestic platforms (ModelScope, Gitee AI). The cloud footprint is a count of countries served, not revenue or usage depth. Both proxies measure reach, not quality or economic impact of diffusion.",
-  "coverage_note": "HF downloads: high confidence \u2014 directly measured from public API. May undercount Chinese model reach (ModelScope, domestic platforms). Cloud footprint: high confidence for both countries \u2014 based on official provider documentation. U.S. figure near-saturates accessible global markets; Chinese figure reflects documented international expansion.",
+  "methodology_note": "This index measures external diffusion — how far U.S. and Chinese AI stacks have spread beyond their home markets — not domestic adoption. HF downloads are the strongest live signal: a model being downloaded globally indicates active embedding in foreign products and pipelines. Cloud footprint measures the infrastructure layer through which AI services are delivered internationally. Known limitations: HF Hub undercounts Chinese models that are primarily distributed through domestic platforms (ModelScope, Gitee AI). The cloud footprint is a count of countries served, not revenue or usage depth. Both proxies measure reach, not quality or economic impact of diffusion.",
+  "coverage_note": "HF downloads: high confidence — directly measured from public API. May undercount Chinese model reach (ModelScope, domestic platforms). Cloud footprint: high confidence for both countries — based on official provider documentation. U.S. figure near-saturates accessible global markets; Chinese figure reflects documented international expansion.",
   "what_this_does_not_capture": [
     "Domestic AI adoption within each country's home market",
     "Chinese model downloads via ModelScope, Gitee AI, or other domestic platforms",

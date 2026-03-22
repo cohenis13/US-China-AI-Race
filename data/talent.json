@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-21T07:55:59.973767+00:00",
+  "fetched_at": "2026-03-22T08:00:15.677328+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,63 +10,209 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 128633,
-    "China": 230776,
-    "Other": 652954,
+    "US": 128767,
+    "China": 229664,
+    "Other": 654092,
     "Unknown": 0,
-    "total_papers": 1481529,
-    "total_attributed": 1012363
+    "total_papers": 1484655,
+    "total_attributed": 1012523
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 230776
+      "count": 229664
     },
     {
       "country_code": "US",
-      "count": 128633
+      "count": 128767
     },
     {
       "country_code": "JP",
-      "count": 79292
+      "count": 79310
     },
     {
       "country_code": "IN",
-      "count": 75117
+      "count": 75134
     },
     {
       "country_code": "GB",
-      "count": 41555
+      "count": 41600
     },
     {
       "country_code": "DE",
-      "count": 32149
+      "count": 32174
     },
     {
       "country_code": "ID",
-      "count": 26827
+      "count": 26818
     },
     {
       "country_code": "CA",
-      "count": 20575
+      "count": 20586
     },
     {
       "country_code": "IT",
-      "count": 20498
+      "count": 20486
     },
     {
       "country_code": "FR",
-      "count": 19629
+      "count": 19713
     }
   ],
   "papers": [
     {
-      "id": "https://openalex.org/W7130255187",
-      "title": "You Walkin' to Me? How Footstep Sound Primes Anticipation in Virtual Pedestrian Collision Avoidance",
+      "id": "https://openalex.org/W7139058887",
+      "title": "Artificial Intelligent in Cyber security: Emerging Threats and Defenses",
       "authors": [
-        "Aline Hufschmitt",
-        "Agathe Bilhaut",
-        "Ludovic Hoyet"
+        "S. Anu Infancy Lurds"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138891405",
+      "title": "Digital Revolution and Its Multidimensional Impact on Society",
+      "authors": [
+        "Maria Roseline. M Dr. Mettilda Buvaneswari. G"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138869661",
+      "title": "Artificial Intelligent in Cyber security: Emerging Threats and Defenses",
+      "authors": [
+        "S. Anu Infancy Lurds"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138849869",
+      "title": "Next-Gen Artificial Intelligent-Driven FinTech Security Model",
+      "authors": [
+        "T. Devathai"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139027017",
+      "title": "Impact of Artificial Intelligence in Accounting and Auditing",
+      "authors": [
+        "S. Banupriya"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138917121",
+      "title": "Next-Gen Artificial Intelligent-Driven FinTech Security Model",
+      "authors": [
+        "T. Devathai"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138837912",
+      "title": "Impact of Artificial Intelligence in Accounting and Auditing",
+      "authors": [
+        "S. Banupriya"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138926096",
+      "title": "Reimagining Society in The Age of Artificial Intelligence",
+      "authors": [
+        "G. Vasuki"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138878869",
+      "title": "Digital Revolution and Its Multidimensional Impact on Society",
+      "authors": [
+        "Maria Roseline. M Dr. Mettilda Buvaneswari. G"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139101803",
+      "title": "Reimagining Society in The Age of Artificial Intelligence",
+      "authors": [
+        "G. Vasuki"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139920390",
+      "title": "The Great Linguistic Expansion: Stress-Testing LLM Semantic Integrity Across 7,170+ Languages in the Reincarnatiopedia Ecosystem",
+      "authors": [
+        "Maris Dreshmanis"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139959347",
+      "title": "Lines to Sing: The Complete Acoustic Decipherment of Rongorongo",
+      "authors": [
+        "Abelardo Rios Jr",
+        "Anthropic"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138913207",
+      "title": "Global Humanity's Knowledge Archive (GHKA): A Protocol for Trans-temporal Knowledge Preservation and AI Context Resilience v1.0",
+      "authors": [
+        "Maris Dreshmanis"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139947829",
+      "title": "Damona singularity image of macs3 software",
+      "authors": [
+        "Thomas Cokelaer"
       ],
       "countries": [
         "FR"
@@ -76,186 +222,15 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128651078",
-      "title": "Exploring Non-Euclidean Geometry Through Virtual and Real Experiences to Unlock Non-Experts' Intuition",
+      "id": "https://openalex.org/W7139956894",
+      "title": "Lines to Sing: The Complete Acoustic Decipherment of Rongorongo",
       "authors": [
-        "Maé Mavromatis",
-        "Ronan Gaugne",
-        "Rémi Coulon"
+        "Abelardo Rios Jr",
+        "Anthropic"
       ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-03-21",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134221962",
-      "title": "Anchor-based Haptics: Portable Interfaces Leveraging Real Surfaces to Display Grounded Forces for 3D Shape Simulation in VR",
-      "authors": [
-        "Julien Manson",
-        "Anatole Lécuyer",
-        "Sylvain Dubois"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-21",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133575957",
-      "title": "Deep Learning Across Domains: The Role of Representations in Biochemical and Biological Data",
-      "authors": [
-        "Alessia Lucia Prete"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138885435",
-      "title": "Defining “Chinese tragedy”: a terminological point of view",
-      "authors": [
-        "Tian Gu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139053601",
-      "title": "Tools to convert ONNX files (NCHW) to TensorFlow format (NHWC)",
-      "authors": [
-        "Katsuya Hyodo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139016105",
-      "title": "Microseismic source localization method based on ABC-CS improved fusion algorithm",
-      "authors": [
-        "Wenfeng Tu",
-        "Chao Jia",
-        "Liping Li"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138833514",
-      "title": "Data-Driven Discovery of Process–Structure Relationships in Additive Manufacturing via Featurization from Kinetic Monte Carlo Simulations and Interpretable Machine Learning",
-      "authors": [
-        "Dipayan Sanpui",
-        "Henry H. Chan",
-        "Aditya Koneru"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138845182",
-      "title": "3D human pose keypoints and corresponding joint angle calculation for vision-based WMSD risk assessments",
-      "authors": [
-        "Leyang Wen",
-        "Daeho Kim",
-        "Veeru Talreja"
-      ],
-      "countries": [
-        "US",
-        "CA",
-        "NL"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138908503",
-      "title": "A Web-Based AI System for Eye Disease and Severity Prediction Using Oct Image",
-      "authors": [
-        "Kavya Shree S",
-        "Dr.Kaliappan M",
-        "Dr.  Anandhi S.V"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138935516",
-      "title": "ФОРМУВАННЯ ІНТЕГРОВАНОЇ ЦИФРОВОЇ ЕКОСИСТЕМИ ЯК ФАКТОР ПІДВИЩЕННЯ ЕФЕКТИВНОСТІ УПРАВЛІННЯ ПРОЄКТНИМИ КОМАНДАМИ",
-      "authors": [
-        "Світлана Миколаївна Подзігун",
-        "Наталія Малярчук",
-        "Оксана Вікторівна Литвин"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138948943",
-      "title": "Enhancing personalized suicide risk prediction for VA patients by integrating discrete natural language processing models",
-      "authors": [
-        "Monica Dimambro",
-        "Joshua Levy",
-        "Jiang Gui"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138980671",
-      "title": "A KoBART-Based Model for Detecting Online Grooming Risk in Korean Conversations",
-      "authors": [
-        "Jun-kyu Kang",
-        "Min-su Jung",
-        "Seongmin Kim"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139043069",
-      "title": "Проектирование информационно-аналитической системы прогнозирования индекса потребительских цен в Российской Федерации: архитектура, методы и инструменты",
-      "authors": [
-        "А.Н. Тодуа",
-        "В.А. Китов"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W3085080766",
-      "title": "The Mental Lexicon",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-20",
       "source": "openalex"
     }
   ],

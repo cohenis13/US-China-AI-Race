@@ -8,23 +8,24 @@ APPROACH
 
   Proxy 1 — Enterprise Adoption Rate (55% weight):
     The share of organizations actively using AI in at least one business
-    function. Source: McKinsey "State of AI" annual survey (most recent
-    available edition). North America figure used for US; best available
-    China-region estimate used for China (see notes below).
+    function. Primary source: McKinsey "State of AI" 2025 (published May
+    2025, covering 2024/2025 survey data). Cross-referenced with Stanford
+    HAI AI Index 2025 (April 2025) which aggregates multiple surveys.
+    North America figure used for US; best available China-region estimate
+    used for China (see notes below).
 
   Proxy 2 — Industrial Automation Density (45% weight):
     Installed industrial robots per 10,000 manufacturing workers.
-    Source: IFR (International Federation of Robotics) World Robotics
-    annual report. This is a hard comparable proxy for AI/automation
-    deployment depth embedded in the physical economy — same methodology,
+    Source: IFR (International Federation of Robotics) World Robotics 2024
+    report (October 2024, covering 2023 operational data). Same methodology,
     same reporting body, directly country-comparable.
 
 WHY A COMPOSITE INDEX
   No single public data source provides a clean, symmetric, and automatable
   measure of AI adoption in both the U.S. and Chinese economies:
 
-  - Survey data (McKinsey, etc.) has limited China-specific granularity and
-    inconsistent sampling across countries.
+  - Survey data (McKinsey, Stanford AI Index) has limited China-specific
+    granularity and inconsistent sampling across countries.
   - Public filing data (SEC EDGAR) covers Chinese ADRs only — a tech-heavy
     sample that excludes Tencent, ByteDance, Huawei, and most Chinese firms.
   - Hard deployment metrics (robot density) are symmetric and verifiable
@@ -37,8 +38,9 @@ COMPOSITE CONSTRUCTION
   Normalization:
     - Enterprise adoption: already expressed as %; used directly (0–100).
     - Robot density: (value / ROBOT_DENSITY_NORM_MAX) × 100
-      where ROBOT_DENSITY_NORM_MAX = 500 robots/10K workers
-      (reference: above OECD average ~300, well below South Korea's ~1000).
+      where ROBOT_DENSITY_NORM_MAX = 600 robots/10K workers
+      (reference: above leading OECD economies ~430, well below South
+      Korea's ~1,000 global outlier; gives headroom for China at ~470).
 
   Composite score = WEIGHT_ENTERPRISE × enterprise_norm
                   + WEIGHT_ROBOT      × robot_density_norm
@@ -50,6 +52,11 @@ TO UPDATE REFERENCE DATA
   When a new edition of a source is published, update the value(s) and the
   edition string in the ENTERPRISE_ADOPTION and ROBOT_DENSITY dicts below.
   The composite recalculates automatically.
+
+  Next expected updates:
+    - IFR World Robotics 2025: ~October 2025 (will cover 2024 data)
+    - McKinsey State of AI 2026: ~May 2026
+    - Stanford AI Index 2026: ~April 2026
 
 Outputs to data/adoption.json.
 """
@@ -67,92 +74,116 @@ WEIGHT_ENTERPRISE = 0.55   # enterprise AI adoption survey
 WEIGHT_ROBOT      = 0.45   # industrial robot density
 
 # ── Robot density normalization reference ─────────────────────────────────────
-# Set at 500 robots/10K workers:
-#   - OECD average is roughly 160–300 depending on year
-#   - Leading economies (Germany, Japan) are in the 350–450 range
-#   - South Korea is ~1,000+ (global outlier)
-#   500 is a defensible mid-high reference that keeps both countries in
-#   meaningful, non-trivial score range.
-ROBOT_DENSITY_NORM_MAX = 500.0
+# Updated to 600 robots/10K workers (was 500):
+#   - OECD average is roughly 200–350 depending on year
+#   - Germany ~429, Japan ~419 (IFR 2024)
+#   - China ~470 (IFR 2024) — crowded the old 500 ceiling
+#   - South Korea ~1,012 (global outlier, excluded as ceiling)
+#   600 provides headroom above leading non-outlier economies while
+#   keeping both US and China in meaningful, non-trivial score range.
+ROBOT_DENSITY_NORM_MAX = 600.0
 
 # ── Proxy 1: Enterprise AI Adoption Rate ─────────────────────────────────────
-# Source: McKinsey & Company, "The State of AI" annual survey
-# Edition: 2024 (published May 2024)
+# Primary source: McKinsey & Company, "The State of AI" 2025 (May 2025)
+# Cross-reference: Stanford HAI AI Index 2025 (April 2025)
 # Definition: % of respondents' organizations using AI in at least one
 #             business function
 #
 # Notes:
-#   US figure: McKinsey 2024, North America respondents (~65%)
-#   China figure: Estimated from McKinsey 2024 global data and CAICT
-#     (China Academy of Information and Communications Technology) White
-#     Paper on China's AI Development (2024). The McKinsey survey does not
-#     break out China specifically; the ~68% estimate reflects CAICT and
-#     similar Chinese-market research on large enterprise adoption.
+#   US figure: McKinsey 2025, North America respondents (~72%).
+#     Global adoption rose to ~78% in 2025; North America slightly below
+#     global average, consistent with the 2024 survey pattern.
+#     Stanford AI Index 2025 corroborates high US adoption rates.
+#     Confidence: high.
+#
+#   China figure: Estimated from McKinsey 2025 global/regional data and
+#     CAICT (China Academy of Information and Communications Technology)
+#     White Paper on China's AI Development (2024, published late 2024).
+#     McKinsey does not break out China separately; ~70% reflects the
+#     cross-referenced estimate from regional data and CAICT surveys on
+#     large-enterprise adoption. Stanford AI Index 2025 shows China-based
+#     respondents with broadly comparable adoption rates to North America.
 #     Confidence: medium — treat as directional, not precise.
 #
-# TO UPDATE: Change value and edition when McKinsey publishes a new edition.
+# TO UPDATE: Change value and edition when McKinsey or Stanford AI Index
+#            publishes a new annual edition.
 ENTERPRISE_ADOPTION = {
     "US": {
-        "value":    65.0,   # percent
+        "value":    72.0,   # percent
         "coverage": "high",
-        "note":     "McKinsey State of AI 2024, North America respondents",
+        "note":     (
+            "McKinsey State of AI 2025 (May 2025), North America respondents; "
+            "corroborated by Stanford HAI AI Index 2025 (April 2025)"
+        ),
     },
     "China": {
-        "value":    68.0,   # percent
+        "value":    70.0,   # percent
         "coverage": "medium",
         "note":     (
-            "Estimated from McKinsey State of AI 2024 global data and CAICT "
-            "AI White Paper 2024. China-specific breakout is not cleanly "
-            "available in the McKinsey survey; treat as directional."
+            "Estimated from McKinsey State of AI 2025 global/regional data "
+            "and CAICT AI White Paper 2024. McKinsey does not break out China "
+            "separately; Stanford AI Index 2025 shows broadly comparable rates. "
+            "Treat as directional."
         ),
     },
 }
 
 ENTERPRISE_ADOPTION_META = {
-    "source_name":      "McKinsey & Company, The State of AI 2024",
+    "source_name":      "McKinsey & Company, The State of AI 2025",
     "source_url":       "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-    "supplementary":    "CAICT White Paper on China's AI Development 2024 (China figure)",
-    "edition":          "2024 (published May 2024)",
+    "supplementary":    (
+        "Stanford HAI AI Index 2025 (April 2025); "
+        "CAICT White Paper on China's AI Development 2024 (China figure)"
+    ),
+    "edition":          "2025 (published May 2025)",
     "definition":       "% of organizations using AI in at least one business function",
-    "update_cadence":   "Annual (McKinsey: typically May; CAICT: typically Q4)",
+    "update_cadence":   "Annual (McKinsey: typically May; Stanford AI Index: typically April)",
 }
 
 # ── Proxy 2: Industrial Robot Density ────────────────────────────────────────
 # Source: International Federation of Robotics (IFR), World Robotics
-# Edition: 2023 report (2022 operational data)
+# Edition: 2024 report (October 2024, covering 2023 operational data)
 # Definition: Installed industrial robots per 10,000 manufacturing workers
 #
 # Notes:
 #   - Highly symmetric: same source, same methodology, direct country-level data.
-#   - China's rapid rise in robot density reflects the "Made in China 2025"
-#     push for manufacturing automation; includes robots deployed for
-#     precision manufacturing, automotive, electronics, and general assembly.
+#   - China's continued rise reflects sustained "Made in China 2025" investment
+#     in manufacturing automation across automotive, electronics, and precision
+#     assembly. China overtook Japan and Germany in density ranking in 2023.
 #   - Robot density captures industrial AI/automation broadly — not limited
 #     to pure AI applications. A strength for cross-country comparability;
 #     a limitation for AI-specificity.
 #
-# 2022 values (IFR World Robotics 2023):
-#   China: 392 robots/10K workers (ranked 5th globally, up from 322 in 2021)
-#   US:    274 robots/10K workers (ranked 10th globally)
+# 2023 values (IFR World Robotics 2024, October 2024):
+#   China: 470 robots/10K workers (up from 392 in 2022; overtook Japan/Germany)
+#   US:    295 robots/10K workers (up from 274 in 2022)
+#   For reference: South Korea ~1,012 (global outlier); Germany ~429; Japan ~419
 #
-# TO UPDATE: Change value and edition when IFR publishes a new annual report.
+# Previous values for reference:
+#   China 2022: 392  |  US 2022: 274  (IFR World Robotics 2023)
+#
+# TO UPDATE: Change value and edition when IFR publishes a new annual report
+#            (expected October 2025 for 2024 data).
 ROBOT_DENSITY = {
     "US": {
-        "value":    274,    # robots per 10,000 manufacturing workers
+        "value":    295,    # robots per 10,000 manufacturing workers
         "coverage": "high",
-        "note":     "IFR World Robotics 2023 (2022 data), United States, ranked 10th globally",
+        "note":     "IFR World Robotics 2024 (2023 data), United States",
     },
     "China": {
-        "value":    392,    # robots per 10,000 manufacturing workers
+        "value":    470,    # robots per 10,000 manufacturing workers
         "coverage": "high",
-        "note":     "IFR World Robotics 2023 (2022 data), China, ranked 5th globally",
+        "note":     (
+            "IFR World Robotics 2024 (2023 data), China — overtook Japan and "
+            "Germany in robot density ranking; up from 392 in 2022"
+        ),
     },
 }
 
 ROBOT_DENSITY_META = {
-    "source_name":    "International Federation of Robotics (IFR), World Robotics 2023",
+    "source_name":    "International Federation of Robotics (IFR), World Robotics 2024",
     "source_url":     "https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally",
-    "edition":        "2023 report (2022 operational data)",
+    "edition":        "2024 report (October 2024, 2023 operational data)",
     "definition":     "Installed industrial robots per 10,000 manufacturing workers",
     "update_cadence": "Annual (typically published in October)",
 }

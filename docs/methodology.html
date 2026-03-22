@@ -96,18 +96,19 @@
 
   <h3>Proxy 1 &mdash; Enterprise AI Adoption Rate (55% weight)</h3>
   <p>
-    <strong>Source:</strong> McKinsey &amp; Company, <em>The State of AI</em> annual survey
-    (2024 edition, published May 2024). Supplemented by CAICT (China Academy of Information
-    and Communications Technology) White Paper on China&rsquo;s AI Development for the
-    China-specific figure.
+    <strong>Sources:</strong> McKinsey &amp; Company, <em>The State of AI</em> 2025
+    (published May 2025), and Stanford HAI <em>AI Index</em> 2025 (published April 2025).
+    Supplemented by CAICT (China Academy of Information and Communications Technology)
+    White Paper on China&rsquo;s AI Development (2024) for the China-specific figure.
   </p>
   <p>
     <strong>Definition:</strong> Percentage of organizations reporting that they use AI
     in at least one business function.
   </p>
   <p>
-    <strong>Values used:</strong> U.S. (North America): ~65%. China: ~68% (estimated from
-    regional McKinsey data and CAICT surveys; see coverage note below).
+    <strong>Values used:</strong> U.S. (North America): ~72% (McKinsey 2025, corroborated
+    by Stanford AI Index 2025). China: ~70% (estimated from McKinsey 2025 regional data,
+    CAICT 2024, and Stanford AI Index 2025; see coverage note below).
   </p>
   <p>
     <strong>Normalization:</strong> Already expressed as a percentage; used directly on the
@@ -126,7 +127,8 @@
   <h3>Proxy 2 &mdash; Industrial Robot Density (45% weight)</h3>
   <p>
     <strong>Source:</strong> International Federation of Robotics (IFR),
-    <em>World Robotics</em> annual report (2023 edition, covering 2022 operational data).
+    <em>World Robotics</em> 2024 annual report (published October 2024, covering 2023
+    operational data).
   </p>
   <p>
     <strong>Definition:</strong> Installed industrial robots per 10,000 manufacturing workers.
@@ -134,14 +136,17 @@
     automation deployment depth embedded in the physical economy.
   </p>
   <p>
-    <strong>Values used:</strong> U.S.: 274 robots/10K workers (ranked 10th globally).
-    China: 392 robots/10K workers (ranked 5th globally, up from 322 in 2021).
+    <strong>Values used:</strong> U.S.: 295 robots/10K workers (up from 274 in 2022).
+    China: 470 robots/10K workers (up from 392 in 2022 &mdash; China overtook Japan and
+    Germany in density ranking in 2023).
+    For reference: South Korea ~1,012 (global outlier); Germany ~429; Japan ~419.
   </p>
   <p>
-    <strong>Normalization:</strong> (value &divide; 500) &times; 100, where 500 robots/10K
-    workers is the normalization reference &mdash; above the OECD average (~300) and well
-    below South Korea&rsquo;s global-leading ~1,000. This keeps both countries in a
-    meaningful, non-trivial score range.
+    <strong>Normalization:</strong> (value &divide; 600) &times; 100, where 600 robots/10K
+    workers is the normalization reference &mdash; above the leading non-outlier economies
+    (Germany ~429, Japan ~419, China ~470) and well below South Korea&rsquo;s ~1,012.
+    The reference was updated from 500 to 600 when China&rsquo;s 2023 value (470) crowded
+    the previous ceiling.
   </p>
   <div class="caveat">
     <p>
@@ -172,9 +177,14 @@
   <h3>Update cadence and automation</h3>
   <p>
     The script runs weekly via GitHub Actions. The underlying reference data updates annually:
-    McKinsey publishes in approximately May each year; IFR publishes in approximately October.
-    When new editions are released, the reference values in <code>scripts/fetch_adoption.py</code>
-    are updated manually and the composite recalculates automatically on the next run.
+    McKinsey publishes in approximately May each year; Stanford AI Index in approximately April;
+    IFR publishes in approximately October. When new editions are released, the reference values
+    in <code>scripts/fetch_adoption.py</code> are updated manually and the composite
+    recalculates automatically on the next run.
+  </p>
+  <p>
+    <strong>Next expected updates:</strong> IFR World Robotics 2025 (~October 2025, covering
+    2024 data); McKinsey State of AI 2026 (~May 2026); Stanford AI Index 2026 (~April 2026).
   </p>
 
   <h3>What this composite does NOT capture</h3>

@@ -51,97 +51,154 @@
   <p class="subtitle">How the U.S.–China AI Race Tracker measures each dimension — sources, proxies, and known limitations.</p>
 
   <!-- ── Adoption ──────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Adoption</span> AI Adoption in the Economy</h2>
+  <h2><span class="dim-badge">Adoption</span> AI Adoption in the Economy &mdash; Multi-Proxy Index</h2>
 
   <h3>What this measures</h3>
   <p>
-    The share of major listed companies in each country whose latest annual filing contains
-    evidence of AI deployment, integration, or operational AI use. This is a
-    country-comparable public proxy for economy-wide AI adoption among large firms —
-    not a complete measure of all firms or all AI usage.
-  </p>
-
-  <h3>Why public company filings</h3>
-  <p>
-    Annual reports (10-K for US companies, 20-F for foreign private issuers) are legally
-    required, publicly searchable, and consistent across companies and years. When a company
-    discloses use of "generative AI" or "large language models" in its annual filing, it is
-    describing operational reality — not just marketing copy. These disclosures are more
-    verifiable than surveys and more automatable than manually curated data.
-    The same data source (SEC EDGAR) covers both the US and China samples, making the
-    comparison structurally symmetric at the data-source level.
-  </p>
-
-  <h3>Sample construction</h3>
-  <p>
-    <strong>U.S. sample (~25 companies):</strong> Major S&amp;P 500 companies spanning
-    Technology, Finance, Healthcare, Retail, Consumer, Industrial, Telecom, Energy, and Media
-    sectors. All file 10-K annual reports with the SEC.
+    A composite index approximating economy-wide AI adoption in the U.S. and China,
+    built from two public proxies: enterprise AI adoption rates (survey-based) and
+    industrial automation density (robot density per manufacturing worker). The composite
+    is a transparent, directional proxy &mdash; not a definitive measure of total national
+    AI usage.
   </p>
   <p>
-    <strong>China sample (~20 companies):</strong> Major Chinese companies that file 20-F
-    annual reports with the SEC as foreign private issuers — primarily technology, e-commerce,
-    automotive, and logistics firms (Alibaba, Baidu, JD.com, PDD Holdings, NIO, Xpeng, etc.).
-    These are the largest Chinese companies with US exchange listings.
-    The full list of sampled companies is shown in the dashboard table.
+    <strong>Adoption vs. diffusion:</strong> This section focuses on <em>adoption</em> &mdash;
+    whether and how much firms and institutions are using AI. It does not attempt to fully
+    measure <em>diffusion</em> (how broadly that use spreads across geographies and sectors),
+    which is a distinct and harder-to-measure concept.
   </p>
 
-  <h3>How "AI deployment" is defined</h3>
-  <p>Each company's annual filing is searched for deployment-specific AI language:</p>
+  <h3>Why a multi-proxy composite index?</h3>
+  <p>
+    No single public data source provides a clean, symmetric, and automatable measure of
+    AI adoption across both the U.S. and Chinese economies:
+  </p>
   <ul>
-    <li><strong>Deployment signal (positive):</strong> Filing mentions <code>"generative AI"</code>
-        or <code>"large language model"</code>. These terms are specific to post-2022 AI
-        integration and reliably indicate meaningful operational engagement when they appear
-        in an annual report.</li>
-    <li><strong>Strategic mention only:</strong> Filing mentions <code>"artificial intelligence"</code>
-        but not the above terms. AI is acknowledged as a strategic topic but without
-        deployment-specific language. Counted in the denominator but not as "positive."</li>
-    <li><strong>Not found:</strong> No filing found for the company in the search window,
-        or the EDGAR API was inaccessible. Excluded from the adoption rate entirely.</li>
+    <li>
+      <strong>Survey data</strong> (e.g., McKinsey) has limited China-specific granularity
+      and inconsistent sampling across countries. It is more useful as a directional signal
+      than a precise national figure.
+    </li>
+    <li>
+      <strong>Public filing data</strong> (e.g., SEC EDGAR) covers Chinese ADRs only &mdash;
+      a technology-heavy sample that excludes Tencent, ByteDance, Huawei, and the vast
+      majority of Chinese firms. This created a structurally asymmetric comparison.
+    </li>
+    <li>
+      <strong>Hard deployment metrics</strong> (e.g., industrial robot density) are highly
+      symmetric and verifiable but measure industrial automation broadly, not AI specifically.
+    </li>
   </ul>
   <p>
-    <strong>Adoption rate</strong> = Companies with deployment signal &divide;
-    (Deployment + Strategic-only companies) &times; 100.
+    The composite combines these proxies so that their individual weaknesses are partially
+    offset. Weights and normalization are fully documented and transparent.
   </p>
 
-  <h3>Data source and automation</h3>
+  <h3>Proxy 1 &mdash; Enterprise AI Adoption Rate (55% weight)</h3>
   <p>
-    SEC EDGAR Full-Text Search (EFTS) at <code>efts.sec.gov/LATEST/search-index</code>.
-    Queries are run per company using the <code>entity</code> parameter to filter to that
-    company's filings within a 30-month rolling window — long enough to capture the latest
-    annual filing regardless of fiscal year end. The script runs automatically daily via
-    GitHub Actions and writes <code>data/adoption.json</code>.
+    <strong>Source:</strong> McKinsey &amp; Company, <em>The State of AI</em> annual survey
+    (2024 edition, published May 2024). Supplemented by CAICT (China Academy of Information
+    and Communications Technology) White Paper on China&rsquo;s AI Development for the
+    China-specific figure.
+  </p>
+  <p>
+    <strong>Definition:</strong> Percentage of organizations reporting that they use AI
+    in at least one business function.
+  </p>
+  <p>
+    <strong>Values used:</strong> U.S. (North America): ~65%. China: ~68% (estimated from
+    regional McKinsey data and CAICT surveys; see coverage note below).
+  </p>
+  <p>
+    <strong>Normalization:</strong> Already expressed as a percentage; used directly on the
+    0&ndash;100 scale.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Coverage note &mdash; China:</strong> The McKinsey survey does not cleanly
+      break out China at the country level. The ~68% figure is an estimate derived from
+      McKinsey&rsquo;s 2024 global and regional data, cross-referenced with CAICT surveys
+      on Chinese enterprise AI adoption. It should be treated as directional (confidence:
+      medium), not as a precise national figure.
+    </p>
+  </div>
+
+  <h3>Proxy 2 &mdash; Industrial Robot Density (45% weight)</h3>
+  <p>
+    <strong>Source:</strong> International Federation of Robotics (IFR),
+    <em>World Robotics</em> annual report (2023 edition, covering 2022 operational data).
+  </p>
+  <p>
+    <strong>Definition:</strong> Installed industrial robots per 10,000 manufacturing workers.
+    This is one of the most publicly verifiable and country-comparable measures of
+    automation deployment depth embedded in the physical economy.
+  </p>
+  <p>
+    <strong>Values used:</strong> U.S.: 274 robots/10K workers (ranked 10th globally).
+    China: 392 robots/10K workers (ranked 5th globally, up from 322 in 2021).
+  </p>
+  <p>
+    <strong>Normalization:</strong> (value &divide; 500) &times; 100, where 500 robots/10K
+    workers is the normalization reference &mdash; above the OECD average (~300) and well
+    below South Korea&rsquo;s global-leading ~1,000. This keeps both countries in a
+    meaningful, non-trivial score range.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Scope note:</strong> Robot density measures industrial automation broadly,
+      not AI-specific deployment. It captures physical automation in manufacturing (automotive,
+      electronics, precision assembly) and is an imperfect proxy for AI adoption in services,
+      software, or consumer applications. Its strength is its symmetry and verifiability;
+      its limitation is that it conflates pre-AI robotics with AI-driven automation.
+    </p>
+  </div>
+
+  <h3>Composite construction</h3>
+  <p>
+    <strong>Formula:</strong>
+    Composite = 0.55 &times; enterprise_adoption_score + 0.45 &times; robot_density_norm_score
+  </p>
+  <p>
+    If a proxy is unavailable for one country, that proxy is excluded and the remaining proxy
+    is re-weighted to 100% for that country. This prevents a missing proxy from artificially
+    zeroing out one country&rsquo;s score.
+  </p>
+  <p>
+    Enterprise adoption is weighted slightly higher (55%) because it more directly measures
+    AI-specific organizational behavior. Robot density (45%) is a more objective and symmetric
+    measure but captures industrial automation broadly.
   </p>
 
-  <h3>What this metric does NOT capture</h3>
+  <h3>Update cadence and automation</h3>
+  <p>
+    The script runs weekly via GitHub Actions. The underlying reference data updates annually:
+    McKinsey publishes in approximately May each year; IFR publishes in approximately October.
+    When new editions are released, the reference values in <code>scripts/fetch_adoption.py</code>
+    are updated manually and the composite recalculates automatically on the next run.
+  </p>
+
+  <h3>What this composite does NOT capture</h3>
   <ul>
-    <li>Companies that do not file with the SEC: Tencent, ByteDance, Huawei, CATL, ICBC,
-        and the vast majority of Chinese firms.</li>
-    <li>Small and medium enterprises, private companies, or state-owned enterprises.</li>
-    <li>AI use disclosed only in supplemental materials, press releases, or non-EDGAR filings.</li>
-    <li>Verified deployment outcomes — disclosures are self-reported and may include
-        early-stage or aspirational language alongside confirmed deployments.</li>
-    <li>Consumer AI usage (individuals using AI tools).</li>
-    <li>Sectors not represented in the curated sample.</li>
+    <li>Consumer AI usage (individuals using AI tools, apps, or devices)</li>
+    <li>AI usage by small and medium enterprises</li>
+    <li>Private or unreported AI deployment</li>
+    <li>AI application quality or depth of integration</li>
+    <li>Software-only AI deployments not captured in industrial robot density</li>
+    <li>Sector-specific adoption in financial services, healthcare, or consumer services</li>
+    <li>The vast majority of Chinese firms (domestic, non-export-listed companies)</li>
   </ul>
 
-  <h3>Key limitations and biases</h3>
+  <h3>Why the previous approach (SEC EDGAR filing disclosure) was replaced</h3>
   <div class="caveat">
-    <p><strong>China sample bias:</strong> Chinese technology companies are disproportionately
-    represented among US-listed Chinese ADRs. This makes the China ADR sample tech-heavy,
-    whereas the US sample is more sector-diverse. The China adoption rate likely overstates
-    economy-wide Chinese AI adoption. Compare directionally and with this caveat in mind.</p>
-  </div>
-  <div class="caveat">
-    <p><strong>Filing language:</strong> Both US (10-K) and China ADR (20-F) filings are in
-    English, making search terms consistent. However, China ADR filings may use different
-    language conventions to describe AI than purely domestic Chinese reports would.</p>
-  </div>
-  <div class="caveat">
-    <p><strong>Risk disclosure inflation:</strong> Annual reports often mention AI in risk
-    factor sections alongside confirmed deployments. Our terms ("generative AI", "large
-    language model") are specific enough to filter out most generic risk mentions, but some
-    false positives may remain.</p>
+    <p>
+      The v1 adoption section used SEC EDGAR full-text search to classify companies based on
+      AI disclosure language in annual filings (10-K for US, 20-F for Chinese ADRs). This
+      approach had a structural flaw: the China sample consisted exclusively of US-listed
+      Chinese ADRs &mdash; a technology-heavy subset that excluded Tencent, ByteDance, Huawei,
+      CATL, and most of China&rsquo;s economy. The comparison was asymmetric by construction.
+      The new composite index uses sources that are either genuinely country-comparable (IFR)
+      or that, while imperfect, apply broadly to both economies (McKinsey global survey).
+    </p>
   </div>
 
   <!-- ── Frontier Models ───────────────────────────────────────────────────── -->

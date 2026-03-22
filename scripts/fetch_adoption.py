@@ -1,454 +1,358 @@
 #!/usr/bin/env python3
 """
-AI Adoption proxy — public company filing disclosure rate.
+AI Adoption Index — composite proxy for economy-wide AI adoption.
 
 APPROACH
-  Run two bulk EDGAR EFTS full-text searches (one for "generative AI" /
-  "large language model" in 10-K filings, one in 20-F filings).
-  Paginate through results and collect every CIK that appears.
-  Match against a curated sample of major listed companies using CIK numbers.
+  Builds a two-proxy composite index comparing US vs China on AI adoption,
+  using publicly available, annually-updated reference data.
 
-  Companies whose CIK appears in the strong-term results → "deployment".
-  Companies in the sample but not found in those results → "strategic" (all
-  major listed firms mention AI broadly; not finding the strong terms is the
-  meaningful signal).
-  Companies whose CIK lookup returns no matching filing (wrong CIK, delisted,
-  etc.) → "unknown", excluded from the adoption rate.
+  Proxy 1 — Enterprise Adoption Rate (55% weight):
+    The share of organizations actively using AI in at least one business
+    function. Source: McKinsey "State of AI" annual survey (most recent
+    available edition). North America figure used for US; best available
+    China-region estimate used for China (see notes below).
 
-  Adoption rate = deployment / (deployment + strategic) × 100.
+  Proxy 2 — Industrial Automation Density (45% weight):
+    Installed industrial robots per 10,000 manufacturing workers.
+    Source: IFR (International Federation of Robotics) World Robotics
+    annual report. This is a hard comparable proxy for AI/automation
+    deployment depth embedded in the physical economy — same methodology,
+    same reporting body, directly country-comparable.
 
-WHY CIK-BASED MATCHING
-  The EDGAR EFTS `entity` URL parameter does not reliably filter results to a
-  single company — it can trigger 400 errors or return empty sets, making
-  per-company entity queries unreliable. Paginating the broad search and
-  matching by CIK (extracted from the accession number in each hit) is the
-  standard robust approach.
+WHY A COMPOSITE INDEX
+  No single public data source provides a clean, symmetric, and automatable
+  measure of AI adoption in both the U.S. and Chinese economies:
 
-DATA SOURCES
-  US  : 10-K annual reports via SEC EDGAR EFTS.
-  China: 20-F annual reports via SEC EDGAR EFTS (Chinese ADRs only — Alibaba,
-          Baidu, JD, PDD, etc. Does NOT include Tencent, ByteDance, or firms
-          that do not file with the SEC).
+  - Survey data (McKinsey, etc.) has limited China-specific granularity and
+    inconsistent sampling across countries.
+  - Public filing data (SEC EDGAR) covers Chinese ADRs only — a tech-heavy
+    sample that excludes Tencent, ByteDance, Huawei, and most Chinese firms.
+  - Hard deployment metrics (robot density) are symmetric and verifiable
+    but capture industrial automation broadly, not AI specifically.
+
+  Together, these two proxies give a more rounded and honest picture than
+  either alone, while keeping the methodology transparent and reproducible.
+
+COMPOSITE CONSTRUCTION
+  Normalization:
+    - Enterprise adoption: already expressed as %; used directly (0–100).
+    - Robot density: (value / ROBOT_DENSITY_NORM_MAX) × 100
+      where ROBOT_DENSITY_NORM_MAX = 500 robots/10K workers
+      (reference: above OECD average ~300, well below South Korea's ~1000).
+
+  Composite score = WEIGHT_ENTERPRISE × enterprise_norm
+                  + WEIGHT_ROBOT      × robot_density_norm
+
+  If a proxy is unavailable for one country, the missing proxy is excluded
+  and the remaining proxy is re-weighted to 100% for that country.
+
+TO UPDATE REFERENCE DATA
+  When a new edition of a source is published, update the value(s) and the
+  edition string in the ENTERPRISE_ADOPTION and ROBOT_DENSITY dicts below.
+  The composite recalculates automatically.
 
 Outputs to data/adoption.json.
 """
 
 import json
-import sys
-import time
-import logging
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
-
-try:
-    import requests
-except ImportError:
-    print("Error: 'requests' package required. Run: pip install requests")
-    sys.exit(1)
-
-# ── Logging ───────────────────────────────────────────────────────────────────
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s  %(levelname)-7s  %(message)s",
-    datefmt="%H:%M:%S",
-)
-log = logging.getLogger(__name__)
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT        = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "data" / "adoption.json"
 
-# ── Config ────────────────────────────────────────────────────────────────────
-WINDOW_MONTHS  = 30      # rolling filing window (months back from today)
-SLEEP_SECS     = 1.0     # between EDGAR EFTS requests (SEC asks for polite pacing)
-RETRY_WAIT     = [4, 8]  # seconds between retries on 429/403
-MAX_PAGES      = 60      # pagination safety cap per (form, term) combination
+# ── Composite weights ─────────────────────────────────────────────────────────
+WEIGHT_ENTERPRISE = 0.55   # enterprise AI adoption survey
+WEIGHT_ROBOT      = 0.45   # industrial robot density
 
-EDGAR_EFTS_URL = "https://efts.sec.gov/LATEST/search-index"
-EDGAR_HEADERS  = {
-    "User-Agent": (
-        "us-china-ai-tracker (non-commercial public research; "
-        "github.com/cohenis13/US-China-AI-Race)"
-    ),
-    "Accept": "application/json",
+# ── Robot density normalization reference ─────────────────────────────────────
+# Set at 500 robots/10K workers:
+#   - OECD average is roughly 160–300 depending on year
+#   - Leading economies (Germany, Japan) are in the 350–450 range
+#   - South Korea is ~1,000+ (global outlier)
+#   500 is a defensible mid-high reference that keeps both countries in
+#   meaningful, non-trivial score range.
+ROBOT_DENSITY_NORM_MAX = 500.0
+
+# ── Proxy 1: Enterprise AI Adoption Rate ─────────────────────────────────────
+# Source: McKinsey & Company, "The State of AI" annual survey
+# Edition: 2024 (published May 2024)
+# Definition: % of respondents' organizations using AI in at least one
+#             business function
+#
+# Notes:
+#   US figure: McKinsey 2024, North America respondents (~65%)
+#   China figure: Estimated from McKinsey 2024 global data and CAICT
+#     (China Academy of Information and Communications Technology) White
+#     Paper on China's AI Development (2024). The McKinsey survey does not
+#     break out China specifically; the ~68% estimate reflects CAICT and
+#     similar Chinese-market research on large enterprise adoption.
+#     Confidence: medium — treat as directional, not precise.
+#
+# TO UPDATE: Change value and edition when McKinsey publishes a new edition.
+ENTERPRISE_ADOPTION = {
+    "US": {
+        "value":    65.0,   # percent
+        "coverage": "high",
+        "note":     "McKinsey State of AI 2024, North America respondents",
+    },
+    "China": {
+        "value":    68.0,   # percent
+        "coverage": "medium",
+        "note":     (
+            "Estimated from McKinsey State of AI 2024 global data and CAICT "
+            "AI White Paper 2024. China-specific breakout is not cleanly "
+            "available in the McKinsey survey; treat as directional."
+        ),
+    },
 }
 
-# Terms that, when appearing in an annual filing, indicate strong operational
-# AI engagement rather than generic strategy language.
-STRONG_TERMS = ['"generative AI"', '"large language model"']
+ENTERPRISE_ADOPTION_META = {
+    "source_name":      "McKinsey & Company, The State of AI 2024",
+    "source_url":       "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+    "supplementary":    "CAICT White Paper on China's AI Development 2024 (China figure)",
+    "edition":          "2024 (published May 2024)",
+    "definition":       "% of organizations using AI in at least one business function",
+    "update_cadence":   "Annual (McKinsey: typically May; CAICT: typically Q4)",
+}
 
-# ── Curated company sample ────────────────────────────────────────────────────
-# cik: SEC CIK as a plain integer string (no zero-padding needed here;
-#      normalization is done at match time).
-# form: 10-K for US domestic companies, 20-F for foreign private issuers.
+# ── Proxy 2: Industrial Robot Density ────────────────────────────────────────
+# Source: International Federation of Robotics (IFR), World Robotics
+# Edition: 2023 report (2022 operational data)
+# Definition: Installed industrial robots per 10,000 manufacturing workers
+#
+# Notes:
+#   - Highly symmetric: same source, same methodology, direct country-level data.
+#   - China's rapid rise in robot density reflects the "Made in China 2025"
+#     push for manufacturing automation; includes robots deployed for
+#     precision manufacturing, automotive, electronics, and general assembly.
+#   - Robot density captures industrial AI/automation broadly — not limited
+#     to pure AI applications. A strength for cross-country comparability;
+#     a limitation for AI-specificity.
+#
+# 2022 values (IFR World Robotics 2023):
+#   China: 392 robots/10K workers (ranked 5th globally, up from 322 in 2021)
+#   US:    274 robots/10K workers (ranked 10th globally)
+#
+# TO UPDATE: Change value and edition when IFR publishes a new annual report.
+ROBOT_DENSITY = {
+    "US": {
+        "value":    274,    # robots per 10,000 manufacturing workers
+        "coverage": "high",
+        "note":     "IFR World Robotics 2023 (2022 data), United States, ranked 10th globally",
+    },
+    "China": {
+        "value":    392,    # robots per 10,000 manufacturing workers
+        "coverage": "high",
+        "note":     "IFR World Robotics 2023 (2022 data), China, ranked 5th globally",
+    },
+}
 
-US_FIRMS = [
-    {"name": "Microsoft",          "cik": "789019",   "form": "10-K", "sector": "Technology"},
-    {"name": "Apple",              "cik": "320193",   "form": "10-K", "sector": "Technology"},
-    {"name": "Alphabet",           "cik": "1652044",  "form": "10-K", "sector": "Technology"},
-    {"name": "Amazon",             "cik": "1018724",  "form": "10-K", "sector": "Technology"},
-    {"name": "Meta Platforms",     "cik": "1326801",  "form": "10-K", "sector": "Technology"},
-    {"name": "Nvidia",             "cik": "1045810",  "form": "10-K", "sector": "Technology"},
-    {"name": "Salesforce",         "cik": "1108524",  "form": "10-K", "sector": "Technology"},
-    {"name": "Adobe",              "cik": "796343",   "form": "10-K", "sector": "Technology"},
-    {"name": "IBM",                "cik": "51143",    "form": "10-K", "sector": "Technology"},
-    {"name": "ServiceNow",         "cik": "1373715",  "form": "10-K", "sector": "Technology"},
-    {"name": "JPMorgan Chase",     "cik": "19617",    "form": "10-K", "sector": "Finance"},
-    {"name": "Goldman Sachs",      "cik": "886982",   "form": "10-K", "sector": "Finance"},
-    {"name": "Bank of America",    "cik": "70858",    "form": "10-K", "sector": "Finance"},
-    {"name": "Citigroup",          "cik": "831001",   "form": "10-K", "sector": "Finance"},
-    {"name": "UnitedHealth Group", "cik": "72971",    "form": "10-K", "sector": "Healthcare"},
-    {"name": "Johnson & Johnson",  "cik": "200406",   "form": "10-K", "sector": "Healthcare"},
-    {"name": "Walmart",            "cik": "104169",   "form": "10-K", "sector": "Retail"},
-    {"name": "Home Depot",         "cik": "354950",   "form": "10-K", "sector": "Retail"},
-    {"name": "Procter & Gamble",   "cik": "80424",    "form": "10-K", "sector": "Consumer"},
-    {"name": "Honeywell",          "cik": "773840",   "form": "10-K", "sector": "Industrial"},
-    {"name": "Boeing",             "cik": "12927",    "form": "10-K", "sector": "Industrial"},
-    {"name": "AT&T",               "cik": "732717",   "form": "10-K", "sector": "Telecom"},
-    {"name": "Verizon",            "cik": "732712",   "form": "10-K", "sector": "Telecom"},
-    {"name": "ExxonMobil",         "cik": "34088",    "form": "10-K", "sector": "Energy"},
-    {"name": "Walt Disney",        "cik": "1001039",  "form": "10-K", "sector": "Media"},
-]
-
-# Chinese companies that file 20-F with the SEC (foreign private issuers).
-# Does NOT include Tencent, ByteDance, Huawei, or state-owned banks that
-# do not list in the US.
-CN_FIRMS = [
-    {"name": "Alibaba",             "cik": "1577552", "form": "20-F", "sector": "Technology"},
-    {"name": "Baidu",               "cik": "1330479", "form": "20-F", "sector": "Technology"},
-    {"name": "JD.com",              "cik": "1549802", "form": "20-F", "sector": "Technology"},
-    {"name": "PDD Holdings",        "cik": "1631574", "form": "20-F", "sector": "Technology"},
-    {"name": "NetEase",             "cik": "1108320", "form": "20-F", "sector": "Technology"},
-    {"name": "Trip.com",            "cik": "1323761", "form": "20-F", "sector": "Technology"},
-    {"name": "Bilibili",            "cik": "1729173", "form": "20-F", "sector": "Technology"},
-    {"name": "iQIYI",               "cik": "1745020", "form": "20-F", "sector": "Technology"},
-    {"name": "NIO",                 "cik": "1741830", "form": "20-F", "sector": "Automotive"},
-    {"name": "Xpeng",               "cik": "1792789", "form": "20-F", "sector": "Automotive"},
-    {"name": "Li Auto",             "cik": "1786973", "form": "20-F", "sector": "Automotive"},
-    {"name": "ZTO Express",         "cik": "1666134", "form": "20-F", "sector": "Logistics"},
-    {"name": "Vipshop",             "cik": "1521332", "form": "20-F", "sector": "Retail"},
-    {"name": "New Oriental",        "cik": "1191791", "form": "20-F", "sector": "Education"},
-    {"name": "Yum China",           "cik": "1674930", "form": "20-F", "sector": "Consumer"},
-    {"name": "Kanzhun",             "cik": "1822966", "form": "20-F", "sector": "Technology"},
-    {"name": "Full Truck Alliance", "cik": "1821722", "form": "20-F", "sector": "Logistics"},
-    {"name": "JOYY",                "cik": "1441874", "form": "20-F", "sector": "Technology"},
-    {"name": "Lufax",               "cik": "1821945", "form": "20-F", "sector": "Finance"},
-    {"name": "Agora",               "cik": "1816613", "form": "20-F", "sector": "Technology"},
-]
+ROBOT_DENSITY_META = {
+    "source_name":    "International Federation of Robotics (IFR), World Robotics 2023",
+    "source_url":     "https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally",
+    "edition":        "2023 report (2022 operational data)",
+    "definition":     "Installed industrial robots per 10,000 manufacturing workers",
+    "update_cadence": "Annual (typically published in October)",
+}
 
 
-# ── CIK normalization ─────────────────────────────────────────────────────────
-def _norm_cik(raw: str | int) -> str:
-    """Strip leading zeros for consistent comparison."""
-    try:
-        return str(int(str(raw)))
-    except (ValueError, TypeError):
-        return str(raw)
+# ── Normalization ─────────────────────────────────────────────────────────────
+def normalize_robot_density(value: float) -> float:
+    """Normalize robot density to 0–100 scale against reference max."""
+    return round(min(value / ROBOT_DENSITY_NORM_MAX * 100.0, 100.0), 1)
 
 
-# ── EDGAR EFTS helpers ────────────────────────────────────────────────────────
-def _efts_get(session: requests.Session, params: dict, label: str) -> dict | None:
+# ── Composite ─────────────────────────────────────────────────────────────────
+def compute_composite(
+    enterprise: float | None,
+    robot_norm: float | None,
+) -> dict:
     """
-    Single EDGAR EFTS GET with up to 2 retries on 429/403.
-    Returns parsed JSON or None on failure.
+    Compute composite score from normalized proxy values.
+    If one proxy is missing, re-weight the available proxy to 100%.
+    Returns dict with composite_score and effective_weights used.
     """
-    time.sleep(SLEEP_SECS)
-    for attempt in range(3):
-        try:
-            if attempt > 0:
-                wait = RETRY_WAIT[min(attempt - 1, len(RETRY_WAIT) - 1)]
-                log.warning("%s retry %d — waiting %ds", label, attempt, wait)
-                time.sleep(wait)
-            resp = session.get(
-                EDGAR_EFTS_URL,
-                params=params,
-                headers=EDGAR_HEADERS,
-                timeout=25,
-            )
-            if resp.status_code in (429, 403):
-                log.warning("%s: HTTP %d from EDGAR", label, resp.status_code)
-                continue
-            resp.raise_for_status()
-            return resp.json()
-        except requests.exceptions.HTTPError as e:
-            log.error("%s: HTTP error — %s", label, e)
-            return None
-        except Exception as e:
-            log.error("%s: request failed — %s", label, e)
-            return None
-    log.error("%s: all retries exhausted", label)
-    return None
+    available = []
+    if enterprise is not None:
+        available.append(("enterprise", enterprise, WEIGHT_ENTERPRISE))
+    if robot_norm is not None:
+        available.append(("robot", robot_norm, WEIGHT_ROBOT))
 
+    if not available:
+        return {"composite_score": None, "effective_weights": {}}
 
-def _extract_cik(hit: dict) -> str | None:
-    """
-    Extract CIK from an EDGAR EFTS result hit.
+    total_weight = sum(w for _, _, w in available)
+    composite = sum(v * (w / total_weight) for _, v, w in available)
+    eff_weights = {k: round(w / total_weight, 4) for k, _, w in available}
 
-    Two methods tried in order:
-    1. _source.entity_id (most direct — CIK stored as a field)
-    2. _id prefix: EDGAR accession numbers are formatted as XXXXXXXXXX-YY-NNNNNN
-       where the first 10 chars (zero-padded) are the filer's CIK.
-    """
-    src = hit.get("_source", {})
-
-    # Method 1: explicit field
-    eid = src.get("entity_id") or src.get("cik") or src.get("filer_id")
-    if eid:
-        return _norm_cik(eid)
-
-    # Method 2: accession number prefix
-    accession = hit.get("_id", "")
-    parts = accession.split("-")
-    if parts and len(parts[0]) >= 10:
-        return _norm_cik(parts[0])
-
-    return None
-
-
-# ── Bulk EFTS search ──────────────────────────────────────────────────────────
-def search_for_ciks(
-    session: requests.Session,
-    form_type: str,
-    terms: list[str],
-    start_date: str,
-    end_date: str,
-    target_ciks: set[str],
-) -> tuple[set[str], bool]:
-    """
-    Paginate EDGAR EFTS for (form_type, each term) and collect all CIKs
-    seen in results. Stops early once all target_ciks are found.
-
-    Returns:
-      (found_ciks: set[str], api_available: bool)
-    """
-    found_ciks: set[str] = set()
-    api_available = False
-
-    for term in terms:
-        if target_ciks and target_ciks.issubset(found_ciks):
-            log.info("All %d target CIKs found — skipping remaining terms", len(target_ciks))
-            break
-
-        page = 0
-        log.info("  EFTS %s / %s", form_type, term)
-
-        while page < MAX_PAGES:
-            params = {
-                "q":         term,
-                "forms":     form_type,
-                "dateRange": "custom",
-                "startdt":   start_date,
-                "enddt":     end_date,
-                "from":      page * 10,   # EFTS default page size is 10
-            }
-            data = _efts_get(session, params, f"{form_type}/{term[:18]}/p{page}")
-
-            if data is None:
-                # API blocked / failed — stop paginating this term
-                log.warning("  EFTS request failed at page %d for %s/%s", page, form_type, term)
-                break
-
-            api_available = True
-            hits_block = data.get("hits", {})
-            hit_list   = hits_block.get("hits", [])
-            total_val  = hits_block.get("total", {})
-            total      = int(total_val.get("value", 0)) if isinstance(total_val, dict) else int(total_val or 0)
-
-            for hit in hit_list:
-                cik = _extract_cik(hit)
-                if cik:
-                    found_ciks.add(cik)
-
-            page += 1
-
-            if not hit_list:
-                break   # empty page — exhausted results
-
-            if page * 10 >= total:
-                break   # reached end of results
-
-            # Early exit: all target companies found
-            if target_ciks and target_ciks.issubset(found_ciks):
-                log.info("  All targets found after page %d (total=%d)", page, total)
-                break
-
-        log.info(
-            "  %s / %s: %d unique CIKs collected (total results in EFTS: %s)",
-            form_type, term, len(found_ciks), total if "total" in dir() else "?"
-        )
-
-    return found_ciks, api_available
-
-
-# ── Classification ────────────────────────────────────────────────────────────
-def classify_firms(
-    firms: list[dict],
-    deployment_ciks: set[str],
-    api_available: bool,
-) -> list[dict]:
-    """
-    Classify each firm based on whether its CIK appears in the bulk search.
-    """
-    results = []
-    for f in firms:
-        cik_norm = _norm_cik(f.get("cik", "")) if f.get("cik") else ""
-
-        if not api_available:
-            cls = "unknown"
-            note = "EDGAR unavailable"
-        elif not cik_norm:
-            cls = "unknown"
-            note = "no CIK configured"
-        elif cik_norm in deployment_ciks:
-            cls = "deployment"
-            note = "strong AI term found in filing"
-        else:
-            # Has a CIK, API worked, but not in deployment results.
-            # All major listed companies mention AI broadly in their annual
-            # reports — absence of strong terms is itself meaningful (strategic
-            # language only, not specific deployment disclosure).
-            cls = "strategic"
-            note = "strong terms absent; AI mentioned broadly assumed"
-
-        results.append({
-            "name":           f["name"],
-            "cik":            f.get("cik", ""),
-            "country":        f.get("country", ""),
-            "sector":         f.get("sector", ""),
-            "form":           f["form"],
-            "classification": cls,
-            "note":           note,
-        })
-    return results
-
-
-# ── Aggregation ───────────────────────────────────────────────────────────────
-def aggregate(results: list[dict]) -> dict:
-    deployment = sum(1 for r in results if r["classification"] == "deployment")
-    strategic  = sum(1 for r in results if r["classification"] == "strategic")
-    unknown    = sum(1 for r in results if r["classification"] == "unknown")
-    denominator = deployment + strategic
-    rate = round(deployment / denominator * 100, 1) if denominator > 0 else None
     return {
-        "sample_size":       len(results),
-        "adoption_positive": deployment,
-        "strategic_only":    strategic,
-        "unknown":           unknown,
-        "denominator":       denominator,
-        "adoption_rate":     rate,
+        "composite_score": round(composite, 1),
+        "effective_weights": eff_weights,
     }
+
+
+def build_country_block(country: str) -> dict:
+    ent_data   = ENTERPRISE_ADOPTION.get(country, {})
+    robot_data = ROBOT_DENSITY.get(country, {})
+
+    ent_value   = ent_data.get("value")
+    robot_value = robot_data.get("value")
+    robot_norm  = normalize_robot_density(robot_value) if robot_value is not None else None
+
+    comp = compute_composite(ent_value, robot_norm)
+
+    return {
+        "composite_score":   comp["composite_score"],
+        "effective_weights": comp["effective_weights"],
+        "proxies": {
+            "enterprise_adoption": {
+                "raw_value":        ent_value,
+                "unit":             "% organizations using AI",
+                "normalized_score": round(float(ent_value), 1) if ent_value is not None else None,
+                "coverage":         ent_data.get("coverage"),
+                "note":             ent_data.get("note"),
+            },
+            "robot_density": {
+                "raw_value":        robot_value,
+                "unit":             "robots per 10,000 manufacturing workers",
+                "normalized_score": robot_norm,
+                "coverage":         robot_data.get("coverage"),
+                "note":             robot_data.get("note"),
+            },
+        },
+    }
+
+
+def interpretive_sentence(us_score: float | None, cn_score: float | None) -> str:
+    if us_score is None or cn_score is None:
+        return "Insufficient data to compare adoption levels at this time."
+    diff = us_score - cn_score
+    if abs(diff) < 4:
+        return (
+            "U.S. and Chinese firms and institutions show broadly similar "
+            "visible AI adoption levels on these proxies."
+        )
+    elif diff > 0:
+        return (
+            f"U.S. firms and institutions show stronger visible AI adoption "
+            f"on these proxies (composite index gap: {diff:+.1f} points). "
+            f"The U.S. leads on both enterprise survey adoption and automation density."
+        )
+    else:
+        return (
+            f"Chinese firms and institutions show stronger visible AI adoption "
+            f"on these proxies — driven primarily by higher industrial automation "
+            f"density in manufacturing. Enterprise survey adoption rates are more "
+            f"comparable between the two countries "
+            f"(composite index gap: {abs(diff):.1f} points, China ahead)."
+        )
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
-    now        = datetime.now(timezone.utc)
-    end_dt     = now.date()
-    start_dt   = (now - timedelta(days=30 * WINDOW_MONTHS)).date()
-    start_date = str(start_dt)
-    end_date   = str(end_dt)
+    now = datetime.now(timezone.utc)
 
-    log.info("Window: %s → %s  |  US firms: %d  China firms: %d",
-             start_date, end_date, len(US_FIRMS), len(CN_FIRMS))
+    us    = build_country_block("US")
+    china = build_country_block("China")
 
-    for f in US_FIRMS:
-        f["country"] = "US"
-    for f in CN_FIRMS:
-        f["country"] = "China"
-
-    us_target_ciks = {_norm_cik(f["cik"]) for f in US_FIRMS if f.get("cik")}
-    cn_target_ciks = {_norm_cik(f["cik"]) for f in CN_FIRMS if f.get("cik")}
-
-    session = requests.Session()
-
-    log.info("── 10-K search (US companies) ───────────────────────────────")
-    us_deployment_ciks, us_api_ok = search_for_ciks(
-        session, "10-K", STRONG_TERMS, start_date, end_date, us_target_ciks
-    )
-
-    log.info("── 20-F search (China ADR companies) ────────────────────────")
-    cn_deployment_ciks, cn_api_ok = search_for_ciks(
-        session, "20-F", STRONG_TERMS, start_date, end_date, cn_target_ciks
-    )
-
-    session.close()
-
-    us_results = classify_firms(US_FIRMS, us_deployment_ciks, us_api_ok)
-    cn_results = classify_firms(CN_FIRMS, cn_deployment_ciks, cn_api_ok)
-
-    us_agg = aggregate(us_results)
-    cn_agg = aggregate(cn_results)
-
-    log.info("")
-    log.info("US:    %d/%d deployment  (rate: %s%%  api_ok: %s)",
-             us_agg["adoption_positive"], us_agg["sample_size"],
-             us_agg["adoption_rate"], us_api_ok)
-    log.info("China: %d/%d deployment  (rate: %s%%  api_ok: %s)",
-             cn_agg["adoption_positive"], cn_agg["sample_size"],
-             cn_agg["adoption_rate"], cn_api_ok)
-
-    # Sanity — warn only, never abort. If EDGAR is blocked, output still
-    # gets written with null rates so the UI shows "pending" gracefully.
-    if not us_api_ok and not cn_api_ok:
-        log.warning("EDGAR EFTS appears to be blocked from this runner — "
-                    "outputting null rates; will retry on next run.")
-    elif us_agg["denominator"] == 0 and cn_agg["denominator"] == 0:
-        log.warning("All firms classified as unknown — CIK list may need review.")
+    us_score = us["composite_score"]
+    cn_score = china["composite_score"]
 
     output = {
-        "dimension":  "adoption",
-        "metric_key": "filing_adoption_rate",
+        "dimension":   "adoption",
+        "metric_key":  "ai_adoption_composite_index",
+        "title":       "AI Adoption Index — U.S. vs China",
+        "subtitle":    (
+            "Public proxies for AI adoption inside the U.S. and Chinese economies "
+            "— not a complete measure of total usage."
+        ),
         "description": (
-            "AI adoption proxy: share of major listed companies whose latest annual "
-            "filing (10-K or 20-F) shows evidence of AI deployment, based on "
-            "SEC EDGAR full-text search for deployment-specific language."
+            "A two-proxy composite index approximating economy-wide AI adoption. "
+            "Combines enterprise AI adoption rates (survey-based, McKinsey 2024) "
+            "with industrial automation density (IFR robot density, 2022 data). "
+            "Neither proxy alone is a perfect measure of AI usage; together they "
+            "provide a transparent, country-comparable directional signal."
         ),
         "fetched_at":   now.isoformat(),
         "last_updated": now.isoformat(),
-        "filing_window": {
-            "start":  start_date,
-            "end":    end_date,
-            "months": WINDOW_MONTHS,
-        },
-        "edgar_available": {"US": us_api_ok, "China": cn_api_ok},
-        "classification": {
-            "deployment": (
-                "Annual filing mentions \"generative AI\" or \"large language model\" "
-                "— strong evidence of operational AI engagement."
-            ),
-            "strategic": (
-                "Annual filing located but does not mention the above terms — "
-                "AI referenced broadly without deployment-specific language."
-            ),
-            "unknown": (
-                "Filing not matched by CIK or EDGAR API was inaccessible — "
-                "excluded from the adoption rate."
-            ),
-        },
         "summary": {
-            "US":    us_agg,
-            "China": cn_agg,
+            "US":    us,
+            "China": china,
         },
-        "firms": us_results + cn_results,
-        "source": {
-            "name":     "SEC EDGAR Full-Text Search (EFTS)",
-            "url":      "https://efts.sec.gov/LATEST/search-index",
-            "us_form":  "10-K (US domestic companies)",
-            "cn_form":  "20-F (foreign private issuers — Chinese ADRs)",
+        "interpretive_sentence": interpretive_sentence(us_score, cn_score),
+        "composite_construction": {
+            "method": (
+                "Weighted average of normalized proxy scores. "
+                "Enterprise adoption is already 0-100 (% of organizations). "
+                "Robot density is normalized as (value / 500) x 100 where "
+                "500 robots/10K workers is the normalization reference point. "
+                "Default weights: enterprise 55%, robot density 45%. "
+                "If a proxy is unavailable for one country, the remaining "
+                "proxy is re-weighted to 100%."
+            ),
+            "weights": {
+                "enterprise_adoption": WEIGHT_ENTERPRISE,
+                "robot_density":       WEIGHT_ROBOT,
+            },
+            "robot_density_normalization_reference": ROBOT_DENSITY_NORM_MAX,
+        },
+        "proxies_meta": {
+            "enterprise_adoption": ENTERPRISE_ADOPTION_META,
+            "robot_density":       ROBOT_DENSITY_META,
         },
         "methodology_note": (
-            "Adoption rate = deployment-positive companies / (deployment + strategic) × 100. "
-            "Strong-term search ('generative AI' or 'large language model') is run across "
-            "all 10-K (or 20-F) filings in the window; results are matched by CIK. "
-            "Companies with a valid CIK not found in strong-term results are classified as "
-            "'strategic' (AI mentioned broadly). Unknown = CIK mismatch or API blocked. "
-            "US sample: ~25 major S&P 500 companies. "
-            "China sample: ~20 major Chinese ADRs (SEC filers only — not Tencent, ByteDance). "
-            "China sample is tech-sector-heavy; compare directionally."
+            "This index uses a multi-proxy approach because no single public data "
+            "source provides a clean, symmetric, and automatable measure of AI adoption "
+            "in both the U.S. and Chinese economies. The enterprise survey proxy "
+            "(McKinsey) covers large firms and is comparable in intent but has limited "
+            "China-specific granularity. The robot density proxy (IFR) is highly "
+            "symmetric and verifiable but measures industrial automation broadly, not "
+            "AI specifically. The composite score is a transparent, directional proxy "
+            "— not a definitive measure of national AI adoption."
         ),
+        "coverage_note": (
+            "Enterprise adoption (China): estimated from regional McKinsey data and "
+            "CAICT surveys — confidence is medium; treat as directional. "
+            "Robot density: high confidence for both countries — IFR uses the same "
+            "methodology and reporting framework for all countries. "
+            "Composite is valid for directional U.S.-vs-China comparison."
+        ),
+        "what_this_does_not_capture": [
+            "Consumer AI usage (individuals using AI tools, apps, or devices)",
+            "AI usage by small and medium enterprises",
+            "Private or unreported AI deployment",
+            "AI application quality or depth of integration",
+            "Software-only AI deployments not captured in industrial robot density",
+            "Sector-specific AI adoption in financial services, healthcare, or services",
+            "AI adoption among Chinese firms that do not file with the SEC",
+        ],
+        "sources": [
+            {
+                "proxy":   "enterprise_adoption",
+                "name":    ENTERPRISE_ADOPTION_META["source_name"],
+                "url":     ENTERPRISE_ADOPTION_META["source_url"],
+                "edition": ENTERPRISE_ADOPTION_META["edition"],
+            },
+            {
+                "proxy":   "robot_density",
+                "name":    ROBOT_DENSITY_META["source_name"],
+                "url":     ROBOT_DENSITY_META["source_url"],
+                "edition": ROBOT_DENSITY_META["edition"],
+            },
+        ],
     }
 
     OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False))
-    log.info("Wrote %s", OUTPUT_FILE)
+
+    print(f"Wrote {OUTPUT_FILE}")
+    print(f"  US composite:    {us_score}")
+    print(f"  China composite: {cn_score}")
+    if us_score is not None and cn_score is not None:
+        gap    = abs(us_score - cn_score)
+        leader = "US" if us_score > cn_score else "China"
+        print(f"  Leader: {leader} (gap: {gap:.1f} points)")
 
 
 if __name__ == "__main__":

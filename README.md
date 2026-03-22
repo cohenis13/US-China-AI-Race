@@ -14,7 +14,7 @@ A credible, data-driven tracker that measures the U.S.–China AI race using pub
 1. Frontier Models ← *live data (v1)*
 2. Talent ← *live data (v1)*
 3. Compute ← *live data (v1)*
-4. Adoption ← *live data (v1) — public company filing disclosure rate*
+4. Adoption ← *live data (v2) — composite index: enterprise AI adoption rate + robot density*
 5. Global Diffusion
 6. Energy
 
@@ -58,7 +58,7 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 │       ├── update_frontier_models.yml  Daily refresh (06:00 UTC)
 │       ├── update_talent.yml           Daily refresh (07:00 UTC)
 │       ├── update_compute.yml          Daily refresh (08:00 UTC)
-│       └── update_adoption.yml         Daily refresh (09:00 UTC)
+│       └── update_adoption.yml         Weekly refresh (Monday 09:00 UTC)
 ├── docs/
 │   └── methodology.html        Methodology page
 └── README.md
@@ -143,7 +143,7 @@ python scripts/fetch_talent.py
 python scripts/fetch_compute.py
 # → writes data/compute.json
 
-# Adoption (SEC EDGAR EFTS per-company filing search)
+# Adoption (composite index: McKinsey enterprise survey + IFR robot density)
 python scripts/fetch_adoption.py
 # → writes data/adoption.json
 ```
@@ -151,6 +151,8 @@ python scripts/fetch_adoption.py
 The Talent script makes two calls to the OpenAlex API and completes in a few seconds.
 
 The Compute script downloads the full TOP500 XML file (~600 KB, all 500 systems) and produces two metrics: aggregate HPL Rmax performance in PFlop/s (primary) and system count (secondary). Rmax is stored in GFlop/s in the source and converted to PFlop/s.
+
+The Adoption script uses curated reference data (no live API calls). It calculates a composite index from hardcoded values sourced from McKinsey State of AI 2024 and IFR World Robotics 2023. To update for a new edition: edit the `ENTERPRISE_ADOPTION` and `ROBOT_DENSITY` dicts in `scripts/fetch_adoption.py`, then run the script or trigger the workflow.
 
 ---
 
@@ -184,7 +186,7 @@ See [docs/methodology.html](docs/methodology.html) for:
 
 **Key caveat — Compute (v1):** Measures aggregate HPL Rmax benchmark performance and system count from the TOP500 supercomputer list — a proxy for disclosed high-end compute capacity, not a direct measure of AI training capability. Excludes private AI clusters and systems not submitted to TOP500. China is known to operate exascale systems not listed on TOP500, so its disclosed capacity is likely a significant undercount.
 
-**Key caveat — Adoption (v1):** Measures the share of major listed companies in each country whose latest annual filing (10-K / 20-F) mentions "generative AI" or "large language model" — a proxy for AI deployment disclosure among large firms, not a measure of all firms or total AI usage. US sample: ~25 major S&P 500 companies. China sample: ~20 major Chinese ADRs filing 20-F with the SEC (does not include Tencent, ByteDance, or non-SEC filers). China sample is tech-sector-heavy, which likely overstates economy-wide adoption. Compare directionally only.
+**Key caveat — Adoption (v2):** A two-proxy composite index: (1) enterprise AI adoption rate from McKinsey State of AI 2024 (% of organizations using AI in ≥1 function) — weighted 55%; (2) industrial robot density from IFR World Robotics 2023 (robots/10K manufacturing workers) — weighted 45%. Composite scores: U.S. ~60.4, China ~72.7 (China higher primarily due to robot density). China's enterprise adoption figure is estimated from regional data — confidence is medium. Robot density is high-confidence for both countries. Does not capture consumer AI usage, SME adoption, services-sector AI, or AI quality/depth. See `docs/methodology.html` for full details.
 
 ---
 

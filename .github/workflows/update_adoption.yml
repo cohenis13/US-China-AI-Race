@@ -2,8 +2,12 @@ name: Update Adoption Data
 
 on:
   schedule:
-    # Run daily at 09:00 UTC (1 hour after compute, staggered from other workflows)
-    - cron: '0 9 * * *'
+    # Run weekly on Mondays at 09:00 UTC.
+    # Underlying sources (McKinsey State of AI, IFR World Robotics) update
+    # annually — McKinsey in ~May, IFR in ~October. When a new edition is
+    # published, update the reference values in scripts/fetch_adoption.py and
+    # the workflow will pick up the changes on the next run.
+    - cron: '0 9 * * 1'
   workflow_dispatch:
     # Allow manual runs from the GitHub Actions UI
     # Go to: Actions tab → "Update Adoption Data" → Run workflow
@@ -14,7 +18,7 @@ permissions:
 jobs:
   update-adoption:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
       - name: Checkout repository
@@ -30,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Fetch adoption data
+      - name: Recalculate adoption composite index
         run: python scripts/fetch_adoption.py
 
       - name: Commit and push if data changed
@@ -41,6 +45,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to data — skipping commit."
           else
-            git commit -m "data: update adoption [$(date -u +'%Y-%m-%d')]"
+            git commit -m "data: update adoption index [$(date -u +'%Y-%m-%d')]"
             git push
           fi

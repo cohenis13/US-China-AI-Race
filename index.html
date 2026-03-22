@@ -1518,22 +1518,22 @@ footer {
   <section class="live-section" id="adoption">
     <div class="section-module-hdr oth-accent">
       <div>
-        <div class="section-module-lbl">Adoption &nbsp;—&nbsp; Live Tracker</div>
+        <div class="section-module-lbl">Adoption &nbsp;—&nbsp; AI Adoption Index</div>
       </div>
-      <span class="live-badge"><span class="live-dot"></span>Auto-updated daily</span>
+      <span class="live-badge"><span class="live-dot"></span>Updated regularly</span>
     </div>
 
     <div class="card live-card">
       <div class="live-card-top">
         <div>
-          <div class="live-card-title">AI Adoption in the Economy</div>
+          <div class="live-card-title">AI Adoption in the Economy &mdash; Multi-Proxy Index</div>
           <div class="live-card-sub">
-            Share of major listed companies with AI deployment evidence in their latest annual filing &nbsp;&mdash;&nbsp;
-            a public proxy for economy-wide AI adoption among large firms
+            Composite of enterprise AI adoption rate and industrial automation density &nbsp;&mdash;&nbsp;
+            a transparent public proxy for economy-wide AI adoption, not a complete measure of total usage
           </div>
         </div>
         <div class="live-status">
-          <div class="live-updated">Last fetched: <span id="ado-fetched-at">—</span></div>
+          <div class="live-updated">Last updated: <span id="ado-fetched-at">—</span></div>
         </div>
       </div>
 
@@ -1543,61 +1543,43 @@ footer {
       <!-- Data / content (hidden until loaded) -->
       <div id="ado-content" style="display:none;">
 
-        <!-- Adoption rate stat boxes -->
+        <!-- Composite score stat boxes -->
         <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
           <div class="fm-stat us">
-            <div class="fm-stat-num" id="ado-us-rate">—</div>
-            <div class="fm-stat-lbl">U.S. Adoption Rate</div>
-            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;" id="ado-us-detail"></div>
+            <div class="fm-stat-num" id="ado-us-score">—</div>
+            <div class="fm-stat-lbl">U.S. Adoption Index</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">out of 100 (composite)</div>
           </div>
           <div class="fm-stat cn">
-            <div class="fm-stat-num" id="ado-cn-rate">—</div>
-            <div class="fm-stat-lbl">China ADR Adoption Rate</div>
-            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;" id="ado-cn-detail"></div>
+            <div class="fm-stat-num" id="ado-cn-score">—</div>
+            <div class="fm-stat-lbl">China Adoption Index</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">out of 100 (composite)</div>
           </div>
         </div>
 
-        <!-- Adoption rate comparison chart -->
+        <!-- Composite score chart -->
         <div class="fm-chart-wrap" id="ado-chart-wrap">
-          <div class="fm-chart-label">AI deployment disclosure rate — % of sampled companies (latest annual filing)</div>
-          <canvas id="adoRateChart" height="48"></canvas>
+          <div class="fm-chart-label">Composite AI Adoption Index score (0 &ndash; 100)</div>
+          <canvas id="adoCompositeChart" height="48"></canvas>
         </div>
         <div id="ado-chart-note" class="chart-unavail-note" style="display:none;"></div>
+
+        <!-- Sub-proxy breakdown cards -->
+        <div id="ado-proxies-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;"></div>
 
         <!-- Interpretive sentence -->
         <div class="fm-interp" id="ado-interp"></div>
 
-        <!-- Company classification table -->
-        <div class="fm-tbl-wrap detail-wrap" id="ado-firms-wrap">
-          <div class="detail-section-hdr">
-            <span class="detail-lbl">Sampled companies — AI deployment signal in latest filing</span>
-          </div>
-          <table class="fm-tbl">
-            <thead>
-              <tr>
-                <th>Company</th>
-                <th>Sector</th>
-                <th>Country</th>
-                <th>Filing</th>
-                <th>Signal</th>
-              </tr>
-            </thead>
-            <tbody id="ado-firms-body">
-              <tr><td colspan="5" class="fm-placeholder">—</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         <!-- Footer -->
         <div class="fm-footer">
-          <p class="fm-footer-note">
-            "Deployment signal" = filing mentions "generative AI" or "large language model."
-            "Strategic only" = filing mentions AI broadly but not the above terms.
-            US sample: major S&amp;P 500 companies (10-K). China sample: major US-listed Chinese ADRs (20-F).
-            China sample does not include Tencent, ByteDance, or non-SEC filers.
-          </p>
+          <p class="fm-footer-note" id="ado-coverage-note"></p>
           <div class="fm-footer-links">
-            Source: <a href="https://efts.sec.gov" target="_blank" rel="noopener">SEC EDGAR Full-Text Search</a>
+            Sources:
+            <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">McKinsey State of AI 2024</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://ifr.org" target="_blank" rel="noopener">IFR World Robotics 2023</a>
+            &nbsp;&middot;&nbsp;
+            <a href="docs/methodology.html" target="_blank">Methodology</a>
           </div>
         </div>
 
@@ -1605,7 +1587,7 @@ footer {
 
       <!-- Error / pending state -->
       <div id="ado-error" class="fm-placeholder" style="display:none;">
-        Data pending first workflow run. Check back after the daily GitHub Actions refresh,
+        Data pending first workflow run. Check back after the next GitHub Actions refresh,
         or see <a href="data/adoption.json">data/adoption.json</a>.
       </div>
 
@@ -2423,44 +2405,28 @@ async function loadCompute() {
 }
 
 /* ── Adoption ────────────────────────────────────────────────── */
-let adoRateChart;
+let adoCompositeChart;
 
-const ADO_SIGNAL_LABELS = {
-  deployment: 'Deployment signal',
-  strategic:  'Strategic mention',
-  unknown:    'Not found',
-};
-const ADO_SIGNAL_COLORS = {
-  deployment: { us: 'rgba(26,98,162,0.85)',  cn: 'rgba(181,65,62,0.85)'  },
-  strategic:  { us: 'rgba(26,98,162,0.35)',  cn: 'rgba(181,65,62,0.35)'  },
-  unknown:    { us: 'rgba(120,140,160,0.35)', cn: 'rgba(120,140,160,0.35)' },
-};
-
-function fmtRate(r) {
-  if (r == null) return '—';
-  return r.toFixed(0) + '%';
-}
-
-function buildAdoptionRateChart(usRate, cnRate) {
+function buildAdoptionCompositeChart(usScore, cnScore) {
   const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
   const tickColor = isDark ? '#4d6678' : '#9ca3af';
 
-  if (adoRateChart) { adoRateChart.destroy(); adoRateChart = null; }
+  if (adoCompositeChart) { adoCompositeChart.destroy(); adoCompositeChart = null; }
 
   const entries = [];
-  if (usRate != null) entries.push({ label: 'United States', rate: usRate, bgColor: 'rgba(26,58,92,0.75)', border: US_COLOR });
-  if (cnRate != null) entries.push({ label: 'China ADRs',    rate: cnRate, bgColor: 'rgba(181,65,62,0.75)', border: CN_COLOR });
+  if (usScore != null) entries.push({ label: 'United States', score: usScore, bgColor: 'rgba(26,58,92,0.75)',  border: US_COLOR });
+  if (cnScore != null) entries.push({ label: 'China',         score: cnScore, bgColor: 'rgba(181,65,62,0.75)', border: CN_COLOR });
 
   if (entries.length === 0) return;
 
-  const ctx = document.getElementById('adoRateChart').getContext('2d');
-  adoRateChart = new Chart(ctx, {
+  const ctx = document.getElementById('adoCompositeChart').getContext('2d');
+  adoCompositeChart = new Chart(ctx, {
     type: 'bar',
     data: {
       labels:   entries.map(e => e.label),
       datasets: [{
-        data:            entries.map(e => e.rate),
+        data:            entries.map(e => e.score),
         backgroundColor: entries.map(e => e.bgColor),
         borderColor:     entries.map(e => e.border),
         borderWidth: 1.5,
@@ -2479,14 +2445,14 @@ function buildAdoptionRateChart(usRate, cnRate) {
           borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
           padding: { x: 12, y: 10 }, cornerRadius: 5,
           callbacks: {
-            label: ctx => '  ' + ctx.parsed.x.toFixed(1) + '% of sampled companies show AI deployment signal',
+            label: ctx => '  Composite adoption index: ' + ctx.parsed.x.toFixed(1) + ' / 100',
           }
         }
       },
       scales: {
         x: {
           beginAtZero: true, max: 100,
-          ticks: { color: tickColor, font: { size: 10 }, callback: v => v + '%' },
+          ticks: { color: tickColor, font: { size: 10 }, callback: v => v },
           grid:  { color: gridColor },
         },
         y: {
@@ -2496,47 +2462,55 @@ function buildAdoptionRateChart(usRate, cnRate) {
       }
     }
   });
-  window._adoRateChart = adoRateChart;
+  window._adoCompositeChart = adoCompositeChart;
 }
 
-function signalChip(classification) {
-  if (classification === 'deployment') {
-    return '<span style="display:inline-block;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(34,197,94,0.12);color:#16a34a;">Deployment</span>';
-  }
-  if (classification === 'strategic') {
-    return '<span style="display:inline-block;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(234,179,8,0.13);color:#b45309;">Strategic</span>';
-  }
-  return '<span style="display:inline-block;padding:1px 7px;border-radius:9px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(156,163,175,0.14);color:var(--t3);">Not found</span>';
+function buildAdoProxyCard(title, usRaw, cnRaw, usNorm, cnNorm, unit, sourceNote) {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const bg  = isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.025)';
+  const brd = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)';
+  const fmt = (v, u) => v != null ? `${Number(v).toLocaleString()}${u}` : '\u2014';
+  const bar = (norm, color) => {
+    if (norm == null) return '';
+    return `<div style="height:3px;border-radius:2px;background:${brd};margin-top:4px;overflow:hidden;"><div style="height:100%;width:${Math.min(norm,100)}%;background:${color};transition:width .6s;"></div></div>`;
+  };
+  return `
+    <div style="background:${bg};border:1px solid ${brd};border-radius:8px;padding:12px 14px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;">${title}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div>
+          <div style="font-size:10px;color:var(--t3);margin-bottom:2px;font-weight:600;">\u{1F1FA}\u{1F1F8} United States</div>
+          <div style="font-size:13px;font-weight:700;color:var(--us,#1a3a5c);">${fmt(usRaw, unit)}</div>
+          ${bar(usNorm, 'rgba(26,58,92,0.65)')}
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--t3);margin-bottom:2px;font-weight:600;">\u{1F1E8}\u{1F1F3} China</div>
+          <div style="font-size:13px;font-weight:700;color:var(--cn,#b5413e);">${fmt(cnRaw, unit)}</div>
+          ${bar(cnNorm, 'rgba(181,65,62,0.65)')}
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:8px;line-height:1.45;">${sourceNote}</div>
+    </div>`;
 }
 
 function renderAdoption(data) {
   const summary = data.summary || {};
-  const usAgg   = summary.US    || {};
-  const cnAgg   = summary.China || {};
-  const firms   = data.firms    || [];
+  const us      = summary.US    || {};
+  const china   = summary.China || {};
 
   document.getElementById('ado-fetched-at').textContent = fmtFetchedAt(data.fetched_at || data.last_updated);
 
   // ── Stat boxes ───────────────────────────────────────────────────────────
-  const usRate = usAgg.adoption_rate;
-  const cnRate = cnAgg.adoption_rate;
-  document.getElementById('ado-us-rate').textContent = fmtRate(usRate);
-  document.getElementById('ado-cn-rate').textContent = fmtRate(cnRate);
-
-  const usDetailEl = document.getElementById('ado-us-detail');
-  const cnDetailEl = document.getElementById('ado-cn-detail');
-  if (usDetailEl && usAgg.adoption_positive != null) {
-    usDetailEl.textContent = `${usAgg.adoption_positive} of ${usAgg.denominator} companies`;
-  }
-  if (cnDetailEl && cnAgg.adoption_positive != null) {
-    cnDetailEl.textContent = `${cnAgg.adoption_positive} of ${cnAgg.denominator} companies`;
-  }
+  const usScore = us.composite_score;
+  const cnScore = china.composite_score;
+  document.getElementById('ado-us-score').textContent = usScore != null ? usScore.toFixed(1) : '\u2014';
+  document.getElementById('ado-cn-score').textContent = cnScore != null ? cnScore.toFixed(1) : '\u2014';
 
   // ── Chart ────────────────────────────────────────────────────────────────
   const chartWrap = document.getElementById('ado-chart-wrap');
   const chartNote = document.getElementById('ado-chart-note');
-  if (usRate != null || cnRate != null) {
-    buildAdoptionRateChart(usRate, cnRate);
+  if (usScore != null || cnScore != null) {
+    buildAdoptionCompositeChart(usScore, cnScore);
     chartWrap.style.display = '';
     chartNote.style.display = 'none';
   } else {
@@ -2545,48 +2519,42 @@ function renderAdoption(data) {
     chartNote.textContent = 'Chart will render after the first workflow run.';
   }
 
-  // ── Interpretation ───────────────────────────────────────────────────────
-  const interpEl = document.getElementById('ado-interp');
-  if (interpEl && usRate != null && cnRate != null) {
-    const diff = Math.abs(usRate - cnRate);
-    if (diff < 5) {
-      interpEl.textContent = 'U.S. and Chinese listed firms show broadly similar rates of visible AI deployment disclosures in the latest filing window.';
-    } else if (usRate > cnRate) {
-      interpEl.textContent = 'U.S. listed firms show a higher rate of visible AI deployment disclosures in the latest filing window.';
-    } else {
-      interpEl.textContent = 'Chinese listed firms show a higher rate of visible AI deployment disclosures in the latest filing window.';
-    }
-  } else if (interpEl) {
-    interpEl.textContent = '';
-  }
+  // ── Sub-proxy cards ───────────────────────────────────────────────────────
+  const proxiesGrid = document.getElementById('ado-proxies-grid');
+  const usP  = us.proxies    || {};
+  const cnP  = china.proxies || {};
+  const usEnt = usP.enterprise_adoption || {};
+  const cnEnt = cnP.enterprise_adoption || {};
+  const usRob = usP.robot_density       || {};
+  const cnRob = cnP.robot_density       || {};
 
-  // ── Company table ─────────────────────────────────────────────────────────
-  const tbody = document.getElementById('ado-firms-body');
-  if (firms.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" class="fm-placeholder" style="padding:14px 0;text-align:center;color:var(--t3);">Data pending — check back after the next workflow run.</td></tr>';
-  } else {
-    // Sort: deployment first, then strategic, then unknown; within group by country then name
-    const order = { deployment: 0, strategic: 1, unknown: 2 };
-    const sorted = [...firms].sort((a, b) =>
-      (order[a.classification] - order[b.classification]) ||
-      a.country.localeCompare(b.country) ||
-      a.name.localeCompare(b.name)
+  proxiesGrid.innerHTML =
+    buildAdoProxyCard(
+      'Enterprise AI Adoption',
+      usEnt.raw_value, cnEnt.raw_value,
+      usEnt.normalized_score, cnEnt.normalized_score,
+      '%',
+      'McKinsey State of AI 2024 \u2014 share of organizations using AI in \u22651 business function'
+    ) +
+    buildAdoProxyCard(
+      'Industrial Robot Density',
+      usRob.raw_value, cnRob.raw_value,
+      usRob.normalized_score, cnRob.normalized_score,
+      '\u202frobot\u200as/10K workers',
+      'IFR World Robotics 2023 (2022 data) \u2014 installed robots per 10,000 manufacturing workers'
     );
-    tbody.innerHTML = sorted.map(f => `
-      <tr>
-        <td style="color:var(--t2);font-weight:500;">${f.name}</td>
-        <td style="color:var(--t3);font-size:11px;">${f.sector || '—'}</td>
-        <td>${countryChip(f.country)}</td>
-        <td style="color:var(--t3);font-size:11px;">${f.form || '—'}</td>
-        <td>${signalChip(f.classification)}</td>
-      </tr>
-    `).join('');
-  }
+
+  // ── Interpretive sentence ─────────────────────────────────────────────────
+  const interpEl = document.getElementById('ado-interp');
+  if (interpEl) interpEl.textContent = data.interpretive_sentence || '';
+
+  // ── Coverage note ─────────────────────────────────────────────────────────
+  const covEl = document.getElementById('ado-coverage-note');
+  if (covEl) covEl.textContent = data.coverage_note || '';
 
   document.getElementById('ado-loading').style.display = 'none';
   document.getElementById('ado-error').style.display   = 'none';
   document.getElementById('ado-content').style.display = 'block';
-  setupCollapsible('ado-firms-body', 'ado-firms-wrap', 8);
 }
 
 async function loadAdoption() {
@@ -2594,7 +2562,6 @@ async function loadAdoption() {
     const resp = await fetch('data/adoption.json?t=' + Date.now());
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
-    // Show error state only if the file has never been populated by the script
     if (!data.fetched_at && !data.last_updated) throw new Error('No data yet');
     renderAdoption(data);
   } catch (err) {

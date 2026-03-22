@@ -1004,6 +1004,8 @@ footer {
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#diffusion" class="nav-link">Diffusion</a>
       <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#energy" class="nav-link">Energy</a>
+      <div class="nav-sep" aria-hidden="true"></div>
       <a href="#constraints" class="nav-link">Constraints</a>
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#outlook" class="nav-link">Outlook</a>
@@ -1678,6 +1680,90 @@ footer {
       <div id="dif-error" class="fm-placeholder" style="display:none;">
         Data pending first workflow run. Check back after the next GitHub Actions refresh,
         or see <a href="data/diffusion.json">data/diffusion.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
+  </section>
+
+  <!-- ── Live Energy Section ─────────────────────────────────── -->
+  <section class="live-section" id="energy">
+    <div class="section-module-hdr neutral-accent">
+      <div>
+        <div class="section-module-lbl">Energy &nbsp;—&nbsp; AI Scaling Capacity Index</div>
+      </div>
+      <span class="live-badge"><span class="live-dot"></span>Updated regularly</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">Energy &amp; Power Constraints &mdash; AI Scaling Capacity</div>
+          <div class="live-card-sub">
+            Composite of electricity capacity growth, data center demand headroom, and grid connection speed &nbsp;&mdash;&nbsp;
+            a proxy for ability to sustain large-scale AI compute growth, not a measure of total electricity
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">Last updated: <span id="ene-fetched-at">&mdash;</span></div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div id="ene-loading" class="fm-placeholder">Loading live data&hellip;</div>
+
+      <!-- Data / content (hidden until loaded) -->
+      <div id="ene-content" style="display:none;">
+
+        <!-- Composite score stat boxes -->
+        <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="ene-us-score">&mdash;</div>
+            <div class="fm-stat-lbl">U.S. Energy Scaling Index</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">out of 100 (composite)</div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="ene-cn-score">&mdash;</div>
+            <div class="fm-stat-lbl">China Energy Scaling Index</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">out of 100 (composite)</div>
+          </div>
+        </div>
+
+        <!-- Composite score chart -->
+        <div class="fm-chart-wrap" id="ene-chart-wrap">
+          <div class="fm-chart-label">AI Energy Scaling Index score (0 &ndash; 100)</div>
+          <canvas id="eneChart" height="48"></canvas>
+        </div>
+        <div id="ene-chart-note" class="chart-unavail-note" style="display:none;"></div>
+
+        <!-- Sub-proxy breakdown cards -->
+        <div id="ene-proxies-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px;"></div>
+
+        <!-- Interpretive sentence -->
+        <div class="fm-interp" id="ene-interp"></div>
+
+        <!-- Footer -->
+        <div class="fm-footer">
+          <p class="fm-footer-note" id="ene-coverage-note"></p>
+          <div class="fm-footer-links">
+            Sources:
+            <a href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener">IEA Energy and AI 2025</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://www.eia.gov/electricity/monthly/" target="_blank" rel="noopener">EIA Electric Power Monthly</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://emp.lbl.gov/queues" target="_blank" rel="noopener">LBNL Queued Up 2024</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://www.iea.org/reports/world-energy-outlook-2024" target="_blank" rel="noopener">IEA WEO 2024</a>
+            &nbsp;&middot;&nbsp;
+            <a href="docs/methodology.html" target="_blank">Methodology</a>
+          </div>
+        </div>
+
+      </div><!-- /ene-content -->
+
+      <!-- Error / pending state -->
+      <div id="ene-error" class="fm-placeholder" style="display:none;">
+        Data pending first workflow run. Check back after the next GitHub Actions refresh,
+        or see <a href="data/energy.json">data/energy.json</a>.
       </div>
 
     </div><!-- /live-card -->
@@ -2824,6 +2910,148 @@ async function loadDiffusion() {
   }
 }
 
+/* ── Energy ──────────────────────────────────────────────────── */
+let eneChart = null;
+
+function buildEnergyChart(usScore, cnScore) {
+  const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  if (eneChart) { eneChart.destroy(); eneChart = null; }
+
+  const entries = [];
+  if (usScore != null) entries.push({ label: 'United States', score: usScore, bgColor: 'rgba(26,58,92,0.75)',  border: US_COLOR });
+  if (cnScore != null) entries.push({ label: 'China',         score: cnScore, bgColor: 'rgba(181,65,62,0.75)', border: CN_COLOR });
+
+  if (entries.length === 0) return;
+
+  const ctx = document.getElementById('eneChart').getContext('2d');
+  eneChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels:   entries.map(e => e.label),
+      datasets: [{
+        data:            entries.map(e => e.score),
+        backgroundColor: entries.map(e => e.bgColor),
+        borderColor:     entries.map(e => e.border),
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: {
+            label: ctx => '  AI energy scaling index: ' + ctx.parsed.x.toFixed(1) + ' / 100',
+          }
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true, max: 100,
+          ticks: { color: tickColor, font: { size: 10 }, callback: v => v },
+          grid:  { color: gridColor },
+        },
+        y: {
+          ticks: { color: tickColor, font: { size: 11, weight: '600' } },
+          grid:  { display: false },
+        }
+      }
+    }
+  });
+  window._eneChart = eneChart;
+}
+
+function renderEnergy(data) {
+  const summary = data.summary || {};
+  const us      = summary.US    || {};
+  const china   = summary.China || {};
+
+  document.getElementById('ene-fetched-at').textContent = fmtFetchedAt(data.fetched_at || data.last_updated);
+
+  const usScore = us.composite_score;
+  const cnScore = china.composite_score;
+  document.getElementById('ene-us-score').textContent = usScore != null ? usScore.toFixed(1) : '\u2014';
+  document.getElementById('ene-cn-score').textContent = cnScore != null ? cnScore.toFixed(1) : '\u2014';
+
+  const chartWrap = document.getElementById('ene-chart-wrap');
+  const chartNote = document.getElementById('ene-chart-note');
+  if (usScore != null || cnScore != null) {
+    buildEnergyChart(usScore, cnScore);
+    chartWrap.style.display = '';
+    chartNote.style.display = 'none';
+  } else {
+    chartWrap.style.display = 'none';
+    chartNote.style.display = '';
+    chartNote.textContent = 'Chart will render after the first workflow run.';
+  }
+
+  const usP  = us.proxies    || {};
+  const cnP  = china.proxies || {};
+  const usCap = usP.capacity_addition_rate || {};
+  const cnCap = cnP.capacity_addition_rate || {};
+  const usHdr = usP.dc_demand_headroom     || {};
+  const cnHdr = cnP.dc_demand_headroom     || {};
+  const usGrd = usP.grid_connection_speed  || {};
+  const cnGrd = cnP.grid_connection_speed  || {};
+
+  document.getElementById('ene-proxies-grid').innerHTML =
+    buildAdoProxyCard(
+      'Capacity Addition Rate',
+      usCap.raw_value, cnCap.raw_value,
+      usCap.normalized_score, cnCap.normalized_score,
+      '%\u202fgrowth/yr',
+      'EIA Electric Power Monthly (US) / IEA WEO 2024 (China) \u2014 annual capacity added as % of installed base, 2023'
+    ) +
+    buildAdoProxyCard(
+      'DC Demand Headroom',
+      usHdr.raw_value, cnHdr.raw_value,
+      usHdr.normalized_score, cnHdr.normalized_score,
+      '%\u202fof grid',
+      'IEA Energy and AI 2025 \u2014 data center electricity as % of national generation (lower % = more headroom; scores inverted)'
+    ) +
+    buildAdoProxyCard(
+      'Grid Connection Speed',
+      usGrd.raw_value, cnGrd.raw_value,
+      usGrd.normalized_score, cnGrd.normalized_score,
+      '\u202f/ 100',
+      'Curated assessment \u2014 LBNL Queued Up 2024 (US: 2,600+ GW in queue, 5+ yr wait) / IEA Energy and AI 2025 + China NDRC (China: state-directed approvals)'
+    );
+
+  const interpEl = document.getElementById('ene-interp');
+  if (interpEl) interpEl.textContent = data.interpretive_sentence || '';
+
+  const covEl = document.getElementById('ene-coverage-note');
+  if (covEl) covEl.textContent = data.coverage_note || '';
+
+  document.getElementById('ene-loading').style.display = 'none';
+  document.getElementById('ene-error').style.display   = 'none';
+  document.getElementById('ene-content').style.display = 'block';
+}
+
+async function loadEnergy() {
+  try {
+    const resp = await fetch('data/energy.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    if (!data.fetched_at && !data.last_updated) throw new Error('No data yet');
+    renderEnergy(data);
+  } catch (err) {
+    console.warn('Failed to load energy.json:', err);
+    document.getElementById('ene-loading').style.display = 'none';
+    document.getElementById('ene-error').style.display   = 'block';
+  }
+}
+
 /* ── Collapsible Tables ──────────────────────────────────────── */
 function setupCollapsible(tbodyId, wrapperId, threshold) {
   const tbody = document.getElementById(tbodyId);
@@ -2863,6 +3091,7 @@ document.addEventListener('DOMContentLoaded', function () {
   loadCompute();
   loadAdoption();
   loadDiffusion();
+  loadEnergy();
 });
 </script>
 

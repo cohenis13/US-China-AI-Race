@@ -16,7 +16,7 @@ A credible, data-driven tracker that measures the U.S.–China AI race using pub
 3. Compute ← *live data (v1)*
 4. Adoption ← *live data (v2) — composite index: enterprise AI adoption rate + robot density*
 5. Global Diffusion ← *live data (v1) — composite index: HF open-model downloads + cloud platform footprint*
-6. Energy
+6. Energy ← *live data (v1) — composite index: electricity capacity addition rate + DC demand headroom + grid connection speed*
 
 ---
 
@@ -47,6 +47,7 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 │   ├── frontier_models.json    Live data output — Frontier Models (auto-updated)
 │   ├── talent.json             Live data output — Talent (auto-updated)
 │   ├── diffusion.json          Live data output — Global Diffusion (auto-updated)
+│   ├── energy.json             Live data output — Energy (auto-updated)
 │   ├── labs.json               Manual lab-to-country mapping (shared across dimensions)
 │   └── institutions.json       Institution keyword lists (Talent classification)
 ├── scripts/
@@ -54,14 +55,16 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 │   ├── fetch_talent.py           Talent fetch script
 │   ├── fetch_compute.py          Compute fetch script
 │   ├── fetch_adoption.py         Adoption fetch script
-│   └── fetch_diffusion.py        Global Diffusion fetch script
+│   ├── fetch_diffusion.py        Global Diffusion fetch script
+│   └── fetch_energy.py           Energy fetch script
 ├── .github/
 │   └── workflows/
 │       ├── update_frontier_models.yml  Daily refresh (06:00 UTC)
 │       ├── update_talent.yml           Daily refresh (07:00 UTC)
 │       ├── update_compute.yml          Daily refresh (08:00 UTC)
 │       ├── update_adoption.yml         Weekly refresh (Monday 09:00 UTC)
-│       └── update_diffusion.yml        Daily refresh (10:00 UTC)
+│       ├── update_diffusion.yml        Daily refresh (10:00 UTC)
+│       └── update_energy.yml           Weekly refresh (Monday 11:00 UTC)
 ├── docs/
 │   └── methodology.html        Methodology page
 └── README.md
@@ -161,6 +164,8 @@ The Compute script downloads the full TOP500 XML file (~600 KB, all 500 systems)
 
 The Adoption script uses curated reference data (no live API calls).
 
+The Energy script uses curated reference data (no live API calls). It calculates a composite index from reference values sourced from IEA Energy and AI 2025, EIA Electric Power Monthly (Jan 2024), IEA WEO 2024, and LBNL Queued Up 2024. To update for new data: edit the proxy dicts in `scripts/fetch_energy.py`, then run the script or trigger the workflow.
+
 The Diffusion script fetches HF Hub download counts for all US and China labs in `data/labs.json` (live API, no date filter — captures full active install base), then applies curated cloud footprint data (Q1 2026, no API calls needed). Both proxies are scored as share-of-combined US + China. It calculates a composite index from hardcoded values sourced from McKinsey State of AI 2024 and IFR World Robotics 2023. To update for a new edition: edit the `ENTERPRISE_ADOPTION` and `ROBOT_DENSITY` dicts in `scripts/fetch_adoption.py`, then run the script or trigger the workflow.
 
 ---
@@ -194,6 +199,8 @@ See [docs/methodology.html](docs/methodology.html) for:
 **Key caveat — Talent (v1):** Measures AI research paper volume from OpenAlex (AI, ML, NLP, CV concepts) over the last 12 months — a proxy for research output, not a measure of researcher headcount, citation impact, or capability. Papers are attributed by country of author institution using OpenAlex's pre-computed affiliation data. Multinational papers are counted in each country represented, so country totals can exceed the total paper count. Unknown reflects papers with no identified institutional affiliation in OpenAlex.
 
 **Key caveat — Compute (v1):** Measures aggregate HPL Rmax benchmark performance and system count from the TOP500 supercomputer list — a proxy for disclosed high-end compute capacity, not a direct measure of AI training capability. Excludes private AI clusters and systems not submitted to TOP500. China is known to operate exascale systems not listed on TOP500, so its disclosed capacity is likely a significant undercount.
+
+**Key caveat — Energy (v1):** Measures AI energy scaling capacity using three curated proxies: (1) electricity capacity addition rate (EIA/IEA, 2023 data) — weighted 40%; (2) data center power demand headroom (IEA Energy and AI 2025) — weighted 35%; (3) grid connection speed (LBNL Queued Up 2024 / IEA, curated score) — weighted 25%. Composite scores: U.S. ~35.6, China ~74.2 (China higher — driven by much faster capacity addition rate and lower grid demand pressure; U.S. score constrained by severe interconnection queue). Does not capture total electricity generation, energy cost, carbon intensity, nuclear buildout, or water constraints for cooling.
 
 **Key caveat — Global Diffusion (v1):** Measures external spread of U.S. and Chinese AI stacks using two proxies scored as share-of-combined (U.S. + China = 100): (1) HF open-model monthly downloads (live, Hugging Face Hub API) — weighted 55%; (2) cloud AI platform international footprint from official provider documentation Q1 2026 — weighted 45%. Composite scores: U.S. ~74.1%, China ~25.9%. Significantly undercounts Chinese model diffusion via domestic platforms (ModelScope, Gitee AI). Does not capture closed API usage (GPT-4o, Claude, Gemini, Qianwen), hardware exports, or influence via joint ventures and standards bodies.
 

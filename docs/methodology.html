@@ -324,6 +324,150 @@
     <li>Revenue or economic impact of diffusion</li>
   </ul>
 
+  <!-- ── Energy ────────────────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Energy</span> Energy &amp; Power Constraints &mdash; AI Scaling Capacity</h2>
+
+  <h3>What this measures</h3>
+  <p>
+    How well the U.S. and China can sustain large-scale AI compute growth from an
+    energy and power infrastructure perspective. This is <strong>not</strong> a measure
+    of total electricity generation or consumption. It focuses specifically on:
+  </p>
+  <ul>
+    <li>The pace of electricity supply expansion (can new capacity be built fast enough?)</li>
+    <li>Available headroom in the grid before AI/data center demand becomes a constraint</li>
+    <li>The speed at which new power capacity can actually reach data center operators</li>
+  </ul>
+  <p>
+    A country may have vast total electricity capacity but still face AI-specific
+    energy bottlenecks if grid connection is slow, permitting is blocked, or data
+    center demand is already consuming a large share of available generation.
+  </p>
+
+  <h3>Proxy 1 &mdash; Electricity Capacity Addition Rate (40% weight)</h3>
+  <p>
+    <strong>Sources:</strong> U.S. EIA, <em>Electric Power Monthly</em> (January 2024);
+    IEA, <em>World Energy Outlook 2024</em> (October 2024); China National Energy
+    Administration (NEA) 2023 Annual Report.
+  </p>
+  <p>
+    <strong>Definition:</strong> Annual additions to installed electricity generation
+    capacity, expressed as a percentage of the existing installed base. Captures the
+    pace of energy supply expansion &mdash; the most important long-run factor for
+    sustaining AI compute growth.
+  </p>
+  <p>
+    <strong>Values used:</strong>
+    U.S.: ~3.7% (46 GW added in 2023; 1,247 GW installed base).
+    China: ~11.9% (345 GW added in 2023; 2,900 GW installed base &mdash;
+    driven by ~217 GW solar, ~75 GW wind; China has led global capacity
+    additions every year since 2013).
+  </p>
+  <p>
+    <strong>Normalization:</strong> (rate &divide; 15%) &times; 100, capped at 100.
+    15% is above any major economy&rsquo;s sustained growth rate and provides
+    meaningful spread between U.S. (~25) and China (~79).
+  </p>
+
+  <h3>Proxy 2 &mdash; Data Center Power Demand Headroom (35% weight)</h3>
+  <p>
+    <strong>Source:</strong> IEA, <em>Energy and AI</em> (January 2025);
+    EIA Electric Power Annual 2023 (US generation total);
+    NBS China Statistical Yearbook 2023 (China generation total).
+  </p>
+  <p>
+    <strong>Definition:</strong> Data center electricity consumption as a percentage
+    of total national electricity generation, inverted to a headroom score.
+    Lower data center share = more capacity available for AI scaling = higher score.
+  </p>
+  <p>
+    <strong>Values used:</strong>
+    U.S.: ~4.8% DC share (200 TWh / 4,178 TWh) &rarr; headroom score 52.0.
+    China: ~2.5% DC share (220 TWh / 8,900 TWh) &rarr; headroom score 75.0.
+    China&rsquo;s lower share reflects its significantly larger generation base.
+  </p>
+  <p>
+    <strong>Normalization:</strong>
+    Headroom score = (10 &minus; dc_share%) &divide; 10 &times; 100.
+    At 10% DC share, headroom = 0 (fully pressured); at 0%, headroom = 100.
+    IEA projects US data center demand could exceed 500 TWh by 2030 under a
+    high-AI scenario, which would push DC share above 10% &mdash; making this
+    the binding constraint for US AI scaling by late decade.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Confidence note &mdash; China:</strong> China&rsquo;s data center electricity
+      statistics are less granular than US figures. The ~220 TWh estimate from IEA covers
+      ICT workloads broadly; AI-specific demand is a subset. Treat as directional.
+    </p>
+  </div>
+
+  <h3>Proxy 3 &mdash; Grid Connection Speed Score (25% weight)</h3>
+  <p>
+    <strong>Sources:</strong> Lawrence Berkeley National Laboratory (LBNL),
+    <em>Queued Up: Characteristics of Power Plants Seeking Transmission Interconnection</em>
+    (2024 edition); IEA, <em>Energy and AI</em> (January 2025); China NDRC/NEA.
+  </p>
+  <p>
+    <strong>Definition:</strong> A curated 0&ndash;100 score reflecting how quickly new
+    electricity generation capacity can be connected to the grid and made available to
+    data center operators. Combines interconnection queue depth, regulatory speed, and
+    state capacity for infrastructure direction.
+  </p>
+  <p>
+    <strong>Values used:</strong>
+    U.S.: 30/100 &mdash; LBNL 2024 reports 2,600+ GW of generation waiting in US
+    interconnection queues; median wait exceeds 5 years. FERC Order 2023 reforms
+    are in progress but have not yet cleared the backlog. Multiple AI data center
+    projects have been delayed by grid connection timelines.
+    China: 65/100 &mdash; State-directed permitting (NDRC) enables faster execution.
+    Score is moderated from higher by: (a) renewable curtailment in some western
+    regions; (b) transmission bottlenecks between western generation and eastern
+    demand centers, partially addressed by Ultra-High-Voltage (UHV) buildout.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Confidence note:</strong> Grid connection speed is a curated qualitative-
+      quantitative composite, not a single directly measured metric. Confidence is
+      medium for both countries. The US score may improve if FERC Order 2023 reforms
+      meaningfully reduce interconnection timelines over 2025&ndash;2027.
+    </p>
+  </div>
+
+  <h3>Composite construction</h3>
+  <p>
+    <strong>Formula:</strong>
+    Composite = 0.40 &times; capacity_score + 0.35 &times; headroom_score + 0.25 &times; grid_score
+  </p>
+  <p>
+    Capacity addition rate (40%) is weighted highest because it directly measures the
+    rate of energy supply expansion &mdash; the most important factor for long-run AI
+    scaling. Headroom (35%) captures near-term grid slack. Grid speed (25%) captures
+    the infrastructure bottleneck that can prevent theoretical capacity from being
+    practically usable.
+  </p>
+
+  <h3>Update cadence</h3>
+  <p>
+    The script runs weekly via GitHub Actions (Monday 11:00 UTC). Underlying data
+    updates annually: EIA Electric Power Monthly (~January, US capacity additions);
+    IEA World Energy Outlook (~October, China capacity); IEA Energy and AI (irregular,
+    data center demand); LBNL Queued Up (~April&ndash;May, US interconnection queue).
+    When new editions are published, update reference values in
+    <code>scripts/fetch_energy.py</code>.
+  </p>
+
+  <h3>What this composite does NOT capture</h3>
+  <ul>
+    <li>Total electricity generation or consumption</li>
+    <li>Energy cost (electricity price per kWh, which affects AI ROI)</li>
+    <li>Carbon intensity or renewable mix of AI-relevant power</li>
+    <li>Nuclear power capacity expansion (US SMR pipeline; China nuclear buildout)</li>
+    <li>Private or off-grid power arrangements for specific AI campuses</li>
+    <li>Long-run transmission infrastructure adequacy (UHV lines, HVDC)</li>
+    <li>Water availability constraints for data center cooling</li>
+  </ul>
+
   <!-- ── Frontier Models ───────────────────────────────────────────────────── -->
   <h2><span class="dim-badge">Frontier Models</span> Model Update Activity</h2>
   <p>

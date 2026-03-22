@@ -211,6 +211,119 @@
     </p>
   </div>
 
+  <!-- ── Global Diffusion ──────────────────────────────────────────────────── -->
+  <h2><span class="dim-badge">Diffusion</span> Global AI Diffusion &mdash; Two-Proxy Composite</h2>
+
+  <h3>What this measures</h3>
+  <p>
+    How far U.S. and Chinese AI stacks have spread <em>beyond their home markets</em> &mdash;
+    the external reach of each country&rsquo;s AI ecosystem in terms of model adoption by
+    foreign developers and cloud infrastructure accessible to foreign customers.
+  </p>
+  <p>
+    <strong>Diffusion vs. Adoption:</strong> This section focuses on <em>diffusion</em> &mdash;
+    whether and how far a country&rsquo;s AI outputs are being absorbed into foreign economies,
+    products, and research pipelines. It does not measure domestic AI usage, which is tracked
+    separately under Adoption.
+  </p>
+  <p>
+    Both proxies are scored as a <strong>share of the combined U.S.&thinsp;+&thinsp;China total</strong>,
+    so the two country scores always sum to 100. This framing reflects the competitive nature of
+    diffusion: reach that one country gains is, in relative terms, reach the other does not hold.
+  </p>
+
+  <h3>Proxy 1 &mdash; HF Open-Model Monthly Downloads (55% weight, live)</h3>
+  <p>
+    <strong>Source:</strong> Hugging Face Hub API (live, daily refresh).
+    Labs and country mappings from <code>data/labs.json</code> &mdash; the same curated list
+    used by the Frontier Models dimension.
+  </p>
+  <p>
+    <strong>Definition:</strong> Sum of monthly downloads across the top-100 most-downloaded
+    models per tracked lab. Unlike the Frontier Models dimension, there is no date filter &mdash;
+    this captures the full active install base, not just recent activity. A model being downloaded
+    globally indicates active embedding in foreign products, pipelines, and research.
+  </p>
+  <p>
+    <strong>Scoring:</strong> (country downloads / US + China combined downloads) &times; 100.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Known undercount &mdash; China:</strong> Hugging Face Hub is the dominant platform
+      for the global open-source developer community, but Chinese models are also widely distributed
+      through ModelScope, Gitee AI, and other domestic platforms. Downloads via those platforms are
+      not captured here. The China HF share is therefore a lower bound on total Chinese open-model
+      diffusion.
+    </p>
+  </div>
+
+  <h3>Proxy 2 &mdash; Cloud AI Platform International Footprint (45% weight, curated)</h3>
+  <p>
+    <strong>Sources:</strong> Official provider documentation &mdash;
+    AWS Global Infrastructure, Microsoft Azure geographies, Google Cloud locations,
+    Alibaba Cloud global locations, Huawei Cloud regions, Tencent Cloud regions &mdash;
+    as of Q1 2026.
+  </p>
+  <p>
+    <strong>Definition:</strong> Number of international countries and territories served by
+    each country&rsquo;s major public cloud providers with AI/ML platform services
+    (combined, deduplicated estimate).
+  </p>
+  <p>
+    <strong>Values used:</strong>
+    U.S. (AWS + Azure + Google Cloud): ~190 countries/territories.
+    China (Alibaba Cloud + Huawei Cloud + Tencent Cloud): ~70 countries/territories.
+  </p>
+  <p>
+    <strong>Scoring:</strong> (country countries / US + China combined countries) &times; 100.
+  </p>
+  <p>
+    <strong>Why this proxy:</strong> Cloud footprint is the infrastructure layer of AI diffusion.
+    A foreign organization that cannot access a country&rsquo;s cloud provider cannot easily adopt
+    that country&rsquo;s AI APIs, services, or managed models. U.S. providers near-saturate the
+    accessible global market; Chinese providers have expanded significantly through Belt and Road
+    Initiative partner countries and enterprise markets in Asia-Pacific, Middle East, and Africa,
+    but remain below U.S. coverage in aggregate.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Scope note:</strong> Country count is a measure of reach, not depth. A cloud provider
+      that serves 190 countries may have vastly different revenue, usage, and AI workload depth across
+      those countries. This proxy measures whether access exists, not how much of it is used.
+    </p>
+  </div>
+
+  <h3>Composite construction</h3>
+  <p>
+    <strong>Formula:</strong>
+    Composite = 0.55 &times; hf_download_share + 0.45 &times; cloud_footprint_share
+  </p>
+  <p>
+    By construction, US composite + China composite = 100. The HF proxy is weighted higher (55%)
+    because it provides a live, high-frequency signal of actual global model adoption.
+    Cloud footprint (45%) is more structural and slower-moving but captures the infrastructure
+    layer through which AI services are delivered internationally.
+  </p>
+
+  <h3>Update cadence</h3>
+  <p>
+    The HF downloads proxy is fetched daily via GitHub Actions &mdash; HF download figures
+    update continuously and reflect the trailing 30-day window. The cloud footprint proxy is
+    curated and reviewed annually; values in <code>scripts/fetch_diffusion.py</code> are
+    updated manually when providers announce significant geographic expansion.
+  </p>
+
+  <h3>What this composite does NOT capture</h3>
+  <ul>
+    <li>Domestic AI adoption within each country&rsquo;s home market (see Adoption dimension)</li>
+    <li>Chinese model downloads via ModelScope, Gitee AI, or other domestic platforms</li>
+    <li>Closed/proprietary model API usage (GPT-4o, Claude, Gemini, Qianwen API)</li>
+    <li>AI hardware exports (chips, servers) as a diffusion vector</li>
+    <li>Influence via joint ventures, technical assistance, or standards bodies</li>
+    <li>Quality or depth of AI integration in foreign deployments</li>
+    <li>Revenue or economic impact of diffusion</li>
+  </ul>
+
   <!-- ── Frontier Models ───────────────────────────────────────────────────── -->
   <h2><span class="dim-badge">Frontier Models</span> Model Update Activity</h2>
   <p>

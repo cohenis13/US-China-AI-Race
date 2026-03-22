@@ -1002,6 +1002,8 @@ footer {
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#adoption" class="nav-link">Adoption</a>
       <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#diffusion" class="nav-link">Diffusion</a>
+      <div class="nav-sep" aria-hidden="true"></div>
       <a href="#constraints" class="nav-link">Constraints</a>
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#outlook" class="nav-link">Outlook</a>
@@ -1591,6 +1593,91 @@ footer {
       <div id="ado-error" class="fm-placeholder" style="display:none;">
         Data pending first workflow run. Check back after the next GitHub Actions refresh,
         or see <a href="data/adoption.json">data/adoption.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
+  </section>
+
+  <!-- ── Live Diffusion Section ──────────────────────────────── -->
+  <section class="live-section" id="diffusion">
+    <div class="section-module-hdr neutral-accent">
+      <div>
+        <div class="section-module-lbl">Diffusion &nbsp;—&nbsp; Global AI Diffusion Index</div>
+      </div>
+      <span class="live-badge"><span class="live-dot"></span>Updated daily</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">Global AI Diffusion &mdash; U.S. vs China</div>
+          <div class="live-card-sub">
+            Share of combined U.S.&ndash;China global AI footprint &mdash;
+            open-model ecosystem reach (HF downloads) + cloud infrastructure coverage &nbsp;&middot;&nbsp;
+            U.S. + China scores sum to 100
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">Last updated: <span id="dif-fetched-at">&mdash;</span></div>
+        </div>
+      </div>
+
+      <!-- Loading state -->
+      <div id="dif-loading" class="fm-placeholder">Loading live data&hellip;</div>
+
+      <!-- Data / content (hidden until loaded) -->
+      <div id="dif-content" style="display:none;">
+
+        <!-- Composite score stat boxes -->
+        <div class="fm-stats" style="grid-template-columns: repeat(2,1fr);">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="dif-us-score">&mdash;</div>
+            <div class="fm-stat-lbl">U.S. Diffusion Share</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">% of combined US&ndash;China footprint</div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="dif-cn-score">&mdash;</div>
+            <div class="fm-stat-lbl">China Diffusion Share</div>
+            <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">% of combined US&ndash;China footprint</div>
+          </div>
+        </div>
+
+        <!-- Composite score chart -->
+        <div class="fm-chart-wrap" id="dif-chart-wrap">
+          <div class="fm-chart-label">Global diffusion share (% of combined U.S.&ndash;China footprint)</div>
+          <canvas id="difChart" height="48"></canvas>
+        </div>
+        <div id="dif-chart-note" class="chart-unavail-note" style="display:none;"></div>
+
+        <!-- Sub-proxy breakdown cards -->
+        <div id="dif-proxies-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;"></div>
+
+        <!-- Interpretive sentence -->
+        <div class="fm-interp" id="dif-interp"></div>
+
+        <!-- Footer -->
+        <div class="fm-footer">
+          <p class="fm-footer-note" id="dif-coverage-note"></p>
+          <div class="fm-footer-links">
+            Sources:
+            <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face Hub</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://aws.amazon.com/about-aws/global-infrastructure/" target="_blank" rel="noopener">AWS</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/" target="_blank" rel="noopener">Azure</a>
+            &nbsp;&middot;&nbsp;
+            <a href="https://cloud.google.com/about/locations" target="_blank" rel="noopener">Google Cloud</a>
+            &nbsp;&middot;&nbsp;
+            <a href="docs/methodology.html" target="_blank">Methodology</a>
+          </div>
+        </div>
+
+      </div><!-- /dif-content -->
+
+      <!-- Error / pending state -->
+      <div id="dif-error" class="fm-placeholder" style="display:none;">
+        Data pending first workflow run. Check back after the next GitHub Actions refresh,
+        or see <a href="data/diffusion.json">data/diffusion.json</a>.
       </div>
 
     </div><!-- /live-card -->
@@ -2573,6 +2660,170 @@ async function loadAdoption() {
   }
 }
 
+/* ── Diffusion ───────────────────────────────────────────────── */
+let difChart = null;
+
+function buildDifChart(usScore, cnScore) {
+  const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  if (difChart) { difChart.destroy(); difChart = null; }
+
+  const entries = [];
+  if (usScore != null) entries.push({ label: 'United States', score: usScore, bgColor: 'rgba(26,58,92,0.75)',  border: US_COLOR });
+  if (cnScore != null) entries.push({ label: 'China',         score: cnScore, bgColor: 'rgba(181,65,62,0.75)', border: CN_COLOR });
+
+  if (entries.length === 0) return;
+
+  const ctx = document.getElementById('difChart').getContext('2d');
+  difChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels:   entries.map(e => e.label),
+      datasets: [{
+        data:            entries.map(e => e.score),
+        backgroundColor: entries.map(e => e.bgColor),
+        borderColor:     entries.map(e => e.border),
+        borderWidth: 1.5,
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: {
+            label: ctx => '  Diffusion share: ' + ctx.parsed.x.toFixed(1) + '% of combined US\u2013China',
+          }
+        }
+      },
+      scales: {
+        x: {
+          beginAtZero: true, max: 100,
+          ticks: { color: tickColor, font: { size: 10 }, callback: v => v + '%' },
+          grid:  { color: gridColor },
+        },
+        y: {
+          ticks: { color: tickColor, font: { size: 11, weight: '600' } },
+          grid:  { display: false },
+        }
+      }
+    }
+  });
+  window._difChart = difChart;
+}
+
+function buildDifProxyCard(title, usRaw, cnRaw, usShare, cnShare, rawUnit, sourceNote) {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const bg  = isDark ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.025)';
+  const brd = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)';
+  const fmtRaw   = (v) => v != null ? Number(v).toLocaleString() : '\u2014';
+  const fmtShare = (v) => v != null ? v.toFixed(1) + '%' : '\u2014';
+  const bar = (share, color) => {
+    if (share == null) return '';
+    return `<div style="height:3px;border-radius:2px;background:${brd};margin-top:4px;overflow:hidden;"><div style="height:100%;width:${Math.min(share,100)}%;background:${color};transition:width .6s;"></div></div>`;
+  };
+  return `
+    <div style="background:${bg};border:1px solid ${brd};border-radius:8px;padding:12px 14px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;">${title}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div>
+          <div style="font-size:10px;color:var(--t3);margin-bottom:2px;font-weight:600;">\u{1F1FA}\u{1F1F8} United States</div>
+          <div style="font-size:13px;font-weight:700;color:var(--us,#1a3a5c);">${usRaw != null ? fmtRaw(usRaw) + '\u202f' + rawUnit : fmtShare(usShare)}</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:1px;">${usRaw != null ? fmtShare(usShare) + ' share' : ''}</div>
+          ${bar(usShare, 'rgba(26,58,92,0.65)')}
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--t3);margin-bottom:2px;font-weight:600;">\u{1F1E8}\u{1F1F3} China</div>
+          <div style="font-size:13px;font-weight:700;color:var(--cn,#b5413e);">${cnRaw != null ? fmtRaw(cnRaw) + '\u202f' + rawUnit : fmtShare(cnShare)}</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:1px;">${cnRaw != null ? fmtShare(cnShare) + ' share' : ''}</div>
+          ${bar(cnShare, 'rgba(181,65,62,0.65)')}
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--t3);margin-top:8px;line-height:1.45;">${sourceNote}</div>
+    </div>`;
+}
+
+function renderDiffusion(data) {
+  const summary = data.summary || {};
+  const us      = summary.US    || {};
+  const china   = summary.China || {};
+
+  document.getElementById('dif-fetched-at').textContent = fmtFetchedAt(data.fetched_at || data.last_updated);
+
+  const usScore = us.composite_score;
+  const cnScore = china.composite_score;
+  document.getElementById('dif-us-score').textContent = usScore != null ? usScore.toFixed(1) + '%' : '\u2014';
+  document.getElementById('dif-cn-score').textContent = cnScore != null ? cnScore.toFixed(1) + '%' : '\u2014';
+
+  const chartWrap = document.getElementById('dif-chart-wrap');
+  const chartNote = document.getElementById('dif-chart-note');
+  if (usScore != null || cnScore != null) {
+    buildDifChart(usScore, cnScore);
+    chartWrap.style.display = '';
+    chartNote.style.display = 'none';
+  } else {
+    chartWrap.style.display = 'none';
+    chartNote.style.display = '';
+    chartNote.textContent = 'Chart will render after the first workflow run.';
+  }
+
+  const usP   = us.proxies    || {};
+  const cnP   = china.proxies || {};
+  const usHf  = usP.hf_downloads    || {};
+  const cnHf  = cnP.hf_downloads    || {};
+  const usCl  = usP.cloud_footprint || {};
+  const cnCl  = cnP.cloud_footprint || {};
+
+  document.getElementById('dif-proxies-grid').innerHTML =
+    buildDifProxyCard(
+      'Open-Model Downloads (HF Hub)',
+      usHf.raw_value, cnHf.raw_value,
+      usHf.share_score, cnHf.share_score,
+      'dl/mo',
+      'Hugging Face Hub API \u2014 sum of monthly downloads across top-100 models per tracked lab (data/labs.json). Live proxy for global open-model ecosystem reach.'
+    ) +
+    buildDifProxyCard(
+      'Cloud AI Platform Footprint',
+      usCl.raw_value, cnCl.raw_value,
+      usCl.share_score, cnCl.share_score,
+      'countries',
+      'Official provider documentation, Q1 2026 \u2014 international countries/territories served by major cloud AI/ML services. US: AWS + Azure + Google Cloud. China: Alibaba Cloud + Huawei Cloud + Tencent Cloud.'
+    );
+
+  const interpEl = document.getElementById('dif-interp');
+  if (interpEl) interpEl.textContent = data.interpretive_sentence || '';
+
+  const covEl = document.getElementById('dif-coverage-note');
+  if (covEl) covEl.textContent = data.coverage_note || '';
+
+  document.getElementById('dif-loading').style.display = 'none';
+  document.getElementById('dif-error').style.display   = 'none';
+  document.getElementById('dif-content').style.display = 'block';
+}
+
+async function loadDiffusion() {
+  try {
+    const resp = await fetch('data/diffusion.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    if (!data.fetched_at && !data.last_updated) throw new Error('No data yet');
+    renderDiffusion(data);
+  } catch (err) {
+    console.warn('Failed to load diffusion.json:', err);
+    document.getElementById('dif-loading').style.display = 'none';
+    document.getElementById('dif-error').style.display   = 'block';
+  }
+}
+
 /* ── Collapsible Tables ──────────────────────────────────────── */
 function setupCollapsible(tbodyId, wrapperId, threshold) {
   const tbody = document.getElementById(tbodyId);
@@ -2611,6 +2862,7 @@ document.addEventListener('DOMContentLoaded', function () {
   loadTalent();
   loadCompute();
   loadAdoption();
+  loadDiffusion();
 });
 </script>
 

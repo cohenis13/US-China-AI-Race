@@ -15,7 +15,7 @@ A credible, data-driven tracker that measures the U.S.–China AI race using pub
 2. Talent ← *live data (v1)*
 3. Compute ← *live data (v1)*
 4. Adoption ← *live data (v2) — composite index: enterprise AI adoption rate + robot density*
-5. Global Diffusion
+5. Global Diffusion ← *live data (v1) — composite index: HF open-model downloads + cloud platform footprint*
 6. Energy
 
 ---
@@ -46,19 +46,22 @@ The Python script runs daily at 06:00 UTC, fetches model update data from Huggin
 ├── data/
 │   ├── frontier_models.json    Live data output — Frontier Models (auto-updated)
 │   ├── talent.json             Live data output — Talent (auto-updated)
-│   ├── labs.json               Manual lab-to-country mapping (Frontier Models)
+│   ├── diffusion.json          Live data output — Global Diffusion (auto-updated)
+│   ├── labs.json               Manual lab-to-country mapping (shared across dimensions)
 │   └── institutions.json       Institution keyword lists (Talent classification)
 ├── scripts/
 │   ├── fetch_frontier_models.py  Frontier Models fetch script
 │   ├── fetch_talent.py           Talent fetch script
 │   ├── fetch_compute.py          Compute fetch script
-│   └── fetch_adoption.py         Adoption fetch script
+│   ├── fetch_adoption.py         Adoption fetch script
+│   └── fetch_diffusion.py        Global Diffusion fetch script
 ├── .github/
 │   └── workflows/
 │       ├── update_frontier_models.yml  Daily refresh (06:00 UTC)
 │       ├── update_talent.yml           Daily refresh (07:00 UTC)
 │       ├── update_compute.yml          Daily refresh (08:00 UTC)
-│       └── update_adoption.yml         Weekly refresh (Monday 09:00 UTC)
+│       ├── update_adoption.yml         Weekly refresh (Monday 09:00 UTC)
+│       └── update_diffusion.yml        Daily refresh (10:00 UTC)
 ├── docs/
 │   └── methodology.html        Methodology page
 └── README.md
@@ -146,13 +149,19 @@ python scripts/fetch_compute.py
 # Adoption (composite index: McKinsey enterprise survey + IFR robot density)
 python scripts/fetch_adoption.py
 # → writes data/adoption.json
+
+# Global Diffusion (HF open-model downloads + cloud platform footprint)
+python scripts/fetch_diffusion.py
+# → writes data/diffusion.json
 ```
 
 The Talent script makes two calls to the OpenAlex API and completes in a few seconds.
 
 The Compute script downloads the full TOP500 XML file (~600 KB, all 500 systems) and produces two metrics: aggregate HPL Rmax performance in PFlop/s (primary) and system count (secondary). Rmax is stored in GFlop/s in the source and converted to PFlop/s.
 
-The Adoption script uses curated reference data (no live API calls). It calculates a composite index from hardcoded values sourced from McKinsey State of AI 2024 and IFR World Robotics 2023. To update for a new edition: edit the `ENTERPRISE_ADOPTION` and `ROBOT_DENSITY` dicts in `scripts/fetch_adoption.py`, then run the script or trigger the workflow.
+The Adoption script uses curated reference data (no live API calls).
+
+The Diffusion script fetches HF Hub download counts for all US and China labs in `data/labs.json` (live API, no date filter — captures full active install base), then applies curated cloud footprint data (Q1 2026, no API calls needed). Both proxies are scored as share-of-combined US + China. It calculates a composite index from hardcoded values sourced from McKinsey State of AI 2024 and IFR World Robotics 2023. To update for a new edition: edit the `ENTERPRISE_ADOPTION` and `ROBOT_DENSITY` dicts in `scripts/fetch_adoption.py`, then run the script or trigger the workflow.
 
 ---
 
@@ -185,6 +194,8 @@ See [docs/methodology.html](docs/methodology.html) for:
 **Key caveat — Talent (v1):** Measures AI research paper volume from OpenAlex (AI, ML, NLP, CV concepts) over the last 12 months — a proxy for research output, not a measure of researcher headcount, citation impact, or capability. Papers are attributed by country of author institution using OpenAlex's pre-computed affiliation data. Multinational papers are counted in each country represented, so country totals can exceed the total paper count. Unknown reflects papers with no identified institutional affiliation in OpenAlex.
 
 **Key caveat — Compute (v1):** Measures aggregate HPL Rmax benchmark performance and system count from the TOP500 supercomputer list — a proxy for disclosed high-end compute capacity, not a direct measure of AI training capability. Excludes private AI clusters and systems not submitted to TOP500. China is known to operate exascale systems not listed on TOP500, so its disclosed capacity is likely a significant undercount.
+
+**Key caveat — Global Diffusion (v1):** Measures external spread of U.S. and Chinese AI stacks using two proxies scored as share-of-combined (U.S. + China = 100): (1) HF open-model monthly downloads (live, Hugging Face Hub API) — weighted 55%; (2) cloud AI platform international footprint from official provider documentation Q1 2026 — weighted 45%. Composite scores: U.S. ~74.1%, China ~25.9%. Significantly undercounts Chinese model diffusion via domestic platforms (ModelScope, Gitee AI). Does not capture closed API usage (GPT-4o, Claude, Gemini, Qianwen), hardware exports, or influence via joint ventures and standards bodies.
 
 **Key caveat — Adoption (v2):** A two-proxy composite index: (1) enterprise AI adoption rate from McKinsey State of AI 2025 + Stanford AI Index 2025 (% of organizations using AI in ≥1 function) — weighted 55%; (2) industrial robot density from IFR World Robotics 2024 / 2023 data (robots/10K manufacturing workers) — weighted 45%. Composite scores: U.S. ~61.7, China ~73.7 (China higher primarily due to robot density). China's enterprise adoption figure is estimated from regional data — confidence is medium. Robot density is high-confidence for both countries. Does not capture consumer AI usage, SME adoption, services-sector AI, or AI quality/depth. See `docs/methodology.html` for full details.
 

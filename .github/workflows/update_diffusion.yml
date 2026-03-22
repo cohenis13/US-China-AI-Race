@@ -1,0 +1,48 @@
+name: Update Diffusion Data
+
+on:
+  schedule:
+    # Run daily at 10:00 UTC — after frontier models (06:00) and talent (07:00)
+    # and compute (08:00) and adoption (Mondays 09:00).
+    # HF download figures update continuously; daily refresh keeps the proxy current.
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    # Allow manual runs from the GitHub Actions UI
+    # Go to: Actions tab → "Update Diffusion Data" → Run workflow
+
+permissions:
+  contents: write   # needed to commit and push data/diffusion.json
+
+jobs:
+  update-diffusion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch global diffusion data
+        run: python scripts/fetch_diffusion.py
+
+      - name: Commit and push if data changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/diffusion.json
+          if git diff --cached --quiet; then
+            echo "No changes to data — skipping commit."
+          else
+            git commit -m "data: update diffusion index [$(date -u +'%Y-%m-%d')]"
+            git push
+          fi

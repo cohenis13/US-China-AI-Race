@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-20T09:06:40.309639+00:00",
+  "fetched_at": "2026-03-22T08:00:15.677328+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,231 +10,227 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 126624,
-    "China": 226452,
-    "Other": 644893,
+    "US": 128767,
+    "China": 229664,
+    "Other": 654092,
     "Unknown": 0,
-    "total_papers": 1462450,
-    "total_attributed": 997969
+    "total_papers": 1484655,
+    "total_attributed": 1012523
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 226452
+      "count": 229664
     },
     {
       "country_code": "US",
-      "count": 126624
+      "count": 128767
     },
     {
       "country_code": "JP",
-      "count": 79014
+      "count": 79310
     },
     {
       "country_code": "IN",
-      "count": 74200
+      "count": 75134
     },
     {
       "country_code": "GB",
-      "count": 40898
+      "count": 41600
     },
     {
       "country_code": "DE",
-      "count": 31724
+      "count": 32174
     },
     {
       "country_code": "ID",
-      "count": 26755
-    },
-    {
-      "country_code": "IT",
-      "count": 20265
+      "count": 26818
     },
     {
       "country_code": "CA",
-      "count": 20238
+      "count": 20586
+    },
+    {
+      "country_code": "IT",
+      "count": 20486
     },
     {
       "country_code": "FR",
-      "count": 19414
+      "count": 19713
     }
   ],
   "papers": [
     {
-      "id": "https://openalex.org/W7133575957",
-      "title": "Deep Learning Across Domains: The Role of Representations in Biochemical and Biological Data",
+      "id": "https://openalex.org/W7139058887",
+      "title": "Artificial Intelligent in Cyber security: Emerging Threats and Defenses",
       "authors": [
-        "Alessia Lucia Prete"
+        "S. Anu Infancy Lurds"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7114932394",
-      "title": "Predicted Protein Structure Data in the RAISE Project",
+      "id": "https://openalex.org/W7138891405",
+      "title": "Digital Revolution and Its Multidimensional Impact on Society",
       "authors": [
-        "Kong, Lupeng"
+        "Maria Roseline. M Dr. Mettilda Buvaneswari. G"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138096203",
-      "title": "Intelligent Markets: Deep Learning Models for Predicting Stock Trends",
+      "id": "https://openalex.org/W7138869661",
+      "title": "Artificial Intelligent in Cyber security: Emerging Threats and Defenses",
       "authors": [
-        "Shweta Mayor Sabharwal",
-        "Ms. Nitu Sharma",
-        "Dr. Arti Awasthi"
+        "S. Anu Infancy Lurds"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138074560",
-      "title": "Intelligent Markets: Deep Learning Models for Predicting Stock Trends",
+      "id": "https://openalex.org/W7138849869",
+      "title": "Next-Gen Artificial Intelligent-Driven FinTech Security Model",
       "authors": [
-        "Shweta Mayor Sabharwal",
-        "Ms. Nitu Sharma",
-        "Dr. Arti Awasthi"
+        "T. Devathai"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134099078",
-      "title": "Rational design and data-driven strategies to optimize bioconjugation processes in antibody-drug conjugates",
+      "id": "https://openalex.org/W7139027017",
+      "title": "Impact of Artificial Intelligence in Accounting and Auditing",
       "authors": [
-        "Angiolini Lorenzo"
+        "S. Banupriya"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7132295924",
-      "title": "Diep leren en verklaarbaarheid bij forensische leeftijdschatting van tanden",
+      "id": "https://openalex.org/W7138917121",
+      "title": "Next-Gen Artificial Intelligent-Driven FinTech Security Model",
       "authors": [
-        "Barkın Büyükçakır"
+        "T. Devathai"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130270562",
-      "title": "Efficient Data Driven Algorithms for TactileData Processing in Embedded and WearableSystems",
+      "id": "https://openalex.org/W7138837912",
+      "title": "Impact of Artificial Intelligence in Accounting and Auditing",
       "authors": [
-        "Mohamad Yaacoub"
+        "S. Banupriya"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134872755",
-      "title": "Diep Leren en Verklaarbaarheid bij Forensische Leeftijdschatting op basis van tandheelkundige data",
+      "id": "https://openalex.org/W7138926096",
+      "title": "Reimagining Society in The Age of Artificial Intelligence",
       "authors": [
-        "Barkin Büyükçakir"
+        "G. Vasuki"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-20",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7129189767",
-      "title": "Development of a Cluster Analysis Framework for quality control by Resonance Testing in Additive Manufacturing",
+      "id": "https://openalex.org/W7138878869",
+      "title": "Digital Revolution and Its Multidimensional Impact on Society",
       "authors": [
-        "Daniele Candelaresi"
+        "Maria Roseline. M Dr. Mettilda Buvaneswari. G"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-19",
+      "published": "2026-03-22",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128880515",
-      "title": "Microarchitectural Espionage: FPGA-Based Security Analysis of Branch Prediction in RISC-V Out-of-Order Cores",
+      "id": "https://openalex.org/W7139101803",
+      "title": "Reimagining Society in The Age of Artificial Intelligence",
       "authors": [
-        "Mahreen Khan",
-        "Bin Mohd Shahfie, Muhammad, Emir",
-        "Maria Mushtaq"
+        "G. Vasuki"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-22",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139920390",
+      "title": "The Great Linguistic Expansion: Stress-Testing LLM Semantic Integrity Across 7,170+ Languages in the Reincarnatiopedia Ecosystem",
+      "authors": [
+        "Maris Dreshmanis"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139959347",
+      "title": "Lines to Sing: The Complete Acoustic Decipherment of Rongorongo",
+      "authors": [
+        "Abelardo Rios Jr",
+        "Anthropic"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138913207",
+      "title": "Global Humanity's Knowledge Archive (GHKA): A Protocol for Trans-temporal Knowledge Preservation and AI Context Resilience v1.0",
+      "authors": [
+        "Maris Dreshmanis"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-21",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139947829",
+      "title": "Damona singularity image of macs3 software",
+      "authors": [
+        "Thomas Cokelaer"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-03-19",
+      "published": "2026-03-21",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128668080",
-      "title": "Image context and dynamics:next step for decision support in healthcare?",
+      "id": "https://openalex.org/W7139956894",
+      "title": "Lines to Sing: The Complete Acoustic Decipherment of Rongorongo",
       "authors": [
-        "Sveta Zinger"
+        "Abelardo Rios Jr",
+        "Anthropic"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-19",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130279013",
-      "title": "High Accuracy Is Not Enough: Epistemic Bias in Machine Learning Task Formulation",
-      "authors": [
-        "Grazia Garzo",
-        "Alessandro Palumbo"
-      ],
-      "countries": [
-        "IT",
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-19",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134997818",
-      "title": "Intelligent Reconfigurable Intelligent Surface Control Using Machine Learning for Future Wireless Communications",
-      "authors": [
-        "Muhammad Abul Hassan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-19",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128101547",
-      "title": "Model idealnego chińsko-angielsko-polskiego słownika terminologicznego dla dziedzin nieuwarunkowanych kulturowo",
-      "authors": [
-        "Andrzej Swoboda"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-19",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128747075",
-      "title": "Development and integration of Machine Learning models for optimising production processes in Software-as-a-Service solutions",
-      "authors": [
-        "Mateo Del Gallo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-19",
+      "published": "2026-03-21",
       "source": "openalex"
     }
   ],

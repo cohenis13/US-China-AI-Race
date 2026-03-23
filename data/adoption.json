@@ -1,11 +1,11 @@
 {
   "dimension": "adoption",
   "metric_key": "ai_adoption_composite_index",
-  "title": "AI Adoption Index \u2014 U.S. vs China",
-  "subtitle": "Public proxies for AI adoption inside the U.S. and Chinese economies \u2014 not a complete measure of total usage.",
-  "description": "A two-proxy composite index approximating economy-wide AI adoption. Combines enterprise AI adoption rates (McKinsey State of AI 2025 + Stanford AI Index 2025) with industrial automation density (IFR World Robotics 2024, 2023 data). Neither proxy alone is a perfect measure of AI usage; together they provide a transparent, country-comparable directional signal.",
-  "fetched_at": "2026-03-22T12:00:00+00:00",
-  "last_updated": "2026-03-22T12:00:00+00:00",
+  "title": "AI Adoption Index — U.S. vs China",
+  "subtitle": "Public proxies for AI adoption inside the U.S. and Chinese economies — not a complete measure of total usage.",
+  "description": "A two-proxy composite index approximating economy-wide AI adoption. Combines enterprise AI adoption rates (survey-based, McKinsey 2024) with industrial automation density (IFR robot density, 2022 data). Neither proxy alone is a perfect measure of AI usage; together they provide a transparent, country-comparable directional signal.",
+  "fetched_at": "2026-03-23T11:34:19.163355+00:00",
+  "last_updated": "2026-03-23T11:34:19.163355+00:00",
   "summary": {
     "US": {
       "composite_score": 61.7,
@@ -49,14 +49,14 @@
           "unit": "robots per 10,000 manufacturing workers",
           "normalized_score": 78.3,
           "coverage": "high",
-          "note": "IFR World Robotics 2024 (2023 data), China \u2014 overtook Japan and Germany in robot density ranking; up from 392 in 2022"
+          "note": "IFR World Robotics 2024 (2023 data), China — overtook Japan and Germany in robot density ranking; up from 392 in 2022"
         }
       }
     }
   },
-  "interpretive_sentence": "Chinese firms and institutions show stronger visible AI adoption on these proxies \u2014 driven primarily by significantly higher industrial automation density in manufacturing. Enterprise AI adoption rates are broadly comparable between the two countries (composite index gap: 12.0 points, China ahead).",
+  "interpretive_sentence": "Chinese firms and institutions show stronger visible AI adoption on these proxies — driven primarily by higher industrial automation density in manufacturing. Enterprise survey adoption rates are more comparable between the two countries (composite index gap: 12.0 points, China ahead).",
   "composite_construction": {
-    "method": "Weighted average of normalized proxy scores. Enterprise adoption is already 0-100 (% of organizations). Robot density is normalized as (value / 600) x 100 where 600 robots/10K workers is the normalization reference (above leading non-outlier economies: China 470, Germany 429, Japan 419; South Korea ~1,012 excluded as outlier). Default weights: enterprise 55%, robot density 45%.",
+    "method": "Weighted average of normalized proxy scores. Enterprise adoption is already 0-100 (% of organizations). Robot density is normalized as (value / 500) x 100 where 500 robots/10K workers is the normalization reference point. Default weights: enterprise 55%, robot density 45%. If a proxy is unavailable for one country, the remaining proxy is re-weighted to 100%.",
     "weights": {
       "enterprise_adoption": 0.55,
       "robot_density": 0.45
@@ -77,11 +77,11 @@
       "source_url": "https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally",
       "edition": "2024 report (October 2024, 2023 operational data)",
       "definition": "Installed industrial robots per 10,000 manufacturing workers",
-      "update_cadence": "Annual (typically published in October; next: October 2025 for 2024 data)"
+      "update_cadence": "Annual (typically published in October)"
     }
   },
-  "methodology_note": "This index uses a multi-proxy approach because no single public data source provides a clean, symmetric, and automatable measure of AI adoption in both the U.S. and Chinese economies. The enterprise survey proxy (McKinsey 2025 + Stanford AI Index 2025) covers large firms and is comparable in intent but has limited China-specific granularity. The robot density proxy (IFR 2024) is highly symmetric and verifiable but measures industrial automation broadly, not AI specifically. The composite score is a transparent, directional proxy \u2014 not a definitive measure of national AI adoption.",
-  "coverage_note": "Enterprise adoption (China): estimated from McKinsey 2025 regional data, CAICT surveys, and Stanford AI Index 2025 \u2014 confidence is medium; treat as directional. Robot density: high confidence for both countries \u2014 IFR uses the same methodology for all countries. Composite is valid for directional U.S.-vs-China comparison.",
+  "methodology_note": "This index uses a multi-proxy approach because no single public data source provides a clean, symmetric, and automatable measure of AI adoption in both the U.S. and Chinese economies. The enterprise survey proxy (McKinsey) covers large firms and is comparable in intent but has limited China-specific granularity. The robot density proxy (IFR) is highly symmetric and verifiable but measures industrial automation broadly, not AI specifically. The composite score is a transparent, directional proxy — not a definitive measure of national AI adoption.",
+  "coverage_note": "Enterprise adoption (China): estimated from regional McKinsey data and CAICT surveys — confidence is medium; treat as directional. Robot density: high confidence for both countries — IFR uses the same methodology and reporting framework for all countries. Composite is valid for directional U.S.-vs-China comparison.",
   "what_this_does_not_capture": [
     "Consumer AI usage (individuals using AI tools, apps, or devices)",
     "AI usage by small and medium enterprises",
@@ -97,12 +97,6 @@
       "name": "McKinsey & Company, The State of AI 2025",
       "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
       "edition": "2025 (published May 2025)"
-    },
-    {
-      "proxy": "enterprise_adoption",
-      "name": "Stanford HAI AI Index 2025",
-      "url": "https://aiindex.stanford.edu/report/",
-      "edition": "2025 (published April 2025)"
     },
     {
       "proxy": "robot_density",

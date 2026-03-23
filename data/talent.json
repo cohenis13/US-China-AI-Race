@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-22T08:00:15.677328+00:00",
+  "fetched_at": "2026-03-23T10:33:34.751894+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,227 +10,241 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 128767,
-    "China": 229664,
-    "Other": 654092,
+    "US": 129099,
+    "China": 229875,
+    "Other": 657942,
     "Unknown": 0,
-    "total_papers": 1484655,
-    "total_attributed": 1012523
+    "total_papers": 1492654,
+    "total_attributed": 1016916
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 229664
+      "count": 229875
     },
     {
       "country_code": "US",
-      "count": 128767
+      "count": 129099
     },
     {
       "country_code": "JP",
-      "count": 79310
+      "count": 79346
     },
     {
       "country_code": "IN",
-      "count": 75134
+      "count": 75385
     },
     {
       "country_code": "GB",
-      "count": 41600
+      "count": 41742
     },
     {
       "country_code": "DE",
-      "count": 32174
+      "count": 32281
     },
     {
       "country_code": "ID",
-      "count": 26818
+      "count": 26798
     },
     {
       "country_code": "CA",
-      "count": 20586
+      "count": 20628
     },
     {
       "country_code": "IT",
-      "count": 20486
+      "count": 20530
     },
     {
       "country_code": "FR",
-      "count": 19713
+      "count": 19835
     }
   ],
   "papers": [
     {
-      "id": "https://openalex.org/W7139058887",
-      "title": "Artificial Intelligent in Cyber security: Emerging Threats and Defenses",
+      "id": "https://openalex.org/W7140024615",
+      "title": "Visual mathematics writing: examining students’ performance in visual and text integration",
       "authors": [
-        "S. Anu Infancy Lurds"
+        "Haorui Cui",
+        "Xin Lin",
+        "Lam Pang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-22",
+      "published": "2026-03-23",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138891405",
-      "title": "Digital Revolution and Its Multidimensional Impact on Society",
+      "id": "https://openalex.org/W7140045034",
+      "title": "Code and datasets for 'A Bayesian classification model to reconstruct lifetime movement patterns of riverine fish using environmental tracers'",
       "authors": [
-        "Maria Roseline. M Dr. Mettilda Buvaneswari. G"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138869661",
-      "title": "Artificial Intelligent in Cyber security: Emerging Threats and Defenses",
-      "authors": [
-        "S. Anu Infancy Lurds"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138849869",
-      "title": "Next-Gen Artificial Intelligent-Driven FinTech Security Model",
-      "authors": [
-        "T. Devathai"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139027017",
-      "title": "Impact of Artificial Intelligence in Accounting and Auditing",
-      "authors": [
-        "S. Banupriya"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138917121",
-      "title": "Next-Gen Artificial Intelligent-Driven FinTech Security Model",
-      "authors": [
-        "T. Devathai"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138837912",
-      "title": "Impact of Artificial Intelligence in Accounting and Auditing",
-      "authors": [
-        "S. Banupriya"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138926096",
-      "title": "Reimagining Society in The Age of Artificial Intelligence",
-      "authors": [
-        "G. Vasuki"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138878869",
-      "title": "Digital Revolution and Its Multidimensional Impact on Society",
-      "authors": [
-        "Maria Roseline. M Dr. Mettilda Buvaneswari. G"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139101803",
-      "title": "Reimagining Society in The Age of Artificial Intelligence",
-      "authors": [
-        "G. Vasuki"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-22",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139920390",
-      "title": "The Great Linguistic Expansion: Stress-Testing LLM Semantic Integrity Across 7,170+ Languages in the Reincarnatiopedia Ecosystem",
-      "authors": [
-        "Maris Dreshmanis"
+        "Michael P. Venarsky",
+        "E. Boone",
+        "Ben Stewart-Koster"
       ],
       "countries": [
-        "CH"
+        "AU",
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-03-21",
+      "primary_country": "US",
+      "published": "2026-03-23",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139959347",
-      "title": "Lines to Sing: The Complete Acoustic Decipherment of Rongorongo",
+      "id": "https://openalex.org/W7125765044",
+      "title": "Beyond the TESSERACT:Trustworthy Dataset Curation for Sound Evaluationsof Android Malware Classifiers",
       "authors": [
-        "Abelardo Rios Jr",
-        "Anthropic"
+        "T.T. Chow",
+        "Mario D’Onghia",
+        "Lorenz Linhardt"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-21",
+      "published": "2026-03-23",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138913207",
-      "title": "Global Humanity's Knowledge Archive (GHKA): A Protocol for Trans-temporal Knowledge Preservation and AI Context Resilience v1.0",
-      "authors": [
-        "Maris Dreshmanis"
-      ],
-      "countries": [
-        "CH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-21",
+      "id": "https://openalex.org/W7140037273",
+      "title": "Interpretable Memory-behavior Modeling for Malware Detection Using Additive Explainable Learning",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139947829",
-      "title": "Damona singularity image of macs3 software",
+      "id": "https://openalex.org/W7140047954",
+      "title": "Coin Systeme und Super Zellen",
       "authors": [
-        "Thomas Cokelaer"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-21",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139956894",
-      "title": "Lines to Sing: The Complete Acoustic Decipherment of Rongorongo",
-      "authors": [
-        "Abelardo Rios Jr",
-        "Anthropic"
+        "Korkmaz Sahin Can"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-21",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140027316",
+      "title": "Basics of computer operation",
+      "authors": [
+        "Yoshihiro Satō"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140029153",
+      "title": "FT-009: The Adversary Thread",
+      "authors": [
+        "David Lowe",
+        "Opus (AI) Claude"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140024377",
+      "title": "M-Pattern Computational Framework and D-FUMT Description of Civilization Dynamics / 𝕄パターン計算体系と文明動態のD-FUMT的記述",
+      "authors": [
+        "Nobuki Fujimoto"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140045100",
+      "title": "Das Voynich-Paradigma: Das Manuskript als prozessuales Arbeitsbuch",
+      "authors": [
+        "Thomas Jansen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140054782",
+      "title": "Electrocardiographic artifacts in clinical practice: A logical approach to recognition and prevention",
+      "authors": [
+        "Sudipta Mondal",
+        "Dinesh P Raja",
+        "Nadeem Afroz Muslim"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140026147",
+      "title": "Director-Class AI: Coherence Engine — AI Output Verification & Safety Oversight",
+      "authors": [
+        "Miroslav Sotek"
+      ],
+      "countries": [
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140025733",
+      "title": "FT-007: Unforced Consensus",
+      "authors": [
+        "David Lowe",
+        "Opus (AI) Claude"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140029064",
+      "title": "Who Fails and Why: An Analysis of Student Trajectories and the Prediction of Undergraduate Performance in Programming Courses",
+      "authors": [
+        "Rodrigo Gutiérrez-Benítez",
+        "Andrea Vásquez-Guerra",
+        "José Luis Carrasco-Sáez"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140037751",
+      "title": "FT-005: The Trinity Requirement",
+      "authors": [
+        "David Lowe",
+        "Opus (AI) Claude"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140038559",
+      "title": "DESCOP: Detection of Central Canal Spinal Stenosis via Spinal Cord Projector Integrated Mobile Network",
+      "authors": [
+        "K. S. Kalaivani",
+        "C. S. Kanimozhi Selvi",
+        "G. R. Sreekanth"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-23",
       "source": "openalex"
     }
   ],

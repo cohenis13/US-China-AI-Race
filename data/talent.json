@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-23T10:33:34.751894+00:00",
+  "fetched_at": "2026-03-24T10:10:56.666069+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,241 +10,241 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 129099,
-    "China": 229875,
-    "Other": 657942,
+    "US": 129824,
+    "China": 230356,
+    "Other": 659439,
     "Unknown": 0,
-    "total_papers": 1492654,
-    "total_attributed": 1016916
+    "total_papers": 1500798,
+    "total_attributed": 1019619
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 229875
+      "count": 230356
     },
     {
       "country_code": "US",
-      "count": 129099
+      "count": 129824
     },
     {
       "country_code": "JP",
-      "count": 79346
+      "count": 79435
     },
     {
       "country_code": "IN",
-      "count": 75385
+      "count": 75983
     },
     {
       "country_code": "GB",
-      "count": 41742
+      "count": 40521
     },
     {
       "country_code": "DE",
-      "count": 32281
+      "count": 32442
     },
     {
       "country_code": "ID",
-      "count": 26798
+      "count": 26812
     },
     {
       "country_code": "CA",
-      "count": 20628
+      "count": 20736
     },
     {
       "country_code": "IT",
-      "count": 20530
+      "count": 20630
     },
     {
       "country_code": "FR",
-      "count": 19835
+      "count": 19975
     }
   ],
   "papers": [
     {
-      "id": "https://openalex.org/W7140024615",
-      "title": "Visual mathematics writing: examining students’ performance in visual and text integration",
+      "id": "https://openalex.org/W7128871146",
+      "title": "The Atrial Fibrillation In Critically Ill patients (AFICILL) studies: validation and implemetation of topological data analysis and machine learning techniques in the prediction of atrial-fibrillation related outcomes in patients admitted to medical sub-intensive care units",
       "authors": [
-        "Haorui Cui",
-        "Xin Lin",
-        "Lam Pang"
+        "Emanuele Guerrieri"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-23",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140045034",
-      "title": "Code and datasets for 'A Bayesian classification model to reconstruct lifetime movement patterns of riverine fish using environmental tracers'",
+      "id": "https://openalex.org/W7140106522",
+      "title": "Empathic Logic Model (ELM): A Cognitive-Interactional Coherence Framework for Regulating Interpretive Instability",
       "authors": [
-        "Michael P. Venarsky",
-        "E. Boone",
-        "Ben Stewart-Koster"
+        "Ram A R, Bavin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140093396",
+      "title": "Information Leakage Prevention and Multi-Scale Feature Modeling for Carbon Emission Time Series Forecasting",
+      "authors": [
+        "Heping Wang",
+        "Junxuan Yao"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140107514",
+      "title": "Pengembangan e-Modul Interaktif Berbasis Problem Based Learning (PBL) Berbantuan Augmented Reality (Ar) Berorientasi Minat Belajar Murid Materi Ikatan Kimia",
+      "authors": [
+        "Risma Junita Amriani",
+        "Rayandra Asyhar",
+        "Muhammad Haris Effendi Hasibuan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140098911",
+      "title": "TinyOL: A Lightweight Edge Machine Learning Framework for Multi-Modal IoT Sensor Reliability During Network Congestion",
+      "authors": [
+        "Haranath Rakshit",
+        "Subhasis Banerjee"
       ],
       "countries": [
-        "AU",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7125765044",
-      "title": "Beyond the TESSERACT:Trustworthy Dataset Curation for Sound Evaluationsof Android Malware Classifiers",
-      "authors": [
-        "T.T. Chow",
-        "Mario D’Onghia",
-        "Lorenz Linhardt"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140037273",
-      "title": "Interpretable Memory-behavior Modeling for Malware Detection Using Additive Explainable Learning",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140047954",
-      "title": "Coin Systeme und Super Zellen",
-      "authors": [
-        "Korkmaz Sahin Can"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140027316",
-      "title": "Basics of computer operation",
-      "authors": [
-        "Yoshihiro Satō"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140029153",
-      "title": "FT-009: The Adversary Thread",
-      "authors": [
-        "David Lowe",
-        "Opus (AI) Claude"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140024377",
-      "title": "M-Pattern Computational Framework and D-FUMT Description of Civilization Dynamics / 𝕄パターン計算体系と文明動態のD-FUMT的記述",
-      "authors": [
-        "Nobuki Fujimoto"
-      ],
-      "countries": [
-        "GB"
+        "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-03-23",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140045100",
-      "title": "Das Voynich-Paradigma: Das Manuskript als prozessuales Arbeitsbuch",
+      "id": "https://openalex.org/W7140079272",
+      "title": "Evolution and the Triad: The Organism–Environment–Generativity Framework",
       "authors": [
-        "Thomas Jansen"
+        "Denis Bailey"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-23",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140054782",
-      "title": "Electrocardiographic artifacts in clinical practice: A logical approach to recognition and prevention",
+      "id": "https://openalex.org/W7140119289",
+      "title": "Evolution and the Triad: The Organism–Environment–Generativity Framework",
       "authors": [
-        "Sudipta Mondal",
-        "Dinesh P Raja",
-        "Nadeem Afroz Muslim"
+        "Denis Bailey"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-23",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140026147",
-      "title": "Director-Class AI: Coherence Engine — AI Output Verification & Safety Oversight",
+      "id": "https://openalex.org/W7140118653",
+      "title": "蝴蝶投影统一场论(Butterfly Projection Unified Field Theory)",
       "authors": [
-        "Miroslav Sotek"
+        "ZIXUAN LUO"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140085677",
+      "title": "Coherence Induction in Coupled Human–Machine Systems as a Longitudinal Multi-Layer Analysis using Coherence Intelligence Architecture",
+      "authors": [
+        "Kanna Amresh"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140147252",
+      "title": "\"Perceptual Compression Hypothesis: A Principles-First Proposal on Unequal Visual Transmission and Early-Stage Retinal Prioritization\"",
+      "authors": [
+        "John Anthony Martinez Martinez"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140074864",
+      "title": "challenging synchronization-based network reconstruction from time series: a critical evaluation using Fitzhugh–Nagumo neural networks",
+      "authors": [
+        "Bahareh Karimi Rahjerdi",
+        "Shivakumar Rajagopal",
+        "Fahimeh Nazarimehr"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-24",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134051362",
+      "title": "SC-NeuroCore: Universal Stochastic Computing Framework for Neuromorphic Hardware",
+      "authors": [
+        "Sotek, Miroslav"
       ],
       "countries": [
         "FI"
       ],
       "primary_country": "Other",
-      "published": "2026-03-23",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140025733",
-      "title": "FT-007: Unforced Consensus",
+      "id": "https://openalex.org/W7127546292",
+      "title": "Where Graphs Meet Fuzzy Logic — A DBMS-Centered Engine for Polyphonic Music Matching in Score Databases",
       "authors": [
-        "David Lowe",
-        "Opus (AI) Claude"
+        "Adel Aly",
+        "Olivier Pivert",
+        "Virginie Thion"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140029064",
-      "title": "Who Fails and Why: An Analysis of Student Trajectories and the Prediction of Undergraduate Performance in Programming Courses",
+      "id": "https://openalex.org/W7140120087",
+      "title": "Leaf Disease Detection Using Deep Learning and ML Techniques",
       "authors": [
-        "Rodrigo Gutiérrez-Benítez",
-        "Andrea Vásquez-Guerra",
-        "José Luis Carrasco-Sáez"
+        "Ms. Keerthi",
+        "N. Keerthi Reddy",
+        "K. Anil Kumar"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-24",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140037751",
-      "title": "FT-005: The Trinity Requirement",
+      "id": "https://openalex.org/W7140145656",
+      "title": "Mapping the landscape of emotional intelligence research: a bibliometric analysis of trends, patterns, and future directions",
       "authors": [
-        "David Lowe",
-        "Opus (AI) Claude"
+        "Saikalyani Rana",
+        "Sesadeba Pany",
+        "Sankar Prasad Mohanty"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-23",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140038559",
-      "title": "DESCOP: Detection of Central Canal Spinal Stenosis via Spinal Cord Projector Integrated Mobile Network",
-      "authors": [
-        "K. S. Kalaivani",
-        "C. S. Kanimozhi Selvi",
-        "G. R. Sreekanth"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-23",
+      "published": "2026-03-24",
       "source": "openalex"
     }
   ],

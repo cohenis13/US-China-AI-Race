@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-24T10:10:56.666069+00:00",
+  "fetched_at": "2026-03-25T10:11:05.975809+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,241 +10,224 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 129824,
-    "China": 230356,
-    "Other": 659439,
+    "US": 129604,
+    "China": 229729,
+    "Other": 658044,
     "Unknown": 0,
-    "total_papers": 1500798,
-    "total_attributed": 1019619
+    "total_papers": 1498617,
+    "total_attributed": 1017377
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 230356
+      "count": 229729
     },
     {
       "country_code": "US",
-      "count": 129824
+      "count": 129604
     },
     {
       "country_code": "JP",
-      "count": 79435
+      "count": 79376
     },
     {
       "country_code": "IN",
-      "count": 75983
+      "count": 75877
     },
     {
       "country_code": "GB",
-      "count": 40521
+      "count": 40418
     },
     {
       "country_code": "DE",
-      "count": 32442
+      "count": 32370
     },
     {
       "country_code": "ID",
-      "count": 26812
+      "count": 26769
     },
     {
       "country_code": "CA",
-      "count": 20736
+      "count": 20686
     },
     {
       "country_code": "IT",
-      "count": 20630
+      "count": 20592
     },
     {
       "country_code": "FR",
-      "count": 19975
+      "count": 19935
     }
   ],
   "papers": [
     {
-      "id": "https://openalex.org/W7128871146",
-      "title": "The Atrial Fibrillation In Critically Ill patients (AFICILL) studies: validation and implemetation of topological data analysis and machine learning techniques in the prediction of atrial-fibrillation related outcomes in patients admitted to medical sub-intensive care units",
+      "id": "https://openalex.org/W7140015946",
+      "title": "Factors Predicting Onomatopoeia Use in Japanese Learners’ Production Data: An Exploratory Study Using Machine Learning",
       "authors": [
-        "Emanuele Guerrieri"
+        "沢奇 廉"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140106522",
-      "title": "Empathic Logic Model (ELM): A Cognitive-Interactional Coherence Framework for Regulating Interpretive Instability",
+      "id": "https://openalex.org/W7139027941",
+      "title": "A new dance culture in Indonesia: Designing the dance 'Bedhayan Gagrag Sumirat Puspito' with deep learning and Muhammadiyah philosophy",
       "authors": [
-        "Ram A R, Bavin"
+        "Arina Restian",
+        "Ela Rohmatul Maulidah"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140093396",
-      "title": "Information Leakage Prevention and Multi-Scale Feature Modeling for Carbon Emission Time Series Forecasting",
+      "id": "https://openalex.org/W7140008268",
+      "title": "Hedges and Boosters Used by Japanese Learners in English Essays: Based on Regional and Topic Differences in ICNALE",
       "authors": [
-        "Heping Wang",
-        "Junxuan Yao"
+        "真之 飯島"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140107514",
-      "title": "Pengembangan e-Modul Interaktif Berbasis Problem Based Learning (PBL) Berbantuan Augmented Reality (Ar) Berorientasi Minat Belajar Murid Materi Ikatan Kimia",
+      "id": "https://openalex.org/W7140011089",
+      "title": "The Usage of Contrastive Linking Adverbials in English Essays Written by Chinese, Japanese Learners of English and English Native Speakers: Quantitative Research Based on Leaner Corpus",
       "authors": [
-        "Risma Junita Amriani",
-        "Rayandra Asyhar",
-        "Muhammad Haris Effendi Hasibuan"
+        "Gang FU"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140098911",
-      "title": "TinyOL: A Lightweight Edge Machine Learning Framework for Multi-Modal IoT Sensor Reliability During Network Congestion",
+      "id": "https://openalex.org/W7138886393",
+      "title": "From idea to character: A strategy for character construction and illustration in technical digital illustration training",
       "authors": [
-        "Haranath Rakshit",
-        "Subhasis Banerjee"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-24",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140079272",
-      "title": "Evolution and the Triad: The Organism–Environment–Generativity Framework",
-      "authors": [
-        "Denis Bailey"
+        "Sebastián Isidro Perdomo Buriticá"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140119289",
-      "title": "Evolution and the Triad: The Organism–Environment–Generativity Framework",
+      "id": "https://openalex.org/W7128279038",
+      "title": "MPC-Informed Residual Reinforcement Learning for Hybrid Control",
       "authors": [
-        "Denis Bailey"
+        "Senne Bogaerts",
+        "Flavia Sofia Acerbo",
+        "Jianye Xu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140118653",
-      "title": "蝴蝶投影统一场论(Butterfly Projection Unified Field Theory)",
+      "id": "https://openalex.org/W7140012079",
+      "title": "Genre Differences and Stylistic Characteristics in the Part-of-Speech Usage of Sino-Japanese Verbal Nouns: A Frequency-Based and Keyword-Based Analysis",
       "authors": [
-        "ZIXUAN LUO"
+        "迪 陳"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140085677",
-      "title": "Coherence Induction in Coupled Human–Machine Systems as a Longitudinal Multi-Layer Analysis using Coherence Intelligence Architecture",
+      "id": "https://openalex.org/W7139583040",
+      "title": "Control-Oriented Identification Modeling for Ship Maneuvering: A Physics-Informed and Scenario-Based Approach",
       "authors": [
-        "Kanna Amresh"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-24",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140147252",
-      "title": "\"Perceptual Compression Hypothesis: A Principles-First Proposal on Unequal Visual Transmission and Early-Stage Retinal Prioritization\"",
-      "authors": [
-        "John Anthony Martinez Martinez"
+        "Yanyun Zhang",
+        "Katrien Eloot",
+        "Jan Swevers"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140074864",
-      "title": "challenging synchronization-based network reconstruction from time series: a critical evaluation using Fitzhugh–Nagumo neural networks",
+      "id": "https://openalex.org/W7137878582",
+      "title": "Evaluation of the Impact of Progress Visualization on Motivation - RE & Evaluation Datasets",
       "authors": [
-        "Bahareh Karimi Rahjerdi",
-        "Shivakumar Rajagopal",
-        "Fahimeh Nazarimehr"
+        "Sangaran Ramesch"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134051362",
-      "title": "SC-NeuroCore: Universal Stochastic Computing Framework for Neuromorphic Hardware",
+      "id": "https://openalex.org/W7139081735",
+      "title": "From idea to character: A strategy for character construction and illustration in technical digital illustration training",
       "authors": [
-        "Sotek, Miroslav"
-      ],
-      "countries": [
-        "FI"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-24",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7127546292",
-      "title": "Where Graphs Meet Fuzzy Logic — A DBMS-Centered Engine for Polyphonic Music Matching in Score Databases",
-      "authors": [
-        "Adel Aly",
-        "Olivier Pivert",
-        "Virginie Thion"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-24",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140120087",
-      "title": "Leaf Disease Detection Using Deep Learning and ML Techniques",
-      "authors": [
-        "Ms. Keerthi",
-        "N. Keerthi Reddy",
-        "K. Anil Kumar"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-24",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140145656",
-      "title": "Mapping the landscape of emotional intelligence research: a bibliometric analysis of trends, patterns, and future directions",
-      "authors": [
-        "Saikalyani Rana",
-        "Sesadeba Pany",
-        "Sankar Prasad Mohanty"
+        "Sebastián Isidro Perdomo Buriticá"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-24",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140008748",
+      "title": "Proposal of an Empirical Research Method for Meaning through Intervention: The Meaning of Evaluative Expressions as Measured by Surprisal",
+      "authors": [
+        "裕三 森下"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7133457349",
+      "title": "Studies on Perceptive Systems for Maritime Autonomous Surface Ships",
+      "authors": [
+        "Filippo Ponzini"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138852433",
+      "title": "Exploring perceptual boundaries: Assessing human ability to differentiate AI-cloned from real voices",
+      "authors": [
+        "Seyhan Canyakan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140016346",
+      "title": "A Simple Exploratory Attempt on Extracting Constituent Elements of Humanities Journal Articles: For Comparing Instruction Contents and Actual Articles",
+      "authors": [
+        "桂子 中尾"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139614341",
+      "title": "Mobiele beeldschermen van de volgende generatie met extra functies in het paneel",
+      "authors": [
+        "Aris Siskos"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
       "source": "openalex"
     }
   ],

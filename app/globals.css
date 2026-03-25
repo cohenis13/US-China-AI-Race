@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Core palette */
+  --background: 210 20% 98%;
+  --foreground: 215 28% 12%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 215 28% 12%;
+
+  --border: 214 20% 88%;
+
+  --muted: 210 18% 95%;
+  --muted-foreground: 215 16% 47%;
+
+  --accent: 210 18% 92%;
+  --accent-foreground: 215 28% 12%;
+
+  /* Brand colors */
+  --us: 221 65% 28%;       /* deep navy */
+  --china: 3 62% 40%;      /* muted red */
+
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-inter);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+}

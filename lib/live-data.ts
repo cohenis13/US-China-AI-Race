@@ -35,8 +35,16 @@ interface FrontierModels {
   summary: { US: number; China: number }
 }
 
+interface TalentCountry {
+  composite_score: number
+  proxies: {
+    paper_volume:   { raw_value: number; share_score: number }
+    top_conference: { raw_value: number; share_score: number }
+    high_impact:    { raw_value: number; share_score: number }
+  }
+}
 interface Talent {
-  summary: { US: number; China: number }
+  summary: { US: TalentCountry; China: TalentCountry }
 }
 
 interface Compute {
@@ -166,7 +174,21 @@ export async function getLiveData(): Promise<LiveData> {
 
   const talUs = tal.summary.US
   const talCn = tal.summary.China
-  const talTotal = talUs + talCn
+  const talUsComposite = talUs.composite_score
+  const talCnComposite = talCn.composite_score
+  const talLeader = talUsComposite >= talCnComposite ? 'US' : 'China'
+  const talVolUsShare  = talUs.proxies.paper_volume.share_score
+  const talVolCnShare  = talCn.proxies.paper_volume.share_score
+  const talConfUsShare = talUs.proxies.top_conference.share_score
+  const talConfCnShare = talCn.proxies.top_conference.share_score
+  const talImpUsShare  = talUs.proxies.high_impact.share_score
+  const talImpCnShare  = talCn.proxies.high_impact.share_score
+  const talVolUsRaw    = talUs.proxies.paper_volume.raw_value
+  const talVolCnRaw    = talCn.proxies.paper_volume.raw_value
+  const talConfUsRaw   = talUs.proxies.top_conference.raw_value
+  const talConfCnRaw   = talCn.proxies.top_conference.raw_value
+  const talImpUsRaw    = talUs.proxies.high_impact.raw_value
+  const talImpCnRaw    = talCn.proxies.high_impact.raw_value
 
   const compUsRmax = comp.summary.US.rmax_pflops
   const compCnRmax = comp.summary.China.rmax_pflops
@@ -213,15 +235,22 @@ export async function getLiveData(): Promise<LiveData> {
     {
       id: 'talent',
       label: 'Talent',
-      headline: `China leads: ${pct(talCn, talTotal)}% of combined AI paper output`,
-      headlineNote: `${fmt(talUs)} US vs ${fmt(talCn)} China papers (12 months, OpenAlex)`,
+      headline: talLeader === 'US'
+        ? `US leads on talent composite: ${talUsComposite.toFixed(1)} vs ${talCnComposite.toFixed(1)}`
+        : `China leads on talent composite: ${talCnComposite.toFixed(1)} vs ${talUsComposite.toFixed(1)}`,
+      headlineNote: 'paper volume (30%) + top conference presence (40%) + high-impact output (30%)',
       explanation: getCaveat('talent'),
       barData: [
-        { label: 'AI research papers (share %)', US: pct(talUs, talTotal), CN: pct(talCn, talTotal) },
+        { label: 'Paper volume share (%)',           US: Math.round(talVolUsShare),  CN: Math.round(talVolCnShare)  },
+        { label: 'Top conference papers share (%)',  US: Math.round(talConfUsShare), CN: Math.round(talConfCnShare) },
+        { label: 'High-impact papers share (%)',     US: Math.round(talImpUsShare),  CN: Math.round(talImpCnShare)  },
+        { label: 'Composite score',                  US: Math.round(talUsComposite), CN: Math.round(talCnComposite) },
       ],
-      barXLabel: 'Share of combined US + China papers (%)',
+      barXLabel: 'Share of combined US + China (%)',
       tableRows: [
-        { label: '12-month AI papers', us: fmt(talUs), cn: fmt(talCn) },
+        { label: 'AI papers (12-month)',              us: fmt(talVolUsRaw),  cn: fmt(talVolCnRaw)  },
+        { label: 'Top conf. papers cited ≥10 (2y)',   us: fmt(talConfUsRaw), cn: fmt(talConfCnRaw) },
+        { label: 'High-impact papers cited ≥50 (3y)', us: fmt(talImpUsRaw),  cn: fmt(talImpCnRaw)  },
         { label: 'Score (0–10)', ...getScore('talent') },
       ],
     },

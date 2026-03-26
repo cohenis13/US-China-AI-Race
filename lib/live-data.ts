@@ -238,19 +238,19 @@ export async function getLiveData(): Promise<LiveData> {
       headline: talLeader === 'US'
         ? `US leads on talent composite: ${talUsComposite.toFixed(1)} vs ${talCnComposite.toFixed(1)}`
         : `China leads on talent composite: ${talCnComposite.toFixed(1)} vs ${talUsComposite.toFixed(1)}`,
-      headlineNote: 'paper volume (30%) + top conference presence (40%) + high-impact output (30%)',
+      headlineNote: 'paper volume (30%) + quality papers cited ≥10 (40%) + high-impact cited ≥100 (30%)',
       explanation: getCaveat('talent'),
       barData: [
-        { label: 'Paper volume share (%)',           US: Math.round(talVolUsShare),  CN: Math.round(talVolCnShare)  },
-        { label: 'Top conference papers share (%)',  US: Math.round(talConfUsShare), CN: Math.round(talConfCnShare) },
+        { label: 'Paper volume share (%)',            US: Math.round(talVolUsShare),  CN: Math.round(talVolCnShare)  },
+        { label: 'Quality papers share (cited ≥10%)', US: Math.round(talConfUsShare), CN: Math.round(talConfCnShare) },
         { label: 'High-impact papers share (%)',     US: Math.round(talImpUsShare),  CN: Math.round(talImpCnShare)  },
         { label: 'Composite score',                  US: Math.round(talUsComposite), CN: Math.round(talCnComposite) },
       ],
       barXLabel: 'Share of combined US + China (%)',
       tableRows: [
         { label: 'AI papers (12-month)',              us: fmt(talVolUsRaw),  cn: fmt(talVolCnRaw)  },
-        { label: 'Top conf. papers cited ≥10 (2y)',   us: fmt(talConfUsRaw), cn: fmt(talConfCnRaw) },
-        { label: 'High-impact papers cited ≥50 (3y)', us: fmt(talImpUsRaw),  cn: fmt(talImpCnRaw)  },
+        { label: 'Quality papers cited ≥10 (2y)',       us: fmt(talConfUsRaw), cn: fmt(talConfCnRaw) },
+        { label: 'High-impact papers cited ≥100 (3y)', us: fmt(talImpUsRaw),  cn: fmt(talImpCnRaw)  },
         { label: 'Score (0–10)', ...getScore('talent') },
       ],
     },

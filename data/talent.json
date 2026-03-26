@@ -4,11 +4,11 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-03-26T21:03:30.339535+00:00",
-  "last_updated": "2026-03-26T21:03:30.339546+00:00",
+  "fetched_at": "2026-03-26T21:09:26.537162+00:00",
+  "last_updated": "2026-03-26T21:09:26.537173+00:00",
   "summary": {
     "US": {
-      "composite_score": 36.0,
+      "composite_score": 37.1,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -24,14 +24,14 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 14014,
-          "unit": "AI quality papers cited ≥10x (2-year)",
-          "share_score": 29.4,
+          "raw_value": 3561,
+          "unit": "AI quality papers cited ≥25x (2-year)",
+          "share_score": 32.3,
           "window_days": 730,
-          "min_citations": 10,
+          "min_citations": 25,
           "venue_filter": "none — citation threshold only",
           "coverage": "high",
-          "note": "AI papers with at least 10 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
+          "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
           "raw_value": 1528,
@@ -45,7 +45,7 @@
       }
     },
     "China": {
-      "composite_score": 64.0,
+      "composite_score": 62.9,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -61,11 +61,11 @@
           "note": "China leads on AI paper volume (231,714 vs US 130,881 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 33590,
-          "unit": "AI quality papers cited ≥10x (2-year)",
-          "share_score": 70.6,
+          "raw_value": 7451,
+          "unit": "AI quality papers cited ≥25x (2-year)",
+          "share_score": 67.7,
           "window_days": 730,
-          "min_citations": 10,
+          "min_citations": 25,
           "coverage": "high",
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
@@ -81,9 +81,9 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥10x (40%), and high-impact output cited ≥100x (30%), the US scores 36.0 and China scores 64.0 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.9% of combined); the US leads on quality cited papers (29.4%) and high-impact papers (44.6%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.1 and China scores 62.9 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.9% of combined); the US leads on quality cited papers (32.3%) and high-impact papers (44.6%).",
   "composite_construction": {
-    "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥10x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
+    "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
       "paper_volume": 0.3,
       "top_conference": 0.4,
@@ -95,7 +95,7 @@
       "high_impact": "1095 days"
     },
     "thresholds": {
-      "top_conference_min_citations": 10,
+      "top_conference_min_citations": 25,
       "high_impact_min_citations": 100
     }
   },
@@ -288,13 +288,15 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140324455",
-      "title": "Physiological Expression Mapping in Cardiometabolic Disease: A State-Space Framework with Clinical and Hemodynamic Evidence",
+      "id": "https://openalex.org/W7140303279",
+      "title": "TL;DR:010 — Semantic Override: Google AI Mode Liquidates the Phrase \"I Hereby Abolish Money\" and Names the Operation It Performed",
       "authors": [
-        "Zheng J. Ma"
+        "Orin Trace"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
       "published": "2026-03-26",
       "cited_by_count": 0,
       "source": "openalex"

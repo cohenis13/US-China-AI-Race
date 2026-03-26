@@ -7,7 +7,7 @@ import {
   radarData,
   strategicInsights,
   dimensionTabs,
-} from '@/lib/data'
+} from '@/lib/live-data'
 
 export default function Dashboard() {
   return (

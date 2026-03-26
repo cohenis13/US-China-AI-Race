@@ -2,14 +2,11 @@ import ScoreCardStrip from '@/components/ScoreCardStrip'
 import CapabilityRadar from '@/components/CapabilityRadar'
 import StrategicInsights from '@/components/StrategicInsights'
 import DimensionTabs from '@/components/DimensionTabs'
-import {
-  scorecardDimensions,
-  radarData,
-  strategicInsights,
-  dimensionTabs,
-} from '@/lib/live-data'
+import { getLiveData } from '@/lib/live-data'
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const { scorecardDimensions, radarData, strategicInsights, dimensionTabs } = await getLiveData()
+
   return (
     <main className="min-h-screen bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">

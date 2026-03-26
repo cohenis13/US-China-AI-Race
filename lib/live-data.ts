@@ -4,9 +4,10 @@ import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionT
 // regardless of which branch this Next.js app is deployed from.
 const BASE = 'https://us-china-ai-race.vercel.app/data'
 
-// Cache for 1 hour — fresh enough for a daily pipeline, avoids hammering the CDN
-async function fetchJson(file: string): Promise<unknown> {
-  const res = await fetch(`${BASE}/${file}`, { next: { revalidate: 3600 } })
+// Always fetch fresh — data is updated daily by the pipeline
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function fetchJson(file: string): Promise<any> {
+  const res = await fetch(`${BASE}/${file}`, { cache: 'no-store' })
   if (!res.ok) throw new Error(`Failed to fetch ${file}: ${res.status}`)
   return res.json()
 }
@@ -124,14 +125,16 @@ export interface LiveData {
 }
 
 export async function getLiveData(): Promise<LiveData> {
-  const [exec, fm, tal, comp, adp, dif, eng] = await Promise.all([
-    fetchJson('executive_summary.json') as Promise<ExecutiveSummary>,
-    fetchJson('frontier_models.json') as Promise<FrontierModels>,
-    fetchJson('talent.json') as Promise<Talent>,
-    fetchJson('compute.json') as Promise<Compute>,
-    fetchJson('adoption.json') as Promise<Adoption>,
-    fetchJson('diffusion.json') as Promise<Diffusion>,
-    fetchJson('energy.json') as Promise<Energy>,
+  const [exec, fm, tal, comp, adp, dif, eng]: [
+    ExecutiveSummary, FrontierModels, Talent, Compute, Adoption, Diffusion, Energy
+  ] = await Promise.all([
+    fetchJson('executive_summary.json'),
+    fetchJson('frontier_models.json'),
+    fetchJson('talent.json'),
+    fetchJson('compute.json'),
+    fetchJson('adoption.json'),
+    fetchJson('diffusion.json'),
+    fetchJson('energy.json'),
   ])
 
   // ── ScoreCard ───────────────────────────────────────────────────────────────

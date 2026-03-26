@@ -2,7 +2,7 @@
   "dimension": "talent",
   "metric_key": "ai_papers_by_country_12m",
   "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-25T10:11:05.975809+00:00",
+  "fetched_at": "2026-03-26T10:15:34.114697+00:00",
   "window_days": 365,
   "source": {
     "name": "OpenAlex API",
@@ -10,220 +10,235 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
   },
   "summary": {
-    "US": 129604,
-    "China": 229729,
-    "Other": 658044,
+    "US": 130198,
+    "China": 230612,
+    "Other": 660561,
     "Unknown": 0,
-    "total_papers": 1498617,
-    "total_attributed": 1017377
+    "total_papers": 1506091,
+    "total_attributed": 1021371
   },
   "top_countries": [
     {
       "country_code": "CN",
-      "count": 229729
+      "count": 230612
     },
     {
       "country_code": "US",
-      "count": 129604
+      "count": 130198
     },
     {
       "country_code": "JP",
-      "count": 79376
+      "count": 79454
     },
     {
       "country_code": "IN",
-      "count": 75877
+      "count": 76349
     },
     {
       "country_code": "GB",
-      "count": 40418
+      "count": 40525
     },
     {
       "country_code": "DE",
-      "count": 32370
+      "count": 32499
     },
     {
       "country_code": "ID",
-      "count": 26769
+      "count": 26773
     },
     {
       "country_code": "CA",
-      "count": 20686
+      "count": 20779
     },
     {
       "country_code": "IT",
-      "count": 20592
+      "count": 20668
     },
     {
       "country_code": "FR",
-      "count": 19935
+      "count": 20017
     }
   ],
   "papers": [
+    {
+      "id": "https://openalex.org/W7125694795",
+      "title": "ChatGPT as a Tool for Programming Assistance and Code Development",
+      "authors": [
+        "Horn Sarun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140225854",
+      "title": "VGExplainer: Linking Graph Neural Networks and Large Language Models for Explainable Vulnerability Detection",
+      "authors": [
+        "Author(s) Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128286510",
+      "title": "Towards off-road motion planning on elevated terrain",
+      "authors": [
+        "Scheffe, Patrick",
+        "Wilm Decré",
+        "J. Swevers"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140134404",
+      "title": "Signal-Bifurcation Theory (SBT) Core Claims and Canonical Lexicon",
+      "authors": [
+        "Nicholas James Letchford"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125677265",
+      "title": "ChatGPT as a Tool for Programming Assistance and Code Development",
+      "authors": [
+        "Horn Sarun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140184421",
+      "title": "VGExplainer: Linking Graph Neural Networks and Large Language Models for Explainable Vulnerability Detection",
+      "authors": [
+        "Author(s) Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125681443",
+      "title": "Supplementary Data",
+      "authors": [
+        "Robert Hanes",
+        "Pilar Ayuda-Durán"
+      ],
+      "countries": [
+        "NO"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140163371",
+      "title": "VGExplainer: Linking Graph Neural Networks and Large Language Models for Explainable Vulnerability Detection",
+      "authors": [
+        "Author(s) Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140142851",
+      "title": "Signal-Bifurcation Theory (SBT) Core Claims and Canonical Lexicon",
+      "authors": [
+        "Nicholas James Letchford"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140229623",
+      "title": "NLP Framework to Safeguard Youngsters Online Using Advanced Transformer-Based Models",
+      "authors": [
+        "Hisham AbouGrad",
+        "Sankar Santhosh",
+        "Salem Alsaid"
+      ],
+      "countries": [
+        "GB",
+        "LY"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140193955",
+      "title": "Pre-Stabilisation Signals in Complex Systems: An Empirical Protocol for Testing Governance Sufficiency and an Invitation to the Research Community",
+      "authors": [
+        "Vishwanathprasad Balasubramanian"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140221419",
+      "title": "Enhancing viability for dairy products manufacturing through explicit and tacit knowledge management: the interacting role of artificial and human intelligence",
+      "authors": [
+        "Shalei Zhan",
+        "Haoming Wang",
+        "Zhengjiang Li"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140222849",
+      "title": "AUTOMATED DATA INTEGRATION AND REAL-TIME VISUALIZATION USING N8N AND POWER BI",
+      "authors": [
+        "D VIMAL KUMAR",
+        "A. VANITHA",
+        "MISHAL ALOY J"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140190919",
+      "title": "A fusion prediction model of tool wear based on physical information and machine learning in five-axis milling TC4 titanium alloy",
+      "authors": [
+        "Shaoqing Qin",
+        "Lida Zhu",
+        "Yanpeng Hao"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-03-25",
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7140015946",
       "title": "Factors Predicting Onomatopoeia Use in Japanese Learners’ Production Data: An Exploratory Study Using Machine Learning",
       "authors": [
         "沢奇 廉"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139027941",
-      "title": "A new dance culture in Indonesia: Designing the dance 'Bedhayan Gagrag Sumirat Puspito' with deep learning and Muhammadiyah philosophy",
-      "authors": [
-        "Arina Restian",
-        "Ela Rohmatul Maulidah"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140008268",
-      "title": "Hedges and Boosters Used by Japanese Learners in English Essays: Based on Regional and Topic Differences in ICNALE",
-      "authors": [
-        "真之 飯島"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140011089",
-      "title": "The Usage of Contrastive Linking Adverbials in English Essays Written by Chinese, Japanese Learners of English and English Native Speakers: Quantitative Research Based on Leaner Corpus",
-      "authors": [
-        "Gang FU"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138886393",
-      "title": "From idea to character: A strategy for character construction and illustration in technical digital illustration training",
-      "authors": [
-        "Sebastián Isidro Perdomo Buriticá"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128279038",
-      "title": "MPC-Informed Residual Reinforcement Learning for Hybrid Control",
-      "authors": [
-        "Senne Bogaerts",
-        "Flavia Sofia Acerbo",
-        "Jianye Xu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140012079",
-      "title": "Genre Differences and Stylistic Characteristics in the Part-of-Speech Usage of Sino-Japanese Verbal Nouns: A Frequency-Based and Keyword-Based Analysis",
-      "authors": [
-        "迪 陳"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139583040",
-      "title": "Control-Oriented Identification Modeling for Ship Maneuvering: A Physics-Informed and Scenario-Based Approach",
-      "authors": [
-        "Yanyun Zhang",
-        "Katrien Eloot",
-        "Jan Swevers"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7137878582",
-      "title": "Evaluation of the Impact of Progress Visualization on Motivation - RE & Evaluation Datasets",
-      "authors": [
-        "Sangaran Ramesch"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139081735",
-      "title": "From idea to character: A strategy for character construction and illustration in technical digital illustration training",
-      "authors": [
-        "Sebastián Isidro Perdomo Buriticá"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140008748",
-      "title": "Proposal of an Empirical Research Method for Meaning through Intervention: The Meaning of Evaluative Expressions as Measured by Surprisal",
-      "authors": [
-        "裕三 森下"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133457349",
-      "title": "Studies on Perceptive Systems for Maritime Autonomous Surface Ships",
-      "authors": [
-        "Filippo Ponzini"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138852433",
-      "title": "Exploring perceptual boundaries: Assessing human ability to differentiate AI-cloned from real voices",
-      "authors": [
-        "Seyhan Canyakan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140016346",
-      "title": "A Simple Exploratory Attempt on Extracting Constituent Elements of Humanities Journal Articles: For Comparing Instruction Contents and Actual Articles",
-      "authors": [
-        "桂子 中尾"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139614341",
-      "title": "Mobiele beeldschermen van de volgende generatie met extra functies in het paneel",
-      "authors": [
-        "Aris Siskos"
       ],
       "countries": [],
       "primary_country": "Unknown",

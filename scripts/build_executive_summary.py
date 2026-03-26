@@ -55,12 +55,14 @@ DIMS = {
         "label":       "Frontier Models",
         "radar_label": "Frontier\nModels",
         "confidence":  "Medium confidence",
-        "method":      "count_share",
+        "method":      "composite_share_100",
         "caveat":      (
-            "Reflects 30-day model update activity on Hugging Face Hub — a proxy for "
-            "lab output velocity, not a definitive capability ranking. China's frontier "
-            "capability (DeepSeek R1, Qwen series) is broader than HF Hub counts alone "
-            "capture. Counts reflect only US- and China-attributed labs in data/labs.json."
+            "Two-proxy composite: capability ranking share (60%) based on the top-20 "
+            "Artificial Analysis Intelligence Index leaderboard (updated weekly), plus "
+            "notable model output share (40%) from Epoch AI (last 2 years). "
+            "Each proxy is US share of combined US+China. "
+            "Leaderboard covers both open and closed models; Epoch AI notable models "
+            "database may lag very recent releases by days to weeks."
         ),
     },
     "talent": {
@@ -142,8 +144,8 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
     s = data.get("summary", {})
 
     if key == "frontier_models":
-        us = s.get("US")
-        cn = s.get("China")
+        us = s.get("US", {}).get("composite_score")
+        cn = s.get("China", {}).get("composite_score")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 

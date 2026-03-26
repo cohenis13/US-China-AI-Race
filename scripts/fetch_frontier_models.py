@@ -1,20 +1,41 @@
 #!/usr/bin/env python3
 """
-Fetch frontier model data from Hugging Face Hub API.
+Fetch frontier AI model data — two-proxy composite index.
 
-Classifies models by country based on the manual lab mapping in data/labs.json.
-Outputs cleaned, timestamped data to data/frontier_models.json.
+PROXIES
+  1. Capability score (60%): US share of top-N models on the Artificial
+     Analysis Intelligence Index leaderboard, read from the manually-
+     maintained data/leaderboard_snapshot.json (updated weekly).
+     Directly answers: "who has the most capable models right now?"
 
-Usage:
-    pip install requests
-    python scripts/fetch_frontier_models.py
+  2. Output score (40%): US share of notable AI models released in the
+     last 2 years, from the Epoch AI notable_ai_models.csv dataset.
+     Answers: "who is producing frontier-class models at what pace?"
 
-This script is designed to run locally or via GitHub Actions.
+COMPOSITE SCORING
+  Each proxy is scored as share-of-combined (US + China = 100).
+  Composite = 0.60 * capability_share + 0.40 * output_share.
+  US composite + China composite ≈ 100 by construction.
+
+WHY THIS APPROACH?
+  The previous HF Hub activity count was a noisy proxy that missed all
+  closed models (GPT-4o, Claude, Gemini, DeepSeek) — the most capable
+  systems. The new approach uses actual capability rankings for the
+  primary signal and release counts for context.
+
+DATA SOURCES
+  - Leaderboard: https://artificialanalysis.ai/leaderboards/models
+    (manually updated weekly in data/leaderboard_snapshot.json)
+  - Epoch AI: https://epoch.ai/data/notable_ai_models.csv
+    (fetched automatically; updated ~weekly by Epoch)
+
+OUTPUT: data/frontier_models.json
 """
 
+import csv
+import io
 import json
 import sys
-import time
 import logging
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -26,7 +47,7 @@ except ImportError:
     print("Install it with:  pip install requests")
     sys.exit(1)
 
-# ── Logging ──────────────────────────────────────────────────────
+# ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(levelname)-7s  %(message)s",
@@ -34,187 +55,323 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-# ── Paths ────────────────────────────────────────────────────────
-ROOT        = Path(__file__).resolve().parent.parent
-LABS_FILE   = ROOT / "data" / "labs.json"
-OUTPUT_FILE = ROOT / "data" / "frontier_models.json"
+# ── Paths ─────────────────────────────────────────────────────────────────────
+ROOT               = Path(__file__).resolve().parent.parent
+LEADERBOARD_FILE   = ROOT / "data" / "leaderboard_snapshot.json"
+OUTPUT_FILE        = ROOT / "data" / "frontier_models.json"
 
-# ── Config ───────────────────────────────────────────────────────
-WINDOW_DAYS      = 30
-HF_API_BASE      = "https://huggingface.co/api/models"
-REQUEST_TIMEOUT  = 20         # seconds
-RATE_LIMIT_SLEEP = 0.4        # seconds between API calls (be polite)
-RESULTS_PER_AUTHOR = 100      # max models to fetch per author
+# ── Config ────────────────────────────────────────────────────────────────────
+EPOCH_CSV_URL    = "https://epoch.ai/data/notable_ai_models.csv"
+REQUEST_TIMEOUT  = 30
+WINDOW_YEARS     = 2      # look back 2 years for output score
+TOP_N            = 20     # how many leaderboard models to count
+
+WEIGHTS = {
+    "capability": 0.60,
+    "output":     0.40,
+}
+
+# Epoch AI CSV uses full country names
+US_COUNTRY  = "United States"
+CN_COUNTRY  = "China"
+
+MAILTO = "ai-tracker@github-actions"
 
 
-def load_labs() -> list[dict]:
-    """Load the lab-to-country mapping from data/labs.json."""
-    if not LABS_FILE.exists():
-        log.error("labs.json not found at %s", LABS_FILE)
+# ── Helpers ───────────────────────────────────────────────────────────────────
+
+def share_score(us: int | float, cn: int | float) -> tuple[float, float]:
+    """Return (us_share, cn_share) as percentages summing to 100."""
+    total = us + cn
+    if total == 0:
+        return 50.0, 50.0
+    us_share = round((us / total) * 100.0, 1)
+    cn_share = round(100.0 - us_share, 1)
+    return us_share, cn_share
+
+
+# ── Proxy 1: Capability score from leaderboard snapshot ───────────────────────
+
+def load_leaderboard() -> dict:
+    if not LEADERBOARD_FILE.exists():
+        log.error("leaderboard_snapshot.json not found at %s", LEADERBOARD_FILE)
         sys.exit(1)
-    with open(LABS_FILE, encoding="utf-8") as f:
-        data = json.load(f)
-    return data["labs"]
+    with open(LEADERBOARD_FILE, encoding="utf-8") as f:
+        return json.load(f)
 
 
-def parse_hf_datetime(dt_str: str) -> datetime | None:
-    """Parse a Hugging Face ISO 8601 datetime string to a UTC-aware datetime."""
-    if not dt_str:
-        return None
-    try:
-        return datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
-    except ValueError:
-        return None
-
-
-def fetch_models_for_author(author: str, cutoff: datetime) -> list[dict]:
+def compute_capability_score(snapshot: dict) -> dict:
     """
-    Fetch models for a given HF author updated after cutoff.
-
-    Returns a list of model dicts (filtered to within the rolling window).
-    Returns [] on failure (non-fatal — logged as warning).
+    Count US and China models in the top-N leaderboard.
+    Returns a dict with counts, shares, and the model list.
     """
-    url = (
-        f"{HF_API_BASE}"
-        f"?author={author}"
-        f"&sort=lastModified"
-        f"&direction=-1"
-        f"&limit={RESULTS_PER_AUTHOR}"
-    )
+    models = snapshot.get("top_models", [])[:TOP_N]
+
+    us_count    = sum(1 for m in models if m.get("country") == "US")
+    china_count = sum(1 for m in models if m.get("country") == "China")
+    other_count = sum(1 for m in models if m.get("country") == "Other")
+
+    us_share, cn_share = share_score(us_count, china_count)
+
+    log.info("── Proxy 1: Capability (leaderboard top-%d) ──────────────────", TOP_N)
+    log.info("  US=%d  China=%d  Other=%d  → US_share=%.1f%%",
+             us_count, china_count, other_count, us_share)
+
+    if snapshot.get("needs_update"):
+        log.warning("  leaderboard_snapshot.json has needs_update=true — data may be stale")
+
+    return {
+        "us_count":       us_count,
+        "china_count":    china_count,
+        "other_count":    other_count,
+        "us_share":       us_share,
+        "cn_share":       cn_share,
+        "top_n":          TOP_N,
+        "snapshot_date":  snapshot.get("last_updated", "unknown"),
+        "source":         snapshot.get("source", "Artificial Analysis Intelligence Index"),
+        "source_url":     snapshot.get("source_url", ""),
+        "models":         models,
+    }
+
+
+# ── Proxy 2: Output score from Epoch AI ───────────────────────────────────────
+
+def fetch_epoch_csv() -> str | None:
+    """Download the Epoch AI notable models CSV. Returns raw text or None."""
+    headers = {"User-Agent": f"ai-race-tracker/1.0 (mailto:{MAILTO})"}
     try:
-        resp = requests.get(url, timeout=REQUEST_TIMEOUT)
+        resp = requests.get(EPOCH_CSV_URL, headers=headers, timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
-        models = resp.json()
-    except requests.exceptions.HTTPError as e:
-        log.warning("HTTP error for author '%s': %s", author, e)
-        return []
+        return resp.text
     except requests.exceptions.RequestException as e:
-        log.warning("Request failed for author '%s': %s", author, e)
-        return []
-
-    recent = []
-    for m in models:
-        # Try both field names — HF API has changed over time
-        last_mod_str = m.get("lastModified") or m.get("updatedAt") or ""
-        dt = parse_hf_datetime(last_mod_str)
-        if dt is None or dt < cutoff:
-            continue
-        recent.append({
-            "model_id":      m.get("id") or m.get("modelId", ""),
-            "author":        author,
-            "last_modified": last_mod_str,
-            "downloads":     m.get("downloads", 0),
-            "likes":         m.get("likes", 0),
-            "pipeline_tag":  m.get("pipeline_tag", ""),
-        })
-    return recent
+        log.warning("Epoch AI CSV fetch failed: %s", e)
+        return None
 
 
-def classify_country(country: str) -> str:
-    """Normalize country label to US / China / Other / Unknown.
-
-    - US      : US-headquartered lab
-    - China   : China-headquartered lab
-    - Other   : identified lab headquartered outside US and China (e.g. Mistral AI)
-    - Unknown : genuinely unclassifiable or not in labs.json
+def parse_epoch_csv(raw_csv: str, cutoff_date: str) -> dict:
     """
-    if country == "US":
-        return "US"
-    if country == "China":
-        return "China"
-    if country == "Other":
-        return "Other"
-    return "Unknown"
+    Parse the Epoch AI CSV and count US and China notable models
+    published since cutoff_date (YYYY-MM-DD).
+    Returns counts and a list of recent models for the table.
+    """
+    reader = csv.DictReader(io.StringIO(raw_csv))
 
+    us_count    = 0
+    china_count = 0
+    recent_models: list[dict] = []
+
+    for row in reader:
+        pub_date = (row.get("Publication date") or "").strip()
+        if not pub_date or pub_date < cutoff_date:
+            continue
+
+        country = (row.get("Country (of organization)") or "").strip()
+        model   = (row.get("Model") or "").strip()
+        org     = (row.get("Organization") or "").strip()
+        compute = (row.get("Training compute (FLOP)") or "").strip()
+        frontier = (row.get("Frontier model") or "").strip().lower()
+
+        if country == US_COUNTRY:
+            us_count += 1
+        elif country == CN_COUNTRY:
+            china_count += 1
+
+        recent_models.append({
+            "model":       model,
+            "developer":   org,
+            "country_raw": country,
+            "country":     "US" if country == US_COUNTRY else ("China" if country == CN_COUNTRY else "Other"),
+            "published":   pub_date,
+            "compute":     compute,
+            "frontier":    frontier == "yes",
+        })
+
+    # Sort by date descending for display
+    recent_models.sort(key=lambda x: x["published"], reverse=True)
+
+    return {
+        "us_count":      us_count,
+        "china_count":   china_count,
+        "total_parsed":  us_count + china_count,
+        "window_years":  WINDOW_YEARS,
+        "cutoff_date":   cutoff_date,
+        "recent_models": recent_models[:20],
+    }
+
+
+def compute_output_score(epoch_data: dict) -> dict:
+    us_count    = epoch_data["us_count"]
+    china_count = epoch_data["china_count"]
+    us_share, cn_share = share_score(us_count, china_count)
+
+    log.info("── Proxy 2: Output (Epoch AI, last %dy) ──────────────────────", WINDOW_YEARS)
+    log.info("  US=%d  China=%d  → US_share=%.1f%%", us_count, china_count, us_share)
+
+    return {
+        "us_count":    us_count,
+        "china_count": china_count,
+        "us_share":    us_share,
+        "cn_share":    cn_share,
+        **{k: v for k, v in epoch_data.items() if k not in ("us_count", "china_count")},
+    }
+
+
+# ── Composite ─────────────────────────────────────────────────────────────────
+
+def compute_composite(cap: dict, out: dict) -> tuple[float, float]:
+    us_comp = round(
+        WEIGHTS["capability"] * cap["us_share"] +
+        WEIGHTS["output"]     * out["us_share"],
+        1,
+    )
+    cn_comp = round(100.0 - us_comp, 1)
+    return us_comp, cn_comp
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    labs   = load_labs()
-    cutoff = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
+    today      = datetime.now(timezone.utc).date()
+    cutoff     = (today - timedelta(days=WINDOW_YEARS * 365)).isoformat()
 
-    log.info("Window: last %d days (after %s UTC)", WINDOW_DAYS, cutoff.date())
-    log.info("Labs loaded: %d entries", len(labs))
+    # ── Proxy 1: Capability ───────────────────────────────────────────────────
+    snapshot = load_leaderboard()
+    cap      = compute_capability_score(snapshot)
 
-    all_models: list[dict] = []
-    raw_summary: dict[str, int] = {}
+    # ── Proxy 2: Output ───────────────────────────────────────────────────────
+    raw_csv  = fetch_epoch_csv()
+    if raw_csv is None:
+        log.error("Could not fetch Epoch AI CSV — aborting")
+        sys.exit(1)
+    epoch_data = parse_epoch_csv(raw_csv, cutoff)
+    out        = compute_output_score(epoch_data)
 
-    for lab in labs:
-        lab_name   = lab["name"]
-        raw_country = lab.get("country", "Unknown")
-        country    = classify_country(raw_country)
-        hf_authors = lab.get("hf_authors", [])
+    # ── Composite ─────────────────────────────────────────────────────────────
+    us_comp, cn_comp = compute_composite(cap, out)
 
-        for author in hf_authors:
-            log.info("  Fetching %-30s [%s / %s]", author, lab_name, country)
-            models = fetch_models_for_author(author, cutoff)
+    log.info("")
+    log.info("Composite: US=%.1f  CN=%.1f", us_comp, cn_comp)
 
-            for m in models:
-                m["lab_name"] = lab_name
-                m["country"]  = country
-                all_models.append(m)
-
-            count = len(models)
-            raw_summary[country] = raw_summary.get(country, 0) + count
-            log.info("    → %d model(s) found", count)
-
-            time.sleep(RATE_LIMIT_SLEEP)
-
-    # Sort by most recently modified first
-    all_models.sort(key=lambda x: x["last_modified"], reverse=True)
-
-    # Build summary counts
-    us_count      = raw_summary.get("US", 0)
-    china_count   = raw_summary.get("China", 0)
-    other_count   = raw_summary.get("Other", 0)
-    unknown_count = raw_summary.get("Unknown", 0)
-    total         = len(all_models)
-
+    # ── Build output ──────────────────────────────────────────────────────────
     output = {
-        "dimension":    "frontier_models",
-        "metric_key":   "recent_model_updates",
-        "labs_tracked": len(labs),
-        "description": (
-            f"Public model update activity on Hugging Face Hub from tracked labs "
-            f"in the last {WINDOW_DAYS} days, classified by lab country (US / China / Other / Unknown). "
-            "This is a proxy metric for lab activity, not a definitive ranking of frontier model capability."
+        "dimension":   "frontier_models",
+        "metric_key":  "frontier_model_composite",
+        "title":       "Frontier AI Models — U.S. vs China",
+        "subtitle": (
+            f"Two-proxy composite: capability ranking share (60%, top-{TOP_N} leaderboard) "
+            f"+ notable model output share (40%, Epoch AI, last {WINDOW_YEARS} years). "
+            "Each proxy scored as share-of-combined (US + China = 100)."
         ),
-        "fetched_at":  datetime.now(timezone.utc).isoformat(),
-        "window_days": WINDOW_DAYS,
-        "source": {
-            "name": "Hugging Face Hub API",
-            "url":  HF_API_BASE,
-            "note": "Models filtered by a curated list of known labs (data/labs.json). Public models only.",
-        },
+        "fetched_at":   datetime.now(timezone.utc).isoformat(),
         "summary": {
-            "US":      us_count,
-            "China":   china_count,
-            "Other":   other_count,
-            "Unknown": unknown_count,
-            "total":   total,
+            "US": {
+                "composite_score": us_comp,
+                "effective_weights": WEIGHTS,
+                "proxies": {
+                    "capability": {
+                        "raw_value":     cap["us_count"],
+                        "unit":          f"models in top {TOP_N} (leaderboard)",
+                        "share_score":   cap["us_share"],
+                        "top_n":         TOP_N,
+                        "snapshot_date": cap["snapshot_date"],
+                        "note": (
+                            f"US has {cap['us_count']} of the top {TOP_N} models on the "
+                            f"Artificial Analysis Intelligence Index "
+                            f"(snapshot: {cap['snapshot_date']})."
+                        ),
+                    },
+                    "output": {
+                        "raw_value":   out["us_count"],
+                        "unit":        f"notable AI models (last {WINDOW_YEARS}y, Epoch AI)",
+                        "share_score": out["us_share"],
+                        "window_years": WINDOW_YEARS,
+                        "note": (
+                            f"US-based labs released {out['us_count']} notable AI models "
+                            f"in the last {WINDOW_YEARS} years per Epoch AI database."
+                        ),
+                    },
+                },
+            },
+            "China": {
+                "composite_score": cn_comp,
+                "effective_weights": WEIGHTS,
+                "proxies": {
+                    "capability": {
+                        "raw_value":     cap["china_count"],
+                        "unit":          f"models in top {TOP_N} (leaderboard)",
+                        "share_score":   cap["cn_share"],
+                        "top_n":         TOP_N,
+                        "snapshot_date": cap["snapshot_date"],
+                        "note": (
+                            f"China has {cap['china_count']} of the top {TOP_N} models on the "
+                            f"Artificial Analysis Intelligence Index "
+                            f"(snapshot: {cap['snapshot_date']})."
+                        ),
+                    },
+                    "output": {
+                        "raw_value":   out["china_count"],
+                        "unit":        f"notable AI models (last {WINDOW_YEARS}y, Epoch AI)",
+                        "share_score": out["cn_share"],
+                        "window_years": WINDOW_YEARS,
+                        "note": (
+                            f"China-based labs released {out['china_count']} notable AI models "
+                            f"in the last {WINDOW_YEARS} years per Epoch AI database."
+                        ),
+                    },
+                },
+            },
         },
-        "models": all_models,
-        "methodology_note": (
-            "Models are attributed to countries based on the manual lab mapping in "
-            "data/labs.json. Only models last modified within the rolling 30-day "
-            "window are counted. Four categories are used: US (US-headquartered labs), "
-            "China (China-headquartered labs), Other (identified labs outside US and China, "
-            "e.g. Mistral AI in France), and Unknown (genuinely unclassifiable). "
-            "This is an imperfect proxy — it captures public model update activity on "
-            "Hugging Face Hub, not a comprehensive census of all frontier AI development. "
-            "Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. "
-            "China-affiliated labs that publish primarily to domestic platforms "
-            "(ModelScope, etc.) may be undercounted. "
-            "NVIDIA publishes models across many specialized domains (robotics, medical imaging, "
-            "weather forecasting) and re-hosts some third-party model weights; its raw count "
-            "may not reflect general-purpose frontier model activity."
+        "leaderboard": {
+            "source":       cap["source"],
+            "source_url":   cap["source_url"],
+            "last_updated": cap["snapshot_date"],
+            "top_n":        TOP_N,
+            "models":       cap["models"],
+            "us_count":     cap["us_count"],
+            "china_count":  cap["china_count"],
+            "other_count":  cap["other_count"],
+        },
+        "epoch_output": {
+            "source":        "Epoch AI notable_ai_models.csv",
+            "source_url":    EPOCH_CSV_URL,
+            "window_years":  WINDOW_YEARS,
+            "cutoff_date":   cutoff,
+            "us_count":      out["us_count"],
+            "china_count":   out["china_count"],
+            "recent_models": epoch_data["recent_models"],
+        },
+        "composite_construction": {
+            "method":  "Weighted average of two share-of-combined scores.",
+            "weights": WEIGHTS,
+            "note": (
+                "Capability score (60%): US share of top-20 Artificial Analysis models. "
+                "Output score (40%): US share of Epoch AI notable models in last 2 years. "
+                "Both proxies use US/(US+China)*100; Other-country models are excluded "
+                "from the denominator."
+            ),
+        },
+        "interpretive_sentence": (
+            f"On a composite of leaderboard capability ranking (60%) and notable model "
+            f"output (40%), the US scores {us_comp:.1f} and China scores {cn_comp:.1f} "
+            f"out of 100. "
+            f"US has {cap['us_count']} of the top {TOP_N} models on AI benchmarks; "
+            f"China has {cap['china_count']}. "
+            f"On model output, US released {out['us_count']} notable models vs "
+            f"China's {out['china_count']} in the last {WINDOW_YEARS} years."
         ),
     }
 
     OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False))
-
-    log.info("")
     log.info("Output written to: %s", OUTPUT_FILE)
-    log.info("Summary: US=%d  China=%d  Other=%d  Unknown=%d  Total=%d",
-             us_count, china_count, other_count, unknown_count, total)
+    log.info(
+        "Capability (top-%d):  US=%d  CN=%d  US_share=%.1f%%",
+        TOP_N, cap["us_count"], cap["china_count"], cap["us_share"],
+    )
+    log.info(
+        "Output (Epoch, %dy): US=%d  CN=%d  US_share=%.1f%%",
+        WINDOW_YEARS, out["us_count"], out["china_count"], out["us_share"],
+    )
+    log.info("Composite:           US=%.1f  CN=%.1f", us_comp, cn_comp)
 
 
 if __name__ == "__main__":

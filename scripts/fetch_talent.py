@@ -273,7 +273,7 @@ def main() -> None:
         f"{base},"
         f"from_publication_date:{cutoff(WINDOW_CONFERENCE_DAYS)},"
         f"cited_by_count:>{CONF_MIN_CITATIONS - 1},"
-        f"primary_location.source.type:conference"
+        f"locations.source.type:conference"
     )
     conf_us, conf_cn, conf_total = fetch_country_breakdown(f_conf, "top-conf")
     conf_us_share, conf_cn_share = share_score(conf_us, conf_cn)
@@ -349,7 +349,7 @@ def main() -> None:
                         "share_score":     conf_us_share,
                         "window_days":     WINDOW_CONFERENCE_DAYS,
                         "min_citations":   CONF_MIN_CITATIONS,
-                        "venue_filter":    "primary_location.source.type:conference",
+                        "venue_filter":    "locations.source.type:conference",
                         "coverage":        "high",
                         "note": (
                             f"AI papers published in conference proceedings (OpenAlex source "
@@ -453,7 +453,7 @@ def main() -> None:
             "note": (
                 "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. "
                 "Papers with authors from multiple countries are counted in each country. "
-                "Conference-type filter uses primary_location.source.type:conference."
+                "Conference-type filter uses locations.source.type:conference."
             ),
         },
         "papers": recent_papers,

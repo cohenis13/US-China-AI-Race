@@ -69,12 +69,12 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "composite_share_100",
         "caveat":      (
-            "Three-proxy composite: paper volume (30%), top AI conference papers "
-            "cited ≥10 times over 2 years (40%), and high-impact papers cited ≥50 "
+            "Three-proxy composite: paper volume (30%), quality papers cited ≥10 "
+            "times over 2 years (40%), and high-impact papers cited ≥100 "
             "times over 3 years (30%). Each proxy is the US share of combined "
             "US+China output. China leads on raw volume; the US leads on citation "
-            "impact and top-conference presence. OpenAlex may undercount Chinese "
-            "domestic venues not indexed internationally."
+            "impact. No venue filter — citation thresholds are a more robust quality "
+            "proxy. OpenAlex may undercount Chinese domestic venues not indexed internationally."
         ),
     },
     "compute": {

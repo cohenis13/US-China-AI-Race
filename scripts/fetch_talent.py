@@ -11,15 +11,15 @@ PROXIES
        Measures breadth of research output.
        Weight: 30 %
 
-  2. Top conference papers (2-year window, cited ≥ 10 times)
-       AI papers published in conference proceedings (source.type = conference)
-       with at least 10 citations. Captures presence at major AI venues
-       (NeurIPS, ICML, ICLR, CVPR, ACL, AAAI, IJCAI, etc.) without
-       requiring fragile venue-specific ID lookups.
+  2. Quality papers (2-year window, cited ≥ 10 times)
+       AI papers with at least 10 citations — no venue filter applied.
+       OpenAlex classifies most AI papers as arXiv preprints regardless
+       of conference venue, making source.type:conference unreliable.
+       Citation threshold alone is a more robust quality signal.
        Weight: 40 %
 
-  3. High-impact papers (3-year window, cited ≥ 50 times)
-       AI papers of any type with 50+ citations. Captures elite,
+  3. High-impact papers (3-year window, cited ≥ 100 times)
+       AI papers of any type with 100+ citations. Captures elite,
        field-defining research that transcends any single conference.
        Weight: 30 %
 
@@ -81,13 +81,16 @@ CONCEPTS = "C154945302|C119857082|C204321447|C31972630"
 # C31972630  = Computer Vision
 
 # Time windows for each proxy
-WINDOW_VOLUME_DAYS     = 365    # 12 months — paper volume
-WINDOW_CONFERENCE_DAYS = 730    # 2 years — top-conference cited papers
-WINDOW_HIGH_IMPACT_DAYS = 1095  # 3 years — high-impact papers
+WINDOW_VOLUME_DAYS      = 365   # 12 months — paper volume
+WINDOW_CONFERENCE_DAYS  = 730   # 2 years  — quality papers (cited ≥ 10)
+WINDOW_HIGH_IMPACT_DAYS = 1095  # 3 years  — elite papers (cited ≥ 100)
 
 # Citation thresholds
-CONF_MIN_CITATIONS    = 10   # top-conference proxy: cited ≥ 10 times
-IMPACT_MIN_CITATIONS  = 50   # high-impact proxy: cited ≥ 50 times
+# Note: venue-type filters (source.type:conference) are unreliable in OpenAlex
+# because most AI papers are primarily indexed via arXiv regardless of venue.
+# Pure citation thresholds are more objective and reproducible.
+CONF_MIN_CITATIONS   = 10    # quality proxy: cited ≥ 10 times in 2 years
+IMPACT_MIN_CITATIONS = 100   # elite proxy:   cited ≥ 100 times in 3 years
 
 # Composite weights (must sum to 1.0)
 WEIGHTS = {
@@ -267,13 +270,15 @@ def main() -> None:
     vol_us_share, vol_cn_share = share_score(vol_us, vol_cn)
     time.sleep(RATE_LIMIT_SLEEP)
 
-    # ── Proxy 2: Top conference papers (2 years, cited ≥ 10) ─────────────────
-    log.info("── Proxy 2: Top conference papers (2y, cited≥%d) ─────────────", CONF_MIN_CITATIONS)
+    # ── Proxy 2: Quality papers (2 years, cited ≥ 10) ───────────────────────
+    # No venue filter — OpenAlex classifies most AI papers as arXiv preprints
+    # regardless of conference venue, making source.type:conference unreliable.
+    # Citation threshold alone is a more robust and objective quality signal.
+    log.info("── Proxy 2: Quality papers (2y, cited≥%d) ───────────────────", CONF_MIN_CITATIONS)
     f_conf = (
         f"{base},"
         f"from_publication_date:{cutoff(WINDOW_CONFERENCE_DAYS)},"
-        f"cited_by_count:>{CONF_MIN_CITATIONS - 1},"
-        f"locations.source.type:conference"
+        f"cited_by_count:>{CONF_MIN_CITATIONS - 1}"
     )
     conf_us, conf_cn, conf_total = fetch_country_breakdown(f_conf, "top-conf")
     conf_us_share, conf_cn_share = share_score(conf_us, conf_cn)
@@ -312,17 +317,17 @@ def main() -> None:
         "metric_key":  "ai_talent_composite_index",
         "title":       "AI Talent Index — U.S. vs China",
         "subtitle":    (
-            "Three-proxy composite: research volume, top-conference presence, "
-            "and high-impact output. Each proxy scored as share-of-combined "
+            "Three-proxy composite: research volume, quality papers (cited ≥10), "
+            "and high-impact output (cited ≥100). Each proxy scored as share-of-combined "
             "(US + China = 100). US + China composite ≈ 100 by construction."
         ),
         "description": (
             "A composite index measuring relative AI talent strength across "
             "three dimensions: (1) AI paper volume (breadth of research output), "
-            "(2) top AI conference papers with ≥10 citations (quality of "
-            "conference-level research), and (3) high-impact AI papers with "
-            "≥50 citations (elite research production). All proxies sourced "
-            "from OpenAlex. Each is scored as US share of combined US+China total."
+            "(2) quality AI papers with ≥10 citations in 2 years (research impact), "
+            "and (3) high-impact AI papers with ≥100 citations in 3 years "
+            "(elite research production). All proxies sourced from OpenAlex. "
+            "Each is scored as US share of combined US+China total."
         ),
         "fetched_at":   datetime.now(timezone.utc).isoformat(),
         "last_updated": datetime.now(timezone.utc).isoformat(),
@@ -345,18 +350,18 @@ def main() -> None:
                     },
                     "top_conference": {
                         "raw_value":       conf_us,
-                        "unit":            f"AI conference papers cited ≥{CONF_MIN_CITATIONS}x (2-year)",
+                        "unit":            f"AI quality papers cited ≥{CONF_MIN_CITATIONS}x (2-year)",
                         "share_score":     conf_us_share,
                         "window_days":     WINDOW_CONFERENCE_DAYS,
                         "min_citations":   CONF_MIN_CITATIONS,
-                        "venue_filter":    "locations.source.type:conference",
+                        "venue_filter":    "none — citation threshold only",
                         "coverage":        "high",
                         "note": (
-                            f"AI papers published in conference proceedings (OpenAlex source "
-                            f"type=conference) with at least {CONF_MIN_CITATIONS} citations, "
-                            f"last {WINDOW_CONFERENCE_DAYS} days. Covers NeurIPS, ICML, ICLR, "
-                            "CVPR, ACL, AAAI, IJCAI and other major AI venues without "
-                            "requiring venue-specific ID lookups."
+                            f"AI papers with at least {CONF_MIN_CITATIONS} citations, "
+                            f"last {WINDOW_CONFERENCE_DAYS} days. No venue filter — "
+                            "OpenAlex classifies most AI papers as arXiv preprints regardless "
+                            "of conference venue, making source.type:conference unreliable. "
+                            "Citation threshold is a more objective and reproducible quality proxy."
                         ),
                     },
                     "high_impact": {
@@ -393,15 +398,15 @@ def main() -> None:
                     },
                     "top_conference": {
                         "raw_value":     conf_cn,
-                        "unit":          f"AI conference papers cited ≥{CONF_MIN_CITATIONS}x (2-year)",
+                        "unit":          f"AI quality papers cited ≥{CONF_MIN_CITATIONS}x (2-year)",
                         "share_score":   conf_cn_share,
                         "window_days":   WINDOW_CONFERENCE_DAYS,
                         "min_citations": CONF_MIN_CITATIONS,
                         "coverage":      "high",
                         "note": (
-                            "China has substantially increased top AI conference presence "
-                            "since 2019, particularly at NeurIPS, ICML, and CVPR. "
-                            "Citation thresholding filters out poster/workshop papers."
+                            "China has substantially increased high-quality AI publication output "
+                            "since 2019. Citation thresholding filters out the long tail of "
+                            "low-engagement papers, isolating papers with measurable research impact."
                         ),
                     },
                     "high_impact": {
@@ -421,20 +426,22 @@ def main() -> None:
             },
         },
         "interpretive_sentence": (
-            f"On a composite of paper volume (30%), top conference presence (40%), "
-            f"and high-impact output (30%), the US scores {us_composite:.1f} and "
+            f"On a composite of paper volume (30%), quality papers cited ≥{CONF_MIN_CITATIONS}x (40%), "
+            f"and high-impact output cited ≥{IMPACT_MIN_CITATIONS}x (30%), the US scores {us_composite:.1f} and "
             f"China scores {cn_composite:.1f} out of 100 (US + China ≈ 100). "
             f"China leads on raw paper volume ({vol_cn_share:.1f}% of combined); "
-            f"the US leads on top-conference cited papers ({conf_us_share:.1f}%) "
+            f"the US leads on quality cited papers ({conf_us_share:.1f}%) "
             f"and high-impact papers ({imp_us_share:.1f}%)."
         ),
         "composite_construction": {
             "method": (
                 "Weighted average of three share-of-combined scores. Each proxy is "
                 "computed as US/(US+China)*100, giving a score where US+China=100. "
-                "Composite = 0.30*(paper_volume_share) + 0.40*(top_conference_share) "
-                "+ 0.30*(high_impact_share). Rationale: top-conference presence weighted "
-                "highest as the most direct measure of research quality at AI-specific venues."
+                "Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) "
+                f"+ 0.30*(high_impact_share). Quality papers = cited ≥{CONF_MIN_CITATIONS}x in 2 years; "
+                f"high-impact = cited ≥{IMPACT_MIN_CITATIONS}x in 3 years. "
+                "No venue filter — citation thresholds are a more robust quality proxy than "
+                "OpenAlex venue-type classification, which is unreliable for AI papers."
             ),
             "weights": WEIGHTS,
             "windows": {
@@ -453,7 +460,7 @@ def main() -> None:
             "note": (
                 "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. "
                 "Papers with authors from multiple countries are counted in each country. "
-                "Conference-type filter uses locations.source.type:conference."
+                "Quality proxy uses citation threshold only — no venue-type filter."
             ),
         },
         "papers": recent_papers,
@@ -461,9 +468,9 @@ def main() -> None:
             "All three proxies use OpenAlex's group_by endpoint. Country attribution "
             "follows OpenAlex's institution-to-country mapping (ISO 3166-1 alpha-2). "
             "A paper with US and Chinese co-authors is counted in both country totals. "
-            "The top-conference proxy (source.type:conference) covers all major AI venues "
-            "without venue-specific curation. The citation threshold filters out the long "
-            "tail of low-engagement papers, making conference presence more signal-rich. "
+            "The quality proxy uses only a citation threshold (no venue filter) because "
+            "OpenAlex classifies most AI papers as arXiv preprints regardless of the "
+            "conference where they appeared, making source.type:conference unreliable. "
             "Known limitations: OpenAlex undercounts Chinese domestic journals/conferences "
             "not indexed internationally; citation counts favor English-language venues."
         ),

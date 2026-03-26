@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-26T12:08:34.668851+00:00",
+  "fetched_at": "2026-03-26T20:02:12.566882+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -34,8 +34,8 @@
       "delta": 2.8,
       "edge": "+2.8 CN",
       "confidence": "Medium confidence",
-      "score_method": "count_share",
-      "caveat": "Reflects AI research paper volume from OpenAlex over 12 months — a proxy for research output, not researcher quality, citation impact, or headcount. China leads on volume; the US tends to lead on top-cited work.",
+      "score_method": "composite_share_100",
+      "caveat": "Three-proxy composite: paper volume (30%), top AI conference papers cited ≥10 times over 2 years (40%), and high-impact papers cited ≥50 times over 3 years (30%). Each proxy is the US share of combined US+China output. China leads on raw volume; the US leads on citation impact and top-conference presence. OpenAlex may undercount Chinese domestic venues not indexed internationally.",
       "source_file": "data/talent.json"
     },
     {

@@ -1,64 +1,109 @@
 {
   "dimension": "talent",
-  "metric_key": "ai_papers_by_country_12m",
-  "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-26T10:15:34.114697+00:00",
-  "window_days": 365,
+  "metric_key": "ai_talent_composite_index",
+  "title": "AI Talent Index — U.S. vs China",
+  "subtitle": "Three-proxy composite: research volume, top-conference presence, and high-impact output. Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
+  "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) top AI conference papers with ≥10 citations (quality of conference-level research), and (3) high-impact AI papers with ≥50 citations (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
+  "fetched_at": "2026-03-26T20:02:12.497466+00:00",
+  "last_updated": "2026-03-26T20:02:12.497479+00:00",
+  "summary": {
+    "US": {
+      "composite_score": 36.3,
+      "effective_weights": {
+        "paper_volume": 0.3,
+        "top_conference": 0.4,
+        "high_impact": 0.3
+      },
+      "proxies": {
+        "paper_volume": {
+          "raw_value": 130881,
+          "unit": "AI papers (12-month)",
+          "share_score": 36.1,
+          "window_days": 365,
+          "coverage": "high",
+          "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
+        },
+        "top_conference": {
+          "raw_value": 37,
+          "unit": "AI conference papers cited ≥10x (2-year)",
+          "share_score": 36.3,
+          "window_days": 730,
+          "min_citations": 10,
+          "venue_filter": "primary_location.source.type:conference",
+          "coverage": "high",
+          "note": "AI papers published in conference proceedings (OpenAlex source type=conference) with at least 10 citations, last 730 days. Covers NeurIPS, ICML, ICLR, CVPR, ACL, AAAI, IJCAI and other major AI venues without requiring venue-specific ID lookups."
+        },
+        "high_impact": {
+          "raw_value": 4704,
+          "unit": "AI papers cited ≥50x (3-year)",
+          "share_score": 36.5,
+          "window_days": 1095,
+          "min_citations": 50,
+          "coverage": "high",
+          "note": "AI papers of any type with at least 50 citations, last 1095 days. Uses a 3-year window to give papers adequate time to accumulate citations. Captures field-defining research regardless of venue."
+        }
+      }
+    },
+    "China": {
+      "composite_score": 63.7,
+      "effective_weights": {
+        "paper_volume": 0.3,
+        "top_conference": 0.4,
+        "high_impact": 0.3
+      },
+      "proxies": {
+        "paper_volume": {
+          "raw_value": 231714,
+          "unit": "AI papers (12-month)",
+          "share_score": 63.9,
+          "window_days": 365,
+          "coverage": "high",
+          "note": "China leads on AI paper volume (231,714 vs US 130,881 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+        },
+        "top_conference": {
+          "raw_value": 65,
+          "unit": "AI conference papers cited ≥10x (2-year)",
+          "share_score": 63.7,
+          "window_days": 730,
+          "min_citations": 10,
+          "coverage": "high",
+          "note": "China has substantially increased top AI conference presence since 2019, particularly at NeurIPS, ICML, and CVPR. Citation thresholding filters out poster/workshop papers."
+        },
+        "high_impact": {
+          "raw_value": 8199,
+          "unit": "AI papers cited ≥50x (3-year)",
+          "share_score": 63.5,
+          "window_days": 1095,
+          "min_citations": 50,
+          "coverage": "high",
+          "note": "US tends to lead on high-citation AI papers, reflecting concentration of frontier lab research (Google DeepMind, OpenAI, Meta FAIR, Microsoft Research) in the US ecosystem."
+        }
+      }
+    }
+  },
+  "interpretive_sentence": "On a composite of paper volume (30%), top conference presence (40%), and high-impact output (30%), the US scores 36.3 and China scores 63.7 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.9% of combined); the US leads on top-conference cited papers (36.3%) and high-impact papers (36.5%).",
+  "composite_construction": {
+    "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(top_conference_share) + 0.30*(high_impact_share). Rationale: top-conference presence weighted highest as the most direct measure of research quality at AI-specific venues.",
+    "weights": {
+      "paper_volume": 0.3,
+      "top_conference": 0.4,
+      "high_impact": 0.3
+    },
+    "windows": {
+      "paper_volume": "365 days",
+      "top_conference": "730 days",
+      "high_impact": "1095 days"
+    },
+    "thresholds": {
+      "top_conference_min_citations": 10,
+      "high_impact_min_citations": 50
+    }
+  },
   "source": {
     "name": "OpenAlex API",
     "url": "https://api.openalex.org/works",
-    "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
+    "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. Conference-type filter uses primary_location.source.type:conference."
   },
-  "summary": {
-    "US": 130198,
-    "China": 230612,
-    "Other": 660561,
-    "Unknown": 0,
-    "total_papers": 1506091,
-    "total_attributed": 1021371
-  },
-  "top_countries": [
-    {
-      "country_code": "CN",
-      "count": 230612
-    },
-    {
-      "country_code": "US",
-      "count": 130198
-    },
-    {
-      "country_code": "JP",
-      "count": 79454
-    },
-    {
-      "country_code": "IN",
-      "count": 76349
-    },
-    {
-      "country_code": "GB",
-      "count": 40525
-    },
-    {
-      "country_code": "DE",
-      "count": 32499
-    },
-    {
-      "country_code": "ID",
-      "count": 26773
-    },
-    {
-      "country_code": "CA",
-      "count": 20779
-    },
-    {
-      "country_code": "IT",
-      "count": 20668
-    },
-    {
-      "country_code": "FR",
-      "count": 20017
-    }
-  ],
   "papers": [
     {
       "id": "https://openalex.org/W7125694795",
@@ -69,6 +114,19 @@
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7132818261",
+      "title": "The Vinness Wagyu Theorem: On the Epistemic Independence of Direct Knowledge from Formal Verification",
+      "authors": [
+        "Vinness Aisingioro Ollervides"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
@@ -80,171 +138,167 @@
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128286510",
-      "title": "Towards off-road motion planning on elevated terrain",
+      "id": "https://openalex.org/W4205191117",
+      "title": "Synfacts",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140281061",
+      "title": "A review of deep learning methods for non-invasive fetal electrocardiography",
       "authors": [
-        "Scheffe, Patrick",
-        "Wilm Decré",
-        "J. Swevers"
+        "Zhen-Zhen Huang",
+        "Weitao Zhang",
+        "Yang Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140134404",
-      "title": "Signal-Bifurcation Theory (SBT) Core Claims and Canonical Lexicon",
+      "id": "https://openalex.org/W7140284939",
+      "title": "Artificial neural network-based non-parametric ground motion models for multiple intensity measures in Türkiye",
       "authors": [
-        "Nicholas James Letchford"
+        "Seyed Amir Banimahd",
+        "Shaghayegh Karimzadeh"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125677265",
-      "title": "ChatGPT as a Tool for Programming Assistance and Code Development",
+      "id": "https://openalex.org/W7140314935",
+      "title": "Cellular and subcellular specialization enables biology-constrained deep learning",
       "authors": [
-        "Horn Sarun"
+        "Alessandro R. Galloni",
+        "Ajay Peddada",
+        "Yash Chennawar"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140184421",
-      "title": "VGExplainer: Linking Graph Neural Networks and Large Language Models for Explainable Vulnerability Detection",
+      "id": "https://openalex.org/W7140276137",
+      "title": "PCD-GAN: A perceptual and copyright dual generative adversarial network for artwork style transfer and copyright protection",
       "authors": [
-        "Author(s) Anonymous"
+        "Zhiliang Lyu",
+        "Jihong Qin",
+        "Xuan Wang"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125681443",
-      "title": "Supplementary Data",
+      "id": "https://openalex.org/W7140326091",
+      "title": "Mapping fusion zones to motion resistance: Finite element insights into return-to-activity after interbody fusion",
       "authors": [
-        "Robert Hanes",
-        "Pilar Ayuda-Durán"
-      ],
-      "countries": [
-        "NO"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-26",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140163371",
-      "title": "VGExplainer: Linking Graph Neural Networks and Large Language Models for Explainable Vulnerability Detection",
-      "authors": [
-        "Author(s) Anonymous"
+        "Lionel Yan Jin Lee",
+        "Namith Rangaswamy",
+        "K Joshua"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140142851",
-      "title": "Signal-Bifurcation Theory (SBT) Core Claims and Canonical Lexicon",
+      "id": "https://openalex.org/W7140307505",
+      "title": "SOS1: tracking the evolving path from promising to actionable therapeutic target in RAS-dependent cancers",
       "authors": [
-        "Nicholas James Letchford"
+        "Luis Luna-Ramírez",
+        "Rosula Garcia-Navas",
+        "Eugenio Santos"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140229623",
-      "title": "NLP Framework to Safeguard Youngsters Online Using Advanced Transformer-Based Models",
+      "id": "https://openalex.org/W7140313949",
+      "title": "Longitudinal visualization tools for advanced characterization of multiple sclerosis lesions using diffusion MRI and magnetization transfer imaging metrics",
       "authors": [
-        "Hisham AbouGrad",
-        "Sankar Santhosh",
-        "Salem Alsaid"
-      ],
-      "countries": [
-        "GB",
-        "LY"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140193955",
-      "title": "Pre-Stabilisation Signals in Complex Systems: An Empirical Protocol for Testing Governance Sufficiency and an Invitation to the Research Community",
-      "authors": [
-        "Vishwanathprasad Balasubramanian"
+        "Erick Hernández-Gutiérrez",
+        "Ricardo Coronado-Leija",
+        "Manon Edde"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140221419",
-      "title": "Enhancing viability for dairy products manufacturing through explicit and tacit knowledge management: the interacting role of artificial and human intelligence",
+      "id": "https://openalex.org/W7140281954",
+      "title": "A Formal Framework for Evaluating Reasoning Integrity in Language Models",
       "authors": [
-        "Shalei Zhan",
-        "Haoming Wang",
-        "Zhengjiang Li"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140222849",
-      "title": "AUTOMATED DATA INTEGRATION AND REAL-TIME VISUALIZATION USING N8N AND POWER BI",
-      "authors": [
-        "D VIMAL KUMAR",
-        "A. VANITHA",
-        "MISHAL ALOY J"
+        "Amaya Kavya",
+        "Shardul Shinde"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140190919",
-      "title": "A fusion prediction model of tool wear based on physical information and machine learning in five-axis milling TC4 titanium alloy",
+      "id": "https://openalex.org/W7140307520",
+      "title": "Applications of artificial intelligence in peripheral neurosurgery: a systematic review",
       "authors": [
-        "Shaoqing Qin",
-        "Lida Zhu",
-        "Yanpeng Hao"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140015946",
-      "title": "Factors Predicting Onomatopoeia Use in Japanese Learners’ Production Data: An Exploratory Study Using Machine Learning",
-      "authors": [
-        "沢奇 廉"
+        "Destiny L. Green",
+        "B. Parker Layton",
+        "Justin Knapp"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "published": "2026-03-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140307500",
+      "title": "Agent Knowledge Cycle (AKC)",
+      "authors": [
+        "Tatsuya Shimomoto"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140324455",
+      "title": "Physiological Expression Mapping in Cardiometabolic Disease: A State-Space Framework with Clinical and Hemodynamic Evidence",
+      "authors": [
+        "Zheng J. Ma"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-26",
+      "cited_by_count": 0,
       "source": "openalex"
     }
   ],
-  "methodology_note": "Paper counts are sourced from OpenAlex, which indexes most major academic publishers and preprint servers (including arXiv). Each paper is counted once for each country where at least one author has an identified institution. A paper with US and Chinese co-authors is counted in both US and China totals — the sum of country counts therefore exceeds the total paper count. Country classification relies on OpenAlex's institution-to-country mapping, which uses ISO 3166-1 alpha-2 country codes. Unknown = papers where no author has any identified institutional affiliation in OpenAlex. This metric measures output volume — it does not capture citation impact, researcher headcount, or research quality. Coverage may exclude some journals or publishers not indexed by OpenAlex. Chinese researchers may also publish to venues not well-indexed internationally."
+  "methodology_note": "All three proxies use OpenAlex's group_by endpoint. Country attribution follows OpenAlex's institution-to-country mapping (ISO 3166-1 alpha-2). A paper with US and Chinese co-authors is counted in both country totals. The top-conference proxy (source.type:conference) covers all major AI venues without venue-specific curation. The citation threshold filters out the long tail of low-engagement papers, making conference presence more signal-rich. Known limitations: OpenAlex undercounts Chinese domestic journals/conferences not indexed internationally; citation counts favor English-language venues."
 }

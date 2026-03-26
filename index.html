@@ -2372,20 +2372,25 @@ function truncate(str, n) {
 }
 
 function renderTalent(data) {
-  const s   = data.summary || {};
-  const us  = s.US      || 0;
-  const cn  = s.China   || 0;
+  const s      = data.summary || {};
+  const usData = s.US    || {};
+  const cnData = s.China || {};
+
+  // Support both old structure (summary.US = number) and new composite structure
+  const isComposite = typeof usData === 'object' && usData.proxies;
+  const us  = isComposite ? (usData.proxies.paper_volume?.raw_value || 0) : (usData || 0);
+  const cn  = isComposite ? (cnData.proxies.paper_volume?.raw_value || 0) : (cnData || 0);
   const oth = s.Other   || 0;
   const unk = s.Unknown || 0;
 
-  const fmt = n => n.toLocaleString();
+  const fmt = n => Number(n).toLocaleString();
 
-  // Primary stat boxes: US and China only
+  // Primary stat boxes: US and China paper volume
   document.getElementById('tal-us-count').textContent  = fmt(us);
   document.getElementById('tal-cn-count').textContent  = fmt(cn);
   document.getElementById('tal-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  // Secondary context note (Other + Unknown, de-emphasized)
+  // Secondary context note
   const ctxParts = [];
   if (oth > 0) ctxParts.push(`Rest-of-world (non-US/China): ${fmt(oth)} attributions — shown for completeness, not the headline comparison`);
   if (unk > 0) ctxParts.push(`Unknown affiliation: ${fmt(unk)} papers`);
@@ -2397,22 +2402,26 @@ function renderTalent(data) {
   document.getElementById('tal-meta').textContent =
     `${fmt(total)} total AI papers in 12-month window · ${fmt(attributed)} author-country attributions (multinational papers counted once per country)`;
 
-  // Interpretive sentence — US vs China only
+  // Interpretive sentence
   let mainSentence;
-  if (us > cn) {
-    mainSentence =
-      `US-based institutions produce more AI research output in this 12-month window (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
+  if (isComposite) {
+    const usComp = usData.composite_score || 0;
+    const cnComp = cnData.composite_score || 0;
+    const leader = cnComp > usComp ? 'China' : 'US';
+    mainSentence = `${leader === 'China' ? 'China' : 'US'}-based institutions lead on the three-proxy talent composite `
+      + `(${leader === 'China' ? cnComp.toFixed(1) + ' vs ' + usComp.toFixed(1) : usComp.toFixed(1) + ' vs ' + cnComp.toFixed(1)} out of 100). `
+      + `Paper volume: US ${fmt(us)} vs China ${fmt(cn)} (12-month).`;
+  } else if (us > cn) {
+    mainSentence = `US-based institutions produce more AI research output in this 12-month window (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
   } else if (cn > us) {
-    mainSentence =
-      `China-based institutions produce more AI research output in this 12-month window (${fmt(cn)} vs ${fmt(us)} author-country attributions).`;
+    mainSentence = `China-based institutions produce more AI research output in this 12-month window (${fmt(cn)} vs ${fmt(us)} author-country attributions).`;
   } else {
-    mainSentence =
-      `US and China show broadly similar AI research output in this 12-month window (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
+    mainSentence = `US and China show broadly similar AI research output in this 12-month window (${fmt(us)} vs ${fmt(cn)} author-country attributions).`;
   }
   const caveat = `<span style="color:var(--t3);">Each paper is counted once per country with an affiliated author; a US–China co-authored paper increments both totals. China's output may be undercounted — domestic venues are less represented in OpenAlex.</span>`;
   document.getElementById('tal-interp').innerHTML = mainSentence + ' ' + caveat;
 
-  // Chart: US vs China only
+  // Chart: US vs China paper volume
   buildTalentChart(us, cn);
 
   // Recent papers table — use primary_country for chip
@@ -2442,7 +2451,7 @@ async function loadTalent() {
     const resp = await fetch('data/talent.json?t=' + Date.now());
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
-    if (!data.fetched_at || (data.summary.total_papers === 0 && data.summary.US === 0)) {
+    if (!data.fetched_at || !data.summary || (!data.summary.US && !data.summary.total_papers)) {
       throw new Error('No data yet');
     }
     renderTalent(data);

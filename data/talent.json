@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-03-26T21:09:26.537162+00:00",
-  "last_updated": "2026-03-26T21:09:26.537173+00:00",
+  "fetched_at": "2026-03-26T21:11:13.433480+00:00",
+  "last_updated": "2026-03-26T21:11:13.433493+00:00",
   "summary": {
     "US": {
       "composite_score": 37.1,
@@ -288,15 +288,13 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140303279",
-      "title": "TL;DR:010 — Semantic Override: Google AI Mode Liquidates the Phrase \"I Hereby Abolish Money\" and Names the Operation It Performed",
+      "id": "https://openalex.org/W7140324455",
+      "title": "Physiological Expression Mapping in Cardiometabolic Disease: A State-Space Framework with Clinical and Hemodynamic Evidence",
       "authors": [
-        "Orin Trace"
+        "Zheng J. Ma"
       ],
-      "countries": [
-        "CH"
-      ],
-      "primary_country": "Other",
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-03-26",
       "cited_by_count": 0,
       "source": "openalex"

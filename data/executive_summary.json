@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-26T20:24:21.958121+00:00",
+  "fetched_at": "2026-03-26T20:53:41.827858+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -28,11 +28,11 @@
       "key": "talent",
       "label": "Talent",
       "radar_label": "Talent",
-      "us_score": 3.6,
-      "china_score": 6.4,
+      "us_score": 3.8,
+      "china_score": 6.2,
       "winner": "China",
-      "delta": 2.8,
-      "edge": "+2.8 CN",
+      "delta": 2.4,
+      "edge": "+2.4 CN",
       "confidence": "Medium confidence",
       "score_method": "composite_share_100",
       "caveat": "Three-proxy composite: paper volume (30%), top AI conference papers cited ≥10 times over 2 years (40%), and high-impact papers cited ≥50 times over 3 years (30%). Each proxy is the US share of combined US+China output. China leads on raw volume; the US leads on citation impact and top-conference presence. OpenAlex may undercount Chinese domestic venues not indexed internationally.",
@@ -163,11 +163,11 @@
     {
       "key": "talent",
       "dimension": "Talent",
-      "us": 3.6,
-      "china": 6.4,
+      "us": 3.8,
+      "china": 6.2,
       "winner": "China",
-      "delta": 2.8,
-      "edge": "+2.8 CN"
+      "delta": 2.4,
+      "edge": "+2.4 CN"
     }
   ],
   "radar_chart_data": {
@@ -185,7 +185,7 @@
       6.2,
       6.7,
       3.6,
-      3.6
+      3.8
     ],
     "china": [
       2.4,
@@ -193,7 +193,7 @@
       7.4,
       3.3,
       7.4,
-      6.4
+      6.2
     ]
   },
   "normalization_note": "Frontier Models, Talent, and Compute are scored as share-of-combined (US + China = 10 by construction). Adoption, Diffusion, and Energy use their 0–100 composite scores divided by 10, giving independent scores that do not necessarily sum to 10.",

@@ -4,11 +4,11 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, top-conference presence, and high-impact output. Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) top AI conference papers with ≥10 citations (quality of conference-level research), and (3) high-impact AI papers with ≥50 citations (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-03-26T20:24:21.895358+00:00",
-  "last_updated": "2026-03-26T20:24:21.895371+00:00",
+  "fetched_at": "2026-03-26T20:53:41.767140+00:00",
+  "last_updated": "2026-03-26T20:53:41.767150+00:00",
   "summary": {
     "US": {
-      "composite_score": 36.3,
+      "composite_score": 37.8,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -24,12 +24,12 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 37,
+          "raw_value": 44,
           "unit": "AI conference papers cited ≥10x (2-year)",
-          "share_score": 36.3,
+          "share_score": 40.0,
           "window_days": 730,
           "min_citations": 10,
-          "venue_filter": "primary_location.source.type:conference",
+          "venue_filter": "locations.source.type:conference",
           "coverage": "high",
           "note": "AI papers published in conference proceedings (OpenAlex source type=conference) with at least 10 citations, last 730 days. Covers NeurIPS, ICML, ICLR, CVPR, ACL, AAAI, IJCAI and other major AI venues without requiring venue-specific ID lookups."
         },
@@ -45,7 +45,7 @@
       }
     },
     "China": {
-      "composite_score": 63.7,
+      "composite_score": 62.2,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -61,9 +61,9 @@
           "note": "China leads on AI paper volume (231,714 vs US 130,881 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 65,
+          "raw_value": 66,
           "unit": "AI conference papers cited ≥10x (2-year)",
-          "share_score": 63.7,
+          "share_score": 60.0,
           "window_days": 730,
           "min_citations": 10,
           "coverage": "high",
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), top conference presence (40%), and high-impact output (30%), the US scores 36.3 and China scores 63.7 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.9% of combined); the US leads on top-conference cited papers (36.3%) and high-impact papers (36.5%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), top conference presence (40%), and high-impact output (30%), the US scores 37.8 and China scores 62.2 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.9% of combined); the US leads on top-conference cited papers (40.0%) and high-impact papers (36.5%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(top_conference_share) + 0.30*(high_impact_share). Rationale: top-conference presence weighted highest as the most direct measure of research quality at AI-specific venues.",
     "weights": {
@@ -102,7 +102,7 @@
   "source": {
     "name": "OpenAlex API",
     "url": "https://api.openalex.org/works",
-    "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. Conference-type filter uses primary_location.source.type:conference."
+    "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. Conference-type filter uses locations.source.type:conference."
   },
   "papers": [
     {

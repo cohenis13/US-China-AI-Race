@@ -67,11 +67,14 @@ DIMS = {
         "label":       "Talent",
         "radar_label": "Talent",
         "confidence":  "Medium confidence",
-        "method":      "count_share",
+        "method":      "composite_share_100",
         "caveat":      (
-            "Reflects AI research paper volume from OpenAlex over 12 months — a proxy "
-            "for research output, not researcher quality, citation impact, or headcount. "
-            "China leads on volume; the US tends to lead on top-cited work."
+            "Three-proxy composite: paper volume (30%), top AI conference papers "
+            "cited ≥10 times over 2 years (40%), and high-impact papers cited ≥50 "
+            "times over 3 years (30%). Each proxy is the US share of combined "
+            "US+China output. China leads on raw volume; the US leads on citation "
+            "impact and top-conference presence. OpenAlex may undercount Chinese "
+            "domestic venues not indexed internationally."
         ),
     },
     "compute": {
@@ -145,8 +148,8 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
                 float(cn) if cn is not None else None)
 
     if key == "talent":
-        us = s.get("US")
-        cn = s.get("China")
+        us = s.get("US", {}).get("composite_score")
+        cn = s.get("China", {}).get("composite_score")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 

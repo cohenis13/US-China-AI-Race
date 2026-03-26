@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, top-conference presence, and high-impact output. Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) top AI conference papers with ≥10 citations (quality of conference-level research), and (3) high-impact AI papers with ≥50 citations (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-03-26T20:02:12.497466+00:00",
-  "last_updated": "2026-03-26T20:02:12.497479+00:00",
+  "fetched_at": "2026-03-26T20:24:21.895358+00:00",
+  "last_updated": "2026-03-26T20:24:21.895371+00:00",
   "summary": {
     "US": {
       "composite_score": 36.3,

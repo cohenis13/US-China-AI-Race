@@ -89,7 +89,7 @@ WINDOW_HIGH_IMPACT_DAYS = 1095  # 3 years  — elite papers (cited ≥ 100)
 # Note: venue-type filters (source.type:conference) are unreliable in OpenAlex
 # because most AI papers are primarily indexed via arXiv regardless of venue.
 # Pure citation thresholds are more objective and reproducible.
-CONF_MIN_CITATIONS   = 10    # quality proxy: cited ≥ 10 times in 2 years
+CONF_MIN_CITATIONS   = 25    # quality proxy: cited ≥ 25 times in 2 years
 IMPACT_MIN_CITATIONS = 100   # elite proxy:   cited ≥ 100 times in 3 years
 
 # Composite weights (must sum to 1.0)

@@ -125,8 +125,18 @@ interface TopModel {
 
 interface Compute {
   summary: {
-    US: { training_compute_flop?: number; model_count?: number; top500_systems?: number; top500_rmax_pflops?: number }
-    China: { training_compute_flop?: number; model_count?: number; top500_systems?: number; top500_rmax_pflops?: number }
+    US: {
+      training_compute_flop?: number; model_count?: number
+      // new shape post-Epoch AI
+      top500_systems?: number; top500_rmax_pflops?: number
+      // legacy shape (old TOP500-only output)
+      systems?: number; rmax_pflops?: number
+    }
+    China: {
+      training_compute_flop?: number; model_count?: number
+      top500_systems?: number; top500_rmax_pflops?: number
+      systems?: number; rmax_pflops?: number
+    }
   }
   epoch_ai?: {
     cutoff_date: string
@@ -137,9 +147,8 @@ interface Compute {
     summary: { US: { systems: number; rmax_pflops: number }; China: { systems: number; rmax_pflops: number } }
     top_systems: TopSystem[]
   }
-  // legacy shape (pre-Epoch AI) — keep for backwards compatibility
-  list_edition?: string
-  top_systems?: TopSystem[]
+  list_edition?: string   // legacy
+  top_systems?: TopSystem[] // legacy
 }
 
 interface AdoptionProxy {
@@ -341,11 +350,24 @@ export async function getLiveData(): Promise<LiveData> {
   const top500Data     = comp.top500 ?? null
   const legacySystems  = comp.top_systems ?? null   // pre-Epoch shape
   const compEdition    = top500Data?.list_edition ?? comp.list_edition ?? 'Nov 2025'
-  const compUsRmax     = top500Data?.summary?.US?.rmax_pflops ?? comp.summary.US.top500_rmax_pflops ?? 0
-  const compCnRmax     = top500Data?.summary?.China?.rmax_pflops ?? comp.summary.China.top500_rmax_pflops ?? 0
+  // Rmax: new nested shape → new flat shape → legacy flat shape → 0
+  const compUsRmax    = top500Data?.summary?.US?.rmax_pflops
+    ?? comp.summary.US.top500_rmax_pflops
+    ?? comp.summary.US.rmax_pflops    // legacy TOP500-only format
+    ?? 0
+  const compCnRmax    = top500Data?.summary?.China?.rmax_pflops
+    ?? comp.summary.China.top500_rmax_pflops
+    ?? comp.summary.China.rmax_pflops // legacy
+    ?? 0
   const compRmaxTotal  = compUsRmax + compCnRmax
-  const compUsSystems  = top500Data?.summary?.US?.systems ?? comp.summary.US.top500_systems ?? 0
-  const compCnSystems  = top500Data?.summary?.China?.systems ?? comp.summary.China.top500_systems ?? 0
+  const compUsSystems = top500Data?.summary?.US?.systems
+    ?? comp.summary.US.top500_systems
+    ?? comp.summary.US.systems        // legacy
+    ?? 0
+  const compCnSystems = top500Data?.summary?.China?.systems
+    ?? comp.summary.China.top500_systems
+    ?? comp.summary.China.systems     // legacy
+    ?? 0
   const compSystemsTotal = compUsSystems + compCnSystems
 
   const topSystems     = top500Data?.top_systems ?? legacySystems ?? []

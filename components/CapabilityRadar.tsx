@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import {
   Radar,
   RadarChart,
@@ -44,11 +44,11 @@ function makeDotRenderer(
   onLeave: () => void,
 ) {
   // eslint-disable-next-line react/display-name
-  return function DotRenderer(props: Record<string, unknown>) {
+  return function DotRenderer(props: Record<string, unknown>): React.ReactElement {
     const cx      = props.cx as number | undefined
     const cy      = props.cy as number | undefined
     const payload = props.payload as RadarDimension | undefined
-    if (cx == null || cy == null || !payload) return null
+    if (cx == null || cy == null || !payload) return <g />
 
     const conf    = payload.confidence ?? 'low'
     const r       = DOT_R[conf]

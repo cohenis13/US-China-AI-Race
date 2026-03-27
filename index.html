@@ -2222,67 +2222,61 @@ function renderLabBreakdown(models) {
 }
 
 function renderFrontierModels(data) {
-  const s = data.summary || {};
-  const us  = s.US      || 0;
-  const cn  = s.China   || 0;
-  const oth = s.Other   || 0;
-  const unk = s.Unknown || 0;
+  const s      = data.summary || {};
+  const usData = s.US    || {};
+  const cnData = s.China || {};
 
-  document.getElementById('fm-us-count').textContent  = us;
-  document.getElementById('fm-cn-count').textContent  = cn;
-  document.getElementById('fm-oth-count').textContent = oth;
-  document.getElementById('fm-unk-count').textContent = unk;
+  // Support both old (number) and new (composite object) structure
+  const isComposite = typeof usData === 'object' && usData.proxies;
+  const usComp = isComposite ? (usData.composite_score || 0) : 0;
+  const cnComp = isComposite ? (cnData.composite_score || 0) : 0;
+  const usCapCount = isComposite ? (usData.proxies.capability?.raw_value || 0) : (usData || 0);
+  const cnCapCount = isComposite ? (cnData.proxies.capability?.raw_value || 0) : (cnData || 0);
+  const usOutCount = isComposite ? (usData.proxies.output?.raw_value || 0) : 0;
+  const cnOutCount = isComposite ? (cnData.proxies.output?.raw_value || 0) : 0;
+
+  const fmt = n => Number(n).toLocaleString();
+
+  document.getElementById('fm-us-count').textContent  = isComposite ? usComp.toFixed(1) : fmt(usCapCount);
+  document.getElementById('fm-cn-count').textContent  = isComposite ? cnComp.toFixed(1) : fmt(cnCapCount);
+  document.getElementById('fm-oth-count').textContent = data.leaderboard?.other_count ?? 0;
+  document.getElementById('fm-unk-count').textContent = 0;
   document.getElementById('fm-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  // Tracked / active labs meta line
-  const trackedCount = data.labs_tracked || '—';
-  const activeCount  = new Set((data.models || []).map(m => m.lab_name || m.author)).size;
-  document.getElementById('fm-meta').textContent =
-    `Tracking ${trackedCount} curated labs · ${activeCount} active in this 30-day window`;
+  // Meta line
+  const lbDate = data.leaderboard?.last_updated || '—';
+  document.getElementById('fm-meta').textContent = isComposite
+    ? `Arena Elo leaderboard: ${usCapCount} US / ${cnCapCount} China in top 20 · Epoch AI output (2y): ${fmt(usOutCount)} US / ${fmt(cnOutCount)} China · Leaderboard updated: ${lbDate}`
+    : `Leaderboard data unavailable`;
 
-  // Interpretive note — dynamic based on current US vs China counts
-  const nvidiaCount = (data.models || []).filter(m => m.lab_name === 'NVIDIA').length;
-  const nvidiaShare = us > 0 ? Math.round(nvidiaCount / us * 100) : 0;
-  const nvidiaClause = nvidiaShare >= 20
-    ? ` (NVIDIA accounts for a large share of US updates, spanning robotics, medical imaging, and other specialized domains.)`
-    : '';
+  // Interpretive note
+  const leader = usComp >= cnComp ? 'US' : 'China';
+  const mainSentence = isComposite
+    ? `${leader === 'US' ? 'US' : 'China'} leads on the frontier model composite (${leader === 'US' ? usComp.toFixed(1) + ' vs ' + cnComp.toFixed(1) : cnComp.toFixed(1) + ' vs ' + usComp.toFixed(1)} out of 100). `
+      + `US has ${usCapCount} of the top 20 models by Arena Elo; China has ${cnCapCount}. `
+      + `On model output, US released ${fmt(usOutCount)} notable models vs China's ${fmt(cnOutCount)} in the last 2 years.`
+    : 'Frontier model composite data unavailable.';
 
-  let mainSentence;
-  if (us > cn) {
-    mainSentence =
-      `In this 30-day window, US-based tracked labs show higher public model-update activity on Hugging Face${nvidiaClause} ` +
-      `China's activity appears more concentrated among a smaller set of tracked labs.`;
-  } else if (cn > us) {
-    mainSentence =
-      `In this 30-day window, China-based tracked labs show higher public model-update activity on Hugging Face, ` +
-      `while US activity appears more concentrated among a smaller set of tracked labs.` +
-      (nvidiaClause ? ` ${nvidiaClause}` : '');
-  } else {
-    mainSentence =
-      `In this 30-day window, US and China show broadly similar levels of public model-update activity on Hugging Face.` +
-      (nvidiaClause ? ` ${nvidiaClause}` : '');
-  }
-
-  const caveat = `<span style="color:var(--t3);">Does not include closed-source models (GPT-4, Claude, Gemini) or models published outside Hugging Face.</span>`;
+  const caveat = `<span style="color:var(--t3);">Arena Elo based on human preference votes (LMSYS Chatbot Arena). Covers both open and closed models. Output count from Epoch AI notable models database.</span>`;
   document.getElementById('fm-interp').innerHTML = mainSentence + ' ' + caveat;
 
-  buildBarChart(us, cn, oth, unk);
-  renderLabBreakdown(data.models || []);
-
-  const models = (data.models || []).slice(0, 15);
+  // Leaderboard table (replaces old HF models table)
+  const lbModels = (data.leaderboard?.models || []).slice(0, 15);
   const tbody = document.getElementById('fm-models-body');
-  if (models.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No model updates in the last 30 days — check back after the first workflow run.</td></tr>';
+  if (lbModels.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No leaderboard data — check back after the next workflow run.</td></tr>';
   } else {
-    tbody.innerHTML = models.map(m => `
+    tbody.innerHTML = lbModels.map(m => `
       <tr>
-        <td class="model-id"><a href="https://huggingface.co/${m.model_id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">${m.model_id}</a></td>
-        <td style="color:var(--t2);">${m.lab_name || m.author}</td>
+        <td class="model-id" style="font-weight:500;">#${m.rank} ${m.model || m.model_id || '—'}</td>
+        <td style="color:var(--t2);">${m.developer || '—'}</td>
         <td class="r">${countryChip(m.country)}</td>
-        <td class="r" style="color:var(--t3);white-space:nowrap;">${relativeTime(m.last_modified)}</td>
+        <td class="r" style="color:var(--t3);white-space:nowrap;">${m.elo ? m.elo.toLocaleString() : '—'}</td>
       </tr>
     `).join('');
   }
+
+  buildBarChart(usCapCount, cnCapCount, data.leaderboard?.other_count || 0, 0);
 
   document.getElementById('fm-loading').style.display  = 'none';
   document.getElementById('fm-error').style.display    = 'none';

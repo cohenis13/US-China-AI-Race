@@ -127,7 +127,7 @@ export default function CapabilityRadar({ data }: { data: RadarDimension[] }) {
               angleLines:  { color: borderColor },
               pointLabels: {
                 color: muteColor,
-                font: { size: 11, weight: '600' as const },
+                font: { size: 11, weight: 600 },
                 padding: 6,
               },
             },

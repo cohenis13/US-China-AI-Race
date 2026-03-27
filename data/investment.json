@@ -1,0 +1,190 @@
+{
+  "dimension": "investment",
+  "metric_key": "ai_investment_composite",
+  "description": "AI investment composite: private AI VC/startup investment (70%, Stanford AI Index annual series, PitchBook data) + hyperscaler AI/data-center capex (30%, SEC EDGAR annual 10-K/20-F filings). Government AI R&D (NITRD + CSET) shown as context only.",
+  "fetched_at": "2026-03-27T18:21:54.776996+00:00",
+  "summary": {
+    "US": {
+      "composite_score": 92.6,
+      "private_investment_usd_b": 109.1,
+      "hyperscaler_capex_usd_b": 212.4
+    },
+    "China": {
+      "composite_score": 7.4,
+      "private_investment_usd_b": 9.3,
+      "hyperscaler_capex_usd_b": 13.9
+    }
+  },
+  "weights": {
+    "private_investment": 0.7,
+    "hyperscaler_capex": 0.3
+  },
+  "private_investment": {
+    "source": "Stanford AI Index annual reports (PitchBook data)",
+    "source_url": "https://hai.stanford.edu/ai-index/2025-ai-index-report/economy",
+    "update_cadence": "Annual — update when new AI Index report publishes (Feb–Apr)",
+    "latest_year": 2024,
+    "us_usd_b": 109.1,
+    "china_usd_b": 9.3,
+    "us_share": 92.1,
+    "china_share": 7.9,
+    "series": [
+      {
+        "year": 2017,
+        "us_usd_b": 4.7,
+        "china_usd_b": 1.8,
+        "us_share": 72.3,
+        "source": "AI Index 2022 (estimated)"
+      },
+      {
+        "year": 2018,
+        "us_usd_b": 8.7,
+        "china_usd_b": 3.8,
+        "us_share": 69.6,
+        "source": "AI Index 2022 (estimated)"
+      },
+      {
+        "year": 2019,
+        "us_usd_b": 11.2,
+        "china_usd_b": 5.2,
+        "us_share": 68.3,
+        "source": "AI Index 2022 (estimated)"
+      },
+      {
+        "year": 2020,
+        "us_usd_b": 17.1,
+        "china_usd_b": 9.7,
+        "us_share": 63.8,
+        "source": "AI Index 2022"
+      },
+      {
+        "year": 2021,
+        "us_usd_b": 57.3,
+        "china_usd_b": 17.2,
+        "us_share": 76.9,
+        "source": "AI Index 2022"
+      },
+      {
+        "year": 2022,
+        "us_usd_b": 47.4,
+        "china_usd_b": 13.4,
+        "us_share": 78.0,
+        "source": "AI Index 2023"
+      },
+      {
+        "year": 2023,
+        "us_usd_b": 67.2,
+        "china_usd_b": 7.6,
+        "us_share": 89.8,
+        "source": "AI Index 2024"
+      },
+      {
+        "year": 2024,
+        "us_usd_b": 109.1,
+        "china_usd_b": 9.3,
+        "us_share": 92.1,
+        "source": "AI Index 2025"
+      }
+    ]
+  },
+  "hyperscaler_capex": {
+    "source": "SEC EDGAR XBRL company-concept API",
+    "source_url": "https://data.sec.gov",
+    "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
+    "note": "Annual capex (most recent 10-K for US firms; 20-F for China SEC filers). China side covers only Alibaba and Baidu — ByteDance (private), Tencent (HKEX only), and Huawei (private) are excluded. China hyperscaler capex is materially understated.",
+    "us_total_usd_b": 212.4,
+    "china_total_usd_b": 13.9,
+    "us_share": 93.9,
+    "us_firms": [
+      {
+        "name": "Microsoft",
+        "ticker": "MSFT",
+        "capex_usd_b": 44.5,
+        "period_end": "2024-06-30",
+        "data_source": "fallback (published annual report)"
+      },
+      {
+        "name": "Alphabet",
+        "ticker": "GOOGL",
+        "capex_usd_b": 52.5,
+        "period_end": "2024-12-31",
+        "data_source": "fallback (published annual report)"
+      },
+      {
+        "name": "Amazon",
+        "ticker": "AMZN",
+        "capex_usd_b": 77.7,
+        "period_end": "2024-12-31",
+        "data_source": "fallback (published annual report)"
+      },
+      {
+        "name": "Meta",
+        "ticker": "META",
+        "capex_usd_b": 37.7,
+        "period_end": "2024-12-31",
+        "data_source": "fallback (published annual report)"
+      }
+    ],
+    "china_firms": [
+      {
+        "name": "Alibaba",
+        "ticker": "BABA",
+        "capex_usd_b": 11.9,
+        "period_end": "2025-03-31",
+        "data_source": "fallback (published annual report)"
+      },
+      {
+        "name": "Baidu",
+        "ticker": "BIDU",
+        "capex_usd_b": 2.0,
+        "period_end": "2024-12-31",
+        "data_source": "fallback (published annual report)"
+      }
+    ]
+  },
+  "gov_rd": {
+    "note": "Shown as context only — excluded from composite score. US NITRD figures are directly measured; China R&D is an estimate with ~10× uncertainty range. Not bilaterally comparable.",
+    "us": {
+      "source": "NITRD Supplement to the President's Budget (NSTC AI PCA)",
+      "source_url": "https://www.nitrd.gov/budgetinformation/",
+      "latest_fy": 2025,
+      "total_ai_usd_b": 3.316,
+      "series": [
+        {
+          "fy": 2020,
+          "total_ai_usd_b": 1.995
+        },
+        {
+          "fy": 2021,
+          "total_ai_usd_b": 2.204
+        },
+        {
+          "fy": 2022,
+          "total_ai_usd_b": 2.589
+        },
+        {
+          "fy": 2023,
+          "total_ai_usd_b": 2.913
+        },
+        {
+          "fy": 2024,
+          "total_ai_usd_b": 3.032
+        },
+        {
+          "fy": 2025,
+          "total_ai_usd_b": 3.316
+        }
+      ]
+    },
+    "china": {
+      "source": "CSET 'Chinese Public AI R&D Spending: Provisional Findings' (2019). 2018 base year estimate; wide uncertainty range reflects incomplete budget transparency.",
+      "estimate_usd_b": 5.2,
+      "range_usd_b": [
+        1.6,
+        15.0
+      ],
+      "base_year": 2018
+    }
+  },
+  "methodology_note": "Composite = 70% private AI investment share + 30% hyperscaler capex share (each = US/(US+China)×100). Private investment is the dominant signal (Stanford AI Index, well-cited, updated annually). Capex comparison systematically understates China — Tencent, ByteDance, and Huawei are absent from SEC EDGAR. Both metrics favor the US strongly; this reflects genuine private-sector investment asymmetry, not a measurement artefact. Government R&D spending is excluded from the composite — China likely matches or exceeds the US on public AI R&D, but the measurement uncertainty is too large for bilateral scoring."
+}

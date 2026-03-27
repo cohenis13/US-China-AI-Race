@@ -46,9 +46,9 @@ OUTPUT = DATA / "executive_summary.json"
 
 # ── Dimension registry ────────────────────────────────────────────────────────
 # Order used for the radar chart must match DIMS in index.html:
-#   ['Frontier\nModels', 'Compute', 'Adoption', 'Diffusion', 'Energy', 'Talent']
-RADAR_ORDER = ["frontier_models", "compute", "adoption", "diffusion", "energy", "talent"]
-TABLE_ORDER = ["frontier_models", "compute", "adoption", "diffusion", "energy", "talent"]
+#   ['Frontier\nModels', 'Compute', 'Adoption', 'Diffusion', 'Energy', 'Talent', 'Investment']
+RADAR_ORDER = ["frontier_models", "compute", "adoption", "diffusion", "energy", "talent", "investment"]
+TABLE_ORDER = ["frontier_models", "compute", "adoption", "diffusion", "energy", "talent", "investment"]
 
 DIMS = {
     "frontier_models": {
@@ -121,6 +121,22 @@ DIMS = {
             "not total energy. Does not capture private energy arrangements or nuclear buildout."
         ),
     },
+    "investment": {
+        "label":       "Investment",
+        "radar_label": "Investment",
+        "confidence":  "Medium confidence",
+        "method":      "composite_share_100",
+        "caveat":      (
+            "Composite: private AI VC/startup investment (70%, Stanford AI Index / PitchBook) "
+            "+ hyperscaler AI data-center capex (30%, SEC EDGAR 10-K/20-F). "
+            "Each proxy is US share of combined US+China. "
+            "Private investment data is annual (Stanford AI Index, updated Feb\u2013Apr). "
+            "Hyperscaler capex: US = Microsoft, Alphabet, Amazon, Meta; "
+            "China = Alibaba, Baidu only (ByteDance, Tencent, Huawei excluded from SEC EDGAR). "
+            "China\u2019s private AI investment may be undercounted in international databases; "
+            "government AI R\u0026D (excluded from score) likely narrows the true gap."
+        ),
+    },
 }
 
 
@@ -171,6 +187,12 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
                 float(cn) if cn is not None else None)
 
     if key == "diffusion":
+        us = s.get("US", {}).get("composite_score")
+        cn = s.get("China", {}).get("composite_score")
+        return (float(us) if us is not None else None,
+                float(cn) if cn is not None else None)
+
+    if key == "investment":
         us = s.get("US", {}).get("composite_score")
         cn = s.get("China", {}).get("composite_score")
         return (float(us) if us is not None else None,

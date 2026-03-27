@@ -1,12 +1,13 @@
 {
-  "fetched_at": "2026-03-27T12:00:35.040365+00:00",
+  "fetched_at": "2026-03-27T18:24:41.216441+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
     "compute",
     "adoption",
     "diffusion",
-    "energy"
+    "energy",
+    "investment"
   ],
   "missing_dimensions": [],
   "dimensions": [
@@ -93,13 +94,27 @@
       "score_method": "composite_0_100",
       "caveat": "Composite of electricity capacity addition rate (40%), data center demand headroom (35%), and grid connection speed (25%). Measures AI scaling capacity, not total energy. Does not capture private energy arrangements or nuclear buildout.",
       "source_file": "data/energy.json"
+    },
+    {
+      "key": "investment",
+      "label": "Investment",
+      "radar_label": "Investment",
+      "us_score": 9.3,
+      "china_score": 0.7,
+      "winner": "US",
+      "delta": 8.6,
+      "edge": "+8.6 US",
+      "confidence": "Medium confidence",
+      "score_method": "composite_share_100",
+      "caveat": "Composite: private AI VC/startup investment (70%, Stanford AI Index / PitchBook) + hyperscaler AI data-center capex (30%, SEC EDGAR 10-K/20-F). Each proxy is US share of combined US+China. Private investment data is annual (Stanford AI Index, updated Feb–Apr). Hyperscaler capex: US = Microsoft, Alphabet, Amazon, Meta; China = Alibaba, Baidu only (ByteDance, Tencent, Huawei excluded from SEC EDGAR). China’s private AI investment may be undercounted in international databases; government AI R&D (excluded from score) likely narrows the true gap.",
+      "source_file": "data/investment.json"
     }
   ],
-  "current_read": "U.S. leads in Compute, Diffusion, and Frontier Models; China leads in Energy, Talent, and Adoption.",
+  "current_read": "U.S. leads in Investment, Compute, Diffusion, and Frontier Models; China leads in Energy, Talent, and Adoption.",
   "strategic_insights": [
     {
-      "bold": "The U.S. leads on disclosed compute, frontier model activity, and global diffusion",
-      "rest": " — driven by dominant GPU infrastructure, frontier lab concentration, and the global reach of US open-source models. Note: Compute score reflects TOP500 data only and understates China’s actual capacity."
+      "bold": "The U.S. leads in Investment, Compute, Diffusion, and Frontier Models",
+      "rest": " — the largest U.S. advantage is in Investment (+8.6 points on the 0–10 comparative scale)."
     },
     {
       "bold": "China leads in Energy, Talent, and Adoption",
@@ -168,6 +183,15 @@
       "winner": "China",
       "delta": 2.6,
       "edge": "+2.6 CN"
+    },
+    {
+      "key": "investment",
+      "dimension": "Investment",
+      "us": 9.3,
+      "china": 0.7,
+      "winner": "US",
+      "delta": 8.6,
+      "edge": "+8.6 US"
     }
   ],
   "radar_chart_data": {
@@ -177,7 +201,8 @@
       "adoption",
       "diffusion",
       "energy",
-      "talent"
+      "talent",
+      "investment"
     ],
     "us": [
       6.3,
@@ -185,7 +210,8 @@
       6.2,
       6.7,
       3.6,
-      3.7
+      3.7,
+      9.3
     ],
     "china": [
       3.7,
@@ -193,7 +219,8 @@
       7.4,
       3.3,
       7.4,
-      6.3
+      6.3,
+      0.7
     ]
   },
   "normalization_note": "Frontier Models, Talent, and Compute are scored as share-of-combined (US + China = 10 by construction). Adoption, Diffusion, and Energy use their 0–100 composite scores divided by 10, giving independent scores that do not necessarily sum to 10.",

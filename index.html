@@ -1006,6 +1006,8 @@ footer {
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#energy" class="nav-link">Energy</a>
       <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#investment" class="nav-link">Investment</a>
+      <div class="nav-sep" aria-hidden="true"></div>
       <a href="#constraints" class="nav-link">Constraints</a>
       <div class="nav-sep" aria-hidden="true"></div>
       <a href="#outlook" class="nav-link">Outlook</a>
@@ -1720,6 +1722,118 @@ footer {
     </div><!-- /live-card -->
   </section>
 
+  <!-- ── Live Investment Section ──────────────────────────────── -->
+  <section class="live-section" id="investment">
+    <div class="section-module-hdr neutral-accent">
+      <div>
+        <div class="section-module-lbl">Investment &nbsp;—&nbsp; Live Tracker</div>
+      </div>
+      <span class="live-badge"><span class="live-dot"></span>Updated weekly</span>
+    </div>
+
+    <div class="card live-card">
+      <div class="live-card-top">
+        <div>
+          <div class="live-card-title">AI Investment — Private Capital + Hyperscaler Capex</div>
+          <div class="live-card-sub">
+            Primary: private AI VC/startup investment (Stanford AI Index, PitchBook data).
+            Secondary: annual capex for AI hyperscalers (SEC EDGAR). Government AI R&D shown as context.
+          </div>
+        </div>
+        <div class="live-status">
+          <div class="live-updated">
+            Last fetched: <span id="inv-fetched-at">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="inv-loading" class="fm-placeholder">Loading live data…</div>
+
+      <div id="inv-content" style="display:none;">
+
+        <!-- Primary stat boxes -->
+        <div class="fm-stats">
+          <div class="fm-stat us">
+            <div class="fm-stat-num" id="inv-us-score">—</div>
+            <div class="fm-stat-lbl">United States &nbsp;<span style="font-weight:400;font-size:11px;opacity:.7;">composite score</span></div>
+          </div>
+          <div class="fm-stat cn">
+            <div class="fm-stat-num" id="inv-cn-score">—</div>
+            <div class="fm-stat-lbl">China &nbsp;<span style="font-weight:400;font-size:11px;opacity:.7;">composite score</span></div>
+          </div>
+        </div>
+
+        <div id="inv-note" style="font-size:12px;color:var(--t3);margin:6px 0 2px;"></div>
+        <div class="fm-meta" id="inv-meta"></div>
+        <div class="fm-interp" id="inv-interp"></div>
+
+        <!-- Historical private AI investment chart -->
+        <div class="fm-chart-wrap">
+          <div class="fm-chart-label">Private AI investment — US vs China ($B, annual, Stanford AI Index)</div>
+          <canvas id="invChart" height="90"></canvas>
+        </div>
+
+        <!-- Hyperscaler capex table -->
+        <div class="fm-tbl-wrap detail-wrap" id="inv-capex-wrap">
+          <div class="detail-section-hdr">
+            <span class="detail-lbl">Hyperscaler AI capex — latest annual filing (SEC EDGAR)</span>
+          </div>
+          <table class="fm-tbl">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th class="r">Country</th>
+                <th class="r">Annual CapEx</th>
+                <th class="r">Fiscal Period End</th>
+              </tr>
+            </thead>
+            <tbody id="inv-capex-body">
+              <tr><td colspan="4" class="fm-placeholder">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Gov AI R&D context -->
+        <div class="fm-tbl-wrap detail-wrap" id="inv-govrd-wrap">
+          <div class="detail-section-hdr">
+            <span class="detail-lbl">Government AI R&D — context only (not in composite score)</span>
+          </div>
+          <table class="fm-tbl">
+            <thead>
+              <tr><th>Metric</th><th class="r">United States</th><th class="r">China</th></tr>
+            </thead>
+            <tbody id="inv-govrd-body">
+              <tr><td colspan="3" class="fm-placeholder">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fm-footer">
+          <p class="fm-footer-note">
+            Private AI investment: 70% of composite; Stanford AI Index annual series (PitchBook data),
+            updated when new report publishes (Feb–Apr). Hyperscaler capex: 30%; US = Microsoft, Alphabet,
+            Amazon, Meta; China = Alibaba, Baidu only — ByteDance, Tencent, Huawei not in SEC EDGAR.
+            Government AI R&D excluded from score (US NITRD is measured; China estimate has ~10× uncertainty range).
+          </p>
+          <div class="fm-footer-links">
+            Sources:
+            <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report/economy" target="_blank" rel="noopener">Stanford AI Index</a>,
+            <a href="https://data.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a>,
+            <a href="https://www.nitrd.gov/budgetinformation/" target="_blank" rel="noopener">NITRD</a><br>
+            <a href="docs/methodology.html" target="_blank">Full methodology →</a>
+          </div>
+        </div>
+
+      </div><!-- /inv-content -->
+
+      <div id="inv-error" class="fm-placeholder" style="display:none;">
+        Unable to load live data. Check back after the first GitHub Actions run,
+        or see <a href="data/investment.json">data/investment.json</a>.
+      </div>
+
+    </div><!-- /live-card -->
+  </section>
+
   <!-- ── Binding Constraints ──────────────────────────────────── -->
   <section class="constraints-section" id="constraints">
     <div class="lbl-row">
@@ -1892,19 +2006,20 @@ function toggleTheme() {
 const US_COLOR = '#1a3a5c';
 const CN_COLOR = '#b5413e';
 
-const DIMS = ['Frontier\nModels', 'Compute', 'Adoption', 'Diffusion', 'Energy', 'Talent'];
+const DIMS = ['Frontier\nModels', 'Compute', 'Adoption', 'Diffusion', 'Energy', 'Talent', 'Investment'];
 
 const DIM_META = {
   'Frontier\nModels': { desc: 'Relative capability at the leading edge of foundation model development, including benchmark performance and architectural innovation.', conf: 'Medium confidence' },
-  'Compute':          { desc: 'GPU stock, cloud compute capacity, national data center footprint, and sovereign compute investment programs.', conf: 'High confidence' },
+  'Compute':          { desc: 'GPU stock, cloud compute capacity, national data center footprint, and sovereign compute investment programs.', conf: 'Medium confidence' },
   'Adoption':         { desc: 'Rate and scale of AI deployment across enterprise, government, and consumer applications domestically.', conf: 'Lower confidence' },
   'Diffusion':        { desc: 'Speed of AI technology spread across economic sectors and partner geographies, including deployment infrastructure.', conf: 'Lower confidence' },
   'Energy':           { desc: 'Available and planned electricity generation and grid capacity dedicated to AI and large-scale data center workloads.', conf: 'High confidence' },
   'Talent':           { desc: 'AI researcher density, top-tier publication output, immigration dynamics, and elite-institution talent pipeline.', conf: 'Medium confidence' },
+  'Investment':       { desc: 'Private AI venture capital and startup funding (Stanford AI Index) plus hyperscaler AI data-center capex (SEC EDGAR). Government AI R&D shown as context only.', conf: 'Medium confidence' },
 };
 
-const PT_R  = [4.5, 7, 3, 3, 7, 4.5];
-const PT_HR = [6.5, 9, 5, 5, 9, 6.5];
+const PT_R  = [4.5, 7, 3, 3, 7, 4.5, 4.5];
+const PT_HR = [6.5, 9, 5, 5, 9, 6.5, 6.5];
 
 function chartPalette() {
   const dark = document.documentElement.getAttribute('data-theme') === 'dark';
@@ -2054,8 +2169,8 @@ function renderExecutiveSummary(data) {
 function loadExecutiveSummary() {
   // Build a placeholder radar with zeroed data while fetching
   buildRadarChart(
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
+    [0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0]
   );
   fetch('data/executive_summary.json')
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
@@ -3152,6 +3267,146 @@ async function loadEnergy() {
   }
 }
 
+/* ── Investment ──────────────────────────────────────────────── */
+let invChart;
+
+function buildInvestmentChart(series) {
+  if (invChart) { invChart.destroy(); invChart = null; }
+  const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
+  const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
+  const tickColor = isDark ? '#4d6678' : '#9ca3af';
+
+  const labels  = series.map(s => String(s.year));
+  const usData  = series.map(s => s.us_usd_b);
+  const cnData  = series.map(s => s.china_usd_b);
+
+  const ctx = document.getElementById('invChart').getContext('2d');
+  invChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'United States',
+          data: usData,
+          backgroundColor: 'rgba(26,58,92,0.75)',
+          borderColor: US_COLOR, borderWidth: 1.5, borderRadius: 3,
+        },
+        {
+          label: 'China',
+          data: cnData,
+          backgroundColor: 'rgba(181,65,62,0.75)',
+          borderColor: CN_COLOR, borderWidth: 1.5, borderRadius: 3,
+        },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true,
+      plugins: {
+        legend: { display: true, position: 'top',
+                  labels: { color: tickColor, font: { size: 11 }, boxWidth: 12 } },
+        tooltip: {
+          backgroundColor: 'rgba(8,18,32,0.97)',
+          titleColor: '#dde5ee', bodyColor: '#7a97b0',
+          borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
+          padding: { x: 12, y: 10 }, cornerRadius: 5,
+          callbacks: { label: ctx => '  $' + ctx.parsed.y.toFixed(1) + 'B' }
+        }
+      },
+      scales: {
+        x: { ticks: { color: tickColor, font: { size: 10 } }, grid: { display: false } },
+        y: { beginAtZero: true,
+             ticks: { color: tickColor, font: { size: 10 }, callback: v => '$' + v + 'B' },
+             grid: { color: gridColor } }
+      }
+    }
+  });
+}
+
+function renderInvestment(data) {
+  document.getElementById('inv-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
+
+  const usComp = data.summary?.US?.composite_score ?? 0;
+  const cnComp = data.summary?.China?.composite_score ?? 0;
+  document.getElementById('inv-us-score').textContent = usComp.toFixed(1);
+  document.getElementById('inv-cn-score').textContent = cnComp.toFixed(1);
+
+  const priv = data.private_investment || {};
+  const cap  = data.hyperscaler_capex  || {};
+  const yr   = priv.latest_year ?? '';
+
+  document.getElementById('inv-note').textContent =
+    `${yr} private AI investment: US $${priv.us_usd_b ?? '—'}B vs China $${priv.china_usd_b ?? '—'}B` +
+    (cap.us_total_usd_b ? `  ·  Hyperscaler capex: US $${cap.us_total_usd_b}B vs China $${cap.china_total_usd_b}B` : '');
+
+  const w = data.weights ?? {};
+  document.getElementById('inv-meta').textContent =
+    `Composite = ${Math.round((w.private_investment ?? 0.7) * 100)}% private investment share + ` +
+    `${Math.round((w.hyperscaler_capex ?? 0.3) * 100)}% hyperscaler capex share` +
+    (priv.us_share ? `  ·  Private investment US share: ${priv.us_share}%` : '');
+
+  const gap = priv.china_usd_b > 0 ? (priv.us_usd_b / priv.china_usd_b).toFixed(0) : '—';
+  document.getElementById('inv-interp').innerHTML =
+    `The U.S. leads on both private AI investment ($${priv.us_usd_b}B vs $${priv.china_usd_b}B in ${yr} — ` +
+    `a <strong>${gap}×</strong> gap) and hyperscaler AI data-center capex ($${cap.us_total_usd_b}B vs $${cap.china_total_usd_b}B). ` +
+    `<span style="color:var(--t3);">China's government AI R&D (~$${data.gov_rd?.china?.estimate_usd_b ?? '5'}B est.) ` +
+    `partially offsets the private-capital gap; the overall AI investment lead is real but narrower than private VC alone implies.</span>`;
+
+  // Historical chart
+  if (priv.series?.length) {
+    buildInvestmentChart(priv.series);
+  }
+
+  // Capex table
+  const allFirms = [...(cap.us_firms || []), ...(cap.china_firms || [])];
+  const ctbody = document.getElementById('inv-capex-body');
+  if (allFirms.length) {
+    ctbody.innerHTML = allFirms.map(f => `
+      <tr>
+        <td class="model-id">${f.name} <span style="font-size:10px;color:var(--t3);">${f.ticker}</span></td>
+        <td class="r">${countryChip(['MSFT','GOOGL','AMZN','META'].includes(f.ticker) ? 'US' : 'China')}</td>
+        <td class="r" style="color:var(--t2);font-size:12px;">${f.capex_usd_b != null ? '$' + f.capex_usd_b.toFixed(1) + 'B' : '—'}</td>
+        <td class="r" style="color:var(--t3);font-size:11px;">${f.period_end || '—'}</td>
+      </tr>
+    `).join('');
+  }
+
+  // Gov AI R&D table
+  const grd = data.gov_rd || {};
+  const usGrd = grd.us || {};
+  const cnGrd = grd.china || {};
+  document.getElementById('inv-govrd-body').innerHTML = `
+    <tr>
+      <td>Government AI R&D spending</td>
+      <td class="r" style="color:var(--t2);font-size:12px;">$${usGrd.total_ai_usd_b ?? '—'}B (FY${usGrd.latest_fy ?? ''})</td>
+      <td class="r" style="color:var(--t2);font-size:12px;">~$${cnGrd.estimate_usd_b ?? '—'}B est. (${cnGrd.base_year ?? '2018'} base)</td>
+    </tr>
+    <tr>
+      <td style="color:var(--t3);font-size:11px;">Source</td>
+      <td class="r" style="color:var(--t3);font-size:11px;">NITRD Budget Supplement</td>
+      <td class="r" style="color:var(--t3);font-size:11px;">CSET estimate (±wide range)</td>
+    </tr>
+  `;
+
+  document.getElementById('inv-loading').style.display = 'none';
+  document.getElementById('inv-error').style.display   = 'none';
+  document.getElementById('inv-content').style.display = 'block';
+}
+
+async function loadInvestment() {
+  try {
+    const resp = await fetch('data/investment.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    if (!data.fetched_at) throw new Error('No data yet');
+    renderInvestment(data);
+  } catch (err) {
+    console.warn('Failed to load investment.json:', err);
+    document.getElementById('inv-loading').style.display = 'none';
+    document.getElementById('inv-error').style.display   = 'block';
+  }
+}
+
 /* ── Collapsible Tables ──────────────────────────────────────── */
 function setupCollapsible(tbodyId, wrapperId, threshold) {
   const tbody = document.getElementById(tbodyId);
@@ -3192,6 +3447,7 @@ document.addEventListener('DOMContentLoaded', function () {
   loadAdoption();
   loadDiffusion();
   loadEnergy();
+  loadInvestment();
 });
 </script>
 

@@ -44,7 +44,8 @@ function makeDotRenderer(
   onLeave: () => void,
 ) {
   // eslint-disable-next-line react/display-name
-  return function DotRenderer(props: Record<string, unknown>): React.ReactElement {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return function DotRenderer(props: Record<string, unknown>): any {
     const cx      = props.cx as number | undefined
     const cy      = props.cy as number | undefined
     const payload = props.payload as RadarDimension | undefined
@@ -203,7 +204,8 @@ export default function CapabilityRadar({ data }: { data: RadarDimension[] }) {
               fill="hsl(var(--us))"
               fillOpacity={0.18}
               strokeWidth={2}
-              dot={usDot}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              dot={usDot as any}
               activeDot={false}
             />
             <Radar
@@ -213,7 +215,8 @@ export default function CapabilityRadar({ data }: { data: RadarDimension[] }) {
               fill="hsl(var(--china))"
               fillOpacity={0.14}
               strokeWidth={2}
-              dot={cnDot}
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              dot={cnDot as any}
               activeDot={false}
             />
             <Legend

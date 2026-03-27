@@ -1,9 +1,9 @@
 {
   "dimension": "frontier_models",
   "metric_key": "frontier_model_composite",
-  "title": "Frontier AI Models — U.S. vs China",
+  "title": "Frontier AI Models â€” U.S. vs China",
   "subtitle": "Two-proxy composite: Arena Elo capability ranking share (60%, top-20) + notable model output share (40%, Epoch AI, last 2 years). Each proxy: US share of combined US+China.",
-  "fetched_at": "2026-03-27T03:10:20.104913+00:00",
+  "fetched_at": "2026-03-27T03:14:44.176131+00:00",
   "summary": {
     "US": {
       "composite_score": 63.3,

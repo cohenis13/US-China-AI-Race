@@ -2,7 +2,7 @@
   "_instructions": [
     "Auto-updated daily from mathewhe/chatbot-arena-elo on HuggingFace.",
     "Source: LMSYS Chatbot Arena (human preference Elo rankings).",
-    "Do not edit manually — changes will be overwritten on next run."
+    "Do not edit manually â€” changes will be overwritten on next run."
   ],
   "source": "LMSYS Chatbot Arena via mathewhe/chatbot-arena-elo",
   "source_url": "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",

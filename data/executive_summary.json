@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-26T22:04:22.768810+00:00",
+  "fetched_at": "2026-03-27T03:14:44.352240+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -14,11 +14,11 @@
       "key": "frontier_models",
       "label": "Frontier Models",
       "radar_label": "Frontier\nModels",
-      "us_score": 4.1,
-      "china_score": 5.9,
-      "winner": "China",
-      "delta": 1.8,
-      "edge": "+1.8 CN",
+      "us_score": 6.3,
+      "china_score": 3.7,
+      "winner": "US",
+      "delta": 2.6,
+      "edge": "+2.6 US",
       "confidence": "Medium confidence",
       "score_method": "composite_share_100",
       "caveat": "Two-proxy composite: capability ranking share (60%) based on the top-20 Artificial Analysis Intelligence Index leaderboard (updated weekly), plus notable model output share (40%) from Epoch AI (last 2 years). Each proxy is US share of combined US+China. Leaderboard covers both open and closed models; Epoch AI notable models database may lag very recent releases by days to weeks.",
@@ -95,14 +95,14 @@
       "source_file": "data/energy.json"
     }
   ],
-  "current_read": "U.S. leads in Compute, and Diffusion; China leads in Energy, Talent, Frontier Models, and Adoption.",
+  "current_read": "U.S. leads in Compute, Diffusion, and Frontier Models; China leads in Energy, Talent, and Adoption.",
   "strategic_insights": [
     {
       "bold": "The U.S. leads on disclosed compute, frontier model activity, and global diffusion",
       "rest": " — driven by dominant GPU infrastructure, frontier lab concentration, and the global reach of US open-source models. Note: Compute score reflects TOP500 data only and understates China’s actual capacity."
     },
     {
-      "bold": "China leads in Energy, Talent, Frontier Models, and Adoption",
+      "bold": "China leads in Energy, Talent, and Adoption",
       "rest": " — particularly in energy infrastructure scaling capacity and AI research paper volume, where China’s structural advantages are most pronounced (+3.8 points in Energy)."
     },
     {
@@ -118,11 +118,11 @@
     {
       "key": "frontier_models",
       "dimension": "Frontier Models",
-      "us": 4.1,
-      "china": 5.9,
-      "winner": "China",
-      "delta": 1.8,
-      "edge": "+1.8 CN"
+      "us": 6.3,
+      "china": 3.7,
+      "winner": "US",
+      "delta": 2.6,
+      "edge": "+2.6 US"
     },
     {
       "key": "compute",
@@ -180,7 +180,7 @@
       "talent"
     ],
     "us": [
-      4.1,
+      6.3,
       9.5,
       6.2,
       6.7,
@@ -188,7 +188,7 @@
       3.7
     ],
     "china": [
-      5.9,
+      3.7,
       0.5,
       7.4,
       3.3,

@@ -71,11 +71,16 @@ export const radarData: RadarDimension[] = [
 ]
 
 // ─── Strategic insights ───────────────────────────────────────────────────────
-export const strategicInsights: string[] = [
-  'US leads at the technological frontier and advanced compute.',
-  'China leads in energy infrastructure and industrial-scale adoption.',
-  'Diffusion speed may matter more than peak model performance.',
-  'Key bottlenecks: chip access (China), power capacity (US).',
+export interface StrategicInsight {
+  bold: string
+  rest: string
+}
+
+export const strategicInsights: StrategicInsight[] = [
+  { bold: 'US leads', rest: ' at the technological frontier and advanced compute.' },
+  { bold: 'China leads', rest: ' in energy infrastructure and industrial-scale adoption.' },
+  { bold: 'Diffusion speed', rest: ' may matter more than peak model performance.' },
+  { bold: 'Key bottlenecks:', rest: ' chip access (China), power capacity (US).' },
 ]
 
 // ─── Dimension tabs ───────────────────────────────────────────────────────────

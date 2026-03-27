@@ -1,4 +1,4 @@
-import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource } from './data'
+import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource, StrategicInsight } from './data'
 
 // Fetch from the production static site so we always get the latest pipeline data,
 // regardless of which branch this Next.js app is deployed from.
@@ -183,7 +183,7 @@ const TAB_SOURCES: Record<string, DimensionSource[]> = {
 export interface LiveData {
   scorecardDimensions: ScoreCardDimension[]
   radarData: RadarDimension[]
-  strategicInsights: string[]
+  strategicInsights: StrategicInsight[]
   dimensionTabs: DimensionTab[]
 }
 
@@ -223,7 +223,10 @@ export async function getLiveData(): Promise<LiveData> {
   }))
 
   // ── Strategic insights ──────────────────────────────────────────────────────
-  const strategicInsights: string[] = exec.strategic_insights.map((s) => s.bold + s.rest)
+  const strategicInsights = exec.strategic_insights.map((s: { bold: string; rest: string }) => ({
+    bold: s.bold,
+    rest: s.rest,
+  }))
 
   // ── Per-dimension proxy shortcuts ───────────────────────────────────────────
   const fmUs         = fm.summary.US

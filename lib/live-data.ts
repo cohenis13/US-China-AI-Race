@@ -31,8 +31,31 @@ interface ExecutiveSummary {
   radar_chart_data: { order: string[]; us: number[]; china: number[] }
 }
 
+interface FrontierProxy {
+  raw_value: number
+  share_score: number
+}
+interface FrontierCountry {
+  composite_score: number
+  proxies: {
+    capability: FrontierProxy
+    output:     FrontierProxy
+  }
+}
+interface FrontierLeaderboardModel {
+  rank: number
+  model: string
+  developer: string
+  country: string
+  elo: number | null
+}
 interface FrontierModels {
-  summary: { US: number; China: number }
+  summary: { US: FrontierCountry; China: FrontierCountry }
+  leaderboard: {
+    models: FrontierLeaderboardModel[]
+    us_count: number
+    china_count: number
+  }
 }
 
 interface TalentCountry {
@@ -168,9 +191,19 @@ export async function getLiveData(): Promise<LiveData> {
   const strategicInsights: string[] = exec.strategic_insights.map((s) => s.bold + s.rest)
 
   // ── Per-dimension proxy shortcuts ───────────────────────────────────────────
-  const fmUs = fm.summary.US
-  const fmCn = fm.summary.China
-  const fmTotal = fmUs + fmCn
+  const fmUs         = fm.summary.US
+  const fmCn         = fm.summary.China
+  const fmUsComp     = fmUs.composite_score
+  const fmCnComp     = fmCn.composite_score
+  const fmLeader     = fmUsComp >= fmCnComp ? 'US' : 'China'
+  const fmCapUsCount = fmUs.proxies.capability.raw_value
+  const fmCapCnCount = fmCn.proxies.capability.raw_value
+  const fmCapUsShare = fmUs.proxies.capability.share_score
+  const fmCapCnShare = fmCn.proxies.capability.share_score
+  const fmOutUsCount = fmUs.proxies.output.raw_value
+  const fmOutCnCount = fmCn.proxies.output.raw_value
+  const fmOutUsShare = fmUs.proxies.output.share_score
+  const fmOutCnShare = fmCn.proxies.output.share_score
 
   const talUs = tal.summary.US
   const talCn = tal.summary.China
@@ -220,15 +253,20 @@ export async function getLiveData(): Promise<LiveData> {
     {
       id: 'frontier_models',
       label: 'Frontier Models',
-      headline: `US leads: ${pct(fmUs, fmTotal)}% of tracked model activity`,
-      headlineNote: `${fmt(fmUs)} US vs ${fmt(fmCn)} China updates (30 days, HF Hub)`,
+      headline: fmLeader === 'US'
+        ? `US leads on frontier model composite: ${fmUsComp.toFixed(1)} vs ${fmCnComp.toFixed(1)}`
+        : `China leads on frontier model composite: ${fmCnComp.toFixed(1)} vs ${fmUsComp.toFixed(1)}`,
+      headlineNote: 'Arena Elo capability ranking (60%) + Epoch AI notable model output (40%)',
       explanation: getCaveat('frontier_models'),
       barData: [
-        { label: 'HF model updates (share %)', US: pct(fmUs, fmTotal), CN: pct(fmCn, fmTotal) },
+        { label: 'Capability share — top 20 Arena Elo (%)', US: Math.round(fmCapUsShare), CN: Math.round(fmCapCnShare) },
+        { label: 'Output share — notable models 2y (%)',    US: Math.round(fmOutUsShare), CN: Math.round(fmOutCnShare) },
+        { label: 'Composite score',                         US: Math.round(fmUsComp),     CN: Math.round(fmCnComp)     },
       ],
-      barXLabel: 'Share of combined US + China activity (%)',
+      barXLabel: 'Share of combined US + China (%)',
       tableRows: [
-        { label: '30-day model updates', us: fmt(fmUs), cn: fmt(fmCn) },
+        { label: 'Models in top 20 (Arena Elo)',        us: fmt(fmCapUsCount), cn: fmt(fmCapCnCount) },
+        { label: 'Notable models released (2y, Epoch)', us: fmt(fmOutUsCount), cn: fmt(fmOutCnCount) },
         { label: 'Score (0–10)', ...getScore('frontier_models') },
       ],
     },

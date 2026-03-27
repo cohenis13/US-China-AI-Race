@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-03-26T21:11:13.433480+00:00",
-  "last_updated": "2026-03-26T21:11:13.433493+00:00",
+  "fetched_at": "2026-03-27T10:07:45.089683+00:00",
+  "last_updated": "2026-03-27T10:07:45.089696+00:00",
   "summary": {
     "US": {
       "composite_score": 37.1,
@@ -16,7 +16,7 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 130881,
+          "raw_value": 130645,
           "unit": "AI papers (12-month)",
           "share_score": 36.1,
           "window_days": 365,
@@ -24,7 +24,7 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3561,
+          "raw_value": 3529,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.3,
           "window_days": 730,
@@ -34,7 +34,7 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1528,
+          "raw_value": 1521,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 44.6,
           "window_days": 1095,
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 231714,
+          "raw_value": 230951,
           "unit": "AI papers (12-month)",
           "share_score": 63.9,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (231,714 vs US 130,881 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (230,951 vs US 130,645 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7451,
+          "raw_value": 7400,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.7,
           "window_days": 730,
@@ -70,7 +70,7 @@
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1895,
+          "raw_value": 1887,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 55.4,
           "window_days": 1095,
@@ -105,6 +105,84 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. Quality proxy uses citation threshold only — no venue-type filter."
   },
   "papers": [
+    {
+      "id": "https://openalex.org/W7140018180",
+      "title": "Graph neural networks for water level modelling in floodplains: application to the Severn floodplain with HydroGCN",
+      "authors": [
+        "Fadil Boodoo",
+        "Carole Delenne",
+        "Franco Alberto Cardillo"
+      ],
+      "countries": [
+        "FR",
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-03-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125779597",
+      "title": "ChatGPT as an Innovative Tool for Idea Generation and Problem-Solving: Nano Review",
+      "authors": [
+        "Horn Sarun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7112256929",
+      "title": "Reasonable Doubt in the Face of Bias:Fair Flagging with Dirichlet-Based Models",
+      "authors": [
+        "Barker, Charmaine",
+        "KAZAKOV, DIMITAR LUBOMIROV"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125803020",
+      "title": "ChatGPT as an Innovative Tool for Idea Generation and Problem-Solving: Nano Review",
+      "authors": [
+        "Horn Sarun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125806261",
+      "title": "Applications of ChatGPT in Data Analysis and Interpretation",
+      "authors": [
+        "Horn Sarun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125793484",
+      "title": "Applications of ChatGPT in Data Analysis and Interpretation",
+      "authors": [
+        "Horn Sarun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-03-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7125694795",
       "title": "ChatGPT as a Tool for Programming Assistance and Code Development",
@@ -213,85 +291,6 @@
         "Lionel Yan Jin Lee",
         "Namith Rangaswamy",
         "K Joshua"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140307505",
-      "title": "SOS1: tracking the evolving path from promising to actionable therapeutic target in RAS-dependent cancers",
-      "authors": [
-        "Luis Luna-Ramírez",
-        "Rosula Garcia-Navas",
-        "Eugenio Santos"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140313949",
-      "title": "Longitudinal visualization tools for advanced characterization of multiple sclerosis lesions using diffusion MRI and magnetization transfer imaging metrics",
-      "authors": [
-        "Erick Hernández-Gutiérrez",
-        "Ricardo Coronado-Leija",
-        "Manon Edde"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140281954",
-      "title": "A Formal Framework for Evaluating Reasoning Integrity in Language Models",
-      "authors": [
-        "Amaya Kavya",
-        "Shardul Shinde"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140307520",
-      "title": "Applications of artificial intelligence in peripheral neurosurgery: a systematic review",
-      "authors": [
-        "Destiny L. Green",
-        "B. Parker Layton",
-        "Justin Knapp"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140307500",
-      "title": "Agent Knowledge Cycle (AKC)",
-      "authors": [
-        "Tatsuya Shimomoto"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140324455",
-      "title": "Physiological Expression Mapping in Cardiometabolic Disease: A State-Space Framework with Clinical and Hemodynamic Evidence",
-      "authors": [
-        "Zheng J. Ma"
       ],
       "countries": [],
       "primary_country": "Unknown",

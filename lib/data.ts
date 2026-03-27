@@ -15,6 +15,8 @@ export interface RadarDimension {
   dimension: string
   US: number
   CN: number
+  confidence: Confidence
+  caveat: string
 }
 
 export interface BarDataPoint {
@@ -54,12 +56,12 @@ export const scorecardDimensions: ScoreCardDimension[] = [
 
 // ─── Radar data ───────────────────────────────────────────────────────────────
 export const radarData: RadarDimension[] = [
-  { dimension: 'Frontier Models', US: 9, CN: 7 },
-  { dimension: 'Compute',         US: 9, CN: 6 },
-  { dimension: 'Talent',          US: 8, CN: 7 },
-  { dimension: 'Adoption',        US: 7, CN: 8 },
-  { dimension: 'Diffusion',       US: 7, CN: 8 },
-  { dimension: 'Energy',          US: 6, CN: 8 },
+  { dimension: 'Frontier Models', US: 9, CN: 7, confidence: 'medium', caveat: '' },
+  { dimension: 'Compute',         US: 9, CN: 6, confidence: 'high',   caveat: '' },
+  { dimension: 'Talent',          US: 8, CN: 7, confidence: 'medium', caveat: '' },
+  { dimension: 'Adoption',        US: 7, CN: 8, confidence: 'low',    caveat: '' },
+  { dimension: 'Diffusion',       US: 7, CN: 8, confidence: 'low',    caveat: '' },
+  { dimension: 'Energy',          US: 6, CN: 8, confidence: 'high',   caveat: '' },
 ]
 
 // ─── Strategic insights ───────────────────────────────────────────────────────

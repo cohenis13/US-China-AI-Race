@@ -181,10 +181,13 @@ export async function getLiveData(): Promise<LiveData> {
 
   // ── Radar ───────────────────────────────────────────────────────────────────
   const { order, us: radarUs, china: radarCn } = exec.radar_chart_data
+  const dimByKey = Object.fromEntries(exec.dimensions.map((d) => [d.key, d]))
   const radarData: RadarDimension[] = order.map((key, i) => ({
     dimension: keyToLabel[key] ?? key,
     US: radarUs[i],
     CN: radarCn[i],
+    confidence: mapConfidence(dimByKey[key]?.confidence ?? ''),
+    caveat: dimByKey[key]?.caveat ?? '',
   }))
 
   // ── Strategic insights ──────────────────────────────────────────────────────

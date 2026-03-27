@@ -1,35 +1,153 @@
 {
   "_instructions": [
-    "Update this file weekly from https://artificialanalysis.ai/leaderboards/models",
-    "List the top 20 models by Intelligence Index score.",
-    "Set 'country' to 'US', 'China', or 'Other' for each model.",
-    "Set 'needs_update' to false after updating.",
-    "Commit and push â€” the dashboard reads this file directly."
+    "Auto-updated daily from mathewhe/chatbot-arena-elo on HuggingFace.",
+    "Source: LMSYS Chatbot Arena (human preference Elo rankings).",
+    "Do not edit manually — changes will be overwritten on next run."
   ],
-  "source": "Artificial Analysis Intelligence Index",
-  "source_url": "https://artificialanalysis.ai/leaderboards/models",
-  "last_updated": "2026-03-26",
+  "source": "LMSYS Chatbot Arena via mathewhe/chatbot-arena-elo",
+  "source_url": "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
+  "last_updated": "2026-03-27",
   "needs_update": false,
   "top_models": [
-    { "rank": 1,  "model": "o3",                      "developer": "OpenAI",         "country": "US",    "intelligence_index": null },
-    { "rank": 2,  "model": "Gemini 2.5 Pro",           "developer": "Google",         "country": "US",    "intelligence_index": null },
-    { "rank": 3,  "model": "Claude 3.7 Sonnet",        "developer": "Anthropic",      "country": "US",    "intelligence_index": null },
-    { "rank": 4,  "model": "GPT-4.5",                  "developer": "OpenAI",         "country": "US",    "intelligence_index": null },
-    { "rank": 5,  "model": "DeepSeek R1",              "developer": "DeepSeek",       "country": "China", "intelligence_index": null },
-    { "rank": 6,  "model": "Gemini 2.0 Flash",         "developer": "Google",         "country": "US",    "intelligence_index": null },
-    { "rank": 7,  "model": "o3-mini",                  "developer": "OpenAI",         "country": "US",    "intelligence_index": null },
-    { "rank": 8,  "model": "Qwen 2.5 Max",             "developer": "Alibaba",        "country": "China", "intelligence_index": null },
-    { "rank": 9,  "model": "Claude 3.5 Sonnet",        "developer": "Anthropic",      "country": "US",    "intelligence_index": null },
-    { "rank": 10, "model": "Grok-3",                   "developer": "xAI",            "country": "US",    "intelligence_index": null },
-    { "rank": 11, "model": "DeepSeek V3",              "developer": "DeepSeek",       "country": "China", "intelligence_index": null },
-    { "rank": 12, "model": "Llama 3.3 70B",            "developer": "Meta",           "country": "US",    "intelligence_index": null },
-    { "rank": 13, "model": "Mistral Large 2",          "developer": "Mistral AI",     "country": "Other", "intelligence_index": null },
-    { "rank": 14, "model": "Qwen 2.5 72B",             "developer": "Alibaba",        "country": "China", "intelligence_index": null },
-    { "rank": 15, "model": "GPT-4o",                   "developer": "OpenAI",         "country": "US",    "intelligence_index": null },
-    { "rank": 16, "model": "Gemini 2.0 Pro",           "developer": "Google",         "country": "US",    "intelligence_index": null },
-    { "rank": 17, "model": "Kimi k1.5",                "developer": "Moonshot AI",    "country": "China", "intelligence_index": null },
-    { "rank": 18, "model": "GLM-4",                    "developer": "Zhipu AI",       "country": "China", "intelligence_index": null },
-    { "rank": 19, "model": "Claude 3.5 Haiku",         "developer": "Anthropic",      "country": "US",    "intelligence_index": null },
-    { "rank": 20, "model": "Phi-4",                    "developer": "Microsoft",      "country": "US",    "intelligence_index": null }
+    {
+      "rank": 1,
+      "model": "Gemini-2.5-Pro",
+      "developer": "Google",
+      "country": "US",
+      "elo": 1474
+    },
+    {
+      "rank": 2,
+      "model": "Gemini-2.5-Pro-Preview-05-06",
+      "developer": "Google",
+      "country": "US",
+      "elo": 1446
+    },
+    {
+      "rank": 3,
+      "model": "Grok-4-0709",
+      "developer": "xAI",
+      "country": "US",
+      "elo": 1443
+    },
+    {
+      "rank": 4,
+      "model": "ChatGPT-4o-latest (2025-03-26)",
+      "developer": "OpenAI",
+      "country": "US",
+      "elo": 1429
+    },
+    {
+      "rank": 5,
+      "model": "o3-2025-04-16",
+      "developer": "OpenAI",
+      "country": "US",
+      "elo": 1428
+    },
+    {
+      "rank": 6,
+      "model": "DeepSeek-R1-0528",
+      "developer": "DeepSeek",
+      "country": "China",
+      "elo": 1424
+    },
+    {
+      "rank": 7,
+      "model": "Grok-3-Preview-02-24",
+      "developer": "xAI",
+      "country": "US",
+      "elo": 1423
+    },
+    {
+      "rank": 8,
+      "model": "Gemini-2.5-Flash",
+      "developer": "Google",
+      "country": "US",
+      "elo": 1417
+    },
+    {
+      "rank": 9,
+      "model": "GPT-4.5-Preview",
+      "developer": "OpenAI",
+      "country": "US",
+      "elo": 1413
+    },
+    {
+      "rank": 10,
+      "model": "Gemini-2.5-Flash-Preview-04-17",
+      "developer": "Google",
+      "country": "US",
+      "elo": 1397
+    },
+    {
+      "rank": 11,
+      "model": "Qwen3-235B-A22B-no-thinking",
+      "developer": "Alibaba",
+      "country": "China",
+      "elo": 1392
+    },
+    {
+      "rank": 12,
+      "model": "GPT-4.1-2025-04-14",
+      "developer": "OpenAI",
+      "country": "US",
+      "elo": 1384
+    },
+    {
+      "rank": 13,
+      "model": "DeepSeek-V3-0324",
+      "developer": "DeepSeek",
+      "country": "China",
+      "elo": 1382
+    },
+    {
+      "rank": 14,
+      "model": "Hunyuan-Turbos-20250416",
+      "developer": "Tencent",
+      "country": "China",
+      "elo": 1378
+    },
+    {
+      "rank": 15,
+      "model": "kimi-k2-0711-preview",
+      "developer": "Moonshot",
+      "country": "China",
+      "elo": 1374
+    },
+    {
+      "rank": 16,
+      "model": "DeepSeek-R1",
+      "developer": "DeepSeek",
+      "country": "China",
+      "elo": 1373
+    },
+    {
+      "rank": 17,
+      "model": "Mistral Medium 3",
+      "developer": "Mistral",
+      "country": "Other",
+      "elo": 1372
+    },
+    {
+      "rank": 18,
+      "model": "Claude Opus 4 (thinking-16k)",
+      "developer": "Anthropic",
+      "country": "US",
+      "elo": 1371
+    },
+    {
+      "rank": 19,
+      "model": "Claude Opus 4 (20250514)",
+      "developer": "Anthropic",
+      "country": "US",
+      "elo": 1368
+    },
+    {
+      "rank": 20,
+      "model": "Qwen3-235B-A22B",
+      "developer": "Alibaba",
+      "country": "China",
+      "elo": 1367
+    }
   ]
 }

@@ -1,222 +1,219 @@
 {
   "dimension": "frontier_models",
   "metric_key": "frontier_model_composite",
-  "title": "Frontier AI Models â€” U.S. vs China",
-  "subtitle": "Two-proxy composite: capability ranking share (60%, top-20 leaderboard) + notable model output share (40%, Epoch AI, last 2 years). Each proxy scored as share-of-combined (US + China = 100).",
-  "fetched_at": "2026-03-26T22:04:22.708036+00:00",
+  "title": "Frontier AI Models — U.S. vs China",
+  "subtitle": "Two-proxy composite: Arena Elo capability ranking share (60%, top-20) + notable model output share (40%, Epoch AI, last 2 years). Each proxy: US share of combined US+China.",
+  "fetched_at": "2026-03-27T03:10:20.104913+00:00",
   "summary": {
     "US": {
-      "composite_score": 41.0,
+      "composite_score": 63.3,
       "effective_weights": {
         "capability": 0.6,
         "output": 0.4
       },
       "proxies": {
         "capability": {
-          "raw_value": 13,
-          "unit": "models in top 20 (leaderboard)",
-          "share_score": 68.4,
+          "raw_value": 12,
+          "unit": "models in top 20 (Arena Elo)",
+          "share_score": 63.2,
           "top_n": 20,
-          "snapshot_date": "2026-03-26",
-          "note": "US has 13 of the top 20 models on the Artificial Analysis Intelligence Index (snapshot: 2026-03-26)."
+          "source": "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)"
         },
         "output": {
-          "raw_value": 0,
-          "unit": "notable AI models (last 2y, Epoch AI)",
-          "share_score": 0.0,
+          "raw_value": 99,
+          "unit": "notable AI models released (last 2y)",
+          "share_score": 63.5,
           "window_years": 2,
-          "note": "US-based labs released 0 notable AI models in the last 2 years per Epoch AI database."
+          "source": "Epoch AI notable_ai_models.csv"
         }
       }
     },
     "China": {
-      "composite_score": 59.0,
+      "composite_score": 36.7,
       "effective_weights": {
         "capability": 0.6,
         "output": 0.4
       },
       "proxies": {
         "capability": {
-          "raw_value": 6,
-          "unit": "models in top 20 (leaderboard)",
-          "share_score": 31.6,
+          "raw_value": 7,
+          "unit": "models in top 20 (Arena Elo)",
+          "share_score": 36.8,
           "top_n": 20,
-          "snapshot_date": "2026-03-26",
-          "note": "China has 6 of the top 20 models on the Artificial Analysis Intelligence Index (snapshot: 2026-03-26)."
+          "source": "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)"
         },
         "output": {
-          "raw_value": 53,
-          "unit": "notable AI models (last 2y, Epoch AI)",
-          "share_score": 100.0,
+          "raw_value": 57,
+          "unit": "notable AI models released (last 2y)",
+          "share_score": 36.5,
           "window_years": 2,
-          "note": "China-based labs released 53 notable AI models in the last 2 years per Epoch AI database."
+          "source": "Epoch AI notable_ai_models.csv"
         }
       }
     }
   },
   "leaderboard": {
-    "source": "Artificial Analysis Intelligence Index",
-    "source_url": "https://artificialanalysis.ai/leaderboards/models",
-    "last_updated": "2026-03-26",
+    "source": "LMSYS Chatbot Arena",
+    "source_url": "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
+    "last_updated": "2026-03-27",
     "top_n": 20,
     "models": [
       {
         "rank": 1,
-        "model": "o3",
-        "developer": "OpenAI",
+        "model": "Gemini-2.5-Pro",
+        "developer": "Google",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1474
       },
       {
         "rank": 2,
-        "model": "Gemini 2.5 Pro",
+        "model": "Gemini-2.5-Pro-Preview-05-06",
         "developer": "Google",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1446
       },
       {
         "rank": 3,
-        "model": "Claude 3.7 Sonnet",
-        "developer": "Anthropic",
+        "model": "Grok-4-0709",
+        "developer": "xAI",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1443
       },
       {
         "rank": 4,
-        "model": "GPT-4.5",
+        "model": "ChatGPT-4o-latest (2025-03-26)",
         "developer": "OpenAI",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1429
       },
       {
         "rank": 5,
-        "model": "DeepSeek R1",
-        "developer": "DeepSeek",
-        "country": "China",
-        "intelligence_index": null
+        "model": "o3-2025-04-16",
+        "developer": "OpenAI",
+        "country": "US",
+        "elo": 1428
       },
       {
         "rank": 6,
-        "model": "Gemini 2.0 Flash",
-        "developer": "Google",
-        "country": "US",
-        "intelligence_index": null
+        "model": "DeepSeek-R1-0528",
+        "developer": "DeepSeek",
+        "country": "China",
+        "elo": 1424
       },
       {
         "rank": 7,
-        "model": "o3-mini",
-        "developer": "OpenAI",
+        "model": "Grok-3-Preview-02-24",
+        "developer": "xAI",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1423
       },
       {
         "rank": 8,
-        "model": "Qwen 2.5 Max",
-        "developer": "Alibaba",
-        "country": "China",
-        "intelligence_index": null
+        "model": "Gemini-2.5-Flash",
+        "developer": "Google",
+        "country": "US",
+        "elo": 1417
       },
       {
         "rank": 9,
-        "model": "Claude 3.5 Sonnet",
-        "developer": "Anthropic",
+        "model": "GPT-4.5-Preview",
+        "developer": "OpenAI",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1413
       },
       {
         "rank": 10,
-        "model": "Grok-3",
-        "developer": "xAI",
+        "model": "Gemini-2.5-Flash-Preview-04-17",
+        "developer": "Google",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1397
       },
       {
         "rank": 11,
-        "model": "DeepSeek V3",
-        "developer": "DeepSeek",
+        "model": "Qwen3-235B-A22B-no-thinking",
+        "developer": "Alibaba",
         "country": "China",
-        "intelligence_index": null
+        "elo": 1392
       },
       {
         "rank": 12,
-        "model": "Llama 3.3 70B",
-        "developer": "Meta",
+        "model": "GPT-4.1-2025-04-14",
+        "developer": "OpenAI",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1384
       },
       {
         "rank": 13,
-        "model": "Mistral Large 2",
-        "developer": "Mistral AI",
-        "country": "Other",
-        "intelligence_index": null
+        "model": "DeepSeek-V3-0324",
+        "developer": "DeepSeek",
+        "country": "China",
+        "elo": 1382
       },
       {
         "rank": 14,
-        "model": "Qwen 2.5 72B",
-        "developer": "Alibaba",
+        "model": "Hunyuan-Turbos-20250416",
+        "developer": "Tencent",
         "country": "China",
-        "intelligence_index": null
+        "elo": 1378
       },
       {
         "rank": 15,
-        "model": "GPT-4o",
-        "developer": "OpenAI",
-        "country": "US",
-        "intelligence_index": null
+        "model": "kimi-k2-0711-preview",
+        "developer": "Moonshot",
+        "country": "China",
+        "elo": 1374
       },
       {
         "rank": 16,
-        "model": "Gemini 2.0 Pro",
-        "developer": "Google",
-        "country": "US",
-        "intelligence_index": null
+        "model": "DeepSeek-R1",
+        "developer": "DeepSeek",
+        "country": "China",
+        "elo": 1373
       },
       {
         "rank": 17,
-        "model": "Kimi k1.5",
-        "developer": "Moonshot AI",
-        "country": "China",
-        "intelligence_index": null
+        "model": "Mistral Medium 3",
+        "developer": "Mistral",
+        "country": "Other",
+        "elo": 1372
       },
       {
         "rank": 18,
-        "model": "GLM-4",
-        "developer": "Zhipu AI",
-        "country": "China",
-        "intelligence_index": null
+        "model": "Claude Opus 4 (thinking-16k)",
+        "developer": "Anthropic",
+        "country": "US",
+        "elo": 1371
       },
       {
         "rank": 19,
-        "model": "Claude 3.5 Haiku",
+        "model": "Claude Opus 4 (20250514)",
         "developer": "Anthropic",
         "country": "US",
-        "intelligence_index": null
+        "elo": 1368
       },
       {
         "rank": 20,
-        "model": "Phi-4",
-        "developer": "Microsoft",
-        "country": "US",
-        "intelligence_index": null
+        "model": "Qwen3-235B-A22B",
+        "developer": "Alibaba",
+        "country": "China",
+        "elo": 1367
       }
     ],
-    "us_count": 13,
-    "china_count": 6,
+    "us_count": 12,
+    "china_count": 7,
     "other_count": 1
   },
   "epoch_output": {
     "source": "Epoch AI notable_ai_models.csv",
     "source_url": "https://epoch.ai/data/notable_ai_models.csv",
     "window_years": 2,
-    "cutoff_date": "2024-03-26",
-    "us_count": 0,
-    "china_count": 53,
+    "cutoff_date": "2024-03-27",
+    "us_count": 99,
+    "china_count": 57,
     "recent_models": [
       {
         "model": "Solar Open 100B",
         "developer": "Upstage",
-        "country_raw": "Korea (Republic of)",
         "country": "Other",
         "published": "2025-12-31",
         "compute": "",
@@ -225,7 +222,6 @@
       {
         "model": "K-EXAONE",
         "developer": "LG AI Research",
-        "country_raw": "Korea (Republic of)",
         "country": "Other",
         "published": "2025-12-31",
         "compute": "1.52e+24",
@@ -234,7 +230,6 @@
       {
         "model": "VAETKI",
         "developer": "NC AI",
-        "country_raw": "Korea (Republic of)",
         "country": "Other",
         "published": "2025-12-30",
         "compute": "",
@@ -243,7 +238,6 @@
       {
         "model": "A.X K1",
         "developer": "SK Telecom",
-        "country_raw": "Korea (Republic of)",
         "country": "Other",
         "published": "2025-12-30",
         "compute": "",
@@ -252,7 +246,6 @@
       {
         "model": "HyperCLOVA X SEED 32B Think",
         "developer": "NAVER",
-        "country_raw": "Korea (Republic of)",
         "country": "Other",
         "published": "2025-12-29",
         "compute": "",
@@ -261,7 +254,6 @@
       {
         "model": "MiniMax-M2.1",
         "developer": "MiniMax",
-        "country_raw": "China",
         "country": "China",
         "published": "2025-12-23",
         "compute": "",
@@ -270,7 +262,6 @@
       {
         "model": "GLM-4.7",
         "developer": "Z.ai (Zhipu AI)",
-        "country_raw": "China",
         "country": "China",
         "published": "2025-12-22",
         "compute": "4.42e+24",
@@ -279,8 +270,7 @@
       {
         "model": "GPT-5.2 Codex",
         "developer": "OpenAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-12-18",
         "compute": "",
         "frontier": false
@@ -288,7 +278,6 @@
       {
         "model": "DeepSeekMath-V2",
         "developer": "DeepSeek",
-        "country_raw": "China",
         "country": "China",
         "published": "2025-11-27",
         "compute": "",
@@ -297,8 +286,7 @@
       {
         "model": "Claude Opus 4.5",
         "developer": "Anthropic",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-24",
         "compute": "",
         "frontier": false
@@ -306,7 +294,6 @@
       {
         "model": "Olmo 3",
         "developer": "Allen Institute for AI (Ai2)",
-        "country_raw": "",
         "country": "Other",
         "published": "2025-11-20",
         "compute": "1.1e+24",
@@ -315,8 +302,7 @@
       {
         "model": "Grok 4.1 Fast",
         "developer": "xAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-19",
         "compute": "",
         "frontier": false
@@ -324,8 +310,7 @@
       {
         "model": "GPT-5.1-Codex-Max",
         "developer": "OpenAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-19",
         "compute": "",
         "frontier": false
@@ -333,8 +318,7 @@
       {
         "model": "Gemini 3 Pro",
         "developer": "Google DeepMind",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-18",
         "compute": "",
         "frontier": false
@@ -342,8 +326,7 @@
       {
         "model": "Grok 4.1",
         "developer": "xAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-17",
         "compute": "",
         "frontier": false
@@ -351,8 +334,7 @@
       {
         "model": "GPT-5.1 Instant",
         "developer": "OpenAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-13",
         "compute": "",
         "frontier": false
@@ -360,8 +342,7 @@
       {
         "model": "GPT-5.1",
         "developer": "OpenAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-13",
         "compute": "",
         "frontier": false
@@ -369,8 +350,7 @@
       {
         "model": "GPT-5.1-Codex",
         "developer": "OpenAI",
-        "country_raw": "United States of America",
-        "country": "Other",
+        "country": "US",
         "published": "2025-11-12",
         "compute": "",
         "frontier": false
@@ -378,7 +358,6 @@
       {
         "model": "Kimi K2 Thinking",
         "developer": "Moonshot",
-        "country_raw": "China",
         "country": "China",
         "published": "2025-11-06",
         "compute": "4.2e+24",
@@ -387,7 +366,6 @@
       {
         "model": "Tongyi DeepResearch",
         "developer": "Alibaba",
-        "country_raw": "China",
         "country": "China",
         "published": "2025-10-28",
         "compute": "",
@@ -395,13 +373,5 @@
       }
     ]
   },
-  "composite_construction": {
-    "method": "Weighted average of two share-of-combined scores.",
-    "weights": {
-      "capability": 0.6,
-      "output": 0.4
-    },
-    "note": "Capability score (60%): US share of top-20 Artificial Analysis models. Output score (40%): US share of Epoch AI notable models in last 2 years. Both proxies use US/(US+China)*100; Other-country models are excluded from the denominator."
-  },
-  "interpretive_sentence": "On a composite of leaderboard capability ranking (60%) and notable model output (40%), the US scores 41.0 and China scores 59.0 out of 100. US has 13 of the top 20 models on AI benchmarks; China has 6. On model output, US released 0 notable models vs China's 53 in the last 2 years."
+  "interpretive_sentence": "On a composite of Arena Elo capability ranking (60%) and notable model output (40%), the US scores 63.3 and China scores 36.7 out of 100. US has 12 of the top 20 models by human preference; China has 7. On output, US released 99 notable models vs China's 57 in the last 2 years."
 }

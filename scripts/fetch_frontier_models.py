@@ -3,33 +3,20 @@
 Fetch frontier AI model data — two-proxy composite index.
 
 PROXIES
-  1. Capability score (60%): US share of top-N models on the Artificial
-     Analysis Intelligence Index leaderboard, read from the manually-
-     maintained data/leaderboard_snapshot.json (updated weekly).
-     Directly answers: "who has the most capable models right now?"
+  1. Capability score (60%): US share of top-20 models on the Chatbot Arena
+     leaderboard (Arena Elo), loaded from the HuggingFace dataset
+     mathewhe/chatbot-arena-elo. Reflects human-preference rankings across
+     open and closed models from both US and Chinese labs.
 
-  2. Output score (40%): US share of notable AI models released in the
-     last 2 years, from the Epoch AI notable_ai_models.csv dataset.
-     Answers: "who is producing frontier-class models at what pace?"
+  2. Output score (40%): US share of notable AI models released in the last
+     2 years, from the Epoch AI notable_ai_models.csv dataset.
 
 COMPOSITE SCORING
-  Each proxy is scored as share-of-combined (US + China = 100).
+  Each proxy: US share of combined US+China (Other excluded from denominator).
   Composite = 0.60 * capability_share + 0.40 * output_share.
-  US composite + China composite ≈ 100 by construction.
-
-WHY THIS APPROACH?
-  The previous HF Hub activity count was a noisy proxy that missed all
-  closed models (GPT-4o, Claude, Gemini, DeepSeek) — the most capable
-  systems. The new approach uses actual capability rankings for the
-  primary signal and release counts for context.
-
-DATA SOURCES
-  - Leaderboard: https://artificialanalysis.ai/leaderboards/models
-    (manually updated weekly in data/leaderboard_snapshot.json)
-  - Epoch AI: https://epoch.ai/data/notable_ai_models.csv
-    (fetched automatically; updated ~weekly by Epoch)
 
 OUTPUT: data/frontier_models.json
+         data/leaderboard_snapshot.json  (updated with current Elo rankings)
 """
 
 import csv
@@ -43,8 +30,13 @@ from pathlib import Path
 try:
     import requests
 except ImportError:
-    print("Error: 'requests' package is required.")
-    print("Install it with:  pip install requests")
+    print("Error: 'requests' package is required.  pip install requests")
+    sys.exit(1)
+
+try:
+    from datasets import load_dataset
+except ImportError:
+    print("Error: 'datasets' package is required.  pip install datasets")
     sys.exit(1)
 
 # ── Logging ───────────────────────────────────────────────────────────────────
@@ -61,83 +53,141 @@ LEADERBOARD_FILE   = ROOT / "data" / "leaderboard_snapshot.json"
 OUTPUT_FILE        = ROOT / "data" / "frontier_models.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
+HF_DATASET_ID    = "mathewhe/chatbot-arena-elo"
 EPOCH_CSV_URL    = "https://epoch.ai/data/notable_ai_models.csv"
 REQUEST_TIMEOUT  = 30
-WINDOW_YEARS     = 2      # look back 2 years for output score
-TOP_N            = 20     # how many leaderboard models to count
+WINDOW_YEARS     = 2
+TOP_N            = 20
 
-WEIGHTS = {
-    "capability": 0.60,
-    "output":     0.40,
-}
+WEIGHTS = {"capability": 0.60, "output": 0.40}
 
-# Epoch AI CSV uses full country names
-US_COUNTRY  = "United States"
-CN_COUNTRY  = "China"
+EPOCH_US_COUNTRY = "United States of America"
+EPOCH_CN_COUNTRY = "China"
 
 MAILTO = "ai-tracker@github-actions"
+
+# ── Organization → country mapping (Arena dataset) ───────────────────────────
+US_ORGS = {
+    "OpenAI", "Anthropic", "Google", "Meta", "xAI", "Microsoft", "Amazon",
+    "Cohere", "Ai2", "Allen AI", "AllenAI/UW", "HuggingFace", "IBM", "LMSYS",
+    "MosaicML", "NexusFlow", "Nexusflow", "Nomic AI", "NousResearch", "Nvidia",
+    "Princeton", "Stanford", "Together AI", "UC Berkeley", "UW", "Databricks",
+    "Snowflake", "Cognitive Computations", "Reka AI",
+}
+
+CN_ORGS = {
+    "DeepSeek", "DeepSeek AI", "Alibaba", "Moonshot", "MiniMax", "Tencent",
+    "Zhipu", "Zhipu AI", "01 AI", "StepFun", "Tsinghua", "InternLM", "Baidu",
+    "ByteDance", "Huawei", "Baichuan",
+}
+
+
+def map_org_to_country(org: str) -> str:
+    if not org:
+        return "Other"
+    org_stripped = org.strip()
+    if org_stripped in US_ORGS:
+        return "US"
+    if org_stripped in CN_ORGS:
+        return "China"
+    # Fallback: substring check for common patterns
+    org_lower = org_stripped.lower()
+    if any(x in org_lower for x in ["openai", "anthropic", "google", "deepmind", "meta ", "microsoft", "amazon", "nvidia"]):
+        return "US"
+    if any(x in org_lower for x in ["deepseek", "alibaba", "qwen", "baidu", "tencent", "bytedance", "moonshot", "minimax", "zhipu", "huawei"]):
+        return "China"
+    return "Other"
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def share_score(us: int | float, cn: int | float) -> tuple[float, float]:
-    """Return (us_share, cn_share) as percentages summing to 100."""
+def share_score(us: float, cn: float) -> tuple[float, float]:
     total = us + cn
     if total == 0:
         return 50.0, 50.0
     us_share = round((us / total) * 100.0, 1)
-    cn_share = round(100.0 - us_share, 1)
-    return us_share, cn_share
+    return us_share, round(100.0 - us_share, 1)
 
 
-# ── Proxy 1: Capability score from leaderboard snapshot ───────────────────────
+# ── Proxy 1: Capability — Chatbot Arena Elo ───────────────────────────────────
 
-def load_leaderboard() -> dict:
-    if not LEADERBOARD_FILE.exists():
-        log.error("leaderboard_snapshot.json not found at %s", LEADERBOARD_FILE)
-        sys.exit(1)
-    with open(LEADERBOARD_FILE, encoding="utf-8") as f:
-        return json.load(f)
-
-
-def compute_capability_score(snapshot: dict) -> dict:
+def fetch_arena_leaderboard() -> list[dict]:
     """
-    Count US and China models in the top-N leaderboard.
-    Returns a dict with counts, shares, and the model list.
+    Load mathewhe/chatbot-arena-elo from HuggingFace, return top-N models
+    sorted by Arena Score descending, with country mapping applied.
     """
-    models = snapshot.get("top_models", [])[:TOP_N]
+    log.info("── Proxy 1: Loading Chatbot Arena Elo from HuggingFace ────────")
+    ds  = load_dataset(HF_DATASET_ID)
+    df  = ds["train"].to_pandas()
 
-    us_count    = sum(1 for m in models if m.get("country") == "US")
-    china_count = sum(1 for m in models if m.get("country") == "China")
-    other_count = sum(1 for m in models if m.get("country") == "Other")
+    # Sort by Arena Score descending; keep top N
+    df = df.sort_values("Arena Score", ascending=False).reset_index(drop=True)
 
-    us_share, cn_share = share_score(us_count, china_count)
+    models = []
+    for _, row in df.iterrows():
+        model   = str(row.get("Model") or "").strip()
+        org     = str(row.get("Organization") or "").strip()
+        elo     = row.get("Arena Score")
+        country = map_org_to_country(org)
+        if not model:
+            continue
+        models.append({
+            "rank":        len(models) + 1,
+            "model":       model,
+            "developer":   org,
+            "country":     country,
+            "elo":         int(elo) if elo is not None else None,
+        })
+        if len(models) >= TOP_N:
+            break
 
-    log.info("── Proxy 1: Capability (leaderboard top-%d) ──────────────────", TOP_N)
+    log.info("  Loaded %d models from Arena dataset", len(models))
+    for m in models:
+        log.info("    #%-2d %-45s %-8s Elo=%s", m["rank"], m["model"], m["country"], m["elo"])
+
+    return models
+
+
+def compute_capability_score(models: list[dict]) -> dict:
+    us_count    = sum(1 for m in models if m["country"] == "US")
+    cn_count    = sum(1 for m in models if m["country"] == "China")
+    other_count = sum(1 for m in models if m["country"] == "Other")
+    us_share, cn_share = share_score(us_count, cn_count)
+
     log.info("  US=%d  China=%d  Other=%d  → US_share=%.1f%%",
-             us_count, china_count, other_count, us_share)
-
-    if snapshot.get("needs_update"):
-        log.warning("  leaderboard_snapshot.json has needs_update=true — data may be stale")
-
+             us_count, cn_count, other_count, us_share)
     return {
-        "us_count":       us_count,
-        "china_count":    china_count,
-        "other_count":    other_count,
-        "us_share":       us_share,
-        "cn_share":       cn_share,
-        "top_n":          TOP_N,
-        "snapshot_date":  snapshot.get("last_updated", "unknown"),
-        "source":         snapshot.get("source", "Artificial Analysis Intelligence Index"),
-        "source_url":     snapshot.get("source_url", ""),
-        "models":         models,
+        "us_count":    us_count,
+        "china_count": cn_count,
+        "other_count": other_count,
+        "us_share":    us_share,
+        "cn_share":    cn_share,
+        "top_n":       TOP_N,
+        "models":      models,
     }
 
 
-# ── Proxy 2: Output score from Epoch AI ───────────────────────────────────────
+def update_leaderboard_snapshot(models: list[dict], today: str) -> None:
+    """Overwrite leaderboard_snapshot.json with fresh Arena data."""
+    snapshot = {
+        "_instructions": [
+            "Auto-updated daily from mathewhe/chatbot-arena-elo on HuggingFace.",
+            "Source: LMSYS Chatbot Arena (human preference Elo rankings).",
+            "Do not edit manually — changes will be overwritten on next run."
+        ],
+        "source":       "LMSYS Chatbot Arena via mathewhe/chatbot-arena-elo",
+        "source_url":   "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
+        "last_updated": today,
+        "needs_update": False,
+        "top_models":   models,
+    }
+    LEADERBOARD_FILE.write_text(json.dumps(snapshot, indent=2, ensure_ascii=False))
+    log.info("  leaderboard_snapshot.json updated (%d models)", len(models))
+
+
+# ── Proxy 2: Output — Epoch AI ────────────────────────────────────────────────
 
 def fetch_epoch_csv() -> str | None:
-    """Download the Epoch AI notable models CSV. Returns raw text or None."""
     headers = {"User-Agent": f"ai-race-tracker/1.0 (mailto:{MAILTO})"}
     try:
         resp = requests.get(EPOCH_CSV_URL, headers=headers, timeout=REQUEST_TIMEOUT)
@@ -148,106 +198,79 @@ def fetch_epoch_csv() -> str | None:
         return None
 
 
-def parse_epoch_csv(raw_csv: str, cutoff_date: str) -> dict:
-    """
-    Parse the Epoch AI CSV and count US and China notable models
-    published since cutoff_date (YYYY-MM-DD).
-    Returns counts and a list of recent models for the table.
-    """
-    reader = csv.DictReader(io.StringIO(raw_csv))
-
+def parse_epoch_output(raw_csv: str, cutoff_date: str) -> dict:
+    reader      = csv.DictReader(io.StringIO(raw_csv))
     us_count    = 0
     china_count = 0
-    recent_models: list[dict] = []
+    recent: list[dict] = []
 
     for row in reader:
         pub_date = (row.get("Publication date") or "").strip()
         if not pub_date or pub_date < cutoff_date:
             continue
+        country_raw   = (row.get("Country (of organization)") or "").strip()
+        country_parts = [c.strip() for c in country_raw.split(",") if c.strip()]
+        is_us    = any(c == EPOCH_US_COUNTRY for c in country_parts)
+        is_china = any(c == EPOCH_CN_COUNTRY for c in country_parts)
+        model    = (row.get("Model") or "").strip()
+        org      = (row.get("Organization") or "").strip()
+        compute  = (row.get("Training compute (FLOP)") or "").strip()
+        frontier = (row.get("Frontier model") or "").strip().lower() == "yes"
+        country  = "US" if is_us else ("China" if is_china else "Other")
 
-        country = (row.get("Country (of organization)") or "").strip()
-        model   = (row.get("Model") or "").strip()
-        org     = (row.get("Organization") or "").strip()
-        compute = (row.get("Training compute (FLOP)") or "").strip()
-        frontier = (row.get("Frontier model") or "").strip().lower()
-
-        if country == US_COUNTRY:
+        if is_us:
             us_count += 1
-        elif country == CN_COUNTRY:
+        elif is_china:
             china_count += 1
 
-        recent_models.append({
-            "model":       model,
-            "developer":   org,
-            "country_raw": country,
-            "country":     "US" if country == US_COUNTRY else ("China" if country == CN_COUNTRY else "Other"),
-            "published":   pub_date,
-            "compute":     compute,
-            "frontier":    frontier == "yes",
+        recent.append({
+            "model":     model,
+            "developer": org,
+            "country":   country,
+            "published": pub_date,
+            "compute":   compute,
+            "frontier":  frontier,
         })
 
-    # Sort by date descending for display
-    recent_models.sort(key=lambda x: x["published"], reverse=True)
+    recent.sort(key=lambda x: x["published"], reverse=True)
+    us_share, cn_share = share_score(us_count, china_count)
+
+    log.info("── Proxy 2: Epoch AI output (last %dy) ────────────────────────", WINDOW_YEARS)
+    log.info("  US=%d  China=%d  → US_share=%.1f%%", us_count, china_count, us_share)
 
     return {
         "us_count":      us_count,
         "china_count":   china_count,
-        "total_parsed":  us_count + china_count,
+        "us_share":      us_share,
+        "cn_share":      cn_share,
         "window_years":  WINDOW_YEARS,
         "cutoff_date":   cutoff_date,
-        "recent_models": recent_models[:20],
+        "recent_models": recent[:20],
     }
-
-
-def compute_output_score(epoch_data: dict) -> dict:
-    us_count    = epoch_data["us_count"]
-    china_count = epoch_data["china_count"]
-    us_share, cn_share = share_score(us_count, china_count)
-
-    log.info("── Proxy 2: Output (Epoch AI, last %dy) ──────────────────────", WINDOW_YEARS)
-    log.info("  US=%d  China=%d  → US_share=%.1f%%", us_count, china_count, us_share)
-
-    return {
-        "us_count":    us_count,
-        "china_count": china_count,
-        "us_share":    us_share,
-        "cn_share":    cn_share,
-        **{k: v for k, v in epoch_data.items() if k not in ("us_count", "china_count")},
-    }
-
-
-# ── Composite ─────────────────────────────────────────────────────────────────
-
-def compute_composite(cap: dict, out: dict) -> tuple[float, float]:
-    us_comp = round(
-        WEIGHTS["capability"] * cap["us_share"] +
-        WEIGHTS["output"]     * out["us_share"],
-        1,
-    )
-    cn_comp = round(100.0 - us_comp, 1)
-    return us_comp, cn_comp
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    today      = datetime.now(timezone.utc).date()
-    cutoff     = (today - timedelta(days=WINDOW_YEARS * 365)).isoformat()
+    today   = datetime.now(timezone.utc).date()
+    cutoff  = (today - timedelta(days=WINDOW_YEARS * 365)).isoformat()
+    today_s = today.isoformat()
 
     # ── Proxy 1: Capability ───────────────────────────────────────────────────
-    snapshot = load_leaderboard()
-    cap      = compute_capability_score(snapshot)
+    arena_models = fetch_arena_leaderboard()
+    cap          = compute_capability_score(arena_models)
+    update_leaderboard_snapshot(arena_models, today_s)
 
     # ── Proxy 2: Output ───────────────────────────────────────────────────────
-    raw_csv  = fetch_epoch_csv()
+    raw_csv = fetch_epoch_csv()
     if raw_csv is None:
         log.error("Could not fetch Epoch AI CSV — aborting")
         sys.exit(1)
-    epoch_data = parse_epoch_csv(raw_csv, cutoff)
-    out        = compute_output_score(epoch_data)
+    out = parse_epoch_output(raw_csv, cutoff)
 
     # ── Composite ─────────────────────────────────────────────────────────────
-    us_comp, cn_comp = compute_composite(cap, out)
+    us_comp = round(WEIGHTS["capability"] * cap["us_share"] + WEIGHTS["output"] * out["us_share"], 1)
+    cn_comp = round(100.0 - us_comp, 1)
 
     log.info("")
     log.info("Composite: US=%.1f  CN=%.1f", us_comp, cn_comp)
@@ -258,37 +281,29 @@ def main() -> None:
         "metric_key":  "frontier_model_composite",
         "title":       "Frontier AI Models — U.S. vs China",
         "subtitle": (
-            f"Two-proxy composite: capability ranking share (60%, top-{TOP_N} leaderboard) "
+            f"Two-proxy composite: Arena Elo capability ranking share (60%, top-{TOP_N}) "
             f"+ notable model output share (40%, Epoch AI, last {WINDOW_YEARS} years). "
-            "Each proxy scored as share-of-combined (US + China = 100)."
+            "Each proxy: US share of combined US+China."
         ),
-        "fetched_at":   datetime.now(timezone.utc).isoformat(),
+        "fetched_at":  datetime.now(timezone.utc).isoformat(),
         "summary": {
             "US": {
                 "composite_score": us_comp,
                 "effective_weights": WEIGHTS,
                 "proxies": {
                     "capability": {
-                        "raw_value":     cap["us_count"],
-                        "unit":          f"models in top {TOP_N} (leaderboard)",
-                        "share_score":   cap["us_share"],
-                        "top_n":         TOP_N,
-                        "snapshot_date": cap["snapshot_date"],
-                        "note": (
-                            f"US has {cap['us_count']} of the top {TOP_N} models on the "
-                            f"Artificial Analysis Intelligence Index "
-                            f"(snapshot: {cap['snapshot_date']})."
-                        ),
+                        "raw_value":   cap["us_count"],
+                        "unit":        f"models in top {TOP_N} (Arena Elo)",
+                        "share_score": cap["us_share"],
+                        "top_n":       TOP_N,
+                        "source":      "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)",
                     },
                     "output": {
                         "raw_value":   out["us_count"],
-                        "unit":        f"notable AI models (last {WINDOW_YEARS}y, Epoch AI)",
+                        "unit":        f"notable AI models released (last {WINDOW_YEARS}y)",
                         "share_score": out["us_share"],
                         "window_years": WINDOW_YEARS,
-                        "note": (
-                            f"US-based labs released {out['us_count']} notable AI models "
-                            f"in the last {WINDOW_YEARS} years per Epoch AI database."
-                        ),
+                        "source":      "Epoch AI notable_ai_models.csv",
                     },
                 },
             },
@@ -297,39 +312,31 @@ def main() -> None:
                 "effective_weights": WEIGHTS,
                 "proxies": {
                     "capability": {
-                        "raw_value":     cap["china_count"],
-                        "unit":          f"models in top {TOP_N} (leaderboard)",
-                        "share_score":   cap["cn_share"],
-                        "top_n":         TOP_N,
-                        "snapshot_date": cap["snapshot_date"],
-                        "note": (
-                            f"China has {cap['china_count']} of the top {TOP_N} models on the "
-                            f"Artificial Analysis Intelligence Index "
-                            f"(snapshot: {cap['snapshot_date']})."
-                        ),
+                        "raw_value":   cap["china_count"],
+                        "unit":        f"models in top {TOP_N} (Arena Elo)",
+                        "share_score": cap["cn_share"],
+                        "top_n":       TOP_N,
+                        "source":      "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)",
                     },
                     "output": {
                         "raw_value":   out["china_count"],
-                        "unit":        f"notable AI models (last {WINDOW_YEARS}y, Epoch AI)",
+                        "unit":        f"notable AI models released (last {WINDOW_YEARS}y)",
                         "share_score": out["cn_share"],
                         "window_years": WINDOW_YEARS,
-                        "note": (
-                            f"China-based labs released {out['china_count']} notable AI models "
-                            f"in the last {WINDOW_YEARS} years per Epoch AI database."
-                        ),
+                        "source":      "Epoch AI notable_ai_models.csv",
                     },
                 },
             },
         },
         "leaderboard": {
-            "source":       cap["source"],
-            "source_url":   cap["source_url"],
-            "last_updated": cap["snapshot_date"],
-            "top_n":        TOP_N,
-            "models":       cap["models"],
-            "us_count":     cap["us_count"],
-            "china_count":  cap["china_count"],
-            "other_count":  cap["other_count"],
+            "source":      "LMSYS Chatbot Arena",
+            "source_url":  "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
+            "last_updated": today_s,
+            "top_n":       TOP_N,
+            "models":      cap["models"],
+            "us_count":    cap["us_count"],
+            "china_count": cap["china_count"],
+            "other_count": cap["other_count"],
         },
         "epoch_output": {
             "source":        "Epoch AI notable_ai_models.csv",
@@ -338,40 +345,21 @@ def main() -> None:
             "cutoff_date":   cutoff,
             "us_count":      out["us_count"],
             "china_count":   out["china_count"],
-            "recent_models": epoch_data["recent_models"],
-        },
-        "composite_construction": {
-            "method":  "Weighted average of two share-of-combined scores.",
-            "weights": WEIGHTS,
-            "note": (
-                "Capability score (60%): US share of top-20 Artificial Analysis models. "
-                "Output score (40%): US share of Epoch AI notable models in last 2 years. "
-                "Both proxies use US/(US+China)*100; Other-country models are excluded "
-                "from the denominator."
-            ),
+            "recent_models": out["recent_models"],
         },
         "interpretive_sentence": (
-            f"On a composite of leaderboard capability ranking (60%) and notable model "
+            f"On a composite of Arena Elo capability ranking (60%) and notable model "
             f"output (40%), the US scores {us_comp:.1f} and China scores {cn_comp:.1f} "
             f"out of 100. "
-            f"US has {cap['us_count']} of the top {TOP_N} models on AI benchmarks; "
+            f"US has {cap['us_count']} of the top {TOP_N} models by human preference; "
             f"China has {cap['china_count']}. "
-            f"On model output, US released {out['us_count']} notable models vs "
+            f"On output, US released {out['us_count']} notable models vs "
             f"China's {out['china_count']} in the last {WINDOW_YEARS} years."
         ),
     }
 
     OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False))
     log.info("Output written to: %s", OUTPUT_FILE)
-    log.info(
-        "Capability (top-%d):  US=%d  CN=%d  US_share=%.1f%%",
-        TOP_N, cap["us_count"], cap["china_count"], cap["us_share"],
-    )
-    log.info(
-        "Output (Epoch, %dy): US=%d  CN=%d  US_share=%.1f%%",
-        WINDOW_YEARS, out["us_count"], out["china_count"], out["us_share"],
-    )
-    log.info("Composite:           US=%.1f  CN=%.1f", us_comp, cn_comp)
 
 
 if __name__ == "__main__":

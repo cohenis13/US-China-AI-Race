@@ -55,40 +55,37 @@ DIMS = {
         "label":       "Frontier Models",
         "radar_label": "Frontier\nModels",
         "confidence":  "Medium confidence",
-        "method":      "composite_share_100",
+        "method":      "count_share",
         "caveat":      (
-            "Two-proxy composite: capability ranking share (60%) based on the top-20 "
-            "Artificial Analysis Intelligence Index leaderboard (updated weekly), plus "
-            "notable model output share (40%) from Epoch AI (last 2 years). "
-            "Each proxy is US share of combined US+China. "
-            "Leaderboard covers both open and closed models; Epoch AI notable models "
-            "database may lag very recent releases by days to weeks."
+            "Reflects 30-day model update activity on Hugging Face Hub — a proxy for "
+            "lab output velocity, not a definitive capability ranking. China's frontier "
+            "capability (DeepSeek R1, Qwen series) is broader than HF Hub counts alone "
+            "capture. Counts reflect only US- and China-attributed labs in data/labs.json."
         ),
     },
     "talent": {
         "label":       "Talent",
         "radar_label": "Talent",
         "confidence":  "Medium confidence",
-        "method":      "composite_share_100",
+        "method":      "count_share",
         "caveat":      (
-            "Three-proxy composite: paper volume (30%), quality papers cited ≥25 "
-            "times over 2 years (40%), and high-impact papers cited ≥100 "
-            "times over 3 years (30%). Each proxy is the US share of combined "
-            "US+China output. China leads on raw volume; the US leads on citation "
-            "impact. No venue filter — citation thresholds are a more robust quality "
-            "proxy. OpenAlex may undercount Chinese domestic venues not indexed internationally."
+            "Reflects AI research paper volume from OpenAlex over 12 months — a proxy "
+            "for research output, not researcher quality, citation impact, or headcount. "
+            "China leads on volume; the US tends to lead on top-cited work."
         ),
     },
     "compute": {
         "label":       "Compute",
         "radar_label": "Compute",
-        "confidence":  "High confidence (TOP500 only)",
+        "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "TOP500 list data only. China operates multiple exascale-class systems that "
-            "have NOT been submitted to TOP500 — this score significantly understates "
-            "China's actual HPC capacity. US private AI cluster infrastructure (xAI "
-            "Colossus, Meta clusters, etc.) is also excluded."
+            "Based on cumulative AI training compute (FLOPs) for notable models since 2023 "
+            "(Epoch AI). US ~86%, China ~14% of disclosed training compute. Understates "
+            "China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose "
+            "compute; Huawei Ascend deployments are also excluded. The real gap is likely "
+            "narrower than the score suggests — estimated 3-5x in frontier AI clusters, "
+            "not the 6x implied by the training-compute share alone."
         ),
     },
     "adoption": {
@@ -144,18 +141,24 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
     s = data.get("summary", {})
 
     if key == "frontier_models":
-        us = s.get("US", {}).get("composite_score")
-        cn = s.get("China", {}).get("composite_score")
+        us = s.get("US")
+        cn = s.get("China")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 
     if key == "talent":
-        us = s.get("US", {}).get("composite_score")
-        cn = s.get("China", {}).get("composite_score")
+        us = s.get("US")
+        cn = s.get("China")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 
     if key == "compute":
+        # Prefer Epoch AI training compute (primary); fall back to TOP500 Rmax
+        us_flop = s.get("US", {}).get("training_compute_flop")
+        cn_flop = s.get("China", {}).get("training_compute_flop")
+        if us_flop is not None and cn_flop is not None:
+            return float(us_flop), float(cn_flop)
+        # Legacy / fallback: TOP500 Rmax
         us = s.get("US", {}).get("rmax_pflops")
         cn = s.get("China", {}).get("rmax_pflops")
         return (float(us) if us is not None else None,

@@ -29,6 +29,10 @@ const DIM_META: Record<string, { desc: string; conf: string }> = {
     desc: 'AI researcher density, top-tier publication output, immigration dynamics, and elite-institution talent pipeline.',
     conf: 'Medium confidence',
   },
+  'Investment': {
+    desc: 'Private AI capital flows, hyperscaler infrastructure capex, and government AI R&D spending — the financial fuel for AI development.',
+    conf: 'Medium confidence',
+  },
 }
 
 // ── Confidence → point radius ─────────────────────────────────────────────────
@@ -172,7 +176,7 @@ export default function CapabilityRadar({ data }: { data: RadarDimension[] }) {
       <div className="mb-1">
         <h2 className="text-sm font-semibold text-foreground">Capability Overview</h2>
         <p className="text-xs text-muted-foreground mt-0.5">
-          Scores 0–10 across six strategic dimensions
+          Scores 0–10 across seven strategic dimensions
         </p>
       </div>
 

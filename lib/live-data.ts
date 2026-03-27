@@ -188,6 +188,43 @@ interface Energy {
   summary: { US: EnergyProxy; China: EnergyProxy }
 }
 
+interface InvestmentCountry {
+  composite_score: number
+  private_investment_usd_b: number
+  hyperscaler_capex_usd_b: number
+}
+
+interface InvestmentSeries {
+  year: number
+  us_usd_b: number
+  china_usd_b: number
+  us_share: number
+  source: string
+}
+
+interface Investment {
+  fetched_at: string
+  summary: { US: InvestmentCountry; China: InvestmentCountry }
+  private_investment: {
+    latest_year: number
+    us_usd_b: number
+    china_usd_b: number
+    us_share: number
+    china_share: number
+    series: InvestmentSeries[]
+  }
+  hyperscaler_capex: {
+    us_firms: { ticker: string; capex_usd_b: number; period_end: string; source: string }[]
+    china_firms: { ticker: string; capex_usd_b: number; period_end: string; source: string }[]
+    us_total_usd_b: number
+    china_total_usd_b: number
+  }
+  gov_rd: {
+    us: { latest_fy: number; total_ai_usd_b: number }
+    china: { estimate_usd_b: number; range_usd_b: [number, number] }
+  }
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function mapConfidence(s: string): Confidence {
@@ -218,6 +255,7 @@ const keyToLabel: Record<string, string> = {
   adoption: 'Adoption',
   diffusion: 'Diffusion',
   energy: 'Energy',
+  investment: 'Investment',
 }
 
 const METHODOLOGY_URL = 'https://us-china-ai-race.vercel.app/docs/methodology.html'
@@ -253,6 +291,11 @@ const TAB_SOURCES: Record<string, DimensionSource[]> = {
     { label: 'LBNL Queued Up 2024', url: 'https://emp.lbl.gov/queues' },
     { label: 'IEA WEO 2024', url: 'https://www.iea.org/reports/world-energy-outlook-2024' },
   ],
+  investment: [
+    { label: 'Stanford AI Index 2025 (PitchBook)', url: 'https://hai.stanford.edu/ai-index/2025-ai-index-report/economy' },
+    { label: 'SEC EDGAR XBRL API', url: 'https://data.sec.gov/api/xbrl/companyconcept/' },
+    { label: 'NITRD AI R&D Budget Supplement', url: 'https://www.nitrd.gov/budgetinformation/' },
+  ],
 }
 
 // ── Main export ───────────────────────────────────────────────────────────────
@@ -265,8 +308,8 @@ export interface LiveData {
 }
 
 export async function getLiveData(): Promise<LiveData> {
-  const [exec, fm, tal, comp, adp, dif, eng]: [
-    ExecutiveSummary, FrontierModels, Talent, Compute, Adoption, Diffusion, Energy
+  const [exec, fm, tal, comp, adp, dif, eng, inv]: [
+    ExecutiveSummary, FrontierModels, Talent, Compute, Adoption, Diffusion, Energy, Investment
   ] = await Promise.all([
     fetchJson('executive_summary.json'),
     fetchJson('frontier_models.json'),
@@ -275,6 +318,7 @@ export async function getLiveData(): Promise<LiveData> {
     fetchJson('adoption.json'),
     fetchJson('diffusion.json'),
     fetchJson('energy.json'),
+    fetchJson('investment.json'),
   ])
 
   // ── ScoreCard ───────────────────────────────────────────────────────────────
@@ -386,6 +430,18 @@ export async function getLiveData(): Promise<LiveData> {
 
   const engUs = eng.summary.US
   const engCn = eng.summary.China
+
+  const invUs = inv.summary.US
+  const invCn = inv.summary.China
+  const invUsComp = invUs.composite_score
+  const invCnComp = invCn.composite_score
+  const privSeries = inv.private_investment.series
+  const capexUs = inv.hyperscaler_capex.us_total_usd_b
+  const capexCn = inv.hyperscaler_capex.china_total_usd_b
+  const govUsTotal = inv.gov_rd.us.total_ai_usd_b
+  const govUsLatestFy = inv.gov_rd.us.latest_fy
+  const govCnEst = inv.gov_rd.china.estimate_usd_b
+  const govCnRange = inv.gov_rd.china.range_usd_b
 
   function getCaveat(key: string): string {
     return exec.dimensions.find((d) => d.key === key)?.caveat ?? ''
@@ -607,6 +663,55 @@ export async function getLiveData(): Promise<LiveData> {
         { label: 'Score (0–10)', ...getScore('energy') },
       ],
       sources: TAB_SOURCES.energy,
+    },
+    {
+      id: 'investment',
+      label: 'Investment',
+      headline: `US leads on AI investment: composite ${invUsComp.toFixed(1)}% vs ${invCnComp.toFixed(1)}%`,
+      headlineNote: `Private AI capital (70%) + hyperscaler capex (30%) — ${inv.private_investment.latest_year} data`,
+      explanation: getCaveat('investment'),
+      barData: [
+        {
+          label: `Private AI capital (${inv.private_investment.latest_year}, $B)`,
+          US: Math.round(invUs.private_investment_usd_b * 10) / 10,
+          CN: Math.round(invCn.private_investment_usd_b * 10) / 10,
+        },
+        {
+          label: 'Hyperscaler capex ($B, latest annual)',
+          US: Math.round(capexUs * 10) / 10,
+          CN: Math.round(capexCn * 10) / 10,
+        },
+        {
+          label: 'Investment composite share (%)',
+          US: Math.round(invUsComp),
+          CN: Math.round(invCnComp),
+        },
+      ],
+      barXLabel: 'US vs China',
+      tableRows: [
+        {
+          label: `Private AI investment (${inv.private_investment.latest_year})`,
+          us: `$${invUs.private_investment_usd_b}B`,
+          cn: `$${invCn.private_investment_usd_b}B`,
+        },
+        {
+          label: 'Hyperscaler AI capex (latest annual)',
+          us: `$${capexUs.toFixed(1)}B`,
+          cn: `$${capexCn.toFixed(1)}B`,
+        },
+        {
+          label: `Gov't AI R&D (${govUsLatestFy} est.)`,
+          us: `$${govUsTotal.toFixed(3)}B (NITRD)`,
+          cn: `~$${govCnEst}B (CSET est., $${govCnRange[0]}–${govCnRange[1]}B range)`,
+        },
+        {
+          label: 'Private investment trend (2020→2024)',
+          us: `$${privSeries.find(s => s.year === 2020)?.us_usd_b ?? '—'}B → $${privSeries.find(s => s.year === 2024)?.us_usd_b ?? '—'}B`,
+          cn: `$${privSeries.find(s => s.year === 2020)?.china_usd_b ?? '—'}B → $${privSeries.find(s => s.year === 2024)?.china_usd_b ?? '—'}B`,
+        },
+        { label: 'Score (0–10)', ...getScore('investment') },
+      ],
+      sources: TAB_SOURCES.investment,
     },
   ]
 

@@ -132,7 +132,7 @@ def load_json(key: str) -> dict | None:
     try:
         with open(path, encoding="utf-8") as f:
             return json.load(f)
-    except (json.JSONDecodeError, OSError):
+    except (json.JSONDecodeError, OSError, UnicodeDecodeError):
         return None
 
 
@@ -141,14 +141,14 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
     s = data.get("summary", {})
 
     if key == "frontier_models":
-        us = s.get("US")
-        cn = s.get("China")
+        us = s.get("US", {}).get("composite_score")
+        cn = s.get("China", {}).get("composite_score")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 
     if key == "talent":
-        us = s.get("US")
-        cn = s.get("China")
+        us = s.get("US", {}).get("composite_score")
+        cn = s.get("China", {}).get("composite_score")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 
@@ -392,7 +392,7 @@ def main() -> None:
         ),
     }
 
-    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"Wrote {OUTPUT}")
     for d in scored:

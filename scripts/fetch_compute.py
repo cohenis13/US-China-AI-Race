@@ -441,7 +441,7 @@ def main() -> None:
         },
     }
 
-    OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
     log.info("")
     log.info("Output written to: %s", OUTPUT_FILE)
     log.info("Primary metric (Epoch AI training compute):")

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-03-27T05:28:40.518314+00:00",
+  "fetched_at": "2026-03-27T05:39:14.080636+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -20,8 +20,8 @@
       "delta": 2.6,
       "edge": "+2.6 US",
       "confidence": "Medium confidence",
-      "score_method": "composite_share_100",
-      "caveat": "Two-proxy composite: capability ranking share (60%) based on the top-20 Artificial Analysis Intelligence Index leaderboard (updated weekly), plus notable model output share (40%) from Epoch AI (last 2 years). Each proxy is US share of combined US+China. Leaderboard covers both open and closed models; Epoch AI notable models database may lag very recent releases by days to weeks.",
+      "score_method": "count_share",
+      "caveat": "Reflects 30-day model update activity on Hugging Face Hub — a proxy for lab output velocity, not a definitive capability ranking. China's frontier capability (DeepSeek R1, Qwen series) is broader than HF Hub counts alone capture. Counts reflect only US- and China-attributed labs in data/labs.json.",
       "source_file": "data/frontier_models.json"
     },
     {
@@ -34,22 +34,22 @@
       "delta": 2.6,
       "edge": "+2.6 CN",
       "confidence": "Medium confidence",
-      "score_method": "composite_share_100",
-      "caveat": "Three-proxy composite: paper volume (30%), quality papers cited ≥25 times over 2 years (40%), and high-impact papers cited ≥100 times over 3 years (30%). Each proxy is the US share of combined US+China output. China leads on raw volume; the US leads on citation impact. No venue filter — citation thresholds are a more robust quality proxy. OpenAlex may undercount Chinese domestic venues not indexed internationally.",
+      "score_method": "count_share",
+      "caveat": "Reflects AI research paper volume from OpenAlex over 12 months — a proxy for research output, not researcher quality, citation impact, or headcount. China leads on volume; the US tends to lead on top-cited work.",
       "source_file": "data/talent.json"
     },
     {
       "key": "compute",
       "label": "Compute",
       "radar_label": "Compute",
-      "us_score": 9.5,
-      "china_score": 0.5,
+      "us_score": 8.6,
+      "china_score": 1.4,
       "winner": "US",
-      "delta": 9.0,
-      "edge": "+9.0 US",
-      "confidence": "High confidence (TOP500 only)",
+      "delta": 7.2,
+      "edge": "+7.2 US",
+      "confidence": "Medium confidence",
       "score_method": "count_share",
-      "caveat": "TOP500 list data only. China operates multiple exascale-class systems that have NOT been submitted to TOP500 — this score significantly understates China's actual HPC capacity. US private AI cluster infrastructure (xAI Colossus, Meta clusters, etc.) is also excluded.",
+      "caveat": "Based on cumulative AI training compute (FLOPs) for notable models since 2023 (Epoch AI). US ~86%, China ~14% of disclosed training compute. Understates China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose compute; Huawei Ascend deployments are also excluded. The real gap is likely narrower than the score suggests — estimated 3-5x in frontier AI clusters, not the 6x implied by the training-compute share alone.",
       "source_file": "data/compute.json"
     },
     {
@@ -127,11 +127,11 @@
     {
       "key": "compute",
       "dimension": "Compute",
-      "us": 9.5,
-      "china": 0.5,
+      "us": 8.6,
+      "china": 1.4,
       "winner": "US",
-      "delta": 9.0,
-      "edge": "+9.0 US"
+      "delta": 7.2,
+      "edge": "+7.2 US"
     },
     {
       "key": "adoption",
@@ -181,7 +181,7 @@
     ],
     "us": [
       6.3,
-      9.5,
+      8.6,
       6.2,
       6.7,
       3.6,
@@ -189,7 +189,7 @@
     ],
     "china": [
       3.7,
-      0.5,
+      1.4,
       7.4,
       3.3,
       7.4,

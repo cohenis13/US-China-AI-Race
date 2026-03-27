@@ -2,7 +2,7 @@
   "dimension": "compute",
   "metric_key": "top500_compute_capacity",
   "description": "Aggregate HPL benchmark performance (Rmax, PFlop/s) and system count from the full TOP500 supercomputer list, grouped by country. A proxy for national high-end compute capacity. Does not capture private AI clusters or non-TOP500 systems.",
-  "fetched_at": "2026-03-26T10:39:25.293022+00:00",
+  "fetched_at": "2026-03-27T05:19:45.502604+00:00",
   "list_edition": "2025/11",
   "total_systems_parsed": 500,
   "is_complete": true,

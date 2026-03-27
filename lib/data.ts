@@ -32,6 +32,11 @@ export interface AdoptionSignal {
   note?: string
 }
 
+export interface DimensionSource {
+  label: string
+  url: string
+}
+
 export interface DimensionTab {
   id: string
   label: string
@@ -42,6 +47,7 @@ export interface DimensionTab {
   barXLabel?: string
   adoptionSignals?: AdoptionSignal[]
   tableRows?: { label: string; us: string; cn: string }[]
+  sources?: DimensionSource[]
 }
 
 // ─── Scorecard data ───────────────────────────────────────────────────────────

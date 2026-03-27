@@ -1,4 +1,4 @@
-import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab } from './data'
+import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource } from './data'
 
 // Fetch from the production static site so we always get the latest pipeline data,
 // regardless of which branch this Next.js app is deployed from.
@@ -146,6 +146,38 @@ const keyToLabel: Record<string, string> = {
   energy: 'Energy',
 }
 
+const METHODOLOGY_URL = 'https://us-china-ai-race.vercel.app/docs/methodology.html'
+
+const TAB_SOURCES: Record<string, DimensionSource[]> = {
+  frontier_models: [
+    { label: 'LMSYS Chatbot Arena', url: 'https://huggingface.co/datasets/mathewhe/chatbot-arena-elo' },
+    { label: 'Epoch AI', url: 'https://epoch.ai/data/notable-ai-models' },
+  ],
+  talent: [
+    { label: 'OpenAlex API', url: 'https://api.openalex.org/works' },
+  ],
+  compute: [
+    { label: 'TOP500', url: 'https://www.top500.org' },
+  ],
+  adoption: [
+    { label: 'McKinsey State of AI 2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
+    { label: 'Stanford AI Index 2025', url: 'https://aiindex.stanford.edu/report/' },
+    { label: 'IFR World Robotics 2024', url: 'https://ifr.org' },
+  ],
+  diffusion: [
+    { label: 'Hugging Face Hub', url: 'https://huggingface.co' },
+    { label: 'AWS', url: 'https://aws.amazon.com/about-aws/global-infrastructure/' },
+    { label: 'Azure', url: 'https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/' },
+    { label: 'Google Cloud', url: 'https://cloud.google.com/about/locations' },
+  ],
+  energy: [
+    { label: 'IEA Energy and AI 2025', url: 'https://www.iea.org/reports/energy-and-ai' },
+    { label: 'EIA Electric Power Monthly', url: 'https://www.eia.gov/electricity/monthly/' },
+    { label: 'LBNL Queued Up 2024', url: 'https://emp.lbl.gov/queues' },
+    { label: 'IEA WEO 2024', url: 'https://www.iea.org/reports/world-energy-outlook-2024' },
+  ],
+}
+
 // ── Main export ───────────────────────────────────────────────────────────────
 
 export interface LiveData {
@@ -272,6 +304,7 @@ export async function getLiveData(): Promise<LiveData> {
         { label: 'Notable models released (2y, Epoch)', us: fmt(fmOutUsCount), cn: fmt(fmOutCnCount) },
         { label: 'Score (0–10)', ...getScore('frontier_models') },
       ],
+      sources: TAB_SOURCES.frontier_models,
     },
     {
       id: 'talent',
@@ -294,6 +327,7 @@ export async function getLiveData(): Promise<LiveData> {
         { label: 'High-impact papers cited ≥100 (3y)', us: fmt(talImpUsRaw),  cn: fmt(talImpCnRaw)  },
         { label: 'Score (0–10)', ...getScore('talent') },
       ],
+      sources: TAB_SOURCES.talent,
     },
     {
       id: 'compute',
@@ -319,6 +353,7 @@ export async function getLiveData(): Promise<LiveData> {
         { label: 'Systems in TOP500', us: String(compUsSystems), cn: String(compCnSystems) },
         { label: 'Score (0–10)', ...getScore('compute') },
       ],
+      sources: TAB_SOURCES.compute,
     },
     {
       id: 'adoption',
@@ -356,6 +391,7 @@ export async function getLiveData(): Promise<LiveData> {
           cn: `${fmt(adpCn.proxies.robot_density.raw_value)} / 10K workers`,
         },
       ],
+      sources: TAB_SOURCES.adoption,
     },
     {
       id: 'diffusion',
@@ -393,6 +429,7 @@ export async function getLiveData(): Promise<LiveData> {
           cn: String(difCn.proxies.cloud_footprint.raw_value),
         },
       ],
+      sources: TAB_SOURCES.diffusion,
     },
     {
       id: 'energy',
@@ -440,6 +477,7 @@ export async function getLiveData(): Promise<LiveData> {
           cn: `${engCn.proxies.grid_connection_speed.raw_value} / 100`,
         },
       ],
+      sources: TAB_SOURCES.energy,
     },
   ]
 

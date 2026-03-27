@@ -13,7 +13,9 @@ import {
   LabelList,
 } from 'recharts'
 import clsx from 'clsx'
-import type { DimensionTab, AdoptionSignal } from '@/lib/data'
+import type { DimensionTab, AdoptionSignal, DimensionSource } from '@/lib/data'
+
+const METHODOLOGY_URL = 'https://us-china-ai-race.vercel.app/docs/methodology.html'
 
 const statusStyles: Record<AdoptionSignal['usStatus'], string> = {
   'OK':       'bg-emerald-50 text-emerald-700 border border-emerald-200',
@@ -184,6 +186,39 @@ export default function DimensionTabs({ tabs }: { tabs: DimensionTab[] }) {
 
         {/* Comparison table */}
         {active.tableRows && <ComparisonTable rows={active.tableRows} />}
+
+        {/* Sources footer */}
+        <div className="mt-5 pt-4 border-t border-border flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] text-muted-foreground">
+          {active.sources && active.sources.length > 0 && (
+            <>
+              <span>Sources:</span>
+              {active.sources.map((s: DimensionSource, i: number) => (
+                <span key={s.url} className="inline-flex items-center gap-1.5">
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-foreground transition-colors"
+                  >
+                    {s.label}
+                  </a>
+                  {i < (active.sources?.length ?? 0) - 1 && (
+                    <span className="text-muted-foreground/50">·</span>
+                  )}
+                </span>
+              ))}
+              <span className="text-muted-foreground/50">·</span>
+            </>
+          )}
+          <a
+            href={METHODOLOGY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-foreground transition-colors"
+          >
+            Full methodology →
+          </a>
+        </div>
       </div>
     </div>
   )

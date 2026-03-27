@@ -176,7 +176,9 @@ export default function CapabilityRadar({ data }: { data: RadarDimension[] }) {
         </p>
       </div>
 
-      <canvas ref={canvasRef} />
+      <div style={{ width: '100%', maxWidth: 355, margin: '0 auto' }}>
+        <canvas ref={canvasRef} />
+      </div>
 
       {/* Country legend (line style, matches first version) */}
       <div style={{ display: 'flex', gap: 20, justifyContent: 'center', marginTop: 12 }}>

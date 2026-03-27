@@ -4,12 +4,49 @@ import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionT
 // regardless of which branch this Next.js app is deployed from.
 const BASE = 'https://us-china-ai-race.vercel.app/data'
 
+// ── Mojibake fix ──────────────────────────────────────────────────────────────
+// The pipeline produces JSON where some strings are Windows-1252 interpretations
+// of UTF-8 bytes (e.g. em dash "—" becomes "â€""). We reverse this here.
+const WIN1252_TO_BYTE: Record<number, number> = {
+  0x20AC: 0x80, 0x201A: 0x82, 0x0192: 0x83, 0x201E: 0x84, 0x2026: 0x85,
+  0x2020: 0x86, 0x2021: 0x87, 0x02C6: 0x88, 0x2030: 0x89, 0x0160: 0x8A,
+  0x2039: 0x8B, 0x0152: 0x8C, 0x017D: 0x8E, 0x2018: 0x91, 0x2019: 0x92,
+  0x201C: 0x93, 0x201D: 0x94, 0x2022: 0x95, 0x2013: 0x96, 0x2014: 0x97,
+  0x02DC: 0x98, 0x2122: 0x99, 0x0161: 0x9A, 0x203A: 0x9B, 0x0153: 0x9C,
+  0x017E: 0x9E, 0x0178: 0x9F,
+}
+
+function decodeMojibake(str: string): string {
+  const bytes = new Uint8Array(str.length)
+  for (let i = 0; i < str.length; i++) {
+    const cp = str.charCodeAt(i)
+    // A character outside Latin-1 that isn't a Windows-1252 special char
+    // means this isn't a mojibake string — leave it untouched.
+    if (cp > 0xFF && WIN1252_TO_BYTE[cp] === undefined) return str
+    bytes[i] = WIN1252_TO_BYTE[cp] ?? cp
+  }
+  try {
+    return new TextDecoder('utf-8', { fatal: true }).decode(bytes)
+  } catch {
+    return str // bytes don't form valid UTF-8 → wasn't mojibake
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function fixStrings(obj: any): any {
+  if (typeof obj === 'string') return decodeMojibake(obj)
+  if (Array.isArray(obj)) return obj.map(fixStrings)
+  if (obj !== null && typeof obj === 'object')
+    return Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, fixStrings(v)]))
+  return obj
+}
+
 // Always fetch fresh — data is updated daily by the pipeline
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function fetchJson(file: string): Promise<any> {
   const res = await fetch(`${BASE}/${file}`, { cache: 'no-store' })
   if (!res.ok) throw new Error(`Failed to fetch ${file}: ${res.status}`)
-  return res.json()
+  return fixStrings(await res.json())
 }
 
 // ── Minimal types for the JSON shapes we consume ─────────────────────────────
@@ -70,11 +107,20 @@ interface Talent {
   summary: { US: TalentCountry; China: TalentCountry }
 }
 
+interface TopSystem {
+  rank: number
+  name: string
+  country: string
+  rmax_pflops: number
+}
+
 interface Compute {
+  list_edition: string
   summary: {
     US: { systems: number; rmax_pflops: number }
     China: { systems: number; rmax_pflops: number }
   }
+  top_systems: TopSystem[]
 }
 
 interface AdoptionProxy {
@@ -158,6 +204,9 @@ const TAB_SOURCES: Record<string, DimensionSource[]> = {
   ],
   compute: [
     { label: 'TOP500', url: 'https://www.top500.org' },
+    { label: 'Epoch AI — Frontier Data Centers', url: 'https://epoch.ai/data' },
+    { label: 'IEA — Energy and AI 2025', url: 'https://www.iea.org/reports/energy-and-ai' },
+    { label: 'NVIDIA Geographic Revenue', url: 'http://bullfincher.io/companies/nvidia-corporation/revenue-by-geography' },
   ],
   adoption: [
     { label: 'McKinsey State of AI 2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
@@ -267,6 +316,12 @@ export async function getLiveData(): Promise<LiveData> {
   const compUsSystems = comp.summary.US.systems
   const compCnSystems = comp.summary.China.systems
   const compSystemsTotal = compUsSystems + compCnSystems
+  const compEdition = comp.list_edition ?? 'Nov 2025'
+
+  // Top US and China systems from the live TOP500 list
+  const compTopUs = comp.top_systems?.find(s => s.country === 'US')
+  const compTopCn = comp.top_systems?.find(s => s.country === 'China')
+  const compUsInTop20 = comp.top_systems?.filter(s => s.country === 'US').length ?? 0
 
   const adpUs = adp.summary.US
   const adpCn = adp.summary.China
@@ -335,25 +390,28 @@ export async function getLiveData(): Promise<LiveData> {
     {
       id: 'compute',
       label: 'Compute',
-      headline: `US holds ${pct(compUsRmax, compRmaxTotal)}% of combined TOP500 compute power`,
-      headlineNote: `${fmt(Math.round(compUsRmax))} vs ${fmt(Math.round(compCnRmax))} PFlops (TOP500, Nov 2025)`,
-      explanation: getCaveat('compute'),
+      headline: `US holds ${pct(compUsRmax, compRmaxTotal)}% of disclosed TOP500 compute`,
+      headlineNote: `${fmt(Math.round(compUsRmax))} vs ${fmt(Math.round(compCnRmax))} PFlops (TOP500, ${compEdition})`,
+      explanation: `TOP500 shows the US with a ~${Math.round(compUsRmax / Math.max(compCnRmax, 1))}× lead in disclosed HPC performance. Note: China stopped submitting most systems to TOP500 after 2023 — actual capacity is significantly higher than these figures reflect. NVIDIA geographic revenue (~47% US, ~13% China) and Epoch AI frontier data center estimates suggest a real-world US lead of roughly 3–5× in frontier AI compute, not 34×.`,
       barData: [
         {
-          label: 'TOP500 Rmax capacity (share %)',
+          label: 'TOP500 Rmax capacity share (%)',
           US: pct(compUsRmax, compRmaxTotal),
           CN: pct(compCnRmax, compRmaxTotal),
         },
         {
-          label: 'TOP500 system count (share %)',
+          label: 'TOP500 system count share (%)',
           US: pct(compUsSystems, compSystemsTotal),
           CN: pct(compCnSystems, compSystemsTotal),
         },
       ],
-      barXLabel: 'Share of combined US + China (%)',
+      barXLabel: 'Share of combined US + China disclosed capacity (%)',
       tableRows: [
         { label: 'Rmax performance (PFlops)', us: fmt(Math.round(compUsRmax)), cn: fmt(Math.round(compCnRmax)) },
         { label: 'Systems in TOP500', us: String(compUsSystems), cn: String(compCnSystems) },
+        { label: `#1 system (TOP500 ${compEdition})`, us: compTopUs ? `${compTopUs.name} — ${fmt(Math.round(compTopUs.rmax_pflops))} PFlops` : '—', cn: compTopCn ? `${compTopCn.name} — ${fmt(Math.round(compTopCn.rmax_pflops))} PFlops` : 'Not in top 20 (non-disclosure)' },
+        { label: 'US systems in top 20', us: String(compUsInTop20), cn: '0 (stopped reporting 2023)' },
+        { label: 'NVIDIA revenue share (est.)', us: '~47%', cn: '~13%' },
         { label: 'Score (0–10)', ...getScore('compute') },
       ],
       sources: TAB_SOURCES.compute,

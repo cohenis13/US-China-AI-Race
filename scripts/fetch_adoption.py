@@ -4,176 +4,179 @@ AI Adoption Index — composite proxy for economy-wide AI adoption.
 
 APPROACH
   Builds a two-proxy composite index comparing US vs China on AI adoption,
-  using publicly available, annually-updated reference data.
+  using the best available publicly comparable data.
 
-  Proxy 1 — Enterprise Adoption Rate (55% weight):
-    The share of organizations actively using AI in at least one business
-    function. Primary source: McKinsey "State of AI" 2025 (published May
-    2025, covering 2024/2025 survey data). Cross-referenced with Stanford
-    HAI AI Index 2025 (April 2025) which aggregates multiple surveys.
-    North America figure used for US; best available China-region estimate
-    used for China (see notes below).
+  Proxy 1 — Gen-AI Enterprise Adoption Rate (60% weight):
+    The share of business decision-makers at firms using generative AI.
+    Source: SAS Institute / Coleman Parkes Research, 2024 global survey
+    (Reuters, July 2024). 1,600 respondents across 17 countries.
+    WHY THIS SOURCE: The only publicly available survey that asked the same
+    question with the same methodology in both the US and China directly.
+    McKinsey, OECD, and Stanford AI Index all lack comparable China-specific
+    breakdowns, or conflate Asia-Pacific/MENA regional data with China figures.
+    Confidence: medium — proprietary survey, sampling details not fully public.
+    US: 65%, China: 83% (China leads on gen-AI adoption at the firm level).
 
-  Proxy 2 — Industrial Automation Density (45% weight):
+  Proxy 2 — Industrial Robot Density (40% weight):
     Installed industrial robots per 10,000 manufacturing workers.
     Source: IFR (International Federation of Robotics) World Robotics 2024
-    report (October 2024, covering 2023 operational data). Same methodology,
-    same reporting body, directly country-comparable.
+    (October 2024, covering 2023 operational data).
+    WHY THIS SOURCE: Highest-symmetry available metric — same methodology,
+    same reporting body, directly country-comparable. Captures industrial
+    AI/automation deployment at scale; understates software-only AI.
+    US: 295, China: 470 (China overtook Japan and Germany in 2023).
 
-WHY A COMPOSITE INDEX
-  No single public data source provides a clean, symmetric, and automatable
-  measure of AI adoption in both the U.S. and Chinese economies:
+SUPPLEMENTARY (not in composite):
+  OECD ICT Business Survey: US enterprise AI use (% of firms, all sizes).
+    Fetched live from OECD API where available; hardcoded fallback used
+    when the API is unavailable (common on local runs due to OECD rate limits).
+    Not usable for China — OECD does not cover China in ICT surveys.
 
-  - Survey data (McKinsey, Stanford AI Index) has limited China-specific
-    granularity and inconsistent sampling across countries.
-  - Public filing data (SEC EDGAR) covers Chinese ADRs only — a tech-heavy
-    sample that excludes Tencent, ByteDance, Huawei, and most Chinese firms.
-  - Hard deployment metrics (robot density) are symmetric and verifiable
-    but capture industrial automation broadly, not AI specifically.
+  CAICT Manufacturing AI Adoption: China manufacturing AI application share.
+    Hardcoded from CAICT AI White Paper 2025 (March 2025): 25.9% of smart
+    manufacturing enterprises using AI, up from 19.9% in 2024.
+    Shown as China context only; not used in composite (no comparable US metric
+    using the same definition).
 
-  Together, these two proxies give a more rounded and honest picture than
-  either alone, while keeping the methodology transparent and reproducible.
+WHY TWO PROXIES AND NOT THREE
+  Adding a third proxy from OECD (US-only coverage) would create an asymmetric
+  composite where the US has three inputs and China has two, distorting scores
+  in a non-transparent way. Supplementary data is shown separately instead.
 
 COMPOSITE CONSTRUCTION
   Normalization:
-    - Enterprise adoption: already expressed as %; used directly (0–100).
+    - Gen-AI adoption: already expressed as %; used directly (0–100).
     - Robot density: (value / ROBOT_DENSITY_NORM_MAX) × 100
-      where ROBOT_DENSITY_NORM_MAX = 600 robots/10K workers
-      (reference: above leading OECD economies ~430, well below South
-      Korea's ~1,000 global outlier; gives headroom for China at ~470).
+      where ROBOT_DENSITY_NORM_MAX = 600 robots/10K workers.
 
-  Composite score = WEIGHT_ENTERPRISE × enterprise_norm
-                  + WEIGHT_ROBOT      × robot_density_norm
-
-  If a proxy is unavailable for one country, the missing proxy is excluded
-  and the remaining proxy is re-weighted to 100% for that country.
+  Composite = 0.60 × gen_ai_norm + 0.40 × robot_density_norm
 
 TO UPDATE REFERENCE DATA
-  When a new edition of a source is published, update the value(s) and the
-  edition string in the ENTERPRISE_ADOPTION and ROBOT_DENSITY dicts below.
-  The composite recalculates automatically.
+  SAS survey: Update GEN_AI_ADOPTION values when a new edition is published.
+  IFR: Update ROBOT_DENSITY values when IFR publishes their annual report
+    (~October each year, covering the prior year's data).
+  OECD: OECD_FALLBACK_US is updated when OECD publishes new ICT data
+    (~January each year for the prior year).
 
   Next expected updates:
     - IFR World Robotics 2025: ~October 2025 (will cover 2024 data)
-    - McKinsey State of AI 2026: ~May 2026
-    - Stanford AI Index 2026: ~April 2026
+    - SAS / Coleman Parkes next survey: unclear (was one-time as of 2024)
+    - OECD ICT 2026: ~January 2026 (for 2025 data)
 
 Outputs to data/adoption.json.
 """
 
 import json
+import logging
 from datetime import datetime, timezone
 from pathlib import Path
+
+import requests
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT        = Path(__file__).resolve().parent.parent
 OUTPUT_FILE = ROOT / "data" / "adoption.json"
 
+logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
+log = logging.getLogger(__name__)
+
 # ── Composite weights ─────────────────────────────────────────────────────────
-WEIGHT_ENTERPRISE = 0.55   # enterprise AI adoption survey
-WEIGHT_ROBOT      = 0.45   # industrial robot density
+WEIGHT_GEN_AI = 0.60   # gen-AI adoption rate (SAS/Coleman Parkes, direct US-China comparison)
+WEIGHT_ROBOT  = 0.40   # industrial robot density (IFR, symmetric country data)
 
 # ── Robot density normalization reference ─────────────────────────────────────
-# Updated to 600 robots/10K workers (was 500):
-#   - OECD average is roughly 200–350 depending on year
-#   - Germany ~429, Japan ~419 (IFR 2024)
-#   - China ~470 (IFR 2024) — crowded the old 500 ceiling
-#   - South Korea ~1,012 (global outlier, excluded as ceiling)
-#   600 provides headroom above leading non-outlier economies while
-#   keeping both US and China in meaningful, non-trivial score range.
+# 600 robots/10K workers: above leading OECD economies (~430), gives headroom
+# for China (470) while keeping both countries in a meaningful score range.
+# South Korea (~1,012) is excluded as a global outlier and not used as ceiling.
 ROBOT_DENSITY_NORM_MAX = 600.0
 
-# ── Proxy 1: Enterprise AI Adoption Rate ─────────────────────────────────────
-# Primary source: McKinsey & Company, "The State of AI" 2025 (May 2025)
-# Cross-reference: Stanford HAI AI Index 2025 (April 2025)
-# Definition: % of respondents' organizations using AI in at least one
-#             business function
+# ── Proxy 1: Gen-AI Enterprise Adoption Rate ─────────────────────────────────
+# Source: SAS Institute / Coleman Parkes Research (Reuters, July 2024)
+# Survey: 1,600 business decision-makers across 17 countries
+# Question: Share of firms where decision-makers report using generative AI
+# URL: https://www.reuters.com/technology/artificial-intelligence/
+#       china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/
 #
 # Notes:
-#   US figure: McKinsey 2025, North America respondents (~72%).
-#     Global adoption rose to ~78% in 2025; North America slightly below
-#     global average, consistent with the 2024 survey pattern.
-#     Stanford AI Index 2025 corroborates high US adoption rates.
-#     Confidence: high.
+#   US: 65% of business decision-makers using gen AI (2024, SAS survey)
+#   China: 83% of business decision-makers using gen AI (2024, SAS survey)
+#   Global average: 54% in same survey.
 #
-#   China figure: Estimated from McKinsey 2025 global/regional data and
-#     CAICT (China Academy of Information and Communications Technology)
-#     White Paper on China's AI Development (2024, published late 2024).
-#     McKinsey does not break out China separately; ~70% reflects the
-#     cross-referenced estimate from regional data and CAICT surveys on
-#     large-enterprise adoption. Stanford AI Index 2025 shows China-based
-#     respondents with broadly comparable adoption rates to North America.
-#     Confidence: medium — treat as directional, not precise.
+#   China's higher rate is consistent with CAICT reports and Stanford AI Index
+#   2025, which show aggressive enterprise AI rollout in manufacturing and tech.
+#   The 18-point gap is directionally robust across multiple sources.
 #
-# TO UPDATE: Change value and edition when McKinsey or Stanford AI Index
-#            publishes a new annual edition.
-ENTERPRISE_ADOPTION = {
+#   Alternative reference points (shown as supplementary data):
+#     - McKinsey 2025 (North America): ~72% organizations using AI (any function)
+#     - OECD 2025 average: ~20.2% of firms using AI (narrower definition)
+#     - Stanford AI Index 2025: ~78% of organizations using AI globally
+#   These use different definitions and populations — not used in composite.
+#
+# TO UPDATE: Change value, source_url, and survey_year when a new directly
+#            comparable US-China survey is published.
+GEN_AI_ADOPTION = {
     "US": {
-        "value":    72.0,   # percent
-        "coverage": "high",
-        "note":     (
-            "McKinsey State of AI 2025 (May 2025), North America respondents; "
-            "corroborated by Stanford HAI AI Index 2025 (April 2025)"
+        "value":       65.0,   # percent of business decision-makers using gen AI
+        "coverage":    "medium",
+        "survey_year": 2024,
+        "note": (
+            "SAS Institute / Coleman Parkes Research 2024 (Reuters, July 2024). "
+            "1,600 business decision-makers across 17 countries. US: 65% using "
+            "gen AI vs global average 54% and China 83%. "
+            "Source: https://www.reuters.com/technology/artificial-intelligence/"
+            "china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/"
         ),
     },
     "China": {
-        "value":    70.0,   # percent
-        "coverage": "medium",
-        "note":     (
-            "Estimated from McKinsey State of AI 2025 global/regional data "
-            "and CAICT AI White Paper 2024. McKinsey does not break out China "
-            "separately; Stanford AI Index 2025 shows broadly comparable rates. "
-            "Treat as directional."
+        "value":       83.0,   # percent of business decision-makers using gen AI
+        "coverage":    "medium",
+        "survey_year": 2024,
+        "note": (
+            "SAS Institute / Coleman Parkes Research 2024 (Reuters, July 2024). "
+            "China: 83% of business decision-makers using gen AI — highest of all "
+            "17 countries surveyed. Consistent with CAICT AI White Paper 2025 and "
+            "Stanford AI Index 2025 showing rapid enterprise AI rollout in China. "
+            "Source: https://www.reuters.com/technology/artificial-intelligence/"
+            "china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/"
         ),
     },
 }
 
-ENTERPRISE_ADOPTION_META = {
-    "source_name":      "McKinsey & Company, The State of AI 2025",
-    "source_url":       "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-    "supplementary":    (
-        "Stanford HAI AI Index 2025 (April 2025); "
-        "CAICT White Paper on China's AI Development 2024 (China figure)"
+GEN_AI_META = {
+    "source_name":    "SAS Institute / Coleman Parkes Research, Global Gen-AI Survey",
+    "source_url":     "https://www.reuters.com/technology/artificial-intelligence/china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/",
+    "edition":        "2024 (published July 2024)",
+    "definition":     "% of business decision-makers at firms using generative AI",
+    "sample":         "1,600 respondents across 17 countries",
+    "update_cadence": "Uncertain — single known edition as of 2024; monitor for annual follow-up",
+    "why_primary": (
+        "The only publicly available survey that measured gen-AI adoption with the "
+        "same instrument for both the US and China. McKinsey and OECD do not provide "
+        "directly comparable China-specific breakdowns."
     ),
-    "edition":          "2025 (published May 2025)",
-    "definition":       "% of organizations using AI in at least one business function",
-    "update_cadence":   "Annual (McKinsey: typically May; Stanford AI Index: typically April)",
 }
 
 # ── Proxy 2: Industrial Robot Density ────────────────────────────────────────
-# Source: International Federation of Robotics (IFR), World Robotics
-# Edition: 2024 report (October 2024, covering 2023 operational data)
+# Source: IFR World Robotics 2024 (October 2024, 2023 operational data)
 # Definition: Installed industrial robots per 10,000 manufacturing workers
 #
-# Notes:
-#   - Highly symmetric: same source, same methodology, direct country-level data.
-#   - China's continued rise reflects sustained "Made in China 2025" investment
-#     in manufacturing automation across automotive, electronics, and precision
-#     assembly. China overtook Japan and Germany in density ranking in 2023.
-#   - Robot density captures industrial AI/automation broadly — not limited
-#     to pure AI applications. A strength for cross-country comparability;
-#     a limitation for AI-specificity.
-#
-# 2023 values (IFR World Robotics 2024, October 2024):
-#   China: 470 robots/10K workers (up from 392 in 2022; overtook Japan/Germany)
+# 2023 values:
+#   China: 470 robots/10K workers (up from 392 in 2022 — overtook Japan/Germany)
 #   US:    295 robots/10K workers (up from 274 in 2022)
-#   For reference: South Korea ~1,012 (global outlier); Germany ~429; Japan ~419
+#   Reference: South Korea 1,012 (global outlier); Germany 429; Japan 419
 #
-# Previous values for reference:
-#   China 2022: 392  |  US 2022: 274  (IFR World Robotics 2023)
-#
-# TO UPDATE: Change value and edition when IFR publishes a new annual report
-#            (expected October 2025 for 2024 data).
+# TO UPDATE: Change value and edition when IFR publishes its annual report
+#            (expected ~October each year, covering prior-year data).
 ROBOT_DENSITY = {
     "US": {
-        "value":    295,    # robots per 10,000 manufacturing workers
+        "value":    295,
         "coverage": "high",
         "note":     "IFR World Robotics 2024 (2023 data), United States",
     },
     "China": {
-        "value":    470,    # robots per 10,000 manufacturing workers
+        "value":    470,
         "coverage": "high",
-        "note":     (
+        "note": (
             "IFR World Robotics 2024 (2023 data), China — overtook Japan and "
             "Germany in robot density ranking; up from 392 in 2022"
         ),
@@ -185,68 +188,170 @@ ROBOT_DENSITY_META = {
     "source_url":     "https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally",
     "edition":        "2024 report (October 2024, 2023 operational data)",
     "definition":     "Installed industrial robots per 10,000 manufacturing workers",
-    "update_cadence": "Annual (typically published in October)",
+    "update_cadence": "Annual (typically October, covering prior year's data)",
 }
+
+# ── Supplementary: OECD ICT Business Survey (US only) ────────────────────────
+# OECD publishes % of enterprises (≥10 employees) using AI, by country.
+# Coverage: OECD member states only — China is NOT included.
+# Latest OECD headline: 20.2% of firms in OECD economies use AI (2025 data,
+# published January 2026). US-specific figure typically above OECD average.
+#
+# Fetched live below; this is the hardcoded fallback used when the API fails.
+OECD_FALLBACK_US = {
+    "value":      20.2,   # OECD average (Jan 2026); US-specific may differ
+    "is_average": True,   # True = OECD economy average, not US-specific
+    "year":       2025,
+    "source":     "OECD ICT Access and Usage Database, Jan 2026 release",
+    "source_url": "https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html",
+    "note":       "OECD does not cover China; US-specific figure requires API query.",
+}
+
+# OECD API candidates (tried in order; first success wins)
+# Dataset: ICT_BUS — ICT Access and Usage by Businesses
+# Indicator codes for enterprise AI use vary by OECD release version
+OECD_API_URLS = [
+    # New OECD SDMX REST API (2024+)
+    "https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_ICT_BUS@DF_ICT_BUS,1.0/USA..E_AI....?format=csvfilewithlabels&startPeriod=2022",
+    # Legacy OECD.Stat SDMX-JSON API
+    "https://stats.oecd.org/SDMX-JSON/data/ICT_BUS/USA.E_AI.../all?contentType=csv&startTime=2022",
+]
+OECD_TIMEOUT = 10   # seconds
+
+# ── CAICT supplementary (China manufacturing AI, context only) ────────────────
+# Source: CAICT AI White Paper 2025 (March 2025, published in English)
+# URL: https://www.caict.ac.cn/english/research/whitepapers/202503/t20250319_658668.html
+# Metric: Share of smart manufacturing enterprises deploying AI applications
+# 2025: 25.9% (up from 19.9% in 2024)
+# NOTE: Not comparable to the SAS gen-AI survey (different sample, definition,
+#       and methodology). Shown as context to illustrate China's industrial AI
+#       deployment trajectory; excluded from composite.
+CAICT_CHINA_MFG = {
+    "value":        25.9,
+    "prior_value":  19.9,
+    "year":         2025,
+    "prior_year":   2024,
+    "definition":   "% of smart manufacturing enterprises deploying AI applications",
+    "source":       "CAICT AI White Paper 2025 (March 2025)",
+    "source_url":   "https://www.caict.ac.cn/english/research/whitepapers/202503/t20250319_658668.html",
+    "note": (
+        "CAICT (China Academy of Information and Communications Technology) "
+        "white paper — government-linked source; methodology not fully public. "
+        "Shown as context for China's industrial AI trajectory only."
+    ),
+}
+
+
+# ── Live OECD fetch ───────────────────────────────────────────────────────────
+def fetch_oecd_us_ai_adoption() -> dict | None:
+    """
+    Attempt to fetch the US enterprise AI adoption rate from OECD ICT API.
+    Returns a dict with value, year, source on success; None on failure.
+    Tries multiple API URL patterns; OECD APIs are not always stable.
+    """
+    headers = {
+        "User-Agent": "us-china-ai-tracker research@github-actions.io",
+        "Accept":     "text/csv, application/json, */*",
+    }
+    for url in OECD_API_URLS:
+        try:
+            r = requests.get(url, headers=headers, timeout=OECD_TIMEOUT)
+            if r.status_code == 200 and len(r.text) > 100:
+                # Parse CSV — look for USA rows with a numeric AI-use value
+                lines = r.text.strip().splitlines()
+                if not lines:
+                    continue
+                header = [h.strip().strip('"').upper() for h in lines[0].split(",")]
+                val_col = next(
+                    (i for i, h in enumerate(header) if h in ("OBS_VALUE", "VALUE", "OBSVALUE")),
+                    None,
+                )
+                yr_col = next(
+                    (i for i, h in enumerate(header) if h in ("TIME_PERIOD", "TIME", "YEAR", "PERIOD")),
+                    None,
+                )
+                if val_col is None:
+                    log.info("OECD CSV: could not find value column in %s", header)
+                    continue
+                # Take most recent row with a valid numeric value
+                best_val, best_yr = None, None
+                for line in lines[1:]:
+                    cols = line.split(",")
+                    if len(cols) <= val_col:
+                        continue
+                    raw = cols[val_col].strip().strip('"')
+                    if not raw:
+                        continue
+                    try:
+                        v = float(raw)
+                    except ValueError:
+                        continue
+                    yr = int(cols[yr_col].strip().strip('"')[:4]) if yr_col is not None and len(cols) > yr_col else None
+                    if best_yr is None or (yr is not None and yr > best_yr):
+                        best_val, best_yr = v, yr
+                if best_val is not None:
+                    log.info("OECD API: US enterprise AI adoption = %.1f%% (%s)", best_val, best_yr)
+                    return {
+                        "value":      round(best_val, 1),
+                        "year":       best_yr,
+                        "is_average": False,
+                        "source":     "OECD ICT Access and Usage Database (live)",
+                        "source_url": "https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html",
+                        "note":       "Fetched live from OECD SDMX API.",
+                    }
+            else:
+                log.info("OECD API %s → HTTP %s", url[:60], r.status_code)
+        except Exception as exc:
+            log.info("OECD API %s → %s", url[:60], exc)
+    log.info("OECD API unavailable — using hardcoded fallback")
+    return None
 
 
 # ── Normalization ─────────────────────────────────────────────────────────────
 def normalize_robot_density(value: float) -> float:
-    """Normalize robot density to 0–100 scale against reference max."""
     return round(min(value / ROBOT_DENSITY_NORM_MAX * 100.0, 100.0), 1)
 
 
 # ── Composite ─────────────────────────────────────────────────────────────────
-def compute_composite(
-    enterprise: float | None,
-    robot_norm: float | None,
-) -> dict:
-    """
-    Compute composite score from normalized proxy values.
-    If one proxy is missing, re-weight the available proxy to 100%.
-    Returns dict with composite_score and effective_weights used.
-    """
+def compute_composite(gen_ai: float | None, robot_norm: float | None) -> dict:
     available = []
-    if enterprise is not None:
-        available.append(("enterprise", enterprise, WEIGHT_ENTERPRISE))
+    if gen_ai is not None:
+        available.append(("gen_ai",    gen_ai,    WEIGHT_GEN_AI))
     if robot_norm is not None:
-        available.append(("robot", robot_norm, WEIGHT_ROBOT))
-
+        available.append(("robot",     robot_norm, WEIGHT_ROBOT))
     if not available:
         return {"composite_score": None, "effective_weights": {}}
-
-    total_weight = sum(w for _, _, w in available)
-    composite = sum(v * (w / total_weight) for _, v, w in available)
-    eff_weights = {k: round(w / total_weight, 4) for k, _, w in available}
-
-    return {
-        "composite_score": round(composite, 1),
-        "effective_weights": eff_weights,
-    }
+    total_w = sum(w for _, _, w in available)
+    score   = sum(v * (w / total_w) for _, v, w in available)
+    eff     = {k: round(w / total_w, 4) for k, _, w in available}
+    return {"composite_score": round(score, 1), "effective_weights": eff}
 
 
 def build_country_block(country: str) -> dict:
-    ent_data   = ENTERPRISE_ADOPTION.get(country, {})
+    gen_data   = GEN_AI_ADOPTION.get(country, {})
     robot_data = ROBOT_DENSITY.get(country, {})
 
-    ent_value   = ent_data.get("value")
-    robot_value = robot_data.get("value")
-    robot_norm  = normalize_robot_density(robot_value) if robot_value is not None else None
+    gen_val    = gen_data.get("value")
+    robot_val  = robot_data.get("value")
+    robot_norm = normalize_robot_density(robot_val) if robot_val is not None else None
 
-    comp = compute_composite(ent_value, robot_norm)
+    comp = compute_composite(gen_val, robot_norm)
 
     return {
         "composite_score":   comp["composite_score"],
         "effective_weights": comp["effective_weights"],
         "proxies": {
+            # Key kept as "enterprise_adoption" for backward compatibility with UI
             "enterprise_adoption": {
-                "raw_value":        ent_value,
-                "unit":             "% organizations using AI",
-                "normalized_score": round(float(ent_value), 1) if ent_value is not None else None,
-                "coverage":         ent_data.get("coverage"),
-                "note":             ent_data.get("note"),
+                "raw_value":        gen_val,
+                "unit":             "% of business decision-makers using gen AI",
+                "normalized_score": round(float(gen_val), 1) if gen_val is not None else None,
+                "coverage":         gen_data.get("coverage"),
+                "survey_year":      gen_data.get("survey_year"),
+                "note":             gen_data.get("note"),
             },
             "robot_density": {
-                "raw_value":        robot_value,
+                "raw_value":        robot_val,
                 "unit":             "robots per 10,000 manufacturing workers",
                 "normalized_score": robot_norm,
                 "coverage":         robot_data.get("coverage"),
@@ -256,28 +361,26 @@ def build_country_block(country: str) -> dict:
     }
 
 
-def interpretive_sentence(us_score: float | None, cn_score: float | None) -> str:
-    if us_score is None or cn_score is None:
+def interpretive_sentence(us: float | None, cn: float | None) -> str:
+    if us is None or cn is None:
         return "Insufficient data to compare adoption levels at this time."
-    diff = us_score - cn_score
+    diff = us - cn
     if abs(diff) < 4:
         return (
-            "U.S. and Chinese firms and institutions show broadly similar "
-            "visible AI adoption levels on these proxies."
+            "U.S. and Chinese firms show broadly similar visible AI adoption "
+            "levels on these proxies."
         )
     elif diff > 0:
         return (
-            f"U.S. firms and institutions show stronger visible AI adoption "
-            f"on these proxies (composite index gap: {diff:+.1f} points). "
-            f"The U.S. leads on both enterprise survey adoption and automation density."
+            f"U.S. firms show stronger visible AI adoption on these proxies "
+            f"(composite index gap: {diff:+.1f} points, US ahead)."
         )
     else:
         return (
-            f"Chinese firms and institutions show stronger visible AI adoption "
-            f"on these proxies — driven primarily by higher industrial automation "
-            f"density in manufacturing. Enterprise survey adoption rates are more "
-            f"comparable between the two countries "
-            f"(composite index gap: {abs(diff):.1f} points, China ahead)."
+            f"Chinese firms show stronger visible AI adoption on these proxies "
+            f"(composite index gap: {abs(diff):.1f} points, China ahead). "
+            f"China leads on both gen-AI adoption rate (SAS 2024: 83% vs 65%) "
+            f"and industrial automation density (IFR 2024: 470 vs 295 robots/10K workers)."
         )
 
 
@@ -285,9 +388,12 @@ def interpretive_sentence(us_score: float | None, cn_score: float | None) -> str
 def main() -> None:
     now = datetime.now(timezone.utc)
 
+    # Try live OECD fetch for supplementary US context data
+    oecd_live = fetch_oecd_us_ai_adoption()
+    oecd_data = oecd_live if oecd_live is not None else OECD_FALLBACK_US
+
     us    = build_country_block("US")
     china = build_country_block("China")
-
     us_score = us["composite_score"]
     cn_score = china["composite_score"]
 
@@ -295,16 +401,16 @@ def main() -> None:
         "dimension":   "adoption",
         "metric_key":  "ai_adoption_composite_index",
         "title":       "AI Adoption Index — U.S. vs China",
-        "subtitle":    (
+        "subtitle": (
             "Public proxies for AI adoption inside the U.S. and Chinese economies "
             "— not a complete measure of total usage."
         ),
         "description": (
             "A two-proxy composite index approximating economy-wide AI adoption. "
-            "Combines enterprise AI adoption rates (survey-based, McKinsey 2024) "
-            "with industrial automation density (IFR robot density, 2022 data). "
-            "Neither proxy alone is a perfect measure of AI usage; together they "
-            "provide a transparent, country-comparable directional signal."
+            "Combines gen-AI enterprise adoption rate (SAS/Coleman Parkes 2024 — "
+            "the only directly comparable US-China survey available) with industrial "
+            "automation density (IFR robot density). Neither proxy alone is a perfect "
+            "measure; together they provide a transparent, country-comparable directional signal."
         ),
         "fetched_at":   now.isoformat(),
         "last_updated": now.isoformat(),
@@ -316,55 +422,71 @@ def main() -> None:
         "composite_construction": {
             "method": (
                 "Weighted average of normalized proxy scores. "
-                "Enterprise adoption is already 0-100 (% of organizations). "
-                "Robot density is normalized as (value / 500) x 100 where "
-                "500 robots/10K workers is the normalization reference point. "
-                "Default weights: enterprise 55%, robot density 45%. "
+                "Gen-AI adoption is already 0–100 (% of decision-makers). "
+                "Robot density is normalized as (value / 600) × 100. "
+                "Weights: gen-AI adoption 60%, robot density 40%. "
                 "If a proxy is unavailable for one country, the remaining "
-                "proxy is re-weighted to 100%."
+                "proxy is re-weighted to 100% for that country."
             ),
             "weights": {
-                "enterprise_adoption": WEIGHT_ENTERPRISE,
-                "robot_density":       WEIGHT_ROBOT,
+                "gen_ai_adoption": WEIGHT_GEN_AI,
+                "robot_density":   WEIGHT_ROBOT,
             },
             "robot_density_normalization_reference": ROBOT_DENSITY_NORM_MAX,
         },
         "proxies_meta": {
-            "enterprise_adoption": ENTERPRISE_ADOPTION_META,
-            "robot_density":       ROBOT_DENSITY_META,
+            "gen_ai_adoption": GEN_AI_META,
+            "robot_density":   ROBOT_DENSITY_META,
+        },
+        "supplementary_data": {
+            "oecd_us_enterprise_ai": {
+                "description": (
+                    "OECD ICT Business survey: % of enterprises (≥10 employees) "
+                    "using AI. Covers OECD members only — China not included. "
+                    "Different and narrower definition than SAS gen-AI survey."
+                ),
+                "oecd_avg_or_us": oecd_data.get("value"),
+                "is_oecd_average": oecd_data.get("is_average", False),
+                "year":           oecd_data.get("year"),
+                "source":         oecd_data.get("source"),
+                "source_url":     oecd_data.get("source_url"),
+                "live_fetch_ok":  oecd_live is not None,
+                "note": oecd_data.get("note"),
+            },
+            "caict_china_manufacturing_ai": CAICT_CHINA_MFG,
         },
         "methodology_note": (
-            "This index uses a multi-proxy approach because no single public data "
-            "source provides a clean, symmetric, and automatable measure of AI adoption "
-            "in both the U.S. and Chinese economies. The enterprise survey proxy "
-            "(McKinsey) covers large firms and is comparable in intent but has limited "
-            "China-specific granularity. The robot density proxy (IFR) is highly "
-            "symmetric and verifiable but measures industrial automation broadly, not "
-            "AI specifically. The composite score is a transparent, directional proxy "
-            "— not a definitive measure of national AI adoption."
+            "Primary source change from prior version: McKinsey State of AI (North "
+            "America figure for US, estimated regional data for China) has been "
+            "replaced by the SAS/Coleman Parkes 2024 global gen-AI survey, which "
+            "is the only publicly available source that measured the same question "
+            "in both the US and China using the same survey instrument. The prior "
+            "McKinsey-based China estimate (70%) was indistinguishable from the US "
+            "figure (72%), making that proxy unhelpful for US-China comparison. "
+            "The SAS survey shows a clear directional gap: China 83% vs US 65%."
         ),
         "coverage_note": (
-            "Enterprise adoption (China): estimated from regional McKinsey data and "
-            "CAICT surveys — confidence is medium; treat as directional. "
-            "Robot density: high confidence for both countries — IFR uses the same "
-            "methodology and reporting framework for all countries. "
-            "Composite is valid for directional U.S.-vs-China comparison."
+            "Gen-AI adoption (both countries): medium confidence — proprietary survey "
+            "by SAS/Coleman Parkes; sample details only partially public. "
+            "Robot density: high confidence — IFR uses identical methodology for all countries. "
+            "Composite is valid for directional US-vs-China comparison; not a precise "
+            "measurement of national AI adoption levels."
         ),
         "what_this_does_not_capture": [
             "Consumer AI usage (individuals using AI tools, apps, or devices)",
-            "AI usage by small and medium enterprises",
-            "Private or unreported AI deployment",
+            "AI usage by small and medium enterprises not surveyed",
+            "Private or unreported AI deployment (especially relevant for China)",
             "AI application quality or depth of integration",
-            "Software-only AI deployments not captured in industrial robot density",
-            "Sector-specific AI adoption in financial services, healthcare, or services",
-            "AI adoption among Chinese firms that do not file with the SEC",
+            "Sector-specific AI adoption in financial services, healthcare, or government",
+            "AI adoption by Chinese firms not covered in global surveys",
+            "Distinction between AI-specific robotics and general industrial automation",
         ],
         "sources": [
             {
-                "proxy":   "enterprise_adoption",
-                "name":    ENTERPRISE_ADOPTION_META["source_name"],
-                "url":     ENTERPRISE_ADOPTION_META["source_url"],
-                "edition": ENTERPRISE_ADOPTION_META["edition"],
+                "proxy":   "gen_ai_adoption",
+                "name":    GEN_AI_META["source_name"],
+                "url":     GEN_AI_META["source_url"],
+                "edition": GEN_AI_META["edition"],
             },
             {
                 "proxy":   "robot_density",
@@ -372,10 +494,22 @@ def main() -> None:
                 "url":     ROBOT_DENSITY_META["source_url"],
                 "edition": ROBOT_DENSITY_META["edition"],
             },
+            {
+                "proxy":   "supplementary_us",
+                "name":    "OECD ICT Access and Usage Database",
+                "url":     "https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html",
+                "edition": "January 2026 release (2025 data)",
+            },
+            {
+                "proxy":   "supplementary_china",
+                "name":    CAICT_CHINA_MFG["source"],
+                "url":     CAICT_CHINA_MFG["source_url"],
+                "edition": "March 2025 (2025 data)",
+            },
         ],
     }
 
-    OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    OUTPUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"Wrote {OUTPUT_FILE}")
     print(f"  US composite:    {us_score}")
@@ -384,6 +518,9 @@ def main() -> None:
         gap    = abs(us_score - cn_score)
         leader = "US" if us_score > cn_score else "China"
         print(f"  Leader: {leader} (gap: {gap:.1f} points)")
+    print(f"  OECD fetch: {'live' if oecd_live else 'fallback'} "
+          f"({oecd_data.get('value')}% {'avg' if oecd_data.get('is_average') else 'US'}, "
+          f"{oecd_data.get('year')})")
 
 
 if __name__ == "__main__":

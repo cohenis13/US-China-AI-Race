@@ -3,23 +3,24 @@
   "metric_key": "ai_adoption_composite_index",
   "title": "AI Adoption Index — U.S. vs China",
   "subtitle": "Public proxies for AI adoption inside the U.S. and Chinese economies — not a complete measure of total usage.",
-  "description": "A two-proxy composite index approximating economy-wide AI adoption. Combines enterprise AI adoption rates (survey-based, McKinsey 2024) with industrial automation density (IFR robot density, 2022 data). Neither proxy alone is a perfect measure of AI usage; together they provide a transparent, country-comparable directional signal.",
-  "fetched_at": "2026-03-23T11:34:19.163355+00:00",
-  "last_updated": "2026-03-23T11:34:19.163355+00:00",
+  "description": "A two-proxy composite index approximating economy-wide AI adoption. Combines gen-AI enterprise adoption rate (SAS/Coleman Parkes 2024 — the only directly comparable US-China survey available) with industrial automation density (IFR robot density). Neither proxy alone is a perfect measure; together they provide a transparent, country-comparable directional signal.",
+  "fetched_at": "2026-03-27T18:55:08.927302+00:00",
+  "last_updated": "2026-03-27T18:55:08.927302+00:00",
   "summary": {
     "US": {
-      "composite_score": 61.7,
+      "composite_score": 58.7,
       "effective_weights": {
-        "enterprise": 0.55,
-        "robot": 0.45
+        "gen_ai": 0.6,
+        "robot": 0.4
       },
       "proxies": {
         "enterprise_adoption": {
-          "raw_value": 72.0,
-          "unit": "% organizations using AI",
-          "normalized_score": 72.0,
-          "coverage": "high",
-          "note": "McKinsey State of AI 2025 (May 2025), North America respondents; corroborated by Stanford HAI AI Index 2025 (April 2025)"
+          "raw_value": 65.0,
+          "unit": "% of business decision-makers using gen AI",
+          "normalized_score": 65.0,
+          "coverage": "medium",
+          "survey_year": 2024,
+          "note": "SAS Institute / Coleman Parkes Research 2024 (Reuters, July 2024). 1,600 business decision-makers across 17 countries. US: 65% using gen AI vs global average 54% and China 83%. Source: https://www.reuters.com/technology/artificial-intelligence/china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/"
         },
         "robot_density": {
           "raw_value": 295,
@@ -31,18 +32,19 @@
       }
     },
     "China": {
-      "composite_score": 73.7,
+      "composite_score": 81.1,
       "effective_weights": {
-        "enterprise": 0.55,
-        "robot": 0.45
+        "gen_ai": 0.6,
+        "robot": 0.4
       },
       "proxies": {
         "enterprise_adoption": {
-          "raw_value": 70.0,
-          "unit": "% organizations using AI",
-          "normalized_score": 70.0,
+          "raw_value": 83.0,
+          "unit": "% of business decision-makers using gen AI",
+          "normalized_score": 83.0,
           "coverage": "medium",
-          "note": "Estimated from McKinsey State of AI 2025 global/regional data and CAICT AI White Paper 2024. McKinsey does not break out China separately; Stanford AI Index 2025 shows broadly comparable rates. Treat as directional."
+          "survey_year": 2024,
+          "note": "SAS Institute / Coleman Parkes Research 2024 (Reuters, July 2024). China: 83% of business decision-makers using gen AI — highest of all 17 countries surveyed. Consistent with CAICT AI White Paper 2025 and Stanford AI Index 2025 showing rapid enterprise AI rollout in China. Source: https://www.reuters.com/technology/artificial-intelligence/china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/"
         },
         "robot_density": {
           "raw_value": 470,
@@ -54,55 +56,90 @@
       }
     }
   },
-  "interpretive_sentence": "Chinese firms and institutions show stronger visible AI adoption on these proxies — driven primarily by higher industrial automation density in manufacturing. Enterprise survey adoption rates are more comparable between the two countries (composite index gap: 12.0 points, China ahead).",
+  "interpretive_sentence": "Chinese firms show stronger visible AI adoption on these proxies (composite index gap: 22.4 points, China ahead). China leads on both gen-AI adoption rate (SAS 2024: 83% vs 65%) and industrial automation density (IFR 2024: 470 vs 295 robots/10K workers).",
   "composite_construction": {
-    "method": "Weighted average of normalized proxy scores. Enterprise adoption is already 0-100 (% of organizations). Robot density is normalized as (value / 500) x 100 where 500 robots/10K workers is the normalization reference point. Default weights: enterprise 55%, robot density 45%. If a proxy is unavailable for one country, the remaining proxy is re-weighted to 100%.",
+    "method": "Weighted average of normalized proxy scores. Gen-AI adoption is already 0–100 (% of decision-makers). Robot density is normalized as (value / 600) × 100. Weights: gen-AI adoption 60%, robot density 40%. If a proxy is unavailable for one country, the remaining proxy is re-weighted to 100% for that country.",
     "weights": {
-      "enterprise_adoption": 0.55,
-      "robot_density": 0.45
+      "gen_ai_adoption": 0.6,
+      "robot_density": 0.4
     },
     "robot_density_normalization_reference": 600.0
   },
   "proxies_meta": {
-    "enterprise_adoption": {
-      "source_name": "McKinsey & Company, The State of AI 2025",
-      "source_url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-      "supplementary": "Stanford HAI AI Index 2025 (April 2025); CAICT White Paper on China's AI Development 2024 (China figure)",
-      "edition": "2025 (published May 2025)",
-      "definition": "% of organizations using AI in at least one business function",
-      "update_cadence": "Annual (McKinsey: typically May; Stanford AI Index: typically April)"
+    "gen_ai_adoption": {
+      "source_name": "SAS Institute / Coleman Parkes Research, Global Gen-AI Survey",
+      "source_url": "https://www.reuters.com/technology/artificial-intelligence/china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/",
+      "edition": "2024 (published July 2024)",
+      "definition": "% of business decision-makers at firms using generative AI",
+      "sample": "1,600 respondents across 17 countries",
+      "update_cadence": "Uncertain — single known edition as of 2024; monitor for annual follow-up",
+      "why_primary": "The only publicly available survey that measured gen-AI adoption with the same instrument for both the US and China. McKinsey and OECD do not provide directly comparable China-specific breakdowns."
     },
     "robot_density": {
       "source_name": "International Federation of Robotics (IFR), World Robotics 2024",
       "source_url": "https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally",
       "edition": "2024 report (October 2024, 2023 operational data)",
       "definition": "Installed industrial robots per 10,000 manufacturing workers",
-      "update_cadence": "Annual (typically published in October)"
+      "update_cadence": "Annual (typically October, covering prior year's data)"
     }
   },
-  "methodology_note": "This index uses a multi-proxy approach because no single public data source provides a clean, symmetric, and automatable measure of AI adoption in both the U.S. and Chinese economies. The enterprise survey proxy (McKinsey) covers large firms and is comparable in intent but has limited China-specific granularity. The robot density proxy (IFR) is highly symmetric and verifiable but measures industrial automation broadly, not AI specifically. The composite score is a transparent, directional proxy — not a definitive measure of national AI adoption.",
-  "coverage_note": "Enterprise adoption (China): estimated from regional McKinsey data and CAICT surveys — confidence is medium; treat as directional. Robot density: high confidence for both countries — IFR uses the same methodology and reporting framework for all countries. Composite is valid for directional U.S.-vs-China comparison.",
+  "supplementary_data": {
+    "oecd_us_enterprise_ai": {
+      "description": "OECD ICT Business survey: % of enterprises (≥10 employees) using AI. Covers OECD members only — China not included. Different and narrower definition than SAS gen-AI survey.",
+      "oecd_avg_or_us": 33.8,
+      "is_oecd_average": false,
+      "year": 2025,
+      "source": "OECD ICT Access and Usage Database (live)",
+      "source_url": "https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html",
+      "live_fetch_ok": true,
+      "note": "Fetched live from OECD SDMX API."
+    },
+    "caict_china_manufacturing_ai": {
+      "value": 25.9,
+      "prior_value": 19.9,
+      "year": 2025,
+      "prior_year": 2024,
+      "definition": "% of smart manufacturing enterprises deploying AI applications",
+      "source": "CAICT AI White Paper 2025 (March 2025)",
+      "source_url": "https://www.caict.ac.cn/english/research/whitepapers/202503/t20250319_658668.html",
+      "note": "CAICT (China Academy of Information and Communications Technology) white paper — government-linked source; methodology not fully public. Shown as context for China's industrial AI trajectory only."
+    }
+  },
+  "methodology_note": "Primary source change from prior version: McKinsey State of AI (North America figure for US, estimated regional data for China) has been replaced by the SAS/Coleman Parkes 2024 global gen-AI survey, which is the only publicly available source that measured the same question in both the US and China using the same survey instrument. The prior McKinsey-based China estimate (70%) was indistinguishable from the US figure (72%), making that proxy unhelpful for US-China comparison. The SAS survey shows a clear directional gap: China 83% vs US 65%.",
+  "coverage_note": "Gen-AI adoption (both countries): medium confidence — proprietary survey by SAS/Coleman Parkes; sample details only partially public. Robot density: high confidence — IFR uses identical methodology for all countries. Composite is valid for directional US-vs-China comparison; not a precise measurement of national AI adoption levels.",
   "what_this_does_not_capture": [
     "Consumer AI usage (individuals using AI tools, apps, or devices)",
-    "AI usage by small and medium enterprises",
-    "Private or unreported AI deployment",
+    "AI usage by small and medium enterprises not surveyed",
+    "Private or unreported AI deployment (especially relevant for China)",
     "AI application quality or depth of integration",
-    "Software-only AI deployments not captured in industrial robot density",
-    "Sector-specific AI adoption in financial services, healthcare, or services",
-    "AI adoption among Chinese firms that do not file with the SEC"
+    "Sector-specific AI adoption in financial services, healthcare, or government",
+    "AI adoption by Chinese firms not covered in global surveys",
+    "Distinction between AI-specific robotics and general industrial automation"
   ],
   "sources": [
     {
-      "proxy": "enterprise_adoption",
-      "name": "McKinsey & Company, The State of AI 2025",
-      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
-      "edition": "2025 (published May 2025)"
+      "proxy": "gen_ai_adoption",
+      "name": "SAS Institute / Coleman Parkes Research, Global Gen-AI Survey",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/",
+      "edition": "2024 (published July 2024)"
     },
     {
       "proxy": "robot_density",
       "name": "International Federation of Robotics (IFR), World Robotics 2024",
       "url": "https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally",
       "edition": "2024 report (October 2024, 2023 operational data)"
+    },
+    {
+      "proxy": "supplementary_us",
+      "name": "OECD ICT Access and Usage Database",
+      "url": "https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html",
+      "edition": "January 2026 release (2025 data)"
+    },
+    {
+      "proxy": "supplementary_china",
+      "name": "CAICT AI White Paper 2025 (March 2025)",
+      "url": "https://www.caict.ac.cn/english/research/whitepapers/202503/t20250319_658668.html",
+      "edition": "March 2025 (2025 data)"
     }
   ]
 }

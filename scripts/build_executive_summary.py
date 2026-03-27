@@ -77,13 +77,15 @@ DIMS = {
     "compute": {
         "label":       "Compute",
         "radar_label": "Compute",
-        "confidence":  "High confidence (TOP500 only)",
+        "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "TOP500 list data only. China operates multiple exascale-class systems that "
-            "have NOT been submitted to TOP500 — this score significantly understates "
-            "China's actual HPC capacity. US private AI cluster infrastructure (xAI "
-            "Colossus, Meta clusters, etc.) is also excluded."
+            "Based on cumulative AI training compute (FLOPs) for notable models since 2023 "
+            "(Epoch AI). US ~86%, China ~14% of disclosed training compute. Understates "
+            "China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose "
+            "compute; Huawei Ascend deployments are also excluded. The real gap is likely "
+            "narrower than the score suggests — estimated 3-5x in frontier AI clusters, "
+            "not the 6x implied by the training-compute share alone."
         ),
     },
     "adoption": {
@@ -151,6 +153,12 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
                 float(cn) if cn is not None else None)
 
     if key == "compute":
+        # Prefer Epoch AI training compute (primary); fall back to TOP500 Rmax
+        us_flop = s.get("US", {}).get("training_compute_flop")
+        cn_flop = s.get("China", {}).get("training_compute_flop")
+        if us_flop is not None and cn_flop is not None:
+            return float(us_flop), float(cn_flop)
+        # Legacy / fallback: TOP500 Rmax
         us = s.get("US", {}).get("rmax_pflops")
         cn = s.get("China", {}).get("rmax_pflops")
         return (float(us) if us is not None else None,

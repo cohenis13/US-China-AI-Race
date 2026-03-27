@@ -1309,9 +1309,9 @@ footer {
     <div class="card live-card">
       <div class="live-card-top">
         <div>
-          <div class="live-card-title">High-End Compute Capacity — Latest TOP500 Snapshot</div>
+          <div class="live-card-title">AI Training Compute — Epoch AI + TOP500</div>
           <div class="live-card-sub">
-            Aggregate HPL benchmark performance and system count from the full TOP500 supercomputer list (all 500 systems) — a proxy for frontier compute capacity, not a complete measure of AI compute &nbsp;·&nbsp; Source: TOP500
+            Primary: cumulative training compute (FLOPs) for notable AI models since 2023 (Epoch AI). Secondary: TOP500 HPL Rmax benchmark — retained for context; China stopped submitting most systems after 2023.
           </div>
         </div>
         <div class="live-status">
@@ -1331,11 +1331,11 @@ footer {
         <div class="fm-stats">
           <div class="fm-stat us">
             <div class="fm-stat-num" id="cmp-us-perf">—</div>
-            <div class="fm-stat-lbl">United States &nbsp;<span style="font-weight:400;font-size:11px;opacity:.7;">HPL Rmax</span></div>
+            <div class="fm-stat-lbl">United States &nbsp;<span id="cmp-us-unit" style="font-weight:400;font-size:11px;opacity:.7;">training compute</span></div>
           </div>
           <div class="fm-stat cn">
             <div class="fm-stat-num" id="cmp-cn-perf">—</div>
-            <div class="fm-stat-lbl">China &nbsp;<span style="font-weight:400;font-size:11px;opacity:.7;">HPL Rmax</span></div>
+            <div class="fm-stat-lbl">China &nbsp;<span id="cmp-cn-unit" style="font-weight:400;font-size:11px;opacity:.7;">training compute</span></div>
           </div>
         </div>
         <!-- Secondary context: system count -->
@@ -1349,22 +1349,22 @@ footer {
 
         <!-- Primary bar chart: HPL performance US vs China -->
         <div class="fm-chart-wrap">
-          <div class="fm-chart-label">Aggregate HPL Rmax by country — latest TOP500 snapshot</div>
+          <div class="fm-chart-label" id="cmp-chart-label">AI training compute share — Epoch AI notable models since 2023</div>
           <canvas id="cmpPerfChart" height="48"></canvas>
         </div>
 
         <!-- Top systems table -->
         <div class="fm-tbl-wrap detail-wrap" id="cmp-systems-wrap">
           <div class="detail-section-hdr">
-            <span class="detail-lbl">Top 20 systems — latest TOP500 snapshot</span>
+            <span class="detail-lbl" id="cmp-table-lbl">Top models by training compute — Epoch AI</span>
           </div>
           <table class="fm-tbl">
             <thead>
               <tr>
                 <th class="r" style="width:36px;">#</th>
-                <th>System</th>
+                <th id="cmp-col-name">Model</th>
                 <th class="r">Country</th>
-                <th class="r">HPL Rmax</th>
+                <th class="r" id="cmp-col-metric">Training Compute</th>
               </tr>
             </thead>
             <tbody id="cmp-systems-body">
@@ -1376,12 +1376,11 @@ footer {
         <!-- Footer citation -->
         <div class="fm-footer">
           <p class="fm-footer-note">
-            Primary metric is aggregate HPL Rmax (benchmark performance), not system count.
-            TOP500 does not include private AI clusters, cloud GPU farms, or systems below the TOP500 threshold.
-            List updated twice yearly (June and November).
+            Primary metric: cumulative training FLOPs for notable AI models since 2023 (Epoch AI). Models without disclosed compute are excluded — this understates both countries, but more so China, where many frontier models (Qwen-max, Doubao) do not disclose training compute. Analyst estimates put the real compute gap at ~3–5×, not the 6× implied by disclosed figures alone.
           </p>
           <div class="fm-footer-links">
-            Source: <a href="https://www.top500.org" target="_blank" rel="noopener">TOP500</a><br>
+            Sources: <a href="https://epoch.ai/data/all_ai_models" target="_blank" rel="noopener">Epoch AI</a>,
+            <a href="https://www.top500.org" target="_blank" rel="noopener">TOP500</a><br>
             <a href="docs/methodology.html" target="_blank">Full methodology →</a>
           </div>
         </div>
@@ -2472,7 +2471,8 @@ function fmtEflops(pflops) {
   return (pflops / 1000).toFixed(2) + ' EFlop/s';
 }
 
-function buildComputeChart(usPerf, cnPerf) {
+function buildComputeChart(usVal, cnVal, isPct) {
+  if (cmpPerfChart) { cmpPerfChart.destroy(); cmpPerfChart = null; }
   const isDark    = document.documentElement.getAttribute('data-theme') === 'dark';
   const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)';
   const tickColor = isDark ? '#4d6678' : '#9ca3af';
@@ -2483,7 +2483,7 @@ function buildComputeChart(usPerf, cnPerf) {
     data: {
       labels: ['United States', 'China'],
       datasets: [{
-        data: [usPerf, cnPerf],
+        data: [usVal, cnVal],
         backgroundColor: ['rgba(26,58,92,0.75)', 'rgba(181,65,62,0.75)'],
         borderColor:     [US_COLOR, CN_COLOR],
         borderWidth: 1.5,
@@ -2502,15 +2502,18 @@ function buildComputeChart(usPerf, cnPerf) {
           borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1,
           padding: { x: 12, y: 10 }, cornerRadius: 5,
           callbacks: {
-            label: (ctx) => '  ' + fmtEflops(ctx.parsed.x) + ' HPL Rmax'
+            label: isPct
+              ? (ctx) => '  ' + ctx.parsed.x.toFixed(1) + '% of disclosed training compute'
+              : (ctx) => '  ' + fmtEflops(ctx.parsed.x) + ' HPL Rmax'
           }
         }
       },
       scales: {
         x: {
           beginAtZero: true,
+          max: isPct ? 100 : undefined,
           ticks: { color: tickColor, font: { size: 10 },
-                   callback: (v) => (v / 1000).toFixed(1) + ' E' },
+                   callback: isPct ? (v) => v + '%' : (v) => (v / 1000).toFixed(1) + ' E' },
           grid: { color: gridColor },
         },
         y: {
@@ -2523,57 +2526,132 @@ function buildComputeChart(usPerf, cnPerf) {
   window._cmpPerfChart = cmpPerfChart;
 }
 
+function fmtFlops(flop) {
+  // Format raw FLOPs into a human-readable string
+  if (!flop || flop === 0) return '—';
+  const zetta = 1e21;
+  const yotta = 1e24;
+  if (flop >= yotta)  return (flop / yotta).toFixed(2) + ' YFlop';
+  if (flop >= zetta)  return (flop / zetta).toFixed(1) + ' ZFlop';
+  return flop.toExponential(2) + ' FLOPs';
+}
+
 function renderCompute(data) {
   const s  = data.summary || {};
-  const us = s.US    || { systems: 0, rmax_pflops: 0 };
-  const cn = s.China || { systems: 0, rmax_pflops: 0 };
-  const ot = s.Other || { systems: 0, rmax_pflops: 0 };
+  const us = s.US    || {};
+  const cn = s.China || {};
 
-  document.getElementById('cmp-us-perf').textContent   = fmtEflops(us.rmax_pflops);
-  document.getElementById('cmp-cn-perf').textContent   = fmtEflops(cn.rmax_pflops);
   document.getElementById('cmp-fetched-at').textContent = fmtFetchedAt(data.fetched_at);
 
-  // Secondary system-count note
-  const edition = data.list_edition ? ` · ${data.list_edition} edition` : '';
-  const parsed  = data.total_systems_parsed || (us.systems + cn.systems + ot.systems + (s.Unknown ? s.Unknown.systems : 0));
-  const complete = data.is_complete !== false ? 'full list' : `${parsed} systems parsed`;
-  document.getElementById('cmp-sys-note').textContent =
-    `System count: US ${us.systems}, China ${cn.systems}, Other ${ot.systems}${edition}`;
+  // ── Epoch AI (primary) ───────────────────────────────────────────
+  const epochOk   = us.training_compute_flop != null && cn.training_compute_flop != null;
+  const epochData = data.epoch_ai || {};
+  const cutoffYear = (epochData.cutoff_date || '2023-01-01').slice(0, 4);
 
-  // Meta line
-  document.getElementById('cmp-meta').textContent =
-    `${parsed} systems parsed from ${complete}${edition} · HPL Rmax is the primary signal (total benchmark performance, not system count)`;
+  // TOP500 (secondary) — handle new nested shape and legacy flat shape
+  const top500Block   = data.top500 || {};
+  const top500Summary = top500Block.summary || {};
+  const top500Us      = top500Summary.US    || {};
+  const top500Cn      = top500Summary.China || {};
+  // rmax: new nested → legacy flat
+  const usRmax        = top500Us.rmax_pflops ?? us.top500_rmax_pflops ?? us.rmax_pflops ?? 0;
+  const cnRmax        = top500Cn.rmax_pflops ?? cn.top500_rmax_pflops ?? cn.rmax_pflops ?? 0;
+  const usSystems     = top500Us.systems     ?? us.top500_systems     ?? us.systems     ?? 0;
+  const cnSystems     = top500Cn.systems     ?? cn.top500_systems     ?? cn.systems     ?? 0;
+  const edition       = top500Block.list_edition || data.list_edition || '';
+  const topItems      = (top500Block.top_systems || data.top_systems || []).slice(0, 20);
+  const top500Ok      = usRmax > 0 || cnRmax > 0;
 
-  // Interpretive sentence
-  let interp;
-  const ratio = cn.rmax_pflops > 0 ? us.rmax_pflops / cn.rmax_pflops : Infinity;
-  if (ratio > 1.05) {
-    interp = `US-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtEflops(us.rmax_pflops)} vs ${fmtEflops(cn.rmax_pflops)} HPL Rmax).`;
-  } else if (ratio < 0.95) {
-    interp = `China-based systems provide greater aggregate high-end compute capacity in this snapshot (${fmtEflops(cn.rmax_pflops)} vs ${fmtEflops(us.rmax_pflops)} HPL Rmax).`;
+  if (epochOk) {
+    // Primary: training compute share
+    const usFlop  = us.training_compute_flop;
+    const cnFlop  = cn.training_compute_flop;
+    const total   = usFlop + cnFlop;
+    const usPct   = total > 0 ? (usFlop / total * 100).toFixed(1) : '—';
+    const cnPct   = total > 0 ? (cnFlop / total * 100).toFixed(1) : '—';
+    const usCount = us.model_count ?? 0;
+    const cnCount = cn.model_count ?? 0;
+
+    document.getElementById('cmp-us-perf').textContent = usPct + '%';
+    document.getElementById('cmp-cn-perf').textContent = cnPct + '%';
+    document.getElementById('cmp-us-unit').textContent = 'of disclosed training compute';
+    document.getElementById('cmp-cn-unit').textContent = 'of disclosed training compute';
+
+    document.getElementById('cmp-sys-note').textContent =
+      `Model count: US ${usCount}, China ${cnCount} · Raw: ${fmtFlops(usFlop)} vs ${fmtFlops(cnFlop)}`;
+
+    document.getElementById('cmp-meta').textContent =
+      `Notable AI models published since ${cutoffYear} with known training compute (Epoch AI)` +
+      (top500Ok ? ` · TOP500 (${edition}): US ${fmtEflops(usRmax)}, China ${fmtEflops(cnRmax)} HPL Rmax` : '');
+
+    const gap = (usFlop / cnFlop).toFixed(1);
+    document.getElementById('cmp-interp').innerHTML =
+      `US labs account for ${usPct}% of disclosed AI training compute vs China's ${cnPct}% ` +
+      `(${gap}× ratio on disclosed figures; actual gap estimated at ~3–5× accounting for undisclosed models). ` +
+      `<span style="color:var(--t3);">Excludes models without public compute figures — understates both countries, more so China.</span>`;
+
+    document.getElementById('cmp-chart-label').textContent =
+      `Training compute share — notable AI models since ${cutoffYear} (Epoch AI)`;
+
+    // Chart: training compute share
+    buildComputeChart(parseFloat(usPct), parseFloat(cnPct), true);
+
+    // Table: top models by compute
+    const epochModels = (epochData.top_models_by_compute || []).slice(0, 10);
+    document.getElementById('cmp-table-lbl').textContent = `Top ${epochModels.length} models by training compute — Epoch AI`;
+    document.getElementById('cmp-col-name').textContent   = 'Model';
+    document.getElementById('cmp-col-metric').textContent = 'Training Compute';
+    const tbody = document.getElementById('cmp-systems-body');
+    if (epochModels.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No model data available.</td></tr>';
+    } else {
+      tbody.innerHTML = epochModels.map(m => `
+        <tr>
+          <td class="r" style="color:var(--t3);font-size:11px;">${m.rank}</td>
+          <td class="model-id" style="max-width:320px;" title="${m.name}">${truncate(m.name, 55)}</td>
+          <td class="r">${countryChip(m.country)}</td>
+          <td class="r" style="color:var(--t2);white-space:nowrap;font-size:12px;">${fmtFlops(m.training_compute_flop)}</td>
+        </tr>
+      `).join('');
+    }
   } else {
-    interp = `US and China show broadly similar aggregate high-end compute capacity in this snapshot (${fmtEflops(us.rmax_pflops)} vs ${fmtEflops(cn.rmax_pflops)} HPL Rmax).`;
-  }
-  const caveat = `<span style="color:var(--t3);">TOP500 captures disclosed systems only — country-level totals may understate broader compute capacity.</span>`;
-  document.getElementById('cmp-interp').innerHTML = interp + ' ' + caveat;
-
-  // Chart
-  buildComputeChart(us.rmax_pflops, cn.rmax_pflops);
-
-  // Top systems table
-  const systems = (data.top_systems || []).slice(0, 20);
-  const tbody = document.getElementById('cmp-systems-body');
-  if (systems.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No data yet — check back after the first workflow run.</td></tr>';
-  } else {
-    tbody.innerHTML = systems.map(s => `
-      <tr>
-        <td class="r" style="color:var(--t3);font-size:11px;">${s.rank}</td>
-        <td class="model-id" style="max-width:320px;" title="${s.name}">${truncate(s.name, 55)}</td>
-        <td class="r">${countryChip(s.country)}</td>
-        <td class="r" style="color:var(--t2);white-space:nowrap;font-size:12px;">${fmtPflops(s.rmax_pflops)}</td>
-      </tr>
-    `).join('');
+    // Fallback: TOP500-only display (legacy format)
+    document.getElementById('cmp-us-perf').textContent = fmtEflops(usRmax);
+    document.getElementById('cmp-cn-perf').textContent = fmtEflops(cnRmax);
+    document.getElementById('cmp-us-unit').textContent = 'HPL Rmax';
+    document.getElementById('cmp-cn-unit').textContent = 'HPL Rmax';
+    const parsed = usSystems + cnSystems;
+    document.getElementById('cmp-sys-note').textContent =
+      `System count: US ${usSystems}, China ${cnSystems}${edition ? ' · ' + edition : ''}`;
+    document.getElementById('cmp-meta').textContent =
+      `${parsed} systems parsed · HPL Rmax is the primary signal`;
+    const ratio = cnRmax > 0 ? usRmax / cnRmax : Infinity;
+    const lead  = ratio > 1.05 ? 'US' : (ratio < 0.95 ? 'China' : 'Parity');
+    document.getElementById('cmp-interp').innerHTML =
+      (lead === 'US'
+        ? `US-based systems provide greater aggregate high-end compute (${fmtEflops(usRmax)} vs ${fmtEflops(cnRmax)} HPL Rmax).`
+        : lead === 'China'
+        ? `China-based systems provide greater aggregate high-end compute (${fmtEflops(cnRmax)} vs ${fmtEflops(usRmax)} HPL Rmax).`
+        : `Broadly similar aggregate compute (${fmtEflops(usRmax)} vs ${fmtEflops(cnRmax)} HPL Rmax).`) +
+      ' <span style="color:var(--t3);">TOP500 captures disclosed systems only.</span>';
+    document.getElementById('cmp-chart-label').textContent =
+      `Aggregate HPL Rmax — TOP500${edition ? ' ' + edition : ''}`;
+    buildComputeChart(usRmax, cnRmax, false);
+    document.getElementById('cmp-col-name').textContent   = 'System';
+    document.getElementById('cmp-col-metric').textContent = 'HPL Rmax';
+    const tbody = document.getElementById('cmp-systems-body');
+    if (topItems.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" class="fm-placeholder" style="padding:16px 0;text-align:center;color:var(--t3);">No data yet.</td></tr>';
+    } else {
+      tbody.innerHTML = topItems.map(sys => `
+        <tr>
+          <td class="r" style="color:var(--t3);font-size:11px;">${sys.rank}</td>
+          <td class="model-id" style="max-width:320px;" title="${sys.name}">${truncate(sys.name, 55)}</td>
+          <td class="r">${countryChip(sys.country)}</td>
+          <td class="r" style="color:var(--t2);white-space:nowrap;font-size:12px;">${fmtPflops(sys.rmax_pflops)}</td>
+        </tr>
+      `).join('');
+    }
   }
 
   document.getElementById('cmp-loading').style.display = 'none';
@@ -2587,9 +2665,10 @@ async function loadCompute() {
     const resp = await fetch('data/compute.json?t=' + Date.now());
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const data = await resp.json();
-    const totalSystems = (data.summary.US?.systems || 0) + (data.summary.China?.systems || 0)
-                        + (data.summary.Other?.systems || 0) + (data.summary.Unknown?.systems || 0);
-    if (!data.fetched_at || totalSystems === 0) {
+    const s = data.summary || {};
+    const hasData = s.US?.training_compute_flop || s.US?.rmax_pflops || s.US?.top500_rmax_pflops
+                 || s.US?.systems;
+    if (!data.fetched_at || !hasData) {
       throw new Error('No data yet');
     }
     renderCompute(data);

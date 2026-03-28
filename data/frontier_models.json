@@ -3,10 +3,10 @@
   "metric_key": "frontier_model_composite",
   "title": "Frontier AI Models — U.S. vs China",
   "subtitle": "Two-proxy composite: Arena Elo capability ranking share (60%, top-20) + notable model output share (40%, Epoch AI, last 2 years). Each proxy: US share of combined US+China.",
-  "fetched_at": "2026-03-27T08:10:03.252903+00:00",
+  "fetched_at": "2026-03-28T07:58:39.066749+00:00",
   "summary": {
     "US": {
-      "composite_score": 63.3,
+      "composite_score": 63.2,
       "effective_weights": {
         "capability": 0.6,
         "output": 0.4
@@ -20,16 +20,16 @@
           "source": "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)"
         },
         "output": {
-          "raw_value": 99,
+          "raw_value": 98,
           "unit": "notable AI models released (last 2y)",
-          "share_score": 63.5,
+          "share_score": 63.2,
           "window_years": 2,
           "source": "Epoch AI notable_ai_models.csv"
         }
       }
     },
     "China": {
-      "composite_score": 36.7,
+      "composite_score": 36.8,
       "effective_weights": {
         "capability": 0.6,
         "output": 0.4
@@ -45,7 +45,7 @@
         "output": {
           "raw_value": 57,
           "unit": "notable AI models released (last 2y)",
-          "share_score": 36.5,
+          "share_score": 36.8,
           "window_years": 2,
           "source": "Epoch AI notable_ai_models.csv"
         }
@@ -55,7 +55,7 @@
   "leaderboard": {
     "source": "LMSYS Chatbot Arena",
     "source_url": "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
-    "last_updated": "2026-03-27",
+    "last_updated": "2026-03-28",
     "top_n": 20,
     "models": [
       {
@@ -207,8 +207,8 @@
     "source": "Epoch AI notable_ai_models.csv",
     "source_url": "https://epoch.ai/data/notable_ai_models.csv",
     "window_years": 2,
-    "cutoff_date": "2024-03-27",
-    "us_count": 99,
+    "cutoff_date": "2024-03-28",
+    "us_count": 98,
     "china_count": 57,
     "recent_models": [
       {
@@ -373,5 +373,5 @@
       }
     ]
   },
-  "interpretive_sentence": "On a composite of Arena Elo capability ranking (60%) and notable model output (40%), the US scores 63.3 and China scores 36.7 out of 100. US has 12 of the top 20 models by human preference; China has 7. On output, US released 99 notable models vs China's 57 in the last 2 years."
+  "interpretive_sentence": "On a composite of Arena Elo capability ranking (60%) and notable model output (40%), the US scores 63.2 and China scores 36.8 out of 100. US has 12 of the top 20 models by human preference; China has 7. On output, US released 98 notable models vs China's 57 in the last 2 years."
 }

@@ -2,7 +2,7 @@
   "dimension": "investment",
   "metric_key": "ai_investment_composite",
   "description": "AI investment composite: private AI VC/startup investment (70%, Stanford AI Index annual series, PitchBook data) + hyperscaler AI/data-center capex (30%, SEC EDGAR annual 10-K/20-F filings). Government AI R&D (NITRD + CSET) shown as context only.",
-  "fetched_at": "2026-03-27T18:21:54.776996+00:00",
+  "fetched_at": "2026-03-30T12:08:24.769229+00:00",
   "summary": {
     "US": {
       "composite_score": 92.6,

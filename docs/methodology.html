@@ -169,37 +169,51 @@ china_score = 10.0 &minus; us_score</pre>
     offset. Weights and normalization are fully documented and transparent.
   </p>
 
-  <h3>Proxy 1 &mdash; Enterprise AI Adoption Rate (55% weight)</h3>
+  <h3>Proxy 1 &mdash; Gen-AI Enterprise Adoption Rate (60% weight)</h3>
   <p>
-    <strong>Sources:</strong> McKinsey &amp; Company, <em>The State of AI</em> 2025
-    (published May 2025), and Stanford HAI <em>AI Index</em> 2025 (published April 2025).
-    Supplemented by CAICT (China Academy of Information and Communications Technology)
-    White Paper on China&rsquo;s AI Development (2024) for the China-specific figure.
+    <strong>Source:</strong> SAS Institute / Coleman Parkes Research, global generative AI
+    adoption survey (Reuters, July 2024). 1,600 business decision-makers surveyed across
+    17 countries.
   </p>
   <p>
-    <strong>Definition:</strong> Percentage of organizations reporting that they use AI
-    in at least one business function.
+    <strong>Why this source:</strong> The only publicly available survey that asked the same
+    question with the same methodology in both the U.S. and China directly. McKinsey, OECD,
+    and Stanford AI Index all lack directly comparable China-specific breakdowns &mdash;
+    McKinsey does not break out China at the country level; OECD does not cover China in
+    its ICT business surveys.
   </p>
   <p>
-    <strong>Values used:</strong> U.S. (North America): ~72% (McKinsey 2025, corroborated
-    by Stanford AI Index 2025). China: ~70% (estimated from McKinsey 2025 regional data,
-    CAICT 2024, and Stanford AI Index 2025; see coverage note below).
+    <strong>Definition:</strong> Percentage of business decision-makers at firms reporting
+    use of generative AI.
+  </p>
+  <p>
+    <strong>Values used:</strong> U.S.: 65%. China: 83%. Global average in same survey: 54%.
   </p>
   <p>
     <strong>Normalization:</strong> Already expressed as a percentage; used directly on the
     0&ndash;100 scale.
   </p>
+  <p>
+    <strong>Supplementary context (not in composite):</strong> OECD ICT Business Survey
+    (fetched live) shows U.S. enterprise AI adoption at 33.8% of firms in 2025 &mdash; a
+    narrower definition (all enterprises &ge;10 employees, not just decision-makers) that
+    is not comparable to the SAS survey but provides an official national-statistics anchor
+    for the U.S. figure. China is not covered by the OECD survey.
+    CAICT (China Academy of Information and Communications Technology) White Paper 2025
+    reports 25.9% of smart manufacturing enterprises deploying AI (up from 19.9% in 2024),
+    shown as China industrial context only.
+  </p>
   <div class="caveat">
     <p>
-      <strong>Coverage note &mdash; China:</strong> The McKinsey survey does not cleanly
-      break out China at the country level. The ~68% figure is an estimate derived from
-      McKinsey&rsquo;s 2024 global and regional data, cross-referenced with CAICT surveys
-      on Chinese enterprise AI adoption. It should be treated as directional (confidence:
-      medium), not as a precise national figure.
+      <strong>Limitations:</strong> Proprietary survey; sampling and weighting details only
+      partially public. Samples &ldquo;business decision-makers,&rdquo; not all enterprises
+      or all employees. China&rsquo;s higher rate (83% vs 65%) is consistent with CAICT
+      reports and Stanford AI Index 2025 but should be treated as directional (confidence:
+      medium).
     </p>
   </div>
 
-  <h3>Proxy 2 &mdash; Industrial Robot Density (45% weight)</h3>
+  <h3>Proxy 2 &mdash; Industrial Robot Density (40% weight)</h3>
   <p>
     <strong>Source:</strong> International Federation of Robotics (IFR),
     <em>World Robotics</em> 2024 annual report (published October 2024, covering 2023
@@ -236,7 +250,7 @@ china_score = 10.0 &minus; us_score</pre>
   <h3>Composite construction</h3>
   <p>
     <strong>Formula:</strong>
-    Composite = 0.55 &times; enterprise_adoption_score + 0.45 &times; robot_density_norm_score
+    Composite = 0.60 &times; gen_ai_adoption_score + 0.40 &times; robot_density_norm_score
   </p>
   <p>
     If a proxy is unavailable for one country, that proxy is excluded and the remaining proxy
@@ -244,22 +258,24 @@ china_score = 10.0 &minus; us_score</pre>
     zeroing out one country&rsquo;s score.
   </p>
   <p>
-    Enterprise adoption is weighted slightly higher (55%) because it more directly measures
-    AI-specific organizational behavior. Robot density (45%) is a more objective and symmetric
-    measure but captures industrial automation broadly.
+    Gen-AI adoption is weighted higher (60%) because it is the only directly comparable
+    US&ndash;China measure and more directly captures AI-specific behavior. Robot density
+    (40%) is more objective and symmetric but captures industrial automation broadly,
+    not AI specifically.
   </p>
 
   <h3>Update cadence and automation</h3>
   <p>
-    The script runs weekly via GitHub Actions. The underlying reference data updates annually:
-    McKinsey publishes in approximately May each year; Stanford AI Index in approximately April;
-    IFR publishes in approximately October. When new editions are released, the reference values
-    in <code>scripts/fetch_adoption.py</code> are updated manually and the composite
+    The script runs weekly via GitHub Actions; the OECD supplementary figure is fetched live
+    each run. The composite inputs update annually: IFR World Robotics publishes in approximately
+    October each year; the SAS/Coleman Parkes survey cadence is uncertain (single known edition
+    as of 2024). When new editions are released, the reference values in
+    <code>scripts/fetch_adoption.py</code> are updated manually and the composite
     recalculates automatically on the next run.
   </p>
   <p>
     <strong>Next expected updates:</strong> IFR World Robotics 2025 (~October 2025, covering
-    2024 data); McKinsey State of AI 2026 (~May 2026); Stanford AI Index 2026 (~April 2026).
+    2024 data). SAS survey follow-up: unknown. OECD ICT data: ~January 2026 (2025 data, fetched live).
   </p>
 
   <h3>What this composite does NOT capture</h3>
@@ -281,8 +297,9 @@ china_score = 10.0 &minus; us_score</pre>
       approach had a structural flaw: the China sample consisted exclusively of US-listed
       Chinese ADRs &mdash; a technology-heavy subset that excluded Tencent, ByteDance, Huawei,
       CATL, and most of China&rsquo;s economy. The comparison was asymmetric by construction.
-      The new composite index uses sources that are either genuinely country-comparable (IFR)
-      or that, while imperfect, apply broadly to both economies (McKinsey global survey).
+      The current composite index uses sources that are either genuinely country-comparable (IFR
+      robot density) or that directly compare both economies on the same survey instrument
+      (SAS / Coleman Parkes gen-AI adoption survey, 2024).
     </p>
   </div>
 

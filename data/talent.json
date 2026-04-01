@@ -4,11 +4,11 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-03-31T10:36:03.038402+00:00",
-  "last_updated": "2026-03-31T10:36:03.038415+00:00",
+  "fetched_at": "2026-04-01T10:38:18.763343+00:00",
+  "last_updated": "2026-04-01T10:38:18.763360+00:00",
   "summary": {
     "US": {
-      "composite_score": 37.3,
+      "composite_score": 37.2,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -16,7 +16,7 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 132848,
+          "raw_value": 132480,
           "unit": "AI papers (12-month)",
           "share_score": 36.4,
           "window_days": 365,
@@ -24,7 +24,7 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3570,
+          "raw_value": 3565,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.3,
           "window_days": 730,
@@ -34,9 +34,9 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1524,
+          "raw_value": 1515,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 44.8,
+          "share_score": 44.7,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -45,7 +45,7 @@
       }
     },
     "China": {
-      "composite_score": 62.7,
+      "composite_score": 62.8,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 232064,
+          "raw_value": 231301,
           "unit": "AI papers (12-month)",
           "share_score": 63.6,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (232,064 vs US 132,848 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (231,301 vs US 132,480 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7471,
+          "raw_value": 7466,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.7,
           "window_days": 730,
@@ -70,9 +70,9 @@
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1879,
+          "raw_value": 1874,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 55.2,
+          "share_score": 55.3,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.3 and China scores 62.7 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.6% of combined); the US leads on quality cited papers (32.3%) and high-impact papers (44.8%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.2 and China scores 62.8 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.6% of combined); the US leads on quality cited papers (32.3%) and high-impact papers (44.7%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -106,208 +106,211 @@
   },
   "papers": [
     {
-      "id": "https://openalex.org/W7135050496",
-      "title": "Use of Artificial Intelligence and its Application in Research",
+      "id": "https://openalex.org/W7138853873",
+      "title": "Supplementary material for \"Perceptual Evaluation of Different Methods for Binaural Rendering of Recordings with Various Microphone Arrays\"",
       "authors": [
-        "Manisha Nimraj Jadhav"
+        "Tim Lübeck",
+        "C. Scheer",
+        "David Ackermann"
       ],
       "countries": [
-        "IN"
+        "DE",
+        "SE",
+        "FI"
       ],
       "primary_country": "Other",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134932201",
-      "title": "Impact of Artificial Intelligence on E-Commerce",
+      "id": "https://openalex.org/W7140236363",
+      "title": "Application Progress of Generative Artificial Intelligence in Weight Management",
       "authors": [
-        "Sanosh Subhash Pawar"
+        "GUAN  Hua YANG  Lei"
       ],
       "countries": [
-        "IN"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-03-31",
+      "primary_country": "China",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7135095130",
-      "title": "कतरम बदधमतत आण भषच असततव",
+      "id": "https://openalex.org/W7115975524",
+      "title": "Gene-specific growth charts for ASXL3-related disorder",
       "authors": [
-        "अनुराधा वसंत गुजर"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7143370258",
-      "title": "Information Erosion: What Population-Averaged Brain Encoders Provably Cannot Capture",
-      "authors": [
-        "Karan Prasad"
+        "Woods, E.",
+        "Low, K.J.",
+        "Cole, T.J."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7124321184",
-      "title": "Regulating Artificial Intelligence in India: Legal Frameworks, Governance Challenges, and the Path toward a Dedicated AI Law",
+      "id": "https://openalex.org/W7141817591",
+      "title": "A REVIEW ON: ARTIFICIAL INTELLIGENCE IN COSMETIC DERMATOLOGY; ADVANCES IN SKIN ANALYSIS AND PERSONALIZED TREATMENT",
       "authors": [
-        "GANESH SHRIRANG SATARKAR"
+        "A. Vamsi*1, Y. Dhruthin Raj*1, B. Vamsi1, T. Radha2, Ch. Narasimha Raju Bh2"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7135017245",
-      "title": "करड कषतरत आरटफशयल इटलजनसच महतव",
+      "id": "https://openalex.org/W7140252756",
+      "title": "For Which It Stands…WAG Wall Letters",
       "authors": [
-        "सचिन सुभाषराव चामले"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-03-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7143459891",
-      "title": "Tasavvufî İletişimde Duyuların Rolü: Zâhirden Bâtına Uzanan Bir Algı Modeli",
-      "authors": [
-        "Mustafa Uzgur"
+        "Fairfield University Art Museum"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7143501325",
-      "title": "Machine Learning Based Cervical Cancer Risk Prediction with SHAP-Driven Feature Interpretation",
+      "id": "https://openalex.org/W7140769562",
+      "title": "Object Detection Benchmark Dataset for Indoor Power Sockets and Light Switches",
       "authors": [
-        "Fachrizal Ardiansyah",
-        "Raka Deny Abdi Putra",
-        "Budiman"
+        "Lukas Arzoumanidis",
+        "Falko Behre",
+        "Malte Marsmann"
       ],
       "countries": [
-        "ID"
+        "DE",
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-03-31",
+      "primary_country": "China",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140029695",
-      "title": "Impact of AI on Education: Need for Teachers Training",
+      "id": "https://openalex.org/W7134071080",
+      "title": "Research on Daily Maximum and Minimum Temperature Forecasts by Integrating Terrain Features and Neural Networks",
       "authors": [
-        "Hinduja Srichand P."
+        "Shu LU, Lin XU, Xue GU, Yue ZHOU, Zejun DAI, Yaqing TAO"
       ],
       "countries": [
-        "AU"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-03-31",
+      "primary_country": "China",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7143478060",
-      "title": "Artificial Intelligence-Driven Plant Disease Detection and Diagnosis: A Comprehensive Review of Deep Learning Approaches, Multimodal Sensing Technologies, and Future Perspectives in Precision Agriculture",
+      "id": "https://openalex.org/W7139135515",
+      "title": "Supplementary material for \"Perceptual Evaluation of Different Methods for Binaural Rendering of Recordings with Various Microphone Arrays\"",
       "authors": [
-        "Surakshya Ghimire",
-        "Rajan Lamsal",
-        "Anvesh Sankuratri"
+        "Tim Lübeck",
+        "C. Scheer",
+        "David Ackermann"
+      ],
+      "countries": [
+        "DE",
+        "SE",
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134037034",
+      "title": "Simulation of Qinghai Lake Water Level Fluctuations Using Machine Learning",
+      "authors": [
+        "Jiawen HUANG, Yinping LONG, Qimin MA, Weixin XU, Yuxia BIAN, Hui CHEN, Xiwen TAN, Suowu LI"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140252456",
+      "title": "Analyzing the Survey of Consumer Finances with `scf`: Methodology, User Guide, and Package Validation",
+      "authors": [
+        "Joseph Nathan Cohen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7143468002",
-      "title": "How recruitment signals become memes: competitive intelligence dynamics in ten Chinese AI firms",
+      "id": "https://openalex.org/W7128103648",
+      "title": "STUDI KOMPARATIF ARTIFICIAL NEURAL NETWORK DAN STATISTIK PADA PENGARUH DEGRADASI TERHADAP MASA PAKAI MINYAK TRAFO",
       "authors": [
-        "Heran Guan",
-        "Rossilah Jamil"
+        "SHARA ALYA GIFANI MUHYISUNAH",
+        "Priyadi Irnanda",
+        "Rodiah Yuli"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134978911",
-      "title": "Artificial Intelligence in Spectroscopy Data Interpretation: A Comprehensive Review",
+      "id": "https://openalex.org/W7134158813",
+      "title": "Development and application of an in vitro system for Cardiac Disease Modeling and High-Throughput Screening",
       "authors": [
-        "Rani H. Nandkhile",
-        "Shilpa S. Nandkhile"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133092773",
-      "title": "Using quadratic programming to reconstruct data from published survival and competing risks analyses",
-      "authors": [
-        "Andrew Titman"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-03-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7143308789",
-      "title": "From Rule-Based to LLM-Based Agents: A Calibrated Simulation Framework for Classroom Social Networks",
-      "authors": [
-        "Kyosuke Takami",
-        "Masahiko Haruno"
+        "Matthijs Snelders"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-31",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134897021",
-      "title": "Artificial Intelligence in Polymer Chemistry: Opportunities and Challenges",
+      "id": "https://openalex.org/W7143474702",
+      "title": "COMPUTATIONAL APPROACH TOWARDS RAKTPACHAK YOGA AND ITS IMPLEMENTATION IN KUSHTHA AND KRIMI",
       "authors": [
-        "Maya Ramesh Holkar",
-        "Dhanashri Amar Khaladkar"
+        "Dr. Prasanna Gavali2 Dr. Shubhda Rajesh Hadadare*1"
       ],
-      "countries": [
-        "CY"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128750034",
+      "title": "CityVerse : A unified data framework for evaluating large language models in urban computing",
+      "authors": [
+        "Yaqiao Zhu",
+        "Hongkai Wen",
+        "Mark Birkin"
       ],
-      "primary_country": "Other",
-      "published": "2026-03-31",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7124523500",
+      "title": "Room Reimagined: Making Spaces Empty Again",
+      "authors": [
+        "Lennart Strempfer"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -276,9 +276,9 @@ const TAB_SOURCES: Record<string, DimensionSource[]> = {
     { label: 'NVIDIA Geographic Revenue', url: 'http://bullfincher.io/companies/nvidia-corporation/revenue-by-geography' },
   ],
   adoption: [
-    { label: 'McKinsey State of AI 2025', url: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai' },
-    { label: 'Stanford AI Index 2025', url: 'https://aiindex.stanford.edu/report/' },
-    { label: 'IFR World Robotics 2024', url: 'https://ifr.org' },
+    { label: 'SAS / Coleman Parkes Global Gen-AI Survey 2024', url: 'https://www.reuters.com/technology/artificial-intelligence/china-leads-world-adoption-generative-ai-survey-shows-2024-07-09/' },
+    { label: 'IFR World Robotics 2024', url: 'https://ifr.org/ifr-press-releases/news/robot-density-nearly-doubled-globally' },
+    { label: 'OECD ICT Access and Usage Database', url: 'https://www.oecd.org/en/about/news/announcements/2026/01/ai-use-by-individuals-surges-across-the-oecd-as-adoption-by-firms-continues-to-expand.html' },
   ],
   diffusion: [
     { label: 'Hugging Face Hub', url: 'https://huggingface.co' },
@@ -543,11 +543,11 @@ export async function getLiveData(): Promise<LiveData> {
       id: 'adoption',
       label: 'Adoption',
       headline: `China leads on AI adoption: composite ${adpCn.composite_score.toFixed(1)} vs ${adpUs.composite_score.toFixed(1)}`,
-      headlineNote: 'enterprise adoption rate + industrial robot density',
+      headlineNote: 'gen-AI adoption rate (SAS 2024) + industrial robot density',
       explanation: getCaveat('adoption'),
       barData: [
         {
-          label: 'Enterprise adoption (%)',
+          label: 'Gen-AI adoption (%)',
           US: Math.round(adpUs.proxies.enterprise_adoption.raw_value),
           CN: Math.round(adpCn.proxies.enterprise_adoption.raw_value),
         },
@@ -565,9 +565,9 @@ export async function getLiveData(): Promise<LiveData> {
       barXLabel: 'Score (0–100)',
       tableRows: [
         {
-          label: 'Enterprise AI adoption',
+          label: 'Gen-AI adoption (SAS 2024)',
           us: `${adpUs.proxies.enterprise_adoption.raw_value}%`,
-          cn: `${adpCn.proxies.enterprise_adoption.raw_value}% (est.)`,
+          cn: `${adpCn.proxies.enterprise_adoption.raw_value}%`,
         },
         {
           label: 'Robot density',

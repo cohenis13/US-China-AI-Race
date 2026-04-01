@@ -34,9 +34,9 @@ const PLAIN_SUMMARY: Record<string, (d: ScoreCardDimension) => string> = {
     const leader = d.leader === 'CN' ? 'China' : 'the U.S.'
     return `${leader} leads on AI research output by ${d.delta.toFixed(1)} points — China leads on volume while the U.S. leads on the highest-impact work.`
   },
-  // Adoption: uncertainty is about data quality, not magnitude — keep static
+  // Adoption: uncertainty is about data comparability, not magnitude — keep static
   adoption: (_) =>
-    'We lack clean comparable data on how widely AI is used inside Chinese vs. American businesses — the best available estimate is a single 2024 survey.',
+    'Adoption is the most uncertain dimension because comparable U.S.–China data are limited and methodology differs across sources — the score reflects directional proxies, not a definitive measure.',
 }
 
 export default function StrategicBrief({ currentRead, dimensions }: Props) {

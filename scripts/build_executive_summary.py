@@ -218,22 +218,37 @@ def natural_join(items: list[str]) -> str:
 
 # ── Text generation ───────────────────────────────────────────────────────────
 def make_current_read(dims: list[dict]) -> str:
-    """One-sentence summary of the current competitive picture."""
-    us_wins  = sorted([d for d in dims if d["winner"] == "US"],    key=lambda x: -x["delta"])
-    cn_wins  = sorted([d for d in dims if d["winner"] == "China"], key=lambda x: -x["delta"])
-    ties     = [d for d in dims if d["winner"] == "Tie"]
+    """One-sentence strategic summary of the current competitive picture."""
+    # Map dimension IDs to sharper strategic descriptions
+    STRATEGIC_LABEL: dict[str, str] = {
+        "investment":      "capital",
+        "compute":         "compute",
+        "frontier_models": "frontier model development",
+        "diffusion":       "global deployment",
+        "talent":          "research talent",
+        "energy":          "energy capacity",
+        "adoption":        "domestic adoption",
+    }
 
-    parts = []
+    us_wins = sorted([d for d in dims if d["winner"] == "US"],    key=lambda x: -x["delta"])
+    cn_wins = sorted([d for d in dims if d["winner"] == "China"], key=lambda x: -x["delta"])
+    ties    = [d for d in dims if d["winner"] == "Tie"]
+
+    def strategic(d: dict) -> str:
+        return STRATEGIC_LABEL.get(d["id"], d["label"].lower())
+
+    clauses = []
     if us_wins:
-        parts.append("U.S. leads in " + natural_join([d["label"] for d in us_wins]))
+        clauses.append("The U.S. leads in " + natural_join([strategic(d) for d in us_wins]))
     if cn_wins:
-        parts.append("China leads in " + natural_join([d["label"] for d in cn_wins]))
+        prefix = "while China leads in" if clauses else "China leads in"
+        clauses.append(prefix + " " + natural_join([strategic(d) for d in cn_wins]))
     if ties:
-        parts.append(natural_join([d["label"] for d in ties]) + " at parity")
+        clauses.append(natural_join([strategic(d) for d in ties]) + " at parity")
 
-    if not parts:
+    if not clauses:
         return "Insufficient data for current-read summary."
-    return "; ".join(parts) + "."
+    return ", ".join(clauses) + "."
 
 
 def make_insights(dims: list[dict]) -> list[dict]:

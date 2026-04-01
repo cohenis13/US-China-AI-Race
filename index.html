@@ -583,6 +583,81 @@ h1 {
   align-items: start;
 }
 
+/* ── Strategic Brief ─────────────────────────────────────────── */
+.brief-section {
+  margin-bottom: 28px;
+}
+.brief-card {
+  padding: 22px 28px 20px;
+}
+.brief-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.brief-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+.brief-read {
+  font-size: .92rem;
+  color: var(--t1);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 820px;
+}
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 680px) {
+  .brief-grid { grid-template-columns: 1fr; }
+}
+.brief-item {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.brief-item-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.brief-item-label .bdot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.brief-item-label .bdot.us { background: var(--us); }
+.brief-item-label .bdot.cn { background: var(--cn); }
+.brief-item-label .bdot.warn { background: #c97b00; }
+.brief-item-text {
+  font-size: .83rem;
+  color: var(--t2);
+  line-height: 1.5;
+}
+.brief-item-dim {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-top: 6px;
+}
+
 /* ── Radar Card ──────────────────────────────────────────────── */
 .radar-card { padding: 26px 22px 20px; }
 .radar-section-hdr {
@@ -1398,6 +1473,40 @@ footer {
     </div><!-- /live-card -->
   </section>
 
+  <!-- ── Strategic Brief ────────────────────────────────────────── -->
+  <section class="brief-section" id="strategic-brief">
+    <div class="card brief-card">
+      <div class="brief-header">
+        <span class="brief-lbl">Strategic Brief</span>
+        <span class="brief-lbl" id="brief-asof" style="font-weight:400;letter-spacing:0;text-transform:none;"></span>
+      </div>
+      <p class="brief-read" id="brief-read">Loading…</p>
+      <div class="brief-grid">
+        <div class="brief-item">
+          <div class="brief-item-label">
+            <span class="bdot us"></span> Biggest U.S. Advantage
+          </div>
+          <p class="brief-item-text" id="brief-advantage">—</p>
+          <div class="brief-item-dim" id="brief-advantage-dim"></div>
+        </div>
+        <div class="brief-item">
+          <div class="brief-item-label">
+            <span class="bdot cn"></span> Biggest U.S. Vulnerability
+          </div>
+          <p class="brief-item-text" id="brief-vulnerability">—</p>
+          <div class="brief-item-dim" id="brief-vulnerability-dim"></div>
+        </div>
+        <div class="brief-item">
+          <div class="brief-item-label">
+            <span class="bdot warn"></span> Biggest Uncertainty
+          </div>
+          <p class="brief-item-text" id="brief-uncertainty">—</p>
+          <div class="brief-item-dim" id="brief-uncertainty-dim"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Core Scorecard + Strategic Snapshot ─────────────────── -->
   <section class="main-grid" id="scorecard">
 
@@ -1406,7 +1515,7 @@ footer {
       <div class="radar-section-hdr">
         <div>
           <div class="radar-section-lbl">Executive Summary &nbsp;—&nbsp; Capability Radar</div>
-          <div class="radar-section-sub">Six dimensions scored 0–10 based on available evidence</div>
+          <div class="radar-section-sub">Seven dimensions scored 0–10 based on available evidence</div>
         </div>
       </div>
       <div class="card radar-card">
@@ -2129,7 +2238,68 @@ function updateRadarData(usData, cnData) {
 }
 
 function renderExecutiveSummary(data) {
-  // Current read
+  // ── Strategic Brief ───────────────────────────────────────────
+  const dims = data.dimensions || [];
+
+  // Current read sentence
+  const readEl = document.getElementById('brief-read');
+  if (readEl && data.current_read) readEl.textContent = data.current_read;
+
+  // As-of date
+  const asofEl = document.getElementById('brief-asof');
+  if (asofEl && data.fetched_at) {
+    const d = new Date(data.fetched_at);
+    asofEl.textContent = 'As of ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  if (dims.length) {
+    // Biggest US advantage: largest delta where US wins
+    const usWins = dims.filter(d => d.winner === 'US').sort((a, b) => b.delta - a.delta);
+    const topUS  = usWins[0];
+    if (topUS) {
+      const adv = document.getElementById('brief-advantage');
+      const advDim = document.getElementById('brief-advantage-dim');
+      if (adv) adv.textContent = topUS.caveat
+        ? topUS.caveat.split('.')[0] + '.'
+        : `U.S. score ${topUS.us_score} vs China ${topUS.china_score} — gap of ${topUS.delta} points.`;
+      if (advDim) advDim.textContent = topUS.label + ' — ' + topUS.confidence;
+    }
+
+    // Biggest US vulnerability: largest delta where China wins, prefer high/medium confidence
+    const cnWins = dims.filter(d => d.winner === 'China').sort((a, b) => {
+      // Prefer high confidence, then by delta
+      const confRank = c => c === 'High confidence' ? 0 : c === 'Medium confidence' ? 1 : 2;
+      const dr = confRank(a.confidence) - confRank(b.confidence);
+      return dr !== 0 ? dr : b.delta - a.delta;
+    });
+    const topCN = cnWins[0];
+    if (topCN) {
+      const vul = document.getElementById('brief-vulnerability');
+      const vulDim = document.getElementById('brief-vulnerability-dim');
+      if (vul) vul.textContent = topCN.caveat
+        ? topCN.caveat.split('.')[0] + '.'
+        : `China score ${topCN.china_score} vs U.S. ${topCN.us_score} — gap of ${topCN.delta} points.`;
+      if (vulDim) vulDim.textContent = topCN.label + ' — ' + topCN.confidence;
+    }
+
+    // Biggest uncertainty: lowest-confidence dimension with highest delta
+    const uncertain = [...dims].sort((a, b) => {
+      const confRank = c => c === 'Lower confidence' ? 0 : c === 'Medium confidence' ? 1 : 2;
+      const dr = confRank(a.confidence) - confRank(b.confidence);
+      return dr !== 0 ? dr : b.delta - a.delta;
+    });
+    const topUnc = uncertain[0];
+    if (topUnc) {
+      const unc = document.getElementById('brief-uncertainty');
+      const uncDim = document.getElementById('brief-uncertainty-dim');
+      if (unc) unc.textContent = topUnc.caveat
+        ? topUnc.caveat.split('.')[0] + '.'
+        : `Scores based on limited or asymmetric data — treat as directional.`;
+      if (uncDim) uncDim.textContent = topUnc.label + ' — ' + topUnc.confidence;
+    }
+  }
+
+  // Current read (header strip)
   const crEl = document.getElementById('current-read-text');
   if (crEl) crEl.textContent = data.current_read || '';
 

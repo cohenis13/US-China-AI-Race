@@ -82,9 +82,14 @@ export default async function Dashboard() {
           <p className="text-xs text-muted-foreground leading-relaxed">
             Data sourced from public disclosures, academic benchmarks, industry reports, and analyst estimates.
             All scores are directional and subject to revision.{' '}
-            <button className="underline underline-offset-2 hover:text-foreground transition-colors">
+            <a
+              href="https://us-china-ai-race.vercel.app/docs/methodology.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-foreground transition-colors"
+            >
               Methodology
-            </button>
+            </a>
           </p>
         </footer>
 

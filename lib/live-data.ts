@@ -66,6 +66,7 @@ interface ExecutiveSummary {
   dimensions: ExecDimension[]
   strategic_insights: { bold: string; rest: string }[]
   radar_chart_data: { order: string[]; us: number[]; china: number[] }
+  current_read?: string
 }
 
 interface FrontierProxy {
@@ -305,6 +306,7 @@ export interface LiveData {
   radarData: RadarDimension[]
   strategicInsights: StrategicInsight[]
   dimensionTabs: DimensionTab[]
+  currentRead: string
 }
 
 export async function getLiveData(): Promise<LiveData> {
@@ -715,5 +717,7 @@ export async function getLiveData(): Promise<LiveData> {
     },
   ]
 
-  return { scorecardDimensions, radarData, strategicInsights, dimensionTabs }
+  const currentRead: string = exec.current_read ?? ''
+
+  return { scorecardDimensions, radarData, strategicInsights, dimensionTabs, currentRead }
 }

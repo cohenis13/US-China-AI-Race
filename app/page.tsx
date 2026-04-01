@@ -1,11 +1,12 @@
 import ScoreCardStrip from '@/components/ScoreCardStrip'
 import CapabilityRadar from '@/components/CapabilityRadar'
 import StrategicInsights from '@/components/StrategicInsights'
+import StrategicBrief from '@/components/StrategicBrief'
 import DimensionTabs from '@/components/DimensionTabs'
 import { getLiveData } from '@/lib/live-data'
 
 export default async function Dashboard() {
-  const { scorecardDimensions, radarData, strategicInsights, dimensionTabs } = await getLiveData()
+  const { scorecardDimensions, radarData, strategicInsights, dimensionTabs, currentRead } = await getLiveData()
 
   return (
     <main className="min-h-screen bg-background">
@@ -53,6 +54,15 @@ export default async function Dashboard() {
         {/* ── Scorecard Strip ────────────────────────────────── */}
         <section aria-label="Scorecard">
           <ScoreCardStrip dimensions={scorecardDimensions} />
+        </section>
+
+        {/* ── Strategic Brief ────────────────────────────────── */}
+        <section aria-label="Strategic brief">
+          <StrategicBrief
+            currentRead={currentRead}
+            dimensions={scorecardDimensions}
+            radarData={radarData}
+          />
         </section>
 
         {/* ── Main Grid: Radar + Insights ────────────────────── */}

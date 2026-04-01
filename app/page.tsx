@@ -61,7 +61,6 @@ export default async function Dashboard() {
           <StrategicBrief
             currentRead={currentRead}
             dimensions={scorecardDimensions}
-            radarData={radarData}
           />
         </section>
 

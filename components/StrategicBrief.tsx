@@ -1,61 +1,64 @@
-import type { ScoreCardDimension, RadarDimension } from '@/lib/data'
+import type { ScoreCardDimension } from '@/lib/data'
 
 interface Props {
   currentRead: string
   dimensions: ScoreCardDimension[]
-  radarData: RadarDimension[]
-}
-
-// First sentence of a caveat string (up to and including the first period)
-function firstSentence(text: string): string {
-  if (!text) return ''
-  const end = text.indexOf('.')
-  return end !== -1 ? text.slice(0, end + 1) : text
 }
 
 const confRank: Record<string, number> = { high: 2, medium: 1, low: 0 }
 
-export default function StrategicBrief({ currentRead, dimensions, radarData }: Props) {
-  // Map caveat text from radarData by dimension label
-  const caveatByLabel: Record<string, string> = {}
-  for (const r of radarData) caveatByLabel[r.dimension] = r.caveat ?? ''
+// Plain-English one-sentence summaries per dimension ID.
+// These replace technical caveat text in the brief.
+const PLAIN_SUMMARY: Record<string, string> = {
+  investment:      'The U.S. outspends China on AI roughly 10-to-1 in private capital and data center infrastructure.',
+  compute:         'U.S. labs control the vast majority of disclosed AI training compute, backed by dominant GPU infrastructure.',
+  frontier_models: 'U.S. labs produce most of the world\'s leading AI models by capability and research output.',
+  diffusion:       'U.S.-origin AI models and cloud platforms reach far more countries and users globally than China\'s.',
+  energy:          'China is building power grid and data center capacity far faster than the U.S., which is held back by permitting delays and grid backlogs.',
+  talent:          'China produces more AI research by volume; the U.S. leads on the highest-impact work and attracts global talent.',
+  adoption:        'We lack clean comparable data on how widely AI is used inside Chinese vs. American businesses — the best available estimate is a single 2024 survey.',
+}
 
+export default function StrategicBrief({ currentRead, dimensions }: Props) {
   // Biggest US advantage: highest delta where US leads
-  const usWins  = [...dimensions.filter(d => d.leader === 'US')].sort((a, b) => b.delta - a.delta)
-  const topUS   = usWins[0]
+  const usWins = [...dimensions.filter(d => d.leader === 'US')].sort((a, b) => b.delta - a.delta)
+  const topUS  = usWins[0]
 
   // Biggest US vulnerability: China-led, prioritise high confidence then largest delta
-  const cnWins  = [...dimensions.filter(d => d.leader === 'CN')].sort((a, b) => {
+  const cnWins = [...dimensions.filter(d => d.leader === 'CN')].sort((a, b) => {
     const dr = (confRank[b.confidence] ?? 0) - (confRank[a.confidence] ?? 0)
     return dr !== 0 ? dr : b.delta - a.delta
   })
-  const topCN   = cnWins[0]
+  const topCN  = cnWins[0]
 
   // Biggest uncertainty: lowest confidence first, then largest delta
   const uncertain = [...dimensions].sort((a, b) => {
     const dr = (confRank[a.confidence] ?? 0) - (confRank[b.confidence] ?? 0)
     return dr !== 0 ? dr : b.delta - a.delta
   })
-  const topUnc  = uncertain[0]
+  const topUnc = uncertain[0]
+
+  const summary = (dim: ScoreCardDimension) =>
+    PLAIN_SUMMARY[dim.id] ?? `${dim.label}: score gap of ${dim.delta.toFixed(1)} points.`
 
   const items = [
     {
       color: 'hsl(var(--us))',
       label: 'Biggest U.S. Advantage',
-      dim: topUS   ? `${topUS.label} — ${topUS.confidence} confidence`   : null,
-      text: topUS   ? firstSentence(caveatByLabel[topUS.label])   || `U.S. ${topUS.usScore.toFixed(1)} vs China ${topUS.cnScore.toFixed(1)} — gap of ${topUS.delta.toFixed(1)} pts.`   : '—',
+      dim:   topUS ? `${topUS.label} — ${topUS.confidence} confidence`  : null,
+      text:  topUS ? summary(topUS)  : '—',
     },
     {
       color: 'hsl(var(--china))',
       label: 'Biggest U.S. Vulnerability',
-      dim: topCN   ? `${topCN.label} — ${topCN.confidence} confidence`   : null,
-      text: topCN   ? firstSentence(caveatByLabel[topCN.label])   || `China ${topCN.cnScore.toFixed(1)} vs U.S. ${topCN.usScore.toFixed(1)} — gap of ${topCN.delta.toFixed(1)} pts.`   : '—',
+      dim:   topCN ? `${topCN.label} — ${topCN.confidence} confidence`  : null,
+      text:  topCN ? summary(topCN)  : '—',
     },
     {
       color: '#d97706',
       label: 'Biggest Uncertainty',
-      dim: topUnc  ? `${topUnc.label} — ${topUnc.confidence} confidence` : null,
-      text: topUnc  ? firstSentence(caveatByLabel[topUnc.label])  || 'Scores based on limited or asymmetric data — treat as directional.' : '—',
+      dim:   topUnc ? `${topUnc.label} — ${topUnc.confidence} confidence` : null,
+      text:  topUnc ? summary(topUnc) : '—',
     },
   ]
 

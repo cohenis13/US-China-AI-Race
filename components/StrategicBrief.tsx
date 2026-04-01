@@ -7,16 +7,36 @@ interface Props {
 
 const confRank: Record<string, number> = { high: 2, medium: 1, low: 0 }
 
-// Plain-English one-sentence summaries per dimension ID.
-// These replace technical caveat text in the brief.
-const PLAIN_SUMMARY: Record<string, string> = {
-  investment:      'The U.S. outspends China on AI roughly 10-to-1 in private capital and data center infrastructure.',
-  compute:         'U.S. labs control the vast majority of disclosed AI training compute, backed by dominant GPU infrastructure.',
-  frontier_models: 'U.S. labs produce most of the world\'s leading AI models by capability and research output.',
-  diffusion:       'U.S.-origin AI models and cloud platforms reach far more countries and users globally than China\'s.',
-  energy:          'China is building power grid and data center capacity far faster than the U.S., which is held back by permitting delays and grid backlogs.',
-  talent:          'China produces more AI research by volume; the U.S. leads on the highest-impact work and attracts global talent.',
-  adoption:        'We lack clean comparable data on how widely AI is used inside Chinese vs. American businesses — the best available estimate is a single 2024 survey.',
+// Template functions — receive live dimension data so key magnitudes update automatically.
+// Dimensions where the interpretation is about data quality (not magnitude) stay static.
+const PLAIN_SUMMARY: Record<string, (d: ScoreCardDimension) => string> = {
+  investment: (d) => {
+    const ratio = Math.round(d.usScore / Math.max(d.cnScore, 0.1))
+    return `The U.S. outspends China on AI roughly ${ratio}-to-1 in private capital and data center infrastructure.`
+  },
+  compute: (d) => {
+    const pct = Math.round((d.usScore / 10) * 100)
+    return `U.S. labs account for ~${pct}% of disclosed AI training compute, backed by dominant GPU infrastructure.`
+  },
+  frontier_models: (d) => {
+    const pct = Math.round((d.usScore / 10) * 100)
+    return `U.S. labs produce ~${pct}% of the world's leading AI models by capability and research output.`
+  },
+  diffusion: (d) => {
+    const pct = Math.round((d.usScore / 10) * 100)
+    return `U.S.-origin AI models and cloud platforms account for ~${pct}% of the combined global diffusion footprint.`
+  },
+  energy: (d) => {
+    const leader = d.leader === 'CN' ? 'China' : 'the U.S.'
+    return `${leader} leads on AI energy scaling capacity by ${d.delta.toFixed(1)} points — China's grid buildout is outpacing U.S. permitting and interconnection timelines.`
+  },
+  talent: (d) => {
+    const leader = d.leader === 'CN' ? 'China' : 'the U.S.'
+    return `${leader} leads on AI research output by ${d.delta.toFixed(1)} points — China leads on volume while the U.S. leads on the highest-impact work.`
+  },
+  // Adoption: uncertainty is about data quality, not magnitude — keep static
+  adoption: (_) =>
+    'We lack clean comparable data on how widely AI is used inside Chinese vs. American businesses — the best available estimate is a single 2024 survey.',
 }
 
 export default function StrategicBrief({ currentRead, dimensions }: Props) {
@@ -39,7 +59,7 @@ export default function StrategicBrief({ currentRead, dimensions }: Props) {
   const topUnc = uncertain[0]
 
   const summary = (dim: ScoreCardDimension) =>
-    PLAIN_SUMMARY[dim.id] ?? `${dim.label}: score gap of ${dim.delta.toFixed(1)} points.`
+    (PLAIN_SUMMARY[dim.id]?.(dim)) ?? `${dim.label}: score gap of ${dim.delta.toFixed(1)} points.`
 
   const items = [
     {

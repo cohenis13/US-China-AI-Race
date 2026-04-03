@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-02T10:15:15.474209+00:00",
-  "last_updated": "2026-04-02T10:15:15.474217+00:00",
+  "fetched_at": "2026-04-03T10:02:34.673007+00:00",
+  "last_updated": "2026-04-03T10:02:34.673019+00:00",
   "summary": {
     "US": {
       "composite_score": 37.3,
@@ -16,17 +16,17 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 131704,
+          "raw_value": 133916,
           "unit": "AI papers (12-month)",
-          "share_score": 36.4,
+          "share_score": 36.6,
           "window_days": 365,
           "coverage": "high",
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3544,
+          "raw_value": 3561,
           "unit": "AI quality papers cited ≥25x (2-year)",
-          "share_score": 32.4,
+          "share_score": 32.3,
           "window_days": 730,
           "min_citations": 25,
           "venue_filter": "none — citation threshold only",
@@ -36,7 +36,7 @@
         "high_impact": {
           "raw_value": 1517,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 44.7,
+          "share_score": 44.6,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -53,26 +53,26 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 230371,
+          "raw_value": 232094,
           "unit": "AI papers (12-month)",
-          "share_score": 63.6,
+          "share_score": 63.4,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (230,371 vs US 131,704 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (232,094 vs US 133,916 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7411,
+          "raw_value": 7464,
           "unit": "AI quality papers cited ≥25x (2-year)",
-          "share_score": 67.6,
+          "share_score": 67.7,
           "window_days": 730,
           "min_citations": 25,
           "coverage": "high",
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1877,
+          "raw_value": 1883,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 55.3,
+          "share_score": 55.4,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.3 and China scores 62.7 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.6% of combined); the US leads on quality cited papers (32.4%) and high-impact papers (44.7%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.3 and China scores 62.7 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.4% of combined); the US leads on quality cited papers (32.3%) and high-impact papers (44.6%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -106,207 +106,209 @@
   },
   "papers": [
     {
-      "id": "https://openalex.org/W7137387843",
-      "title": "DEVELOPMENT OF ARTIFICIAL INTELLIGENCE-ENHANCED OPTICAL BIOPSY TOOLS FOR ENDOSCOPICEVALUATION OF LARYNGEAL TUMORS",
+      "id": "https://openalex.org/W7133517706",
+      "title": "LungSCAPE_Airways201",
       "authors": [
-        "Claudio Sampieri"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140017040",
-      "title": "Study of radiomics and artificial intelligence applications in multimodal breast imaging: from conventional to advanced imaging",
-      "authors": [
-        "Nicole Brunetti"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7143391158",
-      "title": "YAPAY ZEKÂ RÖNESANSI TSUNAMİDE DÖNÜŞ GELECEĞİ TASARLA",
-      "authors": [
-        "Onur Aytaç"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7143479477",
-      "title": "YAPAY ZEKÂ RÖNESANSI TSUNAMİDE DÖNÜŞ GELECEĞİ TASARLA",
-      "authors": [
-        "Onur Aytaç"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7124124813",
-      "title": "Collocational profiles and semantic properties of quantifying nouns in Polish (with the meaning ‘many x-s’)",
-      "authors": [
-        "Anna Kisiel"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138853873",
-      "title": "Supplementary material for \"Perceptual Evaluation of Different Methods for Binaural Rendering of Recordings with Various Microphone Arrays\"",
-      "authors": [
-        "Tim Lübeck",
-        "C. Scheer",
-        "David Ackermann"
+        "Alberto Arrigoni"
       ],
       "countries": [
-        "DE",
-        "SE",
-        "FI"
+        "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-04-01",
+      "published": "2026-04-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140236363",
-      "title": "Application Progress of Generative Artificial Intelligence in Weight Management",
+      "id": "https://openalex.org/W7148200369",
+      "title": "Mapping Truths and Tricks: How Visual Choices Shape Interpretation",
       "authors": [
-        "GUAN  Hua YANG  Lei"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7115975524",
-      "title": "Gene-specific growth charts for ASXL3-related disorder",
-      "authors": [
-        "Woods, E.",
-        "Low, K.J.",
-        "Cole, T.J."
+        "J. Hack"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-01",
+      "published": "2026-04-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7141817591",
-      "title": "A REVIEW ON: ARTIFICIAL INTELLIGENCE IN COSMETIC DERMATOLOGY; ADVANCES IN SKIN ANALYSIS AND PERSONALIZED TREATMENT",
+      "id": "https://openalex.org/W7133535313",
+      "title": "LungSCAPE_Airways201",
       "authors": [
-        "A. Vamsi*1, Y. Dhruthin Raj*1, B. Vamsi1, T. Radha2, Ch. Narasimha Raju Bh2"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140252756",
-      "title": "For Which It Stands…WAG Wall Letters",
-      "authors": [
-        "Fairfield University Art Museum"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140769562",
-      "title": "Object Detection Benchmark Dataset for Indoor Power Sockets and Light Switches",
-      "authors": [
-        "Lukas Arzoumanidis",
-        "Falko Behre",
-        "Malte Marsmann"
+        "Alberto Arrigoni"
       ],
       "countries": [
-        "DE",
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134071080",
-      "title": "Research on Daily Maximum and Minimum Temperature Forecasts by Integrating Terrain Features and Neural Networks",
-      "authors": [
-        "Shu LU, Lin XU, Xue GU, Yue ZHOU, Zejun DAI, Yaqing TAO"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139135515",
-      "title": "Supplementary material for \"Perceptual Evaluation of Different Methods for Binaural Rendering of Recordings with Various Microphone Arrays\"",
-      "authors": [
-        "Tim Lübeck",
-        "C. Scheer",
-        "David Ackermann"
-      ],
-      "countries": [
-        "DE",
-        "SE",
-        "FI"
+        "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-04-01",
+      "published": "2026-04-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134037034",
-      "title": "Simulation of Qinghai Lake Water Level Fluctuations Using Machine Learning",
+      "id": "https://openalex.org/W7133550262",
+      "title": "PROPHET: A Multi-Modal Ensemble Framework for Calibrated Probability Forecasting in Decentralized Prediction Markets",
       "authors": [
-        "Jiawen HUANG, Yinping LONG, Qimin MA, Weixin XU, Yuxia BIAN, Hui CHEN, Xiwen TAN, Suowu LI"
+        "Thanh Nguyen",
+        "Nam Nguyen",
+        "Bei Hui"
       ],
       "countries": [
-        "CN"
+        "PL"
       ],
-      "primary_country": "China",
-      "published": "2026-04-01",
+      "primary_country": "Other",
+      "published": "2026-04-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140252456",
-      "title": "Analyzing the Survey of Consumer Finances with `scf`: Methodology, User Guide, and Package Validation",
+      "id": "https://openalex.org/W7131135360",
+      "title": "LungSCAPE_HighAttenuation191",
       "authors": [
-        "Joseph Nathan Cohen"
+        "Alberto Arrigoni"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7133507532",
+      "title": "LungSCAPE_HighAttenuation191",
+      "authors": [
+        "Alberto Arrigoni"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7133516053",
+      "title": "PROPHET: A Multi-Modal Ensemble Framework for Calibrated Probability Forecasting in Decentralized Prediction Markets",
+      "authors": [
+        "Thanh Nguyen",
+        "Nam Nguyen",
+        "Bei Hui"
+      ],
+      "countries": [
+        "PL"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147046894",
+      "title": "Advanced imputation techniques in failure prediction with optimized machine learning models using genetic algorithms",
+      "authors": [
+        "Kaoutar El Madou",
+        "Moad El Kharrim",
+        "Mohamed El Merouani"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-01",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147169477",
+      "title": "Improved Segformer Fabric Defect Segmentation Algorithm Based on Gated Feature Fusion and Efficient Channel-Spatial Attention",
+      "authors": [
+        "Song Lin",
+        "Yanzhao Zhou",
+        "Zhenxiong Gu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147219868",
+      "title": "Dynamic Networks and Link Prediction: How to Analyze and Model Network Evolution",
+      "authors": [
+        "Franco Francesco"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147509479",
+      "title": "Local Sensitivity Analysis for Bayesian Inverse Problems",
+      "authors": [
+        "Jürgen Dölz",
+        "David Daniel Ebert"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147618319",
+      "title": "Reinforcement learning for autonomous production planning and control: A systematic literature review",
+      "authors": [
+        "Jesse Mayerhoff",
+        "Matthias Schmidt"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147689698",
+      "title": "Edge AI Phenomics Tracking Motor Proficiency and Psychosocial Benefits in Sensory- Impaired Children’s Recreational Programs",
+      "authors": [
+        "A. Manoj Prabaharan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147046137",
+      "title": "COA-MAS Action Intent Schema v1.0.0",
+      "authors": [
+        "RUDSON KIYOSHI SOUZA CARVALHO"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147482301",
+      "title": "The card game Dobble as a diagnostic tool",
+      "authors": [
+        "A. Solcova",
+        "Filip Děchtěrenko"
+      ],
+      "countries": [
+        "CZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-02",
       "cited_by_count": 0,
       "source": "openalex"
     }

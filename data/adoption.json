@@ -4,8 +4,8 @@
   "title": "AI Adoption Index — U.S. vs China",
   "subtitle": "Public proxies for AI adoption inside the U.S. and Chinese economies — not a complete measure of total usage.",
   "description": "A two-proxy composite index approximating economy-wide AI adoption. Combines gen-AI enterprise adoption rate (SAS/Coleman Parkes 2024 — the only directly comparable US-China survey available) with industrial automation density (IFR robot density). Neither proxy alone is a perfect measure; together they provide a transparent, country-comparable directional signal.",
-  "fetched_at": "2026-03-30T12:05:22.807486+00:00",
-  "last_updated": "2026-03-30T12:05:22.807486+00:00",
+  "fetched_at": "2026-04-06T11:38:48.544445+00:00",
+  "last_updated": "2026-04-06T11:38:48.544445+00:00",
   "summary": {
     "US": {
       "composite_score": 58.7,

@@ -40,9 +40,12 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT   = Path(__file__).resolve().parent.parent
-DATA   = ROOT / "data"
-OUTPUT = DATA / "executive_summary.json"
+ROOT    = Path(__file__).resolve().parent.parent
+DATA    = ROOT / "data"
+OUTPUT  = DATA / "executive_summary.json"
+HISTORY = DATA / "history.json"
+
+HISTORY_MAX_DAYS = 90  # rolling window kept in history.json
 
 # ── Dimension registry ────────────────────────────────────────────────────────
 # Order used for the radar chart must match DIMS in index.html:
@@ -333,6 +336,46 @@ def make_insights(dims: list[dict]) -> list[dict]:
     return insights
 
 
+# ── History ───────────────────────────────────────────────────────────────────
+def update_history(scored: list[dict], now: datetime) -> None:
+    """Append today's scores to data/history.json (one entry per calendar date)."""
+    today = now.strftime("%Y-%m-%d")
+
+    # Load existing history or start fresh
+    if HISTORY.exists():
+        try:
+            with open(HISTORY, encoding="utf-8") as f:
+                hist = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            hist = {"entries": []}
+    else:
+        hist = {"entries": []}
+
+    entries: list[dict] = hist.get("entries", [])
+
+    # Idempotent: skip if today already recorded
+    if any(e["date"] == today for e in entries):
+        print(f"History: entry for {today} already exists — skipping.")
+        return
+
+    # Append today's scores
+    entry = {
+        "date": today,
+        "scores": {
+            d["key"]: {"us": d["us_score"], "china": d["china_score"]}
+            for d in scored
+        },
+    }
+    entries.append(entry)
+
+    # Keep only the most recent HISTORY_MAX_DAYS entries
+    entries = sorted(entries, key=lambda e: e["date"])[-HISTORY_MAX_DAYS:]
+
+    hist = {"updated_at": now.isoformat(), "entries": entries}
+    HISTORY.write_text(json.dumps(hist, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"History: appended {today} ({len(entries)} total entries).")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
     now = datetime.now(timezone.utc)
@@ -420,6 +463,7 @@ def main() -> None:
     }
 
     OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
+    update_history(scored, now)
 
     print(f"Wrote {OUTPUT}")
     for d in scored:

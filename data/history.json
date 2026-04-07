@@ -1,0 +1,513 @@
+{
+  "updated_at": "2026-04-07T01:49:20.201082+00:00",
+  "entries": [
+    {
+      "date": "2026-03-22",
+      "scores": {
+        "frontier_models": {
+          "us": 7.5,
+          "china": 2.5
+        },
+        "talent": {
+          "us": 3.6,
+          "china": 6.4
+        },
+        "compute": {
+          "us": 9.5,
+          "china": 0.5
+        },
+        "adoption": {
+          "us": 6.2,
+          "china": 7.4
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        }
+      }
+    },
+    {
+      "date": "2026-03-23",
+      "scores": {
+        "frontier_models": {
+          "us": 7.5,
+          "china": 2.5
+        },
+        "talent": {
+          "us": 3.6,
+          "china": 6.4
+        },
+        "compute": {
+          "us": 9.5,
+          "china": 0.5
+        },
+        "adoption": {
+          "us": 6.2,
+          "china": 7.4
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        }
+      }
+    },
+    {
+      "date": "2026-03-24",
+      "scores": {
+        "frontier_models": {
+          "us": 7.6,
+          "china": 2.4
+        },
+        "talent": {
+          "us": 3.6,
+          "china": 6.4
+        },
+        "compute": {
+          "us": 9.5,
+          "china": 0.5
+        },
+        "adoption": {
+          "us": 6.2,
+          "china": 7.4
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        }
+      }
+    },
+    {
+      "date": "2026-03-25",
+      "scores": {
+        "frontier_models": {
+          "us": 7.6,
+          "china": 2.4
+        },
+        "talent": {
+          "us": 3.6,
+          "china": 6.4
+        },
+        "compute": {
+          "us": 9.5,
+          "china": 0.5
+        },
+        "adoption": {
+          "us": 6.2,
+          "china": 7.4
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        }
+      }
+    },
+    {
+      "date": "2026-03-26",
+      "scores": {
+        "frontier_models": {
+          "us": 4.1,
+          "china": 5.9
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 9.5,
+          "china": 0.5
+        },
+        "adoption": {
+          "us": 6.2,
+          "china": 7.4
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        }
+      }
+    },
+    {
+      "date": "2026-03-27",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-03-28",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-03-29",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-01",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-02",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-03",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-04",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.4
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-05",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-06",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.7,
+          "china": 6.3
+        },
+        "compute": {
+          "us": 8.6,
+          "china": 1.4
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    }
+  ]
+}

@@ -133,8 +133,13 @@ DIMS = {
             "Private investment data is annual (Stanford AI Index, updated Feb\u2013Apr). "
             "Hyperscaler capex: US = Microsoft, Alphabet, Amazon, Meta; "
             "China = Alibaba, Baidu only (ByteDance, Tencent, Huawei excluded from SEC EDGAR). "
-            "China\u2019s private AI investment may be undercounted in international databases; "
-            "government AI R\u0026D (excluded from score) likely narrows the true gap."
+            "China\u2019s private AI investment may be undercounted in international databases. "
+            "Government AI R&D is excluded from this composite because no current, auditable figure exists "
+            "for China\u2019s national AI budget. The most rigorous public estimate (CSET, 2018) placed "
+            "Chinese central government AI R&D at $2\u20138B/year \u2014 comparable in magnitude to the "
+            "identifiable U.S. federal figure (~$5B/year in FY2024: NITRD $3.1B + DoD $1.8B). "
+            "This exclusion meaningfully biases the composite toward the U.S.; the true investment gap, "
+            "while still large, is likely narrower than this score implies."
         ),
     },
 }

@@ -1,6 +1,11 @@
 export type Confidence = 'high' | 'medium' | 'low'
 export type Leader = 'US' | 'CN' | 'Tied'
 
+export interface Trend {
+  usDelta: number          // change in US score over last ~30 days (positive = US gaining)
+  direction: 'up' | 'down' | 'flat'  // from US perspective
+}
+
 export interface ScoreCardDimension {
   id: string
   label: string
@@ -9,6 +14,7 @@ export interface ScoreCardDimension {
   leader: Leader
   delta: number
   confidence: Confidence
+  trend?: Trend
 }
 
 export interface RadarDimension {

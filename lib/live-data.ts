@@ -1,4 +1,4 @@
-import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource, StrategicInsight } from './data'
+import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource, StrategicInsight, Trend } from './data'
 
 // Fetch from the production static site so we always get the latest pipeline data,
 // regardless of which branch this Next.js app is deployed from.
@@ -226,7 +226,34 @@ interface Investment {
   }
 }
 
+interface HistoryEntry {
+  date: string
+  scores: Record<string, { us: number; china: number }>
+}
+
+interface History {
+  updated_at: string
+  entries: HistoryEntry[]
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+function computeTrend(key: string, currentUs: number, history: History | null): Trend | undefined {
+  if (!history?.entries?.length) return undefined
+  const entries = [...history.entries].sort((a, b) => a.date.localeCompare(b.date))
+  // Find the entry closest to 30 days ago
+  const today = new Date()
+  const target = new Date(today)
+  target.setDate(today.getDate() - 30)
+  const targetStr = target.toISOString().slice(0, 10)
+  // Pick the oldest entry that's <= target, or just the oldest available
+  const past = entries.filter(e => e.date <= targetStr).at(-1) ?? entries[0]
+  const pastScore = past?.scores?.[key]?.us
+  if (pastScore === undefined) return undefined
+  const usDelta = Math.round((currentUs - pastScore) * 10) / 10
+  const direction: Trend['direction'] = usDelta > 0.1 ? 'up' : usDelta < -0.1 ? 'down' : 'flat'
+  return { usDelta, direction }
+}
 
 function mapConfidence(s: string): Confidence {
   const lower = s.toLowerCase()
@@ -310,8 +337,8 @@ export interface LiveData {
 }
 
 export async function getLiveData(): Promise<LiveData> {
-  const [exec, fm, tal, comp, adp, dif, eng, inv]: [
-    ExecutiveSummary, FrontierModels, Talent, Compute, Adoption, Diffusion, Energy, Investment
+  const [exec, fm, tal, comp, adp, dif, eng, inv, hist]: [
+    ExecutiveSummary, FrontierModels, Talent, Compute, Adoption, Diffusion, Energy, Investment, History | null
   ] = await Promise.all([
     fetchJson('executive_summary.json'),
     fetchJson('frontier_models.json'),
@@ -321,6 +348,7 @@ export async function getLiveData(): Promise<LiveData> {
     fetchJson('diffusion.json'),
     fetchJson('energy.json'),
     fetchJson('investment.json'),
+    fetchJson('history.json').catch(() => null),
   ])
 
   // ── ScoreCard ───────────────────────────────────────────────────────────────
@@ -332,6 +360,7 @@ export async function getLiveData(): Promise<LiveData> {
     leader: mapLeader(d.winner),
     delta: d.delta,
     confidence: mapConfidence(d.confidence),
+    trend: computeTrend(d.key, d.us_score, hist),
   }))
 
   // ── Radar ───────────────────────────────────────────────────────────────────

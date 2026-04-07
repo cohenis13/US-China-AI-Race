@@ -101,6 +101,25 @@ export default function ScoreCardStrip({ dimensions }: { dimensions: ScoreCardDi
 
             {/* Mini bar */}
             <ScoreBar us={d.usScore} cn={d.cnScore} />
+
+            {/* 30-day trend */}
+            {d.trend && d.trend.direction !== 'flat' && (
+              <div className="flex items-center gap-1 mt-0.5">
+                <span
+                  className="text-[10px] font-medium"
+                  style={{
+                    color: d.trend.direction === 'up'
+                      ? 'hsl(var(--us))'
+                      : 'hsl(var(--china))',
+                  }}
+                >
+                  {d.trend.direction === 'up' ? '▲' : '▼'}
+                  {' '}
+                  {Math.abs(d.trend.usDelta).toFixed(1)} US
+                </span>
+                <span className="text-[9px] text-muted-foreground">30d</span>
+              </div>
+            )}
           </div>
         )
       })}

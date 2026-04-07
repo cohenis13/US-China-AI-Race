@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-06T14:16:34.759589+00:00",
+  "fetched_at": "2026-04-07T09:52:40.773826+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -106,7 +106,7 @@
       "edge": "+8.6 US",
       "confidence": "Medium confidence",
       "score_method": "composite_share_100",
-      "caveat": "Composite: private AI VC/startup investment (70%, Stanford AI Index / PitchBook) + hyperscaler AI data-center capex (30%, SEC EDGAR 10-K/20-F). Each proxy is US share of combined US+China. Private investment data is annual (Stanford AI Index, updated Feb–Apr). Hyperscaler capex: US = Microsoft, Alphabet, Amazon, Meta; China = Alibaba, Baidu only (ByteDance, Tencent, Huawei excluded from SEC EDGAR). China’s private AI investment may be undercounted in international databases; government AI R&D (excluded from score) likely narrows the true gap.",
+      "caveat": "Composite: private AI VC/startup investment (70%, Stanford AI Index / PitchBook) + hyperscaler AI data-center capex (30%, SEC EDGAR 10-K/20-F). Each proxy is US share of combined US+China. Private investment data is annual (Stanford AI Index, updated Feb–Apr). Hyperscaler capex: US = Microsoft, Alphabet, Amazon, Meta; China = Alibaba, Baidu only (ByteDance, Tencent, Huawei excluded from SEC EDGAR). China’s private AI investment may be undercounted in international databases. Government AI R&D is excluded from this composite because no current, auditable figure exists for China’s national AI budget. The most rigorous public estimate (CSET, 2018) placed Chinese central government AI R&D at $2–8B/year — comparable in magnitude to the identifiable U.S. federal figure (~$5B/year in FY2024: NITRD $3.1B + DoD $1.8B). This exclusion meaningfully biases the composite toward the U.S.; the true investment gap, while still large, is likely narrower than this score implies.",
       "source_file": "data/investment.json"
     }
   ],

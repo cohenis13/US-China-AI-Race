@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-06T10:40:50.508801+00:00",
-  "last_updated": "2026-04-06T10:40:50.508811+00:00",
+  "fetched_at": "2026-04-07T10:38:16.666169+00:00",
+  "last_updated": "2026-04-07T10:38:16.666178+00:00",
   "summary": {
     "US": {
       "composite_score": 37.4,
@@ -16,7 +16,7 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 135373,
+          "raw_value": 135261,
           "unit": "AI papers (12-month)",
           "share_score": 36.8,
           "window_days": 365,
@@ -24,7 +24,7 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3557,
+          "raw_value": 3549,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.4,
           "window_days": 730,
@@ -34,9 +34,9 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1510,
+          "raw_value": 1508,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 44.6,
+          "share_score": 44.7,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 232454,
+          "raw_value": 232178,
           "unit": "AI papers (12-month)",
           "share_score": 63.2,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (232,454 vs US 135,373 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (232,178 vs US 135,261 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7431,
+          "raw_value": 7408,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.6,
           "window_days": 730,
@@ -70,9 +70,9 @@
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1872,
+          "raw_value": 1868,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 55.4,
+          "share_score": 55.3,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.4 and China scores 62.6 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.2% of combined); the US leads on quality cited papers (32.4%) and high-impact papers (44.6%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.4 and China scores 62.6 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.2% of combined); the US leads on quality cited papers (32.4%) and high-impact papers (44.7%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -105,6 +105,66 @@
     "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. Quality proxy uses citation threshold only — no venue-type filter."
   },
   "papers": [
+    {
+      "id": "https://openalex.org/W7127558931",
+      "title": "Real-Time Simulation of Deformable Tactile Sensors and Objects in Robotic Grasping using Graph Neural Networks with Inductive Biases",
+      "authors": [
+        "Guillaume Duret",
+        "Frederik A. Heller",
+        "Danylo Mazurak"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147428260",
+      "title": "Light First",
+      "authors": [
+        "Mary Lin",
+        "Sargent Benjamin B"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140156460",
+      "title": "FoamBot : An Additively Manufactured Foam Soft Robot Manipulator with Integrated Conductive Sensors for Shape Estimation",
+      "authors": [
+        "Maxence Corailler",
+        "Félix Vanneste",
+        "Christian Duriez"
+      ],
+      "countries": [
+        "FR",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7148220678",
+      "title": "Regularity of Gaussian Fields from Kernel Conditions via Wavelets",
+      "authors": [
+        "Thomas Devos"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7150231055",
       "title": "Speech Processing in R: Transcription and Analysis with Whisper",
@@ -196,12 +256,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7150049521",
-      "title": "AUTOMATION OF EXAMINATION EVALUATION USING MATLAB-BASED OPTICAL MARK RECOGNITION (OMR) SYSTEM",
+      "id": "https://openalex.org/W7149964186",
+      "title": "Cognitive Agent Substrate (CAS) - A Composable Intelligence Stack with Graph-Based Knowledge Consolidation and Adaptive Personalization",
       "authors": [
-        "Pradeep Kumar U",
-        "Sai Sowjanya Bhogadi",
-        "Kumar Raju Appikonda"
+        "Ahmet Yiğit Sertel"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -210,10 +268,12 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7149964186",
-      "title": "Cognitive Agent Substrate (CAS) - A Composable Intelligence Stack with Graph-Based Knowledge Consolidation and Adaptive Personalization",
+      "id": "https://openalex.org/W7150049521",
+      "title": "AUTOMATION OF EXAMINATION EVALUATION USING MATLAB-BASED OPTICAL MARK RECOGNITION (OMR) SYSTEM",
       "authors": [
-        "Ahmet Yiğit Sertel"
+        "Pradeep Kumar U",
+        "Sai Sowjanya Bhogadi",
+        "Kumar Raju Appikonda"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -243,64 +303,6 @@
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7150244209",
-      "title": "A Conceptual Analysis of the Interconnected Relationship Between the Microcosm and Macrocosm",
-      "authors": [
-        "Joanna Lloyd"
-      ],
-      "countries": [
-        "NL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7150083059",
-      "title": "Tree-Based Models in R",
-      "authors": [
-        "Martin Schweinberger"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7149643939",
-      "title": "Code , Data for Post-Selection-Free Decoding of Measurement-Induced Area-Law Phases via Neural Networks",
-      "authors": [
-        "Hui Yu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7149922338",
-      "title": "Why LLMs Can't Write a Novel in One Go",
-      "authors": [
-        "Daniel Rosehill",
-        "Gemini 3.1 (Flash)",
-        "Chatterbox TTS"
-      ],
-      "countries": [
-        "CA",
-        "GB",
-        "US"
-      ],
-      "primary_country": "US",
       "published": "2026-04-06",
       "cited_by_count": 0,
       "source": "openalex"

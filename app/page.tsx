@@ -1,3 +1,5 @@
+export const revalidate = 3600 // re-render at most once per hour
+
 import ScoreCardStrip from '@/components/ScoreCardStrip'
 import CapabilityRadar from '@/components/CapabilityRadar'
 import StrategicInsights from '@/components/StrategicInsights'

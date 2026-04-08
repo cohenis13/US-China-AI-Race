@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-08T10:42:41.189422+00:00",
+  "fetched_at": "2026-04-08T11:17:18.705204+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -43,11 +43,11 @@
       "key": "compute",
       "label": "Compute",
       "radar_label": "Compute",
-      "us_score": 8.6,
-      "china_score": 1.4,
+      "us_score": 8.5,
+      "china_score": 1.5,
       "winner": "US",
-      "delta": 7.2,
-      "edge": "+7.2 US",
+      "delta": 7.0,
+      "edge": "+7.0 US",
       "confidence": "Medium confidence",
       "score_method": "count_share",
       "caveat": "Based on cumulative AI training compute (FLOPs) for notable models since 2023 (Epoch AI). US ~86%, China ~14% of disclosed training compute. Understates China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose compute; Huawei Ascend deployments are also excluded. The real gap is likely narrower than the score suggests — estimated 3-5x in frontier AI clusters, not the 6x implied by the training-compute share alone.",
@@ -142,11 +142,11 @@
     {
       "key": "compute",
       "dimension": "Compute",
-      "us": 8.6,
-      "china": 1.4,
+      "us": 8.5,
+      "china": 1.5,
       "winner": "US",
-      "delta": 7.2,
-      "edge": "+7.2 US"
+      "delta": 7.0,
+      "edge": "+7.0 US"
     },
     {
       "key": "adoption",
@@ -206,7 +206,7 @@
     ],
     "us": [
       6.3,
-      8.6,
+      8.5,
       5.9,
       6.7,
       3.6,
@@ -215,7 +215,7 @@
     ],
     "china": [
       3.7,
-      1.4,
+      1.5,
       8.1,
       3.3,
       7.4,

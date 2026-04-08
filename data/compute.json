@@ -2,17 +2,17 @@
   "dimension": "compute",
   "metric_key": "ai_training_compute",
   "description": "Primary: cumulative AI training compute (FLOPs) for notable models published since 2023-01-01, grouped by country of the developing organisation (Epoch AI). Secondary: TOP500 HPL Rmax benchmark performance (supplementary context only — China stopped submitting most systems in 2023).",
-  "fetched_at": "2026-04-07T11:17:16.647934+00:00",
+  "fetched_at": "2026-04-08T11:17:18.646344+00:00",
   "summary": {
     "US": {
-      "training_compute_flop": 1.82236e+27,
-      "model_count": 299,
+      "training_compute_flop": 1.824366e+27,
+      "model_count": 303,
       "top500_systems": 171,
       "top500_rmax_pflops": 6961.3
     },
     "China": {
-      "training_compute_flop": 2.993212e+26,
-      "model_count": 203,
+      "training_compute_flop": 3.185912e+26,
+      "model_count": 207,
       "top500_systems": 40,
       "top500_rmax_pflops": 204.9
     }

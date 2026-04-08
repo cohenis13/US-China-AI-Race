@@ -3,10 +3,10 @@
   "metric_key": "frontier_model_composite",
   "title": "Frontier AI Models — U.S. vs China",
   "subtitle": "Two-proxy composite: Arena Elo capability ranking share (60%, top-20) + notable model output share (40%, Epoch AI, last 2 years). Each proxy: US share of combined US+China.",
-  "fetched_at": "2026-04-07T09:52:40.495660+00:00",
+  "fetched_at": "2026-04-08T09:52:34.881228+00:00",
   "summary": {
     "US": {
-      "composite_score": 63.2,
+      "composite_score": 63.0,
       "effective_weights": {
         "capability": 0.6,
         "output": 0.4
@@ -20,16 +20,16 @@
           "source": "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)"
         },
         "output": {
-          "raw_value": 98,
+          "raw_value": 109,
           "unit": "notable AI models released (last 2y)",
-          "share_score": 63.2,
+          "share_score": 62.6,
           "window_years": 2,
           "source": "Epoch AI notable_ai_models.csv"
         }
       }
     },
     "China": {
-      "composite_score": 36.8,
+      "composite_score": 37.0,
       "effective_weights": {
         "capability": 0.6,
         "output": 0.4
@@ -43,9 +43,9 @@
           "source": "LMSYS Chatbot Arena (mathewhe/chatbot-arena-elo)"
         },
         "output": {
-          "raw_value": 57,
+          "raw_value": 65,
           "unit": "notable AI models released (last 2y)",
-          "share_score": 36.8,
+          "share_score": 37.4,
           "window_years": 2,
           "source": "Epoch AI notable_ai_models.csv"
         }
@@ -55,7 +55,7 @@
   "leaderboard": {
     "source": "LMSYS Chatbot Arena",
     "source_url": "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
-    "last_updated": "2026-04-07",
+    "last_updated": "2026-04-08",
     "top_n": 20,
     "models": [
       {
@@ -207,10 +207,106 @@
     "source": "Epoch AI notable_ai_models.csv",
     "source_url": "https://epoch.ai/data/notable_ai_models.csv",
     "window_years": 2,
-    "cutoff_date": "2024-04-07",
-    "us_count": 98,
-    "china_count": 57,
+    "cutoff_date": "2024-04-08",
+    "us_count": 109,
+    "china_count": 65,
     "recent_models": [
+      {
+        "model": "Nemotron 3 Super",
+        "developer": "NVIDIA",
+        "country": "US",
+        "published": "2026-03-11",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "Gemini 3.0 Flash-lite",
+        "developer": "Google DeepMind",
+        "country": "US",
+        "published": "2026-03-03",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "SWE 1.6",
+        "developer": "Cognition",
+        "country": "US",
+        "published": "2026-03-01",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "Qwen3.5-122B-A10B",
+        "developer": "Alibaba",
+        "country": "China",
+        "published": "2026-02-24",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "Gemini 3.1 Pro",
+        "developer": "Google DeepMind",
+        "country": "US",
+        "published": "2026-02-19",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "GLM-5",
+        "developer": "Z.ai (Zhipu AI)",
+        "country": "China",
+        "published": "2026-02-17",
+        "compute": "6.84e+24",
+        "frontier": false
+      },
+      {
+        "model": "Qwen3.5 397B-A17B",
+        "developer": "Alibaba",
+        "country": "China",
+        "published": "2026-02-13",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "Seedance 2.0",
+        "developer": "ByteDance",
+        "country": "China",
+        "published": "2026-02-12",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "GPT-5.3 Codex",
+        "developer": "OpenAI",
+        "country": "US",
+        "published": "2026-02-05",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "Qwen3-Coder-Next",
+        "developer": "Alibaba",
+        "country": "China",
+        "published": "2026-02-02",
+        "compute": "",
+        "frontier": false
+      },
+      {
+        "model": "Kimi K2.5",
+        "developer": "Moonshot",
+        "country": "China",
+        "published": "2026-02-02",
+        "compute": "5.8e+24",
+        "frontier": false
+      },
+      {
+        "model": "Qwen3-Max-Thinking",
+        "developer": "Alibaba",
+        "country": "China",
+        "published": "2026-01-25",
+        "compute": "",
+        "frontier": false
+      },
       {
         "model": "Solar Open 100B",
         "developer": "Upstage",
@@ -274,104 +370,8 @@
         "published": "2025-12-18",
         "compute": "",
         "frontier": false
-      },
-      {
-        "model": "DeepSeekMath-V2",
-        "developer": "DeepSeek",
-        "country": "China",
-        "published": "2025-11-27",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "Claude Opus 4.5",
-        "developer": "Anthropic",
-        "country": "US",
-        "published": "2025-11-24",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "Olmo 3",
-        "developer": "Allen Institute for AI",
-        "country": "US",
-        "published": "2025-11-20",
-        "compute": "1.1e+24",
-        "frontier": false
-      },
-      {
-        "model": "Grok 4.1 Fast",
-        "developer": "xAI",
-        "country": "US",
-        "published": "2025-11-19",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "GPT-5.1-Codex-Max",
-        "developer": "OpenAI",
-        "country": "US",
-        "published": "2025-11-19",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "Gemini 3 Pro",
-        "developer": "Google DeepMind",
-        "country": "US",
-        "published": "2025-11-18",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "Grok 4.1",
-        "developer": "xAI",
-        "country": "US",
-        "published": "2025-11-17",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "GPT-5.1 Instant",
-        "developer": "OpenAI",
-        "country": "US",
-        "published": "2025-11-13",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "GPT-5.1",
-        "developer": "OpenAI",
-        "country": "US",
-        "published": "2025-11-13",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "GPT-5.1-Codex",
-        "developer": "OpenAI",
-        "country": "US",
-        "published": "2025-11-12",
-        "compute": "",
-        "frontier": false
-      },
-      {
-        "model": "Kimi K2 Thinking",
-        "developer": "Moonshot",
-        "country": "China",
-        "published": "2025-11-06",
-        "compute": "4.2e+24",
-        "frontier": false
-      },
-      {
-        "model": "Tongyi DeepResearch",
-        "developer": "Alibaba",
-        "country": "China",
-        "published": "2025-10-28",
-        "compute": "",
-        "frontier": false
       }
     ]
   },
-  "interpretive_sentence": "On a composite of Arena Elo capability ranking (60%) and notable model output (40%), the US scores 63.2 and China scores 36.8 out of 100. US has 12 of the top 20 models by human preference; China has 7. On output, US released 98 notable models vs China's 57 in the last 2 years."
+  "interpretive_sentence": "On a composite of Arena Elo capability ranking (60%) and notable model output (40%), the US scores 63.0 and China scores 37.0 out of 100. US has 12 of the top 20 models by human preference; China has 7. On output, US released 109 notable models vs China's 65 in the last 2 years."
 }

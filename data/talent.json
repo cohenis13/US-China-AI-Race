@@ -4,11 +4,11 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-10T10:35:42.998524+00:00",
-  "last_updated": "2026-04-10T10:35:42.998535+00:00",
+  "fetched_at": "2026-04-11T09:11:09.860807+00:00",
+  "last_updated": "2026-04-11T09:11:09.860824+00:00",
   "summary": {
     "US": {
-      "composite_score": 37.3,
+      "composite_score": 37.4,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -16,15 +16,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 136369,
+          "raw_value": 137443,
           "unit": "AI papers (12-month)",
-          "share_score": 36.9,
+          "share_score": 37.0,
           "window_days": 365,
           "coverage": "high",
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3548,
+          "raw_value": 3558,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.3,
           "window_days": 730,
@@ -34,9 +34,9 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1509,
+          "raw_value": 1517,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 44.5,
+          "share_score": 44.6,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -45,7 +45,7 @@
       }
     },
     "China": {
-      "composite_score": 62.7,
+      "composite_score": 62.6,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 232738,
+          "raw_value": 233593,
           "unit": "AI papers (12-month)",
-          "share_score": 63.1,
+          "share_score": 63.0,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (232,738 vs US 136,369 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (233,593 vs US 137,443 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7427,
+          "raw_value": 7451,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.7,
           "window_days": 730,
@@ -70,9 +70,9 @@
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1881,
+          "raw_value": 1888,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 55.5,
+          "share_score": 55.4,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.3 and China scores 62.7 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.1% of combined); the US leads on quality cited papers (32.3%) and high-impact papers (44.5%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.4 and China scores 62.6 out of 100 (US + China ≈ 100). China leads on raw paper volume (63.0% of combined); the US leads on quality cited papers (32.3%) and high-impact papers (44.6%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -106,199 +106,206 @@
   },
   "papers": [
     {
-      "id": "https://openalex.org/W7151699642",
-      "title": "Line to Create Value: Still Life",
+      "id": "https://openalex.org/W7153031126",
+      "title": "Decision making for lunar landing applications using AI agents and reinforcement learning",
       "authors": [
-        "Nash Horton"
+        "Tomas Navarro",
+        "Ana Stroescu",
+        "Dario Izzo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148608447",
-      "title": "Ethical Applications of Artificial Intelligence in National Security",
+      "id": "https://openalex.org/W7153168144",
+      "title": "Revealing the effect of dual-frequency vibrations in turning through waviness classification maps",
       "authors": [
-        "Shriya Wadhwa, Khushi Gupta, Shweta Sinha"
+        "Monica Gil-Inchaurza",
+        "Xavier Beudaert",
+        "Jokin Muñoa"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7149218000",
-      "title": "BS8 - Generating New Protein Samples to Improve Accuracy of Protein Structure Prediction",
+      "id": "https://openalex.org/W7153327757",
+      "title": "Forming morphology prediction of self-piercing riveted joints under the influence of complex process parameters based on deep learning",
       "authors": [
-        "Wei Zhong"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7151685173",
-      "title": "Computer, Diagnose This Paper: AI Tools for Student Health Information Research",
-      "authors": [
-        "Brandon Kennedy"
+        "Yang Liu",
+        "Guolong Teng",
+        "Qingjun Wu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148185813",
-      "title": "Older Adults and Emerging Technology Fraud in the AI Deepfake Era",
+      "id": "https://openalex.org/W7153200547",
+      "title": "Scaffold diversity from 1976 to 2024",
       "authors": [
-        "Thiago Neves"
+        "Aylin Del Moral-Morales",
+        "Francisco Lucas Feitosa",
+        "Carolina Horta Andrade"
       ],
       "countries": [
-        "US"
+        "MX",
+        "BR"
       ],
-      "primary_country": "US",
-      "published": "2026-04-10",
+      "primary_country": "Other",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7142575348",
-      "title": "Using Artificial Intelligence to Expedite The Research Process",
+      "id": "https://openalex.org/W7153093125",
+      "title": "Automated detection and classification of maxillary sinus variations using slice-based and full-volume CBCT deep learning models",
       "authors": [
-        "Saskia Jager",
-        "Alexander Huang"
+        "Zainab Abdulkader Said",
+        "Abbas Ahmed Abdulqader",
+        "Fayu Liu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153349827",
+      "title": "A resilience-based bionic interpretation of the conifer branch–stem junction integrating form, function and environmental stimulus",
+      "authors": [
+        "Ian Vulcanescu",
+        "Magnus Wålinder",
+        "Roberto Crocetti"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153132937",
+      "title": "Pressel2016 — Imagined speech EEG (Spanish vowels and directional commands, re-hosted)",
+      "authors": [
+        "Germán A. Pressel Coretto",
+        "Iván Gareis",
+        "Hugo Leonardo Rufiner"
       ],
       "countries": [
-        "US"
+        "AR"
       ],
-      "primary_country": "US",
-      "published": "2026-04-10",
+      "primary_country": "Other",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148926012",
-      "title": "A COMPARATIVE EVALUATION OF DECISION INTELLIGENCE FRAMEWORKS IN IMAGE PROCESSING APPLICATIONS",
+      "id": "https://openalex.org/W7153118655",
+      "title": "A Visible Corrected-Width Benchmark Note for the Page Transition in the BTZ/Python's Lunch Seed Class",
       "authors": [
-        "Indian Journal of Science and Research"
+        "Masaki Okada"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153203986",
+      "title": "(Crafted by) Missing in Soho (A Misty Divine Mystery #2) by Holly Stars",
+      "authors": [
+        "neriyutasu meriyuderpoler"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153032518",
+      "title": "A hybrid deep-handcrafted feature fusion framework for image based android malware detection",
+      "authors": [
+        "Kavitha Mudunuru",
+        "M. Usha Rani"
       ],
       "countries": [
         "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148191877",
-      "title": "On-device Classification of Human-induced Non-Line-of-Sight on Chest-Worn Ultra-wideband Wearables",
+      "id": "https://openalex.org/W7153196497",
+      "title": "AdamPirnia/ADMDynAnlz: ADMDynAnlz, MD Dynamics Analysis software",
       "authors": [
-        "Gian Pietro Picco",
-        "Vu Anh Minh Le"
+        "Mohammad Mehdi Pirnia"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7147150958",
-      "title": "[Research on the screening efficiency of Thalassemia based on an automated evaluation software].",
+      "id": "https://openalex.org/W7153217043",
+      "title": "Causal Priority Theory — Foundations, Episode 0 Constructing Time from Causal Updates: A Minimal Framework for Time as a Derived Quantity",
       "authors": [
-        "Jun Hu",
-        "Huan Liang",
-        "Limei Duan"
+        "Kazuyoshi Maezawa"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7152957624",
+      "title": "Conscious Products: When AI Is the Product Personality Itself",
+      "authors": [
+        "Oleh Ivchenko"
       ],
       "countries": [
-        "CN"
+        "UA"
       ],
-      "primary_country": "China",
-      "published": "2026-04-10",
+      "primary_country": "Other",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148179747",
-      "title": "HE46 - Gaze Behavior of Division 1 Male Goalkeepers During Penalty Kicks: A Pilot Study",
+      "id": "https://openalex.org/W7130954340",
+      "title": "Neurodesk Notebook: FSL_preproc_glm",
       "authors": [
-        "Aileen C Romero",
-        "Matthew A. Yeomans"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7124404179",
-      "title": "AI Tools for Students",
-      "authors": [
-        "Brandon Kennedy"
+        "Monika Doerig"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7149489793",
-      "title": "Breast Cancer Diagnosis Through Machine Learning Classification Algorithms: An Experimental Study",
+      "id": "https://openalex.org/W7153334924",
+      "title": "Monuments in the Measure of a Palm: Scale and Mobility in the Work of Olga Jevrić",
       "authors": [
-        "Tapas Roy,  Mithun Das, Dr. Swarnali Chatterjee, Dr. Rajesh Das"
+        "Ana Ereš"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7151690221",
-      "title": "Line to Create Value: Still Life",
-      "authors": [
-        "Luke Harrington"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140966888",
-      "title": "Reconstruction and regularization approaches for image scanning microscopy",
-      "authors": [
-        "Giacomo Garrè"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7148491493",
-      "title": "AI-DRIVEN STRATEGIES FOR AUTOMATED STOCK TRADING: OPPORTUNITIES AND RISKS",
-      "authors": [
-        "Indian Journal of Science and Research"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-10",
+      "published": "2026-04-11",
       "cited_by_count": 0,
       "source": "openalex"
     }

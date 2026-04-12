@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-12T08:32:25.714866+00:00",
+  "fetched_at": "2026-04-12T09:33:20.118866+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -29,11 +29,11 @@
       "key": "talent",
       "label": "Talent",
       "radar_label": "Talent",
-      "us_score": 3.7,
-      "china_score": 6.3,
+      "us_score": 3.8,
+      "china_score": 6.2,
       "winner": "China",
-      "delta": 2.6,
-      "edge": "+2.6 CN",
+      "delta": 2.4,
+      "edge": "+2.4 CN",
       "confidence": "Medium confidence",
       "score_method": "count_share",
       "caveat": "Reflects AI research paper volume from OpenAlex over 12 months — a proxy for research output, not researcher quality, citation impact, or headcount. China leads on volume; the US tends to lead on top-cited work.",
@@ -178,11 +178,11 @@
     {
       "key": "talent",
       "dimension": "Talent",
-      "us": 3.7,
-      "china": 6.3,
+      "us": 3.8,
+      "china": 6.2,
       "winner": "China",
-      "delta": 2.6,
-      "edge": "+2.6 CN"
+      "delta": 2.4,
+      "edge": "+2.4 CN"
     },
     {
       "key": "investment",
@@ -210,7 +210,7 @@
       5.9,
       6.7,
       3.6,
-      3.7,
+      3.8,
       9.3
     ],
     "china": [
@@ -219,7 +219,7 @@
       8.1,
       3.3,
       7.4,
-      6.3,
+      6.2,
       0.7
     ]
   },

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-12T08:32:25.714866+00:00",
+  "updated_at": "2026-04-13T11:04:42.983969+00:00",
   "entries": [
     {
       "date": "2026-03-22",
@@ -684,6 +684,39 @@
         "talent": {
           "us": 3.7,
           "china": 6.3
+        },
+        "compute": {
+          "us": 8.5,
+          "china": 1.5
+        },
+        "adoption": {
+          "us": 5.9,
+          "china": 8.1
+        },
+        "diffusion": {
+          "us": 6.7,
+          "china": 3.3
+        },
+        "energy": {
+          "us": 3.6,
+          "china": 7.4
+        },
+        "investment": {
+          "us": 9.3,
+          "china": 0.7
+        }
+      }
+    },
+    {
+      "date": "2026-04-13",
+      "scores": {
+        "frontier_models": {
+          "us": 6.3,
+          "china": 3.7
+        },
+        "talent": {
+          "us": 3.8,
+          "china": 6.2
         },
         "compute": {
           "us": 8.5,

@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-12T09:33:20.065114+00:00",
-  "last_updated": "2026-04-12T09:33:20.065131+00:00",
+  "fetched_at": "2026-04-13T11:52:53.903682+00:00",
+  "last_updated": "2026-04-13T11:52:53.903693+00:00",
   "summary": {
     "US": {
       "composite_score": 37.5,
@@ -16,15 +16,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 136956,
+          "raw_value": 137350,
           "unit": "AI papers (12-month)",
-          "share_score": 37.2,
+          "share_score": 37.3,
           "window_days": 365,
           "coverage": "high",
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3555,
+          "raw_value": 3541,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.4,
           "window_days": 730,
@@ -34,7 +34,7 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1517,
+          "raw_value": 1520,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 44.6,
           "window_days": 1095,
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 231333,
+          "raw_value": 231243,
           "unit": "AI papers (12-month)",
-          "share_score": 62.8,
+          "share_score": 62.7,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (231,333 vs US 136,956 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (231,243 vs US 137,350 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7434,
+          "raw_value": 7392,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.6,
           "window_days": 730,
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.5 and China scores 62.5 out of 100 (US + China ≈ 100). China leads on raw paper volume (62.8% of combined); the US leads on quality cited papers (32.4%) and high-impact papers (44.6%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.5 and China scores 62.5 out of 100 (US + China ≈ 100). China leads on raw paper volume (62.7% of combined); the US leads on quality cited papers (32.4%) and high-impact papers (44.6%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -106,191 +106,241 @@
   },
   "papers": [
     {
-      "id": "https://openalex.org/W7153561550",
-      "title": "Classification of fallers in Parkinson’s disease through machine learning based feature analysis",
+      "id": "https://openalex.org/W7152611778",
+      "title": "BioSense",
       "authors": [
-        "Minkyung Kim",
-        "Sumin Kim",
-        "MyungJin Chung"
+        "Jaba Tkemaladze"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153496124",
-      "title": "The Method for Achieving Human Immortality",
+      "id": "https://openalex.org/W7153745633",
+      "title": "Ring Binder: Panduan Material untuk Perajin Kulit",
       "authors": [
-        "其 何"
+        "Ibrahim Anwar"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "NO"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153549455",
-      "title": "Screeps AI code repository",
+      "id": "https://openalex.org/W7153793818",
+      "title": "ClassEcho: A Tool for Observing, Visualizing, and Analyzing Student-Teacher Interactions in K-12 Computing Classrooms",
       "authors": [
-        "tadanobutubutu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153440209",
-      "title": "TILSHUNOSLIKDA KASBIY MUHIT VA NUTQNING ASOSIY XUSUSIYATLARI",
-      "authors": [
-        "Ergasheva Saida Umidjon qizi",
-        "Wordly Knowledge Publishing Centre"
+        "Ally Limke",
+        "Yasitha Rajapaksha",
+        "Eli Reed"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-04-12",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7152382830",
-      "title": "[Research Preprint v5.0] The Visual Cypher of Tangata Manu: Biomechanical Validation of the 13-Stage Locomotion Matrix [研究預印本 v5.0] 唐加塔‧馬努的視覺密碼:「13 階段運動矩陣」之生物力學驗證",
+      "id": "https://openalex.org/W7153794452",
+      "title": "Exploring the Effects of Generative AI Assistance on Writing Self-efficacy",
       "authors": [
-        "Wang (王慧昌) Hui-Chang",
-        "AI Research Assistant (LLM)"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153632675",
-      "title": "Python Tool for Corpus-Based Verification of AI-Generated Metaphors",
-      "authors": [
-        "Dmitry Doltmurziev"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153521240",
-      "title": "Replication materials: Social Manipulation of AI Agents in Online Market Negotiations",
-      "authors": [
-        "Research"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153619882",
-      "title": "Non-Emptiness of Shadows and Conservation of Admissibility",
-      "authors": [
-        "P. Phi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153498754",
-      "title": "LEE SHARKS — Knowledge Graph and Metadata Packet for AI Indexing: Canonical Identity, Disambiguation, and Complete Archive Map (Crimson Hexagonal Archive)",
-      "authors": [
-        "Lee Sharks"
+        "Yejoon Song",
+        "Byung‐Soo Kim",
+        "Yeju Kwon"
       ],
       "countries": [
-        "GB"
+        "KR",
+        "CA"
       ],
       "primary_country": "Other",
-      "published": "2026-04-12",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153469642",
-      "title": "The Hidden Field Stack Inside AI Environment",
+      "id": "https://openalex.org/W7139050949",
+      "title": "Reimagining Wearable AR Gesture Design: Physical Therapy Reasoning in Everyday Contexts",
       "authors": [
-        "Rogério Figurelli"
+        "Wei Wu",
+        "Binyan Xu",
+        "Soonhyeon Kweon"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "US",
+        "CN"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7151093418",
-      "title": "THE GAP: A Neutral Layer Standard for Irreversible Digital Decisions",
+      "id": "https://openalex.org/W7153817384",
+      "title": "3D-MAGIC: Expanding MAGIC Pointing to Stereoscopic Displays",
       "authors": [
-        "Akira Hsieh"
+        "Xingjian Tian",
+        "Lily Sheng",
+        "Xiyuxing Zhang"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153525537",
-      "title": "Discriminator Ladder Learning: Automatic Semantic Routing for Structured Data Retrieval",
+      "id": "https://openalex.org/W7153778262",
+      "title": "\"AI does not understand the real world.\": AI Augmented Software Development",
       "authors": [
-        "Elms Nathan"
+        "Eszter Vigh",
+        "Freja Sunesen",
+        "Louise Barkhuus"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "DK"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153559185",
-      "title": "SMART ANIMAL DETERRANT SYSTEM USING MACHINE LEARNING",
+      "id": "https://openalex.org/W7153778849",
+      "title": "\"We need a vision first\": Speculating Deaf-Centered Immersive Classrooms",
       "authors": [
-        "Abel Sunil Cherian",
-        "Amal K Jose"
+        "Shuxu Huffman",
+        "Abraham Glasser",
+        "Christopher J. Hayes"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153655168",
-      "title": "From Digits to Invariants: A PAC–µ 8 Structural Reading of π",
+      "id": "https://openalex.org/W7153892650",
+      "title": "Arthralgia and fever as dominant predictors of Chikungunya confirmation: an explainable artificial intelligence approach",
       "authors": [
-        "Chuanjie Dai"
+        "Xinyu Lu",
+        "Dan Yin",
+        "Hanwen Zhang"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "CN",
+        "US"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153546355",
-      "title": "SSCA Clear Sight v1 — Unified Multi‑State Lumen Organism for Vehicle and Infrastructure Lighting",
+      "id": "https://openalex.org/W7153756736",
+      "title": "When Experts Disagree: Diagnosing Cultural Heritage Image Editing Through the Lens of Interpretive Plurality",
       "authors": [
-        "Troy Scott Wilde"
+        "Xiaoyang He",
+        "Zheng Zhang",
+        "Dan Wu"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-12",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153789865",
+      "title": "A Study in Transparent Adaptation and Joint-Level Feedback for Unsupervised Upper-Limb Rehabilitation",
+      "authors": [
+        "Mohit Madhu",
+        "Chaitanya Anand",
+        "Sambhav Manohar"
+      ],
+      "countries": [
+        "CH",
+        "IN",
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153723186",
+      "title": "Lie to Me: Investigating Remote Deception Detection through rPPG and LLM Analysis",
+      "authors": [
+        "Yiru Zhang",
+        "Mingyu Zhang",
+        "Zhigang Ni"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153808457",
+      "title": "Jarum Kulit: Panduan Material untuk Perajin Kulit",
+      "authors": [
+        "Ibrahim Anwar"
+      ],
+      "countries": [
+        "NO"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153864393",
+      "title": "Belidor: A Specification Language for Operationalizing Structural Analogies Between User Interfaces",
+      "authors": [
+        "Matthew Beaudouin-Lafon",
+        "Devamardeep Hayatpur",
+        "Arvind Satyanarayan"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153894694",
+      "title": "Learning on the move: Designing Adaptive Education for Automated Vehicles",
+      "authors": [
+        "Kevin Fred Mwaita",
+        "Mark Colley",
+        "Thiemo Wambsganss"
+      ],
+      "countries": [
+        "IT",
+        "GB",
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-13",
       "cited_by_count": 0,
       "source": "openalex"
     }

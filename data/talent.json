@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-14T10:52:01.222654+00:00",
-  "last_updated": "2026-04-14T10:52:01.222666+00:00",
+  "fetched_at": "2026-04-15T10:46:26.960091+00:00",
+  "last_updated": "2026-04-15T10:46:26.960101+00:00",
   "summary": {
     "US": {
       "composite_score": 37.6,
@@ -16,7 +16,7 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 138036,
+          "raw_value": 137617,
           "unit": "AI papers (12-month)",
           "share_score": 37.3,
           "window_days": 365,
@@ -24,7 +24,7 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3571,
+          "raw_value": 3568,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.5,
           "window_days": 730,
@@ -34,9 +34,9 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1524,
+          "raw_value": 1522,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 44.7,
+          "share_score": 44.6,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 231892,
+          "raw_value": 231272,
           "unit": "AI papers (12-month)",
           "share_score": 62.7,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (231,892 vs US 138,036 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (231,272 vs US 137,617 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7413,
+          "raw_value": 7405,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.5,
           "window_days": 730,
@@ -70,9 +70,9 @@
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1888,
+          "raw_value": 1887,
           "unit": "AI papers cited ≥100x (3-year)",
-          "share_score": 55.3,
+          "share_score": 55.4,
           "window_days": 1095,
           "min_citations": 100,
           "coverage": "high",
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.6 and China scores 62.4 out of 100 (US + China ≈ 100). China leads on raw paper volume (62.7% of combined); the US leads on quality cited papers (32.5%) and high-impact papers (44.7%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.6 and China scores 62.4 out of 100 (US + China ≈ 100). China leads on raw paper volume (62.7% of combined); the US leads on quality cited papers (32.5%) and high-impact papers (44.6%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -106,210 +106,205 @@
   },
   "papers": [
     {
-      "id": "https://openalex.org/W7134655705",
-      "title": "A Semantic Approach for Digital Twin Cross‑Platform Interoperability: Challenges and Resolutions in AAS Data Integration",
+      "id": "https://openalex.org/W7135890319",
+      "title": "Community detection in a plant-based fermentation knowledge graph",
       "authors": [
-        "Abdelhadi Belfadel",
-        "Hassan Thomas",
-        "Achraf Kallel"
+        "Zoé Le Roux",
+        "Alessandra Merlotti",
+        "Francesco Durrazi"
       ],
       "countries": [
+        "IT",
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-04-14",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154060964",
-      "title": "DIGITAL MANIPULATION VERSUS RESPONSIBLE CONSUMPTION: EXAMINING DARK PATTERNS THROUGH THE LENS OF SDG 12",
-      "authors": [
-        "Manik Batra, Venkatakrishnaswamy Satya Prasad, Mohammad Anas, Rahul Singh, Obaidur Rahman, Mohd Abdul Moid Siddiqui"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-14",
+      "id": "https://openalex.org/W7153956577",
+      "title": "Dark Energy Survey Year 3 results : Simulation-based w CDM inference from weak lensing and galaxy clustering maps with deep learning: Analysis design",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154104911",
-      "title": "Online_sample_N126_Aesthetic_agreement_on_visual art",
+      "id": "https://openalex.org/W7152934550",
+      "title": "Optimized Neural Network for Early Diabetes Prediction Using an Imbalanced Datest",
       "authors": [
-        "Deysha Poyser"
-      ],
-      "countries": [
-        "CL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153974140",
-      "title": "Computer vision enables smartphone-based nystagmography in clinical contexts",
-      "authors": [
-        "Timo Schlingmann",
-        "Gianluca Amprimo",
-        "Helen Friedrich"
+        "Roger Ward",
+        "Anindita Paul"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-14",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125483716",
-      "title": "Artefact for \"An Empirical Study of C to Rust Translation using Local Large-Language Models\"",
+      "id": "https://openalex.org/W7149228935",
+      "title": "Thesis in progress: AI Enhanced EDR Systems",
       "authors": [
-        "Nathan Rutherford",
-        "Daniel O'Keeffe"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152341753",
-      "title": "Robotic Contextual Awareness for Human-Robot Collaboration and Environmental Understanding",
-      "authors": [
-        "Federico Rollo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154010683",
-      "title": "Machine-Native Intelligence v3: Self-Healing Operations and the Emergence of System Resilience",
-      "authors": [
-        "Rafal Chalupka"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154097711",
-      "title": "Vaccine effectiveness across the Omicron evolutionary spectrum (BA.2, BA.5, XBB, JN.1, KP.3): a systematic review of studies published 2022–2025",
-      "authors": [
-        "Saad Alhumaid",
-        "Ola Alkhars",
-        "Abeer S. Algrafi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153585637",
-      "title": "Longitude Quantization in the UNESCO World Heritage Corpus: Domes, Stupas, and the Babylonian Beru",
-      "authors": [
-        "Seth Tenenbaum"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154131972",
-      "title": "Paper No. 142 Role-Divided Bimanual Structure in Structural Psychology — A Functional Separation Model of the Operative System and Stabilizing System —",
-      "authors": [
-        "Enli lncantatrice d'Anime"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154139850",
-      "title": "Evaluating direct monopolar sensing of STN local field potentials for optimized DBS contact selection in Parkinson’s disease",
-      "authors": [
-        "Victoria Witzig",
-        "Annabel van der Weide",
-        "Jonathan Kaplan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154146348",
-      "title": "HALO-GNN: Hallucination-Resistant Temporal Graph Neural Networks for Dynamic Community Detection",
-      "authors": [
-        "Yanfei Ma",
-        "Daozheng Qu",
-        "Yibo Wang"
+        "Evan Manson"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-04-14",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154170083",
-      "title": "The Meaning Gap: Measuring Structural Sense Distinctions That Standard Tools Do Not Count",
+      "id": "https://openalex.org/W7147110022",
+      "title": "KARAYCANIN KIRIM DİYALEKTİNDE CÜMLENİN YAPISAL-İŞLEVSEL ÖZELLİKLERİ: İBRANİ HARFLİ METİNLER ÜZERİNE BİR İNCELEME",
       "authors": [
-        "Nathan Elms"
+        "Hayal ASGARLİ"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-14",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7127228979",
-      "title": "Handling Noisy Plaintext Checking Oracles with SPiRiT: Application to Kyber",
+      "id": "https://openalex.org/W7152342823",
+      "title": "GenAI in Visual Communications and Management",
       "authors": [
-        "Paco Poilbout",
-        "Thomas Roche",
-        "Laurent Imbert"
+        "Savannah Davidson",
+        "Siriporn Peters"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153863272",
+      "title": "Beyond the Brightest: A Deep Learning Approach to Identifying Major and Minor Galaxy Mergers in CANDELS at z ∼ 1",
+      "authors": [
+        "Aimee L. Schechter",
+        "Aleksandra Ciprijanovic",
+        "Xuejian Shen"
       ],
       "countries": [
-        "NL",
-        "SI"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-04-14",
+      "primary_country": "US",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154139922",
-      "title": "A sequence knowledge-guided deep learning method for single-cell multi-omics translation",
+      "id": "https://openalex.org/W7149213417",
+      "title": "AI-Driven Crisis Communication for Vulnerable Populations: Automated Classification and Simplification of Weather Disaster Advisories",
       "authors": [
-        "Mengyuan Zhao",
-        "Jiawei Li",
-        "Yanlin Jiang"
+        "Ameerat Bello"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134104163",
+      "title": "A Weighted Resampling Framework for Causal Transportability",
+      "authors": [
+        "Jianqiao; id_orcid 0000-0001-5945-1736 Mao",
+        "Max A. Little"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-14",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7152335609",
+      "title": "AI-Driven Computer Vision for Industrial Automation and Domain Adaptation",
+      "authors": [
+        "Nicola Conci",
+        "Andualem Welabo Tulu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7135160929",
+      "title": "Artificial Intelligence in the ICU:from predictive to actionable AI",
+      "authors": [
+        "Jim M Smit"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7141775085",
+      "title": "Generalizing Under Data Scarcity. Enhancing the representation capability from few samples.",
+      "authors": [
+        "Nicola Conci",
+        "Lorenzo Braccaioli"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134222163",
+      "title": "EXTRACTING FOOD-FERMENTATION KNOWLEDGE USING AN NER FRAMEWORK FROM BIOLOGICAL AND CHEMICAL DOMAINS WITH LLM-ASSISTED SILVER ANNOTATIONS",
+      "authors": [
+        "Xingyu Zhu"
+      ],
+      "countries": [
+        "FR",
+        "HU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7151708556",
+      "title": "Utilizing Physics Informed Neural Networks for Disrupt Signal Dynamics",
+      "authors": [
+        "Nicholas Joyner"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7151701873",
+      "title": "Exploring Medication Effectiveness Using Machine Learning: A Multiclass Treatment Outcome Analysis",
+      "authors": [
+        "Maxwell Kyei"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

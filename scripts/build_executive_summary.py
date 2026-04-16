@@ -263,7 +263,7 @@ def make_current_read(dims: list[dict]) -> str:
     ties    = [d for d in dims if d["winner"] == "Tie"]
 
     def strategic(d: dict) -> str:
-        return STRATEGIC_LABEL.get(d["id"], d["label"].lower())
+        return STRATEGIC_LABEL.get(d["key"], d["label"].lower())
 
     clauses = []
     if us_wins:
@@ -436,7 +436,7 @@ def main() -> None:
         ),
     }
 
-    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"Wrote {OUTPUT}")
     for d in scored:

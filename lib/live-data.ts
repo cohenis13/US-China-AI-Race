@@ -3,7 +3,11 @@ import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionT
 // DATA_BASE overrides the default V1 data source — set it in .env.local for local
 // development with local data files, or in Vercel env vars for staging isolation.
 // Defaults to V1 production URL so V2 continues working without any config.
-const BASE = process.env.DATA_BASE ?? 'https://us-china-ai-race.vercel.app/data'
+// DATA_BASE overrides the data source. Falls back to VERCEL_URL (auto-set by Vercel on every
+// deployment) so each preview/production deployment reads its own /api/data files. Local dev
+// without either env var falls back to V1 production as a last resort.
+const BASE = process.env.DATA_BASE
+  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/api/data` : 'https://us-china-ai-race.vercel.app/data')
 
 // ── Mojibake fix ──────────────────────────────────────────────────────────────
 // The pipeline produces JSON where some strings are Windows-1252 interpretations

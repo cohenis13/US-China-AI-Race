@@ -544,15 +544,209 @@ china_score = 10.0 &minus; us_score</pre>
   </ul>
 
   <!-- ── Frontier Models ───────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Frontier Models</span> Model Update Activity</h2>
+  <h2><span class="dim-badge">Frontier Models</span> Open Model Ecosystem Index &mdash; Three-Proxy Composite</h2>
+
+  <h3>What this measures</h3>
   <p>
-    Measures public model update activity on Hugging Face Hub from a curated list of tracked
-    AI labs. Counts new model versions published by US-attributed vs China-attributed labs
-    in the rolling 12-month window.
+    A three-proxy composite measuring U.S. and Chinese AI model activity across public release
+    output, benchmark performance on independent evaluations, and cross-platform ecosystem
+    distribution. Scored as a share of combined U.S.&thinsp;+&thinsp;China activity, so scores
+    sum to 100.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Critical editorial constraint:</strong> This composite measures <em>open-model activity
+      and public benchmark performance</em>. It does <strong>not</strong> measure closed-model
+      capability. The most capable U.S. models (GPT-4o, Claude 3.7, Gemini 2.5) and Chinese models
+      (Qwen API, Doubao, Hunyuan) are closed and not fully reflected here. The score is best
+      interpreted as a measure of lab output velocity and open-ecosystem reach, not a definitive
+      ranking of national frontier AI capability.
+    </p>
+  </div>
+
+  <h3>Why move beyond Hugging Face Hub alone?</h3>
+  <p>
+    The previous version of this dimension counted model update activity on Hugging Face Hub
+    only. This created a systematic undercount of China for two reasons:
+  </p>
+  <ul>
+    <li>
+      <strong>Platform bias:</strong> HuggingFace Hub is the dominant global open-source platform,
+      but Chinese AI labs also distribute widely through ModelScope (魔搭社区, operated by Alibaba),
+      Gitee AI, and Baidu AI Studio. Labs that publish primarily to domestic platforms
+      are invisible in HF-only counts.
+    </li>
+    <li>
+      <strong>Activity &ne; capability:</strong> Model update counts on HF measure lab output
+      velocity, not benchmark performance. A lab releasing many fine-tuned variants scores
+      high; a lab releasing one highly capable model scores low.
+    </li>
+  </ul>
+  <p>
+    The new composite addresses both issues: it adds a ModelScope supplement for Chinese labs
+    with limited HF presence, adds a benchmark performance proxy, and adds an ecosystem breadth
+    proxy that explicitly weights cross-platform distribution.
+  </p>
+
+  <h3>Proxy 1 &mdash; Release Activity (35% weight)</h3>
+  <p>
+    <strong>Sources:</strong> Hugging Face Hub API (automated, daily); ModelScope supplement
+    (manual estimate in <code>data/frontier_models_manual.json</code>).
   </p>
   <p>
-    <strong>What this does not capture:</strong> Closed models (GPT-4o, Claude, Gemini Ultra)
-    are not counted. Labs are classified by country of the primary organization.
+    <strong>Definition:</strong> Count of model versions published by tracked labs
+    (see <code>data/labs.json</code>) in the rolling 30-day window on Hugging Face Hub,
+    plus an estimated supplement for Chinese labs that publish primarily on ModelScope
+    and are not fully tracked via HF.
+  </p>
+  <p>
+    <strong>Tracked labs:</strong> 31 labs as of April 2026 (16 US-attributed,
+    12 China-attributed, 1 Other, 2 additional US labs). See <code>data/labs.json</code>
+    for the full list. Labs are classified by primary country of headquarters.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Coverage note &mdash; ModelScope supplement:</strong> The supplement is a
+      conservative lower-bound estimate based on observed ModelScope activity for labs not
+      already tracked via HF (BAAI, Baichuan Intelligence, Kuaishou AI, Sensetime, Vivo AI/BlueLM).
+      Labs already tracked via HF (Qwen, DeepSeek, THUDM, etc.) are <em>not</em> double-counted.
+      Confidence: Low. A proper ModelScope API integration would replace this manual supplement
+      in a future version.
+    </p>
+  </div>
+  <div class="caveat">
+    <p>
+      <strong>Coverage note &mdash; Gitee AI and Baidu AI Studio:</strong> These platforms
+      are not currently tracked. Gitee AI is China&rsquo;s open-source code platform with a
+      growing model repository; Baidu AI Studio hosts PaddlePaddle-based models. Integrating
+      these sources would further reduce the China undercount.
+    </p>
+  </div>
+
+  <h3>Proxy 2 &mdash; Benchmark Performance (45% weight)</h3>
+  <p>
+    <strong>Sources:</strong> LMSYS Chatbot Arena Elo leaderboard (manual snapshot);
+    Epoch AI Notable AI Models dataset (manual snapshot). Both stored in
+    <code>data/frontier_models_manual.json</code>.
+  </p>
+  <p>
+    <strong>Definition:</strong> Average of two sub-proxies, equally weighted (50% each):
+  </p>
+  <ul>
+    <li>
+      <strong>LMSYS Chatbot Arena top-20 share:</strong> Count of U.S.- and China-attributed
+      models in the top 20 by Elo rating, scored as (US / US+China) &times; 100.
+      Arena Elo is the most widely cited independent third-party benchmark for general
+      instruction-following capability.
+    </li>
+    <li>
+      <strong>Epoch AI notable models (2-year window) share:</strong> Count of notable AI
+      models since a rolling 2-year cutoff, attributed to U.S. or Chinese labs.
+      Epoch AI applies a documented selection methodology based on training compute,
+      benchmark performance, and research significance.
+    </li>
+  </ul>
+  <p>
+    <strong>Why benchmark performance gets the highest weight (45%):</strong> It is the most
+    analytically defensible proxy for the dimension&rsquo;s intended concept &mdash; how capable
+    are each country&rsquo;s AI models? Release activity counts alone conflate volume with quality.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Limitations:</strong> Arena Elo only covers models submitted for public human
+      evaluation. Some frontier models (e.g., internal enterprise API variants) may not be
+      submitted. Chinese models relying on domestic-only APIs may be structurally
+      underrepresented in Arena despite comparable real-world capability. Epoch AI&rsquo;s
+      selection criteria, while documented, may systematically exclude Chinese lab models with
+      limited English documentation. Both sources are updated by manual snapshot in this tracker
+      &mdash; they do not auto-update daily.
+    </p>
+  </div>
+
+  <h3>Proxy 3 &mdash; Ecosystem Breadth (20% weight)</h3>
+  <p>
+    <strong>Sources:</strong> Hugging Face Hub API (monthly downloads, automated);
+    ModelScope platform presence (manual estimate). Both in
+    <code>data/frontier_models_manual.json</code>.
+  </p>
+  <p>
+    <strong>Definition:</strong> A platform-weighted distribution score capturing how broadly
+    each country&rsquo;s open models are used across the two largest model platforms globally:
+    HuggingFace Hub and ModelScope. Scored as (US share / US+China) &times; 100.
+  </p>
+  <p>
+    <strong>Formula:</strong>
+    Ecosystem score = 0.55 &times; HF_download_share + 0.45 &times; ModelScope_presence_share
+  </p>
+  <p>
+    <strong>Key result:</strong> China leads on ecosystem breadth when ModelScope is included,
+    because Chinese labs dominate ModelScope (the second-largest global model platform) even as
+    U.S. models dominate HuggingFace downloads. This is analytically important: a HF-only
+    view structurally undercounts the reach of China&rsquo;s open AI ecosystem.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Confidence note &mdash; ModelScope presence:</strong> The ModelScope share is a
+      manual estimate based on the top-1000 model list composition. Confidence: Low.
+      HF weighted at 55% (global reach, higher confidence) vs ModelScope at 45%
+      (China-primary, lower confidence). A direct ModelScope API integration would improve this.
+    </p>
+  </div>
+
+  <h3>Composite construction</h3>
+  <p>
+    <strong>Formula:</strong>
+    Composite = 0.35 &times; release_activity_share + 0.45 &times; benchmark_share + 0.20 &times; ecosystem_share
+  </p>
+  <p>
+    By construction, US composite + China composite = 100. The executive summary score is
+    composite / 10, giving a 0&ndash;10 scale where US + China = 10.
+  </p>
+  <p>
+    Benchmark performance is weighted highest (45%) because it most directly measures
+    the dimension&rsquo;s intended concept. Release activity (35%) captures lab output
+    velocity and is the most automatable proxy. Ecosystem breadth (20%) captures
+    platform distribution but relies partly on manual estimates.
+  </p>
+
+  <h3>Labs tracked and country classification</h3>
+  <p>
+    Labs are classified by the country of the primary organization&rsquo;s headquarters.
+    The full list is in <code>data/labs.json</code>. Notable inclusions and edge cases:
+  </p>
+  <ul>
+    <li><strong>Google / DeepMind:</strong> Classified as US. DeepMind is UK-based but
+    Google (US) is the parent organization.</li>
+    <li><strong>Cohere:</strong> Classified as US. Incorporated in Canada/US, primarily
+    US-funded frontier model lab.</li>
+    <li><strong>Mistral AI:</strong> Classified as Other (France). The only non-US,
+    non-China lab tracked.</li>
+    <li><strong>NVIDIA:</strong> Classified as US. Note that NVIDIA publishes models across
+    many specialized domains (robotics, medical imaging, weather) and re-hosts some
+    third-party weights; its raw count may not reflect general-purpose frontier capability.</li>
+    <li><strong>BAAI (Beijing Academy of AI):</strong> Classified as China. State-backed
+    research institute; publishes FlagAI, FlagEmbedding, AquilaChat.</li>
+    <li><strong>Baichuan Intelligence:</strong> Classified as China. Strong ModelScope
+    presence alongside HF.</li>
+  </ul>
+
+  <h3>What this composite does NOT capture</h3>
+  <ul>
+    <li>Closed-model capability: GPT-4o, Claude, Gemini Ultra, Qwen API, Doubao, Hunyuan</li>
+    <li>Government or defense AI development programs (non-public)</li>
+    <li>Gitee AI, Baidu AI Studio, or other Chinese platforms (not yet integrated)</li>
+    <li>Model quality or downstream task performance beyond Arena Elo</li>
+    <li>Multimodal capability, embodied AI, or specialized domain models</li>
+    <li>Lab research output not yet released as a public model</li>
+  </ul>
+
+  <h3>Update cadence</h3>
+  <p>
+    Release activity (HF Hub) is fetched daily via GitHub Actions.
+    Benchmark snapshots (Arena, Epoch AI) are manually updated in
+    <code>data/frontier_models_manual.json</code> when new data is available &mdash;
+    approximately monthly for Arena and quarterly for Epoch AI.
+    ModelScope supplement and ecosystem breadth estimates are reviewed quarterly.
   </p>
 
   <!-- ── Compute ────────────────────────────────────────────────────────────── -->

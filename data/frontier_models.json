@@ -1,22 +1,210 @@
 {
   "dimension": "frontier_models",
-  "metric_key": "recent_model_updates",
-  "labs_tracked": 26,
-  "description": "Public model update activity on Hugging Face Hub from tracked labs in the last 30 days, classified by lab country (US / China / Other / Unknown). This is a proxy metric for lab activity, not a definitive ranking of frontier model capability.",
+  "metric_key": "model_ecosystem_composite",
+  "schema_version": "2.0",
+  "title": "Open Model Ecosystem Index",
+  "subtitle": "A three-proxy composite measuring US and Chinese AI model activity across release output, benchmark performance, and platform distribution. This is NOT a direct measure of frontier or closed-model capability.",
   "fetched_at": "2026-03-25T08:07:00.638813+00:00",
-  "window_days": 30,
-  "source": {
-    "name": "Hugging Face Hub API",
-    "url": "https://huggingface.co/api/models",
-    "note": "Models filtered by a curated list of known labs (data/labs.json). Public models only."
+  "coverage_note": "Composite of: (1) release activity on HuggingFace Hub + ModelScope supplement, (2) benchmark performance from LMSYS Chatbot Arena and Epoch AI notable models, (3) ecosystem breadth across HF and ModelScope platforms. China is systematically undercounted on HF-only measures — this composite partially corrects for that via ModelScope supplement and ecosystem breadth proxy.",
+  "proxy_weights": {
+    "release_activity": 0.35,
+    "benchmark_performance": 0.45,
+    "ecosystem_breadth": 0.2
   },
   "summary": {
+    "US": {
+      "composite_score": 62.3,
+      "proxies": {
+        "release_activity": {
+          "raw_value": 155,
+          "share_score": 70.8,
+          "hf_count": 155,
+          "supplement_count": 0,
+          "source_note": "HuggingFace Hub 30-day activity from tracked US labs (data/labs.json). No ModelScope supplement applied for US.",
+          "sources": [
+            {
+              "name": "Hugging Face Hub API",
+              "url": "https://huggingface.co/api/models",
+              "confidence": "High"
+            }
+          ]
+        },
+        "benchmark_performance": {
+          "raw_value": 62.7,
+          "share_score": 62.7,
+          "arena_in_top20": 12,
+          "arena_share_score": 63.2,
+          "epoch_notable_count": 107,
+          "epoch_share_score": 62.2,
+          "source_note": "LMSYS Chatbot Arena top-20 Elo count (50%) + Epoch AI notable models 2y (50%). Manual snapshot — see data/frontier_models_manual.json.",
+          "sources": [
+            {
+              "name": "LMSYS Chatbot Arena",
+              "url": "https://chat.lmsys.org/",
+              "confidence": "Medium"
+            },
+            {
+              "name": "Epoch AI Notable AI Models",
+              "url": "https://epoch.ai/data/notable-ai-models",
+              "confidence": "Medium-High"
+            }
+          ]
+        },
+        "ecosystem_breadth": {
+          "raw_value": 46.3,
+          "share_score": 46.3,
+          "hf_share": 76.0,
+          "modelscope_share": 10.0,
+          "coverage_note": "HF monthly downloads share (55%) + ModelScope platform presence (45%). US dominates HF; China dominates ModelScope. Combined score reflects cross-platform balance.",
+          "sources": [
+            {
+              "name": "Hugging Face Hub API",
+              "url": "https://huggingface.co/api/models",
+              "confidence": "Medium-High"
+            },
+            {
+              "name": "ModelScope (manual estimate)",
+              "url": "https://modelscope.cn/models",
+              "confidence": "Low"
+            }
+          ]
+        }
+      }
+    },
+    "China": {
+      "composite_score": 37.7,
+      "proxies": {
+        "release_activity": {
+          "raw_value": 64,
+          "share_score": 29.2,
+          "hf_count": 48,
+          "supplement_count": 16,
+          "source_note": "HuggingFace Hub 30-day activity (48) + ModelScope supplement for labs not tracked via HF (est. 16). See data/frontier_models_manual.json for supplement detail.",
+          "sources": [
+            {
+              "name": "Hugging Face Hub API",
+              "url": "https://huggingface.co/api/models",
+              "confidence": "High"
+            },
+            {
+              "name": "ModelScope supplement (manual)",
+              "url": "https://modelscope.cn/models",
+              "confidence": "Low"
+            }
+          ]
+        },
+        "benchmark_performance": {
+          "raw_value": 37.3,
+          "share_score": 37.3,
+          "arena_in_top20": 7,
+          "arena_share_score": 36.8,
+          "epoch_notable_count": 65,
+          "epoch_share_score": 37.8,
+          "source_note": "LMSYS Chatbot Arena top-20 Elo count (50%) + Epoch AI notable models 2y (50%). Manual snapshot — see data/frontier_models_manual.json.",
+          "sources": [
+            {
+              "name": "LMSYS Chatbot Arena",
+              "url": "https://chat.lmsys.org/",
+              "confidence": "Medium"
+            },
+            {
+              "name": "Epoch AI Notable AI Models",
+              "url": "https://epoch.ai/data/notable-ai-models",
+              "confidence": "Medium-High"
+            }
+          ]
+        },
+        "ecosystem_breadth": {
+          "raw_value": 53.7,
+          "share_score": 53.7,
+          "hf_share": 24.0,
+          "modelscope_share": 90.0,
+          "coverage_note": "China leads on ecosystem breadth when ModelScope is included. Chinese labs dominate ModelScope, the second-largest global model platform. HF share reflects only international-facing distribution.",
+          "sources": [
+            {
+              "name": "Hugging Face Hub API",
+              "url": "https://huggingface.co/api/models",
+              "confidence": "Medium-High"
+            },
+            {
+              "name": "ModelScope (manual estimate)",
+              "url": "https://modelscope.cn/models",
+              "confidence": "Low"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "leaderboard": {
+    "source": "LMSYS Chatbot Arena — manual snapshot, see data/frontier_models_manual.json",
+    "snapshot_date": "2026-04-01",
+    "us_count": 12,
+    "china_count": 7,
+    "other_count": 1,
+    "models": [
+      {
+        "model_id": "amazon/gpt-oss-120b-p-eagle",
+        "author": "amazon",
+        "last_modified": "2026-03-25T03:14:44.000Z",
+        "downloads": 748,
+        "likes": 7,
+        "pipeline_tag": "",
+        "lab_name": "Amazon",
+        "country": "US"
+      },
+      {
+        "model_id": "allenai/MolmoPoint-GUI-8B",
+        "author": "allenai",
+        "last_modified": "2026-03-24T22:49:27.000Z",
+        "downloads": 213,
+        "likes": 13,
+        "pipeline_tag": "image-text-to-text",
+        "lab_name": "Allen Institute for AI",
+        "country": "US"
+      },
+      {
+        "model_id": "nvidia/Nemotron-Cascade-2-30B-A3B",
+        "author": "nvidia",
+        "last_modified": "2026-03-24T22:39:23.000Z",
+        "downloads": 38586,
+        "likes": 269,
+        "pipeline_tag": "text-generation",
+        "lab_name": "NVIDIA",
+        "country": "US"
+      },
+      {
+        "model_id": "nvidia/music-flamingo-2601-hf",
+        "author": "nvidia",
+        "last_modified": "2026-03-24T17:37:23.000Z",
+        "downloads": 8934,
+        "likes": 85,
+        "pipeline_tag": "audio-text-to-text",
+        "lab_name": "NVIDIA",
+        "country": "US"
+      },
+      {
+        "model_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
+        "author": "nvidia",
+        "last_modified": "2026-03-24T15:48:38.000Z",
+        "downloads": 948404,
+        "likes": 208,
+        "pipeline_tag": "text-generation",
+        "lab_name": "NVIDIA",
+        "country": "US"
+      }
+    ]
+  },
+  "hf_activity": {
+    "window_days": 30,
     "US": 155,
     "China": 48,
     "Other": 8,
     "Unknown": 0,
-    "total": 211
+    "total": 211,
+    "fetched_at": "2026-03-25T08:07:00.638813+00:00"
   },
+  "methodology_note": "Three-proxy composite scored as share-of-combined (US + China = 100). Proxy 1 — Release Activity (35%): HuggingFace Hub 30-day model updates from tracked labs + estimated ModelScope supplement for Chinese labs with limited HF presence. Proxy 2 — Benchmark Performance (45%): average of LMSYS Chatbot Arena top-20 Elo share and Epoch AI notable-model count share (2-year window). Manual snapshot updated periodically. Proxy 3 — Ecosystem Breadth (20%): HF monthly download share (55%) + ModelScope platform presence estimate (45%). Captures cross-platform distribution, not just HF activity. IMPORTANT: This composite measures open-model activity and public benchmark performance. It does NOT capture closed-model capability (GPT-4o, Claude, Qwen API, Doubao) or classified/non-public AI development programs.",
   "models": [
     {
       "model_id": "amazon/gpt-oss-120b-p-eagle",
@@ -2128,6 +2316,5 @@
       "lab_name": "Mistral AI",
       "country": "Other"
     }
-  ],
-  "methodology_note": "Models are attributed to countries based on the manual lab mapping in data/labs.json. Only models last modified within the rolling 30-day window are counted. Four categories are used: US (US-headquartered labs), China (China-headquartered labs), Other (identified labs outside US and China, e.g. Mistral AI in France), and Unknown (genuinely unclassifiable). This is an imperfect proxy — it captures public model update activity on Hugging Face Hub, not a comprehensive census of all frontier AI development. Closed models (GPT-4o, Claude, Gemini Ultra) are not counted. China-affiliated labs that publish primarily to domestic platforms (ModelScope, etc.) may be undercounted. NVIDIA publishes models across many specialized domains (robotics, medical imaging, weather forecasting) and re-hosts some third-party model weights; its raw count may not reflect general-purpose frontier model activity."
+  ]
 }

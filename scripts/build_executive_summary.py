@@ -57,10 +57,13 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "Reflects 30-day model update activity on Hugging Face Hub — a proxy for "
-            "lab output velocity, not a definitive capability ranking. China's frontier "
-            "capability (DeepSeek R1, Qwen series) is broader than HF Hub counts alone "
-            "capture. Counts reflect only US- and China-attributed labs in data/labs.json."
+            "Three-proxy composite: release activity on HuggingFace Hub + ModelScope supplement (35%), "
+            "benchmark performance via LMSYS Arena and Epoch AI notable models (45%), "
+            "and ecosystem breadth across HF and ModelScope platforms (20%). "
+            "Does NOT capture closed-model capability (GPT-4o, Claude, Qwen API, Doubao). "
+            "China's HF-only activity is a systematic undercount — ModelScope supplement and "
+            "ecosystem breadth proxy partially correct for this. "
+            "See data/frontier_models_manual.json for benchmark snapshots and methodology notes."
         ),
     },
     "talent": {
@@ -141,10 +144,14 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
     s = data.get("summary", {})
 
     if key == "frontier_models":
-        us = s.get("US")
-        cn = s.get("China")
-        return (float(us) if us is not None else None,
-                float(cn) if cn is not None else None)
+        us_val = s.get("US")
+        cn_val = s.get("China")
+        # Schema v2.0: summary.US is an object with composite_score
+        if isinstance(us_val, dict):
+            return (us_val.get("composite_score"), cn_val.get("composite_score") if isinstance(cn_val, dict) else None)
+        # Legacy schema: summary.US is a raw count integer
+        return (float(us_val) if us_val is not None else None,
+                float(cn_val) if cn_val is not None else None)
 
     if key == "talent":
         us = s.get("US")

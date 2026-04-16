@@ -1,8 +1,9 @@
 import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource, StrategicInsight, Trend } from './data'
 
-// Fetch from the production static site so we always get the latest pipeline data,
-// regardless of which branch this Next.js app is deployed from.
-const BASE = 'https://us-china-ai-race.vercel.app/data'
+// DATA_BASE overrides the default V1 data source — set it in .env.local for local
+// development with local data files, or in Vercel env vars for staging isolation.
+// Defaults to V1 production URL so V2 continues working without any config.
+const BASE = process.env.DATA_BASE ?? 'https://us-china-ai-race.vercel.app/data'
 
 // ── Mojibake fix ──────────────────────────────────────────────────────────────
 // The pipeline produces JSON where some strings are Windows-1252 interpretations
@@ -72,28 +73,53 @@ interface ExecutiveSummary {
 interface FrontierProxy {
   raw_value: number
   share_score: number
+  source_note?: string
+  coverage_note?: string
+}
+interface FrontierReleaseActivity extends FrontierProxy {
+  hf_count?: number
+  supplement_count?: number
+}
+interface FrontierBenchmark extends FrontierProxy {
+  arena_in_top20?: number
+  arena_share_score?: number
+  epoch_notable_count?: number
+  epoch_share_score?: number
+}
+interface FrontierEcosystem extends FrontierProxy {
+  hf_share?: number
+  modelscope_share?: number
 }
 interface FrontierCountry {
   composite_score: number
   proxies: {
-    capability: FrontierProxy
-    output:     FrontierProxy
+    // v2.0 schema (3 proxies)
+    release_activity?:     FrontierReleaseActivity
+    benchmark_performance?: FrontierBenchmark
+    ecosystem_breadth?:    FrontierEcosystem
+    // v1.x schema (2 proxies — backward compat)
+    capability?: FrontierProxy
+    output?:     FrontierProxy
   }
 }
 interface FrontierLeaderboardModel {
-  rank: number
-  model: string
+  rank?: number
+  model?: string
   developer: string
   country: string
-  elo: number | null
+  elo?: number | null
+  notes?: string
 }
 interface FrontierModels {
+  schema_version?: string
+  coverage_note?: string
   summary: { US: FrontierCountry; China: FrontierCountry }
-  leaderboard: {
-    models: FrontierLeaderboardModel[]
-    us_count: number
-    china_count: number
+  leaderboard?: {
+    models?: FrontierLeaderboardModel[]
+    us_count?: number
+    china_count?: number
   }
+  hf_activity?: { US: number; China: number }
 }
 
 interface TalentCountry {
@@ -290,8 +316,10 @@ const METHODOLOGY_URL = 'https://us-china-ai-race.vercel.app/docs/methodology.ht
 
 const TAB_SOURCES: Record<string, DimensionSource[]> = {
   frontier_models: [
-    { label: 'LMSYS Chatbot Arena', url: 'https://huggingface.co/datasets/mathewhe/chatbot-arena-elo' },
-    { label: 'Epoch AI', url: 'https://epoch.ai/data/notable-ai-models' },
+    { label: 'LMSYS Chatbot Arena', url: 'https://chat.lmsys.org/' },
+    { label: 'Epoch AI — Notable AI Models', url: 'https://epoch.ai/data/notable-ai-models' },
+    { label: 'Hugging Face Hub', url: 'https://huggingface.co/models' },
+    { label: 'ModelScope (魔搭社区)', url: 'https://modelscope.cn/models' },
   ],
   talent: [
     { label: 'OpenAlex API', url: 'https://api.openalex.org/works' },
@@ -381,19 +409,51 @@ export async function getLiveData(): Promise<LiveData> {
   }))
 
   // ── Per-dimension proxy shortcuts ───────────────────────────────────────────
-  const fmUs         = fm.summary.US
-  const fmCn         = fm.summary.China
-  const fmUsComp     = fmUs.composite_score
-  const fmCnComp     = fmCn.composite_score
-  const fmLeader     = fmUsComp >= fmCnComp ? 'US' : 'China'
-  const fmCapUsCount = fmUs.proxies.capability.raw_value
-  const fmCapCnCount = fmCn.proxies.capability.raw_value
-  const fmCapUsShare = fmUs.proxies.capability.share_score
-  const fmCapCnShare = fmCn.proxies.capability.share_score
-  const fmOutUsCount = fmUs.proxies.output.raw_value
-  const fmOutCnCount = fmCn.proxies.output.raw_value
-  const fmOutUsShare = fmUs.proxies.output.share_score
-  const fmOutCnShare = fmCn.proxies.output.share_score
+  const fmUs     = fm.summary.US
+  const fmCn     = fm.summary.China
+  const fmUsComp = fmUs.composite_score
+  const fmCnComp = fmCn.composite_score
+  const fmLeader = fmUsComp >= fmCnComp ? 'US' : 'China'
+
+  // Detect schema version — v2.0 has release_activity / benchmark_performance / ecosystem_breadth;
+  // v1.x has capability / output. Normalize to a common set of display values.
+  const fmIsV2 = !!(fmUs.proxies?.release_activity || fmUs.proxies?.benchmark_performance)
+
+  // Benchmark proxy (Arena + Epoch) — v2.0: benchmark_performance; v1.x: capability
+  const fmBmUs = fmIsV2 ? fmUs.proxies.benchmark_performance : fmUs.proxies.capability
+  const fmBmCn = fmIsV2 ? fmCn.proxies.benchmark_performance : fmCn.proxies.capability
+  const fmBmUsShare  = fmBmUs?.share_score ?? 0
+  const fmBmCnShare  = fmBmCn?.share_score ?? 0
+  const fmArenaUsCount = (fmIsV2 ? (fmBmUs as FrontierBenchmark)?.arena_in_top20 : fmBmUs?.raw_value) ?? 0
+  const fmArenaCnCount = (fmIsV2 ? (fmBmCn as FrontierBenchmark)?.arena_in_top20 : fmBmCn?.raw_value) ?? 0
+  const fmEpochUsCount = (fmIsV2 ? (fmBmUs as FrontierBenchmark)?.epoch_notable_count : undefined) ?? 0
+  const fmEpochCnCount = (fmIsV2 ? (fmBmCn as FrontierBenchmark)?.epoch_notable_count : undefined) ?? 0
+
+  // Release activity proxy — v2.0: release_activity; v1.x: output
+  const fmRaUs = fmIsV2 ? fmUs.proxies.release_activity : fmUs.proxies.output
+  const fmRaCn = fmIsV2 ? fmCn.proxies.release_activity : fmCn.proxies.output
+  const fmRaUsShare  = fmRaUs?.share_score ?? 0
+  const fmRaCnShare  = fmRaCn?.share_score ?? 0
+  const fmRaUsCount  = fmRaUs?.raw_value ?? 0
+  const fmRaCnCount  = fmRaCn?.raw_value ?? 0
+  const fmHfUsCount  = (fmIsV2 ? (fmRaUs as FrontierReleaseActivity)?.hf_count : fmRaUs?.raw_value) ?? fmRaUsCount
+  const fmHfCnCount  = (fmIsV2 ? (fmRaCn as FrontierReleaseActivity)?.hf_count : fmRaCn?.raw_value) ?? fmRaCnCount
+  const fmSuppCnCount = (fmIsV2 ? (fmRaCn as FrontierReleaseActivity)?.supplement_count : undefined) ?? 0
+
+  // Ecosystem breadth proxy — v2.0 only
+  const fmEcoUs = fmIsV2 ? fmUs.proxies.ecosystem_breadth : undefined
+  const fmEcoCn = fmIsV2 ? fmCn.proxies.ecosystem_breadth : undefined
+  const fmEcoUsShare = (fmEcoUs as FrontierEcosystem | undefined)?.share_score ?? 0
+  const fmEcoCnShare = (fmEcoCn as FrontierEcosystem | undefined)?.share_score ?? 0
+
+  // Leaderboard counts
+  const fmLeaderboard = fm.leaderboard
+  const fmArenaUsLb   = fmLeaderboard?.us_count    ?? fmArenaUsCount
+  const fmArenaCnLb   = fmLeaderboard?.china_count ?? fmArenaCnCount
+
+  // Coverage note from data (or default)
+  const fmCoverageNote = fm.coverage_note ??
+    'HuggingFace Hub alone undercounts China — ModelScope and domestic platforms not captured.'
 
   const talUs = tal.summary.US
   const talCn = tal.summary.China
@@ -489,19 +549,25 @@ export async function getLiveData(): Promise<LiveData> {
       id: 'frontier_models',
       label: 'Frontier Models',
       headline: fmLeader === 'US'
-        ? `US leads on frontier model composite: ${fmUsComp.toFixed(1)} vs ${fmCnComp.toFixed(1)}`
-        : `China leads on frontier model composite: ${fmCnComp.toFixed(1)} vs ${fmUsComp.toFixed(1)}`,
-      headlineNote: 'Arena Elo capability ranking (60%) + Epoch AI notable model output (40%)',
-      explanation: getCaveat('frontier_models'),
+        ? `US leads on open model ecosystem index: ${fmUsComp.toFixed(1)} vs ${fmCnComp.toFixed(1)}`
+        : `China leads on open model ecosystem index: ${fmCnComp.toFixed(1)} vs ${fmUsComp.toFixed(1)}`,
+      headlineNote: fmIsV2
+        ? 'Release activity (35%) + benchmark performance (45%) + ecosystem breadth (20%) — open models only, not closed-model capability'
+        : 'Arena Elo capability ranking (60%) + Epoch AI notable model output (40%)',
+      explanation: getCaveat('frontier_models') + '\n\nCoverage note: ' + fmCoverageNote,
       barData: [
-        { label: 'Capability share — top 20 Arena Elo (%)', US: Math.round(fmCapUsShare), CN: Math.round(fmCapCnShare) },
-        { label: 'Output share — notable models 2y (%)',    US: Math.round(fmOutUsShare), CN: Math.round(fmOutCnShare) },
-        { label: 'Composite score',                         US: Math.round(fmUsComp),     CN: Math.round(fmCnComp)     },
+        { label: 'Benchmark performance share — Arena + Epoch (%)', US: Math.round(fmBmUsShare), CN: Math.round(fmBmCnShare) },
+        { label: 'Release activity share — HF Hub + ModelScope (%)', US: Math.round(fmRaUsShare), CN: Math.round(fmRaCnShare) },
+        ...(fmIsV2 ? [{ label: 'Ecosystem breadth share — HF + ModelScope (%)', US: Math.round(fmEcoUsShare), CN: Math.round(fmEcoCnShare) }] : []),
+        { label: 'Composite score', US: Math.round(fmUsComp), CN: Math.round(fmCnComp) },
       ],
       barXLabel: 'Share of combined US + China (%)',
       tableRows: [
-        { label: 'Models in top 20 (Arena Elo)',        us: fmt(fmCapUsCount), cn: fmt(fmCapCnCount) },
-        { label: 'Notable models released (2y, Epoch)', us: fmt(fmOutUsCount), cn: fmt(fmOutCnCount) },
+        { label: 'Models in top 20 (LMSYS Arena Elo)',       us: fmt(fmArenaUsLb),   cn: fmt(fmArenaCnLb) },
+        ...(fmIsV2 && fmEpochUsCount > 0 ? [{ label: 'Notable models 2y (Epoch AI)',           us: fmt(fmEpochUsCount), cn: fmt(fmEpochCnCount) }] : []),
+        { label: 'HF Hub active models (30d)',                us: fmt(fmHfUsCount),   cn: fmt(fmHfCnCount) },
+        ...(fmIsV2 && fmSuppCnCount > 0 ? [{ label: 'ModelScope supplement (est.)',             us: '—', cn: `~${fmt(fmSuppCnCount)}` }] : []),
+        ...(fmIsV2 ? [{ label: 'Ecosystem breadth share (%)', us: `${Math.round(fmEcoUsShare)}%`, cn: `${Math.round(fmEcoCnShare)}%` }] : []),
         { label: 'Score (0–10)', ...getScore('frontier_models') },
       ],
       sources: TAB_SOURCES.frontier_models,

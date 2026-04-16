@@ -397,147 +397,231 @@ china_score = 10.0 &minus; us_score</pre>
   </ul>
 
   <!-- ── Energy ────────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Energy</span> Energy &amp; Power Constraints &mdash; AI Scaling Capacity</h2>
+  <h2><span class="dim-badge">Energy</span> Energy &amp; Power Constraints &mdash; AI Scaling Capacity (v2)</h2>
 
   <h3>What this measures</h3>
   <p>
     How well the U.S. and China can sustain large-scale AI compute growth from an
     energy and power infrastructure perspective. This is <strong>not</strong> a measure
-    of total electricity generation or consumption. It focuses specifically on:
+    of total electricity generation or consumption. It focuses on four AI-relevant factors:
   </p>
   <ul>
-    <li>The pace of electricity supply expansion (can new capacity be built fast enough?)</li>
-    <li>Available headroom in the grid before AI/data center demand becomes a constraint</li>
+    <li>The pace of electricity supply expansion (can new capacity be built fast enough to meet AI demand?)</li>
+    <li>Available headroom in the grid before AI/data center demand becomes a binding constraint</li>
     <li>The speed at which new power capacity can actually reach data center operators</li>
+    <li>The cost and access environment for AI data center operators (electricity pricing, DC siting support)</li>
   </ul>
   <p>
     A country may have vast total electricity capacity but still face AI-specific
-    energy bottlenecks if grid connection is slow, permitting is blocked, or data
-    center demand is already consuming a large share of available generation.
+    bottlenecks if grid connection is slow, permitting is blocked, data center demand
+    is already saturating the grid, or electricity prices make large-scale AI compute
+    economically infeasible.
   </p>
+  <div class="caveat">
+    <p>
+      <strong>Important caveat &mdash; intermittency of new capacity:</strong> The majority
+      of new electricity capacity in both countries is variable renewable (solar and wind).
+      In 2024, roughly 80% of US additions and &gt;95% of China&rsquo;s additions were
+      variable renewable. AI data centers require firm, continuous 24/7 power; solar and
+      wind provide power only when conditions are favorable. The raw capacity addition rate
+      therefore slightly overstates AI-usable capacity expansion. Battery storage deployment
+      is increasing but does not yet provide multi-day firm capacity at scale. This limitation
+      is noted but not adjusted in the normalized score &mdash; annual addition rate remains
+      the best available signal for long-run energy supply expansion.
+    </p>
+  </div>
 
-  <h3>Proxy 1 &mdash; Electricity Capacity Addition Rate (40% weight)</h3>
+  <h3>Proxy 1 &mdash; Electricity Capacity Addition Rate (30% weight)</h3>
   <p>
-    <strong>Sources:</strong> U.S. EIA, <em>Electric Power Monthly</em> (January 2024);
-    IEA, <em>World Energy Outlook 2024</em> (October 2024); China National Energy
-    Administration (NEA) 2023 Annual Report.
+    <strong>Sources:</strong> U.S. EIA, <em>Electric Power Monthly</em> (February 2025);
+    IEA, <em>Renewables 2024</em> (November 2024);
+    China National Energy Administration (NEA) 2024 Annual Report
+    (国家能源局2024年能源工作综述).
   </p>
   <p>
     <strong>Definition:</strong> Annual additions to installed electricity generation
-    capacity, expressed as a percentage of the existing installed base. Captures the
-    pace of energy supply expansion &mdash; the most important long-run factor for
-    sustaining AI compute growth.
+    capacity, expressed as a percentage of the existing installed base. Updated to
+    2024 data (from 2023 in the previous version).
   </p>
   <p>
-    <strong>Values used:</strong>
-    U.S.: ~3.7% (46 GW added in 2023; 1,247 GW installed base).
-    China: ~11.9% (345 GW added in 2023; 2,900 GW installed base &mdash;
-    driven by ~217 GW solar, ~75 GW wind; China has led global capacity
-    additions every year since 2013).
+    <strong>Values used (2024):</strong>
+    U.S.: ~4.8% (~60 GW added; ~1,250 GW base. Solar ~35 GW, battery storage ~18 GW,
+    wind ~7 GW).
+    China: ~13.1% (~380 GW added; ~2,900 GW base. Record solar year: &ge;280 GW solar,
+    ~80 GW wind. China installed more solar in 2024 than the rest of the world combined.)
   </p>
   <p>
     <strong>Normalization:</strong> (rate &divide; 15%) &times; 100, capped at 100.
-    15% is above any major economy&rsquo;s sustained growth rate and provides
-    meaningful spread between U.S. (~25) and China (~79).
+  </p>
+  <p>
+    <strong>Weight reduced from 40% to 30%</strong> compared to v1, to partially reflect
+    the intermittency caveat above. Raw addition rate slightly overstates near-term AI-usable
+    expansion; the weight reduction moderates the influence of this proxy without eliminating it.
   </p>
 
-  <h3>Proxy 2 &mdash; Data Center Power Demand Headroom (35% weight)</h3>
+  <h3>Proxy 2 &mdash; Data Center Power Demand Headroom (25% weight)</h3>
   <p>
-    <strong>Source:</strong> IEA, <em>Energy and AI</em> (January 2025);
-    EIA Electric Power Annual 2023 (US generation total);
-    NBS China Statistical Yearbook 2023 (China generation total).
+    <strong>Sources:</strong> IEA, <em>Energy and AI</em> (January 2025);
+    IEA, <em>Electricity 2025</em> (January 2025);
+    EIA (US generation total); NBS China Statistical Yearbook 2024 (中国统计年鉴2024).
+    Updated to 2024 estimates.
   </p>
   <p>
     <strong>Definition:</strong> Data center electricity consumption as a percentage
     of total national electricity generation, inverted to a headroom score.
-    Lower data center share = more capacity available for AI scaling = higher score.
+    Lower DC share = more capacity available for future AI scaling = higher score.
   </p>
   <p>
-    <strong>Values used:</strong>
-    U.S.: ~4.8% DC share (200 TWh / 4,178 TWh) &rarr; headroom score 52.0.
-    China: ~2.5% DC share (220 TWh / 8,900 TWh) &rarr; headroom score 75.0.
-    China&rsquo;s lower share reflects its significantly larger generation base.
+    <strong>Values used (2024 est.):</strong>
+    U.S.: ~6.2% DC share (~260 TWh / ~4,200 TWh) &rarr; headroom score 38.0.
+    China: ~2.6% DC share (~250 TWh / ~9,500 TWh) &rarr; headroom score 74.0.
   </p>
   <p>
     <strong>Normalization:</strong>
     Headroom score = (10 &minus; dc_share%) &divide; 10 &times; 100.
-    At 10% DC share, headroom = 0 (fully pressured); at 0%, headroom = 100.
-    IEA projects US data center demand could exceed 500 TWh by 2030 under a
-    high-AI scenario, which would push DC share above 10% &mdash; making this
-    the binding constraint for US AI scaling by late decade.
+    At 10% DC share, headroom = 0 (fully pressured).
+  </p>
+  <p>
+    <strong>Asymmetric trajectory:</strong> The US DC share rose from ~4.8% (2023) to ~6.2%
+    (2024) &mdash; a significant one-year jump driven by the AI data center buildout.
+    IEA projects US DC demand could exceed 500 TWh by 2030 under a high-AI scenario
+    (~12% of generation), which would fully exhaust current headroom. China&rsquo;s very
+    large generation base (~9,500 TWh) provides substantially more buffer at the same
+    absolute DC demand level.
   </p>
   <div class="caveat">
     <p>
       <strong>Confidence note &mdash; China:</strong> China&rsquo;s data center electricity
-      statistics are less granular than US figures. The ~220 TWh estimate from IEA covers
-      ICT workloads broadly; AI-specific demand is a subset. Treat as directional.
+      statistics are less granular than US figures. The ~250 TWh estimate from IEA covers
+      ICT workloads broadly; AI-specific demand is a subset.
+      Confidence: medium. The US figure is high confidence (IEA + EIA corroboration).
     </p>
   </div>
 
   <h3>Proxy 3 &mdash; Grid Connection Speed Score (25% weight)</h3>
   <p>
     <strong>Sources:</strong> Lawrence Berkeley National Laboratory (LBNL),
-    <em>Queued Up: Characteristics of Power Plants Seeking Transmission Interconnection</em>
-    (2024 edition); IEA, <em>Energy and AI</em> (January 2025); China NDRC/NEA.
+    <em>Queued Up 2025</em>; IEA, <em>Energy and AI</em> (January 2025); China NDRC/NEA.
   </p>
   <p>
     <strong>Definition:</strong> A curated 0&ndash;100 score reflecting how quickly new
     electricity generation capacity can be connected to the grid and made available to
     data center operators. Combines interconnection queue depth, regulatory speed, and
-    state capacity for infrastructure direction.
+    national capacity for infrastructure direction.
   </p>
   <p>
     <strong>Values used:</strong>
-    U.S.: 30/100 &mdash; LBNL 2024 reports 2,600+ GW of generation waiting in US
-    interconnection queues; median wait exceeds 5 years. FERC Order 2023 reforms
-    are in progress but have not yet cleared the backlog. Multiple AI data center
-    projects have been delayed by grid connection timelines.
-    China: 65/100 &mdash; State-directed permitting (NDRC) enables faster execution.
-    Score is moderated from higher by: (a) renewable curtailment in some western
-    regions; (b) transmission bottlenecks between western generation and eastern
-    demand centers, partially addressed by Ultra-High-Voltage (UHV) buildout.
+    U.S.: 30/100 &mdash; LBNL Queued Up 2025: 2,600+ GW in queues; median wait &gt;5 years.
+    FERC Order 2023 cluster-based reforms are underway but the backlog remains severe.
+    Virginia and Texas AI data center clusters are already straining local grid capacity.
+    China: 65/100 &mdash; NDRC/NEA state-directed permitting enables compressed timelines
+    for strategic AI infrastructure. The East Data West Compute (东数西算, EDWC) program
+    pre-approves sites and grid connections at 8 national computing power hub nodes.
+    Score moderated by: (a) renewable curtailment in western provinces (Inner Mongolia,
+    Xinjiang) means data centers sited for cheap power may face reliability issues;
+    (b) west-to-east transmission gap partially addressed by Ultra-High-Voltage (UHV) buildout.
   </p>
   <div class="caveat">
     <p>
-      <strong>Confidence note:</strong> Grid connection speed is a curated qualitative-
-      quantitative composite, not a single directly measured metric. Confidence is
-      medium for both countries. The US score may improve if FERC Order 2023 reforms
-      meaningfully reduce interconnection timelines over 2025&ndash;2027.
+      <strong>Confidence note:</strong> Grid connection speed is a curated composite
+      assessment, not a single directly measured metric. Confidence: medium for both countries.
     </p>
   </div>
+
+  <h3>Proxy 4 &mdash; Energy Cost &amp; DC Power Access (20% weight)</h3>
+  <p>
+    <strong>Sources:</strong> EIA Annual Energy Outlook 2025 (US industrial electricity prices);
+    China NBS Statistical Yearbook 2024 / 中国统计年鉴2024 (China national electricity prices);
+    NDRC East Data West Compute policy documents 2022&ndash;2024.
+  </p>
+  <p>
+    <strong>Definition:</strong> A curated 0&ndash;100 score combining three sub-factors:
+    (a) industrial electricity price (lower = better AI ROI on compute),
+    (b) PPA market depth (availability of long-term Power Purchase Agreements at favorable rates),
+    (c) government and utility support for AI data center siting and preferential power pricing.
+  </p>
+  <p>
+    <strong>Values used:</strong>
+    U.S.: 50/100 &mdash; Industrial electricity ~7.7 cents/kWh avg (EIA 2024), rising 8%
+    year-over-year as AI demand increases. PPA market is deep: hyperscalers execute multi-GW
+    contracts at 3.5&ndash;6 cents/kWh in best markets (Pacific NW, Texas, Midwest).
+    IRA clean energy credits improve economics for large operators.
+    Rising grid connection fees and energy price competition in key markets (Northern Virginia,
+    Texas) offset the PPA advantage.
+    China: 65/100 &mdash; National industrial electricity ~7.5 cents/kWh (comparable to US).
+    Significant cost advantage in NDRC-designated AI computing zones:
+    Inner Mongolia, Xinjiang, Guizhou, Sichuan offer ~2&ndash;4 cents/kWh to qualifying
+    computing facilities. Government-directed 东数西算 (East Data West Compute) policy
+    provides structured access to cheap western power for eastern AI workloads.
+    Offset by: west-to-east transmission costs; renewable curtailment in cheapest zones.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Confidence note:</strong> Retail/industrial prices differ from actual contracted
+      rates for large operators; PPA terms are commercially sensitive; Chinese zone pricing
+      requires NDRC qualification. Confidence: medium for both countries.
+    </p>
+  </div>
+
+  <h3>Supplementary &mdash; AI Data Center Pipeline (not scored)</h3>
+  <p>
+    Announced and under-construction AI data center capacity (2024&ndash;2026 pipeline)
+    is included in the raw data as context only &mdash; it is <strong>not</strong> used
+    in the composite score. Reason: announced capacity frequently diverges from what is
+    actually built on schedule; grid connection timelines mean announced capacity and
+    available power can diverge by years; and comparing private commercial commitments
+    (US hyperscalers) with government policy targets (China NDRC) is methodologically
+    inconsistent.
+  </p>
+  <p>
+    Indicative estimates: US ~60&ndash;80 GW equivalent (Microsoft, Google, Amazon, Meta,
+    combined CapEx exceeding $300B for 2025). China ~30&ndash;50 GW equivalent (Alibaba,
+    ByteDance, Tencent, Huawei Cloud + EDWC national nodes; NDRC 10M rack target).
+  </p>
 
   <h3>Composite construction</h3>
   <p>
     <strong>Formula:</strong>
-    Composite = 0.40 &times; capacity_score + 0.35 &times; headroom_score + 0.25 &times; grid_score
+    Composite = 0.30 &times; capacity_score + 0.25 &times; headroom_score
+    + 0.25 &times; grid_score + 0.20 &times; energy_cost_score
   </p>
   <p>
-    Capacity addition rate (40%) is weighted highest because it directly measures the
-    rate of energy supply expansion &mdash; the most important factor for long-run AI
-    scaling. Headroom (35%) captures near-term grid slack. Grid speed (25%) captures
-    the infrastructure bottleneck that can prevent theoretical capacity from being
-    practically usable.
+    Capacity addition rate (30%) measures long-run supply expansion.
+    DC demand headroom (25%) captures near-term grid slack for additional AI load.
+    Grid connection speed (25%) captures whether capacity can reach data centers quickly.
+    Energy cost &amp; access (20%) captures the economic feasibility of scaling AI compute.
+  </p>
+  <p>
+    <strong>Result (2024 data):</strong> US composite ~36.6, China ~73.9.
+    China&rsquo;s strong lead reflects: substantially faster capacity addition,
+    more grid headroom relative to its large generation base, faster state-directed
+    permitting, and preferential power pricing in EDWC zones.
+    The US&rsquo;s primary constraint is grid interconnection backlog; its PPA market
+    provides some cost mitigation.
   </p>
 
   <h3>Update cadence</h3>
   <p>
     The script runs weekly via GitHub Actions (Monday 11:00 UTC). Underlying data
-    updates annually: EIA Electric Power Monthly (~January, US capacity additions);
-    IEA World Energy Outlook (~October, China capacity); IEA Energy and AI (irregular,
-    data center demand); LBNL Queued Up (~April&ndash;May, US interconnection queue).
+    updates annually: EIA Electric Power Monthly (~February, US capacity additions);
+    IEA Renewables (~November, global capacity); China NEA Annual Report (~January);
+    IEA Energy and AI (irregular, data center demand); LBNL Queued Up (~April&ndash;May);
+    EIA Annual Energy Outlook (~February); NBS Statistical Yearbook (~October).
     When new editions are published, update reference values in
     <code>scripts/fetch_energy.py</code>.
   </p>
 
   <h3>What this composite does NOT capture</h3>
   <ul>
-    <li>Total electricity generation or consumption</li>
-    <li>Energy cost (electricity price per kWh, which affects AI ROI)</li>
+    <li>Total electricity generation or consumption (not an AI-relevant measure on its own)</li>
+    <li>Capacity factor / firmness of power &mdash; solar/wind additions provide fewer AI-usable MWh than nameplate MW implies</li>
     <li>Carbon intensity or renewable mix of AI-relevant power</li>
-    <li>Nuclear power capacity expansion (US SMR pipeline; China nuclear buildout)</li>
-    <li>Private or off-grid power arrangements for specific AI campuses</li>
-    <li>Long-run transmission infrastructure adequacy (UHV lines, HVDC)</li>
-    <li>Water availability constraints for data center cooling</li>
+    <li>Nuclear power expansion (US SMR pipeline; China has 23+ units under construction as of 2024)</li>
+    <li>Private or off-grid power arrangements (natural gas generators co-located with AI campuses)</li>
+    <li>Water availability constraints for data center cooling (increasingly binding in arid US SW)</li>
+    <li>Long-run transmission adequacy (UHV buildout pace in China; US long-distance HVDC projects)</li>
+    <li>Actual PPA prices for specific hyperscaler contracts (commercially sensitive)</li>
+    <li>Regional grid reliability scores (NERC region data for US; provincial reliability in China)</li>
   </ul>
 
   <!-- ── Frontier Models ───────────────────────────────────────────────────── -->

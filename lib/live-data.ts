@@ -278,14 +278,17 @@ interface Diffusion {
 
 interface EnergyProxy {
   composite_score: number
+  effective_weights?: Record<string, number>
   proxies: {
-    capacity_addition_rate: { raw_value: number; normalized_score: number }
+    capacity_addition_rate: { raw_value: number; normalized_score: number; capacity_mix_note?: string }
     dc_demand_headroom: { raw_value: number; normalized_score: number }
     grid_connection_speed: { raw_value: number; normalized_score: number }
+    energy_cost_access?: { raw_value: number; normalized_score: number; industrial_electricity_cents_kwh?: number; dc_zone_electricity_cents_kwh?: number }
   }
 }
 
 interface Energy {
+  schema_version?: string
   summary: { US: EnergyProxy; China: EnergyProxy }
 }
 
@@ -420,9 +423,13 @@ const TAB_SOURCES: Record<string, DimensionSource[]> = {
   ],
   energy: [
     { label: 'IEA Energy and AI 2025', url: 'https://www.iea.org/reports/energy-and-ai' },
-    { label: 'EIA Electric Power Monthly', url: 'https://www.eia.gov/electricity/monthly/' },
-    { label: 'LBNL Queued Up 2024', url: 'https://emp.lbl.gov/queues' },
-    { label: 'IEA WEO 2024', url: 'https://www.iea.org/reports/world-energy-outlook-2024' },
+    { label: 'EIA Electric Power Monthly (Feb 2025)', url: 'https://www.eia.gov/electricity/monthly/' },
+    { label: 'LBNL Queued Up 2025', url: 'https://emp.lbl.gov/queues' },
+    { label: 'IEA Renewables 2024', url: 'https://www.iea.org/reports/renewables-2024' },
+    { label: 'China NEA 2024 Annual Report (国家能源局)', url: 'https://www.nea.gov.cn/' },
+    { label: 'EIA Annual Energy Outlook 2025', url: 'https://www.eia.gov/outlooks/aeo/' },
+    { label: 'China NBS Statistical Yearbook 2024 (中国统计年鉴)', url: 'https://www.stats.gov.cn/sj/ndsj/' },
+    { label: 'NDRC East Data West Compute (东数西算)', url: 'https://www.ndrc.gov.cn/' },
   ],
   investment: [
     { label: 'Stanford AI Index 2025 (PitchBook)', url: 'https://hai.stanford.edu/ai-index/2025-ai-index-report/economy' },
@@ -647,6 +654,8 @@ export async function getLiveData(): Promise<LiveData> {
 
   const engUs = eng.summary.US
   const engCn = eng.summary.China
+  const engUsEnCost = engUs.proxies.energy_cost_access
+  const engCnEnCost = engCn.proxies.energy_cost_access
 
   const invUs = inv.summary.US
   const invCn = inv.summary.China
@@ -890,7 +899,7 @@ export async function getLiveData(): Promise<LiveData> {
       id: 'energy',
       label: 'Energy',
       headline: `China leads on AI energy scaling: composite ${engCn.composite_score.toFixed(1)} vs ${engUs.composite_score.toFixed(1)}`,
-      headlineNote: 'capacity addition rate, DC demand headroom, grid connection speed',
+      headlineNote: 'capacity addition rate (30%) + DC demand headroom (25%) + grid connection speed (25%) + energy cost & DC access (20%)',
       explanation: getCaveat('energy'),
       barData: [
         {
@@ -908,6 +917,11 @@ export async function getLiveData(): Promise<LiveData> {
           US: Math.round(engUs.proxies.grid_connection_speed.normalized_score),
           CN: Math.round(engCn.proxies.grid_connection_speed.normalized_score),
         },
+        ...(engUsEnCost ? [{
+          label: 'Energy cost & DC power access (norm.)',
+          US: Math.round(engUsEnCost.normalized_score),
+          CN: Math.round(engCnEnCost?.normalized_score ?? 0),
+        }] : []),
         {
           label: 'Composite score (0–100)',
           US: Math.round(engUs.composite_score),
@@ -917,12 +931,12 @@ export async function getLiveData(): Promise<LiveData> {
       barXLabel: 'Score (0–100)',
       tableRows: [
         {
-          label: 'Annual capacity growth',
+          label: 'Annual capacity growth (2024)',
           us: `${engUs.proxies.capacity_addition_rate.raw_value.toFixed(1)}%`,
           cn: `${engCn.proxies.capacity_addition_rate.raw_value.toFixed(1)}%`,
         },
         {
-          label: 'DC share of grid',
+          label: 'DC share of grid (2024 est.)',
           us: `${engUs.proxies.dc_demand_headroom.raw_value}%`,
           cn: `${engCn.proxies.dc_demand_headroom.raw_value}%`,
         },
@@ -931,6 +945,11 @@ export async function getLiveData(): Promise<LiveData> {
           us: `${engUs.proxies.grid_connection_speed.raw_value} / 100`,
           cn: `${engCn.proxies.grid_connection_speed.raw_value} / 100`,
         },
+        ...(engUsEnCost ? [{
+          label: 'Energy cost & DC access score',
+          us: `${engUsEnCost.raw_value} / 100 (avg ~${engUsEnCost.industrial_electricity_cents_kwh}¢/kWh)`,
+          cn: `${engCnEnCost?.raw_value ?? '—'} / 100 (zones ~${engCnEnCost?.dc_zone_electricity_cents_kwh ?? '—'}¢/kWh)`,
+        }] : []),
         { label: 'Score (0–10)', ...getScore('energy') },
       ],
       sources: TAB_SOURCES.energy,

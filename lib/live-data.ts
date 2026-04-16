@@ -122,16 +122,50 @@ interface FrontierModels {
   hf_activity?: { US: number; China: number }
 }
 
+interface TalentResearchProxy {
+  weight: number
+  share_score: number
+  paper_volume:  { raw_value: number; share_score: number; window: string }
+  high_impact:   { raw_value: number; share_score: number; data_ok: boolean }
+  top_cited:     { raw_value: number; share_score: number; data_ok: boolean }
+}
+interface TalentPipelineProxy {
+  weight: number
+  share_score: number
+  phd_annual: number
+  source: string
+  confidence: string
+  coverage_note?: string
+}
+interface TalentEliteProxy {
+  weight: number
+  share_score: number
+  researcher_count_est?: number
+  source: string
+  confidence: string
+  migration_note?: string
+}
 interface TalentCountry {
   composite_score: number
   proxies: {
-    paper_volume:   { raw_value: number; share_score: number }
-    top_conference: { raw_value: number; share_score: number }
-    high_impact:    { raw_value: number; share_score: number }
+    research_output?: TalentResearchProxy
+    pipeline?:        TalentPipelineProxy
+    elite_migration?: TalentEliteProxy
+    // v1.x legacy proxies (backward compat)
+    paper_volume?:   { raw_value: number; share_score: number }
+    top_conference?: { raw_value: number; share_score: number }
+    high_impact?:    { raw_value: number; share_score: number }
   }
 }
 interface Talent {
+  schema_version?: string
   summary: { US: TalentCountry; China: TalentCountry }
+  openalex?: {
+    volume:      { us: number; china: number }
+    high_impact: { us: number; china: number; data_ok: boolean }
+    top_cited:   { us: number; china: number; data_ok: boolean }
+  }
+  coverage_warning?: string
 }
 
 interface TopSystem {
@@ -363,6 +397,9 @@ const TAB_SOURCES: Record<string, DimensionSource[]> = {
   ],
   talent: [
     { label: 'OpenAlex API', url: 'https://api.openalex.org/works' },
+    { label: 'MacroPolo AI Talent Tracker', url: 'https://macropolo.org/digital-projects/the-global-ai-talent-tracker/' },
+    { label: 'NSF Survey of Earned Doctorates 2022', url: 'https://ncses.nsf.gov/pubs/nsf24300' },
+    { label: 'China MoE Education Statistics (教育部统计数据)', url: 'http://www.moe.gov.cn/jyb_sjzl/moe_560/2022/' },
   ],
   compute: [
     { label: 'TOP500', url: 'https://www.top500.org' },
@@ -500,18 +537,48 @@ export async function getLiveData(): Promise<LiveData> {
   const talUsComposite = talUs.composite_score
   const talCnComposite = talCn.composite_score
   const talLeader = talUsComposite >= talCnComposite ? 'US' : 'China'
-  const talVolUsShare  = talUs.proxies.paper_volume.share_score
-  const talVolCnShare  = talCn.proxies.paper_volume.share_score
-  const talConfUsShare = talUs.proxies.top_conference.share_score
-  const talConfCnShare = talCn.proxies.top_conference.share_score
-  const talImpUsShare  = talUs.proxies.high_impact.share_score
-  const talImpCnShare  = talCn.proxies.high_impact.share_score
-  const talVolUsRaw    = talUs.proxies.paper_volume.raw_value
-  const talVolCnRaw    = talCn.proxies.paper_volume.raw_value
-  const talConfUsRaw   = talUs.proxies.top_conference.raw_value
-  const talConfCnRaw   = talCn.proxies.top_conference.raw_value
-  const talImpUsRaw    = talUs.proxies.high_impact.raw_value
-  const talImpCnRaw    = talCn.proxies.high_impact.raw_value
+  const talIsV2 = tal.schema_version === '2.0' && !!(talUs.proxies?.research_output)
+
+  // v2.0 proxies
+  const talRoUs = talUs.proxies?.research_output
+  const talRoCn = talCn.proxies?.research_output
+  const talPlUs = talUs.proxies?.pipeline
+  const talPlCn = talCn.proxies?.pipeline
+  const talEmUs = talUs.proxies?.elite_migration
+  const talEmCn = talCn.proxies?.elite_migration
+
+  // Research output sub-signals (v2.0)
+  const talVolUsShare   = talIsV2 ? (talRoUs?.paper_volume?.share_score ?? 0) : (talUs.proxies?.paper_volume?.share_score ?? 0)
+  const talVolCnShare   = talIsV2 ? (talRoCn?.paper_volume?.share_score ?? 0) : (talCn.proxies?.paper_volume?.share_score ?? 0)
+  const talVolUsRaw     = talIsV2 ? (talRoUs?.paper_volume?.raw_value ?? 0) : (talUs.proxies?.paper_volume?.raw_value ?? 0)
+  const talVolCnRaw     = talIsV2 ? (talRoCn?.paper_volume?.raw_value ?? 0) : (talCn.proxies?.paper_volume?.raw_value ?? 0)
+  const talHiUsShare    = talIsV2 ? (talRoUs?.high_impact?.share_score ?? 0) : (talUs.proxies?.high_impact?.share_score ?? 0)
+  const talHiCnShare    = talIsV2 ? (talRoCn?.high_impact?.share_score ?? 0) : (talCn.proxies?.high_impact?.share_score ?? 0)
+  const talHiUsRaw      = talIsV2 ? (talRoUs?.high_impact?.raw_value ?? 0) : (talUs.proxies?.high_impact?.raw_value ?? 0)
+  const talHiCnRaw      = talIsV2 ? (talRoCn?.high_impact?.raw_value ?? 0) : (talCn.proxies?.high_impact?.raw_value ?? 0)
+  const talTcUsShare    = talRoUs?.top_cited?.share_score ?? 0
+  const talTcCnShare    = talRoCn?.top_cited?.share_score ?? 0
+  const talTcUsRaw      = talRoUs?.top_cited?.raw_value ?? 0
+  const talTcCnRaw      = talRoCn?.top_cited?.raw_value ?? 0
+  const talRoUsShare    = talIsV2 ? (talRoUs?.share_score ?? 0) : talVolUsShare
+  const talRoCnShare    = talIsV2 ? (talRoCn?.share_score ?? 0) : talVolCnShare
+
+  // Pipeline proxy (v2.0)
+  const talPlUsShare    = talPlUs?.share_score ?? 0
+  const talPlCnShare    = talPlCn?.share_score ?? 0
+  const talPlUsPhd      = talPlUs?.phd_annual ?? 0
+  const talPlCnPhd      = talPlCn?.phd_annual ?? 0
+
+  // Elite/migration proxy (v2.0)
+  const talEmUsShare    = talEmUs?.share_score ?? 0
+  const talEmCnShare    = talEmCn?.share_score ?? 0
+  const talEmUsCount    = talEmUs?.researcher_count_est ?? 0
+  const talEmCnCount    = talEmCn?.researcher_count_est ?? 0
+  const talEmMigNote    = talEmUs?.migration_note ?? ''
+
+  // Legacy compat (v1.x had top_conference not research_output)
+  const talConfUsShare  = !talIsV2 ? (talUs.proxies?.top_conference?.share_score ?? talHiUsShare) : talTcUsShare
+  const talConfCnShare  = !talIsV2 ? (talCn.proxies?.top_conference?.share_score ?? talHiCnShare) : talTcCnShare
 
   // Schema detection — v2.0 has composite_score at summary.US level
   const compIsV2 = comp.schema_version === '2.0' && !!(comp.summary.US as ComputeCountryV2).composite_score
@@ -634,24 +701,49 @@ export async function getLiveData(): Promise<LiveData> {
     {
       id: 'talent',
       label: 'Talent',
-      headline: talLeader === 'US'
-        ? `US leads on talent composite: ${talUsComposite.toFixed(1)} vs ${talCnComposite.toFixed(1)}`
-        : `China leads on talent composite: ${talCnComposite.toFixed(1)} vs ${talUsComposite.toFixed(1)}`,
-      headlineNote: 'paper volume (30%) + quality papers cited ≥25 (40%) + high-impact cited ≥100 (30%)',
-      explanation: getCaveat('talent'),
-      barData: [
-        { label: 'Paper volume share (%)',            US: Math.round(talVolUsShare),  CN: Math.round(talVolCnShare)  },
-        { label: 'Quality papers share (cited ≥25%)', US: Math.round(talConfUsShare), CN: Math.round(talConfCnShare) },
-        { label: 'High-impact papers share (%)',     US: Math.round(talImpUsShare),  CN: Math.round(talImpCnShare)  },
-        { label: 'Composite score',                  US: Math.round(talUsComposite), CN: Math.round(talCnComposite) },
-      ],
+      headline: talIsV2
+        ? (talLeader === 'US'
+            ? `US leads on talent pipeline index: ${talUsComposite.toFixed(1)} vs ${talCnComposite.toFixed(1)}`
+            : Math.abs(talUsComposite - talCnComposite) < 1
+              ? `Talent race near-tied: US ${talUsComposite.toFixed(1)} vs China ${talCnComposite.toFixed(1)}`
+              : `China leads on talent pipeline index: ${talCnComposite.toFixed(1)} vs ${talUsComposite.toFixed(1)}`)
+        : (talLeader === 'US'
+            ? `US leads on talent composite: ${talUsComposite.toFixed(1)} vs ${talCnComposite.toFixed(1)}`
+            : `China leads on talent composite: ${talCnComposite.toFixed(1)} vs ${talUsComposite.toFixed(1)}`),
+      headlineNote: talIsV2
+        ? 'Research output quality (35%) + domestic PhD pipeline (25%) + elite researchers + migration (40%)'
+        : 'paper volume (30%) + quality papers cited ≥25 (40%) + high-impact cited ≥100 (30%)',
+      explanation: getCaveat('talent') + (tal.coverage_warning ? '\n\nCoverage note: ' + tal.coverage_warning : ''),
+      barData: talIsV2
+        ? [
+            { label: 'Research output quality — papers + citations (%)', US: Math.round(talRoUsShare),  CN: Math.round(talRoCnShare)  },
+            { label: 'Domestic talent pipeline — PhD graduates (%)',      US: Math.round(talPlUsShare),  CN: Math.round(talPlCnShare)  },
+            { label: 'Elite researchers at US/China institutions (%)',     US: Math.round(talEmUsShare),  CN: Math.round(talEmCnShare)  },
+            { label: 'Composite score (%)',                               US: Math.round(talUsComposite), CN: Math.round(talCnComposite) },
+          ]
+        : [
+            { label: 'Paper volume share (%)',            US: Math.round(talVolUsShare),  CN: Math.round(talVolCnShare)  },
+            { label: 'Quality papers share (cited ≥25%)', US: Math.round(talConfUsShare), CN: Math.round(talConfCnShare) },
+            { label: 'High-impact papers share (%)',      US: Math.round(talHiUsShare),   CN: Math.round(talHiCnShare)   },
+            { label: 'Composite score',                   US: Math.round(talUsComposite), CN: Math.round(talCnComposite) },
+          ],
       barXLabel: 'Share of combined US + China (%)',
-      tableRows: [
-        { label: 'AI papers (12-month)',              us: fmt(talVolUsRaw),  cn: fmt(talVolCnRaw)  },
-        { label: 'Quality papers cited ≥25 (2y)',       us: fmt(talConfUsRaw), cn: fmt(talConfCnRaw) },
-        { label: 'High-impact papers cited ≥100 (3y)', us: fmt(talImpUsRaw),  cn: fmt(talImpCnRaw)  },
-        { label: 'Score (0–10)', ...getScore('talent') },
-      ],
+      tableRows: talIsV2
+        ? [
+            { label: 'AI papers (12m, OpenAlex)',              us: fmt(talVolUsRaw),       cn: fmt(talVolCnRaw) },
+            { label: 'High-impact papers (cited ≥50, 3y)',     us: fmt(talHiUsRaw),        cn: fmt(talHiCnRaw) + (talRoUs?.high_impact?.data_ok === false ? ' (est.)' : '') },
+            { label: 'Top-cited papers (cited ≥25, 2y)',       us: fmt(talTcUsRaw),        cn: fmt(talTcCnRaw) + (talRoUs?.top_cited?.data_ok === false ? ' (est.)' : '') },
+            { label: 'Annual AI/CS PhDs (est.)',               us: `~${fmt(talPlUsPhd)}`,  cn: `~${fmt(talPlCnPhd)}` },
+            { label: 'Elite researchers (MacroPolo 2023)',     us: `~${fmt(talEmUsCount)} (${Math.round(talEmUsShare)}%)`, cn: `~${fmt(talEmCnCount)} (${Math.round(talEmCnShare)}%)` },
+            ...(talEmMigNote ? [{ label: 'China-origin researchers at US institutions', us: '~36% of China-undergrad cohort', cn: '~34% (up from 25% in 2019)' }] : []),
+            { label: 'Score (0–10)', ...getScore('talent') },
+          ]
+        : [
+            { label: 'AI papers (12-month)',               us: fmt(talVolUsRaw),  cn: fmt(talVolCnRaw)  },
+            { label: 'Quality papers cited ≥25 (2y)',        us: fmt(talConfUsShare > 0 ? Math.round(talConfUsShare) : 0), cn: fmt(talConfCnShare > 0 ? Math.round(talConfCnShare) : 0) },
+            { label: 'High-impact papers cited ≥100 (3y)',  us: fmt(talHiUsRaw),  cn: fmt(talHiCnRaw)  },
+            { label: 'Score (0–10)', ...getScore('talent') },
+          ],
       sources: TAB_SOURCES.talent,
     },
     {

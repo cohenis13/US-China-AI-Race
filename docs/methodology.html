@@ -67,10 +67,9 @@
 
   <h4>Count-share (Frontier Models, Talent, Compute)</h4>
   <p>
-    For Frontier Models and Talent, raw counts are converted to a U.S. share of the combined
-    U.S.&thinsp;+&thinsp;China total. For Compute, the triangulated composite score (which already
-    sums to 100 across US+China) is used directly. All are then scaled to 0&ndash;10 and clamped
-    to [0.5,&thinsp;9.5]:
+    For Frontier Models, Talent, and Compute, each dimension produces a composite score that
+    already sums to 100 across US+China (share-of-combined). This is then scaled to 0&ndash;10
+    and clamped to [0.5,&thinsp;9.5]:
   </p>
   <pre>us_score  = clamp( (US / (US + China)) &times; 10, 0.5, 9.5 )
 china_score = 10.0 &minus; us_score</pre>
@@ -119,7 +118,7 @@ china_score = 10.0 &minus; us_score</pre>
   <ul>
     <li><strong>Compute score (~7.6 US / ~2.4 China):</strong> Triangulated lower bound. China&rsquo;s true share is likely 25&ndash;40% — the scored composite (~25%) reflects systematic non-reporting, not actual compute absence. The separate hidden-compute band in the UI documents this explicitly.</li>
     <li><strong>Frontier Models score:</strong> Reflects open model ecosystem (HuggingFace + ModelScope supplement). Closed-model capability (GPT-4o, Claude, Qwen API, Doubao) is not captured.</li>
-    <li><strong>Talent score:</strong> Paper volume, not quality or headcount. China leads on volume; the U.S. leads on top-cited work and lab concentration.</li>
+    <li><strong>Talent score (~5.0/5.0 near-tie):</strong> Composite of research output, PhD pipeline, and elite researcher placement. China leads heavily on pipeline and output volume; the US leads on elite lab concentration. The near-tie reflects a real structural tension — if China-to-US talent flows changed materially, China's score would rise.</li>
     <li><strong>Adoption and Energy scores:</strong> Based on curated reference data with annual update cadence &mdash; not live signals.</li>
   </ul>
 
@@ -835,12 +834,143 @@ china_score = 10.0 &minus; us_score</pre>
   </p>
 
   <!-- ── Talent ─────────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Talent</span> AI Research Output</h2>
+  <h2><span class="dim-badge">Talent</span> AI Talent Pipeline Index</h2>
   <p>
-    Volume of AI research papers from US- and China-affiliated institutions, sourced from
-    OpenAlex over the last 12 months. A proxy for research output, not researcher headcount
-    or citation impact. Papers with multinational authorship are counted in each country
-    represented.
+    A multi-source index combining three complementary views of the talent competition:
+    where AI research is being produced (research output), where researchers are being trained
+    (domestic pipeline), and where the world&rsquo;s best AI researchers actually work
+    (elite concentration). Each captures a different part of the talent story &mdash; none alone
+    is sufficient.
+  </p>
+
+  <h3>Why a single metric is insufficient</h3>
+  <p>
+    The talent competition is layered, and different metrics tell very different stories:
+  </p>
+  <ul>
+    <li><strong>Paper volume alone</strong> puts China at ~64% of the US+China total and
+    implies a large China lead. This is real &mdash; China produces far more AI research papers
+    &mdash; but paper volume does not measure where elite researchers work, or which papers
+    drive frontier AI systems.</li>
+    <li><strong>Elite researcher placement alone</strong> puts the US at ~72% and implies
+    a large US lead. This is also real &mdash; US frontier labs concentrate a disproportionate
+    share of the world&rsquo;s top AI researchers &mdash; but it ignores China&rsquo;s massive
+    production pipeline that supplies global AI talent.</li>
+    <li><strong>PhD pipeline alone</strong> implies near-total China dominance (~81%), but
+    many China-trained researchers work in the US or Europe after graduation.</li>
+  </ul>
+  <p>
+    The composite deliberately balances these perspectives, yielding a near-tie (&asymp;50/50)
+    that reflects the genuine complexity of the talent competition.
+  </p>
+
+  <h3>Proxy 1 &mdash; Research Output Quality (weight 35%)</h3>
+  <p>
+    Source: <strong>OpenAlex API</strong>. Three sub-signals, each counted by institution
+    country of at least one author:
+  </p>
+  <ul>
+    <li><strong>Paper volume (30% within proxy):</strong> AI/ML/NLP/CV concept papers published
+    in the last 12 months. Includes all indexed venues. China leads substantially (~64% share).
+    Papers with multinational authorship are counted in each country &mdash; the sum of country
+    counts exceeds the paper total. <em>Concepts: Artificial Intelligence, Machine Learning,
+    NLP, Computer Vision (OpenAlex concept IDs).</em></li>
+    <li><strong>High-impact papers (40% within proxy):</strong> Papers published in the last 3
+    years with &ge;50 citations. Filters to work with demonstrated impact beyond volume.
+    US leads (~54% share). <em>Note: cited_by_count is the current total, not a 3-year count
+    &mdash; newer papers are disadvantaged. OpenAlex filter may not be available on all
+    instances; seeded estimates are used as fallback.</em></li>
+    <li><strong>Top-cited papers (30% within proxy):</strong> Papers published in the last 2
+    years with &ge;25 citations. Intermediate quality threshold. US slight lead (~52% share).
+    Same fallback caveat as high-impact.</li>
+  </ul>
+  <p>
+    <strong>Key bias:</strong> OpenAlex counts affiliation at time of publication, not
+    nationality. A China-born researcher at MIT is counted as a US author. This inflates the
+    US share in all OpenAlex metrics &mdash; the true &ldquo;Chinese-origin&rdquo; research
+    contribution is higher than country-of-institution counting shows.
+  </p>
+  <p>
+    <strong>Chinese-language sources:</strong> Chinese researchers increasingly publish in
+    Chinese-language journals and conference proceedings not indexed in OpenAlex
+    (e.g., <em>计算机学报 (Journal of Computer Science)</em>,
+    <em>中国科学：信息科学 (SCIENCE CHINA Information Sciences)</em>,
+    <em>CNKI</em> preprints). This systematically undercounts China&rsquo;s true research
+    output volume in OpenAlex. The 64% paper-volume share for China is likely an undercount.
+  </p>
+
+  <h3>Proxy 2 &mdash; Domestic Talent Pipeline (weight 25%)</h3>
+  <p>
+    Sources: <strong>NSF Survey of Earned Doctorates 2022</strong> (US) and
+    <strong>China Ministry of Education statistics 2022</strong> (China,
+    <a href="http://www.moe.gov.cn/jyb_sjzl/moe_560/2022/">教育部统计数据</a>).
+  </p>
+  <ul>
+    <li><strong>US:</strong> ~10,477 CS doctoral degrees awarded in 2022 (NSF SED). Estimated
+    35% AI-adjacent = ~3,667 AI-related PhDs. ~66% of US CS PhD recipients are foreign-born;
+    ~28% are China-born. The metric counts graduates at US universities regardless of nationality.
+    <em>Confidence: high (government survey, comprehensive).</em></li>
+    <li><strong>China:</strong> ~52,000 CS/IT doctoral degrees awarded in 2022 (MoE). Estimated
+    30% AI-adjacent = ~15,600 AI-related PhDs. China&rsquo;s broad CS classification includes
+    applied engineering not classified as AI research in Western databases; the adjusted figure
+    is conservative. ~12% pursue graduate training abroad, primarily in the US.
+    <em>Confidence: medium (official statistics, but AI classification is broader and
+    peer-reviewed verification is limited).</em></li>
+  </ul>
+  <p>
+    China produces approximately 4&times; more AI-adjacent PhDs per year.
+    China share: ~81%; US share: ~19%.
+    This is a <em>flow</em> metric (graduates per year), not a stock metric (total
+    active researchers). It measures long-run production capacity of the university system.
+  </p>
+
+  <h3>Proxy 3 &mdash; Elite Researcher Concentration + Migration (weight 40%)</h3>
+  <p>
+    Source: <strong>MacroPolo AI Talent Tracker 2023</strong>, covering the institutional
+    affiliations of the top 2,000 AI researchers by citation count at NeurIPS, ICML, and ICLR.
+  </p>
+  <p>
+    Key findings used in this proxy:
+  </p>
+  <ul>
+    <li>~57% of the world&rsquo;s top AI researchers work at US institutions.
+    ~22% work at Chinese institutions. US share of US+China combined: ~72.2%.
+    <em>Confidence: medium-high (systematic methodology on public data; ~1-2 year lag).</em></li>
+    <li><strong>Migration pattern:</strong> ~36% of China-undergraduate AI researchers in the
+    global top-tier work at US institutions. ~34% work at Chinese institutions (up from ~25%
+    in 2019). This is the primary talent flow: China trains the pipeline, the US captures
+    much of the elite, but China&rsquo;s domestic retention is rising.</li>
+    <li><strong>US frontier lab concentration:</strong> OpenAI, Google DeepMind, Meta AI,
+    and Microsoft Research collectively hold the largest concentrations of top-cited AI
+    researchers globally. Chinese counterparts (BAAI, Shanghai AI Lab, ByteDance Research)
+    are growing but smaller in absolute scale.</li>
+  </ul>
+  <p>
+    This proxy receives the highest weight (40%) because placement at frontier labs has the
+    most direct connection to producing breakthrough AI systems. The US advantage here is real
+    and large, but China&rsquo;s trajectory is important: domestic retention has improved
+    significantly, and Chinese frontier labs have become serious research institutions.
+  </p>
+
+  <h3>Composite and interpretation</h3>
+  <p>
+    The composite (weights 35/25/40) produces a near-tie: US ~50%, China ~50%.
+    This is a meaningful result, not a rounding artifact. It reflects a genuine structural
+    tension: China leads strongly on pipeline volume (proxy 2), and leads slightly on
+    research output quantity (proxy 1); the US leads substantially on elite researcher
+    capture (proxy 3). These effects nearly cancel out at the composite level.
+  </p>
+  <p>
+    The key policy-relevant insight is not &ldquo;who is winning&rdquo; but the underlying
+    dynamic: the US benefits disproportionately from Chinese-trained researchers, and if
+    US-China talent flows were severed or China continued accelerating domestic retention,
+    China&rsquo;s composite score would rise substantially.
+  </p>
+  <p>
+    Manual inputs (PhD stats, MacroPolo data) are maintained in
+    <code>data/talent_manual.json</code>. The MacroPolo Tracker is released annually;
+    the NSF SDR and China MoE data are released approximately 18&ndash;24 months after
+    the reference year.
   </p>
 
   <hr style="border:none;border-top:1px solid var(--border);margin:40px 0 24px;" />

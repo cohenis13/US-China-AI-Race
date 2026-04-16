@@ -72,9 +72,16 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "Reflects AI research paper volume from OpenAlex over 12 months — a proxy "
-            "for research output, not researcher quality, citation impact, or headcount. "
-            "China leads on volume; the US tends to lead on top-cited work."
+            "Three-proxy talent pipeline index: research output quality (35%, OpenAlex "
+            "paper volume + high-impact + top-cited), domestic PhD pipeline (25%, NSF SDR "
+            "and China MoE annual graduate data), and elite researcher concentration + "
+            "migration (40%, MacroPolo AI Talent Tracker). "
+            "Paper volume alone overstates China's advantage; adding elite researcher "
+            "placement (US captures ~72% of combined US+China top researchers) produces "
+            "a near-tie. Key dynamic: China's universities produce 4× more AI-adjacent "
+            "PhDs than the US, but the US absorbs a disproportionate share of elite talent "
+            "from China and globally. China's domestic retention of top researchers has "
+            "increased significantly since 2019."
         ),
     },
     "compute": {
@@ -157,10 +164,15 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
                 float(cn_val) if cn_val is not None else None)
 
     if key == "talent":
-        us = s.get("US")
-        cn = s.get("China")
-        return (float(us) if us is not None else None,
-                float(cn) if cn is not None else None)
+        us_val = s.get("US")
+        cn_val = s.get("China")
+        # Schema v2.0: composite_score (triangulated index — US+China sums to 100)
+        if isinstance(us_val, dict) and us_val.get("composite_score") is not None:
+            return (us_val.get("composite_score"),
+                    cn_val.get("composite_score") if isinstance(cn_val, dict) else None)
+        # Legacy schema: plain integer paper counts
+        return (float(us_val) if us_val is not None else None,
+                float(cn_val) if cn_val is not None else None)
 
     if key == "compute":
         us_val = s.get("US")

@@ -1,57 +1,12 @@
 import type { ScoreCardDimension, Confidence, Leader, RadarDimension, DimensionTab, DimensionSource, StrategicInsight, Trend } from './data'
+import { readFile } from 'fs/promises'
+import { join } from 'path'
 
-// DATA_BASE overrides the default V1 data source — set it in .env.local for local
-// development with local data files, or in Vercel env vars for staging isolation.
-// Defaults to V1 production URL so V2 continues working without any config.
-// DATA_BASE overrides the data source. Falls back to VERCEL_URL (auto-set by Vercel on every
-// deployment) so each preview/production deployment reads its own /api/data files. Local dev
-// without either env var falls back to V1 production as a last resort.
-const BASE = process.env.DATA_BASE
-  ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/api/data` : 'https://us-china-ai-race.vercel.app/data')
-
-// ── Mojibake fix ──────────────────────────────────────────────────────────────
-// The pipeline produces JSON where some strings are Windows-1252 interpretations
-// of UTF-8 bytes (e.g. em dash "—" becomes "â€""). We reverse this here.
-const WIN1252_TO_BYTE: Record<number, number> = {
-  0x20AC: 0x80, 0x201A: 0x82, 0x0192: 0x83, 0x201E: 0x84, 0x2026: 0x85,
-  0x2020: 0x86, 0x2021: 0x87, 0x02C6: 0x88, 0x2030: 0x89, 0x0160: 0x8A,
-  0x2039: 0x8B, 0x0152: 0x8C, 0x017D: 0x8E, 0x2018: 0x91, 0x2019: 0x92,
-  0x201C: 0x93, 0x201D: 0x94, 0x2022: 0x95, 0x2013: 0x96, 0x2014: 0x97,
-  0x02DC: 0x98, 0x2122: 0x99, 0x0161: 0x9A, 0x203A: 0x9B, 0x0153: 0x9C,
-  0x017E: 0x9E, 0x0178: 0x9F,
-}
-
-function decodeMojibake(str: string): string {
-  const bytes = new Uint8Array(str.length)
-  for (let i = 0; i < str.length; i++) {
-    const cp = str.charCodeAt(i)
-    // A character outside Latin-1 that isn't a Windows-1252 special char
-    // means this isn't a mojibake string — leave it untouched.
-    if (cp > 0xFF && WIN1252_TO_BYTE[cp] === undefined) return str
-    bytes[i] = WIN1252_TO_BYTE[cp] ?? cp
-  }
-  try {
-    return new TextDecoder('utf-8', { fatal: true }).decode(bytes)
-  } catch {
-    return str // bytes don't form valid UTF-8 → wasn't mojibake
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function fixStrings(obj: any): any {
-  if (typeof obj === 'string') return decodeMojibake(obj)
-  if (Array.isArray(obj)) return obj.map(fixStrings)
-  if (obj !== null && typeof obj === 'object')
-    return Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, fixStrings(v)]))
-  return obj
-}
-
-// Always fetch fresh — data is updated daily by the pipeline
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function fetchJson(file: string): Promise<any> {
-  const res = await fetch(`${BASE}/${file}`, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Failed to fetch ${file}: ${res.status}`)
-  return fixStrings(await res.json())
+  const filePath = join(process.cwd(), 'data', file)
+  const content = await readFile(filePath, 'utf-8')
+  return JSON.parse(content)
 }
 
 // ── Minimal types for the JSON shapes we consume ─────────────────────────────

@@ -83,12 +83,15 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "Based on cumulative AI training compute (FLOPs) for notable models since 2023 "
-            "(Epoch AI). US ~86%, China ~14% of disclosed training compute. Understates "
-            "China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose "
-            "compute; Huawei Ascend deployments are also excluded. The real gap is likely "
-            "narrower than the score suggests — estimated 3-5x in frontier AI clusters, "
-            "not the 6x implied by the training-compute share alone."
+            "Triangulated index: training compute (40%, Epoch AI disclosed FLOPs), "
+            "hardware supply (40%, NVIDIA FY2025 10-K geographic revenue + Huawei Ascend "
+            "deployment estimates), and visible HPC (20%, TOP500 + China non-submission "
+            "corrections + US private clusters). "
+            "Systematic gaps remain: China's frontier closed models do not disclose compute; "
+            "Huawei Ascend deployment scale relies on analyst estimates; China stopped "
+            "submitting most HPC systems to TOP500 after 2023. "
+            "A separate hidden-compute uncertainty band (China 20–42% est.) is shown in "
+            "the detail panel — the scored composite (25%) is a conservative lower bound."
         ),
     },
     "adoption": {
@@ -160,14 +163,20 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
                 float(cn) if cn is not None else None)
 
     if key == "compute":
-        # Prefer Epoch AI training compute (primary); fall back to TOP500 Rmax
-        us_flop = s.get("US", {}).get("training_compute_flop")
-        cn_flop = s.get("China", {}).get("training_compute_flop")
+        us_val = s.get("US")
+        cn_val = s.get("China")
+        # Schema v2.0: composite_score (triangulated index — US+China sums to 100)
+        if isinstance(us_val, dict) and us_val.get("composite_score") is not None:
+            return (us_val.get("composite_score"),
+                    cn_val.get("composite_score") if isinstance(cn_val, dict) else None)
+        # Pre-v2.0: Epoch AI training compute FLOPs
+        us_flop = (us_val or {}).get("training_compute_flop")
+        cn_flop = (cn_val or {}).get("training_compute_flop")
         if us_flop is not None and cn_flop is not None:
             return float(us_flop), float(cn_flop)
-        # Legacy / fallback: TOP500 Rmax
-        us = s.get("US", {}).get("rmax_pflops")
-        cn = s.get("China", {}).get("rmax_pflops")
+        # Legacy: TOP500 Rmax
+        us = (us_val or {}).get("rmax_pflops")
+        cn = (cn_val or {}).get("rmax_pflops")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 
@@ -407,10 +416,11 @@ def main() -> None:
             "divided by 10, giving independent scores that do not necessarily sum to 10."
         ),
         "confidence_note": (
-            "Compute score (TOP500 only) significantly understates China\u2019s actual HPC "
-            "capacity. Frontier Models score reflects HF Hub activity only. "
-            "See data/executive_summary.json dimension caveats and docs/methodology.html "
-            "for full details."
+            "Compute score is a triangulated lower bound — China's true compute share "
+            "is likely 25\u201340% (see hidden_compute_band in data/compute.json). "
+            "Frontier Models score reflects the open model ecosystem (HF + ModelScope); "
+            "closed-model capability not captured. "
+            "See dimension caveats and docs/methodology.html for full details."
         ),
     }
 

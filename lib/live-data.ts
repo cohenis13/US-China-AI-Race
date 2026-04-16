@@ -150,21 +150,61 @@ interface TopModel {
   training_compute_flop: number
 }
 
+interface ComputeProxy {
+  weight: number
+  share_score: number
+  coverage_note?: string
+  source?: string
+  confidence?: string
+}
+interface ComputeTrainingProxy extends ComputeProxy {
+  raw_flop?: number | null
+  model_count?: number
+}
+interface ComputeHardwareProxy extends ComputeProxy {
+  nvidia_revenue_usd_b?: number | null
+  ascend_equivalent_usd_b?: number | null
+}
+interface ComputeHpcProxy extends ComputeProxy {
+  top500_rmax_pflops?: number
+  private_cluster_addition_pflops?: number
+  non_top500_correction_pflops?: number
+  adjusted_pflops?: number
+}
+interface ComputeCountryV2 {
+  composite_score: number
+  proxies: {
+    training_compute?: ComputeTrainingProxy
+    hardware_supply?:  ComputeHardwareProxy
+    visible_hpc?:      ComputeHpcProxy
+  }
+}
+interface ComputeHiddenBand {
+  china_lower_pct: number
+  china_point_pct: number
+  china_upper_pct: number
+  us_lower_pct: number
+  us_point_pct: number
+  us_upper_pct: number
+  narrative?: string
+}
+
 interface Compute {
+  schema_version?: string
   summary: {
-    US: {
+    // v2.0 schema
+    US: ComputeCountryV2 | {
       training_compute_flop?: number; model_count?: number
-      // new shape post-Epoch AI
       top500_systems?: number; top500_rmax_pflops?: number
-      // legacy shape (old TOP500-only output)
       systems?: number; rmax_pflops?: number
     }
-    China: {
+    China: ComputeCountryV2 | {
       training_compute_flop?: number; model_count?: number
       top500_systems?: number; top500_rmax_pflops?: number
       systems?: number; rmax_pflops?: number
     }
   }
+  hidden_compute_band?: ComputeHiddenBand
   epoch_ai?: {
     cutoff_date: string
     top_models_by_compute: TopModel[]
@@ -473,35 +513,54 @@ export async function getLiveData(): Promise<LiveData> {
   const talImpUsRaw    = talUs.proxies.high_impact.raw_value
   const talImpCnRaw    = talCn.proxies.high_impact.raw_value
 
-  // Epoch AI training compute (primary) — with TOP500 fallback
-  const compUsFlop     = comp.summary.US.training_compute_flop
-  const compCnFlop     = comp.summary.China.training_compute_flop
-  const compUsModels   = comp.summary.US.model_count ?? 0
-  const compCnModels   = comp.summary.China.model_count ?? 0
-  const epochOk        = compUsFlop != null && compCnFlop != null
-  const compFlopTotal  = epochOk ? (compUsFlop! + compCnFlop!) : 1
+  // Schema detection — v2.0 has composite_score at summary.US level
+  const compIsV2 = comp.schema_version === '2.0' && !!(comp.summary.US as ComputeCountryV2).composite_score
 
-  // TOP500 (secondary / supplementary)
+  // v2.0 proxy shortcuts
+  const compV2Us    = compIsV2 ? comp.summary.US as ComputeCountryV2 : null
+  const compV2Cn    = compIsV2 ? comp.summary.China as ComputeCountryV2 : null
+  const compUsComp  = compV2Us?.composite_score ?? 0
+  const compCnComp  = compV2Cn?.composite_score ?? 0
+
+  const compTcUs    = compV2Us?.proxies?.training_compute
+  const compTcCn    = compV2Cn?.proxies?.training_compute
+  const compHwUs    = compV2Us?.proxies?.hardware_supply
+  const compHwCn    = compV2Cn?.proxies?.hardware_supply
+  const compHpcUs   = compV2Us?.proxies?.visible_hpc
+  const compHpcCn   = compV2Cn?.proxies?.visible_hpc
+
+  const hiddenBand  = comp.hidden_compute_band ?? null
+
+  // Legacy: Epoch AI training compute (pre-v2.0) — with TOP500 fallback
+  const legacyUs = comp.summary.US as { training_compute_flop?: number; model_count?: number; rmax_pflops?: number; systems?: number; top500_rmax_pflops?: number; top500_systems?: number }
+  const legacyCn = comp.summary.China as { training_compute_flop?: number; model_count?: number; rmax_pflops?: number; systems?: number; top500_rmax_pflops?: number; top500_systems?: number }
+  const compUsFlop     = !compIsV2 ? legacyUs.training_compute_flop : undefined
+  const compCnFlop     = !compIsV2 ? legacyCn.training_compute_flop : undefined
+  const compUsModels   = compIsV2 ? (compTcUs?.model_count ?? 0) : (legacyUs.model_count ?? 0)
+  const compCnModels   = compIsV2 ? (compTcCn?.model_count ?? 0) : (legacyCn.model_count ?? 0)
+  const epochOk        = compIsV2 ? !!(compTcUs?.share_score) : (compUsFlop != null && compCnFlop != null)
+  const compFlopTotal  = (!compIsV2 && epochOk) ? (compUsFlop! + compCnFlop!) : 1
+
+  // TOP500 (supplementary for all schema versions)
   const top500Data     = comp.top500 ?? null
-  const legacySystems  = comp.top_systems ?? null   // pre-Epoch shape
+  const legacySystems  = comp.top_systems ?? null
   const compEdition    = top500Data?.list_edition ?? comp.list_edition ?? 'Nov 2025'
-  // Rmax: new nested shape → new flat shape → legacy flat shape → 0
   const compUsRmax    = top500Data?.summary?.US?.rmax_pflops
-    ?? comp.summary.US.top500_rmax_pflops
-    ?? comp.summary.US.rmax_pflops    // legacy TOP500-only format
-    ?? 0
+    ?? legacyUs.top500_rmax_pflops
+    ?? legacyUs.rmax_pflops
+    ?? (compIsV2 ? (compHpcUs?.top500_rmax_pflops ?? 0) : 0)
   const compCnRmax    = top500Data?.summary?.China?.rmax_pflops
-    ?? comp.summary.China.top500_rmax_pflops
-    ?? comp.summary.China.rmax_pflops // legacy
-    ?? 0
+    ?? legacyCn.top500_rmax_pflops
+    ?? legacyCn.rmax_pflops
+    ?? (compIsV2 ? (compHpcCn?.top500_rmax_pflops ?? 0) : 0)
   const compRmaxTotal  = compUsRmax + compCnRmax
   const compUsSystems = top500Data?.summary?.US?.systems
-    ?? comp.summary.US.top500_systems
-    ?? comp.summary.US.systems        // legacy
+    ?? legacyUs.top500_systems
+    ?? legacyUs.systems
     ?? 0
   const compCnSystems = top500Data?.summary?.China?.systems
-    ?? comp.summary.China.top500_systems
-    ?? comp.summary.China.systems     // legacy
+    ?? legacyCn.top500_systems
+    ?? legacyCn.systems
     ?? 0
   const compSystemsTotal = compUsSystems + compCnSystems
 
@@ -598,38 +657,61 @@ export async function getLiveData(): Promise<LiveData> {
     {
       id: 'compute',
       label: 'Compute',
-      headline: epochOk
-        ? `US accounts for ${pct(compUsFlop!, compFlopTotal)}% of disclosed AI training compute`
-        : `US holds ${pct(compUsRmax, compRmaxTotal)}% of disclosed TOP500 compute`,
-      headlineNote: epochOk
-        ? `Notable models since ${epochCutoff.slice(0,4)} — US ${compUsModels} models, China ${compCnModels} models (Epoch AI)`
-        : `${fmt(Math.round(compUsRmax))} vs ${fmt(Math.round(compCnRmax))} PFlops (TOP500, ${compEdition})`,
-      explanation: epochOk
-        ? `Epoch AI tracks training compute (FLOPs) for notable AI models globally. Since ${epochCutoff.slice(0,4)}, US labs account for ~${pct(compUsFlop!, compFlopTotal)}% of disclosed training compute vs China's ~${pct(compCnFlop!, compFlopTotal)}%. This understates China's real position: frontier closed models (Qwen-max, Doubao) and Huawei Ascend deployments do not disclose compute. Analyst estimates put the real frontier AI compute gap at roughly 3–5×, not the 6× implied by disclosed figures alone.`
-        : getCaveat('compute'),
-      barData: epochOk
+      headline: compIsV2
+        ? `US leads on triangulated compute index: ${compUsComp.toFixed(1)}% vs ${compCnComp.toFixed(1)}%`
+        : epochOk
+          ? `US accounts for ${pct(compUsFlop!, compFlopTotal)}% of disclosed AI training compute`
+          : `US holds ${pct(compUsRmax, compRmaxTotal)}% of disclosed TOP500 compute`,
+      headlineNote: compIsV2
+        ? `Training compute (40%) + hardware supply (40%) + visible HPC (20%) — scored composite is a conservative lower bound`
+        : epochOk
+          ? `Notable models since ${epochCutoff.slice(0,4)} — US ${compUsModels} models, China ${compCnModels} models (Epoch AI)`
+          : `${fmt(Math.round(compUsRmax))} vs ${fmt(Math.round(compCnRmax))} PFlops (TOP500, ${compEdition})`,
+      explanation: compIsV2
+        ? getCaveat('compute') + (hiddenBand ? `\n\nHidden compute estimate: China's true share of combined US+China compute is likely ${hiddenBand.china_lower_pct}–${hiddenBand.china_upper_pct}% (point est. ${hiddenBand.china_point_pct}%). ${hiddenBand.narrative ?? ''}` : '')
+        : epochOk
+          ? `Epoch AI tracks training compute (FLOPs) for notable AI models globally. Since ${epochCutoff.slice(0,4)}, US labs account for ~${pct(compUsFlop!, compFlopTotal)}% of disclosed training compute vs China's ~${pct(compCnFlop!, compFlopTotal)}%. This understates China's real position: frontier closed models (Qwen-max, Doubao) and Huawei Ascend deployments do not disclose compute. Analyst estimates put the real frontier AI compute gap at roughly 3–5×, not the 6× implied by disclosed figures alone.`
+          : getCaveat('compute'),
+      barData: compIsV2
         ? [
-            { label: 'Training compute share — Epoch AI (%)', US: pct(compUsFlop!, compFlopTotal), CN: pct(compCnFlop!, compFlopTotal) },
-            { label: 'Notable models since 2023 (share %)',   US: pct(compUsModels, compUsModels + compCnModels), CN: pct(compCnModels, compUsModels + compCnModels) },
-            ...(compRmaxTotal > 0 ? [{ label: 'TOP500 Rmax share — disclosed only (%)', US: pct(compUsRmax, compRmaxTotal), CN: pct(compCnRmax, compRmaxTotal) }] : []),
+            { label: 'Training compute share — Epoch AI disclosed (%)',      US: Math.round(compTcUs?.share_score ?? 85), CN: Math.round(compTcCn?.share_score ?? 15) },
+            { label: 'Hardware supply share — NVIDIA + Ascend adj. (%)',     US: Math.round(compHwUs?.share_score ?? 68), CN: Math.round(compHwCn?.share_score ?? 32) },
+            { label: 'Visible HPC share — TOP500 + corrections (%)',         US: Math.round(compHpcUs?.share_score ?? 73), CN: Math.round(compHpcCn?.share_score ?? 28) },
+            { label: 'Composite score (%)',                                   US: Math.round(compUsComp), CN: Math.round(compCnComp) },
           ]
-        : [
-            { label: 'TOP500 Rmax capacity share (%)', US: pct(compUsRmax, compRmaxTotal), CN: pct(compCnRmax, compRmaxTotal) },
-            { label: 'TOP500 system count share (%)',  US: pct(compUsSystems, compSystemsTotal), CN: pct(compCnSystems, compSystemsTotal) },
-          ],
+        : epochOk
+          ? [
+              { label: 'Training compute share — Epoch AI (%)', US: pct(compUsFlop!, compFlopTotal), CN: pct(compCnFlop!, compFlopTotal) },
+              { label: 'Notable models since 2023 (share %)',   US: pct(compUsModels, compUsModels + compCnModels), CN: pct(compCnModels, compUsModels + compCnModels) },
+              ...(compRmaxTotal > 0 ? [{ label: 'TOP500 Rmax share — disclosed only (%)', US: pct(compUsRmax, compRmaxTotal), CN: pct(compCnRmax, compRmaxTotal) }] : []),
+            ]
+          : [
+              { label: 'TOP500 Rmax capacity share (%)', US: pct(compUsRmax, compRmaxTotal), CN: pct(compCnRmax, compRmaxTotal) },
+              { label: 'TOP500 system count share (%)',  US: pct(compUsSystems, compSystemsTotal), CN: pct(compCnSystems, compSystemsTotal) },
+            ],
       barXLabel: 'Share of combined US + China (%)',
       tableRows: [
-        ...(epochOk ? [
-          { label: 'Training compute — notable models', us: `${compUsFlop!.toExponential(2)} FLOPs`, cn: `${compCnFlop!.toExponential(2)} FLOPs` },
-          { label: 'Notable models tracked (since 2023)', us: String(compUsModels), cn: String(compCnModels) },
-          ...(epochTopModels.length > 0 ? [{ label: '#1 model by compute', us: epochTopModels[0]?.country === 'US' ? epochTopModels[0].name : '—', cn: epochTopModels.find(m => m.country === 'China')?.name ?? '—' }] : []),
-        ] : []),
-        ...(compRmaxTotal > 0 ? [
-          { label: `TOP500 Rmax — ${compEdition} (supplementary)`, us: `${fmt(Math.round(compUsRmax))} PFlops`, cn: `${fmt(Math.round(compCnRmax))} PFlops` },
-          { label: 'TOP500 systems', us: String(compUsSystems), cn: `${compCnSystems} (non-disclosure from 2023)` },
-          { label: `TOP500 #1 system (US)`, us: compTopUs ? `${compTopUs.name} — ${fmt(Math.round(compTopUs.rmax_pflops))} PFlops` : '—', cn: `None in top ${topSystems.length}` },
-        ] : []),
-        { label: 'NVIDIA revenue share (est.)', us: '~47%', cn: '~13%' },
+        ...(compIsV2 ? [
+          { label: 'Training compute share (Epoch AI, 2023+)', us: `${Math.round(compTcUs?.share_score ?? 85)}%`, cn: `${Math.round(compTcCn?.share_score ?? 15)}% (disclosed only)` },
+          { label: 'Notable models tracked (since 2023)',       us: String(compUsModels), cn: String(compCnModels) },
+          { label: 'NVIDIA data center revenue (FY2025)',        us: `$${compHwUs?.nvidia_revenue_usd_b ?? '—'}B`, cn: `$${compHwCn?.nvidia_revenue_usd_b ?? '—'}B` },
+          { label: 'Huawei Ascend equivalent value (est.)',      us: '—', cn: `~$${compHwCn?.ascend_equivalent_usd_b ?? '—'}B (analyst est.)` },
+          { label: `TOP500 Rmax — ${compEdition} (disclosed)`,  us: `${fmt(Math.round(compUsRmax))} PFlops`, cn: `${fmt(Math.round(compCnRmax))} PFlops` },
+          ...(compHpcCn?.non_top500_correction_pflops ? [{ label: 'China HPC correction (non-TOP500)', us: `+${fmt(compHpcUs?.private_cluster_addition_pflops ?? 2300)} PFlops (private)`, cn: `+${fmt(compHpcCn.non_top500_correction_pflops)} PFlops (est.)` }] : []),
+          ...(hiddenBand ? [{ label: 'Hidden compute estimate (China)', us: `${hiddenBand.us_lower_pct}–${hiddenBand.us_upper_pct}% (est.)`, cn: `${hiddenBand.china_lower_pct}–${hiddenBand.china_upper_pct}% (est., vs ${Math.round(compCnComp)}% scored)` }] : []),
+        ] : [
+          ...(epochOk ? [
+            { label: 'Training compute — notable models', us: `${compUsFlop!.toExponential(2)} FLOPs`, cn: `${compCnFlop!.toExponential(2)} FLOPs` },
+            { label: 'Notable models tracked (since 2023)', us: String(compUsModels), cn: String(compCnModels) },
+            ...(epochTopModels.length > 0 ? [{ label: '#1 model by compute', us: epochTopModels[0]?.country === 'US' ? epochTopModels[0].name : '—', cn: epochTopModels.find(m => m.country === 'China')?.name ?? '—' }] : []),
+          ] : []),
+          ...(compRmaxTotal > 0 ? [
+            { label: `TOP500 Rmax — ${compEdition} (supplementary)`, us: `${fmt(Math.round(compUsRmax))} PFlops`, cn: `${fmt(Math.round(compCnRmax))} PFlops` },
+            { label: 'TOP500 systems', us: String(compUsSystems), cn: `${compCnSystems} (non-disclosure from 2023)` },
+            { label: `TOP500 #1 system (US)`, us: compTopUs ? `${compTopUs.name} — ${fmt(Math.round(compTopUs.rmax_pflops))} PFlops` : '—', cn: `None in top ${topSystems.length}` },
+          ] : []),
+          { label: 'NVIDIA revenue share (est.)', us: '~47%', cn: '~13%' },
+        ]),
         { label: 'Score (0–10)', ...getScore('compute') },
       ],
       sources: TAB_SOURCES.compute,

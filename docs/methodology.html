@@ -67,17 +67,15 @@
 
   <h4>Count-share (Frontier Models, Talent, Compute)</h4>
   <p>
-    Raw counts (model updates, paper counts, Rmax PFlop/s) are converted to a U.S. share of the
-    combined U.S.&thinsp;+&thinsp;China total, then scaled to 0&ndash;10 and clamped to [0.5,&thinsp;9.5]
-    to avoid extreme poles when data quality is low:
+    For Frontier Models and Talent, raw counts are converted to a U.S. share of the combined
+    U.S.&thinsp;+&thinsp;China total. For Compute, the triangulated composite score (which already
+    sums to 100 across US+China) is used directly. All are then scaled to 0&ndash;10 and clamped
+    to [0.5,&thinsp;9.5]:
   </p>
   <pre>us_score  = clamp( (US / (US + China)) &times; 10, 0.5, 9.5 )
 china_score = 10.0 &minus; us_score</pre>
   <p>
     By construction, U.S.&thinsp;+&thinsp;China&thinsp;=&thinsp;10 for these dimensions.
-    The 9.5 ceiling on the Compute score is the primary visible effect of the clamp &mdash;
-    the raw TOP500 share would yield ~9.7 for the U.S., but this reflects the TOP500 undercount
-    for China rather than true dominance.
   </p>
 
   <h4>Independent composite / 10 (Adoption, Energy)</h4>
@@ -112,15 +110,15 @@ china_score = 10.0 &minus; us_score</pre>
   <p>
     The &ldquo;Current read&rdquo; sentence and four strategic insight bullets are generated programmatically
     from the scored dimensions. The current read lists dimensions by winner (U.S. vs. China), sorted by margin
-    (largest advantage first). The insights follow a fixed template: (1) strongest U.S. advantage, with a special
-    case for the Compute dimension to flag the TOP500 undercount caveat; (2) strongest China advantage;
-    (3) most closely contested dimension by gap; (4) a standing note on binding structural constraints.
+    (largest advantage first). The insights follow a fixed template: (1) strongest U.S. advantage;
+    (2) strongest China advantage; (3) most closely contested dimension by gap;
+    (4) a standing note on binding structural constraints.
   </p>
 
   <h3>Key caveats</h3>
   <ul>
-    <li><strong>Compute score (9.5 US / 0.5 China):</strong> Extreme values reflect TOP500 submission gaps, not actual capability parity. China operates exascale-class systems not listed on TOP500. Treat with very low confidence as a relative measure.</li>
-    <li><strong>Frontier Models score:</strong> Reflects Hugging Face Hub activity only. China&rsquo;s closed-model ecosystem (DeepSeek, Qwen API) is materially broader than this captures.</li>
+    <li><strong>Compute score (~7.6 US / ~2.4 China):</strong> Triangulated lower bound. China&rsquo;s true share is likely 25&ndash;40% — the scored composite (~25%) reflects systematic non-reporting, not actual compute absence. The separate hidden-compute band in the UI documents this explicitly.</li>
+    <li><strong>Frontier Models score:</strong> Reflects open model ecosystem (HuggingFace + ModelScope supplement). Closed-model capability (GPT-4o, Claude, Qwen API, Doubao) is not captured.</li>
     <li><strong>Talent score:</strong> Paper volume, not quality or headcount. China leads on volume; the U.S. leads on top-cited work and lab concentration.</li>
     <li><strong>Adoption and Energy scores:</strong> Based on curated reference data with annual update cadence &mdash; not live signals.</li>
   </ul>
@@ -750,15 +748,90 @@ china_score = 10.0 &minus; us_score</pre>
   </p>
 
   <!-- ── Compute ────────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Compute</span> High-Performance Computing Capacity</h2>
+  <h2><span class="dim-badge">Compute</span> Triangulated Compute Index</h2>
   <p>
-    Aggregate HPL Rmax benchmark performance (PFlop/s) and system count from the full TOP500
-    supercomputer list, grouped by country. Updated twice yearly (June and November).
+    The compute dimension uses a triangulated index combining three complementary proxies.
+    No single source has complete visibility into AI compute — each proxy fills different
+    blind spots. The composite score always represents US share of combined US+China compute.
+  </p>
+
+  <h3>Why triangulation is necessary</h3>
+  <p>
+    Three systematic gaps prevent any single source from being reliable:
+  </p>
+  <ol>
+    <li><strong>China&rsquo;s exascale HPC:</strong> China stopped submitting most major
+    supercomputers to TOP500 after 2023. The November 2025 list shows 40 Chinese systems
+    at ~205 PFlops — analysts estimate China&rsquo;s actual capacity is 10&times; higher.</li>
+    <li><strong>Private AI clusters:</strong> xAI Colossus, Meta&rsquo;s AI datacenters, and
+    ByteDance clusters are not in TOP500 and not publicly benchmarked.</li>
+    <li><strong>Domestic Chinese chips:</strong> Huawei Ascend deployment scale is not
+    officially reported — the adjustment relies on analyst estimates and procurement data.</li>
+  </ol>
+
+  <h3>Proxy 1 — Training Compute (weight 40%)</h3>
+  <p>
+    Source: <strong>Epoch AI &ldquo;Notable AI Models&rdquo;</strong> CSV, models published
+    since 2023 with disclosed training compute &ge;10<sup>20</sup> FLOPs.
+    US labs hold ~85% of disclosed training FLOPs; China ~15%.
   </p>
   <p>
-    <strong>What this does not capture:</strong> Private AI clusters, cloud GPU farms, and
-    systems not submitted to TOP500. China operates exascale systems not in TOP500, so its
-    disclosed capacity is likely a significant undercount.
+    <strong>Known undercount for China:</strong> Frontier closed models &mdash;
+    Qwen-Max, Doubao, Hunyuan, Gemini (Google) &mdash; do not publish training compute.
+    DeepSeek R1 and Qwen-open are included; most ByteDance and Baidu frontier models are not.
+    The 85/15 split is a lower bound for how much China has invested in training.
+  </p>
+
+  <h3>Proxy 2 — Hardware Supply (weight 40%)</h3>
+  <p>
+    Measures the <em>flow of AI compute hardware</em> to each country, not just disclosed
+    training runs. Two inputs:
+  </p>
+  <ul>
+    <li><strong>NVIDIA geographic data center revenue (FY2025 10-K)</strong>: US customers
+    (AWS, Azure, Google, Meta) received 47% of NVIDIA&rsquo;s $115B data center revenue
+    ($54.1B). China received 13% ($15.0B), constrained by A100/H100 export controls since
+    Oct 2023. <em>Confidence: high (audited SEC filing).</em></li>
+    <li><strong>Huawei Ascend adjustment</strong>: ~1.5M Ascend 910B chips deployed (analyst
+    estimates). At 35% H100 efficiency (640 vs. 1,979 TFLOPS BF16), this equals ~525K
+    H100-equivalents or ~$10.5B in hardware value. Adding this brings China&rsquo;s hardware
+    supply share to ~32%. <em>Confidence: low &mdash; not officially confirmed; treat as
+    order-of-magnitude.</em></li>
+  </ul>
+  <p>Adjusted totals: US 68%, China 32%.</p>
+
+  <h3>Proxy 3 — Visible HPC (weight 20%)</h3>
+  <p>
+    Source: <strong>TOP500 list</strong> (updated June/November) plus manually maintained
+    corrections for systems not submitted.
+  </p>
+  <ul>
+    <li><strong>US:</strong> TOP500 raw (6,961 PFlops) + private AI cluster estimates
+    (xAI Colossus ~600, Meta ~900, Microsoft ~800 PFlops = +2,300) = 9,261 PFlops adjusted.</li>
+    <li><strong>China:</strong> TOP500 raw (205 PFlops) + non-submission corrections
+    (Tianhe-3 ~1,400, Sunway NG ~1,000, Beijing AI Center ~400, EDWC aggregate ~500 = +3,300)
+    = 3,505 PFlops adjusted.</li>
+  </ul>
+  <p>Adjusted totals: US 72.5%, China 27.5%. Uncertainty range: China 24&ndash;32%.</p>
+
+  <h3>Composite and hidden-compute band</h3>
+  <p>
+    The composite is a weighted average of the three share scores:
+    0.40 &times; training&nbsp;compute + 0.40 &times; hardware&nbsp;supply +
+    0.20 &times; visible&nbsp;HPC &asymp; US 75.7%, China 24.3%.
+    Converted to the 0&ndash;10 scale: approximately US 7.6, China 2.4.
+  </p>
+  <p>
+    A separate <strong>hidden-compute uncertainty band</strong> is displayed in the UI but
+    is not used in scoring. Expert synthesis incorporating all three gaps suggests China&rsquo;s
+    true share of combined US+China compute capacity is likely <strong>25&ndash;40%</strong>
+    (point estimate 30%). The scored composite (~25%) is a conservative lower bound reflecting
+    the systematic non-reporting described above.
+  </p>
+  <p>
+    Manual inputs (hardware supply adjustments, HPC corrections) are maintained in
+    <code>data/compute_manual.json</code> and should be updated when new NVIDIA 10-K filings,
+    Huawei product announcements, or HPC disclosures become available.
   </p>
 
   <!-- ── Talent ─────────────────────────────────────────────────────────────── -->

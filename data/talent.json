@@ -4,8 +4,8 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-16T10:49:05.701829+00:00",
-  "last_updated": "2026-04-16T10:49:05.701842+00:00",
+  "fetched_at": "2026-04-17T10:40:13.938028+00:00",
+  "last_updated": "2026-04-17T10:40:13.938041+00:00",
   "summary": {
     "US": {
       "composite_score": 37.6,
@@ -16,7 +16,7 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 137807,
+          "raw_value": 138285,
           "unit": "AI papers (12-month)",
           "share_score": 37.4,
           "window_days": 365,
@@ -24,7 +24,7 @@
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3561,
+          "raw_value": 3564,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 32.5,
           "window_days": 730,
@@ -34,7 +34,7 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1529,
+          "raw_value": 1534,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 44.7,
           "window_days": 1095,
@@ -53,15 +53,15 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 231063,
+          "raw_value": 231342,
           "unit": "AI papers (12-month)",
           "share_score": 62.6,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (231,063 vs US 137,807 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (231,342 vs US 138,285 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7386,
+          "raw_value": 7395,
           "unit": "AI quality papers cited ≥25x (2-year)",
           "share_score": 67.5,
           "window_days": 730,
@@ -70,7 +70,7 @@
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1889,
+          "raw_value": 1895,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 55.3,
           "window_days": 1095,
@@ -106,6 +106,190 @@
   },
   "papers": [
     {
+      "id": "https://openalex.org/W7128888175",
+      "title": "Causal Identification via DAG and ADMG Simplification in Wearable Parkinson’s Disease Studies",
+      "authors": [
+        "Nawfal Zakar",
+        "Aloyayri, Abdulrahman; id_orcid 0000-0001-9411-0486",
+        "Little, Max"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153420202",
+      "title": "Language-Guided Video Understanding with Foundation Models",
+      "authors": [
+        "Elisa Ricci",
+        "Massimiliano Mancini",
+        "Luca Zanella"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128760651",
+      "title": "Event Horizons – between Image, Material and Machine",
+      "authors": [
+        "Martin Newth"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153404244",
+      "title": "Hemispheric Asymmetries in Visuospatial Attention: FunctionalDissociations and Modulation of Visual Processing",
+      "authors": [
+        "Lorella Battelli",
+        "Michele Tosi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7152336718",
+      "title": "Few-Shot Learning onder Distributieverschuivingen",
+      "authors": [
+        "Abdur Razzaq Fayjie"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7152944917",
+      "title": "Advanced Deep Learning Methods for the Automatic Analysis of Radar Sounder Data",
+      "authors": [
+        "Lorenzo Bruzzone",
+        "Jordy Dal Corso"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7149224086",
+      "title": "Human-Guided Learning and Control for Contact-Rich Robotic Manipulation: An Interoperable Toolchain",
+      "authors": [
+        "Albin Bajrami"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153408327",
+      "title": "Predictions in a dynamic world: the adaptive role of the Active Prediction Network",
+      "authors": [
+        "Scott L. Fairhall",
+        "Andrea Belluzzi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140004699",
+      "title": "Generative AI in Game Development:A Qualitative Research Synthesis",
+      "authors": [
+        "Dan-Alexandru Ternar",
+        "ALENA Denisova",
+        "João Miguel Cunha"
+      ],
+      "countries": [
+        "PT",
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154492733",
+      "title": "Identifying Structural Phases of Policy Uncertainty: A Visibility Graph and Complex Network Approach to EPU and TPU",
+      "authors": [
+        "Zhaian Bian",
+        "Junhua Chen",
+        "Yinghao Song"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154456249",
+      "title": "xyzrender: Publication-quality molecular graphics.",
+      "authors": [
+        "Alister S. Goodfellow"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154484062",
+      "title": "SAE Biology Note 7: Dissociative Identity and the Dissociation Spectrum — The Internal Anatomy of 13DD, the Prefrontal Tri-Position Hypothesis, and Seven Non-Trivial Predictions / SAE生物笔记第七篇: 多重人格与解离谱系——13DD的内部解剖,前额叶三功能位假说,与七个非平凡预测",
+      "authors": [
+        "Han Qin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154497916",
+      "title": "同一个太阳——365.25天与人类数理文明的共同起源",
+      "authors": [
+        "Guangming Chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154514872",
+      "title": "Enhancing grammar proficiency through eclectic teaching strategies",
+      "authors": [
+        "Jenny Rose O Tumacder",
+        "Pauline Joy Gelacio Tardaguila",
+        "Atik Rokhayani"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
       "id": "https://openalex.org/W7153992736",
       "title": "Seesaw Signatures Capture Trajectory Like Transcriptomic Shifts and Enable Compact Tumor Cell Classification Across Cancers",
       "authors": [
@@ -119,218 +303,6 @@
       ],
       "primary_country": "Mixed",
       "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7131342165",
-      "title": "An Enhanced Deep Neural Network Framework for Accurate Tomato Disease Recognition in Real-time Environment",
-      "authors": [
-        "Vito Pascazio",
-        "Giampaolo Ferraioli"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7148208597",
-      "title": "HiCONA: a graph-based framework for identifying the hierarchical 3D backbone of chromatin",
-      "authors": [
-        "Alessio Zippo",
-        "Leonardo Morelli"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7150927639",
-      "title": "Treinamento de Grandes Modelos de Linguagem na prática",
-      "authors": [
-        "João Vitor Mariano Correia",
-        "João Renato Ribeiro Manesco",
-        "Danilo Jodas"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152961185",
-      "title": "O papel dos dados no pré-treinamento de Grandes Modelos de Linguagem",
-      "authors": [
-        "Miguel de Mello Carpi",
-        "Felipe Ribas Serras",
-        "Mariana Lourenço Sturzeneker"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140069577",
-      "title": "Probing Discrete Units in Unit-Based Speech-to-Speech Translation: A Case Study on Central Kurdish",
-      "authors": [
-        "Lu Zuo",
-        "Mohammad Mohammadamini",
-        "Aghilas Sini"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139212078",
-      "title": "Integrating Modeling & Simulation and Artificial Intelligence for Training and Decision-Support in Complex Systems",
-      "authors": [
-        "Antonio Giovannetti"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154159522",
-      "title": "Seesaw Signatures Capture Trajectory Like Transcriptomic Shifts and Enable Compact Tumor Cell Classification Across Cancers",
-      "authors": [
-        "Yue Zhao",
-        "Weijun Gao",
-        "Rui Chen"
-      ],
-      "countries": [
-        "CN",
-        "US"
-      ],
-      "primary_country": "Mixed",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153282622",
-      "title": "O papel dos dados no pré-treinamento de Grandes Modelos de Linguagem",
-      "authors": [
-        "Miguel de Mello Carpi",
-        "Felipe Ribas Serras",
-        "Mariana Lourenço Sturzeneker"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7151085140",
-      "title": "Treinamento de Grandes Modelos de Linguagem na prática",
-      "authors": [
-        "João Vitor Mariano Correia",
-        "João Renato Ribeiro Manesco",
-        "Danilo Jodas"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154287712",
-      "title": "Paper.146 Differences Between Fixed-Perspective and Parallel-Perspective Types in Structural Psychology — A Comparative Model of Spatial Cognitive Structures in Mirror-Script Perception —",
-      "authors": [
-        "Enli lncantatrice d'Anime"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154314269",
-      "title": "Computational Analysis of Musical Characteristics in Bach, Mozart, Beethoven, and Chopin through MIDI Representations",
-      "authors": [
-        "Vitor Amadeu Souza"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154359852",
-      "title": "Why AI Can't Crack the Voynich Manuscript",
-      "authors": [
-        "Daniel Rosehill",
-        "Gemini 3.1 (Flash)",
-        "Chatterbox TTS"
-      ],
-      "countries": [
-        "CA",
-        "GB",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154312092",
-      "title": "Letter to the Editor: Machine learning models for hospital-acquired functional decline in geriatric surgical patients - from prediction to prevention",
-      "authors": [
-        "Anjana S Wajekar",
-        "Gauri R Gangakhedkar",
-        "Ashwini D Rane"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154283436",
-      "title": "TAD",
-      "authors": [
-        "Florian Kölbl",
-        "Jaderson Polli"
-      ],
-      "countries": [
-        "FR",
-        "US",
-        "BR"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

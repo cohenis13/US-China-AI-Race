@@ -4,27 +4,27 @@
   "title": "Global AI Diffusion — U.S. vs China",
   "subtitle": "Share of combined U.S.–China global AI diffusion footprint, measured by open-model ecosystem reach and cloud infrastructure coverage. U.S. + China scores sum to 100.",
   "description": "A two-proxy composite index measuring how far U.S. and Chinese AI stacks have spread beyond their home markets. Combines HF open-model monthly downloads (live, from data/labs.json tracked labs) with cloud AI platform international footprint (curated, annually reviewed). Both proxies are scored as share-of-combined so U.S. + China = 100.",
-  "fetched_at": "2026-04-16T15:15:09.667646+00:00",
-  "last_updated": "2026-04-16T15:15:09.667646+00:00",
+  "fetched_at": "2026-04-17T14:38:14.801402+00:00",
+  "last_updated": "2026-04-17T14:38:14.801402+00:00",
   "summary": {
     "US": {
-      "composite_score": 65.9,
+      "composite_score": 65.2,
       "effective_weights": {
         "hf_downloads": 0.55,
         "cloud_footprint": 0.45
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": 407093789,
+          "raw_value": 408403996,
           "unit": "monthly downloads (HF Hub)",
-          "share_score": 60.0,
+          "share_score": 58.7,
           "coverage": "high",
           "note": "Sum of monthly downloads across top-100 models per US-attributed lab on Hugging Face Hub. Labs sourced from data/labs.json.",
           "lab_detail": [
             {
               "lab": "OpenAI",
               "author": "openai",
-              "downloads": 89448926
+              "downloads": 88435523
             },
             {
               "lab": "Anthropic",
@@ -34,7 +34,7 @@
             {
               "lab": "Google / DeepMind",
               "author": "google",
-              "downloads": 97699503
+              "downloads": 98460634
             },
             {
               "lab": "Google / DeepMind",
@@ -44,32 +44,32 @@
             {
               "lab": "Meta AI",
               "author": "facebook",
-              "downloads": 60308512
+              "downloads": 60590765
             },
             {
               "lab": "Meta AI",
               "author": "meta-llama",
-              "downloads": 32884896
+              "downloads": 32775458
             },
             {
               "lab": "Microsoft",
               "author": "microsoft",
-              "downloads": 39135268
+              "downloads": 39287744
             },
             {
               "lab": "NVIDIA",
               "author": "nvidia",
-              "downloads": 23827112
+              "downloads": 23791301
             },
             {
               "lab": "Allen Institute for AI",
               "author": "allenai",
-              "downloads": 5621762
+              "downloads": 5641896
             },
             {
               "lab": "Salesforce AI",
               "author": "Salesforce",
-              "downloads": 8823068
+              "downloads": 8764790
             },
             {
               "lab": "Cohere",
@@ -79,27 +79,27 @@
             {
               "lab": "Apple",
               "author": "apple",
-              "downloads": 17093851
+              "downloads": 18374436
             },
             {
               "lab": "Amazon",
               "author": "amazon",
-              "downloads": 26791281
+              "downloads": 26801449
             },
             {
               "lab": "Stability AI",
               "author": "stabilityai",
-              "downloads": 5382596
+              "downloads": 5401989
             },
             {
               "lab": "Together AI",
               "author": "togethercomputer",
-              "downloads": 54485
+              "downloads": 54715
             },
             {
               "lab": "xAI",
               "author": "xai-org",
-              "downloads": 22529
+              "downloads": 23296
             }
           ]
         },
@@ -114,28 +114,28 @@
       }
     },
     "China": {
-      "composite_score": 34.1,
+      "composite_score": 34.8,
       "effective_weights": {
         "hf_downloads": 0.55,
         "cloud_footprint": 0.45
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": 270933471,
+          "raw_value": 287208807,
           "unit": "monthly downloads (HF Hub)",
-          "share_score": 40.0,
+          "share_score": 41.3,
           "coverage": "high",
           "note": "Sum of monthly downloads across top-100 models per China-attributed lab on Hugging Face Hub. Labs sourced from data/labs.json.",
           "lab_detail": [
             {
               "lab": "Alibaba / Qwen",
               "author": "Qwen",
-              "downloads": 233264471
+              "downloads": 249221085
             },
             {
               "lab": "DeepSeek",
               "author": "deepseek-ai",
-              "downloads": 27675422
+              "downloads": 27911218
             },
             {
               "lab": "Zhipu AI / THUDM",
@@ -145,42 +145,42 @@
             {
               "lab": "01.AI",
               "author": "01-ai",
-              "downloads": 243910
+              "downloads": 245163
             },
             {
               "lab": "Baidu",
               "author": "baidu",
-              "downloads": 245347
+              "downloads": 286932
             },
             {
               "lab": "ByteDance",
               "author": "ByteDance-Seed",
-              "downloads": 153877
+              "downloads": 151563
             },
             {
               "lab": "Shanghai AI Lab",
               "author": "internlm",
-              "downloads": 702224
+              "downloads": 710595
             },
             {
               "lab": "Moonshot AI",
               "author": "moonshotai",
-              "downloads": 6743126
+              "downloads": 6695511
             },
             {
               "lab": "MiniMax",
               "author": "MiniMaxAI",
-              "downloads": 1277231
+              "downloads": 1345322
             },
             {
               "lab": "Tencent",
               "author": "tencent",
-              "downloads": 562389
+              "downloads": 573311
             },
             {
               "lab": "Huawei / Noah's Ark Lab",
               "author": "huawei-noah",
-              "downloads": 65474
+              "downloads": 68107
             }
           ]
         },
@@ -195,7 +195,7 @@
       }
     }
   },
-  "interpretive_sentence": "U.S.-origin AI stacks account for approximately 65.9% of the measured U.S.–China global diffusion footprint (31.8-point lead over China). On open-model downloads, U.S. accounts for 60.0% of the combined U.S.–China total.",
+  "interpretive_sentence": "U.S.-origin AI stacks account for approximately 65.2% of the measured U.S.–China global diffusion footprint (30.4-point lead over China). On open-model downloads, U.S. accounts for 58.7% of the combined U.S.–China total.",
   "composite_construction": {
     "method": "Both proxies are scored as share-of-combined (US + China = 100). HF downloads: (country_downloads / total_downloads) × 100. Cloud footprint: (country_countries / total_countries) × 100. Composite = 0.55 × hf_share + 0.45 × cloud_share. By construction, US composite + China composite = 100.",
     "weights": {

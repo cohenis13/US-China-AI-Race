@@ -4,11 +4,11 @@
   "title": "AI Talent Index — U.S. vs China",
   "subtitle": "Three-proxy composite: research volume, quality papers (cited ≥10), and high-impact output (cited ≥100). Each proxy scored as share-of-combined (US + China = 100). US + China composite ≈ 100 by construction.",
   "description": "A composite index measuring relative AI talent strength across three dimensions: (1) AI paper volume (breadth of research output), (2) quality AI papers with ≥10 citations in 2 years (research impact), and (3) high-impact AI papers with ≥100 citations in 3 years (elite research production). All proxies sourced from OpenAlex. Each is scored as US share of combined US+China total.",
-  "fetched_at": "2026-04-17T10:40:13.938028+00:00",
-  "last_updated": "2026-04-17T10:40:13.938041+00:00",
+  "fetched_at": "2026-04-18T09:34:50.634523+00:00",
+  "last_updated": "2026-04-18T09:34:50.634538+00:00",
   "summary": {
     "US": {
-      "composite_score": 37.6,
+      "composite_score": 37.7,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -16,17 +16,17 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 138285,
+          "raw_value": 139892,
           "unit": "AI papers (12-month)",
-          "share_score": 37.4,
+          "share_score": 37.6,
           "window_days": 365,
           "coverage": "high",
           "note": "AI papers (AI/ML/NLP/CV concepts) on OpenAlex, last 365 days, grouped by author institution country. China leads on volume; US tends to lead on citation impact."
         },
         "top_conference": {
-          "raw_value": 3564,
+          "raw_value": 3566,
           "unit": "AI quality papers cited ≥25x (2-year)",
-          "share_score": 32.5,
+          "share_score": 32.4,
           "window_days": 730,
           "min_citations": 25,
           "venue_filter": "none — citation threshold only",
@@ -34,7 +34,7 @@
           "note": "AI papers with at least 25 citations, last 730 days. No venue filter — OpenAlex classifies most AI papers as arXiv preprints regardless of conference venue, making source.type:conference unreliable. Citation threshold is a more objective and reproducible quality proxy."
         },
         "high_impact": {
-          "raw_value": 1534,
+          "raw_value": 1545,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 44.7,
           "window_days": 1095,
@@ -45,7 +45,7 @@
       }
     },
     "China": {
-      "composite_score": 62.4,
+      "composite_score": 62.3,
       "effective_weights": {
         "paper_volume": 0.3,
         "top_conference": 0.4,
@@ -53,24 +53,24 @@
       },
       "proxies": {
         "paper_volume": {
-          "raw_value": 231342,
+          "raw_value": 232400,
           "unit": "AI papers (12-month)",
-          "share_score": 62.6,
+          "share_score": 62.4,
           "window_days": 365,
           "coverage": "high",
-          "note": "China leads on AI paper volume (231,342 vs US 138,285 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
+          "note": "China leads on AI paper volume (232,400 vs US 139,892 over 365 days). OpenAlex may undercount Chinese domestic journals not indexed in major international databases."
         },
         "top_conference": {
-          "raw_value": 7395,
+          "raw_value": 7428,
           "unit": "AI quality papers cited ≥25x (2-year)",
-          "share_score": 67.5,
+          "share_score": 67.6,
           "window_days": 730,
           "min_citations": 25,
           "coverage": "high",
           "note": "China has substantially increased high-quality AI publication output since 2019. Citation thresholding filters out the long tail of low-engagement papers, isolating papers with measurable research impact."
         },
         "high_impact": {
-          "raw_value": 1895,
+          "raw_value": 1915,
           "unit": "AI papers cited ≥100x (3-year)",
           "share_score": 55.3,
           "window_days": 1095,
@@ -81,7 +81,7 @@
       }
     }
   },
-  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.6 and China scores 62.4 out of 100 (US + China ≈ 100). China leads on raw paper volume (62.6% of combined); the US leads on quality cited papers (32.5%) and high-impact papers (44.7%).",
+  "interpretive_sentence": "On a composite of paper volume (30%), quality papers cited ≥25x (40%), and high-impact output cited ≥100x (30%), the US scores 37.7 and China scores 62.3 out of 100 (US + China ≈ 100). China leads on raw paper volume (62.4% of combined); the US leads on quality cited papers (32.4%) and high-impact papers (44.7%).",
   "composite_construction": {
     "method": "Weighted average of three share-of-combined scores. Each proxy is computed as US/(US+China)*100, giving a score where US+China=100. Composite = 0.30*(paper_volume_share) + 0.40*(quality_papers_share) + 0.30*(high_impact_share). Quality papers = cited ≥25x in 2 years; high-impact = cited ≥100x in 3 years. No venue filter — citation thresholds are a more robust quality proxy than OpenAlex venue-type classification, which is unreliable for AI papers.",
     "weights": {
@@ -106,203 +106,202 @@
   },
   "papers": [
     {
-      "id": "https://openalex.org/W7128888175",
-      "title": "Causal Identification via DAG and ADMG Simplification in Wearable Parkinson’s Disease Studies",
+      "id": "https://openalex.org/W7154753277",
+      "title": "Category-Theoretic Formalization of Resonance Tuning and Multiversal Identity",
       "authors": [
-        "Nawfal Zakar",
-        "Aloyayri, Abdulrahman; id_orcid 0000-0001-9411-0486",
-        "Little, Max"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153420202",
-      "title": "Language-Guided Video Understanding with Foundation Models",
-      "authors": [
-        "Elisa Ricci",
-        "Massimiliano Mancini",
-        "Luca Zanella"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128760651",
-      "title": "Event Horizons – between Image, Material and Machine",
-      "authors": [
-        "Martin Newth"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153404244",
-      "title": "Hemispheric Asymmetries in Visuospatial Attention: FunctionalDissociations and Modulation of Visual Processing",
-      "authors": [
-        "Lorella Battelli",
-        "Michele Tosi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152336718",
-      "title": "Few-Shot Learning onder Distributieverschuivingen",
-      "authors": [
-        "Abdur Razzaq Fayjie"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152944917",
-      "title": "Advanced Deep Learning Methods for the Automatic Analysis of Radar Sounder Data",
-      "authors": [
-        "Lorenzo Bruzzone",
-        "Jordy Dal Corso"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7149224086",
-      "title": "Human-Guided Learning and Control for Contact-Rich Robotic Manipulation: An Interoperable Toolchain",
-      "authors": [
-        "Albin Bajrami"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153408327",
-      "title": "Predictions in a dynamic world: the adaptive role of the Active Prediction Network",
-      "authors": [
-        "Scott L. Fairhall",
-        "Andrea Belluzzi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140004699",
-      "title": "Generative AI in Game Development:A Qualitative Research Synthesis",
-      "authors": [
-        "Dan-Alexandru Ternar",
-        "ALENA Denisova",
-        "João Miguel Cunha"
+        "Melvin Sewell"
       ],
       "countries": [
-        "PT",
-        "FI"
+        "MK"
       ],
       "primary_country": "Other",
-      "published": "2026-04-17",
+      "published": "2026-04-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154492733",
-      "title": "Identifying Structural Phases of Policy Uncertainty: A Visibility Graph and Complex Network Approach to EPU and TPU",
+      "id": "https://openalex.org/W7138887531",
+      "title": "Raster Tools: An Open Source Toolbox for Raster Processing",
       "authors": [
-        "Zhaian Bian",
-        "Junhua Chen",
-        "Yinghao Song"
+        "Bunt, Fredrick",
+        "Johnson, Jesse",
+        "Hogland, John"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-16",
+      "published": "2026-04-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154456249",
-      "title": "xyzrender: Publication-quality molecular graphics.",
+      "id": "https://openalex.org/W7154685500",
+      "title": "Mitigating Catastrophic Forgetting via Sparse Replay in Deep Networks",
       "authors": [
-        "Alister S. Goodfellow"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154484062",
-      "title": "SAE Biology Note 7: Dissociative Identity and the Dissociation Spectrum — The Internal Anatomy of 13DD, the Prefrontal Tri-Position Hypothesis, and Seven Non-Trivial Predictions / SAE生物笔记第七篇: 多重人格与解离谱系——13DD的内部解剖,前额叶三功能位假说,与七个非平凡预测",
-      "authors": [
-        "Han Qin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154497916",
-      "title": "同一个太阳——365.25天与人类数理文明的共同起源",
-      "authors": [
-        "Guangming Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154514872",
-      "title": "Enhancing grammar proficiency through eclectic teaching strategies",
-      "authors": [
-        "Jenny Rose O Tumacder",
-        "Pauline Joy Gelacio Tardaguila",
-        "Atik Rokhayani"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153992736",
-      "title": "Seesaw Signatures Capture Trajectory Like Transcriptomic Shifts and Enable Compact Tumor Cell Classification Across Cancers",
-      "authors": [
-        "Yue Zhao",
-        "Weijun Gao",
-        "Rui Chen"
+        "B Bini"
       ],
       "countries": [
-        "CN",
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154719336",
+      "title": "Causal inference in real-world dementia research: a systematic review protocol",
+      "authors": [
+        "Yi Yang",
+        "Shivani Suresh",
+        "Jiamin Du"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7126174065",
+      "title": "Speculative Model of Coupled Mirror Universes: A Conceptual Framework",
+      "authors": [
+        "Tarek Antonio Ocaña Sanz"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138979649",
+      "title": "The Intelligence That Was Never Artificial: LLMs as Collective Human Cognition and the Cybernetics That Predicted Them",
+      "authors": [
+        "Nyx Redondo"
+      ],
+      "countries": [
         "US"
       ],
-      "primary_country": "Mixed",
-      "published": "2026-04-16",
+      "primary_country": "US",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154730184",
+      "title": "2026-04-18",
+      "authors": [
+        "guoyong chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154716953",
+      "title": "AurelianAegis Attestation Envelope Schema",
+      "authors": [
+        "AurelianAegis"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154685994",
+      "title": "A dual-Q learning-driven multiple population evolutionary algorithm for scheduling adjustable speed job-shop with transportation constraints",
+      "authors": [
+        "Chengjie Zhang",
+        "鹿明",
+        "Yalin Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154684839",
+      "title": "Parkinson’s Disease Detection Using Deep Learning",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154744221",
+      "title": "Code for: Static Oracles Fail under Distribution Shift: The Primacy of Endogenous Horizon Generation in Reinforcement Learning",
+      "authors": [
+        "guoyong chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154691353",
+      "title": "Roadmap Academy: A Graph Neural Network and Natural Language Processing Framework for the Automated Generation of Personalized STEM Learning Pathways",
+      "authors": [
+        "Abdullah Abdeen",
+        "Mehmet Bulut",
+        "Nima Kamali"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154680858",
+      "title": "The Architecture of Immutable Governance: Eradicating Systemic Drift in Generative Intelligence via Isomorphic Organism Frameworks",
+      "authors": [
+        "Mark Anthony Brewer"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154712071",
+      "title": "Collection of Curated Buchwald–Hartwig HTE Reactions (2026-04-17)",
+      "authors": [
+        "Paulo Neves",
+        "Bo Hao",
+        "Santeri Alfred Arttu Aikonen"
+      ],
+      "countries": [
+        "BE",
+        "CH",
+        "IL"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154690961",
+      "title": "Code for: Static Oracles Fail under Distribution Shift: The Primacy of Endogenous Horizon Generation in Reinforcement Learning",
+      "authors": [
+        "guoyong chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

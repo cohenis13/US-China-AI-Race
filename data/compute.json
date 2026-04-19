@@ -3,7 +3,7 @@
   "dimension": "compute",
   "metric_key": "compute_triangulated_index",
   "description": "Triangulated compute index: training compute (40%, Epoch AI), hardware supply (40%, NVIDIA revenue + Huawei Ascend), and visible HPC (20%, TOP500 + corrections). Coverage gaps are explicitly documented in hidden_compute_band.",
-  "fetched_at": "2026-04-16T15:30:00+00:00",
+  "fetched_at": "2026-04-19T10:08:56.584319+00:00",
   "weights": {
     "training_compute": 0.4,
     "hardware_supply": 0.4,
@@ -16,8 +16,8 @@
         "training_compute": {
           "weight": 0.4,
           "share_score": 85.1,
-          "raw_flop": null,
-          "model_count": 107,
+          "raw_flop": 1.824366e+27,
+          "model_count": 303,
           "source": "Epoch AI notable models since 2023 — disclosed training compute only",
           "coverage_note": "Understates China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose compute. Disclosed compute is a lower bound for China."
         },
@@ -27,7 +27,7 @@
           "nvidia_revenue_usd_b": 54.1,
           "ascend_equivalent_usd_b": null,
           "source": "Hardware supply proxy: NVIDIA geographic data center revenue + Huawei Ascend deployment adjustment. Measures the flow of AI compute hardware to each country rather than just disclosed training runs.",
-          "confidence": "High — audited SEC filing for NVIDIA; Low for Ascend adjustment"
+          "confidence": "Low — not officially confirmed by Huawei; based on industry analysis and public procurement data"
         },
         "visible_hpc": {
           "weight": 0.2,
@@ -45,8 +45,8 @@
         "training_compute": {
           "weight": 0.4,
           "share_score": 14.9,
-          "raw_flop": null,
-          "model_count": 27,
+          "raw_flop": 3.185912e+26,
+          "model_count": 207,
           "source": "Epoch AI notable models since 2023 — disclosed training compute only",
           "coverage_note": "Understates China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose compute. Disclosed compute is a lower bound for China."
         },
@@ -56,14 +56,14 @@
           "nvidia_revenue_usd_b": 15.0,
           "ascend_equivalent_usd_b": 10.5,
           "source": "Hardware supply proxy: NVIDIA geographic data center revenue + Huawei Ascend deployment adjustment. Measures the flow of AI compute hardware to each country rather than just disclosed training runs.",
-          "confidence": "Low — Ascend deployment not officially confirmed; analyst estimate"
+          "confidence": "Low — not officially confirmed by Huawei; based on industry analysis and public procurement data"
         },
         "visible_hpc": {
           "weight": 0.2,
           "share_score": 27.5,
-          "top500_rmax_pflops": 205.0,
+          "top500_rmax_pflops": 204.9,
           "non_top500_correction_pflops": 3300,
-          "adjusted_pflops": 3505.0,
+          "adjusted_pflops": 3504.9,
           "source": "TOP500 + China non-submission corrections (Tianhe-3, Sunway NG, etc.)"
         }
       }
@@ -84,8 +84,89 @@
     "source_url": "https://epoch.ai/data/all_ai_models.csv",
     "cutoff_date": "2023-01-01",
     "min_flop": 1e+20,
-    "data_available": false,
-    "top_models_by_compute": [],
+    "data_available": true,
+    "top_models_by_compute": [
+      {
+        "rank": 1,
+        "name": "Grok 4",
+        "organization": "xAI",
+        "country": "US",
+        "publication_date": "2025-07-09",
+        "training_compute_flop": 5.0000000000001e+26
+      },
+      {
+        "rank": 2,
+        "name": "GPT-4.5",
+        "organization": "OpenAI",
+        "country": "US",
+        "publication_date": "2025-02-27",
+        "training_compute_flop": 3.8e+26
+      },
+      {
+        "rank": 3,
+        "name": "Grok 3",
+        "organization": "xAI",
+        "country": "US",
+        "publication_date": "2025-02-17",
+        "training_compute_flop": 3.5e+26
+      },
+      {
+        "rank": 4,
+        "name": "GPT-5",
+        "organization": "OpenAI",
+        "country": "US",
+        "publication_date": "2025-08-07",
+        "training_compute_flop": 6.6e+25
+      },
+      {
+        "rank": 5,
+        "name": "Llama 4 Behemoth (preview)",
+        "organization": "Meta AI",
+        "country": "US",
+        "publication_date": "2025-04-05",
+        "training_compute_flop": 5.18400000000001e+25
+      },
+      {
+        "rank": 6,
+        "name": "Gemini 1.0 Ultra",
+        "organization": "Google DeepMind",
+        "country": "US",
+        "publication_date": "2023-12-06",
+        "training_compute_flop": 5.0000000001e+25
+      },
+      {
+        "rank": 7,
+        "name": "Llama Nemotron Ultra 253B",
+        "organization": "NVIDIA",
+        "country": "US",
+        "publication_date": "2025-03-18",
+        "training_compute_flop": 3.911001e+25
+      },
+      {
+        "rank": 8,
+        "name": "Llama 3.1-405B",
+        "organization": "Meta AI",
+        "country": "US",
+        "publication_date": "2024-07-23",
+        "training_compute_flop": 3.8e+25
+      },
+      {
+        "rank": 9,
+        "name": "Claude 3.7 Sonnet",
+        "organization": "Anthropic",
+        "country": "US",
+        "publication_date": "2025-02-24",
+        "training_compute_flop": 3.35e+25
+      },
+      {
+        "rank": 10,
+        "name": "Grok-2",
+        "organization": "xAI",
+        "country": "US",
+        "publication_date": "2024-08-13",
+        "training_compute_flop": 2.96e+25
+      }
+    ],
     "methodology": "Sums training_compute_flop for models published on/after 2023-01-01 with known compute >= 1e+20 FLOPs. Country by 'Country (of organization)'. Models without compute estimates are excluded — this understates totals for both countries, more so for China where frontier closed models do not disclose compute."
   },
   "top500": {
@@ -100,7 +181,7 @@
       },
       "China": {
         "systems": 40,
-        "rmax_pflops": 205.0
+        "rmax_pflops": 204.9
       },
       "Other": {
         "systems": 289,
@@ -112,26 +193,126 @@
       }
     },
     "top_systems": [
-      { "rank": 1,  "name": "El Capitan",                    "country": "US",    "rmax_pflops": 1809.0  },
-      { "rank": 2,  "name": "Frontier",                      "country": "US",    "rmax_pflops": 1353.0  },
-      { "rank": 3,  "name": "Aurora",                        "country": "US",    "rmax_pflops": 1012.0  },
-      { "rank": 4,  "name": "JUPITER Booster",               "country": "Other", "rmax_pflops": 1000.0  },
-      { "rank": 5,  "name": "Eagle",                         "country": "US",    "rmax_pflops": 561.2   },
-      { "rank": 6,  "name": "HPC6",                          "country": "Other", "rmax_pflops": 477.9   },
-      { "rank": 7,  "name": "Supercomputer Fugaku",          "country": "Other", "rmax_pflops": 442.01  },
-      { "rank": 8,  "name": "Alps",                          "country": "Other", "rmax_pflops": 434.9   },
-      { "rank": 9,  "name": "LUMI",                          "country": "Other", "rmax_pflops": 379.7   },
-      { "rank": 10, "name": "Leonardo",                      "country": "Other", "rmax_pflops": 241.2   },
-      { "rank": 11, "name": "Isambard-AI phase 2",           "country": "Other", "rmax_pflops": 216.5   },
-      { "rank": 12, "name": "Tuolumne",                      "country": "US",    "rmax_pflops": 208.1   },
-      { "rank": 13, "name": "ISEG2",                         "country": "Other", "rmax_pflops": 202.4   },
-      { "rank": 14, "name": "MareNostrum 5 ACC",             "country": "Other", "rmax_pflops": 175.3   },
-      { "rank": 15, "name": "Discovery 6",                   "country": "US",    "rmax_pflops": 164.2   },
-      { "rank": 16, "name": "ABCI 3.0",                      "country": "Other", "rmax_pflops": 145.1   },
-      { "rank": 17, "name": "CHIE-4",                        "country": "Other", "rmax_pflops": 135.4   },
-      { "rank": 18, "name": "Shaheen III - GPU",             "country": "Other", "rmax_pflops": 122.8   },
-      { "rank": 19, "name": "Eos NVIDIA DGX SuperPOD",       "country": "US",    "rmax_pflops": 121.4   },
-      { "rank": 20, "name": "MAXIMUS-384",                   "country": "US",    "rmax_pflops": 114.5   }
+      {
+        "rank": 1,
+        "name": "El Capitan",
+        "country": "US",
+        "rmax_pflops": 1809.0
+      },
+      {
+        "rank": 2,
+        "name": "Frontier",
+        "country": "US",
+        "rmax_pflops": 1353.0
+      },
+      {
+        "rank": 3,
+        "name": "Aurora",
+        "country": "US",
+        "rmax_pflops": 1012.0
+      },
+      {
+        "rank": 4,
+        "name": "JUPITER Booster",
+        "country": "Other",
+        "rmax_pflops": 1000.0
+      },
+      {
+        "rank": 5,
+        "name": "Eagle",
+        "country": "US",
+        "rmax_pflops": 561.2
+      },
+      {
+        "rank": 6,
+        "name": "HPC6",
+        "country": "Other",
+        "rmax_pflops": 477.9
+      },
+      {
+        "rank": 7,
+        "name": "Supercomputer Fugaku",
+        "country": "Other",
+        "rmax_pflops": 442.01
+      },
+      {
+        "rank": 8,
+        "name": "Alps",
+        "country": "Other",
+        "rmax_pflops": 434.9
+      },
+      {
+        "rank": 9,
+        "name": "LUMI",
+        "country": "Other",
+        "rmax_pflops": 379.7
+      },
+      {
+        "rank": 10,
+        "name": "Leonardo",
+        "country": "Other",
+        "rmax_pflops": 241.2
+      },
+      {
+        "rank": 11,
+        "name": "Isambard-AI phase 2",
+        "country": "Other",
+        "rmax_pflops": 216.5
+      },
+      {
+        "rank": 12,
+        "name": "Tuolumne",
+        "country": "US",
+        "rmax_pflops": 208.1
+      },
+      {
+        "rank": 13,
+        "name": "ISEG2",
+        "country": "Other",
+        "rmax_pflops": 202.4
+      },
+      {
+        "rank": 14,
+        "name": "MareNostrum 5 ACC",
+        "country": "Other",
+        "rmax_pflops": 175.3
+      },
+      {
+        "rank": 15,
+        "name": "Discovery 6",
+        "country": "US",
+        "rmax_pflops": 164.2
+      },
+      {
+        "rank": 16,
+        "name": "ABCI 3.0",
+        "country": "Other",
+        "rmax_pflops": 145.1
+      },
+      {
+        "rank": 17,
+        "name": "CHIE-4",
+        "country": "Other",
+        "rmax_pflops": 135.4
+      },
+      {
+        "rank": 18,
+        "name": "Shaheen III - GPU",
+        "country": "Other",
+        "rmax_pflops": 122.8
+      },
+      {
+        "rank": 19,
+        "name": "Eos NVIDIA DGX SuperPOD",
+        "country": "US",
+        "rmax_pflops": 121.4
+      },
+      {
+        "rank": 20,
+        "name": "MAXIMUS-384",
+        "country": "US",
+        "rmax_pflops": 114.5
+      }
     ],
     "china_non_submission_note": "China stopped submitting its major supercomputers to TOP500 starting in 2023. The November 2023 list showed only 40 Chinese systems at 205 PFlops total, but China's actual HPC capacity is known to be significantly larger based on government announcements. TOP500 alone is not a valid primary metric for China."
   }

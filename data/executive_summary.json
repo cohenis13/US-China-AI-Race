@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-19T09:07:52.407692+00:00",
+  "fetched_at": "2026-04-19T09:34:46.370302+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -28,11 +28,11 @@
       "key": "talent",
       "label": "Talent",
       "radar_label": "Talent",
-      "us_score": 5.0,
-      "china_score": 5.0,
-      "winner": "Tie",
-      "delta": 0.0,
-      "edge": "Parity",
+      "us_score": 4.6,
+      "china_score": 5.4,
+      "winner": "China",
+      "delta": 0.8,
+      "edge": "+0.8 CN",
       "confidence": "Medium confidence",
       "score_method": "count_share",
       "caveat": "Three-proxy talent pipeline index: research output quality (35%, OpenAlex paper volume + high-impact + top-cited), domestic PhD pipeline (25%, NSF SDR and China MoE annual graduate data), and elite researcher concentration + migration (40%, MacroPolo AI Talent Tracker). Paper volume alone overstates China's advantage; adding elite researcher placement (US captures ~72% of combined US+China top researchers) produces a near-tie. Key dynamic: China's universities produce 4× more AI-adjacent PhDs than the US, but the US absorbs a disproportionate share of elite talent from China and globally. China's domestic retention of top researchers has increased significantly since 2019.",
@@ -95,19 +95,19 @@
       "source_file": "data/energy.json"
     }
   ],
-  "current_read": "The U.S. leads in compute, global deployment, and frontier model development, while China leads in energy capacity, and domestic adoption, research talent at parity.",
+  "current_read": "The U.S. leads in compute, global deployment, and frontier model development, while China leads in energy capacity, domestic adoption, and research talent.",
   "strategic_insights": [
     {
       "bold": "The U.S. leads on disclosed compute, frontier model activity, and global diffusion",
       "rest": " — driven by dominant GPU infrastructure, frontier lab concentration, and the global reach of US open-source models. Note: Compute score reflects TOP500 data only and understates China’s actual capacity."
     },
     {
-      "bold": "China leads in Energy, and Adoption",
+      "bold": "China leads in Energy, Adoption, and Talent",
       "rest": " — particularly in energy infrastructure scaling capacity and AI research paper volume, where China’s structural advantages are most pronounced (+3.7 points in Energy)."
     },
     {
       "bold": "Talent is the most closely contested dimension",
-      "rest": " on these proxies (gap: 0.0 points on the 0–10 scale) — both countries are operating at broadly comparable levels here."
+      "rest": " on these proxies (gap: 0.8 points on the 0–10 scale) — both countries are operating at broadly comparable levels here."
     },
     {
       "bold": "The binding constraints differ structurally",
@@ -163,11 +163,11 @@
     {
       "key": "talent",
       "dimension": "Talent",
-      "us": 5.0,
-      "china": 5.0,
-      "winner": "Tie",
-      "delta": 0.0,
-      "edge": "Parity"
+      "us": 4.6,
+      "china": 5.4,
+      "winner": "China",
+      "delta": 0.8,
+      "edge": "+0.8 CN"
     }
   ],
   "radar_chart_data": {
@@ -185,7 +185,7 @@
       6.2,
       6.7,
       3.7,
-      5.0
+      4.6
     ],
     "china": [
       3.5,
@@ -193,7 +193,7 @@
       7.4,
       3.3,
       7.4,
-      5.0
+      5.4
     ]
   },
   "normalization_note": "Frontier Models, Talent, and Compute are scored as share-of-combined (US + China = 10 by construction). Adoption, Diffusion, and Energy use their 0–100 composite scores divided by 10, giving independent scores that do not necessarily sum to 10.",

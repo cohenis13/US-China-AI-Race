@@ -3,37 +3,37 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-16T15:30:00+00:00",
+  "fetched_at": "2026-04-19T09:34:46.312910+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
-    "elite_migration": 0.40
+    "elite_migration": 0.4
   },
   "summary": {
     "US": {
-      "composite_score": 50.1,
+      "composite_score": 46.2,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 48.0,
+          "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 129604,
-            "share_score": 36.1,
+            "raw_value": 140095,
+            "share_score": 37.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 3240,
-            "share_score": 54.0,
+            "raw_value": 4548,
+            "share_score": 36.5,
             "window": "3y",
-            "filter": "cited_by_count \u2265 50",
-            "data_ok": false
+            "filter": "cited_by_count ≥ 50",
+            "data_ok": true
           },
           "top_cited": {
-            "raw_value": 8500,
-            "share_score": 52.0,
+            "raw_value": 3356,
+            "share_score": 32.8,
             "window": "2y",
-            "filter": "cited_by_count \u2265 25",
-            "data_ok": false
+            "filter": "cited_by_count ≥ 25",
+            "data_ok": true
           },
           "sub_weights": {
             "volume": 0.3,
@@ -46,42 +46,42 @@
           "share_score": 19.0,
           "phd_annual": 3667,
           "source": "NSF Survey of Earned Doctorates (SED) 2022",
-          "confidence": "High"
+          "confidence": "High — government survey covering all US PhD-granting institutions"
         },
         "elite_migration": {
-          "weight": 0.40,
+          "weight": 0.4,
           "share_score": 72.2,
           "researcher_count_est": 1140,
           "source": "MacroPolo AI Talent Tracker 2023",
-          "confidence": "Medium-High",
+          "confidence": "Medium-High — systematic methodology on public conference proceedings; lag of 1-2 years from latest venue; elite venue selection may not capture applied AI research",
           "migration_note": "China's domestic retention of China-origin top researchers has increased from ~25% (2019 cohort) to ~34% (2022 cohort). The US share has declined slightly but remains dominant."
         }
       }
     },
     "China": {
-      "composite_score": 49.9,
+      "composite_score": 53.8,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 52.0,
+          "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 229729,
-            "share_score": 63.9,
+            "raw_value": 231747,
+            "share_score": 62.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 2760,
-            "share_score": 46.0,
+            "raw_value": 7912,
+            "share_score": 63.5,
             "window": "3y",
-            "filter": "cited_by_count \u2265 50",
-            "data_ok": false
+            "filter": "cited_by_count ≥ 50",
+            "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7843,
-            "share_score": 48.0,
+            "raw_value": 6885,
+            "share_score": 67.2,
             "window": "2y",
-            "filter": "cited_by_count \u2265 25",
-            "data_ok": false
+            "filter": "cited_by_count ≥ 25",
+            "data_ok": true
           },
           "sub_weights": {
             "volume": 0.3,
@@ -93,16 +93,16 @@
           "weight": 0.25,
           "share_score": 81.0,
           "phd_annual": 15600,
-          "source": "China Ministry of Education (MoE) Statistics 2022 / \u6559\u80b2\u90e8\u7edf\u8ba1\u6570\u636e",
-          "confidence": "Medium",
+          "source": "China Ministry of Education (MoE) Statistics 2022 / 教育部统计数据",
+          "confidence": "Medium — official statistics, but classification of 'AI-related' is broader than Western definitions; peer-reviewed verification limited",
           "coverage_note": "China MoE 2022 reports ~52,000 CS/IT-category doctoral graduates. Estimated 30% are AI/ML-adjacent. China's broad CS classification includes applied software engineering that would not typically be classified as AI research in Western databases. Adjusted estimate is conservative. Note: a significant share of top Chinese AI researchers do their PhD in the US or Europe."
         },
         "elite_migration": {
-          "weight": 0.40,
+          "weight": 0.4,
           "share_score": 27.8,
           "researcher_count_est": 438,
           "source": "MacroPolo AI Talent Tracker 2023",
-          "confidence": "Medium-High",
+          "confidence": "Medium-High — systematic methodology on public conference proceedings; lag of 1-2 years from latest venue; elite venue selection may not capture applied AI research",
           "migration_note": "China's domestic retention of China-origin top researchers has increased from ~25% (2019 cohort) to ~34% (2022 cohort). The US share has declined slightly but remains dominant."
         }
       }
@@ -116,24 +116,200 @@
     "window_days_top_cited": 730,
     "high_impact_min_cites": 50,
     "top_cited_min_cites": 25,
-    "methodology_note": "Papers counted once per country where \u22651 author has an identified institution. Multinational papers counted in both countries \u2014 sums exceed total paper count. High-impact and top-cited queries add a cited_by_count filter which may not work on all OpenAlex instances (falls back to seeded estimates if the filter returns zero results). OpenAlex does not de-duplicate authors across papers; a prolific researcher counts once per paper, not once per researcher.",
+    "methodology_note": "Papers counted once per country where ≥1 author has an identified institution. Multinational papers counted in both countries — sums exceed total paper count. High-impact and top-cited queries add a cited_by_count filter which may not work on all OpenAlex instances (falls back to seeded estimates if the filter returns zero results). OpenAlex does not de-duplicate authors across papers; a prolific researcher counts once per paper, not once per researcher.",
     "top_countries": [
-      { "country_code": "CN", "count": 229729 },
-      { "country_code": "US", "count": 129604 },
-      { "country_code": "JP", "count": 79376 },
-      { "country_code": "IN", "count": 75877 },
-      { "country_code": "GB", "count": 40418 },
-      { "country_code": "DE", "count": 32370 },
-      { "country_code": "ID", "count": 26769 },
-      { "country_code": "CA", "count": 20686 },
-      { "country_code": "IT", "count": 20592 },
-      { "country_code": "FR", "count": 19935 }
+      {
+        "country_code": "CN",
+        "count": 231747
+      },
+      {
+        "country_code": "DE",
+        "count": 155519
+      },
+      {
+        "country_code": "US",
+        "count": 140095
+      },
+      {
+        "country_code": "IN",
+        "count": 82143
+      },
+      {
+        "country_code": "JP",
+        "count": 80497
+      },
+      {
+        "country_code": "GB",
+        "count": 44304
+      },
+      {
+        "country_code": "ID",
+        "count": 27906
+      },
+      {
+        "country_code": "FR",
+        "count": 23984
+      },
+      {
+        "country_code": "CA",
+        "count": 22969
+      },
+      {
+        "country_code": "IT",
+        "count": 21630
+      }
     ],
-    "volume": { "us": 129604, "china": 229729, "total": 1498617, "data_ok": true },
-    "high_impact": { "us": 3240, "china": 2760, "total": 6000, "data_ok": false },
-    "top_cited": { "us": 8500, "china": 7843, "total": 16343, "data_ok": false }
+    "volume": {
+      "us": 140095,
+      "china": 231747,
+      "total": 1818207,
+      "data_ok": true
+    },
+    "high_impact": {
+      "us": 4548,
+      "china": 7912,
+      "total": 19369,
+      "data_ok": true
+    },
+    "top_cited": {
+      "us": 3356,
+      "china": 6885,
+      "total": 15652,
+      "data_ok": true
+    }
   },
   "manual_data_snapshot": "2026-04-16",
-  "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin \u2014 a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity \u2014 China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction \u2014 the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
-  "papers": []
+  "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
+  "papers": [
+    {
+      "id": "https://openalex.org/W7154840502",
+      "title": "SMILE v4.4: The Reality Fabric — Universal Methodology for Impact-Driven Implementation",
+      "authors": [
+        "Nicolas Waern"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154841386",
+      "title": "Single Layer HurNet: A Neural Network Without Backpropagation for Two-Dimensional Matrices",
+      "authors": [
+        "Ben-Hur Varriano"
+      ],
+      "countries": [
+        "HU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154829173",
+      "title": "PREreview of \"The Validity Gap in Health AI Evaluation: A Cross-Sectional Analysis of Benchmark Composition\"",
+      "authors": [
+        "Mattia Gaggi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154830979",
+      "title": "evaṃ",
+      "authors": [
+        "Wonheo Seok"
+      ],
+      "countries": [
+        "HU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154828631",
+      "title": "Optimizing ASR Models through Contrastive Learning-Based Audio Filtering",
+      "authors": [
+        "Pranay. S Awachar",
+        "Prof. Shivani.V Khedkar",
+        "Rushikesh. G Kothare"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139945262",
+      "title": "A Scanning-Based Model of Perceptual Time: The Half-Time Hypothesis (HMT), Angular Integration, and Environmental Pedagogy",
+      "authors": [
+        "NETO, JOAO"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154853669",
+      "title": "MedMI-Bench: Pre-Registered Analysis Plan for Supplementary Experiments",
+      "authors": [
+        "Aman Sharma"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7136061784",
+      "title": "【k-Foam Theory v19:幾何学的「万物の理論」へのアプローチ】 日本語版",
+      "authors": [
+        "t sato"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154854331",
+      "title": "A Hybrid YOLO–CNN Model for Automatic Detection and Severity Assessment of Atopic Dermatitis in Infant Images",
+      "authors": [
+        "Debi Setiawan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154828694",
+      "title": "Completing the Cognitive Exoskeleton: The TASTE Layer for Aesthetic Selection in AI Creative Production",
+      "authors": [
+        "Shun Fujiyoshi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    }
+  ]
 }

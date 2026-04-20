@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-19T09:34:46.312910+00:00",
+  "fetched_at": "2026-04-20T09:10:25.511122+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.2,
+      "composite_score": 46.1,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 35.8,
+          "share_score": 35.7,
           "paper_volume": {
-            "raw_value": 140095,
+            "raw_value": 140255,
             "share_score": 37.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4548,
+            "raw_value": 4533,
             "share_score": 36.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3356,
-            "share_score": 32.8,
+            "raw_value": 3349,
+            "share_score": 32.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.8,
+      "composite_score": 53.9,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.2,
+          "share_score": 64.3,
           "paper_volume": {
-            "raw_value": 231747,
+            "raw_value": 231667,
             "share_score": 62.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7912,
+            "raw_value": 7890,
             "share_score": 63.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6885,
-            "share_score": 67.2,
+            "raw_value": 6879,
+            "share_score": 67.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 231747
+        "count": 231667
       },
       {
         "country_code": "DE",
-        "count": 155519
+        "count": 155526
       },
       {
         "country_code": "US",
-        "count": 140095
+        "count": 140255
       },
       {
         "country_code": "IN",
-        "count": 82143
+        "count": 82200
       },
       {
         "country_code": "JP",
-        "count": 80497
+        "count": 80502
       },
       {
         "country_code": "GB",
-        "count": 44304
+        "count": 44372
       },
       {
         "country_code": "ID",
-        "count": 27906
+        "count": 27908
       },
       {
         "country_code": "FR",
-        "count": 23984
+        "count": 24001
       },
       {
         "country_code": "CA",
-        "count": 22969
+        "count": 23005
       },
       {
         "country_code": "IT",
-        "count": 21630
+        "count": 21649
       }
     ],
     "volume": {
-      "us": 140095,
-      "china": 231747,
-      "total": 1818207,
+      "us": 140255,
+      "china": 231667,
+      "total": 1822740,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4548,
-      "china": 7912,
-      "total": 19369,
+      "us": 4533,
+      "china": 7890,
+      "total": 19305,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3356,
-      "china": 6885,
-      "total": 15652,
+      "us": 3349,
+      "china": 6879,
+      "total": 15632,
       "data_ok": true
     }
   },
@@ -182,132 +182,135 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7154840502",
-      "title": "SMILE v4.4: The Reality Fabric — Universal Methodology for Impact-Driven Implementation",
+      "id": "https://openalex.org/W7154913966",
+      "title": "A PatchMamba-based deep learning network for hyperspectral image classification",
       "authors": [
-        "Nicolas Waern"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154841386",
-      "title": "Single Layer HurNet: A Neural Network Without Backpropagation for Two-Dimensional Matrices",
-      "authors": [
-        "Ben-Hur Varriano"
-      ],
-      "countries": [
-        "HU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154829173",
-      "title": "PREreview of \"The Validity Gap in Health AI Evaluation: A Cross-Sectional Analysis of Benchmark Composition\"",
-      "authors": [
-        "Mattia Gaggi"
+        "Mohammed Chachan Younis"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-19",
+      "published": "2026-04-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154830979",
-      "title": "evaṃ",
+      "id": "https://openalex.org/W7154839509",
+      "title": "Artificial Intelligence And The Transformation of Labor Markets",
       "authors": [
-        "Wonheo Seok"
+        "Sabu P J"
       ],
       "countries": [
-        "HU"
+        "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-04-19",
+      "published": "2026-04-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154828631",
-      "title": "Optimizing ASR Models through Contrastive Learning-Based Audio Filtering",
+      "id": "https://openalex.org/W7154911423",
+      "title": "Retraction Note: Word recognition from Indian Sign Language in videos using dual feature descriptor and GMT-MASKRCNN recognition technique",
       "authors": [
-        "Pranay. S Awachar",
-        "Prof. Shivani.V Khedkar",
-        "Rushikesh. G Kothare"
+        "Naman Bansal",
+        "Abhilasha Jain"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-19",
+      "published": "2026-04-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139945262",
-      "title": "A Scanning-Based Model of Perceptual Time: The Half-Time Hypothesis (HMT), Angular Integration, and Environmental Pedagogy",
+      "id": "https://openalex.org/W7154911522",
+      "title": "Interpretable prediction of rock mass classification for TBM using bi-modal data",
       "authors": [
-        "NETO, JOAO"
+        "Shilong Pang",
+        "Yu Chen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-19",
+      "published": "2026-04-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154853669",
-      "title": "MedMI-Bench: Pre-Registered Analysis Plan for Supplementary Experiments",
+      "id": "https://openalex.org/W7154917073",
+      "title": "(A Story by) 101 Writing Tips That Separate You From the Pack (Stand Out, Get Noticed) (The Digital Writer) by The Digital Writer",
       "authors": [
-        "Aman Sharma"
+        "nokerilasqik viserolas"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154915340",
+      "title": "Machine learning predicts ICU mortality in cardiogenic shock: interpreting SOFA, lactate, and pH thresholds",
+      "authors": [
+        "Jing Tian",
+        "Sicong Wang",
+        "Xinyi Chang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7117764199",
+      "title": "The Cognitive Blindness of Multi-AI Recursive Systems: A Structural Analysis of Paradigm-Challenging Theory Exclusion Under the Ω-WOS Axiomatic System",
+      "authors": [
+        "Jingfeng Lu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154902038",
+      "title": "Artificial Intelligence In The Diagnosis And Prediction Of Breast Cancer-Related Lymphedema: A Scoping Review",
+      "authors": [
+        "Shely Kagan",
+        "Lyndsey Huynh",
+        "David Chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154896044",
+      "title": "The Cognitive Blindness of Multi-AI Recursive Systems: A Structural Analysis of Paradigm-Challenging Theory Exclusion Under the Ω-WOS Axiomatic System",
+      "authors": [
+        "Jingfeng Lu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154893451",
+      "title": "Evolving microbiology laboratories: mastering automated culture-based processes and molecular assays, an institutional experience",
+      "authors": [
+        "Abdessalam Cherkaoui",
+        "Gesuèle Renzi",
+        "Adrien Fischer"
       ],
       "countries": [
-        "US"
+        "US",
+        "IT"
       ],
       "primary_country": "US",
-      "published": "2026-04-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7136061784",
-      "title": "【k-Foam Theory v19:幾何学的「万物の理論」へのアプローチ】 日本語版",
-      "authors": [
-        "t sato"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154854331",
-      "title": "A Hybrid YOLO–CNN Model for Automatic Detection and Severity Assessment of Atopic Dermatitis in Infant Images",
-      "authors": [
-        "Debi Setiawan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154828694",
-      "title": "Completing the Cognitive Exoskeleton: The TASTE Layer for Aesthetic Selection in AI Creative Production",
-      "authors": [
-        "Shun Fujiyoshi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-19",
+      "published": "2026-04-20",
       "cited_by_count": 0,
       "source": "openalex"
     }

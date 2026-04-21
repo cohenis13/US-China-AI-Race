@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-20T09:10:25.511122+00:00",
+  "fetched_at": "2026-04-21T08:55:58.023217+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.7,
           "paper_volume": {
-            "raw_value": 140255,
+            "raw_value": 140187,
             "share_score": 37.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4533,
+            "raw_value": 4517,
             "share_score": 36.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3349,
+            "raw_value": 3336,
             "share_score": 32.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.3,
           "paper_volume": {
-            "raw_value": 231667,
+            "raw_value": 231540,
             "share_score": 62.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7890,
+            "raw_value": 7867,
             "share_score": 63.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6879,
+            "raw_value": 6870,
             "share_score": 67.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,180 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 231667
+        "count": 231540
       },
       {
         "country_code": "DE",
-        "count": 155526
+        "count": 155510
       },
       {
         "country_code": "US",
-        "count": 140255
+        "count": 140187
       },
       {
         "country_code": "IN",
-        "count": 82200
+        "count": 82165
       },
       {
         "country_code": "JP",
-        "count": 80502
+        "count": 80490
       },
       {
         "country_code": "GB",
-        "count": 44372
+        "count": 44352
       },
       {
         "country_code": "ID",
-        "count": 27908
+        "count": 27849
       },
       {
         "country_code": "FR",
-        "count": 24001
+        "count": 23993
       },
       {
         "country_code": "CA",
-        "count": 23005
+        "count": 22995
       },
       {
         "country_code": "IT",
-        "count": 21649
+        "count": 21636
       }
     ],
     "volume": {
-      "us": 140255,
-      "china": 231667,
-      "total": 1822740,
+      "us": 140187,
+      "china": 231540,
+      "total": 1822102,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4533,
-      "china": 7890,
-      "total": 19305,
+      "us": 4517,
+      "china": 7867,
+      "total": 19244,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3349,
-      "china": 6879,
-      "total": 15632,
+      "us": 3336,
+      "china": 6870,
+      "total": 15601,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7154810982",
+      "title": "The Role of Artificial Intelligence in Division I Collegiate Scouting: A Qualitative Study of Recruiter Perspectives",
+      "authors": [
+        "Leah Watson",
+        "Jonah Kirschner",
+        "Joseph Ebenroth"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154878981",
+      "title": "The Texture of a Threat:: Convolutional Neural Networks & Obfuscated Malware Detection",
+      "authors": [
+        "Kaelyn Haynie"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134095985",
+      "title": "A Deconfounding Method for Reverse Causal Inference Using Causally Weighted Gaussian Mixture Models",
+      "authors": [
+        "Jianqiao; id_orcid 0000-0001-5945-1736 Mao",
+        "Max A. Little"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154874458",
+      "title": "Effects of Morphosyntactic and Phonological Environments on Persian Ra-Marking",
+      "authors": [
+        "Alyssa Gilliland"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140325831",
+      "title": "TxPredictor - The Handbook",
+      "authors": [
+        "Hilary Mehler",
+        "Andreas Schimanski",
+        "Bram Gerritsen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140296375",
+      "title": "TxPredictor - The Handbook",
+      "authors": [
+        "Hilary Mehler",
+        "Andreas Schimanski",
+        "Bram Gerritsen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154876305",
+      "title": "Dynamic Structural Load Identification",
+      "authors": [
+        "Sam Kim"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154802064",
+      "title": "When the Algorithm Disciples: Recentering Discipleship in an AI Saturated Age",
+      "authors": [
+        "Laronda Perrien-Massey"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7154913966",
       "title": "A PatchMamba-based deep learning network for hyperspectral image classification",
@@ -203,113 +316,6 @@
         "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154911423",
-      "title": "Retraction Note: Word recognition from Indian Sign Language in videos using dual feature descriptor and GMT-MASKRCNN recognition technique",
-      "authors": [
-        "Naman Bansal",
-        "Abhilasha Jain"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154911522",
-      "title": "Interpretable prediction of rock mass classification for TBM using bi-modal data",
-      "authors": [
-        "Shilong Pang",
-        "Yu Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154917073",
-      "title": "(A Story by) 101 Writing Tips That Separate You From the Pack (Stand Out, Get Noticed) (The Digital Writer) by The Digital Writer",
-      "authors": [
-        "nokerilasqik viserolas"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154915340",
-      "title": "Machine learning predicts ICU mortality in cardiogenic shock: interpreting SOFA, lactate, and pH thresholds",
-      "authors": [
-        "Jing Tian",
-        "Sicong Wang",
-        "Xinyi Chang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7117764199",
-      "title": "The Cognitive Blindness of Multi-AI Recursive Systems: A Structural Analysis of Paradigm-Challenging Theory Exclusion Under the Ω-WOS Axiomatic System",
-      "authors": [
-        "Jingfeng Lu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154902038",
-      "title": "Artificial Intelligence In The Diagnosis And Prediction Of Breast Cancer-Related Lymphedema: A Scoping Review",
-      "authors": [
-        "Shely Kagan",
-        "Lyndsey Huynh",
-        "David Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154896044",
-      "title": "The Cognitive Blindness of Multi-AI Recursive Systems: A Structural Analysis of Paradigm-Challenging Theory Exclusion Under the Ω-WOS Axiomatic System",
-      "authors": [
-        "Jingfeng Lu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154893451",
-      "title": "Evolving microbiology laboratories: mastering automated culture-based processes and molecular assays, an institutional experience",
-      "authors": [
-        "Abdessalam Cherkaoui",
-        "Gesuèle Renzi",
-        "Adrien Fischer"
-      ],
-      "countries": [
-        "US",
-        "IT"
-      ],
-      "primary_country": "US",
       "published": "2026-04-20",
       "cited_by_count": 0,
       "source": "openalex"

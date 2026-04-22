@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-21T08:55:58.023217+00:00",
+  "fetched_at": "2026-04-22T08:51:01.097594+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 35.7,
           "paper_volume": {
-            "raw_value": 140187,
-            "share_score": 37.7,
+            "raw_value": 140812,
+            "share_score": 37.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4517,
-            "share_score": 36.5,
+            "raw_value": 4520,
+            "share_score": 36.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3336,
-            "share_score": 32.7,
+            "raw_value": 3350,
+            "share_score": 32.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.3,
           "paper_volume": {
-            "raw_value": 231540,
-            "share_score": 62.3,
+            "raw_value": 231846,
+            "share_score": 62.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7867,
-            "share_score": 63.5,
+            "raw_value": 7881,
+            "share_score": 63.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6870,
-            "share_score": 67.3,
+            "raw_value": 6868,
+            "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 231540
+        "count": 231846
       },
       {
         "country_code": "DE",
-        "count": 155510
+        "count": 155618
       },
       {
         "country_code": "US",
-        "count": 140187
+        "count": 140812
       },
       {
         "country_code": "IN",
-        "count": 82165
+        "count": 82577
       },
       {
         "country_code": "JP",
-        "count": 80490
+        "count": 80558
       },
       {
         "country_code": "GB",
-        "count": 44352
+        "count": 44567
       },
       {
         "country_code": "ID",
-        "count": 27849
+        "count": 27894
       },
       {
         "country_code": "FR",
-        "count": 23993
+        "count": 24079
       },
       {
         "country_code": "CA",
-        "count": 22995
+        "count": 23072
       },
       {
         "country_code": "IT",
-        "count": 21636
+        "count": 21672
       }
     ],
     "volume": {
-      "us": 140187,
-      "china": 231540,
-      "total": 1822102,
+      "us": 140812,
+      "china": 231846,
+      "total": 1828686,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4517,
-      "china": 7867,
-      "total": 19244,
+      "us": 4520,
+      "china": 7881,
+      "total": 19267,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3336,
-      "china": 6870,
-      "total": 15601,
+      "us": 3350,
+      "china": 6868,
+      "total": 15627,
       "data_ok": true
     }
   },
@@ -182,141 +182,151 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7154810982",
-      "title": "The Role of Artificial Intelligence in Division I Collegiate Scouting: A Qualitative Study of Recruiter Perspectives",
+      "id": "https://openalex.org/W7128667341",
+      "title": "Bas les masques ! GAMM—Une Taxonomie des Mécanismes d'Attributs Manquants dans les Graphes",
       "authors": [
-        "Leah Watson",
-        "Jonah Kirschner",
-        "Joseph Ebenroth"
+        "Richard Serrano",
+        "Baptiste Jeudy",
+        "Charlotte Laclau"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154878981",
-      "title": "The Texture of a Threat:: Convolutional Neural Networks & Obfuscated Malware Detection",
-      "authors": [
-        "Kaelyn Haynie"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134095985",
-      "title": "A Deconfounding Method for Reverse Causal Inference Using Causally Weighted Gaussian Mixture Models",
-      "authors": [
-        "Jianqiao; id_orcid 0000-0001-5945-1736 Mao",
-        "Max A. Little"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154874458",
-      "title": "Effects of Morphosyntactic and Phonological Environments on Persian Ra-Marking",
-      "authors": [
-        "Alyssa Gilliland"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140325831",
-      "title": "TxPredictor - The Handbook",
-      "authors": [
-        "Hilary Mehler",
-        "Andreas Schimanski",
-        "Bram Gerritsen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140296375",
-      "title": "TxPredictor - The Handbook",
-      "authors": [
-        "Hilary Mehler",
-        "Andreas Schimanski",
-        "Bram Gerritsen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154876305",
-      "title": "Dynamic Structural Load Identification",
-      "authors": [
-        "Sam Kim"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154802064",
-      "title": "When the Algorithm Disciples: Recentering Discipleship in an AI Saturated Age",
-      "authors": [
-        "Laronda Perrien-Massey"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154913966",
-      "title": "A PatchMamba-based deep learning network for hyperspectral image classification",
-      "authors": [
-        "Mohammed Chachan Younis"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154839509",
-      "title": "Artificial Intelligence And The Transformation of Labor Markets",
-      "authors": [
-        "Sabu P J"
-      ],
-      "countries": [
-        "IN"
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-04-20",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7149878590",
+      "title": "One Stick, One Success: Optimizing PIV Performance",
+      "authors": [
+        "Nayades Alfonso",
+        "Bashan Knockee-Cesaire"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154866328",
+      "title": "Arrival, Check-In, Vitals & Triage Flow Improvement",
+      "authors": [
+        "Vanessa Lluy",
+        "Cecieliz Sandifer",
+        "Yulisa Rivera"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7118053599",
+      "title": "The about logic podcast",
+      "authors": [
+        "Seunghyun Song",
+        "Jordi Fairhurst Chilton"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153956879",
+      "title": "Special Session: Optimizing Edge AI - Current Challenges and the Neuromorphic Outlook",
+      "authors": [
+        "Milan Dinčić",
+        "Zoran Perić",
+        "Davide; id_orcid 0000-0001-7462-4551 Bertozzi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140153278",
+      "title": "Energy-Efficient Function Chaining and Assignment for In-Network Learning",
+      "authors": [
+        "G Gerard",
+        "Patient Ntumba",
+        "Safia Kedad-Sidhoum"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125569247",
+      "title": "Assessing Graph Neural Networks for latency and power consumption prediction in application mappings on multicore architectures",
+      "authors": [
+        "Oscar Roussel",
+        "Zainab Ghrayeb",
+        "Sébastien Le Nours"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7137478501",
+      "title": "When Curvature Counts: Hyperbolic Geometry in Prototype-Based Image Classification",
+      "authors": [
+        "Silvia Bruna Grosso",
+        "Samuele Fonio",
+        "Mirko Polato"
+      ],
+      "countries": [
+        "FR",
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125882653",
+      "title": "Graph Neural Networks for Graph-Level Regression on Heterogeneous Network Data: Use Case in Early-Stage Optimization of Software Mapping on Multicore Platforms",
+      "authors": [
+        "Oscar Roussel",
+        "Zainab Ghrayeb",
+        "Sébastien Le Nours"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155012860",
+      "title": "Exploring question answering: metric analysis and evaluation framework for enhanced interpretability",
+      "authors": [
+        "Letícia C. Navarro",
+        "Sérgio S. Mucciaccia",
+        "Filipe Mutz"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-21",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-22T08:51:01.097594+00:00",
+  "fetched_at": "2026-04-23T08:56:39.396837+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.7,
           "paper_volume": {
-            "raw_value": 140812,
-            "share_score": 37.8,
+            "raw_value": 141616,
+            "share_score": 37.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4520,
+            "raw_value": 4530,
             "share_score": 36.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3350,
+            "raw_value": 3352,
             "share_score": 32.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.3,
           "paper_volume": {
-            "raw_value": 231846,
-            "share_score": 62.2,
+            "raw_value": 234094,
+            "share_score": 62.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7881,
+            "raw_value": 7902,
             "share_score": 63.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6868,
+            "raw_value": 6864,
             "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 231846
+        "count": 234094
       },
       {
         "country_code": "DE",
-        "count": 155618
+        "count": 155760
       },
       {
         "country_code": "US",
-        "count": 140812
+        "count": 141616
       },
       {
         "country_code": "IN",
-        "count": 82577
+        "count": 83061
       },
       {
         "country_code": "JP",
-        "count": 80558
+        "count": 80735
       },
       {
         "country_code": "GB",
-        "count": 44567
+        "count": 44950
       },
       {
         "country_code": "ID",
-        "count": 27894
+        "count": 27951
       },
       {
         "country_code": "FR",
-        "count": 24079
+        "count": 24181
       },
       {
         "country_code": "CA",
-        "count": 23072
+        "count": 23187
       },
       {
         "country_code": "IT",
-        "count": 21672
+        "count": 21752
       }
     ],
     "volume": {
-      "us": 140812,
-      "china": 231846,
-      "total": 1828686,
+      "us": 141616,
+      "china": 234094,
+      "total": 1838935,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4520,
-      "china": 7881,
-      "total": 19267,
+      "us": 4530,
+      "china": 7902,
+      "total": 19311,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3350,
-      "china": 6868,
-      "total": 15627,
+      "us": 3352,
+      "china": 6864,
+      "total": 15638,
       "data_ok": true
     }
   },
@@ -182,151 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7128667341",
-      "title": "Bas les masques ! GAMM—Une Taxonomie des Mécanismes d'Attributs Manquants dans les Graphes",
+      "id": "https://openalex.org/W7135001496",
+      "title": "Spinoza’s Library:A reappraisal and comparison with related 17th-century libraries using the Exercitia et Bibliotheca of Gisbertus Voetius (1589-1676) as a point of reference",
       "authors": [
-        "Richard Serrano",
-        "Baptiste Jeudy",
-        "Charlotte Laclau"
+        "Marc Riese"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154541484",
+      "title": "Multilingual Spoken Language Understanding: Efficient Speech Dataset Collection, Architectural Exploration, and Zero-Shot SLU",
+      "authors": [
+        "이범석"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128110441",
+      "title": "Noisy but Valid: Robust Statistical Evaluation of LLMs with Imperfect Judges",
+      "authors": [
+        "Minghe shen",
+        "Feng Chen",
+        "Balashankar Ananth"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7152073529",
+      "title": "Artificial Intelligence and The Future of Creative Authorship",
+      "authors": [
+        "Kochumol Abraham"
       ],
       "countries": [
-        "FR"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-04-22",
+      "primary_country": "US",
+      "published": "2026-04-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7149878590",
-      "title": "One Stick, One Success: Optimizing PIV Performance",
+      "id": "https://openalex.org/W7155064524",
+      "title": "Sp7_Knockout_Projection_Rdata",
       "authors": [
-        "Nayades Alfonso",
-        "Bashan Knockee-Cesaire"
+        "Yang Kai"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-22",
+      "published": "2026-04-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154866328",
-      "title": "Arrival, Check-In, Vitals & Triage Flow Improvement",
+      "id": "https://openalex.org/W7127211586",
+      "title": "Learning Human Rhythmic Movements: Adaptive CPGs for Synchronized Virtual Agents",
       "authors": [
-        "Vanessa Lluy",
-        "Cecieliz Sandifer",
-        "Yulisa Rivera"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7118053599",
-      "title": "The about logic podcast",
-      "authors": [
-        "Seunghyun Song",
-        "Jordi Fairhurst Chilton"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153956879",
-      "title": "Special Session: Optimizing Edge AI - Current Challenges and the Neuromorphic Outlook",
-      "authors": [
-        "Milan Dinčić",
-        "Zoran Perić",
-        "Davide; id_orcid 0000-0001-7462-4551 Bertozzi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140153278",
-      "title": "Energy-Efficient Function Chaining and Assignment for In-Network Learning",
-      "authors": [
-        "G Gerard",
-        "Patient Ntumba",
-        "Safia Kedad-Sidhoum"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7125569247",
-      "title": "Assessing Graph Neural Networks for latency and power consumption prediction in application mappings on multicore architectures",
-      "authors": [
-        "Oscar Roussel",
-        "Zainab Ghrayeb",
-        "Sébastien Le Nours"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7137478501",
-      "title": "When Curvature Counts: Hyperbolic Geometry in Prototype-Based Image Classification",
-      "authors": [
-        "Silvia Bruna Grosso",
-        "Samuele Fonio",
-        "Mirko Polato"
+        "Maxime Faurent",
+        "Gireg Desmeulles",
+        "P. Henaff"
       ],
       "countries": [
         "FR",
-        "IT"
+        "DZ"
       ],
       "primary_country": "Other",
-      "published": "2026-04-22",
+      "published": "2026-04-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125882653",
-      "title": "Graph Neural Networks for Graph-Level Regression on Heterogeneous Network Data: Use Case in Early-Stage Optimization of Software Mapping on Multicore Platforms",
+      "id": "https://openalex.org/W7154805517",
+      "title": "Computer Vision for Ovarian Follicle Analysis",
       "authors": [
-        "Oscar Roussel",
-        "Zainab Ghrayeb",
-        "Sébastien Le Nours"
+        "My Nhien Tang",
+        "Cameron Kauffman",
+        "Ian Davidson"
       ],
       "countries": [
-        "FR"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-04-22",
+      "primary_country": "US",
+      "published": "2026-04-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155012860",
-      "title": "Exploring question answering: metric analysis and evaluation framework for enhanced interpretability",
+      "id": "https://openalex.org/W7152127136",
+      "title": "Artificial Intelligence and The Future of Creative Authorship",
       "authors": [
-        "Letícia C. Navarro",
-        "Sérgio S. Mucciaccia",
-        "Filipe Mutz"
+        "Kochumol Abraham"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155039373",
+      "title": "Sp7_Knockout_Projection_Rdata",
+      "authors": [
+        "Yang Kai"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-21",
+      "published": "2026-04-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7148225003",
+      "title": "Reconstruct Anything Model: a lightweight foundation model for computational imaging",
+      "authors": [
+        "Terris, Matthieu",
+        "Hurault, Samuel",
+        "Song, Maxime"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

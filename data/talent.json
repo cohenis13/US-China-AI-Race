@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-23T08:56:39.396837+00:00",
+  "fetched_at": "2026-04-24T09:03:54.130927+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.7,
           "paper_volume": {
-            "raw_value": 141616,
-            "share_score": 37.7,
+            "raw_value": 143137,
+            "share_score": 37.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4530,
-            "share_score": 36.4,
+            "raw_value": 4547,
+            "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3352,
+            "raw_value": 3369,
             "share_score": 32.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.3,
           "paper_volume": {
-            "raw_value": 234094,
-            "share_score": 62.3,
+            "raw_value": 235104,
+            "share_score": 62.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7902,
-            "share_score": 63.6,
+            "raw_value": 7975,
+            "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6864,
+            "raw_value": 6911,
             "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 234094
+        "count": 235104
       },
       {
         "country_code": "DE",
-        "count": 155760
+        "count": 156141
       },
       {
         "country_code": "US",
-        "count": 141616
+        "count": 143137
       },
       {
         "country_code": "IN",
-        "count": 83061
+        "count": 83803
       },
       {
         "country_code": "JP",
-        "count": 80735
+        "count": 80900
       },
       {
         "country_code": "GB",
-        "count": 44950
+        "count": 45323
       },
       {
         "country_code": "ID",
-        "count": 27951
+        "count": 28088
       },
       {
         "country_code": "FR",
-        "count": 24181
+        "count": 24308
       },
       {
         "country_code": "CA",
-        "count": 23187
+        "count": 23386
       },
       {
         "country_code": "IT",
-        "count": 21752
+        "count": 21940
       }
     ],
     "volume": {
-      "us": 141616,
-      "china": 234094,
-      "total": 1838935,
+      "us": 143137,
+      "china": 235104,
+      "total": 1855873,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4530,
-      "china": 7902,
-      "total": 19311,
+      "us": 4547,
+      "china": 7975,
+      "total": 19405,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3352,
-      "china": 6864,
-      "total": 15638,
+      "us": 3369,
+      "china": 6911,
+      "total": 15741,
       "data_ok": true
     }
   },
@@ -182,139 +182,127 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7135001496",
-      "title": "Spinoza’s Library:A reappraisal and comparison with related 17th-century libraries using the Exercitia et Bibliotheca of Gisbertus Voetius (1589-1676) as a point of reference",
+      "id": "https://openalex.org/W7155369393",
+      "title": "Online Read Ebook SOLEIL Fashion lookbook by Tanaka",
       "authors": [
-        "Marc Riese"
+        "Forrest Anderson"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-23",
+      "published": "2026-04-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154541484",
-      "title": "Multilingual Spoken Language Understanding: Efficient Speech Dataset Collection, Architectural Exploration, and Zero-Shot SLU",
+      "id": "https://openalex.org/W7155093685",
+      "title": "STRONG AND WEAK VERBS IN THE SYSTEM OF ENGLISH MORPHOLOGY: A HISTORICAL AND STRUCTURAL ANALYSIS",
       "authors": [
-        "이범석"
+        "Zokirzoda Nozanin",
+        "Kiyamova G."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-23",
+      "published": "2026-04-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128110441",
-      "title": "Noisy but Valid: Robust Statistical Evaluation of LLMs with Imperfect Judges",
+      "id": "https://openalex.org/W7154718886",
+      "title": "Early identification of students' abilities",
       "authors": [
-        "Minghe shen",
-        "Feng Chen",
-        "Balashankar Ananth"
+        "Baxit Pirimbetov"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-23",
+      "published": "2026-04-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7152073529",
-      "title": "Artificial Intelligence and The Future of Creative Authorship",
+      "id": "https://openalex.org/W7155398869",
+      "title": "Spatial patterns of Early Neolithic expansion in the north-eastern Iberian Peninsula, western Mediterranean: A landscape and environmental machine learning approach",
       "authors": [
-        "Kochumol Abraham"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155064524",
-      "title": "Sp7_Knockout_Projection_Rdata",
-      "authors": [
-        "Yang Kai"
+        "Joel Segarra",
+        "Jose Luis Araus"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-23",
+      "published": "2026-04-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7127211586",
-      "title": "Learning Human Rhythmic Movements: Adaptive CPGs for Synchronized Virtual Agents",
+      "id": "https://openalex.org/W7155404158",
+      "title": "[+ดซรย] รกไดหรอ Young? EP.1 พากยไทย ดฟร (ตอนท1) ยอนหลง เตมเรอง HD ทกตอน!",
       "authors": [
-        "Maxime Faurent",
-        "Gireg Desmeulles",
-        "P. Henaff"
-      ],
-      "countries": [
-        "FR",
-        "DZ"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154805517",
-      "title": "Computer Vision for Ovarian Follicle Analysis",
-      "authors": [
-        "My Nhien Tang",
-        "Cameron Kauffman",
-        "Ian Davidson"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152127136",
-      "title": "Artificial Intelligence and The Future of Creative Authorship",
-      "authors": [
-        "Kochumol Abraham"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-04-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155039373",
-      "title": "Sp7_Knockout_Projection_Rdata",
-      "authors": [
-        "Yang Kai"
+        "KAN Jirawat"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-23",
+      "published": "2026-04-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148225003",
-      "title": "Reconstruct Anything Model: a lightweight foundation model for computational imaging",
+      "id": "https://openalex.org/W7155047482",
+      "title": "TYPES OF SYNONYMS AND THEIR NUANCES: A COMPARATIVE ANALYSIS OF ENGLISH AND UZBEK LINGUISTIC STRUCTURES",
       "authors": [
-        "Terris, Matthieu",
-        "Hurault, Samuel",
-        "Song, Maxime"
+        "Go'zal Jumayeva"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-23",
+      "published": "2026-04-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155072816",
+      "title": "A COMPARATIVE ANALYSIS OF QUESTION FORMATION: SUBJECT-AUXILIARY INVERSION IN ENGLISH AND MORPHOLOGICAL INTERROGATION IN UZBEK",
+      "authors": [
+        "Nuridinova Umida"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155052901",
+      "title": "DEVELOPING LANGUAGE LEARNERS' ACTIVE VOCABULARY THROUGH WRITING SKILL",
+      "authors": [
+        "M.O.Jo'rayeva",
+        "F.K.Kurbanova"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155077253",
+      "title": "THE IMPОRTANCE ОF LEARNING METHОDS IN STUDYING FOREIGN LANGUAGES",
+      "authors": [
+        "Salimоva Dildоra Abdijalil qizi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155402553",
+      "title": "Digital impression accuracy of a novel scannable healing abutment: an in vitro study with three intraoral scanners",
+      "authors": [
+        "Xing Chen",
+        "Yu Pan",
+        "Heyuan Zhang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-24",
       "cited_by_count": 0,
       "source": "openalex"
     }

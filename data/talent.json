@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-24T09:03:54.130927+00:00",
+  "fetched_at": "2026-04-25T08:07:39.126431+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.7,
           "paper_volume": {
-            "raw_value": 143137,
+            "raw_value": 142724,
             "share_score": 37.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4547,
+            "raw_value": 4539,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3369,
+            "raw_value": 3351,
             "share_score": 32.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.3,
           "paper_volume": {
-            "raw_value": 235104,
+            "raw_value": 234376,
             "share_score": 62.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7975,
+            "raw_value": 7957,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6911,
+            "raw_value": 6872,
             "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,163 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 235104
+        "count": 234376
       },
       {
         "country_code": "DE",
-        "count": 156141
+        "count": 156069
       },
       {
         "country_code": "US",
-        "count": 143137
+        "count": 142724
       },
       {
         "country_code": "IN",
-        "count": 83803
+        "count": 83419
       },
       {
         "country_code": "JP",
-        "count": 80900
+        "count": 80857
       },
       {
         "country_code": "GB",
-        "count": 45323
+        "count": 45255
       },
       {
         "country_code": "ID",
-        "count": 28088
+        "count": 28025
       },
       {
         "country_code": "FR",
-        "count": 24308
+        "count": 24267
       },
       {
         "country_code": "CA",
-        "count": 23386
+        "count": 23320
       },
       {
         "country_code": "IT",
-        "count": 21940
+        "count": 21912
       }
     ],
     "volume": {
-      "us": 143137,
-      "china": 235104,
-      "total": 1855873,
+      "us": 142724,
+      "china": 234376,
+      "total": 1852244,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4547,
-      "china": 7975,
-      "total": 19405,
+      "us": 4539,
+      "china": 7957,
+      "total": 19361,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3369,
-      "china": 6911,
-      "total": 15741,
+      "us": 3351,
+      "china": 6872,
+      "total": 15660,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7153121905",
+      "title": "Impact of Artificial Intelligence (AI) on Automated Financial Reporting and Analysis",
+      "authors": [
+        "Deepak Jogi K"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155002128",
+      "title": "Adapting TrOCR for Printed Tigrinya Text Recognition Word-Aware Loss Weighting for Cross-Script Transfer Learning",
+      "authors": [
+        "Yonatan Haile Medhanie",
+        "Yuanhua Ni"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155170776",
+      "title": "The Three Fundamental Principles of Writing Rhetoric: A Bidirectional Mapping Framework for Eliminating Ambiguity in Natural Language",
+      "authors": [
+        "Kataoka"
+      ],
+      "countries": [
+        "SG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154953280",
+      "title": "Adapting TrOCR for Printed Tigrinya Text Recognition Word-Aware Loss Weighting for Cross-Script Transfer Learning",
+      "authors": [
+        "Yonatan Haile Medhanie",
+        "Yuanhua Ni"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153184211",
+      "title": "Impact of Artificial Intelligence (AI) on Automated Financial Reporting and Analysis",
+      "authors": [
+        "Deepak Jogi K"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155205796",
+      "title": "[Thoughts about constructing the theoretical framework of the knowledge system of acupuncture-moxibustion based on modern medicine].",
+      "authors": [
+        "Du Y"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155167476",
+      "title": "The Three Fundamental Principles of Writing Rhetoric: A Bidirectional Mapping Framework for Eliminating Ambiguity in Natural Language",
+      "authors": [
+        "Kataoka"
+      ],
+      "countries": [
+        "SG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7155369393",
       "title": "Online Read Ebook SOLEIL Fashion lookbook by Tanaka",
@@ -207,98 +303,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154718886",
-      "title": "Early identification of students' abilities",
-      "authors": [
-        "Baxit Pirimbetov"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155398869",
-      "title": "Spatial patterns of Early Neolithic expansion in the north-eastern Iberian Peninsula, western Mediterranean: A landscape and environmental machine learning approach",
-      "authors": [
-        "Joel Segarra",
-        "Jose Luis Araus"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155404158",
-      "title": "[+ดซรย] รกไดหรอ Young? EP.1 พากยไทย ดฟร (ตอนท1) ยอนหลง เตมเรอง HD ทกตอน!",
-      "authors": [
-        "KAN Jirawat"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155047482",
-      "title": "TYPES OF SYNONYMS AND THEIR NUANCES: A COMPARATIVE ANALYSIS OF ENGLISH AND UZBEK LINGUISTIC STRUCTURES",
-      "authors": [
-        "Go'zal Jumayeva"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
       "id": "https://openalex.org/W7155072816",
       "title": "A COMPARATIVE ANALYSIS OF QUESTION FORMATION: SUBJECT-AUXILIARY INVERSION IN ENGLISH AND MORPHOLOGICAL INTERROGATION IN UZBEK",
       "authors": [
         "Nuridinova Umida"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155052901",
-      "title": "DEVELOPING LANGUAGE LEARNERS' ACTIVE VOCABULARY THROUGH WRITING SKILL",
-      "authors": [
-        "M.O.Jo'rayeva",
-        "F.K.Kurbanova"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155077253",
-      "title": "THE IMPОRTANCE ОF LEARNING METHОDS IN STUDYING FOREIGN LANGUAGES",
-      "authors": [
-        "Salimоva Dildоra Abdijalil qizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155402553",
-      "title": "Digital impression accuracy of a novel scannable healing abutment: an in vitro study with three intraoral scanners",
-      "authors": [
-        "Xing Chen",
-        "Yu Pan",
-        "Heyuan Zhang"
       ],
       "countries": [],
       "primary_country": "Unknown",

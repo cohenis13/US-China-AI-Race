@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-25T08:07:39.126431+00:00",
+  "fetched_at": "2026-04-26T08:18:27.805090+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,19 +11,19 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.1,
+      "composite_score": 46.2,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 35.7,
+          "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 142724,
-            "share_score": 37.8,
+            "raw_value": 142812,
+            "share_score": 38.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4539,
-            "share_score": 36.3,
+            "raw_value": 4523,
+            "share_score": 36.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 53.9,
+      "composite_score": 53.8,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.3,
+          "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 234376,
-            "share_score": 62.2,
+            "raw_value": 233106,
+            "share_score": 62.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7957,
-            "share_score": 63.7,
+            "raw_value": 7916,
+            "share_score": 63.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6872,
+            "raw_value": 6856,
             "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 234376
+        "count": 233106
       },
       {
         "country_code": "DE",
-        "count": 156069
+        "count": 156080
       },
       {
         "country_code": "US",
-        "count": 142724
+        "count": 142812
       },
       {
         "country_code": "IN",
-        "count": 83419
+        "count": 83150
       },
       {
         "country_code": "JP",
-        "count": 80857
+        "count": 80821
       },
       {
         "country_code": "GB",
-        "count": 45255
+        "count": 45257
       },
       {
         "country_code": "ID",
-        "count": 28025
+        "count": 27994
       },
       {
         "country_code": "FR",
-        "count": 24267
+        "count": 24276
       },
       {
         "country_code": "CA",
-        "count": 23320
+        "count": 23304
       },
       {
         "country_code": "IT",
-        "count": 21912
+        "count": 21919
       }
     ],
     "volume": {
-      "us": 142724,
-      "china": 234376,
-      "total": 1852244,
+      "us": 142812,
+      "china": 233106,
+      "total": 1859143,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4539,
-      "china": 7957,
-      "total": 19361,
+      "us": 4523,
+      "china": 7916,
+      "total": 19305,
       "data_ok": true
     },
     "top_cited": {
       "us": 3351,
-      "china": 6872,
-      "total": 15660,
+      "china": 6856,
+      "total": 15626,
       "data_ok": true
     }
   },
@@ -182,135 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7153121905",
-      "title": "Impact of Artificial Intelligence (AI) on Automated Financial Reporting and Analysis",
+      "id": "https://openalex.org/W7152935372",
+      "title": "CAN LOCAL ENERGY GEOMETRY PREDICT PER-PATTERN RETRIEVAL RELIABILITY IN DENSE ASSOCIATIVE MEMORIES?",
       "authors": [
-        "Deepak Jogi K"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155002128",
-      "title": "Adapting TrOCR for Printed Tigrinya Text Recognition Word-Aware Loss Weighting for Cross-Script Transfer Learning",
-      "authors": [
-        "Yonatan Haile Medhanie",
-        "Yuanhua Ni"
+        "Tatiana PETROVA"
       ],
       "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155170776",
-      "title": "The Three Fundamental Principles of Writing Rhetoric: A Bidirectional Mapping Framework for Eliminating Ambiguity in Natural Language",
-      "authors": [
-        "Kataoka"
-      ],
-      "countries": [
-        "SG"
+        "LU"
       ],
       "primary_country": "Other",
-      "published": "2026-04-25",
+      "published": "2026-04-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154953280",
-      "title": "Adapting TrOCR for Printed Tigrinya Text Recognition Word-Aware Loss Weighting for Cross-Script Transfer Learning",
+      "id": "https://openalex.org/W7155485121",
+      "title": "nathanieltornow/qtpu: OSDI Artifact",
       "authors": [
-        "Yonatan Haile Medhanie",
-        "Yuanhua Ni"
+        "Nathaniel Tornow",
+        "Emmanouil Giortamis"
       ],
       "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153184211",
-      "title": "Impact of Artificial Intelligence (AI) on Automated Financial Reporting and Analysis",
-      "authors": [
-        "Deepak Jogi K"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155205796",
-      "title": "[Thoughts about constructing the theoretical framework of the knowledge system of acupuncture-moxibustion based on modern medicine].",
-      "authors": [
-        "Du Y"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155167476",
-      "title": "The Three Fundamental Principles of Writing Rhetoric: A Bidirectional Mapping Framework for Eliminating Ambiguity in Natural Language",
-      "authors": [
-        "Kataoka"
-      ],
-      "countries": [
-        "SG"
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-04-25",
+      "published": "2026-04-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155369393",
-      "title": "Online Read Ebook SOLEIL Fashion lookbook by Tanaka",
+      "id": "https://openalex.org/W7155567451",
+      "title": "Machine Learning Modeling of Global Soil Profile Organic Carbon Fractions and Δ14C Revealing Divergent Drivers and Carbon Sequestration Potential",
       "authors": [
-        "Forrest Anderson"
+        "Chloe Kusser",
+        "Umakant Mishra",
+        "Gregg Sanford"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155093685",
-      "title": "STRONG AND WEAK VERBS IN THE SYSTEM OF ENGLISH MORPHOLOGY: A HISTORICAL AND STRUCTURAL ANALYSIS",
+      "id": "https://openalex.org/W7155507685",
+      "title": "Machine Learning Modeling of Global Soil Profile Organic Carbon Fractions and Δ14C Revealing Divergent Drivers and Carbon Sequestration Potential",
       "authors": [
-        "Zokirzoda Nozanin",
-        "Kiyamova G."
+        "Chloe Kusser",
+        "Umakant Mishra",
+        "Gregg Sanford"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-24",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155072816",
-      "title": "A COMPARATIVE ANALYSIS OF QUESTION FORMATION: SUBJECT-AUXILIARY INVERSION IN ENGLISH AND MORPHOLOGICAL INTERROGATION IN UZBEK",
+      "id": "https://openalex.org/W7140025052",
+      "title": "Comparative Analysis of Custom vs. Pre Trained CNN Models for Breast Tumor Classification",
       "authors": [
-        "Nuridinova Umida"
+        "Irfan Sadiq Rahat"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-24",
+      "published": "2026-04-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155418739",
+      "title": "nathanieltornow/qtpu: OSDI Artifact",
+      "authors": [
+        "Nathaniel Tornow",
+        "Emmanouil Giortamis"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134811848",
+      "title": "ExplainRL: A DSL for Explainable Reinforcement Learning",
+      "authors": [
+        "Anonymous for peer review"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140031401",
+      "title": "Comparative Analysis of Custom vs. Pre Trained CNN Models for Breast Tumor Classification",
+      "authors": [
+        "Irfan Sadiq Rahat"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134221664",
+      "title": "Design wave identification using different hydrodynamic models",
+      "authors": [
+        "Athanasios Dermatis",
+        "Seung-Yoon Han",
+        "Sylvain Jamet"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134848482",
+      "title": "ExplainRL: A DSL for Explainable Reinforcement Learning",
+      "authors": [
+        "Anonymous for peer review"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-26",
       "cited_by_count": 0,
       "source": "openalex"
     }

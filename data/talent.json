@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-27T09:24:45.857807+00:00",
+  "fetched_at": "2026-04-28T09:28:02.197686+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 143419,
-            "share_score": 38.0,
+            "raw_value": 143345,
+            "share_score": 38.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4516,
+            "raw_value": 4506,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3354,
+            "raw_value": 3350,
             "share_score": 32.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 233504,
-            "share_score": 62.0,
+            "raw_value": 233305,
+            "share_score": 61.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7921,
+            "raw_value": 7902,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6842,
+            "raw_value": 6822,
             "share_score": 67.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,122 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 233504
+        "count": 233305
       },
       {
         "country_code": "DE",
-        "count": 156158
+        "count": 156139
       },
       {
         "country_code": "US",
-        "count": 143419
+        "count": 143345
       },
       {
         "country_code": "IN",
-        "count": 83469
+        "count": 83433
       },
       {
         "country_code": "JP",
-        "count": 80928
+        "count": 80918
       },
       {
         "country_code": "GB",
-        "count": 45432
+        "count": 45395
       },
       {
         "country_code": "ID",
-        "count": 28040
+        "count": 28017
       },
       {
         "country_code": "FR",
-        "count": 24335
+        "count": 24308
       },
       {
         "country_code": "CA",
-        "count": 23395
+        "count": 23369
       },
       {
         "country_code": "IT",
-        "count": 21942
+        "count": 21925
       }
     ],
     "volume": {
-      "us": 143419,
-      "china": 233504,
-      "total": 1869162,
+      "us": 143345,
+      "china": 233305,
+      "total": 1868225,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4516,
-      "china": 7921,
-      "total": 19301,
+      "us": 4506,
+      "china": 7902,
+      "total": 19247,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3354,
-      "china": 6842,
-      "total": 15615,
+      "us": 3350,
+      "china": 6822,
+      "total": 15577,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7140245188",
+      "title": "Disclosure in Mandatory Filings: a Machine Learning Approach to Assess Materiality and Market Impact",
+      "authors": [
+        "Heyvaert, Carl-Erik"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134024879",
+      "title": "Using Discrete Fast Fourier Transform for Efficient Voxel-Based Collision Detection",
+      "authors": [
+        "Alessio La Greca",
+        "Tony Wauters"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134871420",
+      "title": "Integrated optimization and machine learning through hyperparameter selection: an application to predictive maintenance of wind turbines",
+      "authors": [
+        "Marie Bouilloud",
+        "Michel Nakhla",
+        "Mohammed Saâd"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154801522",
+      "title": "Learning to Control Iterated Local Search A Reinforcement Learning Hyper-Heuristic for the Permutation Flow Shop Problem",
+      "authors": [
+        "Ayoub Ouhadi",
+        "Zakaria Yahouni",
+        "Maria Di Mascolo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7155718424",
       "title": "A novel spatio-temporal hybrid convolutional neural network-cellular automata for projecting discrete drought variables",
@@ -220,18 +275,6 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155711055",
-      "title": "Non-Temporal Simultaneity: A Deep Dive into Ontology",
-      "authors": [
-        "Eric Needham"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
       "id": "https://openalex.org/W7155678526",
       "title": "Embedding Model Deprecation: RAG's Silent Killer",
       "authors": [
@@ -250,26 +293,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155686551",
-      "title": "CogDoc: A Knowledge Centric Multi Model LLM for Clause Level Extraction, Structured Representation, and Consistency Reasoning over Legal and Policy Documents",
+      "id": "https://openalex.org/W7155711055",
+      "title": "Non-Temporal Simultaneity: A Deep Dive into Ontology",
       "authors": [
-        "Veerababu Reddy",
-        "Pravallika Bhosale",
-        "Sreeja Alle"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155744657",
-      "title": "Paradigm Cognition: The Cutting-Recovery Method",
-      "authors": [
-        "Zhenmin Wang"
+        "Eric Needham"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -287,34 +314,6 @@
         "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155710033",
-      "title": "An interpretable machine learning model for predicting central lymph node metastasis in cN0 T1–T2 papillary thyroid carcinoma: a retrospective study",
-      "authors": [
-        "Zhu Y",
-        "Ying Che",
-        "Shuhang Gao"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155716213",
-      "title": "THE GTii MANIFESTO: A NEW PARADIGM Redefinition for Physics, Ontology, and Generative Reality",
-      "authors": [
-        "Waldemar Superson"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-04-27",
       "cited_by_count": 0,
       "source": "openalex"

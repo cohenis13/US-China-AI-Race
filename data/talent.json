@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-28T09:28:02.197686+00:00",
+  "fetched_at": "2026-04-29T09:14:40.203878+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 143345,
+            "raw_value": 143556,
             "share_score": 38.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4506,
+            "raw_value": 4515,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3350,
+            "raw_value": 3354,
             "share_score": 32.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 233305,
+            "raw_value": 233319,
             "share_score": 61.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7902,
+            "raw_value": 7919,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6822,
+            "raw_value": 6843,
             "share_score": 67.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,27 +120,27 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 233305
+        "count": 233319
       },
       {
         "country_code": "DE",
-        "count": 156139
+        "count": 156209
       },
       {
         "country_code": "US",
-        "count": 143345
+        "count": 143556
       },
       {
         "country_code": "IN",
-        "count": 83433
+        "count": 83450
       },
       {
         "country_code": "JP",
-        "count": 80918
+        "count": 80964
       },
       {
         "country_code": "GB",
-        "count": 45395
+        "count": 45436
       },
       {
         "country_code": "ID",
@@ -148,33 +148,33 @@
       },
       {
         "country_code": "FR",
-        "count": 24308
+        "count": 24310
       },
       {
         "country_code": "CA",
-        "count": 23369
+        "count": 23377
       },
       {
         "country_code": "IT",
-        "count": 21925
+        "count": 21993
       }
     ],
     "volume": {
-      "us": 143345,
-      "china": 233305,
-      "total": 1868225,
+      "us": 143556,
+      "china": 233319,
+      "total": 1872310,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4506,
-      "china": 7902,
-      "total": 19247,
+      "us": 4515,
+      "china": 7919,
+      "total": 19278,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3350,
-      "china": 6822,
-      "total": 15577,
+      "us": 3354,
+      "china": 6843,
+      "total": 15612,
       "data_ok": true
     }
   },
@@ -182,10 +182,60 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7140245188",
-      "title": "Disclosure in Mandatory Filings: a Machine Learning Approach to Assess Materiality and Market Impact",
+      "id": "https://openalex.org/W7155120655",
+      "title": "Binding Vision and Touch: A Step Towards Touch-Aware Digital Twin",
       "authors": [
-        "Heyvaert, Carl-Erik"
+        "Francesco De Natale",
+        "Nicola Conci",
+        "Antonio Luigi Stefani"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7111591695",
+      "title": "Robots on Stage in Contemporary Performance",
+      "authors": [
+        "Jochum, Elizabeth; id_orcid 0000-0003-2570-1906"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154429961",
+      "title": "Naar Autonome Kristallisatiesystemen via Geavanceerde Procesmodellering en Optimalisatie",
+      "authors": [
+        "Gustavo Lunardon Quillo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155472527",
+      "title": "Data-driven Methodologies for System Identification",
+      "authors": [
+        "Nicola Arridu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155773580",
+      "title": "The Ends of Things, 4.4 by Sandra Chwialkowska (MOBI)",
+      "authors": [
+        "melanau hajdi"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -194,127 +244,69 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134024879",
-      "title": "Using Discrete Fast Fourier Transform for Efficient Voxel-Based Collision Detection",
+      "id": "https://openalex.org/W7155817475",
+      "title": "Genetic Feature Selection and Multistage Deep Learning for Bridge Substructure Condition Prediction",
       "authors": [
-        "Alessio La Greca",
-        "Tony Wauters"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134871420",
-      "title": "Integrated optimization and machine learning through hyperparameter selection: an application to predictive maintenance of wind turbines",
-      "authors": [
-        "Marie Bouilloud",
-        "Michel Nakhla",
-        "Mohammed Saâd"
+        "Bright Awuku",
+        "Eric Asa"
       ],
       "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-04-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154801522",
-      "title": "Learning to Control Iterated Local Search A Reinforcement Learning Hyper-Heuristic for the Permutation Flow Shop Problem",
-      "authors": [
-        "Ayoub Ouhadi",
-        "Zakaria Yahouni",
-        "Maria Di Mascolo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155718424",
-      "title": "A novel spatio-temporal hybrid convolutional neural network-cellular automata for projecting discrete drought variables",
-      "authors": [
-        "Abdol Rassoul Zarei"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155709392",
-      "title": "An unsharp masking filter technique with weighted bilinear interpolation for endoscopy image quality and sharpness enhancement",
-      "authors": [
-        "Manikandan Jagarajan",
-        "Ramkumar Jayaraman"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7141783143",
-      "title": "CroCoDiLight: Repurposing Cross-View Completion Encoders for Relighting",
-      "authors": [
-        "ALISTAIR FOGGIN",
-        "WILLIAM ALFRED PETER SMITH"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155678526",
-      "title": "Embedding Model Deprecation: RAG's Silent Killer",
-      "authors": [
-        "Daniel Rosehill",
-        "Gemini 3.1 (Flash)",
-        "Chatterbox TTS"
-      ],
-      "countries": [
-        "CA",
-        "GB",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-04-27",
+      "published": "2026-04-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155711055",
-      "title": "Non-Temporal Simultaneity: A Deep Dive into Ontology",
+      "id": "https://openalex.org/W7156011826",
+      "title": "Accurate Short-Term Photovoltaic (PV) Power Forecasting: Leveraging the Capabilities of AdaBoost and Decision Trees",
       "authors": [
-        "Eric Needham"
+        "Xingbo Liu",
+        "Jiajia Zhan",
+        "Xinyue Liu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-27",
+      "published": "2026-04-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155686214",
-      "title": "The Quantum-Biological Intelligence Stack: A Layered Reference Architecture for Hybrid Intelligent Systems",
+      "id": "https://openalex.org/W7156000741",
+      "title": "(Crafted by) Two Guys One Puck (Gods Versus Monsters Hockey, #2) by J.R. Gray",
       "authors": [
-        "Bayram Eker"
+        "tujiloperiks wirenikasilo"
       ],
-      "countries": [
-        "GB"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7156351548",
+      "title": "Intelligent diagnosis assistant system of colorectal cancer based on artificial intelligence",
+      "authors": [
+        "Yifan Ding",
+        "Ziqi Zhang",
+        "Kaiyu Wang"
       ],
-      "primary_country": "Other",
-      "published": "2026-04-27",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7156258345",
+      "title": "The methodology of the LCT-01: Image types, hashes, wearer authority, and the dream of a formal Code",
+      "authors": [
+        "Lemuria"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-28",
       "cited_by_count": 0,
       "source": "openalex"
     }

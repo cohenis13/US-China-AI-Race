@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-04-29T09:14:40.203878+00:00",
+  "fetched_at": "2026-04-30T09:20:36.110057+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 143556,
+            "raw_value": 143743,
             "share_score": 38.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4515,
+            "raw_value": 4512,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3354,
+            "raw_value": 3345,
             "share_score": 32.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 233319,
+            "raw_value": 233223,
             "share_score": 61.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7919,
+            "raw_value": 7925,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6843,
+            "raw_value": 6827,
             "share_score": 67.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 233319
+        "count": 233223
       },
       {
         "country_code": "DE",
-        "count": 156209
+        "count": 156288
       },
       {
         "country_code": "US",
-        "count": 143556
+        "count": 143743
       },
       {
         "country_code": "IN",
-        "count": 83450
+        "count": 83542
       },
       {
         "country_code": "JP",
-        "count": 80964
+        "count": 80972
       },
       {
         "country_code": "GB",
-        "count": 45436
+        "count": 45516
       },
       {
         "country_code": "ID",
-        "count": 28017
+        "count": 28013
       },
       {
         "country_code": "FR",
-        "count": 24310
+        "count": 24359
       },
       {
         "country_code": "CA",
-        "count": 23377
+        "count": 23392
       },
       {
         "country_code": "IT",
-        "count": 21993
+        "count": 22012
       }
     ],
     "volume": {
-      "us": 143556,
-      "china": 233319,
-      "total": 1872310,
+      "us": 143743,
+      "china": 233223,
+      "total": 1876090,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4515,
-      "china": 7919,
-      "total": 19278,
+      "us": 4512,
+      "china": 7925,
+      "total": 19282,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3354,
-      "china": 6843,
-      "total": 15612,
+      "us": 3345,
+      "china": 6827,
+      "total": 15587,
       "data_ok": true
     }
   },
@@ -182,131 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7155120655",
-      "title": "Binding Vision and Touch: A Step Towards Touch-Aware Digital Twin",
+      "id": "https://openalex.org/W7153462828",
+      "title": "Large Language Models for Automated Software Test Generation",
       "authors": [
-        "Francesco De Natale",
-        "Nicola Conci",
-        "Antonio Luigi Stefani"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7111591695",
-      "title": "Robots on Stage in Contemporary Performance",
-      "authors": [
-        "Jochum, Elizabeth; id_orcid 0000-0003-2570-1906"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154429961",
-      "title": "Naar Autonome Kristallisatiesystemen via Geavanceerde Procesmodellering en Optimalisatie",
-      "authors": [
-        "Gustavo Lunardon Quillo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155472527",
-      "title": "Data-driven Methodologies for System Identification",
-      "authors": [
-        "Nicola Arridu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155773580",
-      "title": "The Ends of Things, 4.4 by Sandra Chwialkowska (MOBI)",
-      "authors": [
-        "melanau hajdi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155817475",
-      "title": "Genetic Feature Selection and Multistage Deep Learning for Bridge Substructure Condition Prediction",
-      "authors": [
-        "Bright Awuku",
-        "Eric Asa"
+        "Juby George"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-04-28",
+      "published": "2026-04-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7156011826",
-      "title": "Accurate Short-Term Photovoltaic (PV) Power Forecasting: Leveraging the Capabilities of AdaBoost and Decision Trees",
+      "id": "https://openalex.org/W7157316760",
+      "title": "BillEase: A Hybrid Weight and Vision Based Real-Time Automated Checkout System",
       "authors": [
-        "Xingbo Liu",
-        "Jiajia Zhan",
-        "Xinyue Liu"
+        "Jo Saji, Naveen Ajesh, Parvathi K B, Sarya Sajeev, Prof. Syamamol T"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-04-28",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-04-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7156000741",
-      "title": "(Crafted by) Two Guys One Puck (Gods Versus Monsters Hockey, #2) by J.R. Gray",
+      "id": "https://openalex.org/W7155609716",
+      "title": "So sánh hiệu quả các thuật toán Random Forest, SVM và Naive Bayes trong phân loại lớp phủ bề mặt sử dụng dữ liệu Sentinel-2 trên Google Earth Engine: Trường hợp nghiên cứu tại khu vực Thái Nguyên, Việt Nam",
       "authors": [
-        "tujiloperiks wirenikasilo"
+        "Thanh Le Duy",
+        "Hoài Thu Trịnh Thị",
+        "Hồng Thắm Bùi Thị"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-28",
+      "published": "2026-04-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7156351548",
-      "title": "Intelligent diagnosis assistant system of colorectal cancer based on artificial intelligence",
+      "id": "https://openalex.org/W7155635856",
+      "title": "Executive Decision Support Using Artificial Intelligence",
       "authors": [
-        "Yifan Ding",
-        "Ziqi Zhang",
-        "Kaiyu Wang"
+        "Dr. Desh Ratan",
+        "Abhijit S. Bodhe",
+        "Mr. Dhananjay Gupta"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-28",
+      "published": "2026-04-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7156258345",
-      "title": "The methodology of the LCT-01: Image types, hashes, wearer authority, and the dream of a formal Code",
+      "id": "https://openalex.org/W7155556284",
+      "title": "The need for machine learning (ML) and artificial intelligence (AI) services in college libraries",
       "authors": [
-        "Lemuria"
+        "Girimallesh H. N.",
+        "Dharini Kumar P"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155644784",
+      "title": "Executive Decision Support Using Artificial Intelligence",
+      "authors": [
+        "Dr. Desh Ratan",
+        "Abhijit S. Bodhe",
+        "Mr. Dhananjay Gupta"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-04-28",
+      "published": "2026-04-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7156337697",
+      "title": "A Multimodal Framework For Anaemia Screening Using Images And Clinical Features: A Comprehensive Survey And Methodological Proposal",
+      "authors": [
+        "S Aswathy"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7157348802",
+      "title": "A Review on Deep Learning and IoT-Based Road Surface Damage Detection",
+      "authors": [
+        "Merin Wilson, Muhammed Sajid N, Nandana L P, Nanda Santhosh, Rahul M, Ms. Mekha Jose"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-04-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155191385",
+      "title": "A Literature Review On Machine Learning-Based Phishing Detection Systems",
+      "authors": [
+        "Nevin Thankachan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7156049153",
+      "title": "BRIGHTMINDS - Adaptive Learning Platform with Focus Tracking for Autistic Children",
+      "authors": [
+        "Johan John George, Kavya R, Marianna Martin, Mili Manoj, Kavitha N"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-04-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

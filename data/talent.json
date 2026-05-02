@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-01T09:04:43.197781+00:00",
+  "fetched_at": "2026-05-02T08:23:51.211948+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 143860,
+            "raw_value": 143378,
             "share_score": 38.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4473,
+            "raw_value": 4467,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3324,
+            "raw_value": 3295,
             "share_score": 32.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 232968,
+            "raw_value": 231919,
             "share_score": 61.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7883,
+            "raw_value": 7866,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6796,
+            "raw_value": 6740,
             "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -119,68 +119,144 @@
     "methodology_note": "Papers counted once per country where ≥1 author has an identified institution. Multinational papers counted in both countries — sums exceed total paper count. High-impact and top-cited queries add a cited_by_count filter which may not work on all OpenAlex instances (falls back to seeded estimates if the filter returns zero results). OpenAlex does not de-duplicate authors across papers; a prolific researcher counts once per paper, not once per researcher.",
     "top_countries": [
       {
+        "country_code": "JP",
+        "count": 257390
+      },
+      {
         "country_code": "CN",
-        "count": 232968
+        "count": 231919
       },
       {
         "country_code": "DE",
-        "count": 156322
+        "count": 156230
       },
       {
         "country_code": "US",
-        "count": 143860
+        "count": 143378
       },
       {
         "country_code": "IN",
-        "count": 83435
-      },
-      {
-        "country_code": "JP",
-        "count": 80965
+        "count": 83231
       },
       {
         "country_code": "GB",
-        "count": 45550
+        "count": 45429
       },
       {
         "country_code": "ID",
-        "count": 27716
+        "count": 27629
       },
       {
         "country_code": "FR",
-        "count": 24373
+        "count": 24357
       },
       {
         "country_code": "CA",
-        "count": 23395
+        "count": 23302
       },
       {
         "country_code": "IT",
-        "count": 22025
+        "count": 21951
       }
     ],
     "volume": {
-      "us": 143860,
-      "china": 232968,
-      "total": 1878002,
+      "us": 143378,
+      "china": 231919,
+      "total": 2053376,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4473,
-      "china": 7883,
-      "total": 19161,
+      "us": 4467,
+      "china": 7866,
+      "total": 19118,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3324,
-      "china": 6796,
-      "total": 15515,
+      "us": 3295,
+      "china": 6740,
+      "total": 15383,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7134963686",
+      "title": "A Bayesian Hierarchical Modelling Approach to Evaluating District Hospital System Performance and Yield Improvement in Uganda, 2000–2026",
+      "authors": [
+        "Julius Ssentongo",
+        "Patience Nalwadda",
+        "Moses Kato"
+      ],
+      "countries": [
+        "UG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140018611",
+      "title": "Verification of geometrical tolerances: form, orientation, and location",
+      "authors": [
+        "Edouard Rivière"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134946048",
+      "title": "A Bayesian Hierarchical Modelling Approach to Evaluating District Hospital System Performance and Yield Improvement in Uganda, 2000–2026",
+      "authors": [
+        "Julius Ssentongo",
+        "Patience Nalwadda",
+        "Moses Kato"
+      ],
+      "countries": [
+        "UG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154877254",
+      "title": "An Indicator of Membership Inference Security in Post-Training Quantized Models",
+      "authors": [
+        "Eric Aubinais",
+        "Philippe Formont",
+        "Pablo Piantanida"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7149884403",
+      "title": "A Novel Approach to Distributional Reinforcement Learning via Moment Matching",
+      "authors": [
+        "Miranda, Juliet, Bringas",
+        "Aurélien Garivier",
+        "Olivier Cappé"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7158155963",
       "title": "[Implementing artificial intelligence in cardiology: how the paradigm should evolve to really widely impact on routine clinical practice?]",
@@ -196,44 +272,13 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7135442893",
-      "title": "The Grammar of ‘Unanalyzable’ Sentences in Early Child Language Production: Production Mismatches in the Development of Recursion in English",
+      "id": "https://openalex.org/W7158502186",
+      "title": "Kiro CLI 初心者向けチュートリアル",
       "authors": [
-        "Bridget Copley",
-        "Isabelle Roy",
-        "Lorraine McCune"
+        "Katsuhiko Kawai"
       ],
       "countries": [
-        "FR",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7157317341",
-      "title": "MATNLI MA'LUMOTLARNI VIZUALIZATSIYA QILISH VOSITALARI",
-      "authors": [
-        "Nilufar Ismoilova"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7157509045",
-      "title": "Automated Multi-Target Docking Pipeline to Identify Fucosidic Ligands for Lectins",
-      "authors": [
-        "A. Panzeri",
-        "M. Civera",
-        "L. Belvisi"
-      ],
-      "countries": [
-        "IT"
+        "JP"
       ],
       "primary_country": "Other",
       "published": "2026-05-01",
@@ -241,41 +286,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7157507200",
-      "title": "Expanding the vocabulary of staff notation by notating the vocal instrument",
+      "id": "https://openalex.org/W7158922701",
+      "title": "An (Algorithmic) Approach to the Syracuse Problem",
       "authors": [
-        "Ryan J Berry"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153398987",
-      "title": "pySPQR: A Python Package for Density Estimation using Deep Learning",
-      "authors": [
-        "Cameron N. Eddy",
-        "Reetam Majumder"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155578689",
-      "title": "How Social Environments Shape Brains: Interpretable Neural Network Investigations",
-      "authors": [
-        "R. Sepehr",
-        "N. ; https://orcid.org/0000-0002-2698-3573 Alon",
-        "J. Barnby"
+        "Ioannis Konstantellos"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -284,42 +298,32 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125089162",
-      "title": "A Low Power FPGA Compute Array for Machine Learning and Artificial Intelligence Applications",
+      "id": "https://openalex.org/W7159127451",
+      "title": "The evolving role of artificial intelligence in optimizing treatment and patient selection in diabetic macular edema.",
       "authors": [
-        "Todd Wilson"
+        "Dhanashree Ratra",
+        "Ramachandran Rajalakshmi",
+        "M Suchetha"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
+      "countries": [
+        "IN",
+        "FR"
+      ],
+      "primary_country": "Other",
       "published": "2026-05-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7157960402",
-      "title": "Three Moral Fault Lines for Therapeutic Conversational Artificial Intelligence.",
+      "id": "https://openalex.org/W7159561939",
+      "title": "Face Representations in the Fusiform Face Area",
       "authors": [
-        "Jack Harris",
-        "Jonathan R Young",
-        "Veljko Dubljević"
+        "Krisha Orgo"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7157177080",
-      "title": "INGLIZ VA O'ZBEK TILLARIDA ZAMON KATEGORIYASINING CHOG'ISHTIRMA TAHLILI",
-      "authors": [
-        "Moxigul O'ktamova",
-        "Zahrobonu Rasuljonova"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-05-01",
       "cited_by_count": 0,
       "source": "openalex"

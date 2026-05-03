@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-02T08:23:51.211948+00:00",
+  "fetched_at": "2026-05-03T08:50:53.778397+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 143378,
+            "raw_value": 143469,
             "share_score": 38.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4467,
+            "raw_value": 4459,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3295,
-            "share_score": 32.8,
+            "raw_value": 3290,
+            "share_score": 32.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 231919,
+            "raw_value": 232052,
             "share_score": 61.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7866,
+            "raw_value": 7860,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6740,
-            "share_score": 67.2,
+            "raw_value": 6704,
+            "share_score": 67.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 257390
+        "count": 257403
       },
       {
         "country_code": "CN",
-        "count": 231919
+        "count": 232052
       },
       {
         "country_code": "DE",
-        "count": 156230
+        "count": 156222
       },
       {
         "country_code": "US",
-        "count": 143378
+        "count": 143469
       },
       {
         "country_code": "IN",
-        "count": 83231
+        "count": 83314
       },
       {
         "country_code": "GB",
-        "count": 45429
+        "count": 45433
       },
       {
         "country_code": "ID",
-        "count": 27629
+        "count": 27600
       },
       {
         "country_code": "FR",
-        "count": 24357
+        "count": 24370
       },
       {
         "country_code": "CA",
-        "count": 23302
+        "count": 23313
       },
       {
         "country_code": "IT",
-        "count": 21951
+        "count": 21954
       }
     ],
     "volume": {
-      "us": 143378,
-      "china": 231919,
-      "total": 2053376,
+      "us": 143469,
+      "china": 232052,
+      "total": 2057476,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4467,
-      "china": 7866,
-      "total": 19118,
+      "us": 4459,
+      "china": 7860,
+      "total": 19090,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3295,
-      "china": 6740,
-      "total": 15383,
+      "us": 3290,
+      "china": 6704,
+      "total": 15313,
       "data_ok": true
     }
   },
@@ -182,58 +182,35 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7134963686",
-      "title": "A Bayesian Hierarchical Modelling Approach to Evaluating District Hospital System Performance and Yield Improvement in Uganda, 2000–2026",
+      "id": "https://openalex.org/W7133868965",
+      "title": "The Architecture of Reality: The Hypothesis of 35 Levels of Determinism and the Nature of Consciousness",
       "authors": [
-        "Julius Ssentongo",
-        "Patience Nalwadda",
-        "Moses Kato"
+        "Mikhail Fedorov"
       ],
-      "countries": [
-        "UG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-02",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140018611",
-      "title": "Verification of geometrical tolerances: form, orientation, and location",
+      "id": "https://openalex.org/W7133611712",
+      "title": "The Architecture of Reality: The Hypothesis of 35 Levels of Determinism and the Nature of Consciousness",
       "authors": [
-        "Edouard Rivière"
+        "Mikhail Fedorov"
       ],
-      "countries": [
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-02",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134946048",
-      "title": "A Bayesian Hierarchical Modelling Approach to Evaluating District Hospital System Performance and Yield Improvement in Uganda, 2000–2026",
+      "id": "https://openalex.org/W7159575520",
+      "title": "http://pqociudthqi856dn72ksu.clos an archive of forward derivatal hypercomputation",
       "authors": [
-        "Julius Ssentongo",
-        "Patience Nalwadda",
-        "Moses Kato"
-      ],
-      "countries": [
-        "UG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154877254",
-      "title": "An Indicator of Membership Inference Security in Post-Training Quantized Models",
-      "authors": [
-        "Eric Aubinais",
-        "Philippe Formont",
-        "Pablo Piantanida"
+        "David Lowder",
+        "Claude"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -242,89 +219,86 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7149884403",
-      "title": "A Novel Approach to Distributional Reinforcement Learning via Moment Matching",
+      "id": "https://openalex.org/W7159600119",
+      "title": "PAN-00016714 - unknown object (period unspecified)",
       "authors": [
-        "Miranda, Juliet, Bringas",
-        "Aurélien Garivier",
-        "Olivier Cappé"
+        "the able Antiquities of the Netherlands"
       ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-05-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7158155963",
-      "title": "[Implementing artificial intelligence in cardiology: how the paradigm should evolve to really widely impact on routine clinical practice?]",
+      "id": "https://openalex.org/W7159641704",
+      "title": "PAN-00185656 - commemorative medal/token",
       "authors": [
-        "Gian Luigi Nicolosi"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7158502186",
-      "title": "Kiro CLI 初心者向けチュートリアル",
-      "authors": [
-        "Katsuhiko Kawai"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7158922701",
-      "title": "An (Algorithmic) Approach to the Syracuse Problem",
-      "authors": [
-        "Ioannis Konstantellos"
+        "the able Antiquities of the Netherlands"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-01",
+      "published": "2026-05-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159127451",
-      "title": "The evolving role of artificial intelligence in optimizing treatment and patient selection in diabetic macular edema.",
+      "id": "https://openalex.org/W7159626645",
+      "title": "PAN-00016050 - unknown object (Roman period)",
       "authors": [
-        "Dhanashree Ratra",
-        "Ramachandran Rajalakshmi",
-        "M Suchetha"
+        "the able Antiquities of the Netherlands"
       ],
-      "countries": [
-        "IN",
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-01",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159561939",
-      "title": "Face Representations in the Fusiform Face Area",
+      "id": "https://openalex.org/W7159662277",
+      "title": "Belief, Ritual, Space, Symbol",
       "authors": [
-        "Krisha Orgo"
+        "Ali Şengül"
       ],
-      "countries": [
-        "US"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159609069",
+      "title": "PAN-00004430 - unknown object (period unspecified)",
+      "authors": [
+        "the able Antiquities of the Netherlands"
       ],
-      "primary_country": "US",
-      "published": "2026-05-01",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7117764199",
+      "title": "Nonlinear Effects of Logical Cracks and Self-Referential Stress Attenuation in Axiomatic Systems: On the Isomorphic Relations among Multimodal Fitting, Authorization Chains, and AI Cognitive Boundaries",
+      "authors": [
+        "Jingfeng Lu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159625675",
+      "title": "PAN-00002975 - unknown object (Late Medieval/Early Modern)",
+      "authors": [
+        "the able Antiquities of the Netherlands"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-02",
       "cited_by_count": 0,
       "source": "openalex"
     }

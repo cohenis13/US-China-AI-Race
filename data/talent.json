@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-04T09:26:41.807157+00:00",
+  "fetched_at": "2026-05-05T09:11:23.926267+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 143850,
+            "raw_value": 143703,
             "share_score": 38.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4454,
+            "raw_value": 4435,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3286,
-            "share_score": 32.9,
+            "raw_value": 3283,
+            "share_score": 33.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 232825,
+            "raw_value": 232650,
             "share_score": 61.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7854,
+            "raw_value": 7817,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6689,
-            "share_score": 67.1,
+            "raw_value": 6671,
+            "share_score": 67.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 257455
+        "count": 257429
       },
       {
         "country_code": "CN",
-        "count": 232825
+        "count": 232650
       },
       {
         "country_code": "DE",
-        "count": 156285
+        "count": 156268
       },
       {
         "country_code": "US",
-        "count": 143850
+        "count": 143703
       },
       {
         "country_code": "IN",
-        "count": 83654
+        "count": 83603
       },
       {
         "country_code": "GB",
-        "count": 45541
+        "count": 45501
       },
       {
         "country_code": "ID",
-        "count": 27620
+        "count": 27603
       },
       {
         "country_code": "FR",
-        "count": 24429
+        "count": 24417
       },
       {
         "country_code": "CA",
-        "count": 23354
+        "count": 23337
       },
       {
         "country_code": "IT",
-        "count": 21990
+        "count": 21974
       }
     ],
     "volume": {
-      "us": 143850,
-      "china": 232825,
-      "total": 2064841,
+      "us": 143703,
+      "china": 232650,
+      "total": 2063913,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4454,
-      "china": 7854,
-      "total": 19065,
+      "us": 4435,
+      "china": 7817,
+      "total": 18985,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3286,
-      "china": 6689,
-      "total": 15279,
+      "us": 3283,
+      "china": 6671,
+      "total": 15256,
       "data_ok": true
     }
   },
@@ -182,126 +182,133 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7159972862",
-      "title": "An AI Affective Intelligence Architecture Based on Emotional Adaptation Theory: From Emotional Performance to Quasi-Autonomous Adaptation",
+      "id": "https://openalex.org/W7159949085",
+      "title": "VeriNet: AI Misinformation Detection and Trust Scoring System",
       "authors": [
-        "Zheyu Cao"
+        "Sumit Kamble",
+        "Durva Kamble"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7150007041",
+      "title": "OAgents: A Pre-Standardization Draft Profile for Operational AI Agent Trustworthiness",
+      "authors": [
+        "James (JD) Longmire"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-04",
+      "published": "2026-05-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159984054",
-      "title": "Smart Automotive Maintenance Management System Using Predictive Analytics and Unsupervised Machine Learning",
+      "id": "https://openalex.org/W7143418971",
+      "title": "Artifact for Artificial Incorrectness: SMT and LLMs in Hardware Synthesis",
       "authors": [
-        "houranieh"
+        "Edward D Wang"
       ],
-      "countries": [
-        "SY"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-04",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159965270",
-      "title": "RMTGuard: Random Matrix Theory guarded cell-state discovery",
+      "id": "https://openalex.org/W7159967364",
+      "title": "Insights Into Density Functional Performance From a Main-Group and Transition-Metal Molecular Benchmark.",
       "authors": [
-        "Chongfa Chen",
-        "Han Yan",
-        "Yi Miao"
+        "Yiwei Liu",
+        "Lijie Wei",
+        "Shuai Tao"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-05-04",
+      "published": "2026-05-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159980127",
-      "title": "Signatrics: Towards a Unified Discipline of Signature Intelligence",
+      "id": "https://openalex.org/W7155752772",
+      "title": "The Evolution of Organizational Thought: From Rational Systems to Digital, Institutional, and Symbolic Worlds",
       "authors": [
-        "Joseph T.D. Narnor Jnr."
+        "Mohamed Ali Abdelwahed"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7150028428",
+      "title": "OAgents: A Pre-Standardization Draft Profile for Operational AI Agent Trustworthiness",
+      "authors": [
+        "James (JD) Longmire"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159816144",
+      "title": "Stable flapping flight in morphological space: Model, simulation, and explicit stability criteria.",
+      "authors": [
+        "Owen C. Wetherbee",
+        "Z Jane Wang"
       ],
       "countries": [
-        "TN"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-04",
+      "primary_country": "US",
+      "published": "2026-05-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159940086",
-      "title": "Moltbook Social Interactions Dataset",
+      "id": "https://openalex.org/W7159951312",
+      "title": "VeriNet: AI Misinformation Detection and Trust Scoring System",
       "authors": [
-        "Dube, Taksch"
+        "Sumit Kamble",
+        "Durva Kamble"
+      ],
+      "countries": [
+        "IN",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7143504641",
+      "title": "Artifact for Artificial Incorrectness: SMT and LLMs in Hardware Synthesis",
+      "authors": [
+        "Edward D Wang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-04",
+      "published": "2026-05-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7150201070",
-      "title": "A Dual-Model Deep Learning Pipeline for Disease Classification in Lemon Leaves",
-      "authors": [
-        "Muhammad Ishaque Junejo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155524957",
+      "id": "https://openalex.org/W7159972862",
       "title": "An AI Affective Intelligence Architecture Based on Emotional Adaptation Theory: From Emotional Performance to Quasi-Autonomous Adaptation",
       "authors": [
         "Zheyu Cao"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159942468",
-      "title": "3D 캐리 피라미드와 피지컬 고스트(Physical Ghost) 아키텍처 v2.0 (The 3D Carry Pyramid and Physical Ghost Architecture v2.0)",
-      "authors": [
-        "Hyoung won Woo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159959768",
-      "title": "An Empirical Study of Prompt Engineering in LLMs for User Story Generation",
-      "authors": [
-        "Anonymous"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159943685",
-      "title": "Difference Monism (DM) v1.1: A Unified Research Program in Ontology, Mind, Knowledge, and Normativity",
-      "authors": [
-        "Yi Fu"
       ],
       "countries": [],
       "primary_country": "Unknown",

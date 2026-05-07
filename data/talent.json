@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-06T09:29:25.891295+00:00",
+  "fetched_at": "2026-05-07T09:39:29.483545+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.8,
           "paper_volume": {
-            "raw_value": 144375,
-            "share_score": 38.2,
+            "raw_value": 145631,
+            "share_score": 38.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4490,
-            "share_score": 36.2,
+            "raw_value": 4505,
+            "share_score": 36.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3342,
+            "raw_value": 3338,
             "share_score": 32.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.2,
           "paper_volume": {
-            "raw_value": 233849,
-            "share_score": 61.8,
+            "raw_value": 234889,
+            "share_score": 61.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7921,
-            "share_score": 63.8,
+            "raw_value": 7960,
+            "share_score": 63.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6801,
+            "raw_value": 6811,
             "share_score": 67.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 257560
+        "count": 257725
       },
       {
         "country_code": "CN",
-        "count": 233849
+        "count": 234889
       },
       {
         "country_code": "DE",
-        "count": 156409
+        "count": 156620
       },
       {
         "country_code": "US",
-        "count": 144375
+        "count": 145631
       },
       {
         "country_code": "IN",
-        "count": 84260
+        "count": 85509
       },
       {
         "country_code": "GB",
-        "count": 45757
+        "count": 45982
       },
       {
         "country_code": "ID",
-        "count": 27634
+        "count": 27835
       },
       {
         "country_code": "FR",
-        "count": 24477
+        "count": 24560
       },
       {
         "country_code": "CA",
-        "count": 23491
+        "count": 23669
       },
       {
         "country_code": "IT",
-        "count": 22049
+        "count": 22133
       }
     ],
     "volume": {
-      "us": 144375,
-      "china": 233849,
-      "total": 2076392,
+      "us": 145631,
+      "china": 234889,
+      "total": 2086576,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4490,
-      "china": 7921,
-      "total": 19194,
+      "us": 4505,
+      "china": 7960,
+      "total": 19275,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3342,
-      "china": 6801,
-      "total": 15510,
+      "us": 3338,
+      "china": 6811,
+      "total": 15528,
       "data_ok": true
     }
   },
@@ -182,24 +182,110 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7159960356",
-      "title": "PID performance at ePIC",
+      "id": "https://openalex.org/W7151379248",
+      "title": "Supporting code and data: Simulating spatial multi-hazards with generative deep learning",
       "authors": [
-        "Lorenzo Polizzi"
+        "Alison Peard"
       ],
       "countries": [
-        "IT"
+        "GB"
       ],
       "primary_country": "Other",
+      "published": "2026-05-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160363044",
+      "title": "Ontwerp en besturing van geavanceerde stuurbare katheters voor verbeterde behandelingen",
+      "authors": [
+        "Syed Zain Mehdi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7124880981",
+      "title": "CNN tem especialista em Vaticano para cobertura do conclave",
+      "authors": [
+        "CNN Brasil"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7151552325",
+      "title": "Supporting code and data: Simulating spatial multi-hazards with generative deep learning",
+      "authors": [
+        "Alison Peard"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7157507280",
+      "title": "ROBUST LEARNING UNDER COVARIATE SHIFT AND ANOMALIES",
+      "authors": [
+        "ARNAUD WATUSADISI  MAVAKALA"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7124948989",
+      "title": "CNN tem especialista em Vaticano para cobertura do conclave",
+      "authors": [
+        "CNN Brasil"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160264144",
+      "title": "Project Rosetta: Linear Algebraic Compilation, Neural Decompilation, and the Physics of Software in a 5-Dimensional Latent Space",
+      "authors": [
+        "Hiroto Funasaki"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-05-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7158425219",
-      "title": "Toward Vehicle-Agnostic Driving Signatures for Cognitive Impairment Prediction from Naturalistic Driving Data",
+      "id": "https://openalex.org/W7160288893",
+      "title": "Replication Package for the Paper Entitled: \"Enhancing Requirements Testability Prediction with Clustering-Based Differential In-Context Learning\"",
       "authors": [
-        "Aadarsha Gopala Reddy"
+        "Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160233199",
+      "title": "Works for 5/5/2026 - James Clerk Maxwell",
+      "authors": [
+        "Ryan MacLean"
       ],
       "countries": [
         "US"
@@ -210,109 +296,16 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7148187964",
-      "title": "Voltage-Sensor–Targeting Modulators of IKs: Identifying Critical Functional Groups of C28 via Electrophysiology and SAR Modeling",
+      "id": "https://openalex.org/W7160328503",
+      "title": "Autonomous Driving Chassis Domain Control: Vertical Collaboration of Multi-Agent Reinforcement Learning MADDPG and dSPACE Simulation Platform",
       "authors": [
-        "JIACHENG HUANG"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7158424734",
-      "title": "Improving Semantic Precision in Text-to-Image Diffusion Models via Latent-Space Optimization and Semantically-Parsed Evaluation",
-      "authors": [
-        "Mohammad Rouie Miab"
+        "Huang Hongye"
       ],
       "countries": [
-        "US"
+        "CN"
       ],
-      "primary_country": "US",
+      "primary_country": "China",
       "published": "2026-05-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7158428619",
-      "title": "Automated Segmentation and Structural Remodeling Analysis of iPSC-Derived Cardiomyocyte",
-      "authors": [
-        "Bahareh Bahmani"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159964188",
-      "title": "PID performance at ePIC",
-      "authors": [
-        "Lorenzo Polizzi"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7158434570",
-      "title": "Interaction-Aware Safe Planning for Human-Robot and Multi-Robot Systems",
-      "authors": [
-        "Haoyi Wang"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160166006",
-      "title": "The Physics of Coherence: A Field-Theoretic Framework for Persistent Structure",
-      "authors": [
-        "Skylar Fiction",
-        "Coherence Labs"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160019439",
-      "title": "Brain Codex Architecture",
-      "authors": [
-        "Felipe Heemann"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7124600033",
-      "title": "Time-Aware AutoML, ML, and DL Benchmark for Heart Disease",
-      "authors": [
-        "Ersin Enes Eryılmaz"
-      ],
-      "countries": [
-        "TR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-05",
       "cited_by_count": 0,
       "source": "openalex"
     }

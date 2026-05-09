@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-08T08:24:21.752315+00:00",
+  "fetched_at": "2026-05-09T08:45:18.970177+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 35.9,
           "paper_volume": {
-            "raw_value": 146325,
-            "share_score": 38.3,
+            "raw_value": 146966,
+            "share_score": 38.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4514,
-            "share_score": 36.2,
+            "raw_value": 4520,
+            "share_score": 36.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3360,
-            "share_score": 33.0,
+            "raw_value": 3364,
+            "share_score": 33.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.1,
           "paper_volume": {
-            "raw_value": 235275,
-            "share_score": 61.7,
+            "raw_value": 235749,
+            "share_score": 61.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7971,
-            "share_score": 63.8,
+            "raw_value": 7984,
+            "share_score": 63.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6829,
-            "share_score": 67.0,
+            "raw_value": 6801,
+            "share_score": 66.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 257818
+        "count": 257866
       },
       {
         "country_code": "CN",
-        "count": 235275
+        "count": 235749
       },
       {
         "country_code": "DE",
-        "count": 156755
+        "count": 156862
       },
       {
         "country_code": "US",
-        "count": 146325
+        "count": 146966
       },
       {
         "country_code": "IN",
-        "count": 85791
+        "count": 86100
       },
       {
         "country_code": "GB",
-        "count": 46164
+        "count": 46347
       },
       {
         "country_code": "ID",
-        "count": 27901
+        "count": 27968
       },
       {
         "country_code": "FR",
-        "count": 24644
+        "count": 24721
       },
       {
         "country_code": "CA",
-        "count": 23728
+        "count": 23851
       },
       {
         "country_code": "IT",
-        "count": 22193
+        "count": 22272
       }
     ],
     "volume": {
-      "us": 146325,
-      "china": 235275,
-      "total": 2096985,
+      "us": 146966,
+      "china": 235749,
+      "total": 2104273,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4514,
-      "china": 7971,
-      "total": 19323,
+      "us": 4520,
+      "china": 7984,
+      "total": 19366,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3360,
-      "china": 6829,
-      "total": 15598,
+      "us": 3364,
+      "china": 6801,
+      "total": 15610,
       "data_ok": true
     }
   },
@@ -182,15 +182,133 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7127995485",
-      "title": "Diffusion-based data augmentation for short-term multivariate energy prediction in data-scarce scenarios",
+      "id": "https://openalex.org/W7160365132",
+      "title": "Pancreatic Cancer Subtype Prediction Via Advanced Machine Learning Approaches",
       "authors": [
-        "Stelio Bompai",
-        "Ioannis Kontopoulos",
-        "Konstantinos Tserpes"
+        "Nicholas B Peterson"
       ],
       "countries": [
-        "GR"
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128282710",
+      "title": "Feasibility Study of UTE-Image-based SAR Estimation Without B1 mapping at 3T Primary",
+      "authors": [
+        "Zhongzheng He",
+        "Guillaume Paillart",
+        "Julien Lamy"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160225758",
+      "title": "The Paradox of Perfection: Hidden Risks of High-Performing AI in Human-in-the-Loop Governance",
+      "authors": [
+        "Chen Zhong",
+        "Alper Yayla",
+        "Xueping Liang"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160227593",
+      "title": "Artificial Intelligence, Large Language Models, AI Applications, AI Business Transformation",
+      "authors": [
+        "Reza Vaezi"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7131738024",
+      "title": "Feasibility Study of UTE-Image-based SAR Estimation Without B1 mapping at 3T",
+      "authors": [
+        "Z.-H. He",
+        "Guillaume Paillart",
+        "Julien Lamy"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160227283",
+      "title": "Agentic Implementation in Business Processes with Guardrails",
+      "authors": [
+        "Kunal Kumar"
+      ],
+      "countries": [
+        "CO"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128289565",
+      "title": "Towards a Framework of Open-Source Hardware and Software Components for Real-Time and Custom-Made Human Activity Recognition based either on Inertial Sensors or on Vision Sensors",
+      "authors": [
+        "Jérôme Rocheteau"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160225282",
+      "title": "LLMs Are Not the Answer Relevant AI for Business Transformation",
+      "authors": [
+        "Christopher Simpkins"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160546156",
+      "title": "SAR-to-Optical Image Translation Using Pix2Pix GAN",
+      "authors": [
+        "Anjana Das C",
+        "Abhijith B",
+        "Amrith M Nair"
+      ],
+      "countries": [
+        "IN"
       ],
       "primary_country": "Other",
       "published": "2026-05-08",
@@ -198,133 +316,13 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153409174",
-      "title": "Advanced Methods for the Diagnosis of Volatile Organic Compounds",
+      "id": "https://openalex.org/W7160264144",
+      "title": "Project Rosetta: Software Physics from Compilation to Cosmology in a Unified 64-Dimensional Latent Space",
       "authors": [
-        "Mirshahi Roxana"
+        "Hiroto Funasaki"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160419680",
-      "title": "Impulsvortrag / Keynote speech. Open Data versus Black Box, or: How can AI Fulfill Archival Tasks and Professional Requirements?",
-      "authors": [
-        "Bettina Joergens"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160384795",
-      "title": "Impulsvortrag / Keynote speech. Open Data versus Black Box, or: How can AI Fulfill Archival Tasks and Professional Requirements?",
-      "authors": [
-        "Bettina Joergens"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160426240",
-      "title": "When archives go digital…! Tools, Practices, Opportunities, and Challenges",
-      "authors": [
-        "Klaas Van Gelder",
-        "C. A. (Annemieke) Romein",
-        "Xavier Gillard"
-      ],
-      "countries": [
-        "BE",
-        "CH",
-        "NL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7156039243",
-      "title": "Generating Lung CT Scans with Conditional Score-Based Diffusion Models",
-      "authors": [
-        "António Luís Fernandes Cardoso",
-        "Pedro F. Sousa",
-        "Hélder P. Oliveira"
-      ],
-      "countries": [
-        "PT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160408201",
-      "title": "A Statistical Evaluation of Artificial Intelligence (AI) and Big Data Analytics on National Security Performance Indicators in Nigeria: A Simulation-Based Analysis",
-      "authors": [
-        "Alanamu, T.,",
-        "Adetunji, K.O.,",
-        " Muhammed M.O."
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153960679",
-      "title": "Extending Human Capabilities with Sensorimotor Augmentation and Physical Metaverse",
-      "authors": [
-        "Bernardo Brogi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7149880274",
-      "title": "Less is More? When Dataset Context Hurts LLM-Generated Dataset Descriptions",
-      "authors": [
-        "Lisa-Yao Gan",
-        "Arunav Das",
-        "Johanna Walker"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160437762",
-      "title": "When archives go digital…! Tools, Practices, Opportunities, and Challenges",
-      "authors": [
-        "Klaas Van Gelder",
-        "C. A. (Annemieke) Romein",
-        "Xavier Gillard"
-      ],
-      "countries": [
-        "BE",
-        "CH",
-        "NL"
-      ],
-      "primary_country": "Other",
       "published": "2026-05-08",
       "cited_by_count": 0,
       "source": "openalex"

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-09T08:45:18.970177+00:00",
+  "fetched_at": "2026-05-10T08:58:50.813264+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 35.9,
+          "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 146966,
-            "share_score": 38.4,
+            "raw_value": 147438,
+            "share_score": 38.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4520,
-            "share_score": 36.1,
+            "raw_value": 4525,
+            "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3364,
+            "raw_value": 3366,
             "share_score": 33.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.1,
+          "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 235749,
-            "share_score": 61.6,
+            "raw_value": 234957,
+            "share_score": 61.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7984,
-            "share_score": 63.9,
+            "raw_value": 7988,
+            "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6801,
+            "raw_value": 6796,
             "share_score": 66.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 257866
+        "count": 257956
       },
       {
         "country_code": "CN",
-        "count": 235749
+        "count": 234957
       },
       {
         "country_code": "DE",
-        "count": 156862
+        "count": 156912
       },
       {
         "country_code": "US",
-        "count": 146966
+        "count": 147438
       },
       {
         "country_code": "IN",
-        "count": 86100
+        "count": 86518
       },
       {
         "country_code": "GB",
-        "count": 46347
+        "count": 46409
       },
       {
         "country_code": "ID",
-        "count": 27968
+        "count": 27967
       },
       {
         "country_code": "FR",
-        "count": 24721
+        "count": 24754
       },
       {
         "country_code": "CA",
-        "count": 23851
+        "count": 23890
       },
       {
         "country_code": "IT",
-        "count": 22272
+        "count": 22277
       }
     ],
     "volume": {
-      "us": 146966,
-      "china": 235749,
-      "total": 2104273,
+      "us": 147438,
+      "china": 234957,
+      "total": 2110327,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4520,
-      "china": 7984,
-      "total": 19366,
+      "us": 4525,
+      "china": 7988,
+      "total": 19363,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3364,
-      "china": 6801,
-      "total": 15610,
+      "us": 3366,
+      "china": 6796,
+      "total": 15594,
       "data_ok": true
     }
   },
@@ -182,148 +182,135 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160365132",
-      "title": "Pancreatic Cancer Subtype Prediction Via Advanced Machine Learning Approaches",
+      "id": "https://openalex.org/W7157313759",
+      "title": "Adaptive Coastline Detection based on Deep Q-Network-Guided Contour Refinement",
       "authors": [
-        "Nicholas B Peterson"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128282710",
-      "title": "Feasibility Study of UTE-Image-based SAR Estimation Without B1 mapping at 3T Primary",
-      "authors": [
-        "Zhongzheng He",
-        "Guillaume Paillart",
-        "Julien Lamy"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160225758",
-      "title": "The Paradox of Perfection: Hidden Risks of High-Performing AI in Human-in-the-Loop Governance",
-      "authors": [
-        "Chen Zhong",
-        "Alper Yayla",
-        "Xueping Liang"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160227593",
-      "title": "Artificial Intelligence, Large Language Models, AI Applications, AI Business Transformation",
-      "authors": [
-        "Reza Vaezi"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7131738024",
-      "title": "Feasibility Study of UTE-Image-based SAR Estimation Without B1 mapping at 3T",
-      "authors": [
-        "Z.-H. He",
-        "Guillaume Paillart",
-        "Julien Lamy"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160227283",
-      "title": "Agentic Implementation in Business Processes with Guardrails",
-      "authors": [
-        "Kunal Kumar"
-      ],
-      "countries": [
-        "CO"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128289565",
-      "title": "Towards a Framework of Open-Source Hardware and Software Components for Real-Time and Custom-Made Human Activity Recognition based either on Inertial Sensors or on Vision Sensors",
-      "authors": [
-        "Jérôme Rocheteau"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160225282",
-      "title": "LLMs Are Not the Answer Relevant AI for Business Transformation",
-      "authors": [
-        "Christopher Simpkins"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160546156",
-      "title": "SAR-to-Optical Image Translation Using Pix2Pix GAN",
-      "authors": [
-        "Anjana Das C",
-        "Abhijith B",
-        "Amrith M Nair"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160264144",
-      "title": "Project Rosetta: Software Physics from Compilation to Cosmology in a Unified 64-Dimensional Latent Space",
-      "authors": [
-        "Hiroto Funasaki"
+        "Zhen Tian"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-08",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140021011",
+      "title": "Hybrid heterogeneous transfer learning for kinetics models",
+      "authors": [
+        "Youba Abed",
+        "Julien Jacques",
+        "Victor Costa"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7157073258",
+      "title": "Artificial Intelligence and Machine Learning Applications",
+      "authors": [
+        "K. Geetha"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154666747",
+      "title": "ODRL policy comparison by normalisation",
+      "authors": [
+        "Jaime Osvaldo Salas",
+        "Paolo Pareti",
+        "George Konstantinidis"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7157112353",
+      "title": "Artificial Intelligence and Machine Learning Applications",
+      "authors": [
+        "K. Geetha"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155632591",
+      "title": "Reference implementation, synthetic scene generator, and participating-media dictionary for 'Non-Destructive Optical Measurement of Surface Reflectance and Participating-Media Properties from Eight Calibrated Views",
+      "authors": [
+        "Yamakoshi R"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139632428",
+      "title": "Automatic Hybrid Following in Real-Time Mixed Music: A Case Study with Antescofo and ipt˜ for Flute Playing Techniques",
+      "authors": [
+        "Nicolas Brochec",
+        "Jean-Louis Giavitto"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7156956528",
+      "title": "Adaptive Coastline Detection based on Deep Q-Network-Guided Contour Refinement",
+      "authors": [
+        "Zhen Tian"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155625620",
+      "title": "Reference implementation, synthetic scene generator, and participating-media dictionary for 'Non-Destructive Optical Measurement of Surface Reflectance and Participating-Media Properties from Eight Calibrated Views",
+      "authors": [
+        "Yamakoshi R"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134879700",
+      "title": "Link Prediction or Perdition: the Seeds of Instability in Knowledge Graph Embeddings",
+      "authors": [
+        "Guillaume Méroué",
+        "Fabien Gandon",
+        "Pierre Monnin"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-10",
       "cited_by_count": 0,
       "source": "openalex"
     }

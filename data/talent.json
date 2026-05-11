@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-10T08:58:50.813264+00:00",
+  "fetched_at": "2026-05-11T10:40:23.769770+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 147438,
+            "raw_value": 148034,
             "share_score": 38.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4525,
+            "raw_value": 4529,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3366,
+            "raw_value": 3363,
             "share_score": 33.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 234957,
+            "raw_value": 235357,
             "share_score": 61.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7988,
+            "raw_value": 7976,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6796,
+            "raw_value": 6787,
             "share_score": 66.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 257956
+        "count": 258021
       },
       {
         "country_code": "CN",
-        "count": 234957
+        "count": 235357
       },
       {
         "country_code": "DE",
-        "count": 156912
+        "count": 157043
       },
       {
         "country_code": "US",
-        "count": 147438
+        "count": 148034
       },
       {
         "country_code": "IN",
-        "count": 86518
+        "count": 86731
       },
       {
         "country_code": "GB",
-        "count": 46409
+        "count": 46540
       },
       {
         "country_code": "ID",
-        "count": 27967
+        "count": 28079
       },
       {
         "country_code": "FR",
-        "count": 24754
+        "count": 24839
       },
       {
         "country_code": "CA",
-        "count": 23890
+        "count": 23982
       },
       {
         "country_code": "IT",
-        "count": 22277
+        "count": 22355
       }
     ],
     "volume": {
-      "us": 147438,
-      "china": 234957,
-      "total": 2110327,
+      "us": 148034,
+      "china": 235357,
+      "total": 2118283,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4525,
-      "china": 7988,
-      "total": 19363,
+      "us": 4529,
+      "china": 7976,
+      "total": 19334,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3366,
-      "china": 6796,
-      "total": 15594,
+      "us": 3363,
+      "china": 6787,
+      "total": 15599,
       "data_ok": true
     }
   },
@@ -182,135 +182,133 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7157313759",
-      "title": "Adaptive Coastline Detection based on Deep Q-Network-Guided Contour Refinement",
+      "id": "https://openalex.org/W7160777526",
+      "title": "Commentary on Russo and van Eck’s “Charting the Explanatory Potential of Network Models in Psychopathology”",
       "authors": [
-        "Zhen Tian"
+        "Stephan Heckers"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140021011",
-      "title": "Hybrid heterogeneous transfer learning for kinetics models",
+      "id": "https://openalex.org/W7160761951",
+      "title": "Psychological Network Analyses and Directed Acyclic Graphs Tutorial for Developmental and Educational Science",
       "authors": [
-        "Youba Abed",
-        "Julien Jacques",
-        "Victor Costa"
+        "Xin Tang",
+        "Jindong Zhang",
+        "Yuyang Zhang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160779741",
+      "title": "Commentary on Woodward’s “Reflections on Some Strategies for Causal Inference in Psychiatry”",
+      "authors": [
+        "John Campbell"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160722351",
+      "title": "TopoConscious: Persistent Homology Pipeline for Neural Correlates of Consciousness",
+      "authors": [
+        "Felix Chege Ng'ang'a"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160755937",
+      "title": "Hierarchical Reinforcement Learning with Constrained Incremental PID Gain Scheduling for High-Order Dynamical Systems",
+      "authors": [
+        "Soegianto Soelistiono"
       ],
       "countries": [
-        "FR"
+        "ID"
       ],
       "primary_country": "Other",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7157073258",
-      "title": "Artificial Intelligence and Machine Learning Applications",
+      "id": "https://openalex.org/W7160761008",
+      "title": "Mingzheng — Reproducibility Data Package (Information Fusion 2026)",
       "authors": [
-        "K. Geetha"
+        "Xueer Zheng",
+        "Ying Xie",
+        "Shijun Luo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154666747",
-      "title": "ODRL policy comparison by normalisation",
+      "id": "https://openalex.org/W7160754987",
+      "title": "A Study on Real-time Analysis of Multi-body Dynamics for Underwater Walking Robot Considering Deformable Seabed",
       "authors": [
-        "Jaime Osvaldo Salas",
-        "Paolo Pareti",
-        "George Konstantinidis"
+        "Tae-Hyun Lee",
+        "Bong-Huan Jun",
+        "Jong-Boo Han"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7157112353",
-      "title": "Artificial Intelligence and Machine Learning Applications",
+      "id": "https://openalex.org/W7160699553",
+      "title": "PHILIA-EcoSensory Swarm v58a Pre-Registration v1.5: 3-Axis Simultaneous Living Control Verification — Multi-Stage Pre-Registration with Empirical Threshold Determination",
       "authors": [
-        "K. Geetha"
+        "신두섭"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155632591",
-      "title": "Reference implementation, synthetic scene generator, and participating-media dictionary for 'Non-Destructive Optical Measurement of Surface Reflectance and Participating-Media Properties from Eight Calibrated Views",
+      "id": "https://openalex.org/W7160781772",
+      "title": "Human-Centered Explainable Artificial Intelligence (HC-XAI): Systematic Literature Review dan Kerangka Konseptual",
       "authors": [
-        "Yamakoshi R"
+        "Mercy Kristina Possumah",
+        "Muharman Lubis"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139632428",
-      "title": "Automatic Hybrid Following in Real-Time Mixed Music: A Case Study with Antescofo and ipt˜ for Flute Playing Techniques",
+      "id": "https://openalex.org/W7160762737",
+      "title": "Robust UAV Target Tracking in Dynamic Environments: A Confidence- based Adaptive DCF Re-detection Method",
       "authors": [
-        "Nicolas Brochec",
-        "Jean-Louis Giavitto"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7156956528",
-      "title": "Adaptive Coastline Detection based on Deep Q-Network-Guided Contour Refinement",
-      "authors": [
-        "Zhen Tian"
+        "Jeong-Woo Lee",
+        "Pil-Eun Kim",
+        "Dae-il Ko"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155625620",
-      "title": "Reference implementation, synthetic scene generator, and participating-media dictionary for 'Non-Destructive Optical Measurement of Surface Reflectance and Participating-Media Properties from Eight Calibrated Views",
-      "authors": [
-        "Yamakoshi R"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134879700",
-      "title": "Link Prediction or Perdition: the Seeds of Instability in Knowledge Graph Embeddings",
-      "authors": [
-        "Guillaume Méroué",
-        "Fabien Gandon",
-        "Pierre Monnin"
-      ],
-      "countries": [
-        "CH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-10",
+      "published": "2026-05-11",
       "cited_by_count": 0,
       "source": "openalex"
     }

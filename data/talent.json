@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-11T10:40:23.769770+00:00",
+  "fetched_at": "2026-05-12T09:44:29.284763+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.0,
+          "share_score": 35.9,
           "paper_volume": {
-            "raw_value": 148034,
+            "raw_value": 148729,
             "share_score": 38.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4529,
+            "raw_value": 4534,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3363,
-            "share_score": 33.1,
+            "raw_value": 3302,
+            "share_score": 32.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.0,
+          "share_score": 64.1,
           "paper_volume": {
-            "raw_value": 235357,
+            "raw_value": 236187,
             "share_score": 61.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7976,
+            "raw_value": 7982,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6787,
-            "share_score": 66.9,
+            "raw_value": 6767,
+            "share_score": 67.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258021
+        "count": 258077
       },
       {
         "country_code": "CN",
-        "count": 235357
+        "count": 236187
       },
       {
         "country_code": "DE",
-        "count": 157043
+        "count": 157171
       },
       {
         "country_code": "US",
-        "count": 148034
+        "count": 148729
       },
       {
         "country_code": "IN",
-        "count": 86731
+        "count": 87336
       },
       {
         "country_code": "GB",
-        "count": 46540
+        "count": 46700
       },
       {
         "country_code": "ID",
-        "count": 28079
+        "count": 28133
       },
       {
         "country_code": "FR",
-        "count": 24839
+        "count": 24896
       },
       {
         "country_code": "CA",
-        "count": 23982
+        "count": 24039
       },
       {
         "country_code": "IT",
-        "count": 22355
+        "count": 22436
       }
     ],
     "volume": {
-      "us": 148034,
-      "china": 235357,
-      "total": 2118283,
+      "us": 148729,
+      "china": 236187,
+      "total": 2125643,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4529,
-      "china": 7976,
-      "total": 19334,
+      "us": 4534,
+      "china": 7982,
+      "total": 19330,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3363,
-      "china": 6787,
-      "total": 15599,
+      "us": 3302,
+      "china": 6767,
+      "total": 15486,
       "data_ok": true
     }
   },
@@ -182,133 +182,129 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160777526",
-      "title": "Commentary on Russo and van Eck’s “Charting the Explanatory Potential of Network Models in Psychopathology”",
+      "id": "https://openalex.org/W7160854546",
+      "title": "nhanes_real_categorical_sphere",
       "authors": [
-        "Stephan Heckers"
+        "SPHERE User"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160761951",
-      "title": "Psychological Network Analyses and Directed Acyclic Graphs Tutorial for Developmental and Educational Science",
+      "id": "https://openalex.org/W7160857812",
+      "title": "LiF-BeF2 molten mixtures studied using a composition-transferable deep learning potential",
       "authors": [
-        "Xin Tang",
-        "Jindong Zhang",
-        "Yuyang Zhang"
+        "Dmitry Zakiryanov"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160779741",
-      "title": "Commentary on Woodward’s “Reflections on Some Strategies for Causal Inference in Psychiatry”",
+      "id": "https://openalex.org/W7160878825",
+      "title": "Quantitative Characterization of Pore–Fracture Structures in Deep Coal Reservoirs Based on the QSGS Method",
       "authors": [
-        "John Campbell"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160722351",
-      "title": "TopoConscious: Persistent Homology Pipeline for Neural Correlates of Consciousness",
-      "authors": [
-        "Felix Chege Ng'ang'a"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160755937",
-      "title": "Hierarchical Reinforcement Learning with Constrained Incremental PID Gain Scheduling for High-Order Dynamical Systems",
-      "authors": [
-        "Soegianto Soelistiono"
+        "Dongxiang Huang"
       ],
       "countries": [
-        "ID"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-11",
+      "primary_country": "China",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160761008",
-      "title": "Mingzheng — Reproducibility Data Package (Information Fusion 2026)",
+      "id": "https://openalex.org/W7160880924",
+      "title": "AMIR TEMUR DAVLATI HAVSIZLIGINI TA'MINLASHDA MAXSUS KUZATUVLAR VA JANGOVAR HARAKATLAR",
       "authors": [
-        "Xueer Zheng",
-        "Ying Xie",
-        "Shijun Luo"
+        "S.O.Narziqulov",
+        "S.B.Abduqodirov"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160754987",
-      "title": "A Study on Real-time Analysis of Multi-body Dynamics for Underwater Walking Robot Considering Deformable Seabed",
+      "id": "https://openalex.org/W7160819631",
+      "title": "Dear Professor Wolfram: I GIVE You the Foundational Layer Your Theory Is Missing",
       "authors": [
-        "Tae-Hyun Lee",
-        "Bong-Huan Jun",
-        "Jong-Boo Han"
+        "Waldemar Superson"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160699553",
-      "title": "PHILIA-EcoSensory Swarm v58a Pre-Registration v1.5: 3-Axis Simultaneous Living Control Verification — Multi-Stage Pre-Registration with Empirical Threshold Determination",
+      "id": "https://openalex.org/W7160846682",
+      "title": "The evolution of prostate cancer grading: from Gleason score to risk taxonomy and the artificial intelligence revolution",
       "authors": [
-        "신두섭"
+        "Enrico Munari",
+        "Pietro Antonini",
+        "Luca Cima"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160781772",
-      "title": "Human-Centered Explainable Artificial Intelligence (HC-XAI): Systematic Literature Review dan Kerangka Konseptual",
+      "id": "https://openalex.org/W7160850642",
+      "title": "LSH-Burn: Rust-based Spacetime Field Architecture Implementation",
       "authors": [
-        "Mercy Kristina Possumah",
-        "Muharman Lubis"
+        "Hengbo Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160762737",
-      "title": "Robust UAV Target Tracking in Dynamic Environments: A Confidence- based Adaptive DCF Re-detection Method",
+      "id": "https://openalex.org/W7160840346",
+      "title": "AMIR TEMUR – MA'NAVIYAT VA MA'RIFAT HOMIYSI",
       "authors": [
-        "Jeong-Woo Lee",
-        "Pil-Eun Kim",
-        "Dae-il Ko"
+        "Rashidova Moxidil Ne'matjonovna",
+        "Nоrmаtоvа Zаmirа Аminjоnоvnа",
+        "Abdujalilova Muslima Abduhamid qizi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-11",
+      "published": "2026-05-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160875181",
+      "title": "Catalysing Materials Circularity Through Digitalization",
+      "authors": [
+        "Rajan Jose"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160861883",
+      "title": "LSH Rules: Self-Verifying Semantic System for Super Rule Enhancement and Prompt Engineering",
+      "authors": [
+        "Hengbo Li"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-12",
       "cited_by_count": 0,
       "source": "openalex"
     }

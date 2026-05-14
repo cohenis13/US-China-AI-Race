@@ -3,7 +3,7 @@
   "dimension": "compute",
   "metric_key": "compute_triangulated_index",
   "description": "Triangulated compute index: training compute (40%, Epoch AI), hardware supply (40%, NVIDIA revenue + Huawei Ascend), and visible HPC (20%, TOP500 + corrections). Coverage gaps are explicitly documented in hidden_compute_band.",
-  "fetched_at": "2026-05-13T10:13:50.081269+00:00",
+  "fetched_at": "2026-05-14T10:06:22.786923+00:00",
   "weights": {
     "training_compute": 0.4,
     "hardware_supply": 0.4,
@@ -15,9 +15,9 @@
       "proxies": {
         "training_compute": {
           "weight": 0.4,
-          "share_score": 84.7,
-          "raw_flop": 1.824366e+27,
-          "model_count": 303,
+          "share_score": 84.8,
+          "raw_flop": 1.847566e+27,
+          "model_count": 304,
           "source": "Epoch AI notable models since 2023 — disclosed training compute only",
           "coverage_note": "Understates China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose compute. Disclosed compute is a lower bound for China."
         },
@@ -44,7 +44,7 @@
       "proxies": {
         "training_compute": {
           "weight": 0.4,
-          "share_score": 15.3,
+          "share_score": 15.2,
           "raw_flop": 3.307892e+26,
           "model_count": 209,
           "source": "Epoch AI notable models since 2023 — disclosed training compute only",

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-13T09:48:14.790709+00:00",
+  "fetched_at": "2026-05-14T09:36:54.808130+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 35.9,
           "paper_volume": {
-            "raw_value": 149188,
-            "share_score": 38.7,
+            "raw_value": 149661,
+            "share_score": 38.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4548,
+            "raw_value": 4561,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3311,
+            "raw_value": 3288,
             "share_score": 32.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.1,
           "paper_volume": {
-            "raw_value": 236383,
-            "share_score": 61.3,
+            "raw_value": 236517,
+            "share_score": 61.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8001,
+            "raw_value": 8025,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6803,
+            "raw_value": 6766,
             "share_score": 67.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258285
+        "count": 258319
       },
       {
         "country_code": "CN",
-        "count": 236383
+        "count": 236517
       },
       {
         "country_code": "DE",
-        "count": 157171
+        "count": 157240
       },
       {
         "country_code": "US",
-        "count": 149188
+        "count": 149661
       },
       {
         "country_code": "IN",
-        "count": 87725
+        "count": 87847
       },
       {
         "country_code": "GB",
-        "count": 46779
+        "count": 46880
       },
       {
         "country_code": "ID",
-        "count": 28254
+        "count": 28329
       },
       {
         "country_code": "FR",
-        "count": 24888
+        "count": 24923
       },
       {
         "country_code": "CA",
-        "count": 24048
+        "count": 24071
       },
       {
         "country_code": "IT",
-        "count": 22445
+        "count": 22487
       }
     ],
     "volume": {
-      "us": 149188,
-      "china": 236383,
-      "total": 2133756,
+      "us": 149661,
+      "china": 236517,
+      "total": 2141137,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4548,
-      "china": 8001,
-      "total": 19390,
+      "us": 4561,
+      "china": 8025,
+      "total": 19451,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3311,
-      "china": 6803,
-      "total": 15547,
+      "us": 3288,
+      "china": 6766,
+      "total": 15493,
       "data_ok": true
     }
   },
@@ -182,140 +182,147 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160923799",
-      "title": "An accurate identification method for Striped Red Fuji apples based on Gaussian-SIFT for cloud manufacturing",
+      "id": "https://openalex.org/W7155721607",
+      "title": "MAAC Study 1 Hypothesis Testing Dataset: Complexity Validation of LLM-Generated Decision Scenarios",
       "authors": [
-        "Zhenqi Fei",
-        "Xue Zhou",
-        "Yixu Gan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160917631",
-      "title": "Diagnostic accuracy and citation integrity of four large language models on otolaryngology vignettes",
-      "authors": [
-        "William Pennington-FitzGerald",
-        "Akshay Warrier",
-        "Sally Durant"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160932420",
-      "title": "A Note on Karl Marx’s Mathematical Manuscripts",
-      "authors": [
-        "Theodore Mariolis"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160897489",
-      "title": "Cooperative Game-Theoretic Optimization for Simultaneous Structure Preservation and Noise Suppression in Image Enhancement",
-      "authors": [
-        "Chenping Zhao",
-        "Shilong Lv",
-        "Yingjun Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160903949",
-      "title": "AttestationRegimeClassifier - a Ghidra Plugin for ICS/Embedded Firmware Attestation Regime Classification",
-      "authors": [
-        "Daniyel Yaacov Bilar"
+        "A Doleh",
+        "Toni M. Somers",
+        "Ratna Chinnam"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-05-13",
+      "published": "2026-05-14",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161007918",
+      "title": "Adipose-Derived Preparations for Wound Regeneration: From Hierarchical Classification to Clinical Translation",
+      "authors": [
+        "Junshui Zheng",
+        "Shi Xiong",
+        "Qingfeng Yang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7152939545",
-      "title": "Attractor reconstruction and their topological data analysis for seizure onset detection",
+      "id": "https://openalex.org/W7161014270",
+      "title": "The Background of ‘Belief’ and the Foreground of ‘Religion’",
       "authors": [
-        "Kevin Slote",
-        "Igor Belykh",
-        "Mukesh Dhamala"
+        "Jason P. Davies"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-13",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160894434",
-      "title": "AccessStep Dataset Public Data Package for AccessStairNet",
+      "id": "https://openalex.org/W7161005195",
+      "title": "DynaSplaTAM: robust dynamic 3D Gaussian splatting SLAM with lightweight semantic-depth masking",
       "authors": [
-        "Wen Quan",
-        "Mazran Ismail",
-        "Muhammad Hafeez Abdul Nasir"
+        "Lin Chen",
+        "Jun Dong",
+        "Junming He"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160980381",
+      "title": "Artificial Intelligence and Divergent Fairness Perceptions: Implications from the Video Assistant Referee in Football",
+      "authors": [
+        "Sven Laumer"
       ],
       "countries": [
-        "MY"
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-05-13",
+      "published": "2026-05-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7117764199",
-      "title": "On the Zero-Balance Base Point and Authorization Phase Locking: A Meta-Criterion for System Self-Stabilization",
+      "id": "https://openalex.org/W7160999825",
+      "title": "MitoKG: A Pretrained Mitochondrial Heterogeneous Knowledge Graph",
       "authors": [
-        "Jingfeng Lu"
+        "Wenhan Song",
+        "Enguang Zuo",
+        "Xiaoyi Lv"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-13",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-05-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160936315",
-      "title": "The First AI Based Systematic Form Of Belief. A Conceptual And Theological Analysis Of Crustafarianism",
+      "id": "https://openalex.org/W7161026566",
+      "title": "If AI can translate instantly, why learn another language?",
       "authors": [
-        "Mehmet Akif ÖZDAL"
+        "Olivia Maurice",
+        "Mark Antoniou"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-13",
+      "countries": [
+        "AU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160912996",
-      "title": "Monostatic Full Duplex Wi-Fi Sensing Walking person",
+      "id": "https://openalex.org/W7160997464",
+      "title": "yippy",
       "authors": [
-        "jessica bartholdy sanson",
-        "Valerio Frascolla",
-        "Rahul Shah"
+        "Corey Spohn"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160995550",
+      "title": "Benefits of redundancy in silent Wi-Fi fingerprinting",
+      "authors": [
+        "Pedro Videira Rubinstein",
+        "Fernando Dias de Mello Silva",
+        "Giuliano Prestes Fittipaldi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-13",
+      "published": "2026-05-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160213102",
+      "title": "SCRUNCH (Soft Continuum Robot Using Normal Contracting Holders)",
+      "authors": [
+        "Cole James",
+        "Justin Allen",
+        "Ming Luo"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-14",
       "cited_by_count": 0,
       "source": "openalex"
     }

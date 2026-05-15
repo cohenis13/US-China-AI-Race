@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-14T09:36:54.808130+00:00",
+  "fetched_at": "2026-05-15T09:49:58.365793+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,7 +17,7 @@
           "weight": 0.35,
           "share_score": 35.9,
           "paper_volume": {
-            "raw_value": 149661,
+            "raw_value": 150345,
             "share_score": 38.8,
             "window": "12m"
           },
@@ -29,7 +29,7 @@
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3288,
+            "raw_value": 3284,
             "share_score": 32.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.1,
           "paper_volume": {
-            "raw_value": 236517,
+            "raw_value": 237249,
             "share_score": 61.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8025,
+            "raw_value": 8029,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6766,
+            "raw_value": 6771,
             "share_score": 67.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258319
+        "count": 258380
       },
       {
         "country_code": "CN",
-        "count": 236517
+        "count": 237249
       },
       {
         "country_code": "DE",
-        "count": 157240
+        "count": 157325
       },
       {
         "country_code": "US",
-        "count": 149661
+        "count": 150345
       },
       {
         "country_code": "IN",
-        "count": 87847
+        "count": 88052
       },
       {
         "country_code": "GB",
-        "count": 46880
+        "count": 47229
       },
       {
         "country_code": "ID",
-        "count": 28329
+        "count": 28421
       },
       {
         "country_code": "FR",
-        "count": 24923
+        "count": 24955
       },
       {
         "country_code": "CA",
-        "count": 24071
+        "count": 24280
       },
       {
         "country_code": "IT",
-        "count": 22487
+        "count": 22555
       }
     ],
     "volume": {
-      "us": 149661,
-      "china": 236517,
-      "total": 2141137,
+      "us": 150345,
+      "china": 237249,
+      "total": 2148407,
       "data_ok": true
     },
     "high_impact": {
       "us": 4561,
-      "china": 8025,
-      "total": 19451,
+      "china": 8029,
+      "total": 19445,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3288,
-      "china": 6766,
-      "total": 15493,
+      "us": 3284,
+      "china": 6771,
+      "total": 15498,
       "data_ok": true
     }
   },
@@ -182,147 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7155721607",
-      "title": "MAAC Study 1 Hypothesis Testing Dataset: Complexity Validation of LLM-Generated Decision Scenarios",
+      "id": "https://openalex.org/W7161147729",
+      "title": "Research on Fault Diagnosis Agent of Monorail Crane Based on Knowledge Graph and Lightweight Large Model",
       "authors": [
-        "A Doleh",
-        "Toni M. Somers",
-        "Ratna Chinnam"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-14",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161007918",
-      "title": "Adipose-Derived Preparations for Wound Regeneration: From Hierarchical Classification to Clinical Translation",
-      "authors": [
-        "Junshui Zheng",
-        "Shi Xiong",
-        "Qingfeng Yang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161014270",
-      "title": "The Background of ‘Belief’ and the Foreground of ‘Religion’",
-      "authors": [
-        "Jason P. Davies"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161005195",
-      "title": "DynaSplaTAM: robust dynamic 3D Gaussian splatting SLAM with lightweight semantic-depth masking",
-      "authors": [
-        "Lin Chen",
-        "Jun Dong",
-        "Junming He"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160980381",
-      "title": "Artificial Intelligence and Divergent Fairness Perceptions: Implications from the Video Assistant Referee in Football",
-      "authors": [
-        "Sven Laumer"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-05-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160999825",
-      "title": "MitoKG: A Pretrained Mitochondrial Heterogeneous Knowledge Graph",
-      "authors": [
-        "Wenhan Song",
-        "Enguang Zuo",
-        "Xiaoyi Lv"
+        "Y Zhang",
+        "Shun Xue",
+        "Xiang Bi"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-05-14",
+      "published": "2026-05-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161026566",
-      "title": "If AI can translate instantly, why learn another language?",
+      "id": "https://openalex.org/W7161167879",
+      "title": "Adaptive Speed-Regulated Impedance Control for Robotic Ultrasound Scanning: Reducing Constant-Force Tracking Errors",
       "authors": [
-        "Olivia Maurice",
-        "Mark Antoniou"
+        "Kang Min",
+        "Le Zhang",
+        "Yudong Shi"
       ],
       "countries": [
-        "AU"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-14",
+      "primary_country": "China",
+      "published": "2026-05-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160997464",
-      "title": "yippy",
+      "id": "https://openalex.org/W7161114847",
+      "title": "The Multi‑Polar AI Bias Matrix Model: Bias Convergence, Eigenvalue Stabilization, Structural Vulnerability of Closed Systems, and Alignment with the EU Digital Markets Act (DMA)",
       "authors": [
-        "Corey Spohn"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160995550",
-      "title": "Benefits of redundancy in silent Wi-Fi fingerprinting",
-      "authors": [
-        "Pedro Videira Rubinstein",
-        "Fernando Dias de Mello Silva",
-        "Giuliano Prestes Fittipaldi"
+        "Norikuni Horiguchi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-14",
+      "published": "2026-05-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160213102",
-      "title": "SCRUNCH (Soft Continuum Robot Using Normal Contracting Holders)",
+      "id": "https://openalex.org/W7161145737",
+      "title": "AI-Augmented Compliance State Inference: A Federated Learning Approach",
       "authors": [
-        "Cole James",
-        "Justin Allen",
-        "Ming Luo"
+        "Oyelokiki George Egbedayo"
       ],
       "countries": [
-        "US"
+        "FI"
       ],
-      "primary_country": "US",
-      "published": "2026-05-14",
+      "primary_country": "Other",
+      "published": "2026-05-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161143772",
+      "title": "Advanced Global Intelligence",
+      "authors": [
+        "Ivan Kotov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161137126",
+      "title": "Asymmetry in Cross-System Qualitative Mapping",
+      "authors": [
+        "Kostiantyn Osmolovskyi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161145181",
+      "title": "[Research progress in artificial intelligence for the diagnosis and management of diseases in preterm infants].",
+      "authors": [
+        "Ying Yuan",
+        "Linghan Tang",
+        "Lirong Guan"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-05-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159896864",
+      "title": "Multimorbidity profile and major adverse cardiovascular events in initial antipsychotic users:time-to-event prediction using explainable machine learning",
+      "authors": [
+        "Qi Sun",
+        "Wenlong Liu",
+        "Cuiling Wei"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161113228",
+      "title": "Single-Point Optical-Vibration Sensing System for Deep-Learning-Based Stereo Sound Synthesis: Reproducibility Package (Draft)",
+      "authors": [
+        "Kuo-Wei Chao",
+        "Ji-Yan Han",
+        "Jia-Wei Chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161189502",
+      "title": "Wavelet-Based Spatio-Temporal Fusion Network for Electromyographic Decoding in Bionic Hand Control Systems",
+      "authors": [
+        "Rui Huang",
+        "Yue Zhao",
+        "Penghua Yang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-05-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

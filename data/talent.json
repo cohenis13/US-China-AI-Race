@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-15T09:49:58.365793+00:00",
+  "fetched_at": "2026-05-16T08:50:56.930054+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 35.9,
           "paper_volume": {
-            "raw_value": 150345,
+            "raw_value": 150001,
             "share_score": 38.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4561,
+            "raw_value": 4553,
             "share_score": 36.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3284,
-            "share_score": 32.7,
+            "raw_value": 3261,
+            "share_score": 32.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.1,
           "paper_volume": {
-            "raw_value": 237249,
+            "raw_value": 236690,
             "share_score": 61.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8029,
+            "raw_value": 8007,
             "share_score": 63.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6771,
-            "share_score": 67.3,
+            "raw_value": 6739,
+            "share_score": 67.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,111 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258380
+        "count": 258325
       },
       {
         "country_code": "CN",
-        "count": 237249
+        "count": 236690
       },
       {
         "country_code": "DE",
-        "count": 157325
+        "count": 157206
       },
       {
         "country_code": "US",
-        "count": 150345
+        "count": 150001
       },
       {
         "country_code": "IN",
-        "count": 88052
+        "count": 87871
       },
       {
         "country_code": "GB",
-        "count": 47229
+        "count": 47099
       },
       {
         "country_code": "ID",
-        "count": 28421
+        "count": 28368
       },
       {
         "country_code": "FR",
-        "count": 24955
+        "count": 24900
       },
       {
         "country_code": "CA",
-        "count": 24280
+        "count": 24214
       },
       {
         "country_code": "IT",
-        "count": 22555
+        "count": 22494
       }
     ],
     "volume": {
-      "us": 150345,
-      "china": 237249,
-      "total": 2148407,
+      "us": 150001,
+      "china": 236690,
+      "total": 2144982,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4561,
-      "china": 8029,
-      "total": 19445,
+      "us": 4553,
+      "china": 8007,
+      "total": 19390,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3284,
-      "china": 6771,
-      "total": 15498,
+      "us": 3261,
+      "china": 6739,
+      "total": 15427,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7160972286",
+      "title": "Bayesian Spatiotemporal Model for Counterfactual Estimation in Socioeconomic Studies",
+      "authors": [
+        "Duwani W Gonzalez"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7151171290",
+      "title": "Conversational Control with Ontologies for Large Language Models: A Lightweight Framework for Constrained Generation",
+      "authors": [
+        "Barbara Gendron",
+        "Gaël Guibon",
+        "Mathieu D’aquin"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160884956",
+      "title": "The Environmental Cost of Artificial Intelligence",
+      "authors": [
+        "Ava G. O'Connor"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7161147729",
       "title": "Research on Fault Diagnosis Agent of Monorail Crane Based on Knowledge Graph and Lightweight Large Model",
@@ -270,50 +314,6 @@
         "Ying Yuan",
         "Linghan Tang",
         "Lirong Guan"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-05-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159896864",
-      "title": "Multimorbidity profile and major adverse cardiovascular events in initial antipsychotic users:time-to-event prediction using explainable machine learning",
-      "authors": [
-        "Qi Sun",
-        "Wenlong Liu",
-        "Cuiling Wei"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161113228",
-      "title": "Single-Point Optical-Vibration Sensing System for Deep-Learning-Based Stereo Sound Synthesis: Reproducibility Package (Draft)",
-      "authors": [
-        "Kuo-Wei Chao",
-        "Ji-Yan Han",
-        "Jia-Wei Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161189502",
-      "title": "Wavelet-Based Spatio-Temporal Fusion Network for Electromyographic Decoding in Bionic Hand Control Systems",
-      "authors": [
-        "Rui Huang",
-        "Yue Zhao",
-        "Penghua Yang"
       ],
       "countries": [
         "CN"

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-16T08:50:56.930054+00:00",
+  "fetched_at": "2026-05-17T09:09:02.240766+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,15 +15,15 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 35.9,
+          "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 150001,
-            "share_score": 38.8,
+            "raw_value": 150676,
+            "share_score": 39.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4553,
-            "share_score": 36.2,
+            "raw_value": 4555,
+            "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.1,
+          "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 236690,
-            "share_score": 61.2,
+            "raw_value": 235694,
+            "share_score": 61.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8007,
-            "share_score": 63.8,
+            "raw_value": 7999,
+            "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6739,
+            "raw_value": 6756,
             "share_score": 67.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258325
+        "count": 258386
       },
       {
         "country_code": "CN",
-        "count": 236690
+        "count": 235694
       },
       {
         "country_code": "DE",
-        "count": 157206
+        "count": 157293
       },
       {
         "country_code": "US",
-        "count": 150001
+        "count": 150676
       },
       {
         "country_code": "IN",
-        "count": 87871
+        "count": 87930
       },
       {
         "country_code": "GB",
-        "count": 47099
+        "count": 47315
       },
       {
         "country_code": "ID",
-        "count": 28368
+        "count": 28456
       },
       {
         "country_code": "FR",
-        "count": 24900
+        "count": 24981
       },
       {
         "country_code": "CA",
-        "count": 24214
+        "count": 24288
       },
       {
         "country_code": "IT",
-        "count": 22494
+        "count": 22580
       }
     ],
     "volume": {
-      "us": 150001,
-      "china": 236690,
-      "total": 2144982,
+      "us": 150676,
+      "china": 235694,
+      "total": 2153270,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4553,
-      "china": 8007,
-      "total": 19390,
+      "us": 4555,
+      "china": 7999,
+      "total": 19372,
       "data_ok": true
     },
     "top_cited": {
       "us": 3261,
-      "china": 6739,
-      "total": 15427,
+      "china": 6756,
+      "total": 15464,
       "data_ok": true
     }
   },
@@ -182,144 +182,130 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160972286",
-      "title": "Bayesian Spatiotemporal Model for Counterfactual Estimation in Socioeconomic Studies",
+      "id": "https://openalex.org/W7161444890",
+      "title": "prml-verify-action: GitHub Action for PRML manifest verification in CI",
       "authors": [
-        "Duwani W Gonzalez"
+        "Cüneyt Öztürk"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7151171290",
-      "title": "Conversational Control with Ontologies for Large Language Models: A Lightweight Framework for Constrained Generation",
-      "authors": [
-        "Barbara Gendron",
-        "Gaël Guibon",
-        "Mathieu D’aquin"
-      ],
-      "countries": [
-        "FR"
+        "CZ"
       ],
       "primary_country": "Other",
-      "published": "2026-05-16",
+      "published": "2026-05-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160884956",
-      "title": "The Environmental Cost of Artificial Intelligence",
+      "id": "https://openalex.org/W7161272732",
+      "title": "MRST-Based Binary Structural Analysis of the Collatz Conjecture — IF-THEN Semantic Collapse and Convergence Dynamics in Binary Arithmetic Systems —",
       "authors": [
-        "Ava G. O'Connor"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161147729",
-      "title": "Research on Fault Diagnosis Agent of Monorail Crane Based on Knowledge Graph and Lightweight Large Model",
-      "authors": [
-        "Y Zhang",
-        "Shun Xue",
-        "Xiang Bi"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-05-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161167879",
-      "title": "Adaptive Speed-Regulated Impedance Control for Robotic Ultrasound Scanning: Reducing Constant-Force Tracking Errors",
-      "authors": [
-        "Kang Min",
-        "Le Zhang",
-        "Yudong Shi"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-05-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161114847",
-      "title": "The Multi‑Polar AI Bias Matrix Model: Bias Convergence, Eigenvalue Stabilization, Structural Vulnerability of Closed Systems, and Alignment with the EU Digital Markets Act (DMA)",
-      "authors": [
-        "Norikuni Horiguchi"
+        "Minoru Yoshitake"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-15",
+      "published": "2026-05-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161145737",
-      "title": "AI-Augmented Compliance State Inference: A Federated Learning Approach",
+      "id": "https://openalex.org/W7161396811",
+      "title": "prml-verify-action: GitHub Action for PRML manifest verification in CI",
       "authors": [
-        "Oyelokiki George Egbedayo"
+        "Cüneyt Öztürk"
       ],
       "countries": [
-        "FI"
+        "CZ"
       ],
       "primary_country": "Other",
-      "published": "2026-05-15",
+      "published": "2026-05-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161143772",
-      "title": "Advanced Global Intelligence",
+      "id": "https://openalex.org/W7161413212",
+      "title": "Unity2Rerun",
       "authors": [
-        "Ivan Kotov"
+        "Jianbin Liu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-15",
+      "published": "2026-05-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161137126",
-      "title": "Asymmetry in Cross-System Qualitative Mapping",
+      "id": "https://openalex.org/W7161415877",
+      "title": "Developing Contextual Teaching and Learning-Based Interactive Handouts: An Investigation into Students' Mathematical Problem-Solving Performance",
       "authors": [
-        "Kostiantyn Osmolovskyi"
+        "Yaomil Khoeriyah",
+        "Mochamad Abdul Basir",
+        "Hevy Risqi Maharani"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-15",
+      "published": "2026-05-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161145181",
-      "title": "[Research progress in artificial intelligence for the diagnosis and management of diseases in preterm infants].",
+      "id": "https://openalex.org/W7161401410",
+      "title": "ECG-GenoNet: A Universal Multimodal Deep Learning System for Portable Cardiovascular Diagnostics in Resource-Limited Settings",
       "authors": [
-        "Ying Yuan",
-        "Linghan Tang",
-        "Lirong Guan"
+        "Konstantinos Papageorgiou"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159798577",
+      "title": "Tenet-Bound AI: A Complete Architecture for Machine Ethics",
+      "authors": [
+        "George Charles"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161389707",
+      "title": "The Truth Substrate: Deterministic Indexing and the 108.16 Invariant",
+      "authors": [
+        "Architect"
       ],
       "countries": [
-        "CN"
+        "UA"
       ],
-      "primary_country": "China",
-      "published": "2026-05-15",
+      "primary_country": "Other",
+      "published": "2026-05-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161421812",
+      "title": "Review of: \"Challenges and Paths Towards AI for Software Engineering\"",
+      "authors": [
+        "Mykola Avasiloi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161388983",
+      "title": "HYPERREAL NUMBERS IN QUANTUMOGRAPH",
+      "authors": [
+        "Materov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-17",
       "cited_by_count": 0,
       "source": "openalex"
     }

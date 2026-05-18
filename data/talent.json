@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-17T09:09:02.240766+00:00",
+  "fetched_at": "2026-05-18T11:09:39.775421+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 150676,
+            "raw_value": 150844,
             "share_score": 39.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4555,
+            "raw_value": 4547,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3261,
-            "share_score": 32.6,
+            "raw_value": 3245,
+            "share_score": 32.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 235694,
+            "raw_value": 235601,
             "share_score": 61.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7999,
+            "raw_value": 7987,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6756,
-            "share_score": 67.4,
+            "raw_value": 6737,
+            "share_score": 67.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258386
+        "count": 258392
       },
       {
         "country_code": "CN",
-        "count": 235694
+        "count": 235601
       },
       {
         "country_code": "DE",
-        "count": 157293
+        "count": 157310
       },
       {
         "country_code": "US",
-        "count": 150676
+        "count": 150844
       },
       {
         "country_code": "IN",
-        "count": 87930
+        "count": 87971
       },
       {
         "country_code": "GB",
-        "count": 47315
+        "count": 47383
       },
       {
         "country_code": "ID",
-        "count": 28456
+        "count": 28441
       },
       {
         "country_code": "FR",
-        "count": 24981
+        "count": 24990
       },
       {
         "country_code": "CA",
-        "count": 24288
+        "count": 24312
       },
       {
         "country_code": "IT",
-        "count": 22580
+        "count": 22582
       }
     ],
     "volume": {
-      "us": 150676,
-      "china": 235694,
-      "total": 2153270,
+      "us": 150844,
+      "china": 235601,
+      "total": 2156102,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4555,
-      "china": 7999,
-      "total": 19372,
+      "us": 4547,
+      "china": 7987,
+      "total": 19332,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3261,
-      "china": 6756,
-      "total": 15464,
+      "us": 3245,
+      "china": 6737,
+      "total": 15416,
       "data_ok": true
     }
   },
@@ -182,130 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7161444890",
-      "title": "prml-verify-action: GitHub Action for PRML manifest verification in CI",
+      "id": "https://openalex.org/W7161475670",
+      "title": "Formalization Systems I: Law — A Non-Modal Fixation",
       "authors": [
-        "Cüneyt Öztürk"
+        "Juza Minamikata"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161519887",
+      "title": "Compression des instances cryptographiques au format XNF",
+      "authors": [
+        "Anthony Blomme",
+        "Sami Cherif",
+        "Said Jabbour"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161474954",
+      "title": "A Machine Learning Framework to Evaluate Transferability of Hospital-Owned Patents: Enhancing Innovation Commercialization in Health Care",
+      "authors": [
+        "Wenjun Gu",
+        "Jinhua Wang",
+        "Jiyu Li"
       ],
       "countries": [
-        "CZ"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-17",
+      "primary_country": "China",
+      "published": "2026-05-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161272732",
-      "title": "MRST-Based Binary Structural Analysis of the Collatz Conjecture — IF-THEN Semantic Collapse and Convergence Dynamics in Binary Arithmetic Systems —",
+      "id": "https://openalex.org/W7161494885",
+      "title": "Comparative evaluation of deep learning architectures for microbial colony classification in microbiological imaging",
       "authors": [
-        "Minoru Yoshitake"
+        "Mohamed Abdelmoaty Ahmed",
+        "Rawaf Alenazy",
+        "Ahmed AbdelMoety"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-17",
+      "published": "2026-05-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161396811",
-      "title": "prml-verify-action: GitHub Action for PRML manifest verification in CI",
+      "id": "https://openalex.org/W7161484329",
+      "title": "Interpretable Machine Learning Analysis of Reflection Loss in High-Entropy Electromagnetic Materials",
       "authors": [
-        "Cüneyt Öztürk"
+        "Amir Reza Ansari Dezfoli"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161482929",
+      "title": "A novel data-driven model for detecting cognitive state transitions In functional magnetic resonance imaging",
+      "authors": [
+        "Victoria Corcimaru",
+        "Milad Jasemi"
       ],
       "countries": [
-        "CZ"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-17",
+      "primary_country": "US",
+      "published": "2026-05-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161413212",
-      "title": "Unity2Rerun",
+      "id": "https://openalex.org/W7161499806",
+      "title": "AI-Driven diabetic retinopathy analysis: A multi agent decision fusion approach",
       "authors": [
-        "Jianbin Liu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161415877",
-      "title": "Developing Contextual Teaching and Learning-Based Interactive Handouts: An Investigation into Students' Mathematical Problem-Solving Performance",
-      "authors": [
-        "Yaomil Khoeriyah",
-        "Mochamad Abdul Basir",
-        "Hevy Risqi Maharani"
+        "Anuja Suyodhanan Bhasurangy",
+        "Ramesh Dhanaseelan Francis"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-17",
+      "published": "2026-05-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161401410",
-      "title": "ECG-GenoNet: A Universal Multimodal Deep Learning System for Portable Cardiovascular Diagnostics in Resource-Limited Settings",
+      "id": "https://openalex.org/W7161480571",
+      "title": "Machine Learning Screening of Lithium Potential in Marcellus Shale-Gas Produced Water Using Major-Ion Geochemistry",
       "authors": [
-        "Konstantinos Papageorgiou"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159798577",
-      "title": "Tenet-Bound AI: A Complete Architecture for Machine Ethics",
-      "authors": [
-        "George Charles"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161389707",
-      "title": "The Truth Substrate: Deterministic Indexing and the 108.16 Invariant",
-      "authors": [
-        "Architect"
+        "Mohammed H. Alyousef",
+        "Salem Alshammari"
       ],
       "countries": [
-        "UA"
+        "SA",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161486716",
+      "title": "From correlation to prediction: machine learning approaches to elongation behavior in SLM",
+      "authors": [
+        "Yi-Jen Huang",
+        "Amir Reza Ansari Dezfoli",
+        "Li-Shang Lin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161504038",
+      "title": "Accelerating Green Materials Discovery: An Integrated Machine Learning and Big Data Framework",
+      "authors": [
+        "S. K. GUPTA"
+      ],
+      "countries": [
+        "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-05-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161421812",
-      "title": "Review of: \"Challenges and Paths Towards AI for Software Engineering\"",
-      "authors": [
-        "Mykola Avasiloi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161388983",
-      "title": "HYPERREAL NUMBERS IN QUANTUMOGRAPH",
-      "authors": [
-        "Materov"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-17",
+      "published": "2026-05-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

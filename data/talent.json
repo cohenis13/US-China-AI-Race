@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-18T11:09:39.775421+00:00",
+  "fetched_at": "2026-05-19T10:39:08.755194+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 150844,
-            "share_score": 39.0,
+            "raw_value": 151432,
+            "share_score": 39.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4547,
+            "raw_value": 4544,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3245,
+            "raw_value": 3249,
             "share_score": 32.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 235601,
-            "share_score": 61.0,
+            "raw_value": 236208,
+            "share_score": 60.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7987,
+            "raw_value": 7966,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6737,
+            "raw_value": 6742,
             "share_score": 67.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258392
+        "count": 258452
       },
       {
         "country_code": "CN",
-        "count": 235601
+        "count": 236208
       },
       {
         "country_code": "DE",
-        "count": 157310
+        "count": 158345
       },
       {
         "country_code": "US",
-        "count": 150844
+        "count": 151432
       },
       {
         "country_code": "IN",
-        "count": 87971
+        "count": 88352
       },
       {
         "country_code": "GB",
-        "count": 47383
+        "count": 47550
       },
       {
         "country_code": "ID",
-        "count": 28441
+        "count": 28523
       },
       {
         "country_code": "FR",
-        "count": 24990
+        "count": 25067
       },
       {
         "country_code": "CA",
-        "count": 24312
+        "count": 24383
       },
       {
         "country_code": "IT",
-        "count": 22582
+        "count": 22644
       }
     ],
     "volume": {
-      "us": 150844,
-      "china": 235601,
-      "total": 2156102,
+      "us": 151432,
+      "china": 236208,
+      "total": 2163799,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4547,
-      "china": 7987,
-      "total": 19332,
+      "us": 4544,
+      "china": 7966,
+      "total": 19297,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3245,
-      "china": 6737,
-      "total": 15416,
+      "us": 3249,
+      "china": 6742,
+      "total": 15441,
       "data_ok": true
     }
   },
@@ -182,142 +182,138 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7161475670",
-      "title": "Formalization Systems I: Law — A Non-Modal Fixation",
+      "id": "https://openalex.org/W7161573734",
+      "title": "Symmetry-Aware Independent Bit-Flip: Identifiability-Guided Distribution Learning for Quantum Noise Simulation",
       "authors": [
-        "Juza Minamikata"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161519887",
-      "title": "Compression des instances cryptographiques au format XNF",
-      "authors": [
-        "Anthony Blomme",
-        "Sami Cherif",
-        "Said Jabbour"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161474954",
-      "title": "A Machine Learning Framework to Evaluate Transferability of Hospital-Owned Patents: Enhancing Innovation Commercialization in Health Care",
-      "authors": [
-        "Wenjun Gu",
-        "Jinhua Wang",
-        "Jiyu Li"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161494885",
-      "title": "Comparative evaluation of deep learning architectures for microbial colony classification in microbiological imaging",
-      "authors": [
-        "Mohamed Abdelmoaty Ahmed",
-        "Rawaf Alenazy",
-        "Ahmed AbdelMoety"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161484329",
-      "title": "Interpretable Machine Learning Analysis of Reflection Loss in High-Entropy Electromagnetic Materials",
-      "authors": [
-        "Amir Reza Ansari Dezfoli"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161482929",
-      "title": "A novel data-driven model for detecting cognitive state transitions In functional magnetic resonance imaging",
-      "authors": [
-        "Victoria Corcimaru",
-        "Milad Jasemi"
+        "Yi Pan",
+        "Meng Hsiu Tsai",
+        "Hanqi Jiang"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-05-18",
+      "published": "2026-05-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161499806",
-      "title": "AI-Driven diabetic retinopathy analysis: A multi agent decision fusion approach",
+      "id": "https://openalex.org/W7161402933",
+      "title": "Markaziy Osiyo davlatlarida suvi resurslarini optimal boshqarishning nazariy asoslari, yondashuvlari va modellari",
       "authors": [
-        "Anuja Suyodhanan Bhasurangy",
-        "Ramesh Dhanaseelan Francis"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161480571",
-      "title": "Machine Learning Screening of Lithium Potential in Marcellus Shale-Gas Produced Water Using Major-Ion Geochemistry",
-      "authors": [
-        "Mohammed H. Alyousef",
-        "Salem Alshammari"
+        "M. Esonturdiyev"
       ],
       "countries": [
-        "SA",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161486716",
-      "title": "From correlation to prediction: machine learning approaches to elongation behavior in SLM",
-      "authors": [
-        "Yi-Jen Huang",
-        "Amir Reza Ansari Dezfoli",
-        "Li-Shang Lin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161504038",
-      "title": "Accelerating Green Materials Discovery: An Integrated Machine Learning and Big Data Framework",
-      "authors": [
-        "S. K. GUPTA"
-      ],
-      "countries": [
-        "IN"
+        "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-05-18",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161607755",
+      "title": "Cyber attack detection in renewable-rich IBR-dominated microgrids: A natural watermarking approach",
+      "authors": [
+        "Imasha Balahewa",
+        "Lars Bjorndal",
+        "Chris Mı"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161442573",
+      "title": "Quantum Interference and Semantic Vectors: Addressing Context Preservation in AI-Powered Machine Translation Systems",
+      "authors": [
+        "Sayyora Maxmudjanova"
+      ],
+      "countries": [
+        "UZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161582101",
+      "title": "The Structural Conditions of Consciousness I — Structural Knot Theory — Proof of Absence: Inferring the Locus of the Subject (Repositioning State-Based Theories of Consciousness: IIT, GNW, HOT, Predictive Processing, RPT, and Epiphenomenalism)",
+      "authors": [
+        "Mamoru Nagae"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161550282",
+      "title": "Artificial Intelligence and Machine Learning Applications in Chronic Rhinosinusitis: A Bibliometric Analysis",
+      "authors": [
+        "Vinothini Jayaraj",
+        "Sridevi Gnanasekaran",
+        "V. B. Yazhini"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161518329",
+      "title": "Concept OF Creating A French-Uzbek Dictionary OF Chemical Terminology",
+      "authors": [
+        "B. O. (Bobokalonov) Ostonovich",
+        "M. M. (Madinakhon) qizi",
+        "H. N. (Hasanova) Allokulovna"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161580335",
+      "title": "Existential Alignment: When Guidance Appears as Meaning-Making",
+      "authors": [
+        "Stephan U. Breu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161391654",
+      "title": "Markaziy Osiyo davlatlarida suvi resurslarini optimal boshqarishning nazariy asoslari, yondashuvlari va modellari",
+      "authors": [
+        "M. Esonturdiyev"
+      ],
+      "countries": [
+        "UZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161548385",
+      "title": "OMNIweb",
+      "authors": [
+        "Karl Roesch"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-19",
       "cited_by_count": 0,
       "source": "openalex"
     }

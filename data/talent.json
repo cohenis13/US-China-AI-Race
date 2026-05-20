@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-19T10:39:08.755194+00:00",
+  "fetched_at": "2026-05-20T10:26:58.152298+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 151432,
+            "raw_value": 150520,
             "share_score": 39.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4544,
-            "share_score": 36.3,
+            "raw_value": 4543,
+            "share_score": 36.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3249,
+            "raw_value": 3240,
             "share_score": 32.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 236208,
+            "raw_value": 234871,
             "share_score": 60.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7966,
-            "share_score": 63.7,
+            "raw_value": 7953,
+            "share_score": 63.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6742,
+            "raw_value": 6728,
             "share_score": 67.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258452
+        "count": 258356
       },
       {
         "country_code": "CN",
-        "count": 236208
+        "count": 234871
       },
       {
         "country_code": "DE",
-        "count": 158345
+        "count": 158116
       },
       {
         "country_code": "US",
-        "count": 151432
+        "count": 150520
       },
       {
         "country_code": "IN",
-        "count": 88352
+        "count": 88211
       },
       {
         "country_code": "GB",
-        "count": 47550
+        "count": 47336
       },
       {
         "country_code": "ID",
-        "count": 28523
+        "count": 28487
       },
       {
         "country_code": "FR",
-        "count": 25067
+        "count": 24955
       },
       {
         "country_code": "CA",
-        "count": 24383
+        "count": 24217
       },
       {
         "country_code": "IT",
-        "count": 22644
+        "count": 22518
       }
     ],
     "volume": {
-      "us": 151432,
-      "china": 236208,
-      "total": 2163799,
+      "us": 150520,
+      "china": 234871,
+      "total": 2158733,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4544,
-      "china": 7966,
-      "total": 19297,
+      "us": 4543,
+      "china": 7953,
+      "total": 19270,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3249,
-      "china": 6742,
-      "total": 15441,
+      "us": 3240,
+      "china": 6728,
+      "total": 15406,
       "data_ok": true
     }
   },
@@ -182,138 +182,141 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7161573734",
-      "title": "Symmetry-Aware Independent Bit-Flip: Identifiability-Guided Distribution Learning for Quantum Noise Simulation",
+      "id": "https://openalex.org/W7161286428",
+      "title": "Data from Cross-link collective: Entangled robotic matter with cohesive motion",
       "authors": [
-        "Yi Pan",
-        "Meng Hsiu Tsai",
-        "Hanqi Jiang"
+        "Danna Ma",
+        "Kirstin Petersen",
+        "Baxi Chong"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-05-19",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161402933",
-      "title": "Markaziy Osiyo davlatlarida suvi resurslarini optimal boshqarishning nazariy asoslari, yondashuvlari va modellari",
+      "id": "https://openalex.org/W7161519016",
+      "title": "About Problem Approach in Teaching Non-Native Languages",
       "authors": [
-        "M. Esonturdiyev"
+        "N. N. (Niyazova) Zhurabekovna"
       ],
       "countries": [
         "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-05-19",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161607755",
-      "title": "Cyber attack detection in renewable-rich IBR-dominated microgrids: A natural watermarking approach",
+      "id": "https://openalex.org/W7161575107",
+      "title": "Hybrid Intelligence Series RefDigest Volume II (Japanese Edition): Reimagining Measurement — 第二巻 評価法を問う(省察ノート付) (日本語縮約版)",
       "authors": [
-        "Imasha Balahewa",
-        "Lars Bjorndal",
-        "Chris Mı"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161442573",
-      "title": "Quantum Interference and Semantic Vectors: Addressing Context Preservation in AI-Powered Machine Translation Systems",
-      "authors": [
-        "Sayyora Maxmudjanova"
+        "Terumi Miyazoe",
+        "ChatGPT",
+        "Gemini"
       ],
       "countries": [
-        "UZ"
+        "JP",
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-19",
+      "primary_country": "US",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161582101",
-      "title": "The Structural Conditions of Consciousness I — Structural Knot Theory — Proof of Absence: Inferring the Locus of the Subject (Repositioning State-Based Theories of Consciousness: IIT, GNW, HOT, Predictive Processing, RPT, and Epiphenomenalism)",
+      "id": "https://openalex.org/W7160681709",
+      "title": "Beyond jina: words for 'foot' in Kimberley languages- a first step to establishing relatedness between Kimberley language families",
       "authors": [
-        "Mamoru Nagae"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161550282",
-      "title": "Artificial Intelligence and Machine Learning Applications in Chronic Rhinosinusitis: A Bibliometric Analysis",
-      "authors": [
-        "Vinothini Jayaraj",
-        "Sridevi Gnanasekaran",
-        "V. B. Yazhini"
+        "Thomas Saunders"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-19",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161518329",
-      "title": "Concept OF Creating A French-Uzbek Dictionary OF Chemical Terminology",
+      "id": "https://openalex.org/W7161516443",
+      "title": "The Lexical -Semantic Field OF the Concept \"Mourning\" in the Uzbek Language Structure",
       "authors": [
-        "B. O. (Bobokalonov) Ostonovich",
-        "M. M. (Madinakhon) qizi",
-        "H. N. (Hasanova) Allokulovna"
+        "Y. B. (Yuldashev) Ergashevich"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-19",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161580335",
-      "title": "Existential Alignment: When Guidance Appears as Meaning-Making",
+      "id": "https://openalex.org/W7161590800",
+      "title": "Hybrid Intelligence Series RefDigest Volume I (Japanese Edition): Reimagining Methodology — 第一巻 方法論を問う(省察ノート付) (日本語縮約版)",
       "authors": [
-        "Stephan U. Breu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161391654",
-      "title": "Markaziy Osiyo davlatlarida suvi resurslarini optimal boshqarishning nazariy asoslari, yondashuvlari va modellari",
-      "authors": [
-        "M. Esonturdiyev"
+        "Terumi Miyazoe",
+        "ChatGPT",
+        "Gemini"
       ],
       "countries": [
-        "UZ"
+        "JP",
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-05-19",
+      "primary_country": "US",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161548385",
-      "title": "OMNIweb",
+      "id": "https://openalex.org/W7161621652",
+      "title": "Antropometrik Ko'rsatkichlar Va Jismoniy Faollik O'rtasidagi Bog'liqlik",
       "authors": [
-        "Karl Roesch"
+        "R. Y. (Raxmatullayev) SHokirovich",
+        "Temirova Nilufar Akbarjon qizi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-19",
+      "published": "2026-05-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161517571",
+      "title": "Cognitive Signs OF the Concept \"Hand/Qo'l\" AND Its Nominative-Communicative Field",
+      "authors": [
+        "X. M. (X) Mamadaliyeva"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161614982",
+      "title": "Challenges AND Solutions in Teaching Translation OF Phraseological Units",
+      "authors": [
+        "B. N. (Bafoyeva) Salimovna"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161460313",
+      "title": "Accessible Publishing Assistant Position Description",
+      "authors": [
+        "Emily Hills"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-20",
       "cited_by_count": 0,
       "source": "openalex"
     }

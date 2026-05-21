@@ -3,7 +3,7 @@
   "dimension": "compute",
   "metric_key": "compute_triangulated_index",
   "description": "Triangulated compute index: training compute (40%, Epoch AI), hardware supply (40%, NVIDIA revenue + Huawei Ascend), and visible HPC (20%, TOP500 + corrections). Coverage gaps are explicitly documented in hidden_compute_band.",
-  "fetched_at": "2026-05-20T10:42:43.979176+00:00",
+  "fetched_at": "2026-05-21T10:58:41.224124+00:00",
   "weights": {
     "training_compute": 0.4,
     "hardware_supply": 0.4,
@@ -11,13 +11,13 @@
   },
   "summary": {
     "US": {
-      "composite_score": 75.6,
+      "composite_score": 75.7,
       "proxies": {
         "training_compute": {
           "weight": 0.4,
-          "share_score": 84.8,
-          "raw_flop": 1.847566e+27,
-          "model_count": 304,
+          "share_score": 85.1,
+          "raw_flop": 1.886266e+27,
+          "model_count": 305,
           "source": "Epoch AI notable models since 2023 — disclosed training compute only",
           "coverage_note": "Understates China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose compute. Disclosed compute is a lower bound for China."
         },
@@ -40,11 +40,11 @@
       }
     },
     "China": {
-      "composite_score": 24.4,
+      "composite_score": 24.3,
       "proxies": {
         "training_compute": {
           "weight": 0.4,
-          "share_score": 15.2,
+          "share_score": 14.9,
           "raw_flop": 3.307892e+26,
           "model_count": 209,
           "source": "Epoch AI notable models since 2023 — disclosed training compute only",
@@ -144,6 +144,14 @@
       },
       {
         "rank": 8,
+        "name": "Composer 2.5",
+        "organization": "Cursor",
+        "country": "US",
+        "publication_date": "2026-05-18",
+        "training_compute_flop": 3.87e+25
+      },
+      {
+        "rank": 9,
         "name": "Llama 3.1-405B",
         "organization": "Meta AI",
         "country": "US",
@@ -151,20 +159,12 @@
         "training_compute_flop": 3.8e+25
       },
       {
-        "rank": 9,
+        "rank": 10,
         "name": "Claude 3.7 Sonnet",
         "organization": "Anthropic",
         "country": "US",
         "publication_date": "2025-02-24",
         "training_compute_flop": 3.35e+25
-      },
-      {
-        "rank": 10,
-        "name": "Grok-2",
-        "organization": "xAI",
-        "country": "US",
-        "publication_date": "2024-08-13",
-        "training_compute_flop": 2.96e+25
       }
     ],
     "methodology": "Sums training_compute_flop for models published on/after 2023-01-01 with known compute >= 1e+20 FLOPs. Country by 'Country (of organization)'. Models without compute estimates are excluded — this understates totals for both countries, more so for China where frontier closed models do not disclose compute."

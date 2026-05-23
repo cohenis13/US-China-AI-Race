@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-22T10:26:33.700148+00:00",
+  "fetched_at": "2026-05-23T09:05:42.390246+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.2,
+      "composite_score": 46.3,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.0,
+          "share_score": 36.1,
           "paper_volume": {
-            "raw_value": 151741,
-            "share_score": 39.1,
+            "raw_value": 152294,
+            "share_score": 39.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4569,
+            "raw_value": 4570,
             "share_score": 36.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3252,
+            "raw_value": 3260,
             "share_score": 32.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 53.8,
+      "composite_score": 53.7,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.0,
+          "share_score": 63.9,
           "paper_volume": {
-            "raw_value": 235959,
-            "share_score": 60.9,
+            "raw_value": 236250,
+            "share_score": 60.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7966,
+            "raw_value": 7972,
             "share_score": 63.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6763,
+            "raw_value": 6765,
             "share_score": 67.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258424
+        "count": 258546
       },
       {
         "country_code": "CN",
-        "count": 235959
+        "count": 236250
       },
       {
         "country_code": "DE",
-        "count": 158366
+        "count": 158553
       },
       {
         "country_code": "US",
-        "count": 151741
+        "count": 152294
       },
       {
         "country_code": "IN",
-        "count": 88797
+        "count": 89140
       },
       {
         "country_code": "GB",
-        "count": 47710
+        "count": 47842
       },
       {
         "country_code": "ID",
-        "count": 28590
+        "count": 28671
       },
       {
         "country_code": "FR",
-        "count": 25123
+        "count": 25200
       },
       {
         "country_code": "CA",
-        "count": 24344
+        "count": 24390
       },
       {
         "country_code": "IT",
-        "count": 22632
+        "count": 22767
       }
     ],
     "volume": {
-      "us": 151741,
-      "china": 235959,
-      "total": 2174535,
+      "us": 152294,
+      "china": 236250,
+      "total": 2181028,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4569,
-      "china": 7966,
-      "total": 19349,
+      "us": 4570,
+      "china": 7972,
+      "total": 19369,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3252,
-      "china": 6763,
-      "total": 15475,
+      "us": 3260,
+      "china": 6765,
+      "total": 15485,
       "data_ok": true
     }
   },
@@ -182,131 +182,143 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7154869255",
-      "title": "COVADISE: COVer based Anomaly Detection in multi-variate tIme SEries",
+      "id": "https://openalex.org/W7161530460",
+      "title": "Begona O‘tlarga Qarshi Kurashda Yerga Ishlov Berish Usullari Hamda Gerbitsidlarni Soyaning O‘sish Va Rivojlanishiga Ta'siri",
       "authors": [
-        "Pierre Lotte",
-        "André Péninou",
-        "Olivier Teste"
+        "S. A. (Sh) Teshabayev",
+        "K. N. (Karimov) Dexqonovich"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-22",
+      "published": "2026-05-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161668256",
-      "title": "Method OF Conducting A Pedagogical Experiment",
+      "id": "https://openalex.org/W7161516808",
+      "title": "Corpus as the Research Object in Linguistic Domains",
       "authors": [
-        "N. U. (Navruzova) Kizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161588193",
-      "title": "BOLALAR ADABIYOTIDA SO'ZLOVCHI GLYUTONIMLAR POETIKASI",
-      "authors": [
-        "Aziza Choliboyevna Nusratova"
+        "Y. (Yulbarsov) Ochilbek"
       ],
       "countries": [
         "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-05-22",
+      "published": "2026-05-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161512893",
-      "title": "Assessing Translation Quality Based on Anthropocentric Criteria",
+      "id": "https://openalex.org/W7161526313",
+      "title": "Language - Speech MEDIA",
       "authors": [
-        "M. S. (Madina) Bakhriddinova"
+        "G.R.Karimberganova"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161149845",
-      "title": "Digital Frontiers: Artificial Intelligence and the Study of the Ancient World",
-      "authors": [
-        "Austrian Archaeological Institute",
-        "Austrian Academy of Sciences",
-        "University of Vienna"
+      "countries": [
+        "MZ"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
+      "primary_country": "Other",
+      "published": "2026-05-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161656360",
-      "title": "The Using OF Song Material in Teaching German Grammar",
+      "id": "https://openalex.org/W7161524814",
+      "title": "Vocabulary Classification AND Word Formation in Russian Language Lexicology",
       "authors": [
-        "N. N. (Nurmatova) Abdusattarovna"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161513184",
-      "title": "Xorijiy Tillarni O'rganishga Ijobiy Motivni Shakillantirish Va Tillarni O'qitishning Sabablari",
-      "authors": [
-        "S. X. (Shаmsitdinоvа) qizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161521341",
-      "title": "Improving the Teaching OF the Subject \"Computer Tools in Linguistic Research\" Based on Software Tools",
-      "authors": [
-        "F. N. (Fayziyev) Asfandiyorovich",
-        "R. R. (Rustamov) Toshpoʻlatovich"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160730381",
-      "title": "Drell–Yan Phenomenology in the SMEFT andStatistical Validation of Machine LearningGenerators",
-      "authors": [
-        "Samuele Grossi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161551982",
-      "title": "BOLALAR ADABIYOTIDA SO'ZLOVCHI GLYUTONIMLAR POETIKASI",
-      "authors": [
-        "Aziza Choliboyevna Nusratova"
+        "K. G. (Khudayorova) Nuriddinovna"
       ],
       "countries": [
         "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-05-22",
+      "published": "2026-05-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161688593",
+      "title": "[Application analysis of the artificial intelligence model DeepSeek in breast cancer treatment decision-making].",
+      "authors": [
+        "H Shao",
+        "Y B Liu",
+        "Z Z Zhou"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-05-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161526479",
+      "title": "Contextual Functions OF False Speech Acts",
+      "authors": [
+        "K. Z. (Khabibullayeva) kizi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161517720",
+      "title": "Syntactic Relations Between the Components OF the Compound Syntactic Figures",
+      "authors": [
+        "T. N. (Tasheva) Zaynitdinovna"
+      ],
+      "countries": [
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161478929",
+      "title": "AFFD-NET: ATTENTION-BASED MULTI-STREAM FEATURE FUSION NETWORK TO ROBUST CROSS-DATASET OVERVIEW OF DEEPFAKE DETECTION",
+      "authors": [
+        "Gowsalya S",
+        "S. SUBATRA DEVI"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161720624",
+      "title": "ARTIFICIAL INTELLIGENCE IN CINEMATOGRAPHY: CURRENT TRENDS, TECHNOLOGICAL ADVANCEMENTS, AND INDUSTRY IMPACT",
+      "authors": [
+        "Khaled Abdou"
+      ],
+      "countries": [
+        "BD",
+        "SA"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161920000",
+      "title": "The Language AND Types OF Mass MEDIA",
+      "authors": [
+        "D. (Diyorova) Makhliyo"
+      ],
+      "countries": [
+        "CZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

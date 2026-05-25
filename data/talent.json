@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-24T09:23:24.404125+00:00",
+  "fetched_at": "2026-05-25T11:14:08.487341+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.1,
           "paper_volume": {
-            "raw_value": 153108,
+            "raw_value": 153381,
             "share_score": 39.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4574,
+            "raw_value": 4565,
             "share_score": 36.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3260,
+            "raw_value": 3246,
             "share_score": 32.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.9,
           "paper_volume": {
-            "raw_value": 235524,
+            "raw_value": 235657,
             "share_score": 60.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7979,
+            "raw_value": 7965,
             "share_score": 63.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6763,
+            "raw_value": 6741,
             "share_score": 67.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258700
+        "count": 258694
       },
       {
         "country_code": "CN",
-        "count": 235524
+        "count": 235657
       },
       {
         "country_code": "DE",
-        "count": 158854
+        "count": 158877
       },
       {
         "country_code": "US",
-        "count": 153108
+        "count": 153381
       },
       {
         "country_code": "IN",
-        "count": 89190
+        "count": 89321
       },
       {
         "country_code": "GB",
-        "count": 48035
+        "count": 48138
       },
       {
         "country_code": "ID",
-        "count": 28859
+        "count": 28793
       },
       {
         "country_code": "FR",
-        "count": 25288
+        "count": 25347
       },
       {
         "country_code": "CA",
-        "count": 24470
+        "count": 24525
       },
       {
         "country_code": "IT",
-        "count": 22829
+        "count": 22847
       }
     ],
     "volume": {
-      "us": 153108,
-      "china": 235524,
-      "total": 2189165,
+      "us": 153381,
+      "china": 235657,
+      "total": 2191685,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4574,
-      "china": 7979,
-      "total": 19393,
+      "us": 4565,
+      "china": 7965,
+      "total": 19354,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3260,
-      "china": 6763,
-      "total": 15493,
+      "us": 3246,
+      "china": 6741,
+      "total": 15444,
       "data_ok": true
     }
   },
@@ -182,128 +182,137 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7162197789",
-      "title": "Active optimization for positioning system architecture via multi-dimensional characterization of error sources",
+      "id": "https://openalex.org/W7162246728",
+      "title": "A APLICAÇÃO DA INTELIGÊNCIA ARTIFICIAL EM DIÁLOGOS DE PERSONAGENS NÃO JOGÁVEIS EM UM JOGO DE RPG",
       "authors": [
-        "Juhui Wei",
-        "Yizhi Hou",
-        "Zhangming He"
+        "Vinícius de Moraes Barreto",
+        "Siomara Dias da Rocha"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162200112",
-      "title": "Decomposed Swarm Fusion (DSF): A Hypothesis for Multi-Axis Conceptual Fidelity Through Functionally Specialized Lightweight Networks",
+      "id": "https://openalex.org/W7134866033",
+      "title": "Characterization of Healthy and Faulty Networks using Structured Transferometry Residuals",
       "authors": [
-        "Siddharth J"
+        "Ameer Ahmadie",
+        "Virginie Degardin",
+        "Vincent Cocquempot"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162186283",
-      "title": "THE COMPUTER THAT REFUSED TO BE FIXED BECAUSE THE PROBLEM WAS HUMAN",
+      "id": "https://openalex.org/W7162253749",
+      "title": "Consciousness-Driven Reality Selection — E8 Intelligence Research",
       "authors": [
-        "ARHAMIN T. APLAK"
+        "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162184955",
-      "title": "Single-stream progressive background elimination transformer for target tracking",
+      "id": "https://openalex.org/W7162214727",
+      "title": "The Hidden Economics of Artificial Intelligence: Why Compute Costs, Token Accounting, and Human Intuition Are Rewriting the AI Value Equation",
       "authors": [
-        "Huanlong Zhang",
-        "Wenbo Qu",
-        "Liao Zhu"
+        "Dr.A.Shaji George",
+        "Dr.Nataliia Siranchuk"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162201599",
-      "title": "AUTIZM SPEKTRIDAGI BOLALAR BILAN INKULYUZIV TA'LIMNING SAMARALI USULLARI",
+      "id": "https://openalex.org/W7162251704",
+      "title": "NumericalEarth.jl",
       "authors": [
-        "Ahmatova Anisa Rasul qizi"
+        "Gregory L. Wagner",
+        "Simone Silvestri",
+        "Navid C. Constantinou"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "countries": [
+        "US",
+        "IT",
+        "AU",
+        "GB"
+      ],
+      "primary_country": "US",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161526049",
-      "title": "Appropriate Application OF Equivalent Units in the Translation OF Historical Works",
+      "id": "https://openalex.org/W7162245256",
+      "title": "ARTIFICIAL INTELLIGENCE IN PARENTING: OPPORTUNITIES AND ETHICAL DILEMMAS IN CHILD DEVELOPMENT",
       "authors": [
-        "B. A. (Bayniyazov) Tursinbayevich"
+        "Angela Osas Isibor"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162205544",
-      "title": "From Collective Computation to Developmental Inquiry: A Cross-Substrate Test of Structural Admissibility",
+      "id": "https://openalex.org/W7162248513",
+      "title": "MIRZO ULUG'BEKNING ILMIY MEROSI VA ILMIY MAKTABI: ILM FAN TARAQQIYOTIGA QO'SHGAN HISSASI HAMDA ZAMONAVIY ILMIY BOSHQARUV MODELI TALQINI",
       "authors": [
-        "Bruce Tisler"
+        "Baydarova Sabina Baxtiyarovna"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160816062",
-      "title": "On Leveraging Digital Twins for Training and Validation of Reinforcement Learning in 6G",
+      "id": "https://openalex.org/W7162252575",
+      "title": "Man v Machine: One Solution to Many Problems",
       "authors": [
-        "Mahdi Sharara",
-        "Chris Murphy",
-        "Sameh Yamany"
+        "Jitesh Singh Magar"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162190561",
-      "title": "Question Operators as Prime Selectors Mapping Interrogative Operators to the Conceptual Primes for Context and Perspective Identification in Prime-Base Intelligence",
+      "id": "https://openalex.org/W7161272732",
+      "title": "Deterministic Bit Constraints for AI and Cryptography",
       "authors": [
-        "MOHAMED NOURELDIN"
+        "Minoru Yoshitake"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162207130",
-      "title": "AUTIZM SPEKTRIDAGI BOLALAR BILAN INKULYUZIV TA'LIMNING SAMARALI USULLARI",
+      "id": "https://openalex.org/W7162262647",
+      "title": "ZIQPU Mechanism — E8 Intelligence Research",
       "authors": [
-        "Ahmatova Anisa Rasul qizi"
+        "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-24",
+      "published": "2026-05-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

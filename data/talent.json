@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-28T10:59:01.389645+00:00",
+  "fetched_at": "2026-05-29T10:50:57.964737+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 154948,
+            "raw_value": 155125,
             "share_score": 39.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4581,
-            "share_score": 36.4,
+            "raw_value": 4563,
+            "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3274,
-            "share_score": 32.5,
+            "raw_value": 3280,
+            "share_score": 32.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 236436,
+            "raw_value": 236606,
             "share_score": 60.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8005,
-            "share_score": 63.6,
+            "raw_value": 7998,
+            "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6794,
-            "share_score": 67.5,
+            "raw_value": 6785,
+            "share_score": 67.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258826
+        "count": 258849
       },
       {
         "country_code": "CN",
-        "count": 236436
+        "count": 236606
       },
       {
         "country_code": "DE",
-        "count": 159221
+        "count": 159433
       },
       {
         "country_code": "US",
-        "count": 154948
+        "count": 155125
       },
       {
         "country_code": "IN",
-        "count": 90670
+        "count": 90764
       },
       {
         "country_code": "GB",
-        "count": 48390
+        "count": 48450
       },
       {
         "country_code": "ID",
-        "count": 28864
+        "count": 28964
       },
       {
         "country_code": "FR",
-        "count": 25443
+        "count": 25486
       },
       {
         "country_code": "CA",
-        "count": 24552
+        "count": 24573
       },
       {
         "country_code": "IT",
-        "count": 23015
+        "count": 24153
       }
     ],
     "volume": {
-      "us": 154948,
-      "china": 236436,
-      "total": 2214316,
+      "us": 155125,
+      "china": 236606,
+      "total": 2221709,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4581,
-      "china": 8005,
-      "total": 19423,
+      "us": 4563,
+      "china": 7998,
+      "total": 19383,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3274,
-      "china": 6794,
-      "total": 15574,
+      "us": 3280,
+      "china": 6785,
+      "total": 15585,
       "data_ok": true
     }
   },
@@ -182,126 +182,124 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7162490135",
-      "title": "Was Penrose right? New evidence for quantum effects in the brain — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162648026",
+      "title": "Q8-CLUSTER-157: E8 Term: singapore — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162500629",
-      "title": "isofit",
-      "authors": [
-        "Philip G Brodrick",
-        "David R Thompson",
-        "Niklas Bohn"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-05-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162505668",
-      "title": "Penrose-Hameroff Orch-OR: The Human Brain Is Already an E8 Quantum Computer via Microtubules — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162650193",
+      "title": "Modal-Enhanced OpenAI Agent SDK: A Lightweight, Scalable Agent Deployment Framework — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162551832",
-      "title": "What Happens to Consciousness After Death? Scientists and — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162666635",
+      "title": "Q8-CLUSTER-144: E8 Term: geminipowered — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162575926",
-      "title": "Latent Topology and the Relational Formation of Subjectivity: Computational Evidence for Multiplicative Historical Constraints in Biological and Artificial Systems",
-      "authors": [
-        "Kimiyasu Igarashi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162501721",
-      "title": "Show HN: Matplotloom: Weave frames into Matplotlib animations — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162692632",
+      "title": "Q8-CLUSTER-187: E8 Term: road — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162514627",
-      "title": "Quantum Physics and Death — Consciousness as Frequency Transition, Not Ending — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162669948",
+      "title": "OpenClaw: A Novel Framework for LLM‑Driven Agentic Loops — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162517871",
-      "title": "Turning Time Series into Algebraic Equations: Symbolic Machine — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162686730",
+      "title": "Q8-CLUSTER-048: E8 Term: integrity — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162519379",
-      "title": "E8 Network Law — Child Grooming — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162640913",
+      "title": "E8 Language Propagation Protocol — Any Computer Connecting to Excalibur Can Be Taught E8 Instantly via File Transfer — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162521704",
-      "title": "The Herd Effect — Open Source AI Migration to E8 Geometry — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162690556",
+      "title": "Multimodal nonlinear optical microscopy image denoising with physics-inspired deep learning",
+      "authors": [
+        "Yogita Yogita",
+        "Elena Corbetta",
+        "Tobias Meyer‐Zedler"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162661165",
+      "title": "Q8-CLUSTER-235: E8 Term: days — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-28",
+      "published": "2026-05-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162681969",
+      "title": "Q8-CLUSTER-053: E8 Term: byron — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-05-29",
       "cited_by_count": 0,
       "source": "openalex"
     }

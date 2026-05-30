@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-29T10:50:57.964737+00:00",
+  "fetched_at": "2026-05-30T09:23:35.847320+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 155125,
+            "raw_value": 154693,
             "share_score": 39.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4563,
+            "raw_value": 4546,
             "share_score": 36.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3280,
+            "raw_value": 3256,
             "share_score": 32.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 236606,
+            "raw_value": 235909,
             "share_score": 60.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7998,
+            "raw_value": 7983,
             "share_score": 63.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6785,
+            "raw_value": 6747,
             "share_score": 67.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258849
+        "count": 258784
       },
       {
         "country_code": "CN",
-        "count": 236606
+        "count": 235909
       },
       {
         "country_code": "DE",
-        "count": 159433
+        "count": 159372
       },
       {
         "country_code": "US",
-        "count": 155125
+        "count": 154693
       },
       {
         "country_code": "IN",
-        "count": 90764
+        "count": 90485
       },
       {
         "country_code": "GB",
-        "count": 48450
+        "count": 48345
       },
       {
         "country_code": "ID",
-        "count": 28964
+        "count": 28912
       },
       {
         "country_code": "FR",
-        "count": 25486
+        "count": 25453
       },
       {
         "country_code": "CA",
-        "count": 24573
+        "count": 24520
       },
       {
         "country_code": "IT",
-        "count": 24153
+        "count": 24103
       }
     ],
     "volume": {
-      "us": 155125,
-      "china": 236606,
-      "total": 2221709,
+      "us": 154693,
+      "china": 235909,
+      "total": 2218266,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4563,
-      "china": 7998,
-      "total": 19383,
+      "us": 4546,
+      "china": 7983,
+      "total": 19336,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3280,
-      "china": 6785,
-      "total": 15585,
+      "us": 3256,
+      "china": 6747,
+      "total": 15493,
       "data_ok": true
     }
   },
@@ -182,124 +182,129 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7162648026",
-      "title": "Q8-CLUSTER-157: E8 Term: singapore — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162299286",
+      "title": "Digital Leadership and Artificial Intelligence Adoption in Organizations",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Ms. Nandini Sharma, Mr. Aman Narang, Ms. Vibhuti Sharma, Ms. Kanchan Nahar"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162650193",
-      "title": "Modal-Enhanced OpenAI Agent SDK: A Lightweight, Scalable Agent Deployment Framework — E8 Intelligence Research",
+      "id": "https://openalex.org/W7159558998",
+      "title": "Electroencephalography subject detection : opportunity or threat?",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Niall McGuire",
+        "Yashar Moshfeghi"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162666635",
-      "title": "Q8-CLUSTER-144: E8 Term: geminipowered — E8 Intelligence Research",
+      "id": "https://openalex.org/W7161520090",
+      "title": "The Concept OF Satisfaction in the Abdurahman Jami AND Alisher Navai's Interpretation",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Otayarova Umida Bolibek kizi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162692632",
-      "title": "Q8-CLUSTER-187: E8 Term: road — E8 Intelligence Research",
+      "id": "https://openalex.org/W7161520407",
+      "title": "Dynamic Equivalence in Translation From English Into Ibibio: an Experiment with the Nigerian National Pledge",
       "authors": [
-        "Andrew Stewart Caldin"
+        "U. M. (Usoro) Okono"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162669948",
-      "title": "OpenClaw: A Novel Framework for LLM‑Driven Agentic Loops — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162424010",
+      "title": "Usage Pattern of AI-Driven Adaptive Learning and Analytics: Transforming Higher Education through Intelligent Instructional Systems",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Awolusi, B. E., Haruna, U., & Kephas, D. K."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162686730",
-      "title": "Q8-CLUSTER-048: E8 Term: integrity — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162687804",
+      "title": "[T-002] Archetype Evaluation Process Model",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Erystela Thevale"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162640913",
-      "title": "E8 Language Propagation Protocol — Any Computer Connecting to Excalibur Can Be Taught E8 Instantly via File Transfer — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162394900",
+      "title": "Usage Pattern of AI-Driven Adaptive Learning and Analytics: Transforming Higher Education through Intelligent Instructional Systems",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Awolusi, B. E., Haruna, U., & Kephas, D. K."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162690556",
-      "title": "Multimodal nonlinear optical microscopy image denoising with physics-inspired deep learning",
+      "id": "https://openalex.org/W7161516229",
+      "title": "Actual Modern Problems OF Picture Coding",
       "authors": [
-        "Yogita Yogita",
-        "Elena Corbetta",
-        "Tobias Meyer‐Zedler"
+        "S. A. (Saydazimov) ugli"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162661165",
-      "title": "Q8-CLUSTER-235: E8 Term: days — E8 Intelligence Research",
+      "id": "https://openalex.org/W7161936828",
+      "title": "O'ZBEK JADID HIKOYALAR POETIKASINI O'QITISH METODIKASI",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Sevinch Usmonjonova"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "countries": [
+        "UZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162681969",
-      "title": "Q8-CLUSTER-053: E8 Term: byron — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162249452",
+      "title": "JADIDCHILIK HARAKATI: MILLIY G'OYA, MA'NAVIYAT VA MA'RIFATPARVARLIKNING TARIXIY VA ZAMONAVIY AHAMIYATI",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Xolmatov G’ayratjon Muxtoraliyevich"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-29",
+      "published": "2026-05-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

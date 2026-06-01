@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-05-31T09:48:30.659503+00:00",
+  "fetched_at": "2026-06-01T12:42:09.733466+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.3,
+      "composite_score": 46.2,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.1,
+          "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 156213,
-            "share_score": 39.8,
+            "raw_value": 156816,
+            "share_score": 39.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4538,
-            "share_score": 36.2,
+            "raw_value": 4242,
+            "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3242,
+            "raw_value": 3224,
             "share_score": 32.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 53.7,
+      "composite_score": 53.8,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.9,
+          "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 236546,
-            "share_score": 60.2,
+            "raw_value": 236417,
+            "share_score": 60.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7999,
-            "share_score": 63.8,
+            "raw_value": 7584,
+            "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6763,
+            "raw_value": 6741,
             "share_score": 67.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258926
+        "count": 258939
       },
       {
         "country_code": "CN",
-        "count": 236546
+        "count": 236417
       },
       {
         "country_code": "DE",
-        "count": 159626
+        "count": 159647
       },
       {
         "country_code": "US",
-        "count": 156213
+        "count": 156816
       },
       {
         "country_code": "IN",
-        "count": 90882
+        "count": 90908
       },
       {
         "country_code": "GB",
-        "count": 48561
+        "count": 48599
       },
       {
         "country_code": "ID",
-        "count": 28911
+        "count": 28805
       },
       {
         "country_code": "FR",
-        "count": 25576
+        "count": 25603
       },
       {
         "country_code": "CA",
-        "count": 24618
+        "count": 24661
       },
       {
         "country_code": "IT",
-        "count": 24547
+        "count": 24554
       }
     ],
     "volume": {
-      "us": 156213,
-      "china": 236546,
-      "total": 2231255,
+      "us": 156816,
+      "china": 236417,
+      "total": 2233380,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4538,
-      "china": 7999,
-      "total": 19354,
+      "us": 4242,
+      "china": 7584,
+      "total": 18503,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3242,
-      "china": 6763,
-      "total": 15518,
+      "us": 3224,
+      "china": 6741,
+      "total": 15460,
       "data_ok": true
     }
   },
@@ -182,124 +182,141 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7142295649",
-      "title": "QuPrep: Quantum Data Preparation",
+      "id": "https://openalex.org/W7135767712",
+      "title": "The Frenzy of the Intelligible:AI Sex Scenes in Her and Blade Runner 2049",
       "authors": [
-        "Hasarindu Perera"
+        "Laurence Kent"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162666998",
-      "title": "Register-Neutralized Disclosure: A Pilot Study in Architectural Self-Knowledge and Shared Blind Spots in Claude Opus 4.6",
+      "id": "https://openalex.org/W7116214196",
+      "title": "PRoNTo v3.1: Elastic-Net Multiple Kernel Learning for Multisource Prediction",
       "authors": [
-        "Sheila Rose Braun",
-        "Claude Opus 4.6",
-        "Claude Opus 4.7"
+        "Mourao-Miranda, Janaina",
+        "Tsirlis, Konstantinos",
+        "Phillips, Christophe"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162863265",
-      "title": "Q8-CLUSTER-117: E8 Term: disa — E8 Intelligence Research",
+      "id": "https://openalex.org/W7161099932",
+      "title": "Predicting DNA replication–related protein expression at the nucleus level from HE: A deep learning study with same-specimen paired data",
       "authors": [
-        "Andrew Stewart Caldin"
+        "巧 浦田",
+        "Takumi Urata",
+        "彩織 武山"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162867035",
-      "title": "Q8-CLUSTER-084: E8 Term: university — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162796166",
+      "title": "DPhil Thesis Supplementary Files - Tabitha R. Taberer",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Tabitha Taberer"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162873201",
-      "title": "Q8-CLUSTER-074: E8 Term: lincoln — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162932083",
+      "title": "akkapros: Akkadian Prosody Reconstruction Toolkit",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Kabak, Samuel"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162879030",
-      "title": "Q8-CLUSTER-158: E8 Term: management — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162936905",
+      "title": "A Performance Analysis of YOLOv8 and YOLOv10 on PCB Surface Defects",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Mustafa Teke",
+        "Taha Etem",
+        "Selim Buyrukoğlu"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "countries": [
+        "TR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162849858",
-      "title": "Q8-CLUSTER-197: E8 Term: docs — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162954182",
+      "title": "From the Boundaries of Computer Science to Quantum Geometry: The Dimensional Projection Theory of Consciousness",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Ufuk Tiryaki"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162875782",
-      "title": "Q8-CLUSTER-213: E8 Term: there — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162957735",
+      "title": "Automated Flight Manoeuver Recognition for Intelligent Flight Simulators",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Akash Sahu",
+        "Poornima C",
+        "Aravindh C"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162869306",
-      "title": "Q8-CLUSTER-222: E8 Term: betting — E8 Intelligence Research",
+      "id": "https://openalex.org/W7134118193",
+      "title": "The Flat Gap: On Temporal Dissonance Between Human Experience and AI Presence",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Jeremy Karrick"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161655919",
-      "title": "Choosing A Method OF Explaining Unfamiliar Words in Elementary SCHOOL Textbooks Depending on Their Nature",
+      "id": "https://openalex.org/W7125887741",
+      "title": "Multi-State Asynchronous Joint Estimation for Lithium-Ion Batteries - A Nature Inspired Multi-Timescale Approach",
       "authors": [
-        "G. (G’iyosova) Ferangiz"
+        "Y. Li",
+        "K. Liu",
+        "W. Wang"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-05-31",
+      "countries": [
+        "CN",
+        "GB"
+      ],
+      "primary_country": "China",
+      "published": "2026-06-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

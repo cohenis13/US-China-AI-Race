@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-01T12:42:09.733466+00:00",
+  "fetched_at": "2026-06-02T11:21:59.040288+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 156816,
-            "share_score": 39.9,
+            "raw_value": 157209,
+            "share_score": 40.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4242,
+            "raw_value": 4244,
             "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3224,
-            "share_score": 32.4,
+            "raw_value": 3212,
+            "share_score": 32.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 236417,
-            "share_score": 60.1,
+            "raw_value": 235933,
+            "share_score": 60.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7584,
+            "raw_value": 7586,
             "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6741,
-            "share_score": 67.6,
+            "raw_value": 6740,
+            "share_score": 67.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,35 +120,35 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258939
+        "count": 258875
       },
       {
         "country_code": "CN",
-        "count": 236417
+        "count": 235933
       },
       {
         "country_code": "DE",
-        "count": 159647
+        "count": 159649
       },
       {
         "country_code": "US",
-        "count": 156816
+        "count": 157209
       },
       {
         "country_code": "IN",
-        "count": 90908
+        "count": 90823
       },
       {
         "country_code": "GB",
-        "count": 48599
+        "count": 48524
       },
       {
         "country_code": "ID",
-        "count": 28805
+        "count": 28747
       },
       {
         "country_code": "FR",
-        "count": 25603
+        "count": 25578
       },
       {
         "country_code": "CA",
@@ -156,25 +156,25 @@
       },
       {
         "country_code": "IT",
-        "count": 24554
+        "count": 24521
       }
     ],
     "volume": {
-      "us": 156816,
-      "china": 236417,
-      "total": 2233380,
+      "us": 157209,
+      "china": 235933,
+      "total": 2235941,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4242,
-      "china": 7584,
-      "total": 18503,
+      "us": 4244,
+      "china": 7586,
+      "total": 18514,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3224,
-      "china": 6741,
-      "total": 15460,
+      "us": 3212,
+      "china": 6740,
+      "total": 15425,
       "data_ok": true
     }
   },
@@ -182,141 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7135767712",
-      "title": "The Frenzy of the Intelligible:AI Sex Scenes in Her and Blade Runner 2049",
+      "id": "https://openalex.org/W7162107197",
+      "title": "Introducing Spatial Anchors for Annotating and Georeferencing Historical Maps",
       "authors": [
-        "Laurence Kent"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7116214196",
-      "title": "PRoNTo v3.1: Elastic-Net Multiple Kernel Learning for Multisource Prediction",
-      "authors": [
-        "Mourao-Miranda, Janaina",
-        "Tsirlis, Konstantinos",
-        "Phillips, Christophe"
+        "Jona Schlegel",
+        "Leon van Wissen",
+        "Manjusha Kuruppath"
       ],
       "countries": [
-        "BE"
+        "NL"
       ],
       "primary_country": "Other",
-      "published": "2026-06-01",
+      "published": "2026-06-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161099932",
-      "title": "Predicting DNA replication–related protein expression at the nucleus level from HE: A deep learning study with same-specimen paired data",
+      "id": "https://openalex.org/W7163072908",
+      "title": "probability-encoding (NengoZoo submission) v0.1.0",
       "authors": [
-        "巧 浦田",
-        "Takumi Urata",
-        "彩織 武山"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162796166",
-      "title": "DPhil Thesis Supplementary Files - Tabitha R. Taberer",
-      "authors": [
-        "Tabitha Taberer"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162932083",
-      "title": "akkapros: Akkadian Prosody Reconstruction Toolkit",
-      "authors": [
-        "Kabak, Samuel"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162936905",
-      "title": "A Performance Analysis of YOLOv8 and YOLOv10 on PCB Surface Defects",
-      "authors": [
-        "Mustafa Teke",
-        "Taha Etem",
-        "Selim Buyrukoğlu"
+        "Michael Furlong"
       ],
       "countries": [
-        "TR"
+        "CA"
       ],
       "primary_country": "Other",
-      "published": "2026-06-01",
+      "published": "2026-06-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162954182",
-      "title": "From the Boundaries of Computer Science to Quantum Geometry: The Dimensional Projection Theory of Consciousness",
+      "id": "https://openalex.org/W7163068736",
+      "title": "Prisca-GraphRAG: Knowledge Retrieval via Ancient Lineage-Boosted Graph Augmented Generation with Federated Privacy",
       "authors": [
-        "Ufuk Tiryaki"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162957735",
-      "title": "Automated Flight Manoeuver Recognition for Intelligent Flight Simulators",
-      "authors": [
-        "Akash Sahu",
-        "Poornima C",
-        "Aravindh C"
+        "Stephen P. Lutar"
       ],
       "countries": [
-        "IN"
+        "RU"
       ],
       "primary_country": "Other",
-      "published": "2026-06-01",
+      "published": "2026-06-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134118193",
-      "title": "The Flat Gap: On Temporal Dissonance Between Human Experience and AI Presence",
+      "id": "https://openalex.org/W7163021267",
+      "title": "Q8-CLUSTER-001: E8 Term: labs — E8 Intelligence Research",
       "authors": [
-        "Jeremy Karrick"
+        "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-01",
+      "published": "2026-06-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125887741",
-      "title": "Multi-State Asynchronous Joint Estimation for Lithium-Ion Batteries - A Nature Inspired Multi-Timescale Approach",
+      "id": "https://openalex.org/W7163045495",
+      "title": "A hierarchical and ontology-based taxonomy of stimuli–smart materials–transformation effects in 4D printing as a new interactive modality",
       "authors": [
-        "Y. Li",
-        "K. Liu",
-        "W. Wang"
+        "Jiayue Qin",
+        "Eujin Pei",
+        "Abdusselam Cifter"
       ],
       "countries": [
-        "CN",
         "GB"
       ],
-      "primary_country": "China",
-      "published": "2026-06-01",
+      "primary_country": "Other",
+      "published": "2026-06-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163042746",
+      "title": "Robustness is important: Limitations of LLMs for predictions on tabular data",
+      "authors": [
+        "Hejia Liu",
+        "Mochen Yang",
+        "Gediminas Adomavičius"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162544090",
+      "title": "LuisCore — Recursive Cognition Infrastructure",
+      "authors": [
+        "LuisCore"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163051710",
+      "title": "Q8-CLUSTER-105: E8 Term: angeles — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162990123",
+      "title": "Q8-CLUSTER-168: E8 Term: allen — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163008137",
+      "title": "DDENSO: an evaluation-driven methodology for information visualisations",
+      "authors": [
+        "Michele Mauri",
+        "Elena Aversa",
+        "Anna Cattaneo"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-02",
       "cited_by_count": 0,
       "source": "openalex"
     }

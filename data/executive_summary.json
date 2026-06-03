@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-03T12:30:58.080394+00:00",
+  "fetched_at": "2026-06-03T14:41:50.078766+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -70,11 +70,11 @@
       "key": "diffusion",
       "label": "Diffusion",
       "radar_label": "Diffusion",
-      "us_score": 7.3,
-      "china_score": 2.7,
+      "us_score": 6.0,
+      "china_score": 4.0,
       "winner": "US",
-      "delta": 4.6,
-      "edge": "+4.6 US",
+      "delta": 2.0,
+      "edge": "+2.0 US",
       "confidence": "Lower confidence",
       "score_method": "composite_share_100",
       "caveat": "Share of combined US+China: HF open-model downloads (55%) + cloud platform footprint (45%). Undercounts Chinese model reach via ModelScope and domestic platforms. Does not capture closed-API usage or hardware export reach.",
@@ -95,7 +95,7 @@
       "source_file": "data/energy.json"
     }
   ],
-  "current_read": "The U.S. leads in compute, global deployment, and frontier model development, while China leads in energy capacity, domestic adoption, and research talent.",
+  "current_read": "The U.S. leads in compute, frontier model development, and global deployment, while China leads in energy capacity, domestic adoption, and research talent.",
   "strategic_insights": [
     {
       "bold": "The U.S. leads on disclosed compute, frontier model activity, and global diffusion",
@@ -145,11 +145,11 @@
     {
       "key": "diffusion",
       "dimension": "Diffusion",
-      "us": 7.3,
-      "china": 2.7,
+      "us": 6.0,
+      "china": 4.0,
       "winner": "US",
-      "delta": 4.6,
-      "edge": "+4.6 US"
+      "delta": 2.0,
+      "edge": "+2.0 US"
     },
     {
       "key": "energy",
@@ -183,7 +183,7 @@
       6.4,
       7.6,
       6.2,
-      7.3,
+      6.0,
       3.7,
       4.6
     ],
@@ -191,7 +191,7 @@
       3.6,
       2.4,
       7.4,
-      2.7,
+      4.0,
       7.4,
       5.4
     ]

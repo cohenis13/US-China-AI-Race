@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-04T10:40:32.257915+00:00",
+  "fetched_at": "2026-06-05T10:51:51.885419+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.0,
           "paper_volume": {
-            "raw_value": 158798,
+            "raw_value": 159576,
             "share_score": 40.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4256,
+            "raw_value": 4254,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3224,
+            "raw_value": 3226,
             "share_score": 32.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 64.0,
           "paper_volume": {
-            "raw_value": 236427,
+            "raw_value": 236910,
             "share_score": 59.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7619,
+            "raw_value": 7622,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6784,
+            "raw_value": 6778,
             "share_score": 67.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258948
+        "count": 258973
       },
       {
         "country_code": "CN",
-        "count": 236427
+        "count": 236910
       },
       {
         "country_code": "DE",
-        "count": 159834
+        "count": 159956
       },
       {
         "country_code": "US",
-        "count": 158798
+        "count": 159576
       },
       {
         "country_code": "IN",
-        "count": 91585
+        "count": 91816
       },
       {
         "country_code": "GB",
-        "count": 48733
+        "count": 48842
       },
       {
         "country_code": "ID",
-        "count": 28953
+        "count": 28966
       },
       {
         "country_code": "FR",
-        "count": 25652
+        "count": 25655
       },
       {
         "country_code": "CA",
-        "count": 24770
+        "count": 24790
       },
       {
         "country_code": "IT",
-        "count": 24563
+        "count": 24614
       }
     ],
     "volume": {
-      "us": 158798,
-      "china": 236427,
-      "total": 2252311,
+      "us": 159576,
+      "china": 236910,
+      "total": 2261054,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4256,
-      "china": 7619,
-      "total": 18592,
+      "us": 4254,
+      "china": 7622,
+      "total": 18600,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3224,
-      "china": 6784,
-      "total": 15514,
+      "us": 3226,
+      "china": 6778,
+      "total": 15517,
       "data_ok": true
     }
   },
@@ -182,129 +182,136 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163375217",
-      "title": "Q8-CLUSTER-095: E8 Term: adopt — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162245420",
+      "title": "The Dynamic Active Neural Cycle: Minor update (autoimmune response reframed as rate-not-kind; prose tightened for clarity and readability)",
+      "authors": [
+        "Yousef Ghati"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163543233",
+      "title": "Q8-CLUSTER-075: E8 Term: andersons — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-04",
+      "published": "2026-06-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163339340",
-      "title": "GSA-YOLO enables high-efficiency real-time X-ray security inspection via structured sparsity and adaptive knowledge distillation",
+      "id": "https://openalex.org/W7163531218",
+      "title": "evaṃ",
       "authors": [
-        "Jiahao Kong"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163427019",
-      "title": "Q8-CLUSTER-104: E8 Term: ukrainian — E8 Intelligence Research",
-      "authors": [
-        "Andrew Stewart Caldin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163325312",
-      "title": "ARGIRA V: Cross-Corpus Evidence for Predictor Inversion in Visual-to-Acoustic Mapping",
-      "authors": [
-        "Jose Ranero García"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163337390",
-      "title": "Coal flow measurement method based on binocular vision",
-      "authors": [
-        "Yingsong Cheng",
-        "Junwei Zhang",
-        "Qinghua Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163373524",
-      "title": "Q8-CLUSTER-031: E8 Term: controls — E8 Intelligence Research",
-      "authors": [
-        "Andrew Stewart Caldin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134868398",
-      "title": "Colloque international: \"Ensemble als Fundament: Theaterpraxis und Poetik Emine Sevgi Özdamars\"",
-      "authors": [
-        "Christine Meyer",
-        "Bernard Banoun",
-        "Benoît Ellerbach"
+        "Won Heo Seok"
       ],
       "countries": [
-        "FR",
-        "TR"
+        "HU"
       ],
       "primary_country": "Other",
-      "published": "2026-06-04",
+      "published": "2026-06-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163322437",
-      "title": "Q8-CLUSTER-101: E8 Term: slash — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163573433",
+      "title": "Molecular mechanisms in plasticity in Alzheimer's: integration of the gut microbiota and EEG-derived entropy",
+      "authors": [
+        "Hector Leonel Salazar Lara"
+      ],
+      "countries": [
+        "PH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163521422",
+      "title": "Q8-CLUSTER-065: E8 Term: tolerance — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-04",
+      "published": "2026-06-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163377042",
-      "title": "Q8-CLUSTER-108: E8 Term: areas — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163528115",
+      "title": "SaaS Pricing Accuracy 2026: LLM Benchmark Ground Truth Dataset",
       "authors": [
-        "Andrew Stewart Caldin"
+        "ComparEdge"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-04",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163378479",
-      "title": "Q8-CLUSTER-230: E8 Term: underlie — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163538546",
+      "title": "Molecular mechanisms in plasticity in Alzheimer's: integration of the gut microbiota and EEG-derived entropy",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Hector Leonel Salazar Lara"
+      ],
+      "countries": [
+        "PH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163542375",
+      "title": "SkeneGraph-Net: Network analysis for TEI/XML-encoded drama",
+      "authors": [
+        "Stylianos Chronopoulos"
+      ],
+      "countries": [
+        "GR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163519421",
+      "title": "SFibAI: Deep Learning for Precision Grading of Schistosoma japonicum-induced Liver Fibrosis in Ultrasound Images",
+      "authors": [
+        "Ziyang Xu",
+        "Jianfeng Zhang",
+        "Tingting Wu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-04",
+      "published": "2026-06-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162407809",
+      "title": "XITOY TILIDA IBORALARNI SAMARALI O'QITISHNING ASOSIY METODLARI",
+      "authors": [
+        "M.X.Tuychiyeva"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-05",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-05T10:51:51.885419+00:00",
+  "fetched_at": "2026-06-06T09:28:21.058392+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.2,
+      "composite_score": 46.3,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.0,
+          "share_score": 36.1,
           "paper_volume": {
-            "raw_value": 159576,
-            "share_score": 40.2,
+            "raw_value": 159225,
+            "share_score": 40.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4254,
+            "raw_value": 4245,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3226,
+            "raw_value": 3204,
             "share_score": 32.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 53.8,
+      "composite_score": 53.7,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 64.0,
+          "share_score": 63.9,
           "paper_volume": {
-            "raw_value": 236910,
-            "share_score": 59.8,
+            "raw_value": 236252,
+            "share_score": 59.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7622,
+            "raw_value": 7608,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6778,
+            "raw_value": 6736,
             "share_score": 67.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258973
+        "count": 258936
       },
       {
         "country_code": "CN",
-        "count": 236910
+        "count": 236252
       },
       {
         "country_code": "DE",
-        "count": 159956
+        "count": 159897
       },
       {
         "country_code": "US",
-        "count": 159576
+        "count": 159225
       },
       {
         "country_code": "IN",
-        "count": 91816
+        "count": 91302
       },
       {
         "country_code": "GB",
-        "count": 48842
+        "count": 48743
       },
       {
         "country_code": "ID",
-        "count": 28966
+        "count": 28897
       },
       {
         "country_code": "FR",
-        "count": 25655
+        "count": 25605
       },
       {
         "country_code": "CA",
-        "count": 24790
+        "count": 24747
       },
       {
         "country_code": "IT",
-        "count": 24614
+        "count": 24567
       }
     ],
     "volume": {
-      "us": 159576,
-      "china": 236910,
-      "total": 2261054,
+      "us": 159225,
+      "china": 236252,
+      "total": 2257704,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4254,
-      "china": 7622,
-      "total": 18600,
+      "us": 4245,
+      "china": 7608,
+      "total": 18562,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3226,
-      "china": 6778,
-      "total": 15517,
+      "us": 3204,
+      "china": 6736,
+      "total": 15424,
       "data_ok": true
     }
   },
@@ -182,136 +182,138 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7162245420",
-      "title": "The Dynamic Active Neural Cycle: Minor update (autoimmune response reframed as rate-not-kind; prose tightened for clarity and readability)",
+      "id": "https://openalex.org/W7158537058",
+      "title": "A aceitação do uso dos jogos no aprendizado do levantamento de requisitos na engenharia de software",
       "authors": [
-        "Yousef Ghati"
+        "Carla Regina Rodrigues Padial Sanz",
+        "Juliano Barreira Zorzetto",
+        "Simone Romano"
+      ],
+      "countries": [
+        "PT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7135098275",
+      "title": "Generalist Generative Agent - Experiment Data",
+      "authors": [
+        "Anton Savov",
+        "Angela Yoo",
+        "CheWei Lin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-05",
+      "published": "2026-06-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163543233",
-      "title": "Q8-CLUSTER-075: E8 Term: andersons — E8 Intelligence Research",
+      "id": "https://openalex.org/W7106657841",
+      "title": "Fucci_mESC_timelapse_raw_data",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Choubani, Linda"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7150842778",
+      "title": "Principles and Classification of Plant Propagation Methods",
+      "authors": [
+        "Horn Sarun"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-05",
+      "published": "2026-06-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163531218",
-      "title": "evaṃ",
+      "id": "https://openalex.org/W7150794460",
+      "title": "Generalist Generative Agent - Experiment Data",
       "authors": [
-        "Won Heo Seok"
-      ],
-      "countries": [
-        "HU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163573433",
-      "title": "Molecular mechanisms in plasticity in Alzheimer's: integration of the gut microbiota and EEG-derived entropy",
-      "authors": [
-        "Hector Leonel Salazar Lara"
-      ],
-      "countries": [
-        "PH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163521422",
-      "title": "Q8-CLUSTER-065: E8 Term: tolerance — E8 Intelligence Research",
-      "authors": [
-        "Andrew Stewart Caldin"
+        "Anton Savov",
+        "Angela Yoo",
+        "CheWei Lin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-05",
+      "published": "2026-06-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163528115",
-      "title": "SaaS Pricing Accuracy 2026: LLM Benchmark Ground Truth Dataset",
+      "id": "https://openalex.org/W7150742686",
+      "title": "Principles and Classification of Plant Propagation Methods",
       "authors": [
-        "ComparEdge"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163538546",
-      "title": "Molecular mechanisms in plasticity in Alzheimer's: integration of the gut microbiota and EEG-derived entropy",
-      "authors": [
-        "Hector Leonel Salazar Lara"
-      ],
-      "countries": [
-        "PH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163542375",
-      "title": "SkeneGraph-Net: Network analysis for TEI/XML-encoded drama",
-      "authors": [
-        "Stylianos Chronopoulos"
-      ],
-      "countries": [
-        "GR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163519421",
-      "title": "SFibAI: Deep Learning for Precision Grading of Schistosoma japonicum-induced Liver Fibrosis in Ultrasound Images",
-      "authors": [
-        "Ziyang Xu",
-        "Jianfeng Zhang",
-        "Tingting Wu"
+        "Horn Sarun"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-05",
+      "published": "2026-06-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162407809",
-      "title": "XITOY TILIDA IBORALARNI SAMARALI O'QITISHNING ASOSIY METODLARI",
+      "id": "https://openalex.org/W7160490614",
+      "title": "Inteligência artificial na educação superior: potenciais, desafios e percepções estudantis",
       "authors": [
-        "M.X.Tuychiyeva"
+        "Melissa Evelyn Francisco",
+        "Anderson Valentino Bozzo"
       ],
-      "countries": [
-        "US"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163604970",
+      "title": "Generative Artificial Intelligence as a Gender Equalizer?",
+      "authors": [
+        "Safa Ben Bouzaienne",
+        "Régis Meissonier",
+        "Walid Nakara"
       ],
-      "primary_country": "US",
-      "published": "2026-06-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163621228",
+      "title": "A vibronic-specific cross-section database for electron-impact excitation of N<sub>2</sub>",
+      "authors": [
+        "P Mariotto",
+        "Marie-Yvonne Perrin",
+        "Christophe O. Laux"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160558618",
+      "title": "Inteligência artificial na educação superior: potenciais, desafios e percepções estudantis",
+      "authors": [
+        "Melissa Evelyn Francisco",
+        "Anderson Valentino Bozzo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-06",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-07T10:07:28.907248+00:00",
+  "fetched_at": "2026-06-08T12:02:22.036852+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.1,
+          "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 160381,
-            "share_score": 40.4,
+            "raw_value": 160713,
+            "share_score": 40.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4258,
+            "raw_value": 4251,
             "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3213,
-            "share_score": 32.2,
+            "raw_value": 3204,
+            "share_score": 32.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.9,
+          "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 236454,
-            "share_score": 59.6,
+            "raw_value": 236471,
+            "share_score": 59.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7619,
+            "raw_value": 7596,
             "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6750,
-            "share_score": 67.8,
+            "raw_value": 6729,
+            "share_score": 67.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258986
+        "count": 258997
       },
       {
         "country_code": "CN",
-        "count": 236454
+        "count": 236471
       },
       {
         "country_code": "US",
-        "count": 160381
+        "count": 160713
       },
       {
         "country_code": "DE",
-        "count": 160076
+        "count": 160092
       },
       {
         "country_code": "IN",
-        "count": 91635
+        "count": 91691
       },
       {
         "country_code": "GB",
-        "count": 48986
+        "count": 49029
       },
       {
         "country_code": "ID",
-        "count": 29045
+        "count": 29113
       },
       {
         "country_code": "FR",
-        "count": 25686
+        "count": 25704
       },
       {
         "country_code": "CA",
-        "count": 24868
+        "count": 24875
       },
       {
         "country_code": "IT",
-        "count": 24671
+        "count": 24680
       }
     ],
     "volume": {
-      "us": 160381,
-      "china": 236454,
-      "total": 2268692,
+      "us": 160713,
+      "china": 236471,
+      "total": 2271999,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4258,
-      "china": 7619,
-      "total": 18594,
+      "us": 4251,
+      "china": 7596,
+      "total": 18548,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3213,
-      "china": 6750,
-      "total": 15457,
+      "us": 3204,
+      "china": 6729,
+      "total": 15403,
       "data_ok": true
     }
   },
@@ -182,127 +182,122 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163757840",
-      "title": "Generative AI for the reconstruction of visual stimuli from functional magnetic resonance imaging (fMRI) signals",
-      "authors": [
-        "Kareem Ahmed",
-        "Hamdi A. Mahmoud",
-        "Hagar M. El Hadad"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163758684",
-      "title": "From Nothing to Relational Organization: A Response to the Modal Reading of the Discrete Relational Framework in Light of the Theory of Objectivity",
-      "authors": [
-        "Mounssif Benchekroun"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163761787",
-      "title": "Q8-CLUSTER-084: E8 Term: footballs — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163824777",
+      "title": "Q8-CLUSTER-063: E8 Term: colleagues — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163735190",
-      "title": "Q8-CLUSTER-150: E8 Term: hall — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163808974",
+      "title": "Q8-CLUSTER-133: E8 Term: emerge — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163759803",
-      "title": "Tecnologias emergentes para produção de imagens sequenciais: Captura de Movimento",
-      "authors": [
-        "Giovanna Florencio Antonio",
-        "Silvia Laurentiz"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163764120",
-      "title": "Q8-CLUSTER-005: E8 Term: opinion — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163820883",
+      "title": "Q8-CLUSTER-048: E8 Term: retire — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163756469",
-      "title": "The Carlo–Williams Recursive System: Foundations, Extensions, and the Ω Loop That Rose From Nothing",
-      "authors": [
-        "Matthew Arthur Carlo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163734959",
-      "title": "Q8-CLUSTER-098: E8 Term: signal — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163822355",
+      "title": "Q8-CLUSTER-136: E8 Term: symbolic — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163750980",
-      "title": "Q8-CLUSTER-093: E8 Term: meet — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163803440",
+      "title": "Q8-CLUSTER-237: E8 Term: scitechdaily — E8 Intelligence Research",
       "authors": [
         "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163742161",
-      "title": "From Nothing to Relational Organization: A Response to the Modal Reading of the Discrete Relational Framework in Light of the Theory of Objectivity",
+      "id": "https://openalex.org/W7163809984",
+      "title": "Q8-CLUSTER-140: E8 Term: langgraph实战 — E8 Intelligence Research",
       "authors": [
-        "Mounssif Benchekroun"
+        "Andrew Stewart Caldin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-07",
+      "published": "2026-06-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163810054",
+      "title": "Q8-CLUSTER-018: E8 Term: geometry — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163821537",
+      "title": "Q8-CLUSTER-211: E8 Term: were — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163804046",
+      "title": "Q8-CLUSTER-075: E8 Term: innovation — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163807768",
+      "title": "Q8-CLUSTER-105: E8 Term: proposed — E8 Intelligence Research",
+      "authors": [
+        "Andrew Stewart Caldin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-08",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-08T12:02:22.036852+00:00",
+  "fetched_at": "2026-06-09T10:36:18.565605+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 160713,
+            "raw_value": 160466,
             "share_score": 40.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4251,
+            "raw_value": 4245,
             "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3204,
+            "raw_value": 3201,
             "share_score": 32.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 236471,
+            "raw_value": 236016,
             "share_score": 59.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7596,
+            "raw_value": 7587,
             "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6729,
+            "raw_value": 6720,
             "share_score": 67.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258997
+        "count": 258954
       },
       {
         "country_code": "CN",
-        "count": 236471
+        "count": 236016
       },
       {
         "country_code": "US",
-        "count": 160713
+        "count": 160466
       },
       {
         "country_code": "DE",
-        "count": 160092
+        "count": 160049
       },
       {
         "country_code": "IN",
-        "count": 91691
+        "count": 91646
       },
       {
         "country_code": "GB",
-        "count": 49029
+        "count": 48934
       },
       {
         "country_code": "ID",
-        "count": 29113
+        "count": 29069
       },
       {
         "country_code": "FR",
-        "count": 25704
+        "count": 25643
       },
       {
         "country_code": "CA",
-        "count": 24875
+        "count": 24762
       },
       {
         "country_code": "IT",
-        "count": 24680
+        "count": 24640
       }
     ],
     "volume": {
-      "us": 160713,
-      "china": 236471,
-      "total": 2271999,
+      "us": 160466,
+      "china": 236016,
+      "total": 2270373,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4251,
-      "china": 7596,
-      "total": 18548,
+      "us": 4245,
+      "china": 7587,
+      "total": 18516,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3204,
-      "china": 6729,
-      "total": 15403,
+      "us": 3201,
+      "china": 6720,
+      "total": 15381,
       "data_ok": true
     }
   },
@@ -182,122 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163824777",
-      "title": "Q8-CLUSTER-063: E8 Term: colleagues — E8 Intelligence Research",
+      "id": "https://openalex.org/W7143268012",
+      "title": "Flexiblity-Aware Residential Consumption Forecasting: a Hybrid Machine Learning and Foundation Model Approach for Nudge-based Demand Response",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Erwan Chibout",
+        "Simon Camal",
+        "Georges Kariniotakis"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163808974",
-      "title": "Q8-CLUSTER-133: E8 Term: emerge — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162227059",
+      "title": "Joint Latency-Energy Aware Service Placement in Vehicular Edge Computing via Graph Neural Networks Predictions and Reinforcement Learning",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Kais Baccour",
+        "El Mahjoub, Youssef, Ait",
+        "Yessin M. Neggaz"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163820883",
-      "title": "Q8-CLUSTER-048: E8 Term: retire — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163535137",
+      "title": "Digital Twins and Cyber-Physical Systems for Industry 5.0",
       "authors": [
-        "Andrew Stewart Caldin"
+        "T. Ramaprabha"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163822355",
-      "title": "Q8-CLUSTER-136: E8 Term: symbolic — E8 Intelligence Research",
+      "id": "https://openalex.org/W7159862148",
+      "title": "Quantifying the Cost of Manual Navigation: A Comparison of Gesture-Based Magnification versus Direct Access Reading in Digital Layout-based Documents",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Sebastián Gallardo",
+        "Aurélie Calabrèse",
+        "Hui-Yin Wu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163803440",
-      "title": "Q8-CLUSTER-237: E8 Term: scitechdaily — E8 Intelligence Research",
+      "id": "https://openalex.org/W7134877295",
+      "title": "From Ranging to Sensing: Toward Robust Human Detection with UWB Measurements",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Anthony Bouery",
+        "François Aïssaoui",
+        "Réjane Dalcé"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163809984",
-      "title": "Q8-CLUSTER-140: E8 Term: langgraph实战 — E8 Intelligence Research",
+      "id": "https://openalex.org/W7143270113",
+      "title": "Evaluation of AI-based Forecasting Models for Electricity Demand at Household Level: Focus on Generative AI Models",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Erwan Chibout",
+        "Simon Camal",
+        "Georges Kariniotakis"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163810054",
-      "title": "Q8-CLUSTER-018: E8 Term: geometry — E8 Intelligence Research",
+      "id": "https://openalex.org/W7162723726",
+      "title": "Physically Augmented Training for Generalizable Deep Learning in Environmental Modeling",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Gianmarco Guglielmo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163821537",
-      "title": "Q8-CLUSTER-211: E8 Term: were — E8 Intelligence Research",
+      "id": "https://openalex.org/W7163757280",
+      "title": "Generative Artificial Intelligence Chatbots for Parental Guidance in Pediatric Orthopaedics: A Pilot Feasibility Study",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Wayne Foo",
+        "Kenneth Pak Leung Wong",
+        "Arjandas Mahadev"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163804046",
-      "title": "Q8-CLUSTER-075: E8 Term: innovation — E8 Intelligence Research",
+      "id": "https://openalex.org/W7160365165",
+      "title": "Federated Imputation under Heterogeneous Feature Spaces",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Imane HOCINE",
+        "Chaimaa Medjadji",
+        "Sylvain Kubler"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "countries": [
+        "LU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163807768",
-      "title": "Q8-CLUSTER-105: E8 Term: proposed — E8 Intelligence Research",
+      "id": "https://openalex.org/W7154928600",
+      "title": "A Novel Time-Frequency Approach for Frequency-Hopping Signal Blind Estimation",
       "authors": [
-        "Andrew Stewart Caldin"
+        "Ali Khalaf",
+        "Arthur Louchart",
+        "Sebastien Houcke"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-08",
+      "published": "2026-06-09",
       "cited_by_count": 0,
       "source": "openalex"
     }

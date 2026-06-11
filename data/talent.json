@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-10T11:01:27.978542+00:00",
+  "fetched_at": "2026-06-11T11:25:09.624777+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 160968,
-            "share_score": 40.5,
+            "raw_value": 160732,
+            "share_score": 40.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4243,
+            "raw_value": 4251,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3219,
+            "raw_value": 3226,
             "share_score": 32.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 236255,
-            "share_score": 59.5,
+            "raw_value": 235360,
+            "share_score": 59.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7595,
+            "raw_value": 7613,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6753,
+            "raw_value": 6759,
             "share_score": 67.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,191 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 258974
+        "count": 258949
       },
       {
         "country_code": "CN",
-        "count": 236255
+        "count": 235360
       },
       {
         "country_code": "US",
-        "count": 160968
+        "count": 160732
       },
       {
         "country_code": "DE",
-        "count": 160124
+        "count": 160099
       },
       {
         "country_code": "IN",
-        "count": 92127
+        "count": 92619
       },
       {
         "country_code": "GB",
-        "count": 49029
+        "count": 48937
       },
       {
         "country_code": "ID",
-        "count": 29117
+        "count": 29154
       },
       {
         "country_code": "FR",
-        "count": 25688
-      },
-      {
-        "country_code": "CA",
-        "count": 24817
+        "count": 25660
       },
       {
         "country_code": "IT",
-        "count": 24794
+        "count": 24791
+      },
+      {
+        "country_code": "CA",
+        "count": 24771
       }
     ],
     "volume": {
-      "us": 160968,
-      "china": 236255,
-      "total": 2276655,
+      "us": 160732,
+      "china": 235360,
+      "total": 2283058,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4243,
-      "china": 7595,
-      "total": 18546,
+      "us": 4251,
+      "china": 7613,
+      "total": 18590,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3219,
-      "china": 6753,
-      "total": 15453,
+      "us": 3226,
+      "china": 6759,
+      "total": 15488,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7159747339",
+      "title": "AgriROSE-L 2025 Case Study: Soil Moisture Estimation from L-Band PolSAR Data with Physical Autoencoders",
+      "authors": [
+        "Nikita Basargin",
+        "Alberto Alonso-González",
+        "Irena Hajnsek"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163917663",
+      "title": "[Clinical feature analysis and preliminary exploration of individualized surgical strategies in cold corneal ulcer].",
+      "authors": [
+        "G H Zou",
+        "D Yan",
+        "Q Yu"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-06-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164099387",
+      "title": "Reproducible and Explainable Active Learning for Systematic Reviews: An Applied Data Science Contribution Uniting Academic and Industrial Methodologies",
+      "authors": [
+        "Jelle Jasper Teijema",
+        "Dep Maatschappijwetenschappen",
+        "Methodology and Statistics for the Behavioural and Social Sciences"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161465425",
+      "title": "Probabilistic and Adaptive Methods for Robotic Manipulation and Robot Hand Control under Interaction Uncertainty",
+      "authors": [
+        "Alex Pasquali"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162916085",
+      "title": "Natural Language Processing in de menselijke hersenen",
+      "authors": [
+        "Helena Balabin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163984754",
+      "title": "Minds and Molds: What Can Artificial Intelligence Do for Multi-Material Injection Molding",
+      "authors": [
+        "Pedro Santos",
+        "André F. V. Pedroso",
+        "Filipe Silva"
+      ],
+      "countries": [
+        "PT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163986376",
+      "title": "Jabrex/pg-lstm-asm2d-soft-sensor",
+      "authors": [
+        "Mustafa Samet Uygur",
+        "Ahmet Uygur",
+        "Musa Alcı"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164010371",
+      "title": "The Sky Theorem: Universal Entropy Convergence from Quantum Hardware to Neural Memory Consolidation",
+      "authors": [
+        "Rapeepat Padaengking"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164038053",
+      "title": "A Domain-agnostic Vision Transformer Framework for Machinery Fault Diagnosis using Wavelet Time–frequency Spectra",
+      "authors": [
+        "Vaibhav Chaudhary",
+        "Avishek Mukherjee",
+        "Omkar Mypati"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7126002052",
       "title": "On the local classification of four-dimensional Lorentzian real reductive pairs",
@@ -191,130 +315,6 @@
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155550762",
-      "title": "Evaluation and comparison of pre-trained convolutional neural networks for detecting Equine Pain Face",
-      "authors": [
-        "Dan Børge Jensen",
-        "Christina Larsen",
-        "Natascha Dohn Jensen"
-      ],
-      "countries": [
-        "DK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155568657",
-      "title": "Evaluation and comparison of pre-trained convolutional neural networks for detecting Equine Pain Face",
-      "authors": [
-        "Dan Børge Jensen",
-        "Christina Larsen",
-        "Natascha Dohn Jensen"
-      ],
-      "countries": [
-        "DK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160681128",
-      "title": "Aerial Drones Aided Ground Robot Localization in GNSS-Degraded Environments",
-      "authors": [
-        "Clovis Adeler",
-        "Cindy Cappelle",
-        "Maan El Badaoui El Najjar"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163829566",
-      "title": "Decoding the Kuki-Meitei Communal Conflict in Manipur through Socio-Political Lenses",
-      "authors": [
-        "Dr. Karma Lhamu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160566228",
-      "title": "Safe Fault Accommodation via Constrained Reinforcement Learning and Zonotopic Reachability",
-      "authors": [
-        "Josué Nkaya-Nkaya",
-        "Christophe Combastel",
-        "Jérôme Cieslak"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163533295",
-      "title": "BO'LAJAK MUHANDISLARDA INTELLEKTUAL MUSTAQIL FIKRLASHNI RIVOJLANTIRISHDA RAQAMLI O'QUV RESURSLARNING INTEGRATIV ROLI",
-      "authors": [
-        "Ma'murjon Yangiboyevich Xo'jjiyev"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163803442",
-      "title": "Decoding the Kuki-Meitei Communal Conflict in Manipur through Socio-Political Lenses",
-      "authors": [
-        "Dr. Karma Lhamu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163420884",
-      "title": "Scoping Review of Machine Learning Frameworks for Climate Projection and Adaptation Planning in Senegal",
-      "authors": [
-        "Mamadou Diouf"
-      ],
-      "countries": [
-        "SN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162873708",
-      "title": "Digital Ghost",
-      "authors": [
-        "Chetan Jawale"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
       "published": "2026-06-10",
       "cited_by_count": 0,
       "source": "openalex"

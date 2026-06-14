@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-13T10:04:49.626304+00:00",
+  "fetched_at": "2026-06-14T10:28:11.690900+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.3,
           "paper_volume": {
-            "raw_value": 162412,
-            "share_score": 40.8,
+            "raw_value": 164771,
+            "share_score": 41.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4264,
-            "share_score": 35.9,
+            "raw_value": 4274,
+            "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3215,
-            "share_score": 32.2,
+            "raw_value": 3237,
+            "share_score": 32.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.7,
           "paper_volume": {
-            "raw_value": 236045,
-            "share_score": 59.2,
+            "raw_value": 236544,
+            "share_score": 58.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7619,
-            "share_score": 64.1,
+            "raw_value": 7658,
+            "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6756,
-            "share_score": 67.8,
+            "raw_value": 6800,
+            "share_score": 67.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259000
+        "count": 259128
       },
       {
         "country_code": "CN",
-        "count": 236045
+        "count": 236544
       },
       {
         "country_code": "US",
-        "count": 162412
+        "count": 164771
       },
       {
         "country_code": "DE",
-        "count": 161245
+        "count": 161645
       },
       {
         "country_code": "IN",
-        "count": 92819
+        "count": 93365
       },
       {
         "country_code": "GB",
-        "count": 49225
+        "count": 49643
       },
       {
         "country_code": "ID",
-        "count": 29173
+        "count": 29304
       },
       {
         "country_code": "FR",
-        "count": 25734
+        "count": 25938
       },
       {
         "country_code": "CA",
-        "count": 24870
+        "count": 25107
       },
       {
         "country_code": "IT",
-        "count": 24856
+        "count": 25035
       }
     ],
     "volume": {
-      "us": 162412,
-      "china": 236045,
-      "total": 2300899,
+      "us": 164771,
+      "china": 236544,
+      "total": 2315688,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4264,
-      "china": 7619,
-      "total": 18609,
+      "us": 4274,
+      "china": 7658,
+      "total": 18693,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3215,
-      "china": 6756,
-      "total": 15472,
+      "us": 3237,
+      "china": 6800,
+      "total": 15571,
       "data_ok": true
     }
   },
@@ -182,138 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7164357781",
-      "title": "LPSN Record Number 71734, Canonical",
+      "id": "https://openalex.org/W7162732068",
+      "title": "Explaining Multimodal Ai Predictions: A Conceptual Review",
       "authors": [
-        "Markus Göker"
+        "Florian Rüffer",
+        "Deborah Naomi Mateja",
+        "Heinzl"
       ],
       "countries": [
         "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-06-12",
+      "published": "2026-06-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164311769",
-      "title": "MADE: Modular Acoustic Data Extractor",
+      "id": "https://openalex.org/W7162052364",
+      "title": "The Privacy–Proactivity Paradox: Revisiting The Privacy Calculus In The Age Of Proactive Ai",
       "authors": [
-        "S. P. Taylor"
+        "Niki Atabaki Nia",
+        "Mahdi Mirhoseini"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-12",
+      "published": "2026-06-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164298100",
-      "title": "LPSN Record Number 69844, Version 2",
+      "id": "https://openalex.org/W7164678169",
+      "title": "seismic-denoising-eval-protocol",
       "authors": [
-        "Markus Göker"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164311879",
-      "title": "LPSN Record Number 71781, Version 1",
-      "authors": [
-        "Markus Göker"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164398997",
-      "title": "LPSN Record Number 71645, Version 1",
-      "authors": [
-        "Markus Göker"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164419786",
-      "title": "LPSN Record Number 71260, Version 2",
-      "authors": [
-        "Markus Göker"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164315313",
-      "title": "Lagrangian-Drifter-Array",
-      "authors": [
-        "Guillaume Novelli"
+        "Anonymous manuscript authors"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-12",
+      "published": "2026-06-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164374551",
-      "title": "AI-enabled IoT systems for urban flood resilience: a validated case study from Dubai",
+      "id": "https://openalex.org/W7162731886",
+      "title": "Schnitzel-Prediction: Designing Human-Ai Collaboration For Cafeteria Demand Forecasting",
       "authors": [
-        "Hassan Gbran"
+        "Justus Cappel",
+        "Timo Strohmann",
+        "Mara Burger"
       ],
       "countries": [
-        "ID"
+        "DE",
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-06-12",
+      "primary_country": "US",
+      "published": "2026-06-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164402128",
-      "title": "LPSN Record Number 19924, Version 2",
+      "id": "https://openalex.org/W7162741515",
+      "title": "Active Learning In Systematic Literature Screening: Benchmarking Ai-Assisted Screening Against Human Consensus",
       "authors": [
-        "Markus Göker"
+        "Mickael Ringeval",
+        "Guy Paré",
+        "Grégory Vial"
+      ],
+      "countries": [
+        "US",
+        "CA"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162242931",
+      "title": "IMM Paper 1: Temporal Asymmetry as a Structural Consequence of Observer Projection",
+      "authors": [
+        "Travis Bergen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7117764199",
+      "title": "High-Dimensional Pathological Resonance and Phase-Locked Medical Paradigm Based on Axiomatic Systems: A Diagnostic Revolution from Population Statistics to Individual Physics",
+      "authors": [
+        "Jingfeng Lu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164687397",
+      "title": "Clinical Trials and Ontology Derived Benchmarks for Mechanism-Aware AI Development to Support Clinical Decision Making",
+      "authors": [
+        "Babak Ravandi",
+        "William R. Mowrey",
+        "Aparajita Chatterjee"
+      ],
+      "countries": [
+        "MX",
+        "US",
+        "CH",
+        "GB"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164642505",
+      "title": "Model of Scientific Knowledge. Part III. Three-Axis Evaluation and the Architectural Responsibility of Journals",
+      "authors": [
+        "Alexander Romannikov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161616139",
+      "title": "The Good Into The Pot, The Bad Into The Crop: A Deep Learning Approach To Control Crowd Labeling",
+      "authors": [
+        "Ulrich Bretschneider",
+        "Anna Lena Hupe",
+        "Marek Herde"
       ],
       "countries": [
         "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-06-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164311512",
-      "title": "LPSN Record Number 71832, Canonical",
-      "authors": [
-        "Markus Göker"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-12",
+      "published": "2026-06-14",
       "cited_by_count": 0,
       "source": "openalex"
     }

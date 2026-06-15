@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-14T10:28:11.690900+00:00",
+  "fetched_at": "2026-06-15T13:20:41.926126+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.3,
           "paper_volume": {
-            "raw_value": 164771,
+            "raw_value": 164706,
             "share_score": 41.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4274,
-            "share_score": 35.8,
+            "raw_value": 4253,
+            "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3237,
-            "share_score": 32.3,
+            "raw_value": 3218,
+            "share_score": 32.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.7,
           "paper_volume": {
-            "raw_value": 236544,
+            "raw_value": 236333,
             "share_score": 58.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7658,
-            "share_score": 64.2,
+            "raw_value": 7610,
+            "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6800,
-            "share_score": 67.7,
+            "raw_value": 6765,
+            "share_score": 67.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259128
+        "count": 259122
       },
       {
         "country_code": "CN",
-        "count": 236544
+        "count": 236333
       },
       {
         "country_code": "US",
-        "count": 164771
+        "count": 164706
       },
       {
         "country_code": "DE",
-        "count": 161645
+        "count": 161625
       },
       {
         "country_code": "IN",
-        "count": 93365
+        "count": 93275
       },
       {
         "country_code": "GB",
-        "count": 49643
+        "count": 49613
       },
       {
         "country_code": "ID",
-        "count": 29304
+        "count": 29239
       },
       {
         "country_code": "FR",
-        "count": 25938
+        "count": 25930
       },
       {
         "country_code": "CA",
-        "count": 25107
+        "count": 25090
       },
       {
         "country_code": "IT",
-        "count": 25035
+        "count": 25019
       }
     ],
     "volume": {
-      "us": 164771,
-      "china": 236544,
-      "total": 2315688,
+      "us": 164706,
+      "china": 236333,
+      "total": 2314788,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4274,
-      "china": 7658,
-      "total": 18693,
+      "us": 4253,
+      "china": 7610,
+      "total": 18604,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3237,
-      "china": 6800,
-      "total": 15571,
+      "us": 3218,
+      "china": 6765,
+      "total": 15497,
       "data_ok": true
     }
   },
@@ -182,148 +182,143 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7162732068",
-      "title": "Explaining Multimodal Ai Predictions: A Conceptual Review",
+      "id": "https://openalex.org/W7163839700",
+      "title": "Are Genai Tools Reliable Creativity Evaluators?",
       "authors": [
-        "Florian Rüffer",
-        "Deborah Naomi Mateja",
-        "Heinzl"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162052364",
-      "title": "The Privacy–Proactivity Paradox: Revisiting The Privacy Calculus In The Age Of Proactive Ai",
-      "authors": [
-        "Niki Atabaki Nia",
-        "Mahdi Mirhoseini"
+        "Petros Chamakiotis",
+        "Yuting Gao"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-14",
+      "published": "2026-06-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164678169",
-      "title": "seismic-denoising-eval-protocol",
+      "id": "https://openalex.org/W7162779445",
+      "title": "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ В ОБРАЗОВАНИИ: ПСИХОЛОГИЧЕСКИЕ АСПЕКТЫ АДАПТИВНОГО ОБУЧЕНИЯ И ФОРМИРОВАНИЯ ЛИЧНОСТИ ОБУЧАЮЩЕГОСЯ",
       "authors": [
-        "Anonymous manuscript authors"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162731886",
-      "title": "Schnitzel-Prediction: Designing Human-Ai Collaboration For Cafeteria Demand Forecasting",
-      "authors": [
-        "Justus Cappel",
-        "Timo Strohmann",
-        "Mara Burger"
+        "Наталья Васильевна Пирниязова"
       ],
       "countries": [
-        "DE",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-06-14",
+      "published": "2026-06-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162741515",
-      "title": "Active Learning In Systematic Literature Screening: Benchmarking Ai-Assisted Screening Against Human Consensus",
+      "id": "https://openalex.org/W7162671728",
+      "title": "ARXEOLOGIK OBYEKTLARNI QAYTA TIKLASHDA SUN'IY INTELLEKTNING O'RNI",
       "authors": [
-        "Mickael Ringeval",
-        "Guy Paré",
-        "Grégory Vial"
+        "Abdug'aniyev Ahrorbek"
       ],
       "countries": [
-        "US",
-        "CA"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162242931",
-      "title": "IMM Paper 1: Temporal Asymmetry as a Structural Consequence of Observer Projection",
-      "authors": [
-        "Travis Bergen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7117764199",
-      "title": "High-Dimensional Pathological Resonance and Phase-Locked Medical Paradigm Based on Axiomatic Systems: A Diagnostic Revolution from Population Statistics to Individual Physics",
-      "authors": [
-        "Jingfeng Lu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164687397",
-      "title": "Clinical Trials and Ontology Derived Benchmarks for Mechanism-Aware AI Development to Support Clinical Decision Making",
-      "authors": [
-        "Babak Ravandi",
-        "William R. Mowrey",
-        "Aparajita Chatterjee"
-      ],
-      "countries": [
-        "MX",
-        "US",
-        "CH",
         "GB"
       ],
-      "primary_country": "US",
-      "published": "2026-06-14",
+      "primary_country": "Other",
+      "published": "2026-06-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164642505",
-      "title": "Model of Scientific Knowledge. Part III. Three-Axis Evaluation and the Architectural Responsibility of Journals",
+      "id": "https://openalex.org/W7162763416",
+      "title": "THE ROLE OF ARTIFICIAL INTELLIGENCE IN THE EDUCATION SYSTEM",
       "authors": [
-        "Alexander Romannikov"
+        "Janibekova Gulnaz"
+      ],
+      "countries": [
+        "UZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162795670",
+      "title": "JAMIYATNING VIRTUALLASHUVIDA RAQAMLI PARADIGMANING ROLI",
+      "authors": [
+        "Arislanbay Komekbayevich Orazbayev"
+      ],
+      "countries": [
+        "SE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163842983",
+      "title": "Strategic Integration Of Generative Ai On Ecommerce Platforms: Balancing Ai With Consumer Aversion",
+      "authors": [
+        "Jessica Wu",
+        "wenhui liu",
+        "陈富赞"
+      ],
+      "countries": [
+        "US",
+        "CN",
+        "GH"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-06-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162659547",
+      "title": "TARIXIY SHAXSLARNI SUN'IY INTELLEKT ORQALI JONLANTIRISHNING TARIXNI O'RGANISHDAGI AHAMIYATI",
+      "authors": [
+        "Zuhriddin Rabiyevich Haydarov"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-14",
+      "published": "2026-06-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161616139",
-      "title": "The Good Into The Pot, The Bad Into The Crop: A Deep Learning Approach To Control Crowd Labeling",
+      "id": "https://openalex.org/W7162697551",
+      "title": "SUN'IY INTELLEKT FALSAFASI: TARIXIYLIK VA ZAMONAVIYLIK DIALEKTIKASI: SUN'IY INTELLEKTNING KIBER XAVFSIZLIKDAGI O'RNI",
       "authors": [
-        "Ulrich Bretschneider",
-        "Anna Lena Hupe",
-        "Marek Herde"
+        "Muhriddin Muzaffar o'g'li Boysariyev"
       ],
       "countries": [
-        "DE"
+        "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-06-14",
+      "published": "2026-06-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162672992",
+      "title": "OVOZ REJISSYORLIGIDA SUN'IY INTELLEKTDAN FOYDALANISH QOIDALARI",
+      "authors": [
+        "Manas Bekpolatovich Abdreymov"
+      ],
+      "countries": [
+        "UZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163840254",
+      "title": "Algorithmic Decision-Making And The Socio-Technical Problem In Is Research",
+      "authors": [
+        "Sowdambika Baskaran"
+      ],
+      "countries": [
+        "SE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

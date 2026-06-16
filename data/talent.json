@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-15T13:20:41.926126+00:00",
+  "fetched_at": "2026-06-16T12:14:08.189993+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.3,
           "paper_volume": {
-            "raw_value": 164706,
+            "raw_value": 164574,
             "share_score": 41.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4253,
+            "raw_value": 4238,
             "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3218,
+            "raw_value": 3207,
             "share_score": 32.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.7,
           "paper_volume": {
-            "raw_value": 236333,
+            "raw_value": 236126,
             "share_score": 58.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7610,
+            "raw_value": 7578,
             "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6765,
+            "raw_value": 6747,
             "share_score": 67.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259122
+        "count": 259105
       },
       {
         "country_code": "CN",
-        "count": 236333
+        "count": 236126
       },
       {
         "country_code": "US",
-        "count": 164706
+        "count": 164574
       },
       {
         "country_code": "DE",
-        "count": 161625
+        "count": 161598
       },
       {
         "country_code": "IN",
-        "count": 93275
+        "count": 93215
       },
       {
         "country_code": "GB",
-        "count": 49613
+        "count": 49572
       },
       {
         "country_code": "ID",
-        "count": 29239
+        "count": 29198
       },
       {
         "country_code": "FR",
-        "count": 25930
+        "count": 25906
       },
       {
         "country_code": "CA",
-        "count": 25090
+        "count": 25065
       },
       {
         "country_code": "IT",
-        "count": 25019
+        "count": 25002
       }
     ],
     "volume": {
-      "us": 164706,
-      "china": 236333,
-      "total": 2314788,
+      "us": 164574,
+      "china": 236126,
+      "total": 2313510,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4253,
-      "china": 7610,
-      "total": 18604,
+      "us": 4238,
+      "china": 7578,
+      "total": 18532,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3218,
-      "china": 6765,
-      "total": 15497,
+      "us": 3207,
+      "china": 6747,
+      "total": 15451,
       "data_ok": true
     }
   },
@@ -182,143 +182,133 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163839700",
-      "title": "Are Genai Tools Reliable Creativity Evaluators?",
+      "id": "https://openalex.org/W7160807535",
+      "title": "WIP: Large Language Models for Network Automation: A Hierarchical Retrieval-Augmented Approach",
       "authors": [
-        "Petros Chamakiotis",
-        "Yuting Gao"
+        "Yasmine Ouni",
+        "Kamal Singh",
+        "Antoine Gourru"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-15",
+      "published": "2026-06-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162779445",
-      "title": "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ В ОБРАЗОВАНИИ: ПСИХОЛОГИЧЕСКИЕ АСПЕКТЫ АДАПТИВНОГО ОБУЧЕНИЯ И ФОРМИРОВАНИЯ ЛИЧНОСТИ ОБУЧАЮЩЕГОСЯ",
+      "id": "https://openalex.org/W7163726186",
+      "title": "Combined Machine Learning Analysis for Antihelium Search with the AMS-02 Experiment",
       "authors": [
-        "Наталья Васильевна Пирниязова"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162671728",
-      "title": "ARXEOLOGIK OBYEKTLARNI QAYTA TIKLASHDA SUN'IY INTELLEKTNING O'RNI",
-      "authors": [
-        "Abdug'aniyev Ahrorbek"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162763416",
-      "title": "THE ROLE OF ARTIFICIAL INTELLIGENCE IN THE EDUCATION SYSTEM",
-      "authors": [
-        "Janibekova Gulnaz"
-      ],
-      "countries": [
-        "UZ"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162795670",
-      "title": "JAMIYATNING VIRTUALLASHUVIDA RAQAMLI PARADIGMANING ROLI",
-      "authors": [
-        "Arislanbay Komekbayevich Orazbayev"
-      ],
-      "countries": [
-        "SE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163842983",
-      "title": "Strategic Integration Of Generative Ai On Ecommerce Platforms: Balancing Ai With Consumer Aversion",
-      "authors": [
-        "Jessica Wu",
-        "wenhui liu",
-        "陈富赞"
-      ],
-      "countries": [
-        "US",
-        "CN",
-        "GH"
-      ],
-      "primary_country": "Mixed",
-      "published": "2026-06-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162659547",
-      "title": "TARIXIY SHAXSLARNI SUN'IY INTELLEKT ORQALI JONLANTIRISHNING TARIXNI O'RGANISHDAGI AHAMIYATI",
-      "authors": [
-        "Zuhriddin Rabiyevich Haydarov"
+        "Paolo Zuccon",
+        "Francesco Rossi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-15",
+      "published": "2026-06-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162697551",
-      "title": "SUN'IY INTELLEKT FALSAFASI: TARIXIYLIK VA ZAMONAVIYLIK DIALEKTIKASI: SUN'IY INTELLEKTNING KIBER XAVFSIZLIKDAGI O'RNI",
+      "id": "https://openalex.org/W7154612103",
+      "title": "THE OUROBOROS REPORT - Forensic Validation of Aitiopoietic Self-Correction in Artificial Governance",
       "authors": [
-        "Muhriddin Muzaffar o'g'li Boysariyev"
+        "Carlos Arleo"
       ],
-      "countries": [
-        "UZ"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-15",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162672992",
-      "title": "OVOZ REJISSYORLIGIDA SUN'IY INTELLEKTDAN FOYDALANISH QOIDALARI",
+      "id": "https://openalex.org/W7162903499",
+      "title": "Diagnostische echografie en artificiële intelligentie bij de karakterisering van adnexiële massa’s: naar een 3d classificatiemodel",
       "authors": [
-        "Manas Bekpolatovich Abdreymov"
+        "G. Garofalo"
       ],
-      "countries": [
-        "UZ"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-15",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163840254",
-      "title": "Algorithmic Decision-Making And The Socio-Technical Problem In Is Research",
+      "id": "https://openalex.org/W7164355772",
+      "title": "Improving point cloud annotation efficiency using unsupervised over-segmentation",
       "authors": [
-        "Sowdambika Baskaran"
+        "Mikus Vancans",
+        "Bram Ton",
+        "Danny Plass-Oude Bos"
       ],
       "countries": [
-        "SE"
+        "NL"
       ],
       "primary_country": "Other",
-      "published": "2026-06-15",
+      "published": "2026-06-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7106561965",
+      "title": "THE OUROBOROS REPORT - Forensic Validation of Aitiopoietic Self-Correction in Artificial Governance",
+      "authors": [
+        "Arleo, Carlos"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164686057",
+      "title": "Context‑Gated Pattern Accumulation (CGPA): A Design Artefact for Persistent, Privacy‑Preserving AI Memory in Task‑Oriented Conversational Systems",
+      "authors": [
+        "TRUONG VIET PHAN"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160543310",
+      "title": "Beyond English-Only GRPO: Training Language and Auxiliary Reward as Implicit Regularizers in Sub-3B Math Reasoning (v2.1)",
+      "authors": [
+        "Dang Vu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164413973",
+      "title": "Improving point cloud annotation efficiency using unsupervised over-segmentation",
+      "authors": [
+        "Mikus Vancans",
+        "Bram Ton",
+        "Danny Plass-Oude Bos"
+      ],
+      "countries": [
+        "NL"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7105675256",
+      "title": "Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Substrates",
+      "authors": [
+        "Arleo, Carlos"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-16",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-17T11:53:58.885069+00:00",
+  "fetched_at": "2026-06-18T11:11:21.531357+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.3,
           "paper_volume": {
-            "raw_value": 166568,
-            "share_score": 41.1,
+            "raw_value": 167882,
+            "share_score": 40.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4269,
+            "raw_value": 4278,
             "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3111,
-            "share_score": 32.2,
+            "raw_value": 3103,
+            "share_score": 32.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.7,
           "paper_volume": {
-            "raw_value": 239093,
-            "share_score": 58.9,
+            "raw_value": 242099,
+            "share_score": 59.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7634,
+            "raw_value": 7651,
             "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6562,
-            "share_score": 67.8,
+            "raw_value": 6566,
+            "share_score": 67.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259321
+        "count": 259419
       },
       {
         "country_code": "CN",
-        "count": 239093
+        "count": 242099
       },
       {
         "country_code": "US",
-        "count": 166568
+        "count": 167882
       },
       {
         "country_code": "DE",
-        "count": 162020
+        "count": 162223
       },
       {
         "country_code": "IN",
-        "count": 93879
+        "count": 94265
       },
       {
         "country_code": "GB",
-        "count": 50158
+        "count": 50537
       },
       {
         "country_code": "ID",
-        "count": 29517
+        "count": 29630
       },
       {
         "country_code": "FR",
-        "count": 26101
+        "count": 26268
       },
       {
         "country_code": "CA",
-        "count": 25315
+        "count": 25467
       },
       {
         "country_code": "IT",
-        "count": 25279
+        "count": 25449
       }
     ],
     "volume": {
-      "us": 166568,
-      "china": 239093,
-      "total": 2334503,
+      "us": 167882,
+      "china": 242099,
+      "total": 2340998,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4269,
-      "china": 7634,
-      "total": 18636,
+      "us": 4278,
+      "china": 7651,
+      "total": 18677,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3111,
-      "china": 6562,
-      "total": 15078,
+      "us": 3103,
+      "china": 6566,
+      "total": 15057,
       "data_ok": true
     }
   },
@@ -182,20 +182,48 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7164908677",
-      "title": "K. Takahashi Research Hub",
+      "id": "https://openalex.org/W7164989822",
+      "title": "Robust Variational Model Based Tailored UNet: Leveraging Edge Detector and Mean Curvature for Improved Image Segmentation",
       "authors": [
-        "K Takahashi"
+        "Kaili Qi",
+        "Zhongyi Huang",
+        "Wenli Yang"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-17",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-06-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164916293",
-      "title": "Vocabulary Augmentation for Robust Cross-Lingual Universal Dependency Parsing Under Domain Shift in Low-Resource Settings",
+      "id": "https://openalex.org/W7165041374",
+      "title": "Short-term load forecasting using a two-stage CPO-PSO hyperparameter optimization of LSSVM",
+      "authors": [
+        "XinHao Zhang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162974071",
+      "title": "Automation of Differential Cryptanalysis through Constraint Programming and Machine Learning",
+      "authors": [
+        "Rocco Brunelli"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165006094",
+      "title": "Cross-Lingual and Monolingual Optimization in Multilingual Embedding Robustness",
       "authors": [
         "Assignee Research"
       ],
@@ -203,115 +231,90 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-06-17",
+      "published": "2026-06-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163578630",
-      "title": "Document Similarity",
+      "id": "https://openalex.org/W7165022711",
+      "title": "Israel Has Three AI Command Structures and One Warning: The War Has Already Begun. The Constitutional Override Protocol Has Not.",
       "authors": [
-        "Sony Jufri",
-        "Chao Sun"
+        "Akhil Sharma",
+        "Preethi Sharma"
       ],
       "countries": [
-        "AU"
+        "RU"
       ],
       "primary_country": "Other",
-      "published": "2026-06-17",
-      "cited_by_count": 1,
+      "published": "2026-06-18",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164891281",
-      "title": "A recorded, reproducible agentic artificial intelligence workflow for epidemiological research: a blinded replication of expert p-value and confidence-interval coding",
+      "id": "https://openalex.org/W7165020430",
+      "title": "Ink detection from surface topography of the Herculaneum papyri",
       "authors": [
-        "Talal S. Alshihayb",
-        "Walid A. Al-Soneidar"
+        "Giorgio Angelotti",
+        "Federica Nicolardi",
+        "Paul Henderson"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-17",
+      "published": "2026-06-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164892321",
-      "title": "Crowe Logic Pharma: a biomedical knowledge-graph discovery pipeline",
+      "id": "https://openalex.org/W7164997732",
+      "title": "Scaling Adversarial Multilingual Data Augmentation for Robust Zero-Shot Cross-Lingual Retrieval",
       "authors": [
-        "Michael Benjamin Crowe"
+        "Assignee Research"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-06-17",
+      "published": "2026-06-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164891744",
-      "title": "Crowe Codex: a cross-vendor AI code-verification engine",
+      "id": "https://openalex.org/W7165007153",
+      "title": "EXPERIENCE OF INTEGRATION OF ARTIFICIAL INTELLIGENCE INTO THE PROCESS OF TEACHING FOREIGN LANGUAGES IN HIGHER EDUCATION INSTITUTIONS USING THE EXAMPLE OF GREAT BRITAIN AND THE USA",
       "authors": [
-        "Michael Benjamin Crowe"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164926323",
-      "title": "Unleashing AI Self-Regulation: Towards Metacognitive AI Systems with Human-Inspired Self-Monitoring and Self-Management",
-      "authors": [
-        "mohamed kamal arafa elrakhawi"
+        "Iryna Chuchmii",
+        "Svitlana Karychkovska",
+        "Liudmyla Movchan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-17",
+      "published": "2026-06-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164945260",
-      "title": "IntelliForm: Complete Archive — Code, Models, and Data (v1.1.0)",
+      "id": "https://openalex.org/W7165014829",
+      "title": "Machine learning to improve the prediction of Large for Gestational Age (LGA) neonates: a cohort study",
       "authors": [
-        "Shehan Makani"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164947064",
-      "title": "CriOS Discovery: a cheminformatics compound-scoring toolkit",
-      "authors": [
-        "Michael Benjamin Crowe"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7112663740",
-      "title": "Bot's Eye View - Audiovisual works in generative AI",
-      "authors": [
-        "Holmes, Paul"
+        "Gabriel Cubillos",
+        "Max Mönckeberg",
+        "Alejandra Plaza"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-17",
+      "published": "2026-06-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163738147",
+      "title": "《人工智慧時代的桃花源》The Peach Blossom Spring in the Artificial Intelligence Age",
+      "authors": [
+        "Lawrence K Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

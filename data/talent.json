@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-20T10:10:42.379354+00:00",
+  "fetched_at": "2026-06-21T10:34:31.224127+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 168492,
-            "share_score": 40.9,
+            "raw_value": 169911,
+            "share_score": 41.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4272,
-            "share_score": 35.8,
+            "raw_value": 4261,
+            "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3096,
-            "share_score": 32.1,
+            "raw_value": 3087,
+            "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 243144,
-            "share_score": 59.1,
+            "raw_value": 242614,
+            "share_score": 58.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7647,
-            "share_score": 64.2,
+            "raw_value": 7662,
+            "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6555,
-            "share_score": 67.9,
+            "raw_value": 6561,
+            "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259436
+        "count": 259511
       },
       {
         "country_code": "CN",
-        "count": 243144
+        "count": 242614
       },
       {
         "country_code": "US",
-        "count": 168492
+        "count": 169911
       },
       {
         "country_code": "DE",
-        "count": 162389
+        "count": 162513
       },
       {
         "country_code": "IN",
-        "count": 94671
+        "count": 94759
       },
       {
         "country_code": "GB",
-        "count": 50628
+        "count": 50825
       },
       {
         "country_code": "ID",
-        "count": 29613
+        "count": 29632
       },
       {
         "country_code": "FR",
-        "count": 26290
+        "count": 27003
       },
       {
         "country_code": "IT",
-        "count": 25553
+        "count": 25600
       },
       {
         "country_code": "CA",
-        "count": 25500
+        "count": 25531
       }
     ],
     "volume": {
-      "us": 168492,
-      "china": 243144,
-      "total": 2345870,
+      "us": 169911,
+      "china": 242614,
+      "total": 2354079,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4272,
-      "china": 7647,
-      "total": 18634,
+      "us": 4261,
+      "china": 7662,
+      "total": 18625,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3096,
-      "china": 6555,
-      "total": 15028,
+      "us": 3087,
+      "china": 6561,
+      "total": 15022,
       "data_ok": true
     }
   },
@@ -182,139 +182,136 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7165186404",
-      "title": "Etik ve Telif Sorunları Bağlamında Yapay Zekâ ile Grafik Tasarım Üretiminin Geleceği",
+      "id": "https://openalex.org/W7155663503",
+      "title": "Training-Free Intellectual Property Protection for Spiking Neural Networks",
       "authors": [
-        "Bora Özen"
-      ],
-      "countries": [
-        "TR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164653181",
-      "title": "Processed single-cell RNA-seq datasets supporting RSNorm",
-      "authors": [
-        "Ziyi Wen"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-06-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7131505717",
-      "title": "Boundary rhythms:Adaptation and adjustment to work–nonwork boundary blurring in hybrid work",
-      "authors": [
-        "Mengyi; id_orcid 0000-0002-5325-0690 Xu",
-        "Haley R. Cobb"
+        "Spyridon Raptis",
+        "Haralampos‐G. Stratigopoulos"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-20",
+      "published": "2026-06-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164649646",
-      "title": "Processed single-cell RNA-seq datasets supporting RSNorm",
+      "id": "https://openalex.org/W7165448441",
+      "title": "Amendment CXXXIII: SOL Geometry as Mechanistic Framework for Reiki Healing",
       "authors": [
-        "Ziyi Wen"
+        "Justin McCaul"
       ],
       "countries": [
-        "CN"
+        "US"
       ],
-      "primary_country": "China",
-      "published": "2026-06-20",
+      "primary_country": "US",
+      "published": "2026-06-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165108745",
-      "title": "Etik ve Telif Sorunları Bağlamında Yapay Zekâ ile Grafik Tasarım Üretiminin Geleceği",
+      "id": "https://openalex.org/W7165472232",
+      "title": "Order in Chaos: An Analysis of Senior Three Students’ English Continuation Writing Texts Based on Complex Dynamic Systems Theory",
       "authors": [
-        "Bora Özen"
+        "Jiahui Nie"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165445579",
+      "title": "Investigating the flavor contributions of sulfur compounds in soy sauce flavor Baijiu using flavoromics and machine learning",
+      "authors": [
+        "Shiqi Yang",
+        "Xi Zhang",
+        "Yi Shen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165446780",
+      "title": "Integrating Artificial Intelligence into Ethical Hacking: A Framework for Automated Threat Mitigation and Defensive Security",
+      "authors": [
+        "Aranya Nath, Research Assistant, DPIIT IPR Chair, HNLU, Raipur",
+        "LLM (IPR) NLUJA Gautami Chakravarty"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165151036",
+      "title": "Structural Cognitive Emergence (SCE): Toward Structural Cognitive Runtime and Brain-Unit Intelligence",
+      "authors": [
+        "Sizhe Tan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165453457",
+      "title": "Impact of Monolingual to Cross-Lingual Training Objective Ratios on Zero-Shot nDCG for Multilingual Dense Retrievers on BEIR",
+      "authors": [
+        "Assignee Research"
       ],
       "countries": [
-        "TR"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-06-20",
+      "primary_country": "US",
+      "published": "2026-06-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163208019",
-      "title": "Artificial Intelligence in Marketing: Concepts, Strategies and Applications",
+      "id": "https://openalex.org/W7165451259",
+      "title": "Hybrid Batch Strategy for Aligning Monolingual and Cross-Lingual Representation Spaces",
       "authors": [
-        "Prof. (Dr.) Savita Mohan",
-        "Deepika Varshney",
-        "Dr. Megha Grover"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163175596",
-      "title": "Artificial Intelligence in Marketing: Concepts, Strategies and Applications",
-      "authors": [
-        "Prof. (Dr.) Savita Mohan",
-        "Deepika Varshney",
-        "Dr. Megha Grover"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164737052",
-      "title": "[T-050] Principle of Separation between Scholarship and Academia",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164761862",
-      "title": "[T-050] Principle of Separation between Scholarship and Academia",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165147986",
-      "title": "An interpretable machine learning model for classifying cerebral small vessel disease using carotid plaque ultrasound radiomics and clinical features",
-      "authors": [
-        "Boyan Jia",
-        "Cuicui Wu",
-        "Yeting Wang"
+        "Assignee Research"
       ],
       "countries": [
-        "CN"
+        "US"
       ],
-      "primary_country": "China",
-      "published": "2026-06-19",
+      "primary_country": "US",
+      "published": "2026-06-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165454352",
+      "title": "Adversarial Training for Robust Cross-Lingual Word Alignment in Low-Resource Languages",
+      "authors": [
+        "Assignee Research"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165471366",
+      "title": "Scaling Multilingual Language Models and Zero-Shot R@1 Gaps via Optimal Transport Distillation on Flickr30k-Entities",
+      "authors": [
+        "Assignee Research"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-21",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-21T10:34:31.224127+00:00",
+  "fetched_at": "2026-06-22T12:53:27.126165+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.2,
           "paper_volume": {
-            "raw_value": 169911,
+            "raw_value": 169762,
             "share_score": 41.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4261,
+            "raw_value": 4245,
             "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3087,
+            "raw_value": 3074,
             "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.8,
           "paper_volume": {
-            "raw_value": 242614,
+            "raw_value": 242340,
             "share_score": 58.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7662,
+            "raw_value": 7649,
             "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6561,
+            "raw_value": 6534,
             "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259511
+        "count": 259497
       },
       {
         "country_code": "CN",
-        "count": 242614
+        "count": 242340
       },
       {
         "country_code": "US",
-        "count": 169911
+        "count": 169762
       },
       {
         "country_code": "DE",
-        "count": 162513
+        "count": 162483
       },
       {
         "country_code": "IN",
-        "count": 94759
+        "count": 94705
       },
       {
         "country_code": "GB",
-        "count": 50825
+        "count": 50788
       },
       {
         "country_code": "ID",
-        "count": 29632
+        "count": 29590
       },
       {
         "country_code": "FR",
-        "count": 27003
+        "count": 26990
       },
       {
         "country_code": "IT",
-        "count": 25600
+        "count": 25585
       },
       {
         "country_code": "CA",
-        "count": 25531
+        "count": 25515
       }
     ],
     "volume": {
-      "us": 169911,
-      "china": 242614,
-      "total": 2354079,
+      "us": 169762,
+      "china": 242340,
+      "total": 2352995,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4261,
-      "china": 7662,
-      "total": 18625,
+      "us": 4245,
+      "china": 7649,
+      "total": 18583,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3087,
-      "china": 6561,
-      "total": 15022,
+      "us": 3074,
+      "china": 6534,
+      "total": 14969,
       "data_ok": true
     }
   },
@@ -182,136 +182,160 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7155663503",
-      "title": "Training-Free Intellectual Property Protection for Spiking Neural Networks",
+      "id": "https://openalex.org/W7163780073",
+      "title": "Robust Adaptive Motion Control for Autonomous Vehicle Dynamics under Uncertainties via a Multi-Controller Architecture",
       "authors": [
-        "Spyridon Raptis",
-        "Haralampos‐G. Stratigopoulos"
+        "Armando Miranda-Moya",
+        "Lounis Adouane"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-21",
+      "published": "2026-06-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165448441",
-      "title": "Amendment CXXXIII: SOL Geometry as Mechanistic Framework for Reiki Healing",
+      "id": "https://openalex.org/W7141781638",
+      "title": "Reliability-Aware Fusion for Semantic Segmentation under Sensor Degradation and Failures",
       "authors": [
-        "Justin McCaul"
+        "Lucas Deregnaucourt",
+        "Abdelhak Benamirouche",
+        "Mihreteab Negash Geletu"
       ],
       "countries": [
-        "US"
+        "FR",
+        "GB"
       ],
-      "primary_country": "US",
-      "published": "2026-06-21",
+      "primary_country": "Other",
+      "published": "2026-06-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165472232",
-      "title": "Order in Chaos: An Analysis of Senior Three Students’ English Continuation Writing Texts Based on Complex Dynamic Systems Theory",
+      "id": "https://openalex.org/W7163836166",
+      "title": "Ariel-ML: Embedded Rust Leveraging Multicore for Neural Networks on Heterogeneous Microcontrollers",
       "authors": [
-        "Jiahui Nie"
+        "Zhaolan Huang",
+        "Kaspar Schleiser",
+        "Gyungmin Myung"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-21",
+      "published": "2026-06-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165445579",
-      "title": "Investigating the flavor contributions of sulfur compounds in soy sauce flavor Baijiu using flavoromics and machine learning",
+      "id": "https://openalex.org/W7163015167",
+      "title": "Hybrid Model Engineering: A Residual Learning Approach for Modular AI Pipelines",
       "authors": [
-        "Shiqi Yang",
-        "Xi Zhang",
-        "Yi Shen"
+        "Theodora Chrysoula",
+        "Viktor Daropoulos",
+        "André Grilo"
+      ],
+      "countries": [
+        "GR",
+        "CA",
+        "PT",
+        "ID",
+        "PL",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7126705445",
+      "title": "Focus on Relevant Road Users with Multi-Rules Reachable Sets",
+      "authors": [
+        "Mónica Fossati",
+        "Ezio Malis",
+        "Philippe Martinet"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-21",
+      "published": "2026-06-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165446780",
-      "title": "Integrating Artificial Intelligence into Ethical Hacking: A Framework for Automated Threat Mitigation and Defensive Security",
+      "id": "https://openalex.org/W7165425166",
+      "title": "Technique des trois devis : quels recours pour le « consulté évincé » ?",
       "authors": [
-        "Aranya Nath, Research Assistant, DPIIT IPR Chair, HNLU, Raipur",
-        "LLM (IPR) NLUJA Gautami Chakravarty"
+        "J Dreyfus"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-21",
+      "published": "2026-06-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165151036",
-      "title": "Structural Cognitive Emergence (SCE): Toward Structural Cognitive Runtime and Brain-Unit Intelligence",
+      "id": "https://openalex.org/W7128667782",
+      "title": "OmniNAV: Omniscient Navigation via Unified LiDAR–Camera BEV Fusion for End-to-End Autonomous Driving",
       "authors": [
-        "Sizhe Tan"
+        "Firas Jendoubi",
+        "Achref Djaber",
+        "Redouane Khemmar"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162994289",
+      "title": "Hybrid Model Engineering: A Residual Learning Approach for Modular AI Pipelines",
+      "authors": [
+        "Theodora Chrysoula",
+        "Viktor Daropoulos",
+        "André Grilo"
+      ],
+      "countries": [
+        "GR",
+        "CA",
+        "PT",
+        "ID",
+        "PL",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7137484780",
+      "title": "Architectural foundations for collaborative machine learning in federated data spaces",
+      "authors": [
+        "Nikolaos Papadakis",
+        "Kostas Magoutis",
+        "Georgios Bouloukakis"
+      ],
+      "countries": [
+        "FR",
+        "GR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162729571",
+      "title": "The Career Development Professional’s AI Toolkit",
+      "authors": [
+        "Marianne Wilson",
+        "Michael Larbalestier"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165453457",
-      "title": "Impact of Monolingual to Cross-Lingual Training Objective Ratios on Zero-Shot nDCG for Multilingual Dense Retrievers on BEIR",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165451259",
-      "title": "Hybrid Batch Strategy for Aligning Monolingual and Cross-Lingual Representation Spaces",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165454352",
-      "title": "Adversarial Training for Robust Cross-Lingual Word Alignment in Low-Resource Languages",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165471366",
-      "title": "Scaling Multilingual Language Models and Zero-Shot R@1 Gaps via Optimal Transport Distillation on Flickr30k-Entities",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-21",
+      "published": "2026-06-22",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-23T10:38:27.896629+00:00",
+  "fetched_at": "2026-06-23T10:55:11.474524+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -42,11 +42,11 @@
       "key": "compute",
       "label": "Compute",
       "radar_label": "Compute",
-      "us_score": 7.6,
-      "china_score": 2.4,
+      "us_score": 7.4,
+      "china_score": 2.6,
       "winner": "US",
-      "delta": 5.2,
-      "edge": "+5.2 US",
+      "delta": 4.8,
+      "edge": "+4.8 US",
       "confidence": "Medium confidence",
       "score_method": "count_share",
       "caveat": "Triangulated index: training compute (40%, Epoch AI disclosed FLOPs), hardware supply (40%, NVIDIA FY2025 10-K geographic revenue + Huawei Ascend deployment estimates), and visible HPC (20%, TOP500 + China non-submission corrections + US private clusters). Systematic gaps remain: China's frontier closed models do not disclose compute; Huawei Ascend deployment scale relies on analyst estimates; China stopped submitting most HPC systems to TOP500 after 2023. A separate hidden-compute uncertainty band (China 20–42% est.) is shown in the detail panel — the scored composite (25%) is a conservative lower bound.",
@@ -127,11 +127,11 @@
     {
       "key": "compute",
       "dimension": "Compute",
-      "us": 7.6,
-      "china": 2.4,
+      "us": 7.4,
+      "china": 2.6,
       "winner": "US",
-      "delta": 5.2,
-      "edge": "+5.2 US"
+      "delta": 4.8,
+      "edge": "+4.8 US"
     },
     {
       "key": "adoption",
@@ -181,7 +181,7 @@
     ],
     "us": [
       6.6,
-      7.6,
+      7.4,
       6.2,
       5.9,
       3.7,
@@ -189,7 +189,7 @@
     ],
     "china": [
       3.4,
-      2.4,
+      2.6,
       7.4,
       4.1,
       7.4,

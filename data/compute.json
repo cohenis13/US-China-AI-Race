@@ -3,7 +3,7 @@
   "dimension": "compute",
   "metric_key": "compute_triangulated_index",
   "description": "Triangulated compute index: training compute (40%, Epoch AI), hardware supply (40%, NVIDIA revenue + Huawei Ascend), and visible HPC (20%, TOP500 + corrections). Coverage gaps are explicitly documented in hidden_compute_band.",
-  "fetched_at": "2026-06-22T13:26:26.139729+00:00",
+  "fetched_at": "2026-06-23T10:55:11.414020+00:00",
   "weights": {
     "training_compute": 0.4,
     "hardware_supply": 0.4,
@@ -11,7 +11,7 @@
   },
   "summary": {
     "US": {
-      "composite_score": 75.7,
+      "composite_score": 73.6,
       "proxies": {
         "training_compute": {
           "weight": 0.4,
@@ -31,16 +31,16 @@
         },
         "visible_hpc": {
           "weight": 0.2,
-          "share_score": 72.5,
-          "top500_rmax_pflops": 6961.3,
+          "share_score": 62.2,
+          "top500_rmax_pflops": 7038.9,
           "private_cluster_addition_pflops": 2300,
-          "adjusted_pflops": 9261.3,
+          "adjusted_pflops": 9338.9,
           "source": "TOP500 + private cluster estimates (xAI, Meta, Microsoft)"
         }
       }
     },
     "China": {
-      "composite_score": 24.3,
+      "composite_score": 26.4,
       "proxies": {
         "training_compute": {
           "weight": 0.4,
@@ -60,10 +60,10 @@
         },
         "visible_hpc": {
           "weight": 0.2,
-          "share_score": 27.5,
-          "top500_rmax_pflops": 204.9,
+          "share_score": 37.8,
+          "top500_rmax_pflops": 2374.6,
           "non_top500_correction_pflops": 3300,
-          "adjusted_pflops": 3504.9,
+          "adjusted_pflops": 5674.6,
           "source": "TOP500 + China non-submission corrections (Tianhe-3, Sunway NG, etc.)"
         }
       }
@@ -171,21 +171,21 @@
   },
   "top500": {
     "source_url": "https://www.top500.org",
-    "list_edition": "2025/11",
+    "list_edition": "2026/06",
     "data_available": true,
     "total_systems": 500,
     "summary": {
       "US": {
-        "systems": 171,
-        "rmax_pflops": 6961.3
+        "systems": 162,
+        "rmax_pflops": 7038.9
       },
       "China": {
-        "systems": 40,
-        "rmax_pflops": 204.9
+        "systems": 30,
+        "rmax_pflops": 2374.6
       },
       "Other": {
-        "systems": 289,
-        "rmax_pflops": 7827.2
+        "systems": 308,
+        "rmax_pflops": 9324.1
       },
       "Unknown": {
         "systems": 0,
@@ -195,123 +195,123 @@
     "top_systems": [
       {
         "rank": 1,
+        "name": "LineShine",
+        "country": "China",
+        "rmax_pflops": 2198.4
+      },
+      {
+        "rank": 2,
         "name": "El Capitan",
         "country": "US",
         "rmax_pflops": 1809.0
       },
       {
-        "rank": 2,
+        "rank": 3,
         "name": "Frontier",
         "country": "US",
         "rmax_pflops": 1353.0
       },
       {
-        "rank": 3,
+        "rank": 4,
         "name": "Aurora",
         "country": "US",
         "rmax_pflops": 1012.0
       },
       {
-        "rank": 4,
+        "rank": 5,
         "name": "JUPITER Booster",
         "country": "Other",
         "rmax_pflops": 1000.0
       },
       {
-        "rank": 5,
+        "rank": 6,
+        "name": "HPC7",
+        "country": "Other",
+        "rmax_pflops": 571.5
+      },
+      {
+        "rank": 7,
         "name": "Eagle",
         "country": "US",
         "rmax_pflops": 561.2
       },
       {
-        "rank": 6,
+        "rank": 8,
         "name": "HPC6",
         "country": "Other",
         "rmax_pflops": 477.9
       },
       {
-        "rank": 7,
+        "rank": 9,
         "name": "Supercomputer Fugaku",
         "country": "Other",
         "rmax_pflops": 442.01
       },
       {
-        "rank": 8,
+        "rank": 10,
         "name": "Alps",
         "country": "Other",
         "rmax_pflops": 434.9
       },
       {
-        "rank": 9,
+        "rank": 11,
         "name": "LUMI",
         "country": "Other",
         "rmax_pflops": 379.7
       },
       {
-        "rank": 10,
+        "rank": 12,
         "name": "Leonardo",
         "country": "Other",
         "rmax_pflops": 241.2
       },
       {
-        "rank": 11,
+        "rank": 13,
         "name": "Isambard-AI phase 2",
         "country": "Other",
         "rmax_pflops": 216.5
       },
       {
-        "rank": 12,
+        "rank": 14,
         "name": "Tuolumne",
         "country": "US",
         "rmax_pflops": 208.1
       },
       {
-        "rank": 13,
+        "rank": 15,
         "name": "ISEG2",
         "country": "Other",
         "rmax_pflops": 202.4
       },
       {
-        "rank": 14,
+        "rank": 16,
         "name": "MareNostrum 5 ACC",
         "country": "Other",
         "rmax_pflops": 175.3
       },
       {
-        "rank": 15,
+        "rank": 17,
         "name": "Discovery 6",
         "country": "US",
         "rmax_pflops": 164.2
       },
       {
-        "rank": 16,
+        "rank": 18,
+        "name": "Maximus-02",
+        "country": "US",
+        "rmax_pflops": 156.1
+      },
+      {
+        "rank": 19,
         "name": "ABCI 3.0",
         "country": "Other",
         "rmax_pflops": 145.1
       },
       {
-        "rank": 17,
-        "name": "CHIE-4",
-        "country": "Other",
-        "rmax_pflops": 135.4
-      },
-      {
-        "rank": 18,
-        "name": "Shaheen III - GPU",
-        "country": "Other",
-        "rmax_pflops": 122.8
-      },
-      {
-        "rank": 19,
-        "name": "Eos NVIDIA DGX SuperPOD",
-        "country": "US",
-        "rmax_pflops": 121.4
-      },
-      {
         "rank": 20,
-        "name": "MAXIMUS-384",
-        "country": "US",
-        "rmax_pflops": 114.5
+        "name": "NIPA()-CL1",
+        "country": "Other",
+        "rmax_pflops": 137.4
       }
     ],
     "china_non_submission_note": "China stopped submitting its major supercomputers to TOP500 starting in 2023. The November 2023 list showed only 40 Chinese systems at 205 PFlops total, but China's actual HPC capacity is known to be significantly larger based on government announcements. TOP500 alone is not a valid primary metric for China."

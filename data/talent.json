@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-22T12:53:27.126165+00:00",
+  "fetched_at": "2026-06-23T10:38:27.842124+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.2,
+          "share_score": 36.3,
           "paper_volume": {
-            "raw_value": 169762,
-            "share_score": 41.2,
+            "raw_value": 170356,
+            "share_score": 41.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4245,
+            "raw_value": 4242,
             "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3074,
+            "raw_value": 3069,
             "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.8,
+          "share_score": 63.7,
           "paper_volume": {
-            "raw_value": 242340,
-            "share_score": 58.8,
+            "raw_value": 242050,
+            "share_score": 58.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7649,
+            "raw_value": 7630,
             "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6534,
+            "raw_value": 6519,
             "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259497
+        "count": 259472
       },
       {
         "country_code": "CN",
-        "count": 242340
+        "count": 242050
       },
       {
         "country_code": "US",
-        "count": 169762
+        "count": 170356
       },
       {
         "country_code": "DE",
-        "count": 162483
+        "count": 162383
       },
       {
         "country_code": "IN",
-        "count": 94705
+        "count": 94733
       },
       {
         "country_code": "GB",
-        "count": 50788
+        "count": 50771
       },
       {
         "country_code": "ID",
-        "count": 29590
+        "count": 29598
       },
       {
         "country_code": "FR",
-        "count": 26990
+        "count": 26968
       },
       {
         "country_code": "IT",
-        "count": 25585
+        "count": 25584
       },
       {
         "country_code": "CA",
-        "count": 25515
+        "count": 25485
       }
     ],
     "volume": {
-      "us": 169762,
-      "china": 242340,
-      "total": 2352995,
+      "us": 170356,
+      "china": 242050,
+      "total": 2355726,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4245,
-      "china": 7649,
-      "total": 18583,
+      "us": 4242,
+      "china": 7630,
+      "total": 18549,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3074,
-      "china": 6534,
-      "total": 14969,
+      "us": 3069,
+      "china": 6519,
+      "total": 14934,
       "data_ok": true
     }
   },
@@ -182,160 +182,134 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163780073",
-      "title": "Robust Adaptive Motion Control for Autonomous Vehicle Dynamics under Uncertainties via a Multi-Controller Architecture",
+      "id": "https://openalex.org/W7165475075",
+      "title": "Tuneable Machine Learning in Musical Instruments: A Duoethnography",
       "authors": [
-        "Armando Miranda-Moya",
-        "Lounis Adouane"
+        "Chris Kiefer",
+        "Adam Staff",
+        "Andrea Martelloni"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-22",
+      "published": "2026-06-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7141781638",
-      "title": "Reliability-Aware Fusion for Semantic Segmentation under Sensor Degradation and Failures",
+      "id": "https://openalex.org/W7165473709",
+      "title": "Orbis: Composing a Light-and-Sound Installation with Min Waves Generated in Artificial Cells",
       "authors": [
-        "Lucas Deregnaucourt",
-        "Abdelhak Benamirouche",
-        "Mihreteab Negash Geletu"
-      ],
-      "countries": [
-        "FR",
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163836166",
-      "title": "Ariel-ML: Embedded Rust Leveraging Multicore for Neural Networks on Heterogeneous Microcontrollers",
-      "authors": [
-        "Zhaolan Huang",
-        "Kaspar Schleiser",
-        "Gyungmin Myung"
+        "Yukihiro Sugawara",
+        "Kotaro Watanabe",
+        "Shinnosuke Hirose"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-22",
+      "published": "2026-06-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163015167",
-      "title": "Hybrid Model Engineering: A Residual Learning Approach for Modular AI Pipelines",
+      "id": "https://openalex.org/W7165482414",
+      "title": "Melody Slot Machine with RoboSax",
       "authors": [
-        "Theodora Chrysoula",
-        "Viktor Daropoulos",
-        "André Grilo"
-      ],
-      "countries": [
-        "GR",
-        "CA",
-        "PT",
-        "ID",
-        "PL",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7126705445",
-      "title": "Focus on Relevant Road Users with Multi-Rules Reachable Sets",
-      "authors": [
-        "Mónica Fossati",
-        "Ezio Malis",
-        "Philippe Martinet"
+        "Masatoshi Hamanaka",
+        "Gou Koutaki"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-22",
+      "published": "2026-06-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165425166",
-      "title": "Technique des trois devis : quels recours pour le « consulté évincé » ?",
+      "id": "https://openalex.org/W7165483106",
+      "title": "iXeRemin: Designing a Polyphonic MR Instrument for Artistic Performance and Interaction",
       "authors": [
-        "J Dreyfus"
+        "G S Lee"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-22",
+      "published": "2026-06-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128667782",
-      "title": "OmniNAV: Omniscient Navigation via Unified LiDAR–Camera BEV Fusion for End-to-End Autonomous Driving",
+      "id": "https://openalex.org/W7165477022",
+      "title": "Orbis: Composing a Light-and-Sound Installation with Min Waves Generated in Artificial Cells",
       "authors": [
-        "Firas Jendoubi",
-        "Achref Djaber",
-        "Redouane Khemmar"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162994289",
-      "title": "Hybrid Model Engineering: A Residual Learning Approach for Modular AI Pipelines",
-      "authors": [
-        "Theodora Chrysoula",
-        "Viktor Daropoulos",
-        "André Grilo"
-      ],
-      "countries": [
-        "GR",
-        "CA",
-        "PT",
-        "ID",
-        "PL",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7137484780",
-      "title": "Architectural foundations for collaborative machine learning in federated data spaces",
-      "authors": [
-        "Nikolaos Papadakis",
-        "Kostas Magoutis",
-        "Georgios Bouloukakis"
-      ],
-      "countries": [
-        "FR",
-        "GR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162729571",
-      "title": "The Career Development Professional’s AI Toolkit",
-      "authors": [
-        "Marianne Wilson",
-        "Michael Larbalestier"
+        "Yukihiro Sugawara",
+        "Kotaro Watanabe",
+        "Shinnosuke Hirose"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-22",
+      "published": "2026-06-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165485005",
+      "title": "SonoCube: A Handheld Motion-Responsive Sound Object",
+      "authors": [
+        "Szymon Walendowski",
+        "Akito van Troyer"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165493637",
+      "title": "The Readymade Synth: Prepared Synthesis with Everyday Objects",
+      "authors": [
+        "Antoni Rayzhekov",
+        "Martin Murer"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165478960",
+      "title": "e-baton: Recognising Conducting Gestures with Machine Learning",
+      "authors": [
+        "Marko Jeremic",
+        "Akito Van Troyer"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165476909",
+      "title": "Accessible Musical ALife Through LLM Co-Creation",
+      "authors": [
+        "Michael Clemens",
+        "Piotr Walas",
+        "Victor Shepardson"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165485481",
+      "title": "Feedforward | unChambered",
+      "authors": [
+        "Jinku Kim"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

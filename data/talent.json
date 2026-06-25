@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-24T10:24:55.044341+00:00",
+  "fetched_at": "2026-06-25T10:17:31.561558+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.3,
           "paper_volume": {
-            "raw_value": 170956,
+            "raw_value": 172886,
             "share_score": 41.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4255,
+            "raw_value": 4279,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3074,
+            "raw_value": 3086,
             "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.7,
           "paper_volume": {
-            "raw_value": 242212,
+            "raw_value": 244685,
             "share_score": 58.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7637,
+            "raw_value": 7675,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6553,
+            "raw_value": 6577,
             "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259474
+        "count": 259626
       },
       {
         "country_code": "CN",
-        "count": 242212
+        "count": 244685
       },
       {
         "country_code": "US",
-        "count": 170956
+        "count": 172886
       },
       {
         "country_code": "DE",
-        "count": 162402
+        "count": 162881
       },
       {
         "country_code": "IN",
-        "count": 95017
+        "count": 95908
       },
       {
         "country_code": "GB",
-        "count": 50839
+        "count": 51158
       },
       {
         "country_code": "ID",
-        "count": 29605
+        "count": 29794
       },
       {
         "country_code": "FR",
-        "count": 26961
-      },
-      {
-        "country_code": "IT",
-        "count": 25560
+        "count": 27089
       },
       {
         "country_code": "CA",
-        "count": 25513
+        "count": 25638
+      },
+      {
+        "country_code": "IT",
+        "count": 25631
       }
     ],
     "volume": {
-      "us": 170956,
-      "china": 242212,
-      "total": 2360081,
+      "us": 172886,
+      "china": 244685,
+      "total": 2377051,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4255,
-      "china": 7637,
-      "total": 18565,
+      "us": 4279,
+      "china": 7675,
+      "total": 18665,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3074,
-      "china": 6553,
-      "total": 14992,
+      "us": 3086,
+      "china": 6577,
+      "total": 15067,
       "data_ok": true
     }
   },
@@ -182,138 +182,131 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7164245667",
-      "title": "Design of Robots for Unstructured Environments - A Customisable Agile Quadruped, a Sensorised High-Force Gripper, and an Intelligent Drilling End-Effector",
+      "id": "https://openalex.org/W7165747161",
+      "title": "How I do it: a standardized robotic workflow for image-guided stereo-electroencephalography: technical description and institutional experience",
       "authors": [
-        "Marco Roveri",
-        "Edoardo Del Bianco"
+        "P Gabriel Roldán",
+        "Alvaro Bedoya Gómez",
+        "Gloria Cabrera"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-24",
+      "published": "2026-06-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165555311",
-      "title": "[The path to wellness: a journey of body and spirit].",
+      "id": "https://openalex.org/W7165788981",
+      "title": "Generative-adversarial-networks-based spectral refinement reconstruction for plasmonic metasurfaces with enhanced efficiency and generalization",
       "authors": [
-        "Y M Li"
+        "Z G Zhang",
+        "Yuzhang Liang",
+        "Haonan Wei"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165796458",
+      "title": "Cascade Progressive Distilled Networks for Heterogeneous Tabular Data Classification",
+      "authors": [
+        "Alexander Viktorov"
       ],
       "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-06-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130909880",
-      "title": "The C.A.R.S. model",
-      "authors": [
-        "Bojana Petrić"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165482414",
-      "title": "Melody Slot Machine with RoboSax",
-      "authors": [
-        "Masatoshi Hamanaka",
-        "Gou Koutaki"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165473709",
-      "title": "Orbis: Composing a Light-and-Sound Installation with Min Waves Generated in Artificial Cells",
-      "authors": [
-        "Yukihiro Sugawara",
-        "Kotaro Watanabe",
-        "Shinnosuke Hirose"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165558627",
-      "title": "Research on the Application of NLP Algorithm Based on Multi-interaction Feature Fusion in English Writing Teaching",
-      "authors": [
-        "Chunmei Qiao"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165475075",
-      "title": "Tuneable Machine Learning in Musical Instruments: A Duoethnography",
-      "authors": [
-        "Chris Kiefer",
-        "Adam Staff",
-        "Andrea Martelloni"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165534363",
-      "title": "Benchmarking Topological Awareness: A Comparative Study of Physics-Informed vs. Learned Graph Architectures for System-Level Anomaly Detection in Offshore Subsea Networks",
-      "authors": [
-        "M. Uygur",
-        "A. Polat",
-        "E. U. Yildirim"
-      ],
-      "countries": [
-        "TR"
+        "RU"
       ],
       "primary_country": "Other",
-      "published": "2026-06-23",
+      "published": "2026-06-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165545713",
-      "title": "Seismic-Informed Machine Learning for Performance Forecasting and Strategic Infill Drilling in a Mature Carbonate Field",
+      "id": "https://openalex.org/W7165402869",
+      "title": "ARTIFICIAL INTELLIGENCE",
       "authors": [
-        "H. Eyeci",
-        "M. Cicek",
-        "S. Canbolat"
-      ],
-      "countries": [
-        "TR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165553736",
-      "title": "[V1] CTNet neuronal pseudo-discreto con perceptores Up/Pu: cierre verificable, estado computable, aprendizaje por incidencia, recartografía recursiva y potencia futura",
-      "authors": [
-        "Ginés Espín Flores"
+        "Jyoti Pasi",
+        "P. N. Dwivedi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-23",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165776624",
+      "title": "Impact of field number and monitor units per segment on magnetic resonance-guided hypofractionated stereotactic radiotherapy for brain metastases: plan quality, deliverability, and robustness trade-offs",
+      "authors": [
+        "Shan Ren",
+        "J. He",
+        "Sheng Han"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165358191",
+      "title": "Pyriod: Interactive prewhitening and sinusoidal fitting for astronomical time series",
+      "authors": [
+        "Keaton Bell"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165781019",
+      "title": "CTAMNet: an efficient video recognition method on edge devices",
+      "authors": [
+        "Bingxin Li",
+        "Caiming Zheng",
+        "Zhanglin Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165768449",
+      "title": "Using CERIC with Social Collaborative Annotation (SCA)",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164543013",
+      "title": "Scientific Ontology (SO) / 存在境界論: Public Edition v4.0.0",
+      "authors": [
+        "華凜 万土"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165796228",
+      "title": "The Hero We Deserve: The Image of Dark Knight as Anti-Utopia in Kentaro Miura’s Manga Berserk",
+      "authors": [
+        "Minjie Su"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

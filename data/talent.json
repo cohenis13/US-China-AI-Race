@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-25T10:17:31.561558+00:00",
+  "fetched_at": "2026-06-26T10:25:15.959066+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.3,
+      "composite_score": 46.4,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.3,
+          "share_score": 36.4,
           "paper_volume": {
-            "raw_value": 172886,
+            "raw_value": 172546,
             "share_score": 41.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4279,
-            "share_score": 35.8,
+            "raw_value": 4231,
+            "share_score": 35.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3086,
-            "share_score": 31.9,
+            "raw_value": 3071,
+            "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.7,
+      "composite_score": 53.6,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.7,
+          "share_score": 63.6,
           "paper_volume": {
-            "raw_value": 244685,
+            "raw_value": 243788,
             "share_score": 58.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7675,
-            "share_score": 64.2,
+            "raw_value": 7554,
+            "share_score": 64.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6577,
-            "share_score": 68.1,
+            "raw_value": 6539,
+            "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259626
+        "count": 259542
       },
       {
         "country_code": "CN",
-        "count": 244685
+        "count": 243788
       },
       {
         "country_code": "US",
-        "count": 172886
+        "count": 172546
       },
       {
         "country_code": "DE",
-        "count": 162881
+        "count": 162692
       },
       {
         "country_code": "IN",
-        "count": 95908
+        "count": 95618
       },
       {
         "country_code": "GB",
-        "count": 51158
+        "count": 51032
       },
       {
         "country_code": "ID",
-        "count": 29794
+        "count": 29665
       },
       {
         "country_code": "FR",
-        "count": 27089
-      },
-      {
-        "country_code": "CA",
-        "count": 25638
+        "count": 27024
       },
       {
         "country_code": "IT",
-        "count": 25631
+        "count": 25584
+      },
+      {
+        "country_code": "CA",
+        "count": 25560
       }
     ],
     "volume": {
-      "us": 172886,
-      "china": 244685,
-      "total": 2377051,
+      "us": 172546,
+      "china": 243788,
+      "total": 2373069,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4279,
-      "china": 7675,
-      "total": 18665,
+      "us": 4231,
+      "china": 7554,
+      "total": 18455,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3086,
-      "china": 6577,
-      "total": 15067,
+      "us": 3071,
+      "china": 6539,
+      "total": 14989,
       "data_ok": true
     }
   },
@@ -182,131 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7165747161",
-      "title": "How I do it: a standardized robotic workflow for image-guided stereo-electroencephalography: technical description and institutional experience",
+      "id": "https://openalex.org/W7165526937",
+      "title": "The New Ontology of Love",
       "authors": [
-        "P Gabriel Roldán",
-        "Alvaro Bedoya Gómez",
-        "Gloria Cabrera"
+        "Mario Enrique Molina"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165788981",
-      "title": "Generative-adversarial-networks-based spectral refinement reconstruction for plasmonic metasurfaces with enhanced efficiency and generalization",
+      "id": "https://openalex.org/W7165593692",
+      "title": "The New Ontology of Love",
       "authors": [
-        "Z G Zhang",
-        "Yuzhang Liang",
-        "Haonan Wei"
+        "Mario Enrique Molina"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165796458",
-      "title": "Cascade Progressive Distilled Networks for Heterogeneous Tabular Data Classification",
+      "id": "https://openalex.org/W7128888790",
+      "title": "Deep Learning-Based Data Hiding Technique for Medical Images",
       "authors": [
-        "Alexander Viktorov"
+        "Hadjer SAIDI"
       ],
       "countries": [
-        "RU"
+        "DZ"
       ],
       "primary_country": "Other",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165402869",
-      "title": "ARTIFICIAL INTELLIGENCE",
+      "id": "https://openalex.org/W7165467464",
+      "title": "Source code and data files for \" 1. Ovee TA, Arnob EA, Louf J-F. Plant-Inspired Elastic–Hydraulic Tactile Sensing Enables Quantitative Stiffness Estimation in Soft Robots. Soft Robotics. 2026;0(0). doi:10.1177/21695172261453210 \"",
       "authors": [
-        "Jyoti Pasi",
-        "P. N. Dwivedi"
+        "Tofayel  Ahammad Ovee",
+        "Jean‐François Louf",
+        "Eftakhar  Ahmed Arnob"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7124369607",
+      "title": "Enhancing Research Communication with Visual Tools",
+      "authors": [
+        "Sonya Fogg"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165776624",
-      "title": "Impact of field number and monitor units per segment on magnetic resonance-guided hypofractionated stereotactic radiotherapy for brain metastases: plan quality, deliverability, and robustness trade-offs",
+      "id": "https://openalex.org/W7164099806",
+      "title": "Neuro-Symbolic Signal Processing: A quest for optimal models",
       "authors": [
-        "Shan Ren",
-        "J. He",
-        "Sheng Han"
+        "Lukas Petrus Anthonius Arts",
+        "Sub Cybernetics",
+        "Egon van den Broek"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165358191",
-      "title": "Pyriod: Interactive prewhitening and sinusoidal fitting for astronomical time series",
+      "id": "https://openalex.org/W7162810771",
+      "title": "rbabakhag/V-DoVeR: V-DoVeR v1.0.0",
       "authors": [
-        "Keaton Bell"
+        "rbabakhag"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165781019",
-      "title": "CTAMNet: an efficient video recognition method on edge devices",
+      "id": "https://openalex.org/W7130290663",
+      "title": "Linking and Combining Digital Music Sources in Digital Archives: The CollabScore approach",
       "authors": [
-        "Bingxin Li",
-        "Caiming Zheng",
-        "Zhanglin Wang"
+        "P Rigaux",
+        "Bertrand Coüasnon",
+        "Sébastien Cretin"
+      ],
+      "countries": [
+        "FR",
+        "TN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162811255",
+      "title": "rbabakhag/V-DoVeR: V-DoVeR v1.0.0",
+      "authors": [
+        "rbabakhag"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165768449",
-      "title": "Using CERIC with Social Collaborative Annotation (SCA)",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164543013",
-      "title": "Scientific Ontology (SO) / 存在境界論: Public Edition v4.0.0",
+      "id": "https://openalex.org/W7165457070",
+      "title": "Source code and data files for \" 1. Ovee TA, Arnob EA, Louf J-F. Plant-Inspired Elastic–Hydraulic Tactile Sensing Enables Quantitative Stiffness Estimation in Soft Robots. Soft Robotics. 2026;0(0). doi:10.1177/21695172261453210 \"",
       "authors": [
-        "華凜 万土"
+        "Tofayel  Ahammad Ovee",
+        "Jean‐François Louf",
+        "Eftakhar  Ahmed Arnob"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165796228",
-      "title": "The Hero We Deserve: The Image of Dark Knight as Anti-Utopia in Kentaro Miura’s Manga Berserk",
-      "authors": [
-        "Minjie Su"
+      "countries": [
+        "US"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-25",
+      "primary_country": "US",
+      "published": "2026-06-26",
       "cited_by_count": 0,
       "source": "openalex"
     }

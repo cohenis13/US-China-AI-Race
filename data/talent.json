@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-28T10:06:10.193205+00:00",
+  "fetched_at": "2026-06-29T12:02:55.718360+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.5,
           "paper_volume": {
-            "raw_value": 175153,
-            "share_score": 41.8,
+            "raw_value": 175856,
+            "share_score": 41.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4231,
+            "raw_value": 4212,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3090,
-            "share_score": 32.1,
+            "raw_value": 3067,
+            "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.5,
           "paper_volume": {
-            "raw_value": 244186,
-            "share_score": 58.2,
+            "raw_value": 244135,
+            "share_score": 58.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7577,
+            "raw_value": 7561,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6540,
-            "share_score": 67.9,
+            "raw_value": 6506,
+            "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259664
+        "count": 259677
       },
       {
         "country_code": "CN",
-        "count": 244186
+        "count": 244135
       },
       {
         "country_code": "US",
-        "count": 175153
+        "count": 175856
       },
       {
         "country_code": "DE",
-        "count": 162959
+        "count": 162981
       },
       {
         "country_code": "IN",
-        "count": 95888
+        "count": 95994
       },
       {
         "country_code": "GB",
-        "count": 51368
+        "count": 51441
       },
       {
         "country_code": "ID",
-        "count": 29838
+        "count": 29820
       },
       {
         "country_code": "FR",
-        "count": 27246
-      },
-      {
-        "country_code": "IT",
-        "count": 25727
+        "count": 27285
       },
       {
         "country_code": "CA",
+        "count": 25744
+      },
+      {
+        "country_code": "IT",
         "count": 25704
       }
     ],
     "volume": {
-      "us": 175153,
-      "china": 244186,
-      "total": 2404049,
+      "us": 175856,
+      "china": 244135,
+      "total": 2409533,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4231,
-      "china": 7577,
-      "total": 18481,
+      "us": 4212,
+      "china": 7561,
+      "total": 18435,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3090,
-      "china": 6540,
-      "total": 15026,
+      "us": 3067,
+      "china": 6506,
+      "total": 14929,
       "data_ok": true
     }
   },
@@ -182,126 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166297294",
-      "title": "美式书选自佩罗及其他流行作家(Four and Twenty Fairy Tales Selected from ).pdf",
+      "id": "https://openalex.org/W7166450372",
+      "title": "英式书一群恶棍,(A Set of Rogues Namely Christopher Sutton,).pdf",
       "authors": [
         "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166304031",
-      "title": "美式书谁吃了粉红色的糖果?(Who Ate the Pink Sweetmeat And Other ).pdf",
+      "id": "https://openalex.org/W7166469807",
+      "title": "DIVA-3D: a diverse 3D talking head dataset from in-the-wild videos",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Yuhan Wu",
+        "Yixuan Zhang",
+        "Qing Chang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166307942",
-      "title": "美式书命运:一个动荡时代的故事(The Fate A Tale of Stirring Times).pdf",
+      "id": "https://openalex.org/W7166461639",
+      "title": "STR-Ops-Corpus: Short-Term Rental Operations & Property Inspection Corpus",
       "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166325530",
-      "title": "banking-agent-audit: Governance Patterns for Autonomous AI Agents in Regulated Banking",
-      "authors": [
-        "Kunjar Bhaduri"
+        "Samuel Parks"
       ],
       "countries": [
-        "GB"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-06-28",
+      "primary_country": "US",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166365357",
-      "title": "美式书乔治在营地;或,平原上的生活(George in Camp; or, Life on the Plains).pdf",
+      "id": "https://openalex.org/W7162350232",
+      "title": "Génération de Données Synthétiques Équitables et Préservant la Vie Privée via Autoencodeur Variationnel Basé sur le Clustering et Réseaux Antagonistes Génératifs",
+      "authors": [
+        "Malek Adouani",
+        "Zaineb Chelly Dagdia"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-06-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166438214",
+      "title": "Code and data for \"Ultra-fast Battery Health Estimation from Random 100 mV Charging Fragments using Conditional Generative Diffusion\"",
+      "authors": [
+        "Ziheng Li",
+        "Guangzhong Dong",
+        "Haonan Chen"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-06-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166436495",
+      "title": "英式书文学及通论讲座和散文(Literary and General Lectures and Essays).pdf",
       "authors": [
         "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166307575",
-      "title": "美式书莫蒂默家族的最后一人:双声部(The Last of the Mortimers A Story in Two ).pdf",
+      "id": "https://openalex.org/W7166443848",
+      "title": "Comparative Analysis of English and Multilingual Intermediate-Task Training for Low-Resource Robustness on XTREME-R",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Assignee Research"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166313320",
-      "title": "美式书切特温德·卡尔弗利 新版,1877年(Chetwynd Calverley New Edition, 1877).pdf",
+      "id": "https://openalex.org/W7166448856",
+      "title": "Comparative Analysis of English and Multilingual Intermediate-Task Training for Low-Resource Robustness on XTREME-R",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Assignee Research"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166330622",
-      "title": "美式书如何让自己和他人感到快乐(How to amuse yourself and others).pdf",
+      "id": "https://openalex.org/W7166457378",
+      "title": "Language-Specific Intermediate Task Enhancements for Zero-Shot Cross-Lingual Transfer in XTREME",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Assignee Research"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166307735",
-      "title": "美式书厚颜无耻的喜剧演员及其他(The Impudent Comedian, & Others).pdf",
+      "id": "https://openalex.org/W7166467182",
+      "title": "Cross-lingual Transfer Dynamics in XTREME with Non-English Intermediate Tasks",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Assignee Research"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166353477",
-      "title": "Advancing marine microplastic monitoring through deep learning-based image segmentation",
-      "authors": [
-        "Gabriela Fernandez",
-        "Domenico Vito",
-        "Kawther Kaziz"
+      "countries": [
+        "US"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-28",
+      "primary_country": "US",
+      "published": "2026-06-29",
       "cited_by_count": 0,
       "source": "openalex"
     }

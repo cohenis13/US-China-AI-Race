@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-29T12:02:55.718360+00:00",
+  "fetched_at": "2026-06-30T10:33:16.701278+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.5,
           "paper_volume": {
-            "raw_value": 175856,
+            "raw_value": 175776,
             "share_score": 41.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4212,
+            "raw_value": 4201,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3067,
+            "raw_value": 3056,
             "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.5,
           "paper_volume": {
-            "raw_value": 244135,
+            "raw_value": 243954,
             "share_score": 58.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7561,
+            "raw_value": 7543,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6506,
+            "raw_value": 6481,
             "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259677
+        "count": 259595
       },
       {
         "country_code": "CN",
-        "count": 244135
+        "count": 243954
       },
       {
         "country_code": "US",
-        "count": 175856
+        "count": 175776
       },
       {
         "country_code": "DE",
-        "count": 162981
+        "count": 162949
       },
       {
         "country_code": "IN",
-        "count": 95994
+        "count": 95973
       },
       {
         "country_code": "GB",
-        "count": 51441
+        "count": 51411
       },
       {
         "country_code": "ID",
-        "count": 29820
+        "count": 29736
       },
       {
         "country_code": "FR",
-        "count": 27285
+        "count": 27274
       },
       {
         "country_code": "CA",
-        "count": 25744
+        "count": 25736
       },
       {
         "country_code": "IT",
-        "count": 25704
+        "count": 25691
       }
     ],
     "volume": {
-      "us": 175856,
-      "china": 244135,
-      "total": 2409533,
+      "us": 175776,
+      "china": 243954,
+      "total": 2408539,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4212,
-      "china": 7561,
-      "total": 18435,
+      "us": 4201,
+      "china": 7543,
+      "total": 18366,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3067,
-      "china": 6506,
-      "total": 14929,
+      "us": 3056,
+      "china": 6481,
+      "total": 14878,
       "data_ok": true
     }
   },
@@ -182,139 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166450372",
-      "title": "英式书一群恶棍,(A Set of Rogues Namely Christopher Sutton,).pdf",
+      "id": "https://openalex.org/W7165772724",
+      "title": "APPLICATION OF MACHINE LEARNING AND REGRESSION MODELS IN THE PREDICTION OF BALL BURNISHING PARAMETERS FOR ALUMINUM ALLOY",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Academic Journal of Manufacturing Engineering"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-29",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166469807",
-      "title": "DIVA-3D: a diverse 3D talking head dataset from in-the-wild videos",
+      "id": "https://openalex.org/W7166321931",
+      "title": "The Black Box vs. the Razor: Popperian Falsifiability and the Kuhnian Paradigm Shift in the Age of AI",
       "authors": [
-        "Yuhan Wu",
-        "Yixuan Zhang",
-        "Qing Chang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-06-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166461639",
-      "title": "STR-Ops-Corpus: Short-Term Rental Operations & Property Inspection Corpus",
-      "authors": [
-        "Samuel Parks"
+        "Paulo Alexandre e Castro"
       ],
       "countries": [
-        "US"
+        "PT"
       ],
-      "primary_country": "US",
-      "published": "2026-06-29",
+      "primary_country": "Other",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162350232",
-      "title": "Génération de Données Synthétiques Équitables et Préservant la Vie Privée via Autoencodeur Variationnel Basé sur le Clustering et Réseaux Antagonistes Génératifs",
+      "id": "https://openalex.org/W7164349756",
+      "title": "The Role of Artificial Intelligence in Higher Education and Skill Development",
       "authors": [
-        "Malek Adouani",
-        "Zaineb Chelly Dagdia"
+        "S M Seetalad"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165794918",
+      "title": "TOWARDS EXPLAINABLE AND INFERENTIAL BRAND-AWARE INTELLIGENT MODELS FOR PREDICTING CUSTOMER CONSUMPTION BEHAVIOR",
+      "authors": [
+        "Academic Journal of Manufacturing Engineering"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-29",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166438214",
-      "title": "Code and data for \"Ultra-fast Battery Health Estimation from Random 100 mV Charging Fragments using Conditional Generative Diffusion\"",
+      "id": "https://openalex.org/W7134120560",
+      "title": "A Risk–Utility Optimization Framework for Governing Large Language Model Responses",
       "authors": [
-        "Ziheng Li",
-        "Guangzhong Dong",
-        "Haonan Chen"
+        "Jinghao Chang"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-06-29",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166436495",
-      "title": "英式书文学及通论讲座和散文(Literary and General Lectures and Essays).pdf",
+      "id": "https://openalex.org/W7134241831",
+      "title": "Advancing Road Traffic Safety: Deep Learning for Traffic Modeling and Strategy",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Chenxi Wang"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-06-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165122214",
+      "title": "Türkçeyi İkinci Dil Olarak Konuşan Bireylerde Duygu Algısı ve İfadesi",
+      "authors": [
+        "Filiz Mergen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-29",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166443848",
-      "title": "Comparative Analysis of English and Multilingual Intermediate-Task Training for Low-Resource Robustness on XTREME-R",
+      "id": "https://openalex.org/W7166025884",
+      "title": "Processed PhenoCycler single-cell protein expression matrix of brain metastases",
       "authors": [
-        "Assignee Research"
+        "Yunzhi Zou",
+        "J Y Zhao",
+        "Chunxiao Chen"
       ],
       "countries": [
-        "US"
+        "CN",
+        "HK"
       ],
-      "primary_country": "US",
-      "published": "2026-06-29",
+      "primary_country": "China",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166448856",
-      "title": "Comparative Analysis of English and Multilingual Intermediate-Task Training for Low-Resource Robustness on XTREME-R",
+      "id": "https://openalex.org/W7163638547",
+      "title": "Examining the Impact of Artificial Intelligence Applications on Generation Z Through the Example of ChatGPT",
       "authors": [
-        "Assignee Research"
+        "Hakan Tan",
+        "İsnur İnci Armutlu"
       ],
       "countries": [
-        "US"
+        "TR"
       ],
-      "primary_country": "US",
-      "published": "2026-06-29",
+      "primary_country": "Other",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166457378",
-      "title": "Language-Specific Intermediate Task Enhancements for Zero-Shot Cross-Lingual Transfer in XTREME",
+      "id": "https://openalex.org/W7134224825",
+      "title": "Advancing Road Traffic Safety: Deep Learning for Traffic Modeling and Strategy",
       "authors": [
-        "Assignee Research"
+        "Chenxi Wang"
       ],
       "countries": [
-        "US"
+        "IT"
       ],
-      "primary_country": "US",
-      "published": "2026-06-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166467182",
-      "title": "Cross-lingual Transfer Dynamics in XTREME with Non-English Intermediate Tasks",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-06-29",
+      "primary_country": "Other",
+      "published": "2026-06-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

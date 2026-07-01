@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-06-30T10:33:16.701278+00:00",
+  "fetched_at": "2026-07-01T10:44:54.516112+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.5,
+          "share_score": 36.6,
           "paper_volume": {
-            "raw_value": 175776,
-            "share_score": 41.9,
+            "raw_value": 176586,
+            "share_score": 42.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4201,
-            "share_score": 35.8,
+            "raw_value": 4190,
+            "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3056,
-            "share_score": 32.0,
+            "raw_value": 3079,
+            "share_score": 32.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.5,
+          "share_score": 63.4,
           "paper_volume": {
-            "raw_value": 243954,
-            "share_score": 58.1,
+            "raw_value": 242104,
+            "share_score": 57.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7543,
-            "share_score": 64.2,
+            "raw_value": 7536,
+            "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6481,
-            "share_score": 68.0,
+            "raw_value": 6506,
+            "share_score": 67.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259595
+        "count": 259552
       },
       {
         "country_code": "CN",
-        "count": 243954
+        "count": 242104
       },
       {
         "country_code": "US",
-        "count": 175776
+        "count": 176586
       },
       {
         "country_code": "DE",
-        "count": 162949
+        "count": 163011
       },
       {
         "country_code": "IN",
-        "count": 95973
+        "count": 96008
       },
       {
         "country_code": "GB",
-        "count": 51411
+        "count": 51407
       },
       {
         "country_code": "ID",
-        "count": 29736
+        "count": 29342
       },
       {
         "country_code": "FR",
-        "count": 27274
+        "count": 27440
       },
       {
         "country_code": "CA",
-        "count": 25736
+        "count": 25717
       },
       {
         "country_code": "IT",
-        "count": 25691
+        "count": 25654
       }
     ],
     "volume": {
-      "us": 175776,
-      "china": 243954,
-      "total": 2408539,
+      "us": 176586,
+      "china": 242104,
+      "total": 2409942,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4201,
-      "china": 7543,
-      "total": 18366,
+      "us": 4190,
+      "china": 7536,
+      "total": 18337,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3056,
-      "china": 6481,
-      "total": 14878,
+      "us": 3079,
+      "china": 6506,
+      "total": 14949,
       "data_ok": true
     }
   },
@@ -182,140 +182,149 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7165772724",
-      "title": "APPLICATION OF MACHINE LEARNING AND REGRESSION MODELS IN THE PREDICTION OF BALL BURNISHING PARAMETERS FOR ALUMINUM ALLOY",
+      "id": "https://openalex.org/W7166554754",
+      "title": "IMPORTANCE AND APPLICATION OF ARTIFICIAL INTELLIGENCE IN PHARMACEUTICAL SECTOR",
       "authors": [
-        "Academic Journal of Manufacturing Engineering"
+        "Pawan Vishwakarma*1, Faizan Raza1, Abdul Quaiyoom2, Shekhar Singh3, Navneet Kumar Verma3"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-30",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166321931",
-      "title": "The Black Box vs. the Razor: Popperian Falsifiability and the Kuhnian Paradigm Shift in the Age of AI",
+      "id": "https://openalex.org/W7163969370",
+      "title": "Research progress and development trends of digital core modeling methods",
       "authors": [
-        "Paulo Alexandre e Castro"
-      ],
-      "countries": [
-        "PT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164349756",
-      "title": "The Role of Artificial Intelligence in Higher Education and Skill Development",
-      "authors": [
-        "S M Seetalad"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-06-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165794918",
-      "title": "TOWARDS EXPLAINABLE AND INFERENTIAL BRAND-AWARE INTELLIGENT MODELS FOR PREDICTING CUSTOMER CONSUMPTION BEHAVIOR",
-      "authors": [
-        "Academic Journal of Manufacturing Engineering"
+        "XIE KUN",
+        "YUAN SHILIANG",
+        "GAO MINGXUAN"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-30",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134120560",
-      "title": "A Risk–Utility Optimization Framework for Governing Large Language Model Responses",
+      "id": "https://openalex.org/W7160669804",
+      "title": "Orientation-Aware Diffusion Super-Resolution for 3T-Like Fetal MRI from Routine 1.5T Scans.",
       "authors": [
-        "Jinghao Chang"
+        "Xinliu Zhong",
+        "Ruiying Liu",
+        "Guohao Lin"
       ],
       "countries": [
-        "CN"
+        "US"
       ],
-      "primary_country": "China",
-      "published": "2026-06-30",
+      "primary_country": "US",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134241831",
-      "title": "Advancing Road Traffic Safety: Deep Learning for Traffic Modeling and Strategy",
+      "id": "https://openalex.org/W7166544810",
+      "title": "Extraction of Tree Level Forest Structure from Aerial Imagery and Photogrammetry Digital Surface Models",
       "authors": [
-        "Chenxi Wang"
+        "Jiaojiao Tian",
+        "Wen Fan",
+        "Daniel Panangian"
       ],
       "countries": [
-        "IT"
+        "DE",
+        "RO"
       ],
       "primary_country": "Other",
-      "published": "2026-06-30",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165122214",
-      "title": "Türkçeyi İkinci Dil Olarak Konuşan Bireylerde Duygu Algısı ve İfadesi",
+      "id": "https://openalex.org/W7166506288",
+      "title": "PHARMACOGENOMICS: ENABLING PERSONALIZED MEDICINE THROUGH PRECISION DRUG THERAPY OPTIMIZATION",
       "authors": [
-        "Filiz Mergen"
+        "Mohini Mishra1*, Shubham Chavan2, Vaikhari Kirkire3, Kajal Gupta4"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-06-30",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166025884",
-      "title": "Processed PhenoCycler single-cell protein expression matrix of brain metastases",
+      "id": "https://openalex.org/W7166525364",
+      "title": "Evaluating Machine Learning Models for Key Soil Properties",
       "authors": [
-        "Yunzhi Zou",
-        "J Y Zhao",
-        "Chunxiao Chen"
+        "Marin Avirović",
+        "Andrej Slapničar",
+        "Marina Bagić Babac"
       ],
       "countries": [
-        "CN",
-        "HK"
+        "HR"
       ],
-      "primary_country": "China",
-      "published": "2026-06-30",
+      "primary_country": "Other",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163638547",
-      "title": "Examining the Impact of Artificial Intelligence Applications on Generation Z Through the Example of ChatGPT",
+      "id": "https://openalex.org/W7166508987",
+      "title": "Agentic Workflow Architecture for Environmental Remote Sensing Analytics",
       "authors": [
-        "Hakan Tan",
-        "İsnur İnci Armutlu"
+        "Evgenij Shapovalov",
+        "Artiom Hovhannisyan",
+        "Valentas Gružauskas"
+      ],
+      "countries": [
+        "LT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166515234",
+      "title": "Machine Learning Based Prediction of Munsell Soil Color Components Using Multi-Sensor Satellite Data",
+      "authors": [
+        "BATUHAN KARTAL",
+        "Namık Kemal Sönmez"
       ],
       "countries": [
         "TR"
       ],
       "primary_country": "Other",
-      "published": "2026-06-30",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134224825",
-      "title": "Advancing Road Traffic Safety: Deep Learning for Traffic Modeling and Strategy",
+      "id": "https://openalex.org/W7164778210",
+      "title": "Extracting Semantics: LLM-Guided Automatic Population of Robot Ontology from URDF",
       "authors": [
-        "Chenxi Wang"
+        "Bastien Dussard",
+        "Guillaume Sarthou"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166584706",
+      "title": "Environmental Situational Awareness for Ground-Level NO₂ Estimation Using Sentinel-5P TROPOMI and ERA5 Reanalysis Data: A Machine Learning Approach for Napoli Province, Italy",
+      "authors": [
+        "Muhammad Zaid Qamar",
+        "Mohammed Ajaoud",
+        "Cristiano Ciccarelli"
       ],
       "countries": [
         "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-06-30",
+      "published": "2026-07-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

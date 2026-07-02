@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-01T10:44:54.516112+00:00",
+  "fetched_at": "2026-07-02T10:12:35.724615+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.4,
+      "composite_score": 46.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.6,
+          "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 176586,
-            "share_score": 42.2,
+            "raw_value": 178853,
+            "share_score": 42.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4190,
-            "share_score": 35.7,
+            "raw_value": 4203,
+            "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3079,
+            "raw_value": 3062,
             "share_score": 32.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 53.6,
+      "composite_score": 53.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.4,
+          "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 242104,
-            "share_score": 57.8,
+            "raw_value": 241765,
+            "share_score": 57.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7536,
-            "share_score": 64.3,
+            "raw_value": 7552,
+            "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6506,
+            "raw_value": 6483,
             "share_score": 67.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259552
+        "count": 259706
       },
       {
         "country_code": "CN",
-        "count": 242104
+        "count": 241765
       },
       {
         "country_code": "US",
-        "count": 176586
+        "count": 178853
       },
       {
         "country_code": "DE",
-        "count": 163011
+        "count": 164173
       },
       {
         "country_code": "IN",
-        "count": 96008
+        "count": 96175
       },
       {
         "country_code": "GB",
-        "count": 51407
+        "count": 52122
       },
       {
         "country_code": "ID",
-        "count": 29342
+        "count": 29474
       },
       {
         "country_code": "FR",
-        "count": 27440
+        "count": 27870
       },
       {
         "country_code": "CA",
-        "count": 25717
+        "count": 25908
       },
       {
         "country_code": "IT",
-        "count": 25654
+        "count": 25785
       }
     ],
     "volume": {
-      "us": 176586,
-      "china": 242104,
-      "total": 2409942,
+      "us": 178853,
+      "china": 241765,
+      "total": 2412379,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4190,
-      "china": 7536,
-      "total": 18337,
+      "us": 4203,
+      "china": 7552,
+      "total": 18378,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3079,
-      "china": 6506,
-      "total": 14949,
+      "us": 3062,
+      "china": 6483,
+      "total": 14865,
       "data_ok": true
     }
   },
@@ -182,149 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166554754",
-      "title": "IMPORTANCE AND APPLICATION OF ARTIFICIAL INTELLIGENCE IN PHARMACEUTICAL SECTOR",
+      "id": "https://openalex.org/W7160007104",
+      "title": "Beyond Polarity: Continuous Affect-Enhanced Multimodal Aspect-Based Sentiment Classification",
       "authors": [
-        "Pawan Vishwakarma*1, Faizan Raza1, Abdul Quaiyoom2, Shekhar Singh3, Navneet Kumar Verma3"
+        "Ling-ang Meng",
+        "Tianyu Zhao",
+        "Dawei Song"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-01",
+      "published": "2026-07-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163969370",
-      "title": "Research progress and development trends of digital core modeling methods",
+      "id": "https://openalex.org/W7159906176",
+      "title": "The CollabScore Dataset -Towards Robust and Generalized OMR Evaluation",
       "authors": [
-        "XIE KUN",
-        "YUAN SHILIANG",
-        "GAO MINGXUAN"
+        "Philippe Rigaux",
+        "Bertrand Coüasnon",
+        "Christophe Guillotel-Nothmann"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-01",
+      "published": "2026-07-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160669804",
-      "title": "Orientation-Aware Diffusion Super-Resolution for 3T-Like Fetal MRI from Routine 1.5T Scans.",
+      "id": "https://openalex.org/W7162495870",
+      "title": "Insights into recognition of mucin(-like) proteins",
       "authors": [
-        "Xinliu Zhong",
-        "Ruiying Liu",
-        "Guohao Lin"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166544810",
-      "title": "Extraction of Tree Level Forest Structure from Aerial Imagery and Photogrammetry Digital Surface Models",
-      "authors": [
-        "Jiaojiao Tian",
-        "Wen Fan",
-        "Daniel Panangian"
-      ],
-      "countries": [
-        "DE",
-        "RO"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166506288",
-      "title": "PHARMACOGENOMICS: ENABLING PERSONALIZED MEDICINE THROUGH PRECISION DRUG THERAPY OPTIMIZATION",
-      "authors": [
-        "Mohini Mishra1*, Shubham Chavan2, Vaikhari Kirkire3, Kajal Gupta4"
+        "Daniël Lambèrt Antoine Henri Hornikx"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-01",
+      "published": "2026-07-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166525364",
-      "title": "Evaluating Machine Learning Models for Key Soil Properties",
+      "id": "https://openalex.org/W7159796331",
+      "title": "Micro-tissue analysis",
       "authors": [
-        "Marin Avirović",
-        "Andrej Slapničar",
-        "Marina Bagić Babac"
-      ],
-      "countries": [
-        "HR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166508987",
-      "title": "Agentic Workflow Architecture for Environmental Remote Sensing Analytics",
-      "authors": [
-        "Evgenij Shapovalov",
-        "Artiom Hovhannisyan",
-        "Valentas Gružauskas"
-      ],
-      "countries": [
-        "LT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166515234",
-      "title": "Machine Learning Based Prediction of Munsell Soil Color Components Using Multi-Sensor Satellite Data",
-      "authors": [
-        "BATUHAN KARTAL",
-        "Namık Kemal Sönmez"
-      ],
-      "countries": [
-        "TR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164778210",
-      "title": "Extracting Semantics: LLM-Guided Automatic Population of Robot Ontology from URDF",
-      "authors": [
-        "Bastien Dussard",
-        "Guillaume Sarthou"
+        "Huiqian Hu",
+        "Alphonsus Ng",
+        "Yue Lu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-01",
+      "published": "2026-07-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166584706",
-      "title": "Environmental Situational Awareness for Ground-Level NO₂ Estimation Using Sentinel-5P TROPOMI and ERA5 Reanalysis Data: A Machine Learning Approach for Napoli Province, Italy",
+      "id": "https://openalex.org/W7161048264",
+      "title": "The CollabScore Dataset -Towards Robust and Generalized OMR Evaluation",
       "authors": [
-        "Muhammad Zaid Qamar",
-        "Mohammed Ajaoud",
-        "Cristiano Ciccarelli"
+        "Philippe Rigaux",
+        "Bertrand Coüasnon",
+        "Christophe Guillotel-Nothmann"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166412387",
+      "title": "Uncertainty: Natural Language Processing and Dynamic Factor Models to understand and forecast Uncertainty dynamics",
+      "authors": [
+        "V.M.R. Muggeo",
+        "V.M.R. Muggeo",
+        "A.P.M. Morreale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165722196",
+      "title": "Bioengineering of joint action: from interpersonal interaction to neurorehabilitation",
+      "authors": [
+        "Laura Bandini"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161454050",
+      "title": "Structure-Aware Quantized Retrieval for Long-Document Question Answering",
+      "authors": [
+        "Hui Huang",
+        "Julien Velcin",
+        "Yacine Kessaci"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164923250",
+      "title": "[Construction and validation of a prognostic prediction model for children-onset initial steroid-resistant nephrotic syndrome].",
+      "authors": [
+        "X M Xu",
+        "Y H Gan",
+        "A S Wang"
       ],
       "countries": [
-        "IT"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-01",
+      "primary_country": "China",
+      "published": "2026-07-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165074245",
+      "title": "SCAIR: schema-conditioned agentic iterative reasoning for enterprise knowledge graphs",
+      "authors": [
+        "Prateek Chaturvedi",
+        "Yuqicheng Zhu",
+        "Hongkuan Zhou"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-02",
       "cited_by_count": 0,
       "source": "openalex"
     }

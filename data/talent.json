@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-02T10:12:35.724615+00:00",
+  "fetched_at": "2026-07-03T10:08:01.979752+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 178853,
-            "share_score": 42.5,
+            "raw_value": 179582,
+            "share_score": 42.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4203,
-            "share_score": 35.8,
+            "raw_value": 4198,
+            "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3062,
-            "share_score": 32.1,
+            "raw_value": 3056,
+            "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 241765,
-            "share_score": 57.5,
+            "raw_value": 241729,
+            "share_score": 57.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7552,
-            "share_score": 64.2,
+            "raw_value": 7554,
+            "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6483,
-            "share_score": 67.9,
+            "raw_value": 6489,
+            "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259706
+        "count": 259749
       },
       {
         "country_code": "CN",
-        "count": 241765
+        "count": 241729
       },
       {
         "country_code": "US",
-        "count": 178853
+        "count": 179582
       },
       {
         "country_code": "DE",
-        "count": 164173
+        "count": 164271
       },
       {
         "country_code": "IN",
-        "count": 96175
+        "count": 96771
       },
       {
         "country_code": "GB",
-        "count": 52122
+        "count": 52209
       },
       {
         "country_code": "ID",
-        "count": 29474
+        "count": 29602
       },
       {
         "country_code": "FR",
-        "count": 27870
+        "count": 27922
       },
       {
         "country_code": "CA",
-        "count": 25908
+        "count": 25941
       },
       {
         "country_code": "IT",
-        "count": 25785
+        "count": 25764
       }
     ],
     "volume": {
-      "us": 178853,
-      "china": 241765,
-      "total": 2412379,
+      "us": 179582,
+      "china": 241729,
+      "total": 2427471,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4203,
-      "china": 7552,
-      "total": 18378,
+      "us": 4198,
+      "china": 7554,
+      "total": 18381,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3062,
-      "china": 6483,
-      "total": 14865,
+      "us": 3056,
+      "china": 6489,
+      "total": 14874,
       "data_ok": true
     }
   },
@@ -182,136 +182,126 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160007104",
-      "title": "Beyond Polarity: Continuous Affect-Enhanced Multimodal Aspect-Based Sentiment Classification",
+      "id": "https://openalex.org/W7163106140",
+      "title": "Hierarchy-Aware Hyperbolic and Semantic Reranking for Ontology-Based Phenotype Linking",
       "authors": [
-        "Ling-ang Meng",
-        "Tianyu Zhao",
-        "Dawei Song"
+        "Thomas Labbé",
+        "Moussa Baddour",
+        "Axel Bonesteve"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159906176",
-      "title": "The CollabScore Dataset -Towards Robust and Generalized OMR Evaluation",
+      "id": "https://openalex.org/W7159903008",
+      "title": "SEF-CLGC at SemEval-2026 Task 11: Logical Notation Impact on Language Model Performance",
       "authors": [
-        "Philippe Rigaux",
-        "Bertrand Coüasnon",
-        "Christophe Guillotel-Nothmann"
+        "Hanna Abi Akl",
+        "Fabien Gandon",
+        "Catherine Faron"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162495870",
-      "title": "Insights into recognition of mucin(-like) proteins",
+      "id": "https://openalex.org/W7166959188",
+      "title": "Dynamic Range Compression and Distance Attenuation Functions for Auditory Distance Perception in Game Audio",
       "authors": [
-        "Daniël Lambèrt Antoine Henri Hornikx"
+        "Felix Dennerlein"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7159796331",
-      "title": "Micro-tissue analysis",
+      "id": "https://openalex.org/W7134270492",
+      "title": "Protocol as Law: Behavioral Specification and Versioned Authority",
       "authors": [
-        "Huiqian Hu",
-        "Alphonsus Ng",
-        "Yue Lu"
+        "Bhash (aka Bachi) Ganti"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161048264",
-      "title": "The CollabScore Dataset -Towards Robust and Generalized OMR Evaluation",
+      "id": "https://openalex.org/W7163846020",
+      "title": "FLEURS-Badini: Translation and Recording FLEURS Dataset for Badini Variant of Northern Kurdish",
       "authors": [
-        "Philippe Rigaux",
-        "Bertrand Coüasnon",
-        "Christophe Guillotel-Nothmann"
+        "Mohammad Mohammadamini",
+        "Mohammed Dilgash",
+        "Dezheen H. Abdulazeez"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166412387",
-      "title": "Uncertainty: Natural Language Processing and Dynamic Factor Models to understand and forecast Uncertainty dynamics",
+      "id": "https://openalex.org/W7133960034",
+      "title": "Field-Verified Crop Type Polygon Dataset for Rabi Season 2025 in Vijayapura District for Satellite-Based Crop Classification",
       "authors": [
-        "V.M.R. Muggeo",
-        "V.M.R. Muggeo",
-        "A.P.M. Morreale"
+        "Shivaprakash Yaragal"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165722196",
-      "title": "Bioengineering of joint action: from interpersonal interaction to neurorehabilitation",
+      "id": "https://openalex.org/W7133759413",
+      "title": "Field-Verified Crop Type Polygon Dataset for Rabi Season 2025 in Vijayapura District for Satellite-Based Crop Classification",
       "authors": [
-        "Laura Bandini"
+        "Shivaprakash Yaragal"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161454050",
-      "title": "Structure-Aware Quantized Retrieval for Long-Document Question Answering",
+      "id": "https://openalex.org/W7166927443",
+      "title": "A System for the BEA 2026 Shared Task: Ensemble of Multilingual Encoders with NMT Augmentation for L1-Aware Vocabulary Difficulty Prediction",
       "authors": [
-        "Hui Huang",
-        "Julien Velcin",
-        "Yacine Kessaci"
+        "Thomas Gaillat",
+        "Bernardo Stearns",
+        "Mccrae, John, P."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-02",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164923250",
-      "title": "[Construction and validation of a prognostic prediction model for children-onset initial steroid-resistant nephrotic syndrome].",
+      "id": "https://openalex.org/W7134275943",
+      "title": "Protocol as Law: Behavioral Specification and Versioned Authority",
       "authors": [
-        "X M Xu",
-        "Y H Gan",
-        "A S Wang"
+        "Bhash (aka Bachi) Ganti"
       ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-07-02",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165074245",
-      "title": "SCAIR: schema-conditioned agentic iterative reasoning for enterprise knowledge graphs",
+      "id": "https://openalex.org/W7166804949",
+      "title": "英式书向孩子们展示的海边(The Sea-Shore, Shown to the Children).pdf",
       "authors": [
-        "Prateek Chaturvedi",
-        "Yuqicheng Zhu",
-        "Hongkuan Zhou"
+        "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",

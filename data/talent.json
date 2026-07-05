@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-04T09:26:47.791072+00:00",
+  "fetched_at": "2026-07-05T09:44:29.760140+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.7,
+          "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 181053,
-            "share_score": 42.7,
+            "raw_value": 181946,
+            "share_score": 42.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4217,
-            "share_score": 35.7,
+            "raw_value": 4212,
+            "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3067,
+            "raw_value": 3063,
             "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.3,
+          "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 242561,
-            "share_score": 57.3,
+            "raw_value": 243063,
+            "share_score": 57.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7581,
-            "share_score": 64.3,
+            "raw_value": 7567,
+            "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6513,
+            "raw_value": 6498,
             "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259895
+        "count": 259986
       },
       {
         "country_code": "CN",
-        "count": 242561
+        "count": 243063
       },
       {
         "country_code": "US",
-        "count": 181053
+        "count": 181946
       },
       {
         "country_code": "DE",
-        "count": 164690
+        "count": 165841
       },
       {
         "country_code": "IN",
-        "count": 97155
+        "count": 97292
       },
       {
         "country_code": "GB",
-        "count": 52440
+        "count": 52635
       },
       {
         "country_code": "ID",
-        "count": 29617
+        "count": 29855
       },
       {
         "country_code": "FR",
-        "count": 28055
+        "count": 28205
       },
       {
         "country_code": "CA",
-        "count": 26103
+        "count": 26188
       },
       {
         "country_code": "IT",
-        "count": 25915
+        "count": 26031
       }
     ],
     "volume": {
-      "us": 181053,
-      "china": 242561,
-      "total": 2437888,
+      "us": 181946,
+      "china": 243063,
+      "total": 2454250,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4217,
-      "china": 7581,
-      "total": 18452,
+      "us": 4212,
+      "china": 7567,
+      "total": 18423,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3067,
-      "china": 6513,
-      "total": 14912,
+      "us": 3063,
+      "china": 6498,
+      "total": 14880,
       "data_ok": true
     }
   },
@@ -182,141 +182,152 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166489690",
-      "title": "Evaluation of Recent AI-based Point Matching Algorithms Applied on Aerial Images",
+      "id": "https://openalex.org/W7164718425",
+      "title": "Discovering Hidden Gems: AI-Human Complementarity in Content Selection on Webtoon Platforms",
       "authors": [
-        "Pablo d’Angelo",
-        "Franz Kurz",
-        "Alaa Eddine Ben Zekri"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167269951",
-      "title": "Corrigendum to “Magnetic resonance-based synthetic computed tomography images generated using generative adversarial networks for nasopharyngeal carcinoma radiotherapy treatment planning” [Radiother. Oncol. 150 (2020) 217–224]",
-      "authors": [
-        "Yinglin Peng",
-        "Shupeng Chen",
-        "An Qin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167267452",
-      "title": "Glass-based physical models for tissue mechanics",
-      "authors": [
-        "Gopika Madhu",
-        "Carolyn Delli-Santi",
-        "Jenna Efrein"
+        "Minah Kang",
+        "Hangjung Zo"
       ],
       "countries": [
+        "KR",
+        "CA"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164730671",
+      "title": "Service Science Framework for Frugal AI: A Design Science Approach for AI Adoption in SMEs",
+      "authors": [
+        "Thang Le Dinh",
+        "Manh-Chiên Vu",
+        "Viet T. Dao"
+      ],
+      "countries": [
+        "CA",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-04",
+      "published": "2026-07-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167231172",
-      "title": "존재의 상태와 기준장의 관계정의: 상태좌표와 자리좌표의 cross 구조",
+      "id": "https://openalex.org/W7164775967",
+      "title": "Entity-Centric Retrieval-Augmented Generation with Knowledge-Graph Re-ranking for Biomedical Question Answering",
       "authors": [
-        "Lee Seung"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7151369895",
-      "title": "Resonance Logic Model (RLM): A Multi-Agent Reasoning Engine with Persistent Memory",
-      "authors": [
-        "Misty Michele Richards"
+        "Che‐Jui Chang",
+        "Cheng-Ru Wei",
+        "Wei-Po Lee"
       ],
       "countries": [
-        "GB"
+        "TW"
       ],
       "primary_country": "Other",
-      "published": "2026-07-04",
+      "published": "2026-07-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162749339",
-      "title": "Data, Matlab- and R-Code for the Diagnostic Framework of Post-Concussion Visually Induced Dizziness: Recognising Postural and Visuoperceptual Subtypes",
-      "authors": [
-        "Samuel Meyer",
-        "Carolina Beppi",
-        "Christopher Bockisch"
-      ],
-      "countries": [
-        "CH",
-        "BR",
-        "IL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167286965",
-      "title": "手机版苏珊·克莱格和家里的男人(Susan Clegg and a Man in the House).apk",
+      "id": "https://openalex.org/W7167331949",
+      "title": "手机版黛西·布鲁克斯;或者,一段危险的爱情(Daisy Brooks; Or, A Perilous Love).apk",
       "authors": [
         "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-04",
+      "published": "2026-07-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160017823",
-      "title": "Data and code for: Mapping Adsorption Selectivity Patterns via Thermodynamics-Aware Machine Learning.",
+      "id": "https://openalex.org/W7167354548",
+      "title": "Tools and documentation for the article \"Real-time detection of Laban Effort factors in music performance using machine learning\"",
       "authors": [
-        "Fernando Soto",
-        "Yesica Peña"
+        "Robert Ek",
+        "Federico Visi",
+        "Anchen Froneman"
       ],
       "countries": [
-        "US"
+        "SE",
+        "ZA"
       ],
-      "primary_country": "US",
-      "published": "2026-07-04",
+      "primary_country": "Other",
+      "published": "2026-07-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162356868",
-      "title": "In Search of Lost Adventure Novels: Supervised Genre Retrieval and Corpus Refinement in Gallica",
+      "id": "https://openalex.org/W7164790523",
+      "title": "A Role-Aware Debiased Curriculum Learning Approach for Dialogue-based Medication Recommendation",
       "authors": [
-        "Jean Barré"
+        "Junwei Kuang",
+        "Liu Y",
+        "Yunzeng Lian"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167350129",
+      "title": "Human Bandwidth Design: Attention Is All You Have",
+      "authors": [
+        "Lei Zhao"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-04",
+      "published": "2026-07-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167204985",
-      "title": "手机版尼卡诺尔——(Nicanor - Teller of Tales A Story of ).apk",
+      "id": "https://openalex.org/W7167378652",
+      "title": "手机版戴夫·波特和他的替身;(Dave Porter and His Double; Or,).apk",
       "authors": [
         "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-04",
+      "published": "2026-07-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164717034",
+      "title": "Artificial Intelligence and Digital Transformation of Leadership Development: A Systematic Literature Review",
+      "authors": [
+        "Mahdieh Darvish",
+        "Katharina Klotz"
+      ],
+      "countries": [
+        "QA",
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164717565",
+      "title": "The Hidden Backbone of Knowledge Transfer: A Taxonomy and Archetypes of Transfer Data in Non-University Research Institutions",
+      "authors": [
+        "Anna Gieß",
+        "Josip Lovrekovic",
+        "Masoumeh Tavakoligargari"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-05",
       "cited_by_count": 0,
       "source": "openalex"
     }

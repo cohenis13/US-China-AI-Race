@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-05T09:44:29.760140+00:00",
+  "fetched_at": "2026-07-06T11:40:21.842473+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 181946,
-            "share_score": 42.8,
+            "raw_value": 182264,
+            "share_score": 42.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4212,
+            "raw_value": 4208,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3063,
-            "share_score": 32.0,
+            "raw_value": 3058,
+            "share_score": 32.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 243063,
-            "share_score": 57.2,
+            "raw_value": 242950,
+            "share_score": 57.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7567,
+            "raw_value": 7550,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6498,
-            "share_score": 68.0,
+            "raw_value": 6475,
+            "share_score": 67.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259986
+        "count": 260017
       },
       {
         "country_code": "CN",
-        "count": 243063
+        "count": 242950
       },
       {
         "country_code": "US",
-        "count": 181946
+        "count": 182264
       },
       {
         "country_code": "DE",
-        "count": 165841
+        "count": 165895
       },
       {
         "country_code": "IN",
-        "count": 97292
+        "count": 97396
       },
       {
         "country_code": "GB",
-        "count": 52635
+        "count": 52651
       },
       {
         "country_code": "ID",
-        "count": 29855
+        "count": 29858
       },
       {
         "country_code": "FR",
-        "count": 28205
+        "count": 28228
       },
       {
         "country_code": "CA",
-        "count": 26188
+        "count": 26192
       },
       {
         "country_code": "IT",
-        "count": 26031
+        "count": 26039
       }
     ],
     "volume": {
-      "us": 181946,
-      "china": 243063,
-      "total": 2454250,
+      "us": 182264,
+      "china": 242950,
+      "total": 2457793,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4212,
-      "china": 7567,
-      "total": 18423,
+      "us": 4208,
+      "china": 7550,
+      "total": 18375,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3063,
-      "china": 6498,
-      "total": 14880,
+      "us": 3058,
+      "china": 6475,
+      "total": 14826,
       "data_ok": true
     }
   },
@@ -182,152 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7164718425",
-      "title": "Discovering Hidden Gems: AI-Human Complementarity in Content Selection on Webtoon Platforms",
+      "id": "https://openalex.org/W7160803827",
+      "title": "Rub'n'Roll: Simulating \"Tactile Flow\" based on Friction Wheels Embedded in Controllers to Improve Self-Motion Sensations in VR",
       "authors": [
-        "Minah Kang",
-        "Hangjung Zo"
+        "Julien Manson",
+        "Justine Saint-Aubert",
+        "Claudio Pacchierotti"
       ],
-      "countries": [
-        "KR",
-        "CA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164730671",
-      "title": "Service Science Framework for Frugal AI: A Design Science Approach for AI Adoption in SMEs",
+      "id": "https://openalex.org/W7167424589",
+      "title": "Object Distance Estimation from Electromagnetic Interactions in Robotics",
       "authors": [
-        "Thang Le Dinh",
-        "Manh-Chiên Vu",
-        "Viet T. Dao"
+        "Vlaho-Josip Štironja",
+        "Davorin Mikulić",
+        "Dubravko Tomić"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167434312",
+      "title": "Signal-to-Noise Ratio Tolerance in Self-Supervised Speech Representations Across Low-Resource Languages",
+      "authors": [
+        "Assignee Research"
       ],
       "countries": [
-        "CA",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164775967",
-      "title": "Entity-Centric Retrieval-Augmented Generation with Knowledge-Graph Re-ranking for Biomedical Question Answering",
+      "id": "https://openalex.org/W7167421285",
+      "title": "INTERACTION OF LEXICAL, SYNTACTIC AND STATISTICAL CHARACTERISTICS OF THE WORD ‘TEMPERATURE’ (ON THE BASIS OF SCIENTIFIC AND TECHNICAL DISCOURSE TEXTS)",
       "authors": [
-        "Che‐Jui Chang",
-        "Cheng-Ru Wei",
-        "Wei-Po Lee"
-      ],
-      "countries": [
-        "TW"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167331949",
-      "title": "手机版黛西·布鲁克斯;或者,一段危险的爱情(Daisy Brooks; Or, A Perilous Love).apk",
-      "authors": [
-        "叶兴阳双语音标有声读物"
+        "Olga Zaitseva",
+        "Maria NEVREVA",
+        "Yuliana DOBROVOLSKA"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167354548",
-      "title": "Tools and documentation for the article \"Real-time detection of Laban Effort factors in music performance using machine learning\"",
+      "id": "https://openalex.org/W7167409960",
+      "title": "Student-developed Collective Coding Guides in Disciplinary Computing",
       "authors": [
-        "Robert Ek",
-        "Federico Visi",
-        "Anchen Froneman"
+        "Patti C. Hamerski",
+        "Luke Nearhood"
       ],
       "countries": [
-        "SE",
-        "ZA"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-05",
+      "primary_country": "US",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164790523",
-      "title": "A Role-Aware Debiased Curriculum Learning Approach for Dialogue-based Medication Recommendation",
+      "id": "https://openalex.org/W7167418057",
+      "title": "Onboarding Developers Into Robotics Ecosystems: A Modeling-Driven Approach with LLM Assistance",
       "authors": [
-        "Junwei Kuang",
-        "Liu Y",
-        "Yunzeng Lian"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-07-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167350129",
-      "title": "Human Bandwidth Design: Attention Is All You Have",
-      "authors": [
-        "Lei Zhao"
+        "Dennis Meckel",
+        "Jannis Egelhof",
+        "Eike Gassen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167378652",
-      "title": "手机版戴夫·波特和他的替身;(Dave Porter and His Double; Or,).apk",
+      "id": "https://openalex.org/W7167432708",
+      "title": "Classification of Contact Type Based on the Magnetic Field Data for Tactile Sensor",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Vladimir Sibinovic",
+        "Srđan Apostolović",
+        "Mirko Raković"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164717034",
-      "title": "Artificial Intelligence and Digital Transformation of Leadership Development: A Systematic Literature Review",
+      "id": "https://openalex.org/W7167437380",
+      "title": "RETHINKING THE ROLE OF VOCABULARY BREADTH AND DEPTH IN EFL INSTRUCTION",
       "authors": [
-        "Mahdieh Darvish",
-        "Katharina Klotz"
+        "Kateryna Lizak",
+        "Nataliia Banias",
+        "Enike Nagy-Kolozhvary"
       ],
-      "countries": [
-        "QA",
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164717565",
-      "title": "The Hidden Backbone of Knowledge Transfer: A Taxonomy and Archetypes of Transfer Data in Non-University Research Institutions",
+      "id": "https://openalex.org/W7167423574",
+      "title": "Whdict v1.1.0 - 빠알리 문헌 및 사전 어플리케이션 (OSX / Windows)",
       "authors": [
-        "Anna Gieß",
-        "Josip Lovrekovic",
-        "Masoumeh Tavakoligargari"
+        "Won Heo Seok"
       ],
       "countries": [
-        "DE"
+        "HU"
       ],
       "primary_country": "Other",
-      "published": "2026-07-05",
+      "published": "2026-07-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167421016",
+      "title": "Mechanical Architectures and Locomotion Concepts in In-Pipe Robotics: A Brief Review",
+      "authors": [
+        "Hryhorii Osadchyi",
+        "Jaroslav Hricko"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-06",
       "cited_by_count": 0,
       "source": "openalex"
     }

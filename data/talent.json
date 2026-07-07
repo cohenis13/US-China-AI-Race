@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-06T11:40:21.842473+00:00",
+  "fetched_at": "2026-07-07T10:28:35.692939+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 182264,
+            "raw_value": 182189,
             "share_score": 42.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4208,
+            "raw_value": 4196,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3058,
+            "raw_value": 3050,
             "share_score": 32.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 242950,
+            "raw_value": 242798,
             "share_score": 57.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7550,
+            "raw_value": 7532,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6475,
+            "raw_value": 6453,
             "share_score": 67.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260017
+        "count": 259996
       },
       {
         "country_code": "CN",
-        "count": 242950
+        "count": 242798
       },
       {
         "country_code": "US",
-        "count": 182264
+        "count": 182189
       },
       {
         "country_code": "DE",
-        "count": 165895
+        "count": 165866
       },
       {
         "country_code": "IN",
-        "count": 97396
+        "count": 97326
       },
       {
         "country_code": "GB",
-        "count": 52651
+        "count": 52613
       },
       {
         "country_code": "ID",
-        "count": 29858
+        "count": 29826
       },
       {
         "country_code": "FR",
-        "count": 28228
+        "count": 28204
       },
       {
         "country_code": "CA",
-        "count": 26192
+        "count": 26182
       },
       {
         "country_code": "IT",
-        "count": 26039
+        "count": 26004
       }
     ],
     "volume": {
-      "us": 182264,
-      "china": 242950,
-      "total": 2457793,
+      "us": 182189,
+      "china": 242798,
+      "total": 2456891,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4208,
-      "china": 7550,
-      "total": 18375,
+      "us": 4196,
+      "china": 7532,
+      "total": 18319,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3058,
-      "china": 6475,
-      "total": 14826,
+      "us": 3050,
+      "china": 6453,
+      "total": 14775,
       "data_ok": true
     }
   },
@@ -182,142 +182,141 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160803827",
-      "title": "Rub'n'Roll: Simulating \"Tactile Flow\" based on Friction Wheels Embedded in Controllers to Improve Self-Motion Sensations in VR",
+      "id": "https://openalex.org/W7159905188",
+      "title": "Privacy-Preserving Generation of Synthetic Pathology Reports for Information Extraction",
       "authors": [
-        "Julien Manson",
-        "Justine Saint-Aubert",
-        "Claudio Pacchierotti"
+        "Alejandra Lorenzo",
+        "Adrien Coulet",
+        "Claire Gardent"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-06",
+      "published": "2026-07-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167424589",
-      "title": "Object Distance Estimation from Electromagnetic Interactions in Robotics",
+      "id": "https://openalex.org/W7162221168",
+      "title": "Position: Topological Machine Learning Cannot Progress without Experimental Standards",
       "authors": [
-        "Vlaho-Josip Štironja",
-        "Davorin Mikulić",
-        "Dubravko Tomić"
+        "Inés Castilla Rieso",
+        "Samuel Peltier",
+        "Philippe Carré"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-06",
+      "published": "2026-07-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167434312",
-      "title": "Signal-to-Noise Ratio Tolerance in Self-Supervised Speech Representations Across Low-Resource Languages",
+      "id": "https://openalex.org/W7165764576",
+      "title": "INTERPRETABLE MACHINE LEARNING APPROACHES FOR IMPROVING PREDICTIVE RELIABILITY IN HETEROGENEOUS DATA SYSTEMS",
       "authors": [
-        "Assignee Research"
+        "Olena Hrytsenko",
+        "Maksym Lysenko"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7151152122",
+      "title": "Design of a Robust Fixed-Time Tracking Control for Quadrotors Unmanned Aerial Vehicles",
+      "authors": [
+        "Moussa Labbadi",
+        "Gian Paolo Incremona",
+        "Antonella Ferrara"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167421285",
-      "title": "INTERACTION OF LEXICAL, SYNTACTIC AND STATISTICAL CHARACTERISTICS OF THE WORD ‘TEMPERATURE’ (ON THE BASIS OF SCIENTIFIC AND TECHNICAL DISCOURSE TEXTS)",
-      "authors": [
-        "Olga Zaitseva",
-        "Maria NEVREVA",
-        "Yuliana DOBROVOLSKA"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167409960",
-      "title": "Student-developed Collective Coding Guides in Disciplinary Computing",
-      "authors": [
-        "Patti C. Hamerski",
-        "Luke Nearhood"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167418057",
-      "title": "Onboarding Developers Into Robotics Ecosystems: A Modeling-Driven Approach with LLM Assistance",
-      "authors": [
-        "Dennis Meckel",
-        "Jannis Egelhof",
-        "Eike Gassen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167432708",
-      "title": "Classification of Contact Type Based on the Magnetic Field Data for Tactile Sensor",
-      "authors": [
-        "Vladimir Sibinovic",
-        "Srđan Apostolović",
-        "Mirko Raković"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167437380",
-      "title": "RETHINKING THE ROLE OF VOCABULARY BREADTH AND DEPTH IN EFL INSTRUCTION",
-      "authors": [
-        "Kateryna Lizak",
-        "Nataliia Banias",
-        "Enike Nagy-Kolozhvary"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167423574",
-      "title": "Whdict v1.1.0 - 빠알리 문헌 및 사전 어플리케이션 (OSX / Windows)",
-      "authors": [
-        "Won Heo Seok"
-      ],
-      "countries": [
-        "HU"
+        "FR",
+        "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-07-06",
+      "published": "2026-07-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167421016",
-      "title": "Mechanical Architectures and Locomotion Concepts in In-Pipe Robotics: A Brief Review",
+      "id": "https://openalex.org/W7161666677",
+      "title": "Modeling Chinese chéngyǔ with ontological and neural methods : A culture-aware NLP approach",
       "authors": [
-        "Hryhorii Osadchyi",
-        "Jaroslav Hricko"
+        "Lian Chen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-06",
+      "published": "2026-07-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161464027",
+      "title": "Unsupervised Side-Channel Extraction of Dataflow AI Accelerator Architectures Implemented on FPGA",
+      "authors": [
+        "Mathieu Descos",
+        "Brice Colombier",
+        "Cédric Killian"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165768467",
+      "title": "INTERPRETABLE MACHINE LEARNING APPROACHES FOR IMPROVING PREDICTIVE RELIABILITY IN HETEROGENEOUS DATA SYSTEMS",
+      "authors": [
+        "Olena Hrytsenko",
+        "Maksym Lysenko"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165503304",
+      "title": "Fast and interactive inverse simulation supporting human-robot deformable object manipulation",
+      "authors": [
+        "Adrien Koessler",
+        "Thibaut Raharijaona",
+        "Hadrien Courtecuisse"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140966587",
+      "title": "On Asymptotic Stability of Hybrid Systems with Frequent Updates and Sampled-Data Observers",
+      "authors": [
+        "Aneel Tanwani",
+        "Hyungbo Shim",
+        "Andrew Teel"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163101499",
+      "title": "Digital Twin-Enabled Reinforcement Learning for Fault-Resilient Urban Traffic Signal Control",
+      "authors": [
+        "Marina Wiemers",
+        "Jones, Jaylen, Jordan",
+        "Mladen Čičić"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-07",
       "cited_by_count": 0,
       "source": "openalex"
     }

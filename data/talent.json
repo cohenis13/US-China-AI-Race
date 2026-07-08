@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-07T10:28:35.692939+00:00",
+  "fetched_at": "2026-07-08T09:28:48.380790+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 182189,
-            "share_score": 42.9,
+            "raw_value": 183245,
+            "share_score": 43.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4196,
+            "raw_value": 4208,
             "share_score": 35.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3050,
-            "share_score": 32.1,
+            "raw_value": 3060,
+            "share_score": 32.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 242798,
-            "share_score": 57.1,
+            "raw_value": 243374,
+            "share_score": 57.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7532,
+            "raw_value": 7543,
             "share_score": 64.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6453,
-            "share_score": 67.9,
+            "raw_value": 6490,
+            "share_score": 68.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 259996
+        "count": 259982
       },
       {
         "country_code": "CN",
-        "count": 242798
+        "count": 243374
       },
       {
         "country_code": "US",
-        "count": 182189
+        "count": 183245
       },
       {
         "country_code": "DE",
-        "count": 165866
+        "count": 165996
       },
       {
         "country_code": "IN",
-        "count": 97326
+        "count": 97697
       },
       {
         "country_code": "GB",
-        "count": 52613
+        "count": 52687
       },
       {
         "country_code": "ID",
-        "count": 29826
+        "count": 29955
       },
       {
         "country_code": "FR",
-        "count": 28204
+        "count": 28213
       },
       {
         "country_code": "CA",
-        "count": 26182
+        "count": 26212
       },
       {
         "country_code": "IT",
-        "count": 26004
+        "count": 26000
       }
     ],
     "volume": {
-      "us": 182189,
-      "china": 242798,
-      "total": 2456891,
+      "us": 183245,
+      "china": 243374,
+      "total": 2464660,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4196,
-      "china": 7532,
-      "total": 18319,
+      "us": 4208,
+      "china": 7543,
+      "total": 18351,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3050,
-      "china": 6453,
-      "total": 14775,
+      "us": 3060,
+      "china": 6490,
+      "total": 14840,
       "data_ok": true
     }
   },
@@ -182,68 +182,117 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7159905188",
-      "title": "Privacy-Preserving Generation of Synthetic Pathology Reports for Information Extraction",
+      "id": "https://openalex.org/W7154194210",
+      "title": "AI-Assisted Accuracy Assessment and Calibration of the Athena Surgical Parallel Robot",
       "authors": [
-        "Alejandra Lorenzo",
-        "Adrien Coulet",
-        "Claire Gardent"
+        "Bogdan Gherman",
+        "Alexandru Pusca",
+        "Paul Tucan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-07",
+      "published": "2026-07-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162221168",
-      "title": "Position: Topological Machine Learning Cannot Progress without Experimental Standards",
+      "id": "https://openalex.org/W7162356600",
+      "title": "Parsimonious revision protocol for Boolean networks: Application to osteogenesis",
       "authors": [
-        "Inés Castilla Rieso",
-        "Samuel Peltier",
-        "Philippe Carré"
+        "Jacques Demongeot",
+        "Alonso Espinoza",
+        "Eric Goles"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-07",
+      "published": "2026-07-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165764576",
-      "title": "INTERPRETABLE MACHINE LEARNING APPROACHES FOR IMPROVING PREDICTIVE RELIABILITY IN HETEROGENEOUS DATA SYSTEMS",
+      "id": "https://openalex.org/W7165834280",
+      "title": "Learning-Augmented Motion Planning and Control for Legged and Hybrid Locomotion",
       "authors": [
-        "Olena Hrytsenko",
-        "Maksym Lysenko"
+        "Andrea Patrizi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-07",
+      "published": "2026-07-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7151152122",
-      "title": "Design of a Robust Fixed-Time Tracking Control for Quadrotors Unmanned Aerial Vehicles",
+      "id": "https://openalex.org/W7161614118",
+      "title": "Green Shifting Techniques: a Data Model to Rule Them All",
       "authors": [
-        "Moussa Labbadi",
-        "Gian Paolo Incremona",
-        "Antonella Ferrara"
+        "Nicolás Tirel",
+        "Sergio Ilarri",
+        "Philippe Roose"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159911741",
+      "title": "The Synthetic Persona Fallacy in HCI-Q Methodology",
+      "authors": [
+        "Lucas Anastasiou",
+        "Anna De Liddo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166495346",
+      "title": "Context-Aware Planning, Reasoning, and Adaptive Behaviors for Autonomous Robots",
+      "authors": [
+        "D. Gasperini"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166847266",
+      "title": "[Gastric yolk-sac tumor-like carcinoma: a clinicopathological analysis of two cases].",
+      "authors": [
+        "M Z Du",
+        "X S He",
+        "W Q Shi"
       ],
       "countries": [
-        "FR",
-        "IT"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-07",
+      "primary_country": "China",
+      "published": "2026-07-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161666677",
-      "title": "Modeling Chinese chéngyǔ with ontological and neural methods : A culture-aware NLP approach",
+      "id": "https://openalex.org/W7155484366",
+      "title": "Towards a methodological framework to characterize Large Language Models’ understanding and reasoning.",
       "authors": [
-        "Lian Chen"
+        "Clément Arlotti"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167494692",
+      "title": "THE CARTESIAN MACHINE: Law at the Edge of Emergence",
+      "authors": [
+        "Tudor Mitranescu"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -252,67 +301,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161464027",
-      "title": "Unsupervised Side-Channel Extraction of Dataflow AI Accelerator Architectures Implemented on FPGA",
+      "id": "https://openalex.org/W7167461414",
+      "title": "手机版基普斯:一个纯朴灵魂的故事(Kipps The Story of a Simple Soul).apk",
       "authors": [
-        "Mathieu Descos",
-        "Brice Colombier",
-        "Cédric Killian"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165768467",
-      "title": "INTERPRETABLE MACHINE LEARNING APPROACHES FOR IMPROVING PREDICTIVE RELIABILITY IN HETEROGENEOUS DATA SYSTEMS",
-      "authors": [
-        "Olena Hrytsenko",
-        "Maksym Lysenko"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165503304",
-      "title": "Fast and interactive inverse simulation supporting human-robot deformable object manipulation",
-      "authors": [
-        "Adrien Koessler",
-        "Thibaut Raharijaona",
-        "Hadrien Courtecuisse"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140966587",
-      "title": "On Asymptotic Stability of Hybrid Systems with Frequent Updates and Sampled-Data Observers",
-      "authors": [
-        "Aneel Tanwani",
-        "Hyungbo Shim",
-        "Andrew Teel"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163101499",
-      "title": "Digital Twin-Enabled Reinforcement Learning for Fault-Resilient Urban Traffic Signal Control",
-      "authors": [
-        "Marina Wiemers",
-        "Jones, Jaylen, Jordan",
-        "Mladen Čičić"
+        "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",

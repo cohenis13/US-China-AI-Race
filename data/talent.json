@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-09T10:27:48.891462+00:00",
+  "fetched_at": "2026-07-10T10:26:11.977917+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 183966,
-            "share_score": 43.0,
+            "raw_value": 185774,
+            "share_score": 43.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4212,
-            "share_score": 35.8,
+            "raw_value": 4203,
+            "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3059,
-            "share_score": 32.0,
+            "raw_value": 3070,
+            "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 243773,
-            "share_score": 57.0,
+            "raw_value": 245752,
+            "share_score": 56.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7563,
-            "share_score": 64.2,
+            "raw_value": 7583,
+            "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6509,
-            "share_score": 68.0,
+            "raw_value": 6556,
+            "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260086
+        "count": 260233
       },
       {
         "country_code": "CN",
-        "count": 243773
+        "count": 245752
       },
       {
         "country_code": "US",
-        "count": 183966
+        "count": 185774
       },
       {
         "country_code": "DE",
-        "count": 166179
+        "count": 166605
       },
       {
         "country_code": "IN",
-        "count": 98208
+        "count": 99266
       },
       {
         "country_code": "GB",
-        "count": 52732
+        "count": 53072
       },
       {
         "country_code": "ID",
-        "count": 30065
+        "count": 30273
       },
       {
         "country_code": "FR",
-        "count": 28218
+        "count": 28361
       },
       {
         "country_code": "CA",
-        "count": 26263
+        "count": 26423
       },
       {
         "country_code": "IT",
-        "count": 26068
+        "count": 26218
       }
     ],
     "volume": {
-      "us": 183966,
-      "china": 243773,
-      "total": 2472329,
+      "us": 185774,
+      "china": 245752,
+      "total": 2492371,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4212,
-      "china": 7563,
-      "total": 18394,
+      "us": 4203,
+      "china": 7583,
+      "total": 18428,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3059,
-      "china": 6509,
-      "total": 14862,
+      "us": 3070,
+      "china": 6556,
+      "total": 14959,
       "data_ok": true
     }
   },
@@ -182,142 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7160436469",
-      "title": "GρπF: Graphical ρπ Framework",
+      "id": "https://openalex.org/W7166739988",
+      "title": "Closing the Loop: PID Feedback Control for Interpretable Activation Steering in Symbolic Music Generation",
       "authors": [
-        "Julie Cailler",
-        "Martin Vassor"
-      ],
-      "countries": [
-        "FR",
-        "PE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164332977",
-      "title": "Hierarchical Bayesian Transfer Learning Neural Framework for CD8+T Cell Specific Neoantigen Enrichment",
-      "authors": [
-        "Ziliang Ye"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159906269",
-      "title": "Methods for Measuring Sub-Surface Skin Displacement during Ultrasound Mid-Air Haptic Stimulation",
-      "authors": [
-        "Lendy Mulot",
-        "Basil Duvernoy",
-        "William Frier"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166497193",
-      "title": "Didattica del FLE in prospettiva di genere. La metodologia JGLAL - Joint Gender-Language Learning",
-      "authors": [
-        "Sara Manuela Cacioppo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167509241",
-      "title": "Cushitic Lexical Database (CLD)",
-      "authors": [
-        "Ahmed Sosal"
+        "Ioannis Prokopiou",
+        "Pantelis Vikatos",
+        "Μάξιμος Καλιακάτσος-Παπακώστας"
       ],
       "countries": [
         "GB",
-        "NL"
+        "IQ",
+        "GR",
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-09",
+      "primary_country": "US",
+      "published": "2026-07-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7129038679",
-      "title": "GρπF: Graphical ρπ Framework",
+      "id": "https://openalex.org/W7167788009",
+      "title": "Model checkpoints for Regional climate risk assessment from climate models using probabilistic machine learning",
       "authors": [
-        "Julie Cailler",
-        "Martin Vassor"
+        "Ignacio Lopez‐Gomez"
       ],
       "countries": [
-        "FR",
-        "PE"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-09",
+      "primary_country": "US",
+      "published": "2026-07-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140002348",
-      "title": "How can artificial intelligence shape the experience of the meaningful work? The case of translators in a context of career shock",
+      "id": "https://openalex.org/W7167842564",
+      "title": "Sorcecode for the paper \"GhostGS and ECA2 Enhanced Framework for Accurate Strawberry Maturity Detection in Smart Agriculture\"",
       "authors": [
-        "Marianna Gyapay",
-        "François Grima"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164315932",
-      "title": "Hierarchical Bayesian Transfer Learning Neural Framework for CD8+T Cell Specific Neoantigen Enrichment",
-      "authors": [
-        "Ziliang Ye"
+        "luo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-09",
+      "published": "2026-07-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167484044",
-      "title": "Cushitic Lexical Database (CLD)",
+      "id": "https://openalex.org/W7167809836",
+      "title": "BenchEWS-OBS: A Metrological Benchmark for Observation Strategy in Early-Warning Detection",
       "authors": [
-        "Ahmed Sosal"
-      ],
-      "countries": [
-        "GB",
-        "NL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160672881",
-      "title": "Navigating temporal dialogues through material ecologies: From ocean plastics to microbial architecture",
-      "authors": [
-        "Katharina Vones",
-        "Carolina Ramirez-Figueroa"
+        "Bernd von Mallinckrodt"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-09",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167803123",
+      "title": "AI Contract Programming: Preconditions, Postconditions, and Invariants for Agentic Systems",
+      "authors": [
+        "Олег Ивченко",
+        "Iryna Ivchenko"
+      ],
+      "countries": [
+        "UA"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167795895",
+      "title": "Raw and source data for \"Ataxia-Telangiectasia Mutated Inhibition Enhances Adeno-Associated Virus-Mediated Knock-in Efficiency in Pig Zygotes\"",
+      "authors": [
+        "Hiromasa Hara",
+        "Mitsuhiro Noguchi",
+        "Fuminori Tanihara"
+      ],
+      "countries": [
+        "JP",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167808171",
+      "title": "peg-solitaire-atlas: solvers, generators, and atlases for peg solitaire on unicyclic graphs",
+      "authors": [
+        "Krishna Harish"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167789558",
+      "title": "&lt;b&gt;Research on Automatic Evaluation Algorithm for Student Sports Movement Quality Based on Deep Learning&lt;/b&gt;",
+      "authors": [
+        "Huicong Lei",
+        "Miao Zhou"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167791828",
+      "title": "Knowledge-graph attention network ChemFlow identifies modulators of EGFR",
+      "authors": [
+        "Swarnava Samanta",
+        "Gaurava Srivastava",
+        "Saumya Ranjan Satrusal"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167809933",
+      "title": "Integrating machine learning with single-step GBLUP for enhanced genomic prediction in white spruce",
+      "authors": [
+        "Eduardo P. Cappa",
+        "Charles Chen",
+        "Andy Benowicz"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-10",
       "cited_by_count": 0,
       "source": "openalex"
     }

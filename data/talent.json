@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-10T10:26:11.977917+00:00",
+  "fetched_at": "2026-07-11T08:51:17.764459+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 185774,
+            "raw_value": 185507,
             "share_score": 43.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4203,
+            "raw_value": 4190,
             "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3070,
-            "share_score": 31.9,
+            "raw_value": 3045,
+            "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 245752,
+            "raw_value": 245297,
             "share_score": 56.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7583,
+            "raw_value": 7558,
             "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6556,
-            "share_score": 68.1,
+            "raw_value": 6520,
+            "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,106 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260233
+        "count": 260185
       },
       {
         "country_code": "CN",
-        "count": 245752
+        "count": 245297
       },
       {
         "country_code": "US",
-        "count": 185774
+        "count": 185507
       },
       {
         "country_code": "DE",
-        "count": 166605
+        "count": 166542
       },
       {
         "country_code": "IN",
-        "count": 99266
+        "count": 99049
       },
       {
         "country_code": "GB",
-        "count": 53072
+        "count": 52974
       },
       {
         "country_code": "ID",
-        "count": 30273
+        "count": 30197
       },
       {
         "country_code": "FR",
-        "count": 28361
+        "count": 28327
       },
       {
         "country_code": "CA",
-        "count": 26423
+        "count": 26375
       },
       {
         "country_code": "IT",
-        "count": 26218
+        "count": 26174
       }
     ],
     "volume": {
-      "us": 185774,
-      "china": 245752,
-      "total": 2492371,
+      "us": 185507,
+      "china": 245297,
+      "total": 2489685,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4203,
-      "china": 7583,
-      "total": 18428,
+      "us": 4190,
+      "china": 7558,
+      "total": 18363,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3070,
-      "china": 6556,
-      "total": 14959,
+      "us": 3045,
+      "china": 6520,
+      "total": 14879,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7166796224",
+      "title": "[Artificial intelligence in neuro-ophthalmology: prospects, challenges and countermeasures].",
+      "authors": [
+        "L B Jiang",
+        "Z X Li"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167414598",
+      "title": "[T-020] Principle of Conceptual Fixation: Logical Constantization through Separation of Definitional and Operational Layers",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167422789",
+      "title": "[T-020] Principle of Conceptual Fixation: Logical Constantization through Separation of Definitional and Operational Layers",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7166739988",
       "title": "Closing the Loop: PID Feedback Control for Interpretable Activation Steering in Symbolic Music Generation",
@@ -201,6 +240,18 @@
       "source": "openalex"
     },
     {
+      "id": "https://openalex.org/W7167842564",
+      "title": "Sorcecode for the paper \"GhostGS and ECA2 Enhanced Framework for Accurate Strawberry Maturity Detection in Smart Agriculture\"",
+      "authors": [
+        "luo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
       "id": "https://openalex.org/W7167788009",
       "title": "Model checkpoints for Regional climate risk assessment from climate models using probabilistic machine learning",
       "authors": [
@@ -210,18 +261,6 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167842564",
-      "title": "Sorcecode for the paper \"GhostGS and ECA2 Enhanced Framework for Accurate Strawberry Maturity Detection in Smart Agriculture\"",
-      "authors": [
-        "luo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-07-10",
       "cited_by_count": 0,
       "source": "openalex"
@@ -280,49 +319,6 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167789558",
-      "title": "&lt;b&gt;Research on Automatic Evaluation Algorithm for Student Sports Movement Quality Based on Deep Learning&lt;/b&gt;",
-      "authors": [
-        "Huicong Lei",
-        "Miao Zhou"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-07-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167791828",
-      "title": "Knowledge-graph attention network ChemFlow identifies modulators of EGFR",
-      "authors": [
-        "Swarnava Samanta",
-        "Gaurava Srivastava",
-        "Saumya Ranjan Satrusal"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167809933",
-      "title": "Integrating machine learning with single-step GBLUP for enhanced genomic prediction in white spruce",
-      "authors": [
-        "Eduardo P. Cappa",
-        "Charles Chen",
-        "Andy Benowicz"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-07-10",
       "cited_by_count": 0,
       "source": "openalex"

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-11T08:51:17.764459+00:00",
+  "fetched_at": "2026-07-12T09:06:20.125558+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.8,
+          "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 185507,
-            "share_score": 43.1,
+            "raw_value": 188103,
+            "share_score": 43.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4190,
-            "share_score": 35.7,
+            "raw_value": 4185,
+            "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3045,
+            "raw_value": 3049,
             "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.2,
+          "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 245297,
-            "share_score": 56.9,
+            "raw_value": 247412,
+            "share_score": 56.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7558,
-            "share_score": 64.3,
+            "raw_value": 7563,
+            "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6520,
+            "raw_value": 6533,
             "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260185
+        "count": 260455
       },
       {
         "country_code": "CN",
-        "count": 245297
+        "count": 247412
       },
       {
         "country_code": "US",
-        "count": 185507
+        "count": 188103
       },
       {
         "country_code": "DE",
-        "count": 166542
+        "count": 167174
       },
       {
         "country_code": "IN",
-        "count": 99049
+        "count": 99737
       },
       {
         "country_code": "GB",
-        "count": 52974
+        "count": 53689
       },
       {
         "country_code": "ID",
-        "count": 30197
+        "count": 30451
       },
       {
         "country_code": "FR",
-        "count": 28327
+        "count": 28869
       },
       {
         "country_code": "CA",
-        "count": 26375
+        "count": 26657
       },
       {
         "country_code": "IT",
-        "count": 26174
+        "count": 26452
       }
     ],
     "volume": {
-      "us": 185507,
-      "china": 245297,
-      "total": 2489685,
+      "us": 188103,
+      "china": 247412,
+      "total": 2503694,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4190,
-      "china": 7558,
-      "total": 18363,
+      "us": 4185,
+      "china": 7563,
+      "total": 18370,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3045,
-      "china": 6520,
-      "total": 14879,
+      "us": 3049,
+      "china": 6533,
+      "total": 14913,
       "data_ok": true
     }
   },
@@ -182,144 +182,131 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166796224",
-      "title": "[Artificial intelligence in neuro-ophthalmology: prospects, challenges and countermeasures].",
+      "id": "https://openalex.org/W7168044902",
+      "title": "Intermediate-Task Training Effects on Zero-Shot Cross-Lingual Reasoning Performance",
       "authors": [
-        "L B Jiang",
-        "Z X Li"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-07-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167414598",
-      "title": "[T-020] Principle of Conceptual Fixation: Logical Constantization through Separation of Definitional and Operational Layers",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167422789",
-      "title": "[T-020] Principle of Conceptual Fixation: Logical Constantization through Separation of Definitional and Operational Layers",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166739988",
-      "title": "Closing the Loop: PID Feedback Control for Interpretable Activation Steering in Symbolic Music Generation",
-      "authors": [
-        "Ioannis Prokopiou",
-        "Pantelis Vikatos",
-        "Μάξιμος Καλιακάτσος-Παπακώστας"
-      ],
-      "countries": [
-        "GB",
-        "IQ",
-        "GR",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167842564",
-      "title": "Sorcecode for the paper \"GhostGS and ECA2 Enhanced Framework for Accurate Strawberry Maturity Detection in Smart Agriculture\"",
-      "authors": [
-        "luo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167788009",
-      "title": "Model checkpoints for Regional climate risk assessment from climate models using probabilistic machine learning",
-      "authors": [
-        "Ignacio Lopez‐Gomez"
+        "Assignee Research"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-10",
+      "published": "2026-07-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167809836",
-      "title": "BenchEWS-OBS: A Metrological Benchmark for Observation Strategy in Early-Warning Detection",
+      "id": "https://openalex.org/W7168050555",
+      "title": "EL-RAKHAWI MANUSCRIPT ON AI GEOPOLITICS: FROM COLD WAR TO ALGORITHMIC WAR",
       "authors": [
-        "Bernd von Mallinckrodt"
+        "mohamed kamal arafa el-rakhawi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-10",
+      "published": "2026-07-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167803123",
-      "title": "AI Contract Programming: Preconditions, Postconditions, and Invariants for Agentic Systems",
+      "id": "https://openalex.org/W7161462741",
+      "title": "Achieving atomic-scale precision in optical metrology by engineering the object environment",
       "authors": [
-        "Олег Ивченко",
-        "Iryna Ivchenko"
+        "Thomas A. Grant",
+        "Cheng-Hung Chi",
+        "Kevin F. MacDonald"
       ],
-      "countries": [
-        "UA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-10",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167795895",
-      "title": "Raw and source data for \"Ataxia-Telangiectasia Mutated Inhibition Enhances Adeno-Associated Virus-Mediated Knock-in Efficiency in Pig Zygotes\"",
+      "id": "https://openalex.org/W7168017974",
+      "title": "手机版布莱尔城堡:一段青春岁月的故事(Castle Blair A Story of Youthful Days).apk",
       "authors": [
-        "Hiromasa Hara",
-        "Mitsuhiro Noguchi",
-        "Fuminori Tanihara"
+        "叶兴阳双语音标有声读物"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168019736",
+      "title": "علم الرياضيات والجبرالزكي",
+      "authors": [
+        "Abuelgasim abayzeed elsmaney ahmed Ahmed"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168018377",
+      "title": "Scaling Multilingual Pre-training for Zero-Shot Cross-Lingual Transfer on XTREME-R",
+      "authors": [
+        "Assignee Research"
       ],
       "countries": [
-        "JP",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-10",
+      "published": "2026-07-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167808171",
-      "title": "peg-solitaire-atlas: solvers, generators, and atlases for peg solitaire on unicyclic graphs",
+      "id": "https://openalex.org/W7168025741",
+      "title": "Scaling Pretrained Models and Zero-Shot Cross-Lingual Transfer Accuracy on XTREME-R",
       "authors": [
-        "Krishna Harish"
+        "Assignee Research"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-10",
+      "published": "2026-07-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168021680",
+      "title": "Browser-Edge AI Benchmark: Code and Experimental Artifacts",
+      "authors": [
+        "Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168028647",
+      "title": "Reproducible case study for the Zero-Touch/IBN/LLM survey",
+      "authors": [
+        "Abdelbassette Chenna",
+        "Djallel Eddine Boubiche"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168028363",
+      "title": "NewtonSimAIResearch: Data, Software, and Supplementary Materials for Constrained vs. Unconstrained Free-Fall and Projectile-Motion AI Problem-to-Simulation Generation",
+      "authors": [
+        "Krish Sachithanand"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-12",
       "cited_by_count": 0,
       "source": "openalex"
     }

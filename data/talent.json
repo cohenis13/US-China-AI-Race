@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-13T10:31:25.310250+00:00",
+  "fetched_at": "2026-07-14T09:08:23.134837+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 189289,
+            "raw_value": 189130,
             "share_score": 43.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4175,
+            "raw_value": 4170,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3032,
+            "raw_value": 3029,
             "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 247309,
+            "raw_value": 247065,
             "share_score": 56.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7546,
+            "raw_value": 7528,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6506,
+            "raw_value": 6493,
             "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,171 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260471
+        "count": 260455
       },
       {
         "country_code": "CN",
-        "count": 247309
+        "count": 247065
       },
       {
         "country_code": "US",
-        "count": 189289
+        "count": 189130
       },
       {
         "country_code": "DE",
-        "count": 167222
+        "count": 167187
       },
       {
         "country_code": "IN",
-        "count": 99823
+        "count": 99790
       },
       {
         "country_code": "GB",
-        "count": 53739
+        "count": 53694
       },
       {
         "country_code": "ID",
-        "count": 30465
+        "count": 30432
       },
       {
         "country_code": "FR",
-        "count": 28912
+        "count": 28890
       },
       {
         "country_code": "CA",
-        "count": 26688
+        "count": 26630
       },
       {
         "country_code": "IT",
-        "count": 26467
+        "count": 26434
       }
     ],
     "volume": {
-      "us": 189289,
-      "china": 247309,
-      "total": 2507925,
+      "us": 189130,
+      "china": 247065,
+      "total": 2506921,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4175,
-      "china": 7546,
-      "total": 18322,
+      "us": 4170,
+      "china": 7528,
+      "total": 18278,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3032,
-      "china": 6506,
-      "total": 14858,
+      "us": 3029,
+      "china": 6493,
+      "total": 14830,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7162279276",
+      "title": "Machine Learning and the Digital Archiving of Death",
+      "authors": [
+        "Felicity Colman"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168098423",
+      "title": "Source data for High-dimensional layer-state trajectories reveal the internal dynamics of transformer inference",
+      "authors": [
+        "Heng Zhao",
+        "Yu fei Wang",
+        "Ruidian Song"
+      ],
+      "countries": [
+        "GB",
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166491441",
+      "title": "Imitation Learning for constrained robot motion and skill adaptation",
+      "authors": [
+        "Giuseppe Infantone"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168091742",
+      "title": "Code for High-dimensional layer-state trajectories reveal the internal dynamics of transformer inference",
+      "authors": [
+        "Heng Zhao",
+        "Yu fei Wang",
+        "Ruidian Song"
+      ],
+      "countries": [
+        "GB",
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166918385",
+      "title": "Learning Contact-Rich Loco-Manipulation",
+      "authors": [
+        "Simone Tolomei"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168103397",
+      "title": "Source data for High-dimensional layer-state trajectories reveal the internal dynamics of transformer inference",
+      "authors": [
+        "Heng Zhao",
+        "Yu fei Wang",
+        "Ruidian Song"
+      ],
+      "countries": [
+        "GB",
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168098608",
+      "title": "Code for High-dimensional layer-state trajectories reveal the internal dynamics of transformer inference",
+      "authors": [
+        "Heng Zhao",
+        "Yu fei Wang",
+        "Ruidian Song"
+      ],
+      "countries": [
+        "GB",
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7168083993",
       "title": "A Foundation Model for Light Fields: Masked Spatial-Angular Transformer Pretraining (LF-MAE)",
@@ -217,99 +321,6 @@
         "JP"
       ],
       "primary_country": "Other",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168102079",
-      "title": "關於質數分布的一個隱含超越方程式",
-      "authors": [
-        "CHIAO CHI SHIH"
-      ],
-      "countries": [
-        "GR",
-        "TN",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168106680",
-      "title": "Intermediate-Task Difficulty and Inference Efficiency in Zero-Shot Cross-Lingual Transfer on XTREME-Retrieval",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168083358",
-      "title": "手机版格雷厄姆杂志,第36卷,第5期,(Graham's Magazine, Vol. XXXVI, No.).apk",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168089170",
-      "title": "GalacticStructureFinder (gsf)",
-      "authors": [
-        "Aura Obreja",
-        "Tobias Buck"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168097542",
-      "title": "手机版《少女杂志》,第20卷,第1004期,(The Girl's Own Paper, Vol. XX. No.).apk",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168104815",
-      "title": "TIPS ICE Planner",
-      "authors": [
-        "Masayoshi Yamamoto"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168086072",
-      "title": "The Impact of Generative AI on Sketching and Design Thinking Skills for Product Design Students",
-      "authors": [
-        "Mai Mohamed Abou Elyazed"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-07-13",
       "cited_by_count": 0,
       "source": "openalex"

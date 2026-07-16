@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-15T09:12:33.005993+00:00",
+  "fetched_at": "2026-07-16T09:18:52.009772+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 189551,
-            "share_score": 43.4,
+            "raw_value": 189664,
+            "share_score": 43.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4178,
-            "share_score": 35.7,
+            "raw_value": 4228,
+            "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3038,
+            "raw_value": 3075,
             "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 247322,
-            "share_score": 56.6,
+            "raw_value": 246816,
+            "share_score": 56.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7539,
-            "share_score": 64.3,
+            "raw_value": 7645,
+            "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6504,
+            "raw_value": 6609,
             "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260363
+        "count": 260362
       },
       {
         "country_code": "CN",
-        "count": 247322
+        "count": 246816
       },
       {
         "country_code": "US",
-        "count": 189551
+        "count": 189664
       },
       {
         "country_code": "DE",
-        "count": 167166
+        "count": 167662
       },
       {
         "country_code": "IN",
-        "count": 100023
+        "count": 100048
       },
       {
         "country_code": "GB",
-        "count": 53738
+        "count": 53792
       },
       {
         "country_code": "ID",
-        "count": 30527
+        "count": 30586
       },
       {
         "country_code": "FR",
-        "count": 28897
+        "count": 28883
       },
       {
         "country_code": "CA",
-        "count": 26660
+        "count": 26639
       },
       {
         "country_code": "IT",
-        "count": 26367
+        "count": 26336
       }
     ],
     "volume": {
-      "us": 189551,
-      "china": 247322,
-      "total": 2511367,
+      "us": 189664,
+      "china": 246816,
+      "total": 2515976,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4178,
-      "china": 7539,
-      "total": 18310,
+      "us": 4228,
+      "china": 7645,
+      "total": 18580,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3038,
-      "china": 6504,
-      "total": 14852,
+      "us": 3075,
+      "china": 6609,
+      "total": 15134,
       "data_ok": true
     }
   },
@@ -182,139 +182,133 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7165287102",
-      "title": "AI-Generated Code + E-Poetry: Exploring the possibilities of digital poetry with AI generated code in TouchDesigner",
+      "id": "https://openalex.org/W7165254942",
+      "title": "Coercing Contribution: Navigating Involuntary Authors through a Mountain of Sleep",
       "authors": [
-        "Roque Fernández Alcañiz"
-      ],
-      "countries": [
-        "ES"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168080616",
-      "title": "Voice-Based Alcohol Detection: A Physiologically-Grounded Biomarker Approach and the Role of the Widmark Alpha Constant - A Speaker-Independent Analysis of the BAS Alcohol Language Corpus (ALC)",
-      "authors": [
-        "Oğuzhan AYDEMİR",
-        "Gökhan Aydemir"
+        "Ritchey, Glenn S, III"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-15",
+      "published": "2026-07-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165229460",
-      "title": "Singulars: Performing the Reverse Turing Test",
+      "id": "https://openalex.org/W7165318559",
+      "title": "E-Lit Periodicals in the Age of AI",
       "authors": [
-        "Halim Madi"
+        "Peter D Edgar",
+        "Ritchey, Glenn S., III",
+        "Kiera Obbard"
+      ],
+      "countries": [
+        "US",
+        "CA"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168298351",
+      "title": "ARTIFICIAL INTELLIGENCE IN PHARMACOVIGILANCE: CURRENT APPLICATIONS, OPPORTUNITIES, CHALLENGES, AND FUTURE PERSPECTIVES",
+      "authors": [
+        "*1Mr. Pratik D. Kachare, 2Ms. Shruti J. Kadam, 3Mr. Pankaj Kalel, 4Mr. Pradeep Jadhav, 5Mrs. Anuradha Salunkhe"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-15",
+      "published": "2026-07-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166495577",
-      "title": "Towards Self-Aware Autonomous Agents: A Multi-Model Sensing and Communication Framework",
+      "id": "https://openalex.org/W7165234084",
+      "title": "Reimaging Authorship in Contemporary Chinese Poetry",
       "authors": [
-        "SALEEMULLAH XXX"
+        "Zhijing Wang"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-15",
+      "countries": [
+        "SG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7168101876",
-      "title": "Voice-Based Alcohol Detection: A Physiologically-Grounded Biomarker Approach and the Role of the Widmark Alpha Constant - A Speaker-Independent Analysis of the BAS Alcohol Language Corpus (ALC)",
+      "id": "https://openalex.org/W7165251670",
+      "title": "Miniature Novels Inside Code: Reflection Scenes as Emergent Literary Form in ChoiceScript",
       "authors": [
-        "Oğuzhan AYDEMİR",
-        "Gökhan Aydemir"
+        "Matthew F. Griffin"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-15",
+      "published": "2026-07-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163787242",
-      "title": "Performance Prediction of Data-Rebalancing Actions in Sharded NoSQL Clusters",
+      "id": "https://openalex.org/W7165245252",
+      "title": "A multi-language video game dialogue corpus",
       "authors": [
-        "Georgios Paterakis",
-        "Efstratios Ntallaris",
-        "Kostas Magoutis"
+        "Mark A. Black"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165254751",
+      "title": "Necrotextual Poetics: Fine-Tuned Language Models and Oscar Wilde's Unfinished Aphorism",
+      "authors": [
+        "Zach Whalen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-15",
+      "published": "2026-07-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7149215964",
-      "title": "Assessing sequential scrolling strategies in virtual reality",
+      "id": "https://openalex.org/W7168268710",
+      "title": "ARTIFICIAL INTELLIGENCE IN PHARMACOVIGILANCE: CURRENT APPLICATIONS, OPPORTUNITIES, CHALLENGES, AND FUTURE PERSPECTIVES",
       "authors": [
-        "Noémie Kempa",
-        "Isabelle Barbet",
-        "Jérôme Dupire"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164814441",
-      "title": "Supplementary Data: Investigating the information content of multiple signals using joint recurrence quantification",
-      "authors": [
-        "Jai Kumar Sharma",
-        "Omid Sedehi",
-        "Benjamin Halkon"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162370408",
-      "title": "Estimation of High-Dimensional Copula-Based CUB Models using Composite Likelihood",
-      "authors": [
-        "Matteo Ventura",
-        "Dimitris Karlis",
-        "Julien Jacques"
+        "*1Mr. Pratik D. Kachare, 2Ms. Shruti J. Kadam, 3Mr. Pankaj Kalel, 4Mr. Pradeep Jadhav, 5Mrs. Anuradha Salunkhe"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-15",
+      "published": "2026-07-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7168095967",
-      "title": "Voice-Based COVID-19 Detection: A Physiologically-Grounded Biomarker Approach and the Limits of Transferring the Widmark Alpha Constant - An Analysis of the Coswara-Data Respiratory Sound Corpus (IISc Bangalore)",
+      "id": "https://openalex.org/W7161460843",
+      "title": "Locally Differentially Private Synthesis of Decentralised Heterogeneous Social Graphs via Spectral Embeddings and Bayesian Optimisation",
       "authors": [
-        "Oğuzhan AYDEMİR",
-        "Gökhan Aydemir"
+        "Manel Jerbi",
+        "Zaineb Chelly Dagdia",
+        "Sjouke Mauw"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168238983",
+      "title": "ALBEF Model Inference Efficiency Under Hybrid Batch Training Ratios",
+      "authors": [
+        "Assignee Research"
       ],
       "countries": [
         "US"

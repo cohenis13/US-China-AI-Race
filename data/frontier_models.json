@@ -4,7 +4,7 @@
   "schema_version": "2.0",
   "title": "Open Model Ecosystem Index",
   "subtitle": "A three-proxy composite measuring US and Chinese AI model activity across release output, benchmark performance, and platform distribution. This is NOT a direct measure of frontier or closed-model capability.",
-  "fetched_at": "2026-07-16T08:29:45.673054+00:00",
+  "fetched_at": "2026-07-17T08:14:34.525636+00:00",
   "window_days": 30,
   "labs_tracked": 30,
   "coverage_note": "Composite of: (1) release activity on HuggingFace Hub + ModelScope supplement, (2) benchmark performance from LMSYS Chatbot Arena and Epoch AI notable models, (3) ecosystem breadth across HF and ModelScope platforms. China is systematically undercounted on HF-only measures — this composite partially corrects for that via ModelScope supplement and ecosystem breadth proxy.",
@@ -15,12 +15,12 @@
   },
   "summary": {
     "US": {
-      "composite_score": 37.5,
+      "composite_score": 62.4,
       "proxies": {
         "release_activity": {
-          "raw_value": 0,
-          "share_score": 0.0,
-          "hf_count": 0,
+          "raw_value": 199,
+          "share_score": 71.3,
+          "hf_count": 199,
           "supplement_count": 0,
           "source_note": "HuggingFace Hub 30-day activity from tracked US labs (data/labs.json). ModelScope supplement: 0 (none applied for US in this build).",
           "sources": [
@@ -74,14 +74,14 @@
       }
     },
     "China": {
-      "composite_score": 62.5,
+      "composite_score": 37.6,
       "proxies": {
         "release_activity": {
-          "raw_value": 16,
-          "share_score": 100.0,
-          "hf_count": 0,
+          "raw_value": 80,
+          "share_score": 28.7,
+          "hf_count": 64,
           "supplement_count": 16,
-          "source_note": "HuggingFace Hub 30-day activity from tracked China labs (0 models) + ModelScope supplement for labs with limited HF presence (16 models estimated). See data/frontier_models_manual.json for supplement detail.",
+          "source_note": "HuggingFace Hub 30-day activity from tracked China labs (64 models) + ModelScope supplement for labs with limited HF presence (16 models estimated). See data/frontier_models_manual.json for supplement detail.",
           "sources": [
             {
               "name": "Hugging Face Hub API",
@@ -269,12 +269,2843 @@
   },
   "hf_activity": {
     "window_days": 30,
-    "US": 0,
-    "China": 0,
-    "Other": 0,
+    "US": 199,
+    "China": 64,
+    "Other": 20,
     "Unknown": 0,
-    "total": 0
+    "total": 283
   },
   "methodology_note": "Three-proxy composite scored as share-of-combined (US + China = 100). Proxy 1 — Release Activity (35%): HuggingFace Hub 30-day model updates from tracked labs + estimated ModelScope supplement for Chinese labs with limited HF presence. Proxy 2 — Benchmark Performance (45%): average of LMSYS Chatbot Arena top-20 Elo share and Epoch AI notable-model count share (2-year window). Manual snapshot updated periodically in data/frontier_models_manual.json. Proxy 3 — Ecosystem Breadth (20%): HF monthly download share (55%) + ModelScope platform presence estimate (45%). IMPORTANT: This composite measures open-model activity and public benchmark performance. It does NOT capture closed-model capability (GPT-4o, Claude, Qwen API, Doubao) or classified/non-public AI development.",
-  "models": []
+  "models": [
+    {
+      "model_id": "tencent/Hy-Embodied-RxBrain-1.0",
+      "author": "tencent",
+      "last_modified": "2026-07-17T07:39:30.000Z",
+      "downloads": 56,
+      "likes": 32,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "microsoft/bitnet-embedding-0.6b",
+      "author": "microsoft",
+      "last_modified": "2026-07-17T06:05:53.000Z",
+      "downloads": 172,
+      "likes": 12,
+      "pipeline_tag": "",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "microsoft/bitnet-embedding-270m",
+      "author": "microsoft",
+      "last_modified": "2026-07-17T06:05:49.000Z",
+      "downloads": 130,
+      "likes": 8,
+      "pipeline_tag": "",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "BAAI/Orca-4B",
+      "author": "BAAI",
+      "last_modified": "2026-07-17T02:34:35.000Z",
+      "downloads": 67,
+      "likes": 5,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/instant-nurec",
+      "author": "nvidia",
+      "last_modified": "2026-07-16T21:21:20.000Z",
+      "downloads": 28,
+      "likes": 12,
+      "pipeline_tag": "image-to-3d",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-Labs-Audex-2B",
+      "author": "nvidia",
+      "last_modified": "2026-07-16T20:31:57.000Z",
+      "downloads": 1798,
+      "likes": 71,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-Labs-Audex-30B-A3B",
+      "author": "nvidia",
+      "last_modified": "2026-07-16T20:31:55.000Z",
+      "downloads": 1764,
+      "likes": 160,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "facebook/UMA",
+      "author": "facebook",
+      "last_modified": "2026-07-16T18:35:18.000Z",
+      "downloads": 133,
+      "likes": 298,
+      "pipeline_tag": "",
+      "lab_name": "Meta AI",
+      "country": "US"
+    },
+    {
+      "model_id": "microsoft/skala-1.1",
+      "author": "microsoft",
+      "last_modified": "2026-07-16T14:15:01.000Z",
+      "downloads": 63941,
+      "likes": 10,
+      "pipeline_tag": "",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-3-Embed-1B-BF16",
+      "author": "nvidia",
+      "last_modified": "2026-07-16T11:00:53.000Z",
+      "downloads": 31166,
+      "likes": 50,
+      "pipeline_tag": "sentence-similarity",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/Hy3",
+      "author": "tencent",
+      "last_modified": "2026-07-16T03:38:33.000Z",
+      "downloads": 11849,
+      "likes": 814,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "tencent/HunyuanOCR",
+      "author": "tencent",
+      "last_modified": "2026-07-16T03:35:58.000Z",
+      "downloads": 525984,
+      "likes": 774,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "google/tapnet",
+      "author": "google",
+      "last_modified": "2026-07-16T02:34:42.000Z",
+      "downloads": 0,
+      "likes": 19,
+      "pipeline_tag": "",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Lyra-2.0",
+      "author": "nvidia",
+      "last_modified": "2026-07-15T21:57:52.000Z",
+      "downloads": 2288,
+      "likes": 334,
+      "pipeline_tag": "image-to-3d",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "stabilityai/stable-audio-3-optimized",
+      "author": "stabilityai",
+      "last_modified": "2026-07-15T21:15:52.000Z",
+      "downloads": 526,
+      "likes": 25,
+      "pipeline_tag": "text-to-audio",
+      "lab_name": "Stability AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-3-Embed-1B-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-07-15T17:36:07.000Z",
+      "downloads": 3930,
+      "likes": 33,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-3-Embed-8B-BF16",
+      "author": "nvidia",
+      "last_modified": "2026-07-15T17:11:24.000Z",
+      "downloads": 9385,
+      "likes": 43,
+      "pipeline_tag": "sentence-similarity",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it-qat-w4a16-ct",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:47.000Z",
+      "downloads": 1528247,
+      "likes": 40,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it-qat-q4_0-unquantized",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:42.000Z",
+      "downloads": 13599,
+      "likes": 33,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it-qat-q4_0-unquantized-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:37.000Z",
+      "downloads": 10301,
+      "likes": 21,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it-qat-q4_0-gguf",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:32.000Z",
+      "downloads": 89013,
+      "likes": 92,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:27.000Z",
+      "downloads": 1408785,
+      "likes": 313,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B-it",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:22.000Z",
+      "downloads": 12499574,
+      "likes": 3239,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-31B",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:14.000Z",
+      "downloads": 815859,
+      "likes": 469,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B-it-qat-q4_0-unquantized",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:10.000Z",
+      "downloads": 55041,
+      "likes": 40,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B-it-qat-q4_0-unquantized-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:42:04.000Z",
+      "downloads": 10859,
+      "likes": 15,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B-it-qat-q4_0-gguf",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:59.000Z",
+      "downloads": 96730,
+      "likes": 107,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B-it-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:53.000Z",
+      "downloads": 276630,
+      "likes": 169,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B-it",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:48.000Z",
+      "downloads": 14050306,
+      "likes": 1278,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-26B-A4B",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:43.000Z",
+      "downloads": 1056120,
+      "likes": 344,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B-it-qat-w4a16-ct",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:33.000Z",
+      "downloads": 1771365,
+      "likes": 44,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B-it-qat-q4_0-unquantized",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:25.000Z",
+      "downloads": 397065,
+      "likes": 68,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B-it-qat-q4_0-unquantized-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:19.000Z",
+      "downloads": 81594,
+      "likes": 20,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B-it-qat-q4_0-gguf",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:13.000Z",
+      "downloads": 236387,
+      "likes": 220,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B-it-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:08.000Z",
+      "downloads": 99340,
+      "likes": 101,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B-it",
+      "author": "google",
+      "last_modified": "2026-07-15T16:41:03.000Z",
+      "downloads": 2796201,
+      "likes": 1310,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-12B",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:57.000Z",
+      "downloads": 292227,
+      "likes": 658,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-qat-w4a16-ct",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:53.000Z",
+      "downloads": 380384,
+      "likes": 10,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:49.000Z",
+      "downloads": 14658,
+      "likes": 23,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-qat-q4_0-unquantized-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:44.000Z",
+      "downloads": 4535,
+      "likes": 12,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-qat-q4_0-gguf",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:39.000Z",
+      "downloads": 164480,
+      "likes": 91,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-qat-mobile-transformers",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:34.000Z",
+      "downloads": 15946,
+      "likes": 24,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-qat-mobile-ct",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:29.000Z",
+      "downloads": 30767,
+      "likes": 22,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:24.000Z",
+      "downloads": 214902,
+      "likes": 117,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B-it",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:16.000Z",
+      "downloads": 5649986,
+      "likes": 1378,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E4B",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:09.000Z",
+      "downloads": 402173,
+      "likes": 360,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-qat-w4a16-ct",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:05.000Z",
+      "downloads": 550315,
+      "likes": 6,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+      "author": "google",
+      "last_modified": "2026-07-15T16:40:00.000Z",
+      "downloads": 37602,
+      "likes": 29,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-qat-q4_0-unquantized-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:54.000Z",
+      "downloads": 4601,
+      "likes": 19,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-qat-q4_0-gguf",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:48.000Z",
+      "downloads": 213768,
+      "likes": 83,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-qat-mobile-transformers",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:42.000Z",
+      "downloads": 29435,
+      "likes": 131,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-qat-mobile-ct",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:37.000Z",
+      "downloads": 20395,
+      "likes": 23,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it-assistant",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:31.000Z",
+      "downloads": 82227,
+      "likes": 69,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B-it",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:25.000Z",
+      "downloads": 2943727,
+      "likes": 823,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/gemma-4-E2B",
+      "author": "google",
+      "last_modified": "2026-07-15T16:39:18.000Z",
+      "downloads": 100285,
+      "likes": 395,
+      "pipeline_tag": "any-to-any",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/diffusiongemma-26B-A4B-it",
+      "author": "google",
+      "last_modified": "2026-07-15T16:35:45.000Z",
+      "downloads": 1837548,
+      "likes": 1131,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "microsoft/colipri",
+      "author": "microsoft",
+      "last_modified": "2026-07-15T13:57:10.000Z",
+      "downloads": 4449,
+      "likes": 54,
+      "pipeline_tag": "zero-shot-image-classification",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "mistralai/Leanstral-1.5-119B-A6B",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:24:10.000Z",
+      "downloads": 416,
+      "likes": 204,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Small-4-119B-2603-eagle",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:23:57.000Z",
+      "downloads": 828,
+      "likes": 53,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Small-4-119B-2603-NVFP4",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:23:42.000Z",
+      "downloads": 1707,
+      "likes": 109,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Small-4-119B-2603",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:23:29.000Z",
+      "downloads": 210857,
+      "likes": 409,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Medium-3.5-128B",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:23:17.000Z",
+      "downloads": 222182,
+      "likes": 400,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Large-3-675B-Instruct-2512-NVFP4",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:23:06.000Z",
+      "downloads": 5123,
+      "likes": 57,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Large-3-675B-Instruct-2512-Eagle",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:22:54.000Z",
+      "downloads": 45,
+      "likes": 28,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:22:43.000Z",
+      "downloads": 901,
+      "likes": 237,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-8B-Reasoning-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:22:30.000Z",
+      "downloads": 23395,
+      "likes": 89,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:22:19.000Z",
+      "downloads": 21225,
+      "likes": 23,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-8B-Instruct-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:22:08.000Z",
+      "downloads": 128126,
+      "likes": 185,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-3B-Reasoning-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:21:57.000Z",
+      "downloads": 78404,
+      "likes": 117,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:21:45.000Z",
+      "downloads": 343481,
+      "likes": 34,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-3B-Instruct-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:21:35.000Z",
+      "downloads": 981864,
+      "likes": 264,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-14B-Reasoning-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:21:23.000Z",
+      "downloads": 24549,
+      "likes": 143,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:21:11.000Z",
+      "downloads": 17215,
+      "likes": 28,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Ministral-3-14B-Instruct-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:20:59.000Z",
+      "downloads": 133657,
+      "likes": 304,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Leanstral-2603",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:20:49.000Z",
+      "downloads": 152,
+      "likes": 168,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Devstral-Small-2-24B-Instruct-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:20:36.000Z",
+      "downloads": 275344,
+      "likes": 633,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "mistralai/Devstral-2-123B-Instruct-2512",
+      "author": "mistralai",
+      "last_modified": "2026-07-15T12:19:49.000Z",
+      "downloads": 64142,
+      "likes": 326,
+      "pipeline_tag": "",
+      "lab_name": "Mistral AI",
+      "country": "Other"
+    },
+    {
+      "model_id": "microsoft/GELab-Zero-4B-preview-Sico-Evolution",
+      "author": "microsoft",
+      "last_modified": "2026-07-15T05:57:37.000Z",
+      "downloads": 909,
+      "likes": 52,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/Hy-Embodied-VLM-1.0",
+      "author": "tencent",
+      "last_modified": "2026-07-15T02:53:49.000Z",
+      "downloads": 54,
+      "likes": 19,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "microsoft/phi-4",
+      "author": "microsoft",
+      "last_modified": "2026-07-14T14:22:25.000Z",
+      "downloads": 815140,
+      "likes": 2277,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Gemma-4-31B-IT-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-07-13T22:33:54.000Z",
+      "downloads": 2456973,
+      "likes": 536,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-vision-4.1-4b",
+      "author": "ibm-granite",
+      "last_modified": "2026-07-13T15:35:23.000Z",
+      "downloads": 190898,
+      "likes": 96,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "stabilityai/stable-audio-3-small-music-base",
+      "author": "stabilityai",
+      "last_modified": "2026-07-13T05:03:04.000Z",
+      "downloads": 1916,
+      "likes": 15,
+      "pipeline_tag": "text-to-audio",
+      "lab_name": "Stability AI",
+      "country": "US"
+    },
+    {
+      "model_id": "stabilityai/stable-audio-3-small-sfx-base",
+      "author": "stabilityai",
+      "last_modified": "2026-07-13T05:02:49.000Z",
+      "downloads": 2141,
+      "likes": 10,
+      "pipeline_tag": "text-to-audio",
+      "lab_name": "Stability AI",
+      "country": "US"
+    },
+    {
+      "model_id": "stabilityai/stable-audio-3-medium-base",
+      "author": "stabilityai",
+      "last_modified": "2026-07-13T05:02:33.000Z",
+      "downloads": 10328,
+      "likes": 23,
+      "pipeline_tag": "text-to-audio",
+      "lab_name": "Stability AI",
+      "country": "US"
+    },
+    {
+      "model_id": "BAAI/AquilaCode-multi",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:11:50.000Z",
+      "downloads": 49,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-7B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:11:41.000Z",
+      "downloads": 699,
+      "likes": 19,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaChat-7B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:11:30.000Z",
+      "downloads": 16201,
+      "likes": 49,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaChat2-70B-Expr",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:11:20.000Z",
+      "downloads": 193,
+      "likes": 5,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaSQL-7B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:11:12.000Z",
+      "downloads": 27,
+      "likes": 12,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila2-70B-Expr",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:11:00.000Z",
+      "downloads": 138,
+      "likes": 10,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaChat2-7B-16K",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:10:50.000Z",
+      "downloads": 104,
+      "likes": 9,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila2-7B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:10:35.000Z",
+      "downloads": 105,
+      "likes": 6,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaDense-7B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:10:26.000Z",
+      "downloads": 140,
+      "likes": 2,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaDense-16B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:10:11.000Z",
+      "downloads": 103,
+      "likes": 1,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaMoE",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:09:56.000Z",
+      "downloads": 130,
+      "likes": 10,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaChat2-34B-16K",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:09:37.000Z",
+      "downloads": 226,
+      "likes": 26,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila2-34B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:09:30.000Z",
+      "downloads": 365,
+      "likes": 18,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaMoE-SFT",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:09:22.000Z",
+      "downloads": 107,
+      "likes": 7,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaChat2-34B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:07:56.000Z",
+      "downloads": 133,
+      "likes": 47,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaChat2-7B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:07:49.000Z",
+      "downloads": 16972,
+      "likes": 17,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-33B",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:07:36.000Z",
+      "downloads": 35,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-VL-2B-Intermediate",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:07:25.000Z",
+      "downloads": 0,
+      "likes": 3,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-VL-2B-llava-qwen",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:07:17.000Z",
+      "downloads": 104,
+      "likes": 61,
+      "pipeline_tag": "visual-question-answering",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-135M-Intermediate",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:07:04.000Z",
+      "downloads": 0,
+      "likes": 1,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-135M-Instruct",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:06:48.000Z",
+      "downloads": 115,
+      "likes": 4,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/Aquila-135M",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:06:35.000Z",
+      "downloads": 0,
+      "likes": 4,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/AquilaCode-py",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T04:06:19.000Z",
+      "downloads": 392,
+      "likes": 2,
+      "pipeline_tag": "text-generation",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/seggpt-vit-large",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T03:56:28.000Z",
+      "downloads": 18229,
+      "likes": 5,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "BAAI/SegGPT",
+      "author": "BAAI",
+      "last_modified": "2026-07-13T03:56:02.000Z",
+      "downloads": 0,
+      "likes": 22,
+      "pipeline_tag": "",
+      "lab_name": "BAAI (Beijing Academy of AI)",
+      "country": "China"
+    },
+    {
+      "model_id": "MiniMaxAI/MiniMax-M3-MXFP8",
+      "author": "MiniMaxAI",
+      "last_modified": "2026-07-11T09:09:23.000Z",
+      "downloads": 711620,
+      "likes": 44,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "MiniMax",
+      "country": "China"
+    },
+    {
+      "model_id": "MiniMaxAI/MiniMax-M3",
+      "author": "MiniMaxAI",
+      "last_modified": "2026-07-11T09:07:55.000Z",
+      "downloads": 234750,
+      "likes": 1332,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "MiniMax",
+      "country": "China"
+    },
+    {
+      "model_id": "tencent/HiLS-Attention-7B",
+      "author": "tencent",
+      "last_modified": "2026-07-10T13:44:52.000Z",
+      "downloads": 520,
+      "likes": 16,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/Kimi-K2.6-DFlash",
+      "author": "nvidia",
+      "last_modified": "2026-07-10T03:59:01.000Z",
+      "downloads": 1830,
+      "likes": 23,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-Cascade-2-30B-A3B",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T22:10:32.000Z",
+      "downloads": 95329,
+      "likes": 512,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-swash-3b-a600m",
+      "author": "ibm-granite",
+      "last_modified": "2026-07-09T21:48:53.000Z",
+      "downloads": 691,
+      "likes": 9,
+      "pipeline_tag": "text-generation",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/PiD",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T18:59:13.000Z",
+      "downloads": 226,
+      "likes": 375,
+      "pipeline_tag": "image-to-image",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/StdMoE_1b14b_1T",
+      "author": "allenai",
+      "last_modified": "2026-07-09T17:44:48.000Z",
+      "downloads": 268,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/StdMoE_1b14b_130B",
+      "author": "allenai",
+      "last_modified": "2026-07-09T17:44:29.000Z",
+      "downloads": 267,
+      "likes": 2,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/StdMoE_1b4b_130B",
+      "author": "allenai",
+      "last_modified": "2026-07-09T17:44:18.000Z",
+      "downloads": 395,
+      "likes": 4,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Emo_1b14b_130B",
+      "author": "allenai",
+      "last_modified": "2026-07-09T17:44:06.000Z",
+      "downloads": 266,
+      "likes": 5,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Emo_1b14b_1T",
+      "author": "allenai",
+      "last_modified": "2026-07-09T17:43:53.000Z",
+      "downloads": 656,
+      "likes": 26,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Dense_1b_130B",
+      "author": "allenai",
+      "last_modified": "2026-07-09T17:43:37.000Z",
+      "downloads": 260,
+      "likes": 4,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos3-Super-Text2Image",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T16:29:23.000Z",
+      "downloads": 27258,
+      "likes": 165,
+      "pipeline_tag": "text-to-image",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos3-Super-Image2Video",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T16:29:13.000Z",
+      "downloads": 6095,
+      "likes": 140,
+      "pipeline_tag": "image-to-video",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos3-Nano-Policy-DROID",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T16:29:05.000Z",
+      "downloads": 2842,
+      "likes": 29,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos3-Nano",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T16:28:47.000Z",
+      "downloads": 223707,
+      "likes": 298,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos3-Super",
+      "author": "nvidia",
+      "last_modified": "2026-07-09T16:27:53.000Z",
+      "downloads": 70751,
+      "likes": 203,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/StdMoE_1b14b_1T_EmoAnnealed",
+      "author": "allenai",
+      "last_modified": "2026-07-09T00:44:08.000Z",
+      "downloads": 91,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/StdMoE_1b14b_1T_Preanneal",
+      "author": "allenai",
+      "last_modified": "2026-07-09T00:43:56.000Z",
+      "downloads": 93,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Kimi-K2.7-Code-DFlash",
+      "author": "nvidia",
+      "last_modified": "2026-07-08T21:26:38.000Z",
+      "downloads": 488,
+      "likes": 8,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/nvDock",
+      "author": "nvidia",
+      "last_modified": "2026-07-08T17:59:34.000Z",
+      "downloads": 0,
+      "likes": 2,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/R3-rerank-0.6b",
+      "author": "tencent",
+      "last_modified": "2026-07-08T08:49:20.000Z",
+      "downloads": 863,
+      "likes": 24,
+      "pipeline_tag": "text-ranking",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "tencent/R3-embedding-0.6b",
+      "author": "tencent",
+      "last_modified": "2026-07-08T08:40:09.000Z",
+      "downloads": 487,
+      "likes": 22,
+      "pipeline_tag": "sentence-similarity",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/CWIP-1.0",
+      "author": "nvidia",
+      "last_modified": "2026-07-08T01:44:17.000Z",
+      "downloads": 72,
+      "likes": 7,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/ARDY-G1-RP-25FPS-Horizon8",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T23:38:32.000Z",
+      "downloads": 56,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/ARDY-Core-RP-20FPS-Horizon40",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T23:38:31.000Z",
+      "downloads": 430,
+      "likes": 12,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/ARDY-G1-RP-25FPS-Horizon52",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T23:38:31.000Z",
+      "downloads": 106,
+      "likes": 7,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/ARDY-Core-RP-20FPS-Horizon8",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T23:37:14.000Z",
+      "downloads": 125,
+      "likes": 5,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Alpamayo-R1-10B",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T21:49:06.000Z",
+      "downloads": 20451,
+      "likes": 420,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Alpamayo-1.5-10B",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T21:45:31.000Z",
+      "downloads": 59262,
+      "likes": 91,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-3.1-1b-a400m-instruct",
+      "author": "ibm-granite",
+      "last_modified": "2026-07-07T21:41:11.000Z",
+      "downloads": 5660,
+      "likes": 20,
+      "pipeline_tag": "text-generation",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/C-RADIOv4-1D-H",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T14:09:59.000Z",
+      "downloads": 94,
+      "likes": 6,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/llama-nemotron-embed-vl-1b-v2",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T11:13:28.000Z",
+      "downloads": 120120,
+      "likes": 93,
+      "pipeline_tag": "sentence-similarity",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T10:58:31.000Z",
+      "downloads": 46032,
+      "likes": 120,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-FP8",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T10:58:28.000Z",
+      "downloads": 23025,
+      "likes": 17,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-BF16",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T10:58:24.000Z",
+      "downloads": 2918,
+      "likes": 55,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/NL-Diffusion-Image",
+      "author": "nvidia",
+      "last_modified": "2026-07-07T09:14:24.000Z",
+      "downloads": 3431,
+      "likes": 12,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-swash-2b",
+      "author": "ibm-granite",
+      "last_modified": "2026-07-07T01:38:17.000Z",
+      "downloads": 275,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Kimi-K2.7-Code-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T22:38:23.000Z",
+      "downloads": 72617,
+      "likes": 6,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/GR00T-N1.7-ApplePnP-V1",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T21:59:14.000Z",
+      "downloads": 0,
+      "likes": 3,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/GN1x-Tuned-Arena-G1-Static-PickNPlace",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T21:58:28.000Z",
+      "downloads": 1945,
+      "likes": 0,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/gr00t17-lerobot-libero_10-640",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T17:01:10.000Z",
+      "downloads": 115,
+      "likes": 3,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/gr00t17-lerobot-libero_spatial-640",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T16:59:35.000Z",
+      "downloads": 115,
+      "likes": 0,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/gr00t17-lerobot-libero_object-640",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T16:58:27.000Z",
+      "downloads": 153,
+      "likes": 8,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/gr00t17-lerobot-libero_goal-640",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T16:56:48.000Z",
+      "downloads": 118,
+      "likes": 2,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Harmonizer",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T15:53:03.000Z",
+      "downloads": 3143,
+      "likes": 19,
+      "pipeline_tag": "image-to-image",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/Hy3-FP8",
+      "author": "tencent",
+      "last_modified": "2026-07-06T14:53:25.000Z",
+      "downloads": 14827,
+      "likes": 59,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T13:53:14.000Z",
+      "downloads": 390550,
+      "likes": 851,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/nemotron-speech-streaming-en-0.6b",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T13:53:07.000Z",
+      "downloads": 116286,
+      "likes": 593,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/parakeet-rnnt-1.1b",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T13:52:55.000Z",
+      "downloads": 4552,
+      "likes": 179,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/parakeet-rnnt-0.6b",
+      "author": "nvidia",
+      "last_modified": "2026-07-06T13:52:49.000Z",
+      "downloads": 10834,
+      "likes": 15,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "facebook/OMC25",
+      "author": "facebook",
+      "last_modified": "2026-07-05T02:23:09.000Z",
+      "downloads": 4,
+      "likes": 15,
+      "pipeline_tag": "",
+      "lab_name": "Meta AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/diffusiongemma-26B-A4B-it-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-07-04T17:57:49.000Z",
+      "downloads": 1995280,
+      "likes": 106,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/Ex-Omni",
+      "author": "tencent",
+      "last_modified": "2026-07-04T12:10:38.000Z",
+      "downloads": 40,
+      "likes": 18,
+      "pipeline_tag": "",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "google/tabfm-1.0.0-jax",
+      "author": "google",
+      "last_modified": "2026-07-04T06:09:41.000Z",
+      "downloads": 2384,
+      "likes": 7,
+      "pipeline_tag": "tabular-classification",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tabfm-1.0.0-pytorch",
+      "author": "google",
+      "last_modified": "2026-07-04T06:08:26.000Z",
+      "downloads": 24233,
+      "likes": 374,
+      "pipeline_tag": "tabular-classification",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V4-Flash-DSpark",
+      "author": "deepseek-ai",
+      "last_modified": "2026-07-04T03:15:12.000Z",
+      "downloads": 237571,
+      "likes": 198,
+      "pipeline_tag": "text-generation",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V4-Pro-DSpark",
+      "author": "deepseek-ai",
+      "last_modified": "2026-07-04T03:14:46.000Z",
+      "downloads": 40927,
+      "likes": 483,
+      "pipeline_tag": "text-generation",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "baidu/Unlimited-OCR",
+      "author": "baidu",
+      "last_modified": "2026-07-03T05:15:09.000Z",
+      "downloads": 1852722,
+      "likes": 2012,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Baidu",
+      "country": "China"
+    },
+    {
+      "model_id": "ByteDance-Seed/PAR",
+      "author": "ByteDance-Seed",
+      "last_modified": "2026-07-03T03:05:35.000Z",
+      "downloads": 0,
+      "likes": 6,
+      "pipeline_tag": "",
+      "lab_name": "ByteDance",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/MiniMax-M2.7-DFlash",
+      "author": "nvidia",
+      "last_modified": "2026-07-02T20:54:23.000Z",
+      "downloads": 1143,
+      "likes": 11,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/OlmoEarth-v1_2-Nano",
+      "author": "allenai",
+      "last_modified": "2026-07-02T18:00:34.000Z",
+      "downloads": 1288,
+      "likes": 5,
+      "pipeline_tag": "image-feature-extraction",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/OlmoEarth-v1_2-Base",
+      "author": "allenai",
+      "last_modified": "2026-07-02T11:04:08.000Z",
+      "downloads": 2795,
+      "likes": 5,
+      "pipeline_tag": "image-feature-extraction",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/OlmoEarth-v1_2-Small",
+      "author": "allenai",
+      "last_modified": "2026-07-02T11:03:40.000Z",
+      "downloads": 272,
+      "likes": 2,
+      "pipeline_tag": "image-feature-extraction",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/OlmoEarth-v1_2-Tiny",
+      "author": "allenai",
+      "last_modified": "2026-07-02T11:02:58.000Z",
+      "downloads": 346,
+      "likes": 1,
+      "pipeline_tag": "image-feature-extraction",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "microsoft/HARC",
+      "author": "microsoft",
+      "last_modified": "2026-07-02T06:01:57.000Z",
+      "downloads": 0,
+      "likes": 9,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "microsoft/HARC-Qwen2.5-7B-Instruct",
+      "author": "microsoft",
+      "last_modified": "2026-07-02T05:56:36.000Z",
+      "downloads": 376,
+      "likes": 0,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "microsoft/HARC-Llama-3.1-8B-Instruct",
+      "author": "microsoft",
+      "last_modified": "2026-07-02T05:55:51.000Z",
+      "downloads": 372,
+      "likes": 0,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Microsoft",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-timeseries-ttm-r3",
+      "author": "ibm-granite",
+      "last_modified": "2026-07-02T04:42:55.000Z",
+      "downloads": 3762,
+      "likes": 4,
+      "pipeline_tag": "time-series-forecasting",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/Rosetta-inference",
+      "author": "tencent",
+      "last_modified": "2026-07-02T01:33:13.000Z",
+      "downloads": 0,
+      "likes": 6,
+      "pipeline_tag": "",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "google/tipsv2-g14-dpt",
+      "author": "google",
+      "last_modified": "2026-07-01T23:59:17.000Z",
+      "downloads": 405,
+      "likes": 16,
+      "pipeline_tag": "depth-estimation",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tipsv2-so400m14-dpt",
+      "author": "google",
+      "last_modified": "2026-07-01T23:59:16.000Z",
+      "downloads": 315,
+      "likes": 9,
+      "pipeline_tag": "depth-estimation",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tipsv2-l14-dpt",
+      "author": "google",
+      "last_modified": "2026-07-01T23:59:15.000Z",
+      "downloads": 592,
+      "likes": 7,
+      "pipeline_tag": "depth-estimation",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tipsv2-b14-dpt",
+      "author": "google",
+      "last_modified": "2026-07-01T23:59:14.000Z",
+      "downloads": 1731,
+      "likes": 14,
+      "pipeline_tag": "depth-estimation",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "facebook/boxer",
+      "author": "facebook",
+      "last_modified": "2026-07-01T19:47:38.000Z",
+      "downloads": 0,
+      "likes": 59,
+      "pipeline_tag": "object-detection",
+      "lab_name": "Meta AI",
+      "country": "US"
+    },
+    {
+      "model_id": "facebook/OMol25",
+      "author": "facebook",
+      "last_modified": "2026-07-01T17:52:03.000Z",
+      "downloads": 0,
+      "likes": 244,
+      "pipeline_tag": "",
+      "lab_name": "Meta AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Mistral-Medium-3.5-128B-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-07-01T15:47:29.000Z",
+      "downloads": 20744,
+      "likes": 28,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "tencent/Hy-Embodied-0.5-VLA-UMI",
+      "author": "tencent",
+      "last_modified": "2026-07-01T07:24:02.000Z",
+      "downloads": 252,
+      "likes": 10,
+      "pipeline_tag": "robotics",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "tencent/Hy-Embodied-0.5-VLA-RoboTwin",
+      "author": "tencent",
+      "last_modified": "2026-07-01T07:23:29.000Z",
+      "downloads": 243,
+      "likes": 12,
+      "pipeline_tag": "robotics",
+      "lab_name": "Tencent",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/Nemotron-Labs-TwoTower-30B-A3B-Base-BF16",
+      "author": "nvidia",
+      "last_modified": "2026-07-01T00:34:48.000Z",
+      "downloads": 11665,
+      "likes": 136,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-speech-4.1-2b-plus-GGUF",
+      "author": "ibm-granite",
+      "last_modified": "2026-06-30T22:40:17.000Z",
+      "downloads": 562,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Qwen3.6-27B-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-06-30T14:40:07.000Z",
+      "downloads": 1236067,
+      "likes": 366,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Real-time_RE-USE",
+      "author": "nvidia",
+      "last_modified": "2026-06-30T09:47:21.000Z",
+      "downloads": 527,
+      "likes": 22,
+      "pipeline_tag": "audio-to-audio",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Qwen3.5-397B-A17B-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-06-30T04:27:08.000Z",
+      "downloads": 329718,
+      "likes": 102,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Qwen3.5-397B-A17B-NVFP4-V2",
+      "author": "nvidia",
+      "last_modified": "2026-06-30T02:46:57.000Z",
+      "downloads": 26094,
+      "likes": 5,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/ACE2-SHiELD",
+      "author": "allenai",
+      "last_modified": "2026-06-29T21:51:40.000Z",
+      "downloads": 10,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/canary-1b-flash",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T19:00:39.000Z",
+      "downloads": 4660,
+      "likes": 275,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/parakeet-tdt-0.6b-v3",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T19:00:30.000Z",
+      "downloads": 109290,
+      "likes": 998,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/parakeet-tdt-0.6b-v2",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T19:00:21.000Z",
+      "downloads": 462943,
+      "likes": 1519,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/nv-tesseract-ad-diffusion",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T18:48:22.000Z",
+      "downloads": 0,
+      "likes": 5,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/nv-tesseract-forecasting",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T18:32:26.000Z",
+      "downloads": 0,
+      "likes": 8,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos-Predict2.5-14B",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T17:26:46.000Z",
+      "downloads": 9515,
+      "likes": 32,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos-Predict2.5-2B",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T17:26:14.000Z",
+      "downloads": 37825,
+      "likes": 147,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Cosmos-Transfer2.5-2B",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T17:24:54.000Z",
+      "downloads": 13232,
+      "likes": 69,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Privasis-Cleaner-4B",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T06:00:08.000Z",
+      "downloads": 769,
+      "likes": 10,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Privasis-Cleaner-0.6B",
+      "author": "nvidia",
+      "last_modified": "2026-06-29T06:00:07.000Z",
+      "downloads": 951,
+      "likes": 18,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "facebook/autopartgen",
+      "author": "facebook",
+      "last_modified": "2026-06-28T14:28:15.000Z",
+      "downloads": 0,
+      "likes": 9,
+      "pipeline_tag": "",
+      "lab_name": "Meta AI",
+      "country": "US"
+    },
+    {
+      "model_id": "deepseek-ai/eagle3_gemma4_12b_ttt7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:38:12.000Z",
+      "downloads": 654,
+      "likes": 9,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/eagle3_qwen3_14b_ttt7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:37:15.000Z",
+      "downloads": 583,
+      "likes": 2,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/eagle3_qwen3_8b_ttt7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:36:18.000Z",
+      "downloads": 765,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/eagle3_qwen3_4b_ttt7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:35:27.000Z",
+      "downloads": 817,
+      "likes": 2,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dflash_gemma4_12b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:34:57.000Z",
+      "downloads": 956,
+      "likes": 8,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dflash_qwen3_14b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:33:22.000Z",
+      "downloads": 620,
+      "likes": 5,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dflash_qwen3_8b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:31:28.000Z",
+      "downloads": 1285,
+      "likes": 4,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dflash_qwen3_4b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:30:04.000Z",
+      "downloads": 1425,
+      "likes": 2,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dspark_gemma4_12b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:29:10.000Z",
+      "downloads": 2547,
+      "likes": 38,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dspark_qwen3_14b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:27:34.000Z",
+      "downloads": 1996,
+      "likes": 9,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dspark_qwen3_8b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:25:30.000Z",
+      "downloads": 4024,
+      "likes": 11,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/dspark_qwen3_4b_block7",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-28T12:24:05.000Z",
+      "downloads": 7809,
+      "likes": 31,
+      "pipeline_tag": "",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "google/tipsv2-g14",
+      "author": "google",
+      "last_modified": "2026-06-27T04:59:08.000Z",
+      "downloads": 2626,
+      "likes": 20,
+      "pipeline_tag": "zero-shot-image-classification",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tipsv2-so400m14",
+      "author": "google",
+      "last_modified": "2026-06-27T04:59:07.000Z",
+      "downloads": 81490,
+      "likes": 14,
+      "pipeline_tag": "zero-shot-image-classification",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tipsv2-l14",
+      "author": "google",
+      "last_modified": "2026-06-27T04:59:05.000Z",
+      "downloads": 8231,
+      "likes": 19,
+      "pipeline_tag": "zero-shot-image-classification",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "google/tipsv2-b14",
+      "author": "google",
+      "last_modified": "2026-06-27T04:59:03.000Z",
+      "downloads": 81053,
+      "likes": 114,
+      "pipeline_tag": "zero-shot-image-classification",
+      "lab_name": "Google / DeepMind",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/GLM-5.2-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-06-26T23:49:20.000Z",
+      "downloads": 1151127,
+      "likes": 270,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/MiniMax-M3-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-06-26T17:18:03.000Z",
+      "downloads": 350617,
+      "likes": 61,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/c-fast-foundationstereo",
+      "author": "nvidia",
+      "last_modified": "2026-06-26T16:32:23.000Z",
+      "downloads": 0,
+      "likes": 12,
+      "pipeline_tag": "depth-estimation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "Qwen/Qwen3-ForcedAligner-0.6B-hf",
+      "author": "Qwen",
+      "last_modified": "2026-06-26T08:42:38.000Z",
+      "downloads": 8705,
+      "likes": 12,
+      "pipeline_tag": "token-classification",
+      "lab_name": "Alibaba / Qwen",
+      "country": "China"
+    },
+    {
+      "model_id": "Qwen/Qwen3-ASR-0.6B-hf",
+      "author": "Qwen",
+      "last_modified": "2026-06-26T08:39:37.000Z",
+      "downloads": 72830,
+      "likes": 25,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "Alibaba / Qwen",
+      "country": "China"
+    },
+    {
+      "model_id": "Qwen/Qwen3-ASR-1.7B-hf",
+      "author": "Qwen",
+      "last_modified": "2026-06-26T08:36:05.000Z",
+      "downloads": 35658,
+      "likes": 33,
+      "pipeline_tag": "automatic-speech-recognition",
+      "lab_name": "Alibaba / Qwen",
+      "country": "China"
+    },
+    {
+      "model_id": "nvidia/dlesym-v0-isccp-era5",
+      "author": "nvidia",
+      "last_modified": "2026-06-26T02:58:25.000Z",
+      "downloads": 124,
+      "likes": 1,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/stormscope-goes-mrms",
+      "author": "nvidia",
+      "last_modified": "2026-06-26T00:18:25.000Z",
+      "downloads": 3133,
+      "likes": 29,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/SERA-32B-GA",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:44:18.000Z",
+      "downloads": 49,
+      "likes": 22,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/SERA-32B",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:44:14.000Z",
+      "downloads": 696,
+      "likes": 114,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/SERA-14B",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:44:06.000Z",
+      "downloads": 56,
+      "likes": 12,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/BAR-2x7B-Math",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:43:54.000Z",
+      "downloads": 97,
+      "likes": 2,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/BAR-2x7B-Code",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:43:36.000Z",
+      "downloads": 78,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-32B-Think",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:43:26.000Z",
+      "downloads": 8405,
+      "likes": 172,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-32B-Think-DPO",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:43:19.000Z",
+      "downloads": 2678,
+      "likes": 4,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3.1-7B-RL-Zero-Math",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:43:12.000Z",
+      "downloads": 391,
+      "likes": 12,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3.1-7B-RL-Zero-Code",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:43:05.000Z",
+      "downloads": 1375,
+      "likes": 19,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-Think-DPO",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:42:31.000Z",
+      "downloads": 8338,
+      "likes": 7,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-RL-Zero-Mix",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:42:23.000Z",
+      "downloads": 1094,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-RL-Zero-Math",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:42:10.000Z",
+      "downloads": 934,
+      "likes": 13,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-RL-Zero-IF",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:42:01.000Z",
+      "downloads": 385,
+      "likes": 7,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-RL-Zero-General",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:41:55.000Z",
+      "downloads": 333,
+      "likes": 8,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-RL-Zero-Code",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:41:48.000Z",
+      "downloads": 4331,
+      "likes": 18,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-Instruct-DPO",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:41:43.000Z",
+      "downloads": 4001,
+      "likes": 3,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-Instruct",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:41:37.000Z",
+      "downloads": 187895,
+      "likes": 138,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Olmo-3-7B-Think",
+      "author": "allenai",
+      "last_modified": "2026-06-25T21:41:28.000Z",
+      "downloads": 37855,
+      "likes": 101,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "Qwen/Qwen-AgentWorld-35B-A3B",
+      "author": "Qwen",
+      "last_modified": "2026-06-25T07:24:16.000Z",
+      "downloads": 101272,
+      "likes": 597,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Alibaba / Qwen",
+      "country": "China"
+    },
+    {
+      "model_id": "stabilityai/SAME-L",
+      "author": "stabilityai",
+      "last_modified": "2026-06-24T20:54:09.000Z",
+      "downloads": 8029,
+      "likes": 22,
+      "pipeline_tag": "",
+      "lab_name": "Stability AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4",
+      "author": "nvidia",
+      "last_modified": "2026-06-24T19:23:25.000Z",
+      "downloads": 336721,
+      "likes": 253,
+      "pipeline_tag": "text-generation",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "ibm-granite/granite-vision-4.1-4b-GGUF",
+      "author": "ibm-granite",
+      "last_modified": "2026-06-24T17:40:40.000Z",
+      "downloads": 1744,
+      "likes": 4,
+      "pipeline_tag": "",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Nemotron-3.5-Content-Safety",
+      "author": "nvidia",
+      "last_modified": "2026-06-24T16:21:37.000Z",
+      "downloads": 7214,
+      "likes": 36,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/OlmoEarth-v1_1-Nano",
+      "author": "allenai",
+      "last_modified": "2026-06-24T15:13:59.000Z",
+      "downloads": 1275,
+      "likes": 5,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/GEM-X",
+      "author": "nvidia",
+      "last_modified": "2026-06-23T20:57:43.000Z",
+      "downloads": 580,
+      "likes": 23,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/NV-KERMT-70M-v2",
+      "author": "nvidia",
+      "last_modified": "2026-06-23T17:26:14.000Z",
+      "downloads": 0,
+      "likes": 7,
+      "pipeline_tag": "graph-ml",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/qwen35-9b-openthoughts",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:58.000Z",
+      "downloads": 56,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/qwen35-9b-cli-gym",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:56.000Z",
+      "downloads": 62,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/qwen35-9b-swesmith",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:55.000Z",
+      "downloads": 56,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/qwen35-9b-termigen",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:53.000Z",
+      "downloads": 55,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/qwen35-9b-terminaltraj",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:50.000Z",
+      "downloads": 62,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/qwen35-9b-endless",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:49.000Z",
+      "downloads": 56,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/tmax-8b",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:42.000Z",
+      "downloads": 164,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/tmax-sft-8b",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:41.000Z",
+      "downloads": 355,
+      "likes": 1,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/tmax-2b",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:39.000Z",
+      "downloads": 1040,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/tmax-4b",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:37.000Z",
+      "downloads": 1659,
+      "likes": 4,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/tmax-27b",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:36.000Z",
+      "downloads": 3702,
+      "likes": 26,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/tmax-9b",
+      "author": "allenai",
+      "last_modified": "2026-06-23T03:28:34.000Z",
+      "downloads": 19349,
+      "likes": 9,
+      "pipeline_tag": "",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "internlm/CapRL-Video-4B",
+      "author": "internlm",
+      "last_modified": "2026-06-23T02:42:35.000Z",
+      "downloads": 122,
+      "likes": 10,
+      "pipeline_tag": "",
+      "lab_name": "Shanghai AI Lab",
+      "country": "China"
+    },
+    {
+      "model_id": "Salesforce/RetailSim-GRPO-4B",
+      "author": "Salesforce",
+      "last_modified": "2026-06-22T17:29:49.000Z",
+      "downloads": 9,
+      "likes": 0,
+      "pipeline_tag": "",
+      "lab_name": "Salesforce AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/GR00T-N1.5-3B_Assemble_Trocar",
+      "author": "nvidia",
+      "last_modified": "2026-06-22T16:30:23.000Z",
+      "downloads": 59,
+      "likes": 4,
+      "pipeline_tag": "robotics",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V4-Pro",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-22T12:12:50.000Z",
+      "downloads": 1455055,
+      "likes": 5237,
+      "pipeline_tag": "text-generation",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+      "author": "deepseek-ai",
+      "last_modified": "2026-06-22T12:12:13.000Z",
+      "downloads": 2793055,
+      "likes": 1762,
+      "pipeline_tag": "text-generation",
+      "lab_name": "DeepSeek",
+      "country": "China"
+    },
+    {
+      "model_id": "ByteDance-Seed/Cola-DLM",
+      "author": "ByteDance-Seed",
+      "last_modified": "2026-06-18T09:28:11.000Z",
+      "downloads": 175,
+      "likes": 41,
+      "pipeline_tag": "text-generation",
+      "lab_name": "ByteDance",
+      "country": "China"
+    },
+    {
+      "model_id": "ibm-granite/granite-speech-4.1-2b-nar",
+      "author": "ibm-granite",
+      "last_modified": "2026-06-18T07:27:08.000Z",
+      "downloads": 155573,
+      "likes": 57,
+      "pipeline_tag": "feature-extraction",
+      "lab_name": "IBM Research",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/MolmoMotion-4B-H1-F32",
+      "author": "allenai",
+      "last_modified": "2026-06-18T02:47:57.000Z",
+      "downloads": 197,
+      "likes": 5,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/MolmoMotion-4B-H3-F30",
+      "author": "allenai",
+      "last_modified": "2026-06-18T02:47:29.000Z",
+      "downloads": 422,
+      "likes": 13,
+      "pipeline_tag": "image-text-to-text",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "facebook/LAMP",
+      "author": "facebook",
+      "last_modified": "2026-06-17T23:19:33.000Z",
+      "downloads": 0,
+      "likes": 3,
+      "pipeline_tag": "",
+      "lab_name": "Meta AI",
+      "country": "US"
+    },
+    {
+      "model_id": "nvidia/Qwen3-VL-235B-A22B-Instruct-NVFP4-MLPerf-Inference-Closed-V6.1-FP8-KV",
+      "author": "nvidia",
+      "last_modified": "2026-06-17T18:55:25.000Z",
+      "downloads": 125475,
+      "likes": 2,
+      "pipeline_tag": "",
+      "lab_name": "NVIDIA",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Bolmo-7B",
+      "author": "allenai",
+      "last_modified": "2026-06-17T08:16:03.000Z",
+      "downloads": 131,
+      "likes": 58,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    },
+    {
+      "model_id": "allenai/Bolmo-1B",
+      "author": "allenai",
+      "last_modified": "2026-06-17T08:14:56.000Z",
+      "downloads": 714,
+      "likes": 50,
+      "pipeline_tag": "text-generation",
+      "lab_name": "Allen Institute for AI",
+      "country": "US"
+    }
+  ]
 }

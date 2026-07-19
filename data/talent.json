@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-18T08:51:42.500456+00:00",
+  "fetched_at": "2026-07-19T09:07:51.955402+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 193801,
-            "share_score": 43.7,
+            "raw_value": 193471,
+            "share_score": 43.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4237,
+            "raw_value": 4218,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3090,
+            "raw_value": 3077,
             "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 249420,
-            "share_score": 56.3,
+            "raw_value": 248648,
+            "share_score": 56.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7654,
+            "raw_value": 7632,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6633,
+            "raw_value": 6604,
             "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260699
+        "count": 260663
       },
       {
         "country_code": "CN",
-        "count": 249420
+        "count": 248648
       },
       {
         "country_code": "US",
-        "count": 193801
+        "count": 193471
       },
       {
         "country_code": "DE",
-        "count": 168459
+        "count": 168370
       },
       {
         "country_code": "IN",
-        "count": 101577
+        "count": 101314
       },
       {
         "country_code": "GB",
-        "count": 54489
+        "count": 54373
       },
       {
         "country_code": "ID",
-        "count": 30863
+        "count": 30792
       },
       {
         "country_code": "FR",
-        "count": 29214
+        "count": 29173
       },
       {
         "country_code": "CA",
-        "count": 27001
+        "count": 26946
       },
       {
         "country_code": "IT",
-        "count": 26643
+        "count": 26584
       }
     ],
     "volume": {
-      "us": 193801,
-      "china": 249420,
-      "total": 2541931,
+      "us": 193471,
+      "china": 248648,
+      "total": 2538895,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4237,
-      "china": 7654,
-      "total": 18628,
+      "us": 4218,
+      "china": 7632,
+      "total": 18556,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3090,
-      "china": 6633,
-      "total": 15188,
+      "us": 3077,
+      "china": 6604,
+      "total": 15113,
       "data_ok": true
     }
   },
@@ -182,140 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169582623",
-      "title": "Failure-mode asymmetry on BPI Challenge 2017 — a proof of concept",
+      "id": "https://openalex.org/W7166955474",
+      "title": "A sequential Bayesian approach to sparse Gaussian process quantile optimization: application to hydrofoil design",
       "authors": [
-        "Sabina-Cristiana Necula"
+        "Hugo Nicolas",
+        "Olivier Le Maître"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169608227",
-      "title": "Cascaded dual-branch deep neural network for simultaneous OCT and OCTA reconstruction",
+      "id": "https://openalex.org/W7166121543",
+      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
       "authors": [
-        "Shuo Chen",
-        "Yuehua Chen",
-        "Da Ma"
+        "Lijun Shao",
+        "Li Wang",
+        "C Xu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169503613",
-      "title": "PENGARUH MODEL DISCOVERY LEARNING BERBANTUAN LET’S READ TERHADAP MEMBACA PEMAHAMAN SISWA SD",
+      "id": "https://openalex.org/W7169603574",
+      "title": "Computational Thinking Pathways in Preschool: A Multimodal Approach",
       "authors": [
-        "Kamaelia Nur Athaillah",
-        "Ani Nur Aeni",
-        "Dadan Djuanda"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169522268",
-      "title": "&lt;b&gt;Pengembangan Media PORANA (Pop Up Book Flora dan Fauna) Berbantuan Augmented Reality untuk Meningkatkan Hasil Belajar IPAS Siswa Sekolah Dasar&lt;/b&gt;",
-      "authors": [
-        "Adinda Assyfa Nurdina",
-        "Galih Mahardika Christian Putra"
+        "María Raquel Picornell Buendía",
+        "José Manuel Sáez López"
       ],
       "countries": [
-        "ID"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165252918",
-      "title": "Vibe Coding: AI, Digital Text Recycling, and the Remediation of Digital Poetry",
-      "authors": [
-        "Yohanna Joseph Waliya"
-      ],
-      "countries": [
-        "NG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169573143",
-      "title": "Сходимость метода попеременных направлений ADMM для задачи MAP-оценки с TV-регуляризацией: линейная скорость и явная оценка константы",
-      "authors": [
-        "Александр Владимирович Леонов"
-      ],
-      "countries": [
-        "RU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169622948",
-      "title": "Impact of Multimodal Intermediate-Task Training on Zero-Shot Cross-Lingual Transfer Performance in XTREME-R",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
+        "ES",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169495879",
-      "title": "&lt;b&gt;Pengembangan Modul Pembelajaran IPAS Berbasis Deep Learning untuk Meningkatkan Kreativitas Siswa &lt;/b&gt;&lt;b&gt;Sekolah Dasar&lt;/b&gt;",
+      "id": "https://openalex.org/W7140151943",
+      "title": "Frequency-time weighted residuals: a discontinuous formulation for unilateral contact events",
       "authors": [
-        "Farinda Nur Khasanah",
-        "Heru Purnomo"
+        "Sophia McDonald",
+        "C. Legrand"
       ],
       "countries": [
-        "ID"
+        "CA",
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169522475",
-      "title": "Causal Inference and Machine Learning for Reliable Decision-Making",
+      "id": "https://openalex.org/W7165086654",
+      "title": "Large Language Models for Explaining Unsatisfiable Constraint Satisfaction Problems",
       "authors": [
-        "Rasmi M"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169546073",
-      "title": "AgentGuard: Deterministic Security Linting for AI Agent Definitions",
-      "authors": [
-        "Ying Chen"
+        "Ignace Bleukx",
+        "Tias Guns"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-18",
+      "published": "2026-07-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169533573",
+      "title": "Examining Artificial Intelligence Toys and Robots Features on Children's Developmental Domains and Learning Skills",
+      "authors": [
+        "Athifah Utami",
+        "Lucrezia Crescenzi Lanna"
+      ],
+      "countries": [
+        "ES"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169576442",
+      "title": "Computational Thinking Pathways in Preschool: A Multimodal Approach",
+      "authors": [
+        "María Raquel Picornell Buendía",
+        "José Manuel Sáez López"
+      ],
+      "countries": [
+        "ES",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169516895",
+      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "authors": [
+        "Lijun Shao",
+        "Li Wang",
+        "C Xu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169613744",
+      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "authors": [
+        "Lijun Shao",
+        "Li Wang",
+        "C Xu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169509522",
+      "title": "Examining Artificial Intelligence Toys and Robots Features on Children's Developmental Domains and Learning Skills",
+      "authors": [
+        "Athifah Utami",
+        "Lucrezia Crescenzi Lanna"
+      ],
+      "countries": [
+        "ES"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-19",
       "cited_by_count": 0,
       "source": "openalex"
     }

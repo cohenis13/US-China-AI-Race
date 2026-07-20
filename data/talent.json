@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-19T09:07:51.955402+00:00",
+  "fetched_at": "2026-07-20T10:16:29.098161+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 193471,
+            "raw_value": 194769,
             "share_score": 43.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4218,
+            "raw_value": 4211,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3077,
+            "raw_value": 3071,
             "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 248648,
+            "raw_value": 249754,
             "share_score": 56.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7632,
+            "raw_value": 7629,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6604,
+            "raw_value": 6588,
             "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260663
+        "count": 260711
       },
       {
         "country_code": "CN",
-        "count": 248648
+        "count": 249754
       },
       {
         "country_code": "US",
-        "count": 193471
+        "count": 194769
       },
       {
         "country_code": "DE",
-        "count": 168370
+        "count": 168755
       },
       {
         "country_code": "IN",
-        "count": 101314
+        "count": 101519
       },
       {
         "country_code": "GB",
-        "count": 54373
+        "count": 54501
       },
       {
         "country_code": "ID",
-        "count": 30792
+        "count": 30901
       },
       {
         "country_code": "FR",
-        "count": 29173
+        "count": 29226
       },
       {
         "country_code": "CA",
-        "count": 26946
+        "count": 27014
       },
       {
         "country_code": "IT",
-        "count": 26584
+        "count": 26615
       }
     ],
     "volume": {
-      "us": 193471,
-      "china": 248648,
-      "total": 2538895,
+      "us": 194769,
+      "china": 249754,
+      "total": 2547022,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4218,
-      "china": 7632,
-      "total": 18556,
+      "us": 4211,
+      "china": 7629,
+      "total": 18538,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3077,
-      "china": 6604,
-      "total": 15113,
+      "us": 3071,
+      "china": 6588,
+      "total": 15073,
       "data_ok": true
     }
   },
@@ -182,148 +182,134 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166955474",
-      "title": "A sequential Bayesian approach to sparse Gaussian process quantile optimization: application to hydrofoil design",
+      "id": "https://openalex.org/W7169716698",
+      "title": "Autonomous Audit of AI Governance Architecture",
       "authors": [
-        "Hugo Nicolas",
-        "Olivier Le Maître"
+        "Ravi Shankar NRK"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166121543",
-      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "id": "https://openalex.org/W7166868607",
+      "title": "Machine Learning Applications in Supply Chain and Operations Management",
       "authors": [
-        "Lijun Shao",
-        "Li Wang",
-        "C Xu"
+        "Ms. Vaishali Gupta ,  Ms. Prabhjot Kaur ,  Ms. Kanchan Nahar ,  Dr. Pawan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169603574",
-      "title": "Computational Thinking Pathways in Preschool: A Multimodal Approach",
+      "id": "https://openalex.org/W7169719025",
+      "title": "Scaling Intermediate-Task Dataset Size for Zero-Shot Cross-Lingual Transfer in XTREME",
       "authors": [
-        "María Raquel Picornell Buendía",
-        "José Manuel Sáez López"
+        "Assignee Research"
       ],
       "countries": [
-        "ES",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140151943",
-      "title": "Frequency-time weighted residuals: a discontinuous formulation for unilateral contact events",
+      "id": "https://openalex.org/W7169732110",
+      "title": "phoenix_ml",
       "authors": [
-        "Sophia McDonald",
-        "C. Legrand"
+        "Ryan Cheung"
       ],
       "countries": [
-        "CA",
-        "FR"
+        "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165086654",
-      "title": "Large Language Models for Explaining Unsatisfiable Constraint Satisfaction Problems",
+      "id": "https://openalex.org/W7169721165",
+      "title": "Configuring Artificial Intelligence capabilities for business model innovation in earth observation SMEs: insights from the European Space Industry",
       "authors": [
-        "Ignace Bleukx",
-        "Tias Guns"
+        "Lara Agostini",
+        "Davide Aloini",
+        "Anna Nosella"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169533573",
-      "title": "Examining Artificial Intelligence Toys and Robots Features on Children's Developmental Domains and Learning Skills",
-      "authors": [
-        "Athifah Utami",
-        "Lucrezia Crescenzi Lanna"
-      ],
-      "countries": [
-        "ES"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-19",
+      "id": "https://openalex.org/W7169714086",
+      "title": "Conditional independence, graphical models and causality",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169576442",
-      "title": "Computational Thinking Pathways in Preschool: A Multimodal Approach",
+      "id": "https://openalex.org/W7169716356",
+      "title": "XLM-R Inference Efficiency Under Increased Batch Sizes for Zero-Shot XNLI Classification After English Intermediate Training",
       "authors": [
-        "María Raquel Picornell Buendía",
-        "José Manuel Sáez López"
+        "Assignee Research"
       ],
       "countries": [
-        "ES",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169516895",
-      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "id": "https://openalex.org/W7169734327",
+      "title": "Nighttime Driving Raindrop Dataset - Envigado 2026",
       "authors": [
-        "Lijun Shao",
-        "Li Wang",
-        "C Xu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169613744",
-      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
-      "authors": [
-        "Lijun Shao",
-        "Li Wang",
-        "C Xu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169509522",
-      "title": "Examining Artificial Intelligence Toys and Robots Features on Children's Developmental Domains and Learning Skills",
-      "authors": [
-        "Athifah Utami",
-        "Lucrezia Crescenzi Lanna"
+        "Merchancano Miguel Angel",
+        "Alejandro Toro-Ossaba",
+        "Juan David Núñez"
       ],
       "countries": [
-        "ES"
+        "CO"
       ],
       "primary_country": "Other",
-      "published": "2026-07-19",
+      "published": "2026-07-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169724889",
+      "title": "Potera CMF",
+      "authors": [
+        "Dynamico"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169725808",
+      "title": "LACM-Tree: Exact Similarity Search via Learning-Enhanced Clustered Metric Trees with Distance-Table Compression Techniques",
+      "authors": [
+        "Ali Impron",
+        "Linda Sutriani",
+        "Adi Kusjani"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-20",
       "cited_by_count": 0,
       "source": "openalex"
     }

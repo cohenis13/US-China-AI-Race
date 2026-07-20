@@ -5,8 +5,8 @@
   "title": "Energy & Power Constraints — AI Scaling Capacity",
   "subtitle": "Composite proxy for each country’s ability to sustain large-scale AI compute growth — not a measure of total electricity generation.",
   "description": "A four-proxy composite index measuring AI energy scaling capacity: electricity capacity addition rate (30%), data center power demand headroom (25%), grid connection speed (25%), and energy cost & DC power access (20%). Higher score = greater ability to expand AI compute infrastructure without hitting energy supply, grid, or cost bottlenecks.",
-  "fetched_at": "2026-07-13T13:12:57.283393+00:00",
-  "last_updated": "2026-07-13T13:12:57.283393+00:00",
+  "fetched_at": "2026-07-20T13:00:54.637623+00:00",
+  "last_updated": "2026-07-20T13:00:54.637623+00:00",
   "summary": {
     "US": {
       "composite_score": 36.6,

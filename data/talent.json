@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-20T10:16:29.098161+00:00",
+  "fetched_at": "2026-07-21T09:31:07.227567+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.5,
+      "composite_score": 46.6,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.9,
+          "share_score": 37.0,
           "paper_volume": {
-            "raw_value": 194769,
-            "share_score": 43.8,
+            "raw_value": 195871,
+            "share_score": 43.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4211,
+            "raw_value": 4222,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3071,
-            "share_score": 31.8,
+            "raw_value": 3086,
+            "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.5,
+      "composite_score": 53.4,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.1,
+          "share_score": 63.0,
           "paper_volume": {
-            "raw_value": 249754,
-            "share_score": 56.2,
+            "raw_value": 250696,
+            "share_score": 56.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7629,
+            "raw_value": 7634,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6588,
-            "share_score": 68.2,
+            "raw_value": 6598,
+            "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260711
+        "count": 260764
       },
       {
         "country_code": "CN",
-        "count": 249754
+        "count": 250696
       },
       {
         "country_code": "US",
-        "count": 194769
+        "count": 195871
       },
       {
         "country_code": "DE",
-        "count": 168755
+        "count": 169033
       },
       {
         "country_code": "IN",
-        "count": 101519
+        "count": 101960
       },
       {
         "country_code": "GB",
-        "count": 54501
+        "count": 54663
       },
       {
         "country_code": "ID",
-        "count": 30901
+        "count": 31006
       },
       {
         "country_code": "FR",
-        "count": 29226
+        "count": 29356
       },
       {
         "country_code": "CA",
-        "count": 27014
+        "count": 27058
       },
       {
         "country_code": "IT",
-        "count": 26615
+        "count": 26699
       }
     ],
     "volume": {
-      "us": 194769,
-      "china": 249754,
-      "total": 2547022,
+      "us": 195871,
+      "china": 250696,
+      "total": 2553958,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4211,
-      "china": 7629,
-      "total": 18538,
+      "us": 4222,
+      "china": 7634,
+      "total": 18569,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3071,
-      "china": 6588,
-      "total": 15073,
+      "us": 3086,
+      "china": 6598,
+      "total": 15105,
       "data_ok": true
     }
   },
@@ -182,32 +182,88 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169716698",
-      "title": "Autonomous Audit of AI Governance Architecture",
+      "id": "https://openalex.org/W7169788867",
+      "title": "A reinforcement learning-enhanced interpretable prototype deep network for predicting pulmonary nodule malignancy",
       "authors": [
-        "Ravi Shankar NRK"
+        "董洪翘",
+        "Haiping Liu",
+        "Bo Liu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-20",
+      "published": "2026-07-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166868607",
-      "title": "Machine Learning Applications in Supply Chain and Operations Management",
+      "id": "https://openalex.org/W7169796211",
+      "title": "Adversarial red teaming and imbalance correction in heterogeneous NIDS: A class-specific adaptive GAN framework",
       "authors": [
-        "Ms. Vaishali Gupta ,  Ms. Prabhjot Kaur ,  Ms. Kanchan Nahar ,  Dr. Pawan"
+        "Antonio Lara-Gutierrez",
+        "Carmen Fernández-Gago",
+        "José A. Onieva"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-20",
+      "published": "2026-07-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169719025",
-      "title": "Scaling Intermediate-Task Dataset Size for Zero-Shot Cross-Lingual Transfer in XTREME",
+      "id": "https://openalex.org/W7169799581",
+      "title": "AuraOS - Evidence Ordered Relational Arenas",
+      "authors": [
+        "Dallas Courchene"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7117407327",
+      "title": "Learning Dynamics",
+      "authors": [
+        "Eric Hermosis"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169800166",
+      "title": "A Deep Learning Approach for Retrieving Cloud Microphysical Parameters with Multi-Frequency Cloud Radar",
+      "authors": [
+        "Qingping Song",
+        "霍娟",
+        "Ying Zhou"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169788553",
+      "title": "LatticeXR — Meta Quest 3 capture, Galería Lo Contador (campus Lo Contador, UC)",
+      "authors": [
+        "Santiago Viana"
+      ],
+      "countries": [
+        "CL"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169763217",
+      "title": "Multilingual Intermediate Fine-Tuning for Zero-Shot Cross-Lingual Logical Inference",
       "authors": [
         "Assignee Research"
       ],
@@ -215,51 +271,41 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-20",
+      "published": "2026-07-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169732110",
-      "title": "phoenix_ml",
+      "id": "https://openalex.org/W7169774025",
+      "title": "Robust multi-modal ovarian tumor segmentation using PVTv2 and attention-guided deformable convolutions",
       "authors": [
-        "Ryan Cheung"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169721165",
-      "title": "Configuring Artificial Intelligence capabilities for business model innovation in earth observation SMEs: insights from the European Space Industry",
-      "authors": [
-        "Lara Agostini",
-        "Davide Aloini",
-        "Anna Nosella"
+        "Haixiao Gong",
+        "Hao Lin",
+        "BoYang Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-20",
+      "published": "2026-07-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169714086",
-      "title": "Conditional independence, graphical models and causality",
-      "authors": [],
+      "id": "https://openalex.org/W7169797601",
+      "title": "An Ensemble Machine Learning-Based Data-Centric Framework for Agrochemical Optimization in Precision Agriculture for Sustainable Farming",
+      "authors": [
+        "Padma Mishra",
+        "Kinjal Doshi",
+        "R. V. Jadhav"
+      ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-20",
+      "published": "2026-07-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169716356",
-      "title": "XLM-R Inference Efficiency Under Increased Batch Sizes for Zero-Shot XNLI Classification After English Intermediate Training",
+      "id": "https://openalex.org/W7169763476",
+      "title": "Intermediate-Task Training Effects on Zero-Shot Cross-Lingual Performance in MMLU Benchmark Evaluation",
       "authors": [
         "Assignee Research"
       ],
@@ -267,49 +313,7 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169734327",
-      "title": "Nighttime Driving Raindrop Dataset - Envigado 2026",
-      "authors": [
-        "Merchancano Miguel Angel",
-        "Alejandro Toro-Ossaba",
-        "Juan David Núñez"
-      ],
-      "countries": [
-        "CO"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169724889",
-      "title": "Potera CMF",
-      "authors": [
-        "Dynamico"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169725808",
-      "title": "LACM-Tree: Exact Similarity Search via Learning-Enhanced Clustered Metric Trees with Distance-Table Compression Techniques",
-      "authors": [
-        "Ali Impron",
-        "Linda Sutriani",
-        "Adi Kusjani"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-20",
+      "published": "2026-07-21",
       "cited_by_count": 0,
       "source": "openalex"
     }

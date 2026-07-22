@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-21T09:31:07.227567+00:00",
+  "fetched_at": "2026-07-22T09:30:21.926143+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 37.0,
           "paper_volume": {
-            "raw_value": 195871,
+            "raw_value": 195542,
             "share_score": 43.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4222,
-            "share_score": 35.6,
+            "raw_value": 4219,
+            "share_score": 35.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3086,
-            "share_score": 31.9,
+            "raw_value": 3080,
+            "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.0,
           "paper_volume": {
-            "raw_value": 250696,
+            "raw_value": 249964,
             "share_score": 56.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7634,
-            "share_score": 64.4,
+            "raw_value": 7611,
+            "share_score": 64.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6598,
-            "share_score": 68.1,
+            "raw_value": 6592,
+            "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,107 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260764
+        "count": 260707
       },
       {
         "country_code": "CN",
-        "count": 250696
+        "count": 249964
       },
       {
         "country_code": "US",
-        "count": 195871
+        "count": 195542
       },
       {
         "country_code": "DE",
-        "count": 169033
+        "count": 168959
       },
       {
         "country_code": "IN",
-        "count": 101960
+        "count": 101793
       },
       {
         "country_code": "GB",
-        "count": 54663
+        "count": 54527
       },
       {
         "country_code": "ID",
-        "count": 31006
+        "count": 30949
       },
       {
         "country_code": "FR",
-        "count": 29356
+        "count": 29311
       },
       {
         "country_code": "CA",
-        "count": 27058
+        "count": 26989
       },
       {
         "country_code": "IT",
-        "count": 26699
+        "count": 26631
       }
     ],
     "volume": {
-      "us": 195871,
-      "china": 250696,
-      "total": 2553958,
+      "us": 195542,
+      "china": 249964,
+      "total": 2551082,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4222,
-      "china": 7634,
-      "total": 18569,
+      "us": 4219,
+      "china": 7611,
+      "total": 18527,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3086,
-      "china": 6598,
-      "total": 15105,
+      "us": 3080,
+      "china": 6592,
+      "total": 15089,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7167191855",
+      "title": "A Comparative Analysis Framework of Operational Contexts for Enhancing theReliability of AI Systems",
+      "authors": [
+        "Afef Awadid",
+        "Joseph Machrouh",
+        "Juliette Mattioli"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167861761",
+      "title": "Tactile sensors for robot bodies",
+      "authors": [
+        "Giulia Baldini"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167304599",
+      "title": "Improving Indoor Cellular Coverage Mapping using a Mobile Robot",
+      "authors": [
+        "Fatma Ltaief",
+        "Adam Gouguet",
+        "Guillaume Lozenguez"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7169788867",
       "title": "A reinforcement learning-enhanced interpretable prototype deep network for predicting pulmonary nodule malignancy",
@@ -222,10 +262,12 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7117407327",
-      "title": "Learning Dynamics",
+      "id": "https://openalex.org/W7169800166",
+      "title": "A Deep Learning Approach for Retrieving Cloud Microphysical Parameters with Multi-Frequency Cloud Radar",
       "authors": [
-        "Eric Hermosis"
+        "Qingping Song",
+        "霍娟",
+        "Ying Zhou"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -234,12 +276,10 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169800166",
-      "title": "A Deep Learning Approach for Retrieving Cloud Microphysical Parameters with Multi-Frequency Cloud Radar",
+      "id": "https://openalex.org/W7117407327",
+      "title": "Learning Dynamics",
       "authors": [
-        "Qingping Song",
-        "霍娟",
-        "Ying Zhou"
+        "Eric Hermosis"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -264,48 +304,6 @@
     {
       "id": "https://openalex.org/W7169763217",
       "title": "Multilingual Intermediate Fine-Tuning for Zero-Shot Cross-Lingual Logical Inference",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169774025",
-      "title": "Robust multi-modal ovarian tumor segmentation using PVTv2 and attention-guided deformable convolutions",
-      "authors": [
-        "Haixiao Gong",
-        "Hao Lin",
-        "BoYang Li"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169797601",
-      "title": "An Ensemble Machine Learning-Based Data-Centric Framework for Agrochemical Optimization in Precision Agriculture for Sustainable Farming",
-      "authors": [
-        "Padma Mishra",
-        "Kinjal Doshi",
-        "R. V. Jadhav"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169763476",
-      "title": "Intermediate-Task Training Effects on Zero-Shot Cross-Lingual Performance in MMLU Benchmark Evaluation",
       "authors": [
         "Assignee Research"
       ],

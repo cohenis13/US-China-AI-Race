@@ -3,7 +3,7 @@
   "dimension": "compute",
   "metric_key": "compute_triangulated_index",
   "description": "Triangulated compute index: training compute (40%, Epoch AI), hardware supply (40%, NVIDIA revenue + Huawei Ascend), and visible HPC (20%, TOP500 + corrections). Coverage gaps are explicitly documented in hidden_compute_band.",
-  "fetched_at": "2026-07-22T10:15:43.634406+00:00",
+  "fetched_at": "2026-07-23T10:11:54.378702+00:00",
   "weights": {
     "training_compute": 0.4,
     "hardware_supply": 0.4,

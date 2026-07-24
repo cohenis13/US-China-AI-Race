@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-23T09:27:48.212632+00:00",
+  "fetched_at": "2026-07-24T09:24:26.589809+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.0,
           "paper_volume": {
-            "raw_value": 196339,
-            "share_score": 44.0,
+            "raw_value": 197136,
+            "share_score": 44.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4235,
+            "raw_value": 4240,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3087,
+            "raw_value": 3092,
             "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.0,
           "paper_volume": {
-            "raw_value": 250322,
-            "share_score": 56.0,
+            "raw_value": 250330,
+            "share_score": 55.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7647,
+            "raw_value": 7658,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6602,
+            "raw_value": 6591,
             "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260743
+        "count": 260773
       },
       {
         "country_code": "CN",
-        "count": 250322
+        "count": 250330
       },
       {
         "country_code": "US",
-        "count": 196339
+        "count": 197136
       },
       {
         "country_code": "DE",
-        "count": 169052
+        "count": 169201
       },
       {
         "country_code": "IN",
-        "count": 102104
+        "count": 102225
       },
       {
         "country_code": "GB",
-        "count": 54600
+        "count": 54714
       },
       {
         "country_code": "ID",
-        "count": 31137
+        "count": 31111
       },
       {
         "country_code": "FR",
-        "count": 29377
+        "count": 29488
       },
       {
         "country_code": "CA",
-        "count": 27031
+        "count": 27075
       },
       {
         "country_code": "IT",
-        "count": 26703
+        "count": 26746
       }
     ],
     "volume": {
-      "us": 196339,
-      "china": 250322,
-      "total": 2557705,
+      "us": 197136,
+      "china": 250330,
+      "total": 2564600,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4235,
-      "china": 7647,
-      "total": 18586,
+      "us": 4240,
+      "china": 7658,
+      "total": 18594,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3087,
-      "china": 6602,
-      "total": 15094,
+      "us": 3092,
+      "china": 6591,
+      "total": 15071,
       "data_ok": true
     }
   },
@@ -182,10 +182,79 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163990303",
-      "title": "A self-supervised contrastive learning framework for giant panda habitat suitability modelling with the ecologically constrained background sampling strategy",
+      "id": "https://openalex.org/W7162824569",
+      "title": "Statistical model checking for rule-based models in the Kappa language",
       "authors": [
-        "Anonymize"
+        "Albin Salazar",
+        "Jérôme Feret",
+        "Tatjana Petrov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162835293",
+      "title": "Incremental KaSa: Static Analysis of Kappa Models at Edit Time",
+      "authors": [
+        "Rebecca Ghidini",
+        "Jérôme Feret"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169484986",
+      "title": "Adaptive Meta-Reasoning for Algorithm Selection in Cognitive Agent Architectures",
+      "authors": [
+        "Aya Kherrour"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164790715",
+      "title": "Rank-ICL: Ranking-based In-context Learning for Search Result Explanation",
+      "authors": [
+        "A. Laksito",
+        "A. Alqarni",
+        "M. Stevenson"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163300346",
+      "title": "RouteRec:Strict Evaluation of Recommender-Agent Selection and Aggregation",
+      "authors": [
+        "Kaiji Zhou",
+        "Vladimir Kalmykov",
+        "Yue Feng"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170078810",
+      "title": "SUN'IY INTELLEKT YORDAMIDA ILMIY MAQOLALARNI SEMANTIK TAHLIL QILISH IMKONIYATLARI",
+      "authors": [
+        "Madaminov Shoxruxbek Ma'rufjon oʻgʻli"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -194,128 +263,56 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140147541",
-      "title": "A self-supervised contrastive learning framework for giant panda habitat suitability modelling with the ecologically constrained background sampling strategy",
-      "authors": [
-        "Anonymize"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169837619",
-      "title": "基于太极统一场论的仿人脑通用人工智能理论与工程实现研究 (完善版)Taiji Unified Field Theory Based Humanoid General Artificial Intelligence: Theoretical Framework and Engineering Implementation",
-      "authors": [
-        "Sun H"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169865431",
-      "title": "Foundations of Shogi Mathematics: Initial Axioms, Check Classification, Capture Relations, and Resource-Aware Interposition Contraction",
-      "authors": [
-        "Yoshiki Ueoka",
-        "Nagi",
-        "Akari"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167191855",
-      "title": "A Comparative Analysis Framework of Operational Contexts for Enhancing theReliability of AI Systems",
-      "authors": [
-        "Afef Awadid",
-        "Joseph Machrouh",
-        "Juliette Mattioli"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169828757",
-      "title": "电脑版与伟大的故事讲述者共度半小时:阿特姆(Half-Hours with Great Story-Tellers ).zip",
+      "id": "https://openalex.org/W7170090725",
+      "title": "电脑版故事与小说——第二卷 通俗故事(Tales and Novels — Volume 02 Popular Tales).zip",
       "authors": [
         "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-22",
+      "published": "2026-07-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169837289",
-      "title": "An Effective Inter and Intra-Layerdependencies Based Communitydetection Model Using S-NOA and S2ASD-Munet.",
+      "id": "https://openalex.org/W7170094203",
+      "title": "Multimodal Intermediate Task Effects on Zero-Shot Cross-Lingual Transfer in XTREME-R",
       "authors": [
-        "Dheeraj Kumar Dubey",
-        "John Paul Martin",
-        "Keshab Nath"
+        "Assignee Research"
       ],
       "countries": [
-        "IN"
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170066406",
+      "title": "Utilizing Concept Ontologies for Designing Neural Network-Based Classifiers",
+      "authors": [
+        "Kamil Szwed"
+      ],
+      "countries": [
+        "PL"
       ],
       "primary_country": "Other",
-      "published": "2026-07-22",
+      "published": "2026-07-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169903251",
-      "title": "Identification of White Dwarfs with Infrared Excesses in DESI DR1 Based on Deep Learning",
+      "id": "https://openalex.org/W7170083821",
+      "title": "Order of Intermediate-Task Fine-Tuning Effects on Zero-Shot XTREME-R Performance in 175B vs. 1B Parameter Models",
       "authors": [
-        "Nanlu Huang",
-        "Feng Wang",
-        "Lei Tan"
+        "Assignee Research"
       ],
       "countries": [
-        "CN"
+        "US"
       ],
-      "primary_country": "China",
-      "published": "2026-07-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169877754",
-      "title": "A Minimal Identity Model for Autonomous Physical Cells",
-      "authors": [
-        "Bin Zhang",
-        "Xiaojuan Sun"
-      ],
-      "countries": [
-        "AU",
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-07-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169871855",
-      "title": "HelloPharmacist Plain-Language FDA Drug-Label Glossary: 600 Structured Product Labeling terms mapped to plain-English definitions for patient comprehension",
-      "authors": [
-        "Brian Staiger"
-      ],
-      "countries": [
-        "CA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-22",
+      "primary_country": "US",
+      "published": "2026-07-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

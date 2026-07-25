@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-24T09:24:26.589809+00:00",
+  "fetched_at": "2026-07-25T09:03:25.484141+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.0,
           "paper_volume": {
-            "raw_value": 197136,
+            "raw_value": 196841,
             "share_score": 44.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4240,
+            "raw_value": 4229,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3092,
+            "raw_value": 3078,
             "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.0,
           "paper_volume": {
-            "raw_value": 250330,
+            "raw_value": 249573,
             "share_score": 55.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7658,
+            "raw_value": 7640,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6591,
+            "raw_value": 6558,
             "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,135 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260773
+        "count": 260735
       },
       {
         "country_code": "CN",
-        "count": 250330
+        "count": 249573
       },
       {
         "country_code": "US",
-        "count": 197136
+        "count": 196841
       },
       {
         "country_code": "DE",
-        "count": 169201
+        "count": 169133
       },
       {
         "country_code": "IN",
-        "count": 102225
+        "count": 101945
       },
       {
         "country_code": "GB",
-        "count": 54714
+        "count": 54618
       },
       {
         "country_code": "ID",
-        "count": 31111
+        "count": 31047
       },
       {
         "country_code": "FR",
-        "count": 29488
+        "count": 29440
       },
       {
         "country_code": "CA",
-        "count": 27075
+        "count": 27031
       },
       {
         "country_code": "IT",
-        "count": 26746
+        "count": 26692
       }
     ],
     "volume": {
-      "us": 197136,
-      "china": 250330,
-      "total": 2564600,
+      "us": 196841,
+      "china": 249573,
+      "total": 2561584,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4240,
-      "china": 7658,
-      "total": 18594,
+      "us": 4229,
+      "china": 7640,
+      "total": 18538,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3092,
-      "china": 6591,
-      "total": 15071,
+      "us": 3078,
+      "china": 6558,
+      "total": 15001,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7169714207",
+      "title": "[T-060] Theory of Knowledge System Organization",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169733238",
+      "title": "[T-060] Theory of Knowledge System Organization",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169857483",
+      "title": "[Radiomics and deep learning in the prediction of spontaneous preterm birth using cervical ultrasound].",
+      "authors": [
+        "K R Jiang",
+        "F C Zhang",
+        "Y Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161364511",
+      "title": "Towards Scalable and Ecological Methods for Early Social Development Research: Validating Automated Facial Expression Estimation in Egocentric Video",
+      "authors": [
+        "Yisi Zhang",
+        "EMMA JACKSON",
+        "NICOLETA GAVRILA"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170072142",
+      "title": "[A brief analysis of the core component of the meridian system from an anatomical perspective].",
+      "authors": [
+        "Lin Jiao",
+        "Xin Peng",
+        "X H Yu"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7162824569",
       "title": "Statistical model checking for rule-based models in the Kappa language",
@@ -247,72 +315,6 @@
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-07-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170078810",
-      "title": "SUN'IY INTELLEKT YORDAMIDA ILMIY MAQOLALARNI SEMANTIK TAHLIL QILISH IMKONIYATLARI",
-      "authors": [
-        "Madaminov Shoxruxbek Ma'rufjon oʻgʻli"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170090725",
-      "title": "电脑版故事与小说——第二卷 通俗故事(Tales and Novels — Volume 02 Popular Tales).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170094203",
-      "title": "Multimodal Intermediate Task Effects on Zero-Shot Cross-Lingual Transfer in XTREME-R",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170066406",
-      "title": "Utilizing Concept Ontologies for Designing Neural Network-Based Classifiers",
-      "authors": [
-        "Kamil Szwed"
-      ],
-      "countries": [
-        "PL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170083821",
-      "title": "Order of Intermediate-Task Fine-Tuning Effects on Zero-Shot XTREME-R Performance in 175B vs. 1B Parameter Models",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

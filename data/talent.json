@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-25T09:03:25.484141+00:00",
+  "fetched_at": "2026-07-26T09:18:34.289849+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.0,
+          "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 196841,
-            "share_score": 44.1,
+            "raw_value": 199046,
+            "share_score": 44.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4229,
+            "raw_value": 4231,
             "share_score": 35.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3078,
+            "raw_value": 3093,
             "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.0,
+          "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 249573,
-            "share_score": 55.9,
+            "raw_value": 250062,
+            "share_score": 55.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7640,
+            "raw_value": 7664,
             "share_score": 64.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6558,
+            "raw_value": 6595,
             "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 260735
+        "count": 260934
       },
       {
         "country_code": "CN",
-        "count": 249573
+        "count": 250062
       },
       {
         "country_code": "US",
-        "count": 196841
+        "count": 199046
       },
       {
         "country_code": "DE",
-        "count": 169133
+        "count": 169429
       },
       {
         "country_code": "IN",
-        "count": 101945
+        "count": 101636
       },
       {
         "country_code": "GB",
-        "count": 54618
+        "count": 55004
       },
       {
         "country_code": "ID",
-        "count": 31047
+        "count": 31188
       },
       {
         "country_code": "FR",
-        "count": 29440
+        "count": 29625
       },
       {
         "country_code": "CA",
-        "count": 27031
+        "count": 27229
       },
       {
         "country_code": "IT",
-        "count": 26692
+        "count": 26857
       }
     ],
     "volume": {
-      "us": 196841,
-      "china": 249573,
-      "total": 2561584,
+      "us": 199046,
+      "china": 250062,
+      "total": 2575873,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4229,
-      "china": 7640,
-      "total": 18538,
+      "us": 4231,
+      "china": 7664,
+      "total": 18571,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3078,
-      "china": 6558,
-      "total": 15001,
+      "us": 3093,
+      "china": 6595,
+      "total": 15080,
       "data_ok": true
     }
   },
@@ -182,139 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169714207",
-      "title": "[T-060] Theory of Knowledge System Organization",
+      "id": "https://openalex.org/W7126203085",
+      "title": "Lithium-Ion-Cell 18650 Labeled Polarity-Aware Anomaly Dataset",
       "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169733238",
-      "title": "[T-060] Theory of Knowledge System Organization",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169857483",
-      "title": "[Radiomics and deep learning in the prediction of spontaneous preterm birth using cervical ultrasound].",
-      "authors": [
-        "K R Jiang",
-        "F C Zhang",
-        "Y Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161364511",
-      "title": "Towards Scalable and Ecological Methods for Early Social Development Research: Validating Automated Facial Expression Estimation in Egocentric Video",
-      "authors": [
-        "Yisi Zhang",
-        "EMMA JACKSON",
-        "NICOLETA GAVRILA"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170072142",
-      "title": "[A brief analysis of the core component of the meridian system from an anatomical perspective].",
-      "authors": [
-        "Lin Jiao",
-        "Xin Peng",
-        "X H Yu"
+        "Tobias Schmieg",
+        "Manuel Schulz"
       ],
       "countries": [
-        "CN"
+        "DE"
       ],
-      "primary_country": "China",
-      "published": "2026-07-25",
+      "primary_country": "Other",
+      "published": "2026-07-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162824569",
-      "title": "Statistical model checking for rule-based models in the Kappa language",
+      "id": "https://openalex.org/W7126005415",
+      "title": "Mind the Gap: Connecting Protocol Representations in Squirrel",
       "authors": [
-        "Albin Salazar",
-        "Jérôme Feret",
-        "Tatjana Petrov"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162835293",
-      "title": "Incremental KaSa: Static Analysis of Kappa Models at Edit Time",
-      "authors": [
-        "Rebecca Ghidini",
-        "Jérôme Feret"
+        "David Baelde",
+        "Stéphanie Delaune",
+        "Julia Gabet"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-07-24",
+      "published": "2026-07-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169484986",
-      "title": "Adaptive Meta-Reasoning for Algorithm Selection in Cognitive Agent Architectures",
+      "id": "https://openalex.org/W7126161188",
+      "title": "Lithium-Ion-Cell 18650 Labeled Polarity-Aware Anomaly Dataset",
       "authors": [
-        "Aya Kherrour"
+        "Tobias Schmieg",
+        "Manuel Schulz"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-26",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7156570288",
+      "title": "A deep learning workflow for 3D segmentation and reconstruction of cell lines from confocal microscopy for Monte Carlo Radiobiology Simulations",
+      "authors": [
+        "Hamid Ladjal",
+        "Binjamyn Mairesse",
+        "Gersende Alphonse"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-24",
+      "published": "2026-07-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164790715",
-      "title": "Rank-ICL: Ranking-based In-context Learning for Search Result Explanation",
+      "id": "https://openalex.org/W7167159500",
+      "title": "Lagrangian-Based Duality for Quantified SMT Algorithms",
       "authors": [
-        "A. Laksito",
-        "A. Alqarni",
-        "M. Stevenson"
+        "Ivana Bocevska",
+        "Takeshi Tsukada",
+        "Hiroshi Unno"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-24",
+      "published": "2026-07-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163300346",
-      "title": "RouteRec:Strict Evaluation of Recommender-Agent Selection and Aggregation",
+      "id": "https://openalex.org/W7170661710",
+      "title": "Cross-lingual Transfer Performance Variations in Multilingual Models via Intermediate Task Selection",
       "authors": [
-        "Kaiji Zhou",
-        "Vladimir Kalmykov",
-        "Yue Feng"
+        "Assignee Research"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170927058",
+      "title": "Batch Size Effects on Inference Speed and Accuracy in Zero-Shot Cross-Lingual Transfer on XTREME-R",
+      "authors": [
+        "Assignee Research"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170649541",
+      "title": "Ways of Checking",
+      "authors": [
+        "Diego Rincon"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170910198",
+      "title": "电脑版大卫·洛克温——人民的偶像(David Lockwin—The People's Idol).zip",
+      "authors": [
+        "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-24",
+      "published": "2026-07-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170846486",
+      "title": "电脑版菲利普·斯特朗的受难(The Crucifixion of Philip Strong).zip",
+      "authors": [
+        "叶兴阳双语音标有声读物"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-27T10:47:37.213665+00:00",
+  "fetched_at": "2026-07-28T09:38:31.757188+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 200466,
-            "share_score": 44.5,
+            "raw_value": 201410,
+            "share_score": 44.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4212,
+            "raw_value": 4199,
             "share_score": 35.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3079,
+            "raw_value": 3072,
             "share_score": 31.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 250085,
-            "share_score": 55.5,
+            "raw_value": 250038,
+            "share_score": 55.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7644,
+            "raw_value": 7625,
             "share_score": 64.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6580,
+            "raw_value": 6563,
             "share_score": 68.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291456
+        "count": 291482
       },
       {
         "country_code": "CN",
-        "count": 250085
+        "count": 250038
       },
       {
         "country_code": "US",
-        "count": 200466
+        "count": 201410
       },
       {
         "country_code": "DE",
-        "count": 169477
+        "count": 169494
       },
       {
         "country_code": "IN",
-        "count": 101641
+        "count": 101694
       },
       {
         "country_code": "GB",
-        "count": 55040
+        "count": 55109
       },
       {
         "country_code": "ID",
-        "count": 31240
+        "count": 31248
       },
       {
         "country_code": "FR",
-        "count": 29644
+        "count": 29662
       },
       {
         "country_code": "CA",
-        "count": 27246
+        "count": 27261
       },
       {
         "country_code": "IT",
-        "count": 26881
+        "count": 26902
       }
     ],
     "volume": {
-      "us": 200466,
-      "china": 250085,
-      "total": 2611840,
+      "us": 201410,
+      "china": 250038,
+      "total": 2616609,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4212,
-      "china": 7644,
-      "total": 18519,
+      "us": 4199,
+      "china": 7625,
+      "total": 18473,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3079,
-      "china": 6580,
-      "total": 15017,
+      "us": 3072,
+      "china": 6563,
+      "total": 14982,
       "data_ok": true
     }
   },
@@ -182,84 +182,80 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7157260661",
-      "title": "In situ sub-mitochondrial mapping in living plants via Hessian Structured Illumination Microscopy",
+      "id": "https://openalex.org/W7169691263",
+      "title": "Écrou extraditionnel à l'étranger : les contours du recours contre le mandat d'arrêt français",
       "authors": [
-        "Hailian Hu",
-        "Huiting Chen",
-        "H. Y. Gan"
+        "Thomas Herran"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-27",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169481905",
-      "title": "From Perception to Action: Data-Efficient and Open-Set Learning for Adaptive Human-Robot Interaction",
+      "id": "https://openalex.org/W7170951721",
+      "title": "Considering Workforce Development for AI in Scientific Research",
       "authors": [
-        "STEFANO BERTI"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152705994",
-      "title": "A Scoping Review of Methodological Frameworks for Evaluating Agricultural Field Station Networks in Rwanda: A Bayesian Hierarchical Modelling Approach to Yield Impact Assessment",
-      "authors": [
-        "Alphonsine Mukamana",
-        "Jean-Pierre Ntaganda",
-        "M. C. Uwimana"
+        "Jeanette Sperhac",
+        "Sandra Gesing",
+        "Robert Quick"
       ],
       "countries": [
-        "ZA",
-        "RW"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-27",
+      "primary_country": "US",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167984343",
-      "title": "Generative models for inverse problems",
+      "id": "https://openalex.org/W7168436054",
+      "title": "IL DESIGN NAUTICO VERSO IL FUTURO. L’uso strategico dell’intelligenza artificiale a supporto del designer nella progettazione e nella sicurezza operativa",
       "authors": [
-        "Paolo Angella"
+        "LAURA PAGANI"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-27",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7152661807",
-      "title": "A Scoping Review of Methodological Frameworks for Evaluating Agricultural Field Station Networks in Rwanda: A Bayesian Hierarchical Modelling Approach to Yield Impact Assessment",
+      "id": "https://openalex.org/W7155591848",
+      "title": "Adaptive wavelet simulations of the wake behind a fractal tree with application to flapping insect flight",
       "authors": [
-        "Alphonsine Mukamana",
-        "Jean-Pierre Ntaganda",
-        "M. C. Uwimana"
+        "Julius Bergmann",
+        "Thomas Engels",
+        "Angela Busse"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170813438",
+      "title": "Considering Workforce Development for AI in Scientific Research",
+      "authors": [
+        "Jeanette Sperhac",
+        "Sandra Gesing",
+        "Robert Quick"
       ],
       "countries": [
-        "ZA",
-        "RW"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-27",
+      "primary_country": "US",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160788972",
-      "title": "Classification of Literary Documents Using the Choquet Integral",
+      "id": "https://openalex.org/W7171285666",
+      "title": "电脑版威尔逊的《边境与苏格兰故事集(Wilson's Tales of the Borders and of ).zip",
       "authors": [
-        "Charles Planque",
-        "Marie‐Jeanne Lesot",
-        "Grégory Smits"
+        "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -268,56 +264,56 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7156945262",
-      "title": "In situ sub-mitochondrial mapping in living plants via Hessian Structured Illumination Microscopy",
+      "id": "https://openalex.org/W7171326586",
+      "title": "The Vektorgeist Method: a Programme for Model-Free, Locally Sovereign AI",
       "authors": [
-        "Hailian Hu",
-        "Huiting Chen",
-        "H. Y. Gan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162245420",
-      "title": "The Dynamic Active Neural Cycle (DANC): Sleep/rest-gated peripheral nerve mechanical cycle and its failure in fibromyalgia",
-      "authors": [
-        "Yousef Ghati"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171022849",
-      "title": "Executive AI Research",
-      "authors": [
-        "Open Future Forum"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171032452",
-      "title": "IAT Pairing-Position Identification Analysis",
-      "authors": [
-        "Felipe de Oliveira Matos",
-        "Marlos Andrade de Lima",
-        "Cristian Zanon"
+        "Parnell AC"
       ],
       "countries": [
-        "BR"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-07-26",
+      "primary_country": "US",
+      "published": "2026-07-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171300958",
+      "title": "Cross-scale gated embedding graph model for skeleton-based anomaly detection",
+      "authors": [
+        "Yutong He",
+        "Peng Zhang",
+        "Tianhuan Huang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171302722",
+      "title": "Comparing Processes as Curves of Distributions: an Information-Geometry Distance, Validated Across Modalities on Real Data",
+      "authors": [
+        "Parnell AC"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-07-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162191518",
+      "title": "arxiv-mcp-server",
+      "authors": [
+        "Casey Hand"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-27",
       "cited_by_count": 0,
       "source": "openalex"
     }

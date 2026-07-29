@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-28T09:38:31.757188+00:00",
+  "fetched_at": "2026-07-29T09:41:04.781275+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 201410,
-            "share_score": 44.6,
+            "raw_value": 201999,
+            "share_score": 44.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4199,
+            "raw_value": 4207,
             "share_score": 35.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3072,
-            "share_score": 31.9,
+            "raw_value": 3077,
+            "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 250038,
-            "share_score": 55.4,
+            "raw_value": 249547,
+            "share_score": 55.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7625,
+            "raw_value": 7634,
             "share_score": 64.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6563,
-            "share_score": 68.1,
+            "raw_value": 6586,
+            "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291482
+        "count": 291556
       },
       {
         "country_code": "CN",
-        "count": 250038
+        "count": 249547
       },
       {
         "country_code": "US",
-        "count": 201410
+        "count": 201999
       },
       {
         "country_code": "DE",
-        "count": 169494
+        "count": 169562
       },
       {
         "country_code": "IN",
-        "count": 101694
+        "count": 101793
       },
       {
         "country_code": "GB",
-        "count": 55109
+        "count": 55220
       },
       {
         "country_code": "ID",
-        "count": 31248
+        "count": 31280
       },
       {
         "country_code": "FR",
-        "count": 29662
+        "count": 29720
       },
       {
         "country_code": "CA",
-        "count": 27261
+        "count": 27278
       },
       {
         "country_code": "IT",
-        "count": 26902
+        "count": 26935
       }
     ],
     "volume": {
-      "us": 201410,
-      "china": 250038,
-      "total": 2616609,
+      "us": 201999,
+      "china": 249547,
+      "total": 2623012,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4199,
-      "china": 7625,
-      "total": 18473,
+      "us": 4207,
+      "china": 7634,
+      "total": 18498,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3072,
-      "china": 6563,
-      "total": 14982,
+      "us": 3077,
+      "china": 6586,
+      "total": 15043,
       "data_ok": true
     }
   },
@@ -182,138 +182,138 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169691263",
-      "title": "Écrou extraditionnel à l'étranger : les contours du recours contre le mandat d'arrêt français",
+      "id": "https://openalex.org/W7171172675",
+      "title": "Data for Cognitive Digital Twin Framework in \"The Spine\", Madinaty",
       "authors": [
-        "Thomas Herran"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170951721",
-      "title": "Considering Workforce Development for AI in Scientific Research",
-      "authors": [
-        "Jeanette Sperhac",
-        "Sandra Gesing",
-        "Robert Quick"
+        "Shimaa Elgingihy"
       ],
       "countries": [
-        "US"
+        "EG"
       ],
-      "primary_country": "US",
-      "published": "2026-07-28",
+      "primary_country": "Other",
+      "published": "2026-07-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7168436054",
-      "title": "IL DESIGN NAUTICO VERSO IL FUTURO. L’uso strategico dell’intelligenza artificiale a supporto del designer nella progettazione e nella sicurezza operativa",
+      "id": "https://openalex.org/W7171368800",
+      "title": "Encoding Pedagogy: Interpreting the Upanishads through Small-Scale Semantic Annotation.",
       "authors": [
-        "LAURA PAGANI"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155591848",
-      "title": "Adaptive wavelet simulations of the wake behind a fractal tree with application to flapping insect flight",
-      "authors": [
-        "Julius Bergmann",
-        "Thomas Engels",
-        "Angela Busse"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170813438",
-      "title": "Considering Workforce Development for AI in Scientific Research",
-      "authors": [
-        "Jeanette Sperhac",
-        "Sandra Gesing",
-        "Robert Quick"
+        "Yashee Singh",
+        "Frank Fischer"
       ],
       "countries": [
-        "US"
+        "DE"
       ],
-      "primary_country": "US",
+      "primary_country": "Other",
+      "published": "2026-07-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171253187",
+      "title": "Data for Cognitive Digital Twin Framework in \"The Spine\", Madinaty",
+      "authors": [
+        "Shimaa Elgingihy"
+      ],
+      "countries": [
+        "EG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171405563",
+      "title": "Encoding Pedagogy: Interpreting the Upanishads through Small-Scale Semantic Annotation.",
+      "authors": [
+        "Yashee Singh",
+        "Frank Fischer"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-07-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171369011",
+      "title": "Spatial architecture and dynamic surveillance: 3D bioprinting and microfluidics converge to overcome digestive malignancies",
+      "authors": [
+        "Congcong Zhang",
+        "Jie Yang",
+        "Xia Xiao"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171285666",
-      "title": "电脑版威尔逊的《边境与苏格兰故事集(Wilson's Tales of the Borders and of ).zip",
+      "id": "https://openalex.org/W7171381403",
+      "title": "电脑版英国文学论文集,1780-1860(Essays in English Literature, 1780-1860).zip",
       "authors": [
         "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-27",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171326586",
-      "title": "The Vektorgeist Method: a Programme for Model-Free, Locally Sovereign AI",
+      "id": "https://openalex.org/W7171408235",
+      "title": "电脑版埃尔多拉多的魔鬼树:一部小说(The Devil-Tree of El Dorado A Novel).zip",
       "authors": [
-        "Parnell AC"
+        "叶兴阳双语音标有声读物"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171390057",
+      "title": "Elementler ve Atomlar — Ortaokul ders sunumu",
+      "authors": [
+        "Teradigma"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-27",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171300958",
-      "title": "Cross-scale gated embedding graph model for skeleton-based anomaly detection",
+      "id": "https://openalex.org/W7171436942",
+      "title": "电脑版英国文学论文集,1780-1860(Essays in English Literature, 1780-1860).zip",
       "authors": [
-        "Yutong He",
-        "Peng Zhang",
-        "Tianhuan Huang"
+        "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-27",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171302722",
-      "title": "Comparing Processes as Curves of Distributions: an Information-Geometry Distance, Validated Across Modalities on Real Data",
+      "id": "https://openalex.org/W7171406950",
+      "title": "Comparasing Landuse/Landcover Classification Using Pixel and Object Based Random Forest and SVM Algorithm on Sentinel-2 Imagery Over Enrekang Region",
       "authors": [
-        "Parnell AC"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162191518",
-      "title": "arxiv-mcp-server",
-      "authors": [
-        "Casey Hand"
+        "Nurfadila JS",
+        "Rismaneswati Rismaneswati",
+        "Syaeful Rahmat"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-27",
+      "published": "2026-07-28",
       "cited_by_count": 0,
       "source": "openalex"
     }

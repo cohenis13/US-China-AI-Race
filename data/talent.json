@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-29T09:41:04.781275+00:00",
+  "fetched_at": "2026-07-30T09:33:21.919425+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 201999,
-            "share_score": 44.7,
+            "raw_value": 202630,
+            "share_score": 44.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4207,
-            "share_score": 35.5,
+            "raw_value": 4224,
+            "share_score": 35.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3077,
+            "raw_value": 3088,
             "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 249547,
-            "share_score": 55.3,
+            "raw_value": 249936,
+            "share_score": 55.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7634,
-            "share_score": 64.5,
+            "raw_value": 7697,
+            "share_score": 64.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6586,
+            "raw_value": 6618,
             "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291556
+        "count": 291599
       },
       {
         "country_code": "CN",
-        "count": 249547
+        "count": 249936
       },
       {
         "country_code": "US",
-        "count": 201999
+        "count": 202630
       },
       {
         "country_code": "DE",
-        "count": 169562
+        "count": 169655
       },
       {
         "country_code": "IN",
-        "count": 101793
+        "count": 102061
       },
       {
         "country_code": "GB",
-        "count": 55220
+        "count": 55346
       },
       {
         "country_code": "ID",
-        "count": 31280
+        "count": 31504
       },
       {
         "country_code": "FR",
-        "count": 29720
+        "count": 29751
       },
       {
         "country_code": "CA",
-        "count": 27278
+        "count": 27318
       },
       {
         "country_code": "IT",
-        "count": 26935
+        "count": 27001
       }
     ],
     "volume": {
-      "us": 201999,
-      "china": 249547,
-      "total": 2623012,
+      "us": 202630,
+      "china": 249936,
+      "total": 2632441,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4207,
-      "china": 7634,
-      "total": 18498,
+      "us": 4224,
+      "china": 7697,
+      "total": 18599,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3077,
-      "china": 6586,
-      "total": 15043,
+      "us": 3088,
+      "china": 6618,
+      "total": 15079,
       "data_ok": true
     }
   },
@@ -182,138 +182,123 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7171172675",
-      "title": "Data for Cognitive Digital Twin Framework in \"The Spine\", Madinaty",
+      "id": "https://openalex.org/W7169738454",
+      "title": "Planning, Acting and Monitoring in Robotics Environments",
       "authors": [
-        "Shimaa Elgingihy"
-      ],
-      "countries": [
-        "EG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171368800",
-      "title": "Encoding Pedagogy: Interpreting the Upanishads through Small-Scale Semantic Annotation.",
-      "authors": [
-        "Yashee Singh",
-        "Frank Fischer"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171253187",
-      "title": "Data for Cognitive Digital Twin Framework in \"The Spine\", Madinaty",
-      "authors": [
-        "Shimaa Elgingihy"
-      ],
-      "countries": [
-        "EG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171405563",
-      "title": "Encoding Pedagogy: Interpreting the Upanishads through Small-Scale Semantic Annotation.",
-      "authors": [
-        "Yashee Singh",
-        "Frank Fischer"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-07-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171369011",
-      "title": "Spatial architecture and dynamic surveillance: 3D bioprinting and microfluidics converge to overcome digestive malignancies",
-      "authors": [
-        "Congcong Zhang",
-        "Jie Yang",
-        "Xia Xiao"
+        "Stefano Bernagozzi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-28",
+      "published": "2026-07-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171381403",
-      "title": "电脑版英国文学论文集,1780-1860(Essays in English Literature, 1780-1860).zip",
+      "id": "https://openalex.org/W7168429405",
+      "title": "Technology-Enhanced Learning of Fourier Series: Integrating Wolfram Cloud for Computational Visualization",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Priti Bhajan Byakti"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-28",
+      "published": "2026-07-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171408235",
-      "title": "电脑版埃尔多拉多的魔鬼树:一部小说(The Devil-Tree of El Dorado A Novel).zip",
+      "id": "https://openalex.org/W7160500182",
+      "title": "Retrieval Augmented Generation Using Multimodal Large Language Models for Real-Time Knowledge-Grounded Question Answering",
       "authors": [
-        "叶兴阳双语音标有声读物"
+        "Dr. K. Sujatha"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-28",
+      "published": "2026-07-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171390057",
-      "title": "Elementler ve Atomlar — Ortaokul ders sunumu",
+      "id": "https://openalex.org/W7167410201",
+      "title": "O'ZBEK VA INGLIZ TILLARIDA RANG BILDIRUVCHI LEKSEMALARNING LEKSIK-SEMANTIK XUSUSIYATLARI",
       "authors": [
-        "Teradigma"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171436942",
-      "title": "电脑版英国文学论文集,1780-1860(Essays in English Literature, 1780-1860).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
+        "Istoda Abdulatifovna Rasulova"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-28",
+      "published": "2026-07-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171406950",
-      "title": "Comparasing Landuse/Landcover Classification Using Pixel and Object Based Random Forest and SVM Algorithm on Sentinel-2 Imagery Over Enrekang Region",
+      "id": "https://openalex.org/W7171433692",
+      "title": "Resonances of Shakespeare: Artificial Intelligence and the Supremacy of Tradition in Cinematic Theatre",
       "authors": [
-        "Nurfadila JS",
-        "Rismaneswati Rismaneswati",
-        "Syaeful Rahmat"
+        "S S S Hari Chandra Hlada Markonda P"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-28",
+      "published": "2026-07-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167645922",
+      "title": "IB MAKTABLARIDA TADQIQOTGA ASOSLANGAN FIZIKA LABORATORIYA MASHG'ULOTLARINING O'QUVCHILARDA ILMIY FIKRLASH KO'NIKMALARINI RIVOJLANTIRISHDAGI O'RNI",
+      "authors": [
+        "Umida Shuhratovna Soliyeva"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168279783",
+      "title": "Use Of Robotics and The Internet of Things (IOT) In Healthcare",
+      "authors": [
+        "Mr. Rahul Senthiya,  Ms. Divya, Dr. Khel Prakash Jayant, Mr. Ashish Mulajkar"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169481860",
+      "title": "GNSS Positioning with Low Cost Devices",
+      "authors": [
+        "Georgii Kurshakov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171389569",
+      "title": "The Impact of Artificial Intelligence on Consumer Behaviour and E-Commerce Trends",
+      "authors": [
+        "Shakeb Ahmed Mumtaz Husain"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140005750",
+      "title": "Daffodil Robot Navigation",
+      "authors": [
+        "Matt Watkins",
+        "Daniel Zhang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-07-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

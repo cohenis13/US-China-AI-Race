@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-07-31T09:48:34.666867+00:00",
+  "fetched_at": "2026-08-01T09:10:05.949962+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.7,
+      "composite_score": 46.6,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.2,
+          "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 202696,
+            "raw_value": 202798,
             "share_score": 44.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4221,
-            "share_score": 35.4,
+            "raw_value": 4171,
+            "share_score": 35.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3097,
-            "share_score": 31.9,
+            "raw_value": 3083,
+            "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.3,
+      "composite_score": 53.4,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.8,
+          "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 250233,
+            "raw_value": 250225,
             "share_score": 55.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7707,
-            "share_score": 64.6,
+            "raw_value": 7681,
+            "share_score": 64.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6615,
-            "share_score": 68.1,
+            "raw_value": 6614,
+            "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291650
+        "count": 291714
       },
       {
         "country_code": "CN",
-        "count": 250233
+        "count": 250225
       },
       {
         "country_code": "US",
-        "count": 202696
+        "count": 202798
       },
       {
         "country_code": "DE",
-        "count": 169820
+        "count": 170045
       },
       {
         "country_code": "IN",
-        "count": 102408
+        "count": 102539
       },
       {
         "country_code": "GB",
-        "count": 53995
+        "count": 54061
       },
       {
         "country_code": "ID",
-        "count": 31412
+        "count": 31385
       },
       {
         "country_code": "FR",
-        "count": 29794
+        "count": 29961
       },
       {
         "country_code": "CA",
-        "count": 27406
+        "count": 27437
       },
       {
         "country_code": "IT",
-        "count": 27079
+        "count": 27126
       }
     ],
     "volume": {
-      "us": 202696,
-      "china": 250233,
-      "total": 2640912,
+      "us": 202798,
+      "china": 250225,
+      "total": 2644700,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4221,
-      "china": 7707,
-      "total": 18616,
+      "us": 4171,
+      "china": 7681,
+      "total": 18525,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3097,
-      "china": 6615,
-      "total": 15086,
+      "us": 3083,
+      "china": 6614,
+      "total": 15092,
       "data_ok": true
     }
   },
@@ -182,130 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7167707056",
-      "title": "Interpretable AI Model Reveals Spatial Codes of Cell Recruitment in Tissues",
+      "id": "https://openalex.org/W7131373233",
+      "title": "A Modular Taxonomy for Hate Speech Definitions and Its Impact on Zero-Shot LLM Classification Performance",
       "authors": [
-        "Yunhe Liu"
+        "Matteo Melis",
+        "Gebriella Lapesa",
+        "Dennis Assenmacher"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-07-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171395019",
-      "title": "Virtual Reality in Vision Therapy: Emerging Applications in Amblyopia and Binocular Vision Disorders",
-      "authors": [
-        "Yukti Singh Haziel Rynjah"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169866666",
-      "title": "The Impact-Oriented Collaborative Governance Model Datasets",
-      "authors": [
-        "Patrick McKenna"
-      ],
-      "countries": [
-        "AU"
+        "DK"
       ],
       "primary_country": "Other",
-      "published": "2026-07-31",
+      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128116870",
-      "title": "Neurolinguistic signatures of microvariation and language change : Individual production variability predicts morphosyntactic processing differences",
+      "id": "https://openalex.org/W7165919519",
+      "title": "Defining and Measuring Qualities of Language for Human-Centered AI",
       "authors": [
-        "Jade J. Sandstedt",
-        "Maki Kubota",
-        "Merete Anderssen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171462353",
-      "title": "AI in Smart Education and Intelligent Tutoring Systems",
-      "authors": [
-        "Prof. RP Singh Ms. Sabita, Mr. Sarwan kumar Jha, Ms. Shalini Rai, Mr. Chetan Shankar Patil"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167729219",
-      "title": "Interpretable AI Model Reveals Spatial Codes of Cell Recruitment in Tissues",
-      "authors": [
-        "Yunhe Liu"
+        "Karen Zhou"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-07-31",
+      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169685257",
-      "title": "Artificial Intelligence in Business and Industry: Applications, Challenges and Future Directions",
+      "id": "https://openalex.org/W7169852343",
+      "title": "The Impact of AI on the Landscape Design Process",
       "authors": [
-        "Dr. Perminder Kaur, Mr. Pawan Kumar Singh, Dr. Tarang Mehrotra,  Mr. Jignesh J. Kariya Shreoshi Roy (Btech, Mtech)"
+        "Jacob Owen Huff"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-31",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169718502",
-      "title": "LLM Generated Responses for LLM brand visibility study",
+      "id": "https://openalex.org/W7170226960",
+      "title": "The Relativity of Education: Student Perspectives on Artificial Intelligence in Community College",
       "authors": [
-        "Mahmoud Lasheen"
+        "Ashley Greta Magana"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-31",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171464020",
-      "title": "Virtual Reality in Vision Therapy: Emerging Applications in Amblyopia and Binocular Vision Disorders",
+      "id": "https://openalex.org/W7171715400",
+      "title": "Neural Signatures of Storage Isolate Core Mechanisms of Working Memory",
       "authors": [
-        "Yukti Singh Haziel Rynjah"
+        "Henry M. Jones"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-07-31",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171443284",
-      "title": "AI in Smart Education and Intelligent Tutoring Systems",
+      "id": "https://openalex.org/W7167864054",
+      "title": "Multispecies Weed Detection Using Unmanned Aerial Vehicles and Deep Learning Object Detection Models in Utah Forage Crop Corn Field",
       "authors": [
-        "Prof. RP Singh Ms. Sabita, Mr. Sarwan kumar Jha, Ms. Shalini Rai, Mr. Chetan Shankar Patil"
+        "Utsav Bhandari"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170998881",
+      "title": "Graph-Based Machine Learning for Multivariate Time Series Prediction in Scientific Domains: Streamflow Forecasting and Solar Flare Prediction",
+      "authors": [
+        "Kishore Ragul Alagarsamy"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171474712",
+      "title": "[T-044] Logical Orthogonality Maintenance Protocol",
+      "authors": [
+        "Erystela Thevale"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-07-31",
+      "published": "2026-08-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168381737",
+      "title": "VAR-ifying Predictions: Inferring Implicit Models from Published Forecasts",
+      "authors": [
+        "Doga Akar Bilgin"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166121543",
+      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "authors": [
+        "Lijun Shao",
+        "Li Wang",
+        "C Xu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

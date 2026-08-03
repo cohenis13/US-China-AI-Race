@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-02T09:12:48.418059+00:00",
+  "fetched_at": "2026-08-03T10:48:14.017357+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 203148,
+            "raw_value": 203585,
             "share_score": 44.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4171,
+            "raw_value": 4164,
             "share_score": 35.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3067,
-            "share_score": 31.7,
+            "raw_value": 3065,
+            "share_score": 31.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 249282,
+            "raw_value": 249482,
             "share_score": 55.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7677,
+            "raw_value": 7668,
             "share_score": 64.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6605,
-            "share_score": 68.3,
+            "raw_value": 6588,
+            "share_score": 68.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,177 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291704
+        "count": 291737
       },
       {
         "country_code": "CN",
-        "count": 249282
+        "count": 249482
       },
       {
         "country_code": "US",
-        "count": 203148
+        "count": 203585
       },
       {
         "country_code": "DE",
-        "count": 170019
+        "count": 170081
       },
       {
         "country_code": "IN",
-        "count": 102100
+        "count": 102234
       },
       {
         "country_code": "GB",
-        "count": 53989
+        "count": 54047
       },
       {
         "country_code": "ID",
-        "count": 31448
+        "count": 31500
       },
       {
         "country_code": "FR",
-        "count": 29997
+        "count": 30030
       },
       {
         "country_code": "CA",
-        "count": 27455
+        "count": 27490
       },
       {
         "country_code": "IT",
-        "count": 27169
+        "count": 27191
       }
     ],
     "volume": {
-      "us": 203148,
-      "china": 249282,
-      "total": 2646382,
+      "us": 203585,
+      "china": 249482,
+      "total": 2651841,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4171,
-      "china": 7677,
-      "total": 18506,
+      "us": 4164,
+      "china": 7668,
+      "total": 18482,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3067,
-      "china": 6605,
-      "total": 15020,
+      "us": 3065,
+      "china": 6588,
+      "total": 14967,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7164849902",
+      "title": "In a Streaming World, Should You Stand Still? A Comprehensive Benchmark of Anomaly Detection in Streams",
+      "authors": [
+        "Magali Parrino",
+        "Antoine Ajenjo",
+        "Emmanuel Remy"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172090251",
+      "title": "Edge-Guided Feature Enhancement for Self-supervised Image Deblurring",
+      "authors": [
+        "Jia Li",
+        "Bo Wang",
+        "Tong Chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172098078",
+      "title": "Enhancing Interactive Gaze Behavior Recognition via Co-training with Temporal Gaze Segmentation",
+      "authors": [
+        "Tianchen Xu",
+        "Weimin Liu",
+        "Xi Jin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172098452",
+      "title": "Replication Package: Structure-Aware Semantic Chunking with Title-Chain Prefixes",
+      "authors": [
+        "Yang Yang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172113611",
+      "title": "Demographic Bias Evaluation in Omnimodal Language Models",
+      "authors": [
+        "Alaa Elobaid"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172125459",
+      "title": "Forging the Unknown: Open-Set Deepfake Attribution via Adaptive Fingerprint Learning",
+      "authors": [
+        "Yizhi Fang",
+        "Boxuan Han",
+        "Jingwen Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172129700",
+      "title": "FaceMixup: Enhancing Facial Expression Recognition through Mixed Face Regularization",
+      "authors": [
+        "Mateus Souza",
+        "Fabio A. Faria",
+        "Raoni Texeira"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172156186",
+      "title": "DotGreedX: Combining Scoring-Based Technique and Greedy Search for GNN Explainability",
+      "authors": [
+        "Mariana Azevedo",
+        "Luc Brun",
+        "Pierre Héroux"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7171806887",
       "title": "[Current status and challenges of artificial intelligence application in pediatric intensive care unit].",
@@ -199,124 +309,16 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171014980",
-      "title": "Detecting Experiential Intertextuality Across Migration Routes: Beyond Surface Similarity in French Narratives",
+      "id": "https://openalex.org/W7172103491",
+      "title": "SHARC: Reference Point Driven Spherical Harmonic Representation for Complex Shapes",
       "authors": [
-        "Toadoum Sari Sakayo",
-        "Nelly Robin",
-        "Michelle Auzanneau"
+        "Panagiotis Sapoutzoglou",
+        "George Terzakis",
+        "Maria Pateraki"
       ],
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7131373233",
-      "title": "A Modular Taxonomy for Hate Speech Definitions and Its Impact on Zero-Shot LLM Classification Performance",
-      "authors": [
-        "Matteo Melis",
-        "Gebriella Lapesa",
-        "Dennis Assenmacher"
-      ],
-      "countries": [
-        "DK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165919519",
-      "title": "Defining and Measuring Qualities of Language for Human-Centered AI",
-      "authors": [
-        "Karen Zhou"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171921015",
-      "title": "电脑版泰坦:一段浪漫故事。第 1 卷(共 2 卷)(Titan A Romance. v. 1 (of 2)).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172060523",
-      "title": "Efficiency-Throughput Trade-off in Intermediate-Task Training for Zero-Shot Cross-Lingual Transfer with mT5",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171923291",
-      "title": "电脑版西班牙骑士:塞维利亚的故事(The Spanish Cavalier A Story of Seville).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171942960",
-      "title": "The peony disease detection method based on the improved YOLO11n model",
-      "authors": [
-        "Junpeng Xu",
-        "Jin Li",
-        "Yu Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171971212",
-      "title": "电脑版声音;胎记;人与象(Voices; Birth-Marks; The Man and the Elephant).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171993549",
-      "title": "Comparison of Sequential and Hybrid Intermediate Task Fine-Tuning for Zero-Shot Cross-Lingual Transfer on XTREME-R",
-      "authors": [
-        "Assignee Research"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

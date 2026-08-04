@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-03T10:48:14.017357+00:00",
+  "fetched_at": "2026-08-04T09:41:07.498409+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 203585,
-            "share_score": 44.9,
+            "raw_value": 203771,
+            "share_score": 45.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4164,
+            "raw_value": 4156,
             "share_score": 35.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3065,
-            "share_score": 31.8,
+            "raw_value": 3055,
+            "share_score": 31.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 249482,
-            "share_score": 55.1,
+            "raw_value": 248403,
+            "share_score": 54.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7668,
+            "raw_value": 7651,
             "share_score": 64.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6588,
-            "share_score": 68.2,
+            "raw_value": 6572,
+            "share_score": 68.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,39 +120,39 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291737
+        "count": 291729
       },
       {
         "country_code": "CN",
-        "count": 249482
+        "count": 248403
       },
       {
         "country_code": "US",
-        "count": 203585
+        "count": 203771
       },
       {
         "country_code": "DE",
-        "count": 170081
+        "count": 170121
       },
       {
         "country_code": "IN",
-        "count": 102234
+        "count": 102325
       },
       {
         "country_code": "GB",
-        "count": 54047
+        "count": 54145
       },
       {
         "country_code": "ID",
-        "count": 31500
+        "count": 31528
       },
       {
         "country_code": "FR",
-        "count": 30030
+        "count": 30067
       },
       {
         "country_code": "CA",
-        "count": 27490
+        "count": 27501
       },
       {
         "country_code": "IT",
@@ -160,21 +160,21 @@
       }
     ],
     "volume": {
-      "us": 203585,
-      "china": 249482,
-      "total": 2651841,
+      "us": 203771,
+      "china": 248403,
+      "total": 2653513,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4164,
-      "china": 7668,
-      "total": 18482,
+      "us": 4156,
+      "china": 7651,
+      "total": 18441,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3065,
-      "china": 6588,
-      "total": 14967,
+      "us": 3055,
+      "china": 6572,
+      "total": 14918,
       "data_ok": true
     }
   },
@@ -182,12 +182,106 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7164849902",
-      "title": "In a Streaming World, Should You Stand Still? A Comprehensive Benchmark of Anomaly Detection in Streams",
+      "id": "https://openalex.org/W7162698695",
+      "title": "D9.2 Evaluation of proposed technologies in real deep/abandoned mines",
       "authors": [
-        "Magali Parrino",
-        "Antoine Ajenjo",
-        "Emmanuel Remy"
+        "Sumeet Satpute",
+        "Vignesh Kottayam Viswanathan",
+        "Victor Vigara Puche"
+      ],
+      "countries": [
+        "SE",
+        "DK"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172081422",
+      "title": "Detecting False Intent : A Semi-Systematic Review",
+      "authors": [
+        "Lara Warmelink"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7152090366",
+      "title": "Bypassing Molecular Dynamics: Ultra-Fast De Novo Generation of Macrocyclic PPI Scaffolds via Rigid-Body SO(3) Fibonacci Sampling and Directed Chemical Evolution",
+      "authors": [
+        "Andrés Pirolo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171653537",
+      "title": "Purim Play \"Golyos HaPlishti\" from Noyekh Prilutski's Collection",
+      "authors": [
+        "Sonya Yampolskaya"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171745084",
+      "title": "Purim Play \"Golyos HaPlishti\" from Noyekh Prilutski's Collection",
+      "authors": [
+        "Sonya Yampolskaya"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162977568",
+      "title": "Modeling the 5D Digital Twin Model through Ontological Formalization",
+      "authors": [
+        "Bouthayna El Bouzaidi Tiali",
+        "Stephen Creff",
+        "Achraf Kallel"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162687129",
+      "title": "D9.2 Evaluation of proposed technologies in real deep/abandoned mines",
+      "authors": [
+        "Sumeet Satpute",
+        "Vignesh Kottayam Viswanathan",
+        "Victor Vigara Puche"
+      ],
+      "countries": [
+        "SE",
+        "DK"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172222755",
+      "title": "电脑版濒临深渊:情节与激情的(On the Brink of a Chasm A record of plot and ).zip",
+      "authors": [
+        "叶兴阳双语音标有声读物"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -196,129 +290,28 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172090251",
-      "title": "Edge-Guided Feature Enhancement for Self-supervised Image Deblurring",
+      "id": "https://openalex.org/W7172212765",
+      "title": "Mortimus (morty-vision): Multimodal Edge Fire-Detection Vision System v0.1.0",
       "authors": [
-        "Jia Li",
-        "Bo Wang",
-        "Tong Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172098078",
-      "title": "Enhancing Interactive Gaze Behavior Recognition via Co-training with Temporal Gaze Segmentation",
-      "authors": [
-        "Tianchen Xu",
-        "Weimin Liu",
-        "Xi Jin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172098452",
-      "title": "Replication Package: Structure-Aware Semantic Chunking with Title-Chain Prefixes",
-      "authors": [
-        "Yang Yang"
+        "David MacDonald"
       ],
       "countries": [
-        "CN"
+        "US"
       ],
-      "primary_country": "China",
-      "published": "2026-08-02",
+      "primary_country": "US",
+      "published": "2026-08-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172113611",
-      "title": "Demographic Bias Evaluation in Omnimodal Language Models",
+      "id": "https://openalex.org/W7172229817",
+      "title": "A RELATIONAL RESPONSE TO THE HARD PROBLEM OF CONSCIOUSNESS:",
       "authors": [
-        "Alaa Elobaid"
+        "ricardo moyano"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172125459",
-      "title": "Forging the Unknown: Open-Set Deepfake Attribution via Adaptive Fingerprint Learning",
-      "authors": [
-        "Yizhi Fang",
-        "Boxuan Han",
-        "Jingwen Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172129700",
-      "title": "FaceMixup: Enhancing Facial Expression Recognition through Mixed Face Regularization",
-      "authors": [
-        "Mateus Souza",
-        "Fabio A. Faria",
-        "Raoni Texeira"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172156186",
-      "title": "DotGreedX: Combining Scoring-Based Technique and Greedy Search for GNN Explainability",
-      "authors": [
-        "Mariana Azevedo",
-        "Luc Brun",
-        "Pierre Héroux"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171806887",
-      "title": "[Current status and challenges of artificial intelligence application in pediatric intensive care unit].",
-      "authors": [
-        "S Fu",
-        "F Xu",
-        "F Li"
-      ],
-      "countries": [
-        "SG",
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172103491",
-      "title": "SHARC: Reference Point Driven Spherical Harmonic Representation for Complex Shapes",
-      "authors": [
-        "Panagiotis Sapoutzoglou",
-        "George Terzakis",
-        "Maria Pateraki"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-02",
+      "published": "2026-08-03",
       "cited_by_count": 0,
       "source": "openalex"
     }

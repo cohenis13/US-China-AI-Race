@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-04T09:41:07.498409+00:00",
+  "fetched_at": "2026-08-05T09:39:50.331833+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 203771,
-            "share_score": 45.1,
+            "raw_value": 204464,
+            "share_score": 45.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4156,
+            "raw_value": 4172,
             "share_score": 35.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3055,
+            "raw_value": 3072,
             "share_score": 31.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 248403,
-            "share_score": 54.9,
+            "raw_value": 249452,
+            "share_score": 55.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7651,
+            "raw_value": 7665,
             "share_score": 64.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6572,
+            "raw_value": 6610,
             "share_score": 68.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,143 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291729
+        "count": 291811
       },
       {
         "country_code": "CN",
-        "count": 248403
+        "count": 249452
       },
       {
         "country_code": "US",
-        "count": 203771
+        "count": 204464
       },
       {
         "country_code": "DE",
-        "count": 170121
+        "count": 170342
       },
       {
         "country_code": "IN",
-        "count": 102325
+        "count": 102570
       },
       {
         "country_code": "GB",
-        "count": 54145
+        "count": 54470
       },
       {
         "country_code": "ID",
-        "count": 31528
+        "count": 31705
       },
       {
         "country_code": "FR",
-        "count": 30067
+        "count": 30191
       },
       {
         "country_code": "CA",
-        "count": 27501
+        "count": 27585
       },
       {
         "country_code": "IT",
-        "count": 27191
+        "count": 27266
       }
     ],
     "volume": {
-      "us": 203771,
-      "china": 248403,
-      "total": 2653513,
+      "us": 204464,
+      "china": 249452,
+      "total": 2659983,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4156,
-      "china": 7651,
-      "total": 18441,
+      "us": 4172,
+      "china": 7665,
+      "total": 18480,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3055,
-      "china": 6572,
-      "total": 14918,
+      "us": 3072,
+      "china": 6610,
+      "total": 14991,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7166918386",
+      "title": "Colour pooling on Hilbert Curves",
+      "authors": [
+        "H. A. Verrill"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167478859",
+      "title": "ВЛИЯНИЕ ВИЗУАЛЬНОГО ДИЗАЙНА НА ВОСПРИЯТИЕ ВЕРБАЛЬНОГО ТЕКСТА В ЦИФРОВЫХ МЕДИА",
+      "authors": [
+        "Ж. Т КОЖОМБЕРДИЕВА"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172134717",
+      "title": "“AI’s Good, but People Have Hearts”: Artificial Intelligence in Data-Driven Journalism in Ghanaian Newsrooms",
+      "authors": [
+        "Theodora Dame Adjin-Tettey",
+        "Samuel Danso"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167505405",
+      "title": "ВЛИЯНИЕ ВИЗУАЛЬНОГО ДИЗАЙНА НА ВОСПРИЯТИЕ ВЕРБАЛЬНОГО ТЕКСТА В ЦИФРОВЫХ МЕДИА",
+      "authors": [
+        "Ж. Т КОЖОМБЕРДИЕВА"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172265258",
+      "title": "Potential of Artificial Intelligence in Energy Management",
+      "authors": [
+        "Lokesh Garg",
+        "Ashu Taneja"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172335768",
+      "title": "conformal prediction for network intrusion detection",
+      "authors": [
+        "Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7162698695",
       "title": "D9.2 Evaluation of proposed technologies in real deep/abandoned mines",
@@ -199,119 +275,45 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172081422",
-      "title": "Detecting False Intent : A Semi-Systematic Review",
+      "id": "https://openalex.org/W7172298834",
+      "title": "RuWritingStyles: Russian Claude custom styles and an agentic review pipeline for scholarly writing on Sanskrit linguistics",
       "authors": [
-        "Lara Warmelink"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152090366",
-      "title": "Bypassing Molecular Dynamics: Ultra-Fast De Novo Generation of Macrocyclic PPI Scaffolds via Rigid-Body SO(3) Fibonacci Sampling and Directed Chemical Evolution",
-      "authors": [
-        "Andrés Pirolo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171653537",
-      "title": "Purim Play \"Golyos HaPlishti\" from Noyekh Prilutski's Collection",
-      "authors": [
-        "Sonya Yampolskaya"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171745084",
-      "title": "Purim Play \"Golyos HaPlishti\" from Noyekh Prilutski's Collection",
-      "authors": [
-        "Sonya Yampolskaya"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162977568",
-      "title": "Modeling the 5D Digital Twin Model through Ontological Formalization",
-      "authors": [
-        "Bouthayna El Bouzaidi Tiali",
-        "Stephen Creff",
-        "Achraf Kallel"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162687129",
-      "title": "D9.2 Evaluation of proposed technologies in real deep/abandoned mines",
-      "authors": [
-        "Sumeet Satpute",
-        "Vignesh Kottayam Viswanathan",
-        "Victor Vigara Puche"
-      ],
-      "countries": [
-        "SE",
-        "DK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172222755",
-      "title": "电脑版濒临深渊:情节与激情的(On the Brink of a Chasm A record of plot and ).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-03",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172212765",
-      "title": "Mortimus (morty-vision): Multimodal Edge Fire-Detection Vision System v0.1.0",
-      "authors": [
-        "David MacDonald"
+        "Gasūns, Mārcis"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-03",
+      "published": "2026-08-04",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172229817",
-      "title": "A RELATIONAL RESPONSE TO THE HARD PROBLEM OF CONSCIOUSNESS:",
+      "id": "https://openalex.org/W7172312989",
+      "title": "Extended Reality Application To Introduce Types Of Fruit",
       "authors": [
-        "ricardo moyano"
+        "Ade Cahyono Andaru",
+        "Cindy Taurusta"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-03",
+      "published": "2026-08-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172350101",
+      "title": "Early At-Risk Learner Prediction in Intelligent Tutoring Systems: A Multidimensional Feature Approach",
+      "authors": [
+        "Bouchra Salh",
+        "NOUR EDDINE KHENDER",
+        "Lahcen Oughdir"
+      ],
+      "countries": [
+        "MA"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-04",
       "cited_by_count": 0,
       "source": "openalex"
     }

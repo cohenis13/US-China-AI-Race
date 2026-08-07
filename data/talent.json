@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-05T09:39:50.331833+00:00",
+  "fetched_at": "2026-08-07T08:17:32.229830+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,12 +17,12 @@
           "weight": 0.35,
           "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 204464,
-            "share_score": 45.0,
+            "raw_value": 205227,
+            "share_score": 45.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4172,
+            "raw_value": 4175,
             "share_score": 35.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 249452,
-            "share_score": 55.0,
+            "raw_value": 249914,
+            "share_score": 54.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7665,
+            "raw_value": 7696,
             "share_score": 64.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6610,
+            "raw_value": 6634,
             "share_score": 68.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291811
+        "count": 291915
       },
       {
         "country_code": "CN",
-        "count": 249452
+        "count": 249914
       },
       {
         "country_code": "US",
-        "count": 204464
+        "count": 205227
       },
       {
         "country_code": "DE",
-        "count": 170342
+        "count": 170617
       },
       {
         "country_code": "IN",
-        "count": 102570
+        "count": 102879
       },
       {
         "country_code": "GB",
-        "count": 54470
+        "count": 54615
       },
       {
         "country_code": "ID",
-        "count": 31705
+        "count": 31791
       },
       {
         "country_code": "FR",
-        "count": 30191
+        "count": 30316
       },
       {
         "country_code": "CA",
-        "count": 27585
+        "count": 27654
       },
       {
         "country_code": "IT",
-        "count": 27266
+        "count": 27369
       }
     ],
     "volume": {
-      "us": 204464,
-      "china": 249452,
-      "total": 2659983,
+      "us": 205227,
+      "china": 249914,
+      "total": 2673010,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4172,
-      "china": 7665,
-      "total": 18480,
+      "us": 4175,
+      "china": 7696,
+      "total": 18559,
       "data_ok": true
     },
     "top_cited": {
       "us": 3072,
-      "china": 6610,
-      "total": 14991,
+      "china": 6634,
+      "total": 15036,
       "data_ok": true
     }
   },
@@ -182,138 +182,135 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166918386",
-      "title": "Colour pooling on Hilbert Curves",
+      "id": "https://openalex.org/W7172575738",
+      "title": "Methods in Material Science",
       "authors": [
-        "H. A. Verrill"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167478859",
-      "title": "ВЛИЯНИЕ ВИЗУАЛЬНОГО ДИЗАЙНА НА ВОСПРИЯТИЕ ВЕРБАЛЬНОГО ТЕКСТА В ЦИФРОВЫХ МЕДИА",
-      "authors": [
-        "Ж. Т КОЖОМБЕРДИЕВА"
+        "Ronan Blair"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-05",
+      "published": "2026-08-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172134717",
-      "title": "“AI’s Good, but People Have Hearts”: Artificial Intelligence in Data-Driven Journalism in Ghanaian Newsrooms",
+      "id": "https://openalex.org/W7172566552",
+      "title": "Exploring the Effectiveness of Sampling Techniques on Knowledge Graphs",
       "authors": [
-        "Theodora Dame Adjin-Tettey",
-        "Samuel Danso"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167505405",
-      "title": "ВЛИЯНИЕ ВИЗУАЛЬНОГО ДИЗАЙНА НА ВОСПРИЯТИЕ ВЕРБАЛЬНОГО ТЕКСТА В ЦИФРОВЫХ МЕДИА",
-      "authors": [
-        "Ж. Т КОЖОМБЕРДИЕВА"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172265258",
-      "title": "Potential of Artificial Intelligence in Energy Management",
-      "authors": [
-        "Lokesh Garg",
-        "Ashu Taneja"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172335768",
-      "title": "conformal prediction for network intrusion detection",
-      "authors": [
-        "Anonymous"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162698695",
-      "title": "D9.2 Evaluation of proposed technologies in real deep/abandoned mines",
-      "authors": [
-        "Sumeet Satpute",
-        "Vignesh Kottayam Viswanathan",
-        "Victor Vigara Puche"
-      ],
-      "countries": [
-        "SE",
-        "DK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172298834",
-      "title": "RuWritingStyles: Russian Claude custom styles and an agentic review pipeline for scholarly writing on Sanskrit linguistics",
-      "authors": [
-        "Gasūns, Mārcis"
+        "Audrey Burke",
+        "Cara Yson"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-04",
+      "published": "2026-08-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172312989",
-      "title": "Extended Reality Application To Introduce Types Of Fruit",
+      "id": "https://openalex.org/W7172563559",
+      "title": "Biomedical Imaging: CT Scans",
       "authors": [
-        "Ade Cahyono Andaru",
-        "Cindy Taurusta"
+        "Brigid Burke"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-04",
+      "published": "2026-08-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172350101",
-      "title": "Early At-Risk Learner Prediction in Intelligent Tutoring Systems: A Multidimensional Feature Approach",
+      "id": "https://openalex.org/W7172562218",
+      "title": "Analyzing LiDAR Accuracy: Effects of Color and Lighting Conditions",
       "authors": [
-        "Bouchra Salh",
-        "NOUR EDDINE KHENDER",
-        "Lahcen Oughdir"
+        "Xavier Milam"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172528835",
+      "title": "电脑版莱蒂西亚·卡伯里的奇妙冒险(The amazing adventures of Letitia Carberry).zip",
+      "authors": [
+        "叶兴阳双语音标有声读物"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172542304",
+      "title": "Data for Physics-Informed Neural Networks for Partial Differential Equations: From Training Objectives to Solution Accuracy",
+      "authors": [
+        "Yingqiu Wang"
       ],
       "countries": [
-        "MA"
+        "RU"
       ],
       "primary_country": "Other",
-      "published": "2026-08-04",
+      "published": "2026-08-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172510395",
+      "title": "The Indus Script: A Structural Phonetic Framework for Decipherment via the 'Parmanu' (Phonetic Atom) Theory",
+      "authors": [
+        "Mahendra Mahendra Singh"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172534152",
+      "title": "Artificial intelligence-supported segmentation of cardiac anatomy in open-heart surgery videos",
+      "authors": [
+        "Maj Stenmark",
+        "Julia Önerud",
+        "Shahriar Anvariazar"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172487503",
+      "title": "CiteFuncRanker: an LLM-based pairwise ranking framework for multi-functional citation analysis",
+      "authors": [
+        "Yi Wang",
+        "Xuanmin Ruan",
+        "Dongqing Lyu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172490427",
+      "title": "Robust state estimation for distributed drive electric vehicles based on dynamic fusion of UKF and LSTM",
+      "authors": [
+        "Bin Huang",
+        "Guochao Zhang",
+        "Wen Jiang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-06",
       "cited_by_count": 0,
       "source": "openalex"
     }

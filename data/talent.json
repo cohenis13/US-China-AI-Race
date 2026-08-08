@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-07T08:17:32.229830+00:00",
+  "fetched_at": "2026-08-08T07:52:14.653319+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.1,
+          "share_score": 37.0,
           "paper_volume": {
-            "raw_value": 205227,
+            "raw_value": 206365,
             "share_score": 45.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4175,
-            "share_score": 35.2,
+            "raw_value": 4174,
+            "share_score": 35.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3072,
-            "share_score": 31.7,
+            "raw_value": 3074,
+            "share_score": 31.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.9,
+          "share_score": 63.0,
           "paper_volume": {
-            "raw_value": 249914,
+            "raw_value": 251257,
             "share_score": 54.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7696,
-            "share_score": 64.8,
+            "raw_value": 7720,
+            "share_score": 64.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6634,
-            "share_score": 68.3,
+            "raw_value": 6649,
+            "share_score": 68.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291915
+        "count": 291978
       },
       {
         "country_code": "CN",
-        "count": 249914
+        "count": 251257
       },
       {
         "country_code": "US",
-        "count": 205227
+        "count": 206365
       },
       {
         "country_code": "DE",
-        "count": 170617
+        "count": 174967
       },
       {
         "country_code": "IN",
-        "count": 102879
+        "count": 103127
       },
       {
         "country_code": "GB",
-        "count": 54615
+        "count": 54852
       },
       {
         "country_code": "ID",
-        "count": 31791
+        "count": 31895
       },
       {
         "country_code": "FR",
-        "count": 30316
+        "count": 30383
       },
       {
         "country_code": "CA",
-        "count": 27654
+        "count": 27754
       },
       {
         "country_code": "IT",
-        "count": 27369
+        "count": 27427
       }
     ],
     "volume": {
-      "us": 205227,
-      "china": 249914,
-      "total": 2673010,
+      "us": 206365,
+      "china": 251257,
+      "total": 2684989,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4175,
-      "china": 7696,
-      "total": 18559,
+      "us": 4174,
+      "china": 7720,
+      "total": 18585,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3072,
-      "china": 6634,
-      "total": 15036,
+      "us": 3074,
+      "china": 6649,
+      "total": 15048,
       "data_ok": true
     }
   },
@@ -182,135 +182,159 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7172575738",
-      "title": "Methods in Material Science",
+      "id": "https://openalex.org/W7168340908",
+      "title": "Deep Learning in Social Studies: Enhancing Conceptual Understanding of Fifth-Graders",
       "authors": [
-        "Ronan Blair"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172566552",
-      "title": "Exploring the Effectiveness of Sampling Techniques on Knowledge Graphs",
-      "authors": [
-        "Audrey Burke",
-        "Cara Yson"
+        "Evi Rizqi Salamah",
+        "Zuni Eka Tiyas Rifayanti"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172563559",
-      "title": "Biomedical Imaging: CT Scans",
-      "authors": [
-        "Brigid Burke"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172562218",
-      "title": "Analyzing LiDAR Accuracy: Effects of Color and Lighting Conditions",
-      "authors": [
-        "Xavier Milam"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172528835",
-      "title": "电脑版莱蒂西亚·卡伯里的奇妙冒险(The amazing adventures of Letitia Carberry).zip",
-      "authors": [
-        "叶兴阳双语音标有声读物"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172542304",
-      "title": "Data for Physics-Informed Neural Networks for Partial Differential Equations: From Training Objectives to Solution Accuracy",
-      "authors": [
-        "Yingqiu Wang"
-      ],
-      "countries": [
-        "RU"
+        "ID"
       ],
       "primary_country": "Other",
-      "published": "2026-08-06",
+      "published": "2026-08-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172510395",
-      "title": "The Indus Script: A Structural Phonetic Framework for Decipherment via the 'Parmanu' (Phonetic Atom) Theory",
+      "id": "https://openalex.org/W7172417548",
+      "title": "[Research status and progress of artificial intelligence in predicting tumor tissue of origin].",
       "authors": [
-        "Mahendra Mahendra Singh"
+        "Z Z Chen",
+        "T Xie",
+        "D J Li"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172570538",
+      "title": "Growing Vtrees from Variable Orderings: Novel Static Heuristics for SDD Compilation",
+      "authors": [
+        "Sander Verwimp",
+        "Annegret Seibt",
+        "Vincent Derkinderen"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172450895",
+      "title": "[Expert consensus on pathological image annotation for primary bronchial and lung cancer].",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172390016",
+      "title": "[Diagnostic efficacy and teaching value of artificial intelligence-assisted diagnostic systems in cervical liquid-based cytology screening].",
+      "authors": [
+        "F Dong",
+        "D Chen",
+        "J F Shang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172399312",
+      "title": "AgroGuard AI: A Zero-Shot Multimodal Crop Disease Diagnostic Assistant for Smallholder Farming",
+      "authors": [
+        "Vijay Chauhan"
       ],
       "countries": [
         "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-08-06",
+      "published": "2026-08-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172534152",
-      "title": "Artificial intelligence-supported segmentation of cardiac anatomy in open-heart surgery videos",
+      "id": "https://openalex.org/W7168413043",
+      "title": "Deep Learning in Social Studies: Enhancing Conceptual Understanding of Fifth-Graders",
       "authors": [
-        "Maj Stenmark",
-        "Julia Önerud",
-        "Shahriar Anvariazar"
+        "Evi Rizqi Salamah",
+        "Zuni Eka Tiyas Rifayanti"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-06",
+      "countries": [
+        "ID"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172487503",
-      "title": "CiteFuncRanker: an LLM-based pairwise ranking framework for multi-functional citation analysis",
+      "id": "https://openalex.org/W7172434859",
+      "title": "AgroGuard AI: A Zero-Shot Multimodal Crop Disease Diagnostic Assistant for Smallholder Farming",
       "authors": [
-        "Yi Wang",
-        "Xuanmin Ruan",
-        "Dongqing Lyu"
+        "Vijay Chauhan"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-06",
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172490427",
-      "title": "Robust state estimation for distributed drive electric vehicles based on dynamic fusion of UKF and LSTM",
+      "id": "https://openalex.org/W7196955050",
+      "title": "MSN: A Memory-based Sparse Activation Scaling Framework for Large-scale Industrial Recommendation",
       "authors": [
-        "Bin Huang",
-        "Guochao Zhang",
-        "Wen Jiang"
+        "Shikang Wu",
+        "Hui Lu",
+        "Jinqiu Jin"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-06",
+      "countries": [
+        "CN",
+        "US"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-08-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7196952978",
+      "title": "Cataloguing & Referencing Art",
+      "authors": [
+        "Bidossessi R.U. Alahassa",
+        "Nonvikan Karl-Augustt Alahassa",
+        "Julie Carrier"
+      ],
+      "countries": [
+        "CA",
+        "AE",
+        "US",
+        "BJ",
+        "BE",
+        "TN",
+        "AT",
+        "GB",
+        "RU"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-07",
       "cited_by_count": 0,
       "source": "openalex"
     }

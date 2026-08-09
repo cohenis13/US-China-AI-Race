@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-08T07:52:14.653319+00:00",
+  "fetched_at": "2026-08-09T07:55:25.722987+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.0,
           "paper_volume": {
-            "raw_value": 206365,
+            "raw_value": 206814,
             "share_score": 45.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4174,
+            "raw_value": 4176,
             "share_score": 35.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3074,
+            "raw_value": 3071,
             "share_score": 31.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.0,
           "paper_volume": {
-            "raw_value": 251257,
+            "raw_value": 251307,
             "share_score": 54.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7720,
+            "raw_value": 7721,
             "share_score": 64.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6649,
+            "raw_value": 6641,
             "share_score": 68.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291978
+        "count": 292020
       },
       {
         "country_code": "CN",
-        "count": 251257
+        "count": 251307
       },
       {
         "country_code": "US",
-        "count": 206365
+        "count": 206814
       },
       {
         "country_code": "DE",
-        "count": 174967
+        "count": 175049
       },
       {
         "country_code": "IN",
-        "count": 103127
+        "count": 103282
       },
       {
         "country_code": "GB",
-        "count": 54852
+        "count": 54947
       },
       {
         "country_code": "ID",
-        "count": 31895
+        "count": 31946
       },
       {
         "country_code": "FR",
-        "count": 30383
+        "count": 30441
       },
       {
         "country_code": "CA",
-        "count": 27754
+        "count": 27795
       },
       {
         "country_code": "IT",
-        "count": 27427
+        "count": 27488
       }
     ],
     "volume": {
-      "us": 206365,
-      "china": 251257,
-      "total": 2684989,
+      "us": 206814,
+      "china": 251307,
+      "total": 2691064,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4174,
-      "china": 7720,
-      "total": 18585,
+      "us": 4176,
+      "china": 7721,
+      "total": 18581,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3074,
-      "china": 6649,
-      "total": 15048,
+      "us": 3071,
+      "china": 6641,
+      "total": 15041,
       "data_ok": true
     }
   },
@@ -182,159 +182,126 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7168340908",
-      "title": "Deep Learning in Social Studies: Enhancing Conceptual Understanding of Fifth-Graders",
+      "id": "https://openalex.org/W7167407328",
+      "title": "Smart Words, Smarter Learning: Artificial Intelligence in Language Education",
       "authors": [
-        "Evi Rizqi Salamah",
-        "Zuni Eka Tiyas Rifayanti"
+        "Rajesh N.M."
       ],
-      "countries": [
-        "ID"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172417548",
-      "title": "[Research status and progress of artificial intelligence in predicting tumor tissue of origin].",
-      "authors": [
-        "Z Z Chen",
-        "T Xie",
-        "D J Li"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172570538",
-      "title": "Growing Vtrees from Variable Orderings: Novel Static Heuristics for SDD Compilation",
-      "authors": [
-        "Sander Verwimp",
-        "Annegret Seibt",
-        "Vincent Derkinderen"
-      ],
-      "countries": [
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172450895",
-      "title": "[Expert consensus on pathological image annotation for primary bronchial and lung cancer].",
-      "authors": [],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-08",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172390016",
-      "title": "[Diagnostic efficacy and teaching value of artificial intelligence-assisted diagnostic systems in cervical liquid-based cytology screening].",
+      "id": "https://openalex.org/W7167414032",
+      "title": "Artificial Intelligence's Effect on Business Operations and Financial Markets",
       "authors": [
-        "F Dong",
-        "D Chen",
-        "J F Shang"
+        "K. K. Kittur"
       ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-08",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172399312",
-      "title": "AgroGuard AI: A Zero-Shot Multimodal Crop Disease Diagnostic Assistant for Smallholder Farming",
+      "id": "https://openalex.org/W7167406377",
+      "title": "AI in Agriculture: Techniques and Applications",
       "authors": [
-        "Vijay Chauhan"
+        "Bhagirathi Halalli",
+        "Deepa Garag",
+        "Vinay Kumar V."
       ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-08",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7168413043",
-      "title": "Deep Learning in Social Studies: Enhancing Conceptual Understanding of Fifth-Graders",
+      "id": "https://openalex.org/W7167484327",
+      "title": "Education in the Age of Artificial Intelligence (AI): Bridging of Expanding Social Inequality",
       "authors": [
-        "Evi Rizqi Salamah",
-        "Zuni Eka Tiyas Rifayanti"
+        "S Shwetha.T."
       ],
-      "countries": [
-        "ID"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-08",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172434859",
-      "title": "AgroGuard AI: A Zero-Shot Multimodal Crop Disease Diagnostic Assistant for Smallholder Farming",
+      "id": "https://openalex.org/W7167410009",
+      "title": "Artificial Intelligence and Its Influence on Social Relationships Among Youth and Learners",
       "authors": [
-        "Vijay Chauhan"
+        "Kowshik M.C."
       ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-08",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7196955050",
-      "title": "MSN: A Memory-based Sparse Activation Scaling Framework for Large-scale Industrial Recommendation",
+      "id": "https://openalex.org/W7167506997",
+      "title": "Artificial Intelligence (AI) In Social Media Reshaping Identity: Community and Belonging",
       "authors": [
-        "Shikang Wu",
-        "Hui Lu",
-        "Jinqiu Jin"
+        "Hema Naik"
       ],
-      "countries": [
-        "CN",
-        "US"
-      ],
-      "primary_country": "Mixed",
-      "published": "2026-08-07",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7196952978",
-      "title": "Cataloguing & Referencing Art",
+      "id": "https://openalex.org/W7167407126",
+      "title": "Artificial Intelligence in Education: A Comparative Study of Instructional Effectiveness and Student Engagement",
       "authors": [
-        "Bidossessi R.U. Alahassa",
-        "Nonvikan Karl-Augustt Alahassa",
-        "Julie Carrier"
+        "Nethravathi K."
       ],
-      "countries": [
-        "CA",
-        "AE",
-        "US",
-        "BJ",
-        "BE",
-        "TN",
-        "AT",
-        "GB",
-        "RU"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167416500",
+      "title": "AI in Agriculture: Techniques and Applications",
+      "authors": [
+        "Bhagirathi Halalli",
+        "Deepa Garag",
+        "Vinay Kumar V."
       ],
-      "primary_country": "US",
-      "published": "2026-08-07",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167415198",
+      "title": "Digital Transformation of Indian Archives and Epigraphy: The Role of OCR and HTR",
+      "authors": [
+        "Lokesha Naik K."
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167500673",
+      "title": "Artificial Intelligence and the Transformation of Human Relationships",
+      "authors": [
+        "Shaila Y. Sulebhavi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-09",
       "cited_by_count": 0,
       "source": "openalex"
     }

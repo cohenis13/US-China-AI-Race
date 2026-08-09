@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-08T10:34:22.839016+00:00",
+  "fetched_at": "2026-08-09T07:00:40.857604+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -14,11 +14,11 @@
       "key": "frontier_models",
       "label": "Frontier Models",
       "radar_label": "Frontier\nModels",
-      "us_score": 6.1,
-      "china_score": 3.9,
+      "us_score": 6.0,
+      "china_score": 4.0,
       "winner": "US",
-      "delta": 2.2,
-      "edge": "+2.2 US",
+      "delta": 2.0,
+      "edge": "+2.0 US",
       "confidence": "Medium confidence",
       "score_method": "count_share",
       "caveat": "Three-proxy composite: release activity on HuggingFace Hub + ModelScope supplement (35%), benchmark performance via LMSYS Arena and Epoch AI notable models (45%), and ecosystem breadth across HF and ModelScope platforms (20%). Does NOT capture closed-model capability (GPT-4o, Claude, Qwen API, Doubao). China's HF-only activity is a systematic undercount — ModelScope supplement and ecosystem breadth proxy partially correct for this. See data/frontier_models_manual.json for benchmark snapshots and methodology notes.",
@@ -118,11 +118,11 @@
     {
       "key": "frontier_models",
       "dimension": "Frontier Models",
-      "us": 6.1,
-      "china": 3.9,
+      "us": 6.0,
+      "china": 4.0,
       "winner": "US",
-      "delta": 2.2,
-      "edge": "+2.2 US"
+      "delta": 2.0,
+      "edge": "+2.0 US"
     },
     {
       "key": "compute",
@@ -180,7 +180,7 @@
       "talent"
     ],
     "us": [
-      6.1,
+      6.0,
       7.3,
       6.2,
       6.0,
@@ -188,7 +188,7 @@
       4.7
     ],
     "china": [
-      3.9,
+      4.0,
       2.7,
       7.4,
       4.0,

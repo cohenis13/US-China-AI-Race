@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-10T08:43:04.231237+00:00",
+  "fetched_at": "2026-08-11T08:11:19.875136+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.0,
+          "share_score": 37.1,
           "paper_volume": {
-            "raw_value": 207349,
+            "raw_value": 207559,
             "share_score": 45.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4163,
-            "share_score": 35.0,
+            "raw_value": 4151,
+            "share_score": 35.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3068,
+            "raw_value": 3064,
             "share_score": 31.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.0,
+          "share_score": 62.9,
           "paper_volume": {
-            "raw_value": 251651,
+            "raw_value": 251564,
             "share_score": 54.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7715,
-            "share_score": 65.0,
+            "raw_value": 7692,
+            "share_score": 64.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6643,
+            "raw_value": 6632,
             "share_score": 68.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,39 +120,39 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292078
+        "count": 292111
       },
       {
         "country_code": "CN",
-        "count": 251651
+        "count": 251564
       },
       {
         "country_code": "US",
-        "count": 207349
+        "count": 207559
       },
       {
         "country_code": "DE",
-        "count": 175284
+        "count": 175362
       },
       {
         "country_code": "IN",
-        "count": 103457
+        "count": 103587
       },
       {
         "country_code": "GB",
-        "count": 55044
+        "count": 55076
       },
       {
         "country_code": "ID",
-        "count": 31985
+        "count": 31958
       },
       {
         "country_code": "FR",
-        "count": 30486
+        "count": 30496
       },
       {
         "country_code": "CA",
-        "count": 27875
+        "count": 27877
       },
       {
         "country_code": "IT",
@@ -160,21 +160,21 @@
       }
     ],
     "volume": {
-      "us": 207349,
-      "china": 251651,
-      "total": 2695229,
+      "us": 207559,
+      "china": 251564,
+      "total": 2698657,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4163,
-      "china": 7715,
-      "total": 18530,
+      "us": 4151,
+      "china": 7692,
+      "total": 18486,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3068,
-      "china": 6643,
-      "total": 15044,
+      "us": 3064,
+      "china": 6632,
+      "total": 15003,
       "data_ok": true
     }
   },
@@ -182,35 +182,68 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7171779258",
-      "title": "Deconformer: efficient cell-type composition profiling of cfRNA across diverse cell types",
+      "id": "https://openalex.org/W7162756747",
+      "title": "Low Dose and High Contrast Biomedical Imaging Using SelfSupervised Deep Learning",
       "authors": [
-        "Chaoxing Wang"
+        "Xiao Fan Ding",
+        "Xiaoman Duan",
+        "Ning Zhu"
       ],
       "countries": [],
       "primary_country": "Unknown",
+      "published": "2026-08-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164875079",
+      "title": "KAN-ER: Kolmogorov-Arnold Networks-based Entity Resolution in Data Lakes",
+      "authors": [
+        "Bouabdelli, Lamisse, F",
+        "Fatma Abdelhedi",
+        "Slimane Hammoudi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162787779",
+      "title": "Low Dose and High Contrast Biomedical Imaging Using SelfSupervised Deep Learning",
+      "authors": [
+        "Xiao Fan Ding",
+        "Xiaoman Duan",
+        "Ning Zhu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7108466842",
+      "title": "ontocast",
+      "authors": [
+        "Belikov, Alexander"
+      ],
+      "countries": [
+        "BG"
+      ],
+      "primary_country": "Other",
       "published": "2026-08-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134263766",
-      "title": "Maschinengeist Affekt: Reconceptualizing Machine Affect Beyond the Consciousness Paradigm",
+      "id": "https://openalex.org/W7202044219",
+      "title": "An explainable machine learning framework integrating clinical and lipidomic signatures for early severity stratification of hypertriglyceridemic pancreatitis",
       "authors": [
-        "C.R. Singleton"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167096759",
-      "title": "[Advance in the application of molecular ruler-based RNA 3D dynamic analysis for the interpretation of variants of uncertain significance].",
-      "authors": [
-        "Zhuoxiao Yang",
-        "Yuanlong Yan"
+        "Yanrong Yao",
+        "Bo Yuan",
+        "Kai Wang"
       ],
       "countries": [
         "CN"
@@ -221,12 +254,42 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169564445",
-      "title": "Blood RNA signatures show distinct longitudinal behavior and gene-contribution patterns in sepsis: code and derived data release",
+      "id": "https://openalex.org/W7202023669",
+      "title": "Investigating Bias in Bulgarian in the Context of Large Language Models",
       "authors": [
-        "Xinzhuo Li",
-        "Xinyue Tu",
-        "Zihao Yan"
+        "Ivelina Stoyanova"
+      ],
+      "countries": [
+        "BG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202049928",
+      "title": "Enhancing Gas Utilization and Revenue in Nigeria: A Machine Learning Framework for Production Forecasting",
+      "authors": [
+        "S. Dauda",
+        "A. O. Bakare",
+        "P. O. Enarevba"
+      ],
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202056304",
+      "title": "Development and validation of an interpretable machine learning model for predicting multidrug-resistant infections in ICU patients",
+      "authors": [
+        "Yimeng Yang",
+        "Jianrui Lv",
+        "Junbin Tian"
       ],
       "countries": [
         "CN"
@@ -237,87 +300,30 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172454410",
-      "title": "Supplementary Artifact S1: Layered Policy Enforcement for LLM Database Agents",
+      "id": "https://openalex.org/W7202056909",
+      "title": "K Phase Transition Constraint M: Joint Surgery Protocol– Negative Information Encoding on Deadlock Interfaces and Cross-Series Mapping Exploration",
       "authors": [
-        "Sejun Oh"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162128923",
-      "title": "hea-bench: An open calculator of high-entropy-alloy and high-entropy-oxide thermodynamic descriptors and empirical phase-prediction rules",
-      "authors": [
-        "David Fieser",
-        "Dewanjee, Unmanaa",
-        "Hu, Anming"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202023143",
-      "title": "Derive-then-ratify: evidence artefacts for deterministic structural admissibility in clinical discharge summaries",
-      "authors": [
-        "David Antonio Lester-Tomé"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165913447",
-      "title": "Code and data for: The Risks of Evolving AI are Near-Term and Broad",
-      "authors": [
-        "Charlie Pilgrim"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201886193",
-      "title": "CATana - Artifact Evaluation",
-      "authors": [
-        "Tomasz Piotr Lisowski",
-        "Kristian Covic",
-        "Marius Muench"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201886000",
-      "title": "On-Policy Self-Distillation: Continual Learning from Production Feedback",
-      "authors": [
-        "Kartik Goyal"
+        "changzheng zhou",
+        "ziqing zhou"
       ],
       "countries": [],
       "primary_country": "Unknown",
+      "published": "2026-08-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202033359",
+      "title": "Reliability-aware fusion of ocular thermal imaging and radiometric features for proof-of-concept classification of diabetic retinopathy vs. healthy controls",
+      "authors": [
+        "Persiya J",
+        "Sasithradevi A",
+        "Anand Rajendran"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
       "published": "2026-08-10",
       "cited_by_count": 0,
       "source": "openalex"

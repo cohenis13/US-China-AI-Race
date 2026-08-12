@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-11T08:11:19.875136+00:00",
+  "fetched_at": "2026-08-12T08:22:11.562739+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.6,
+      "composite_score": 46.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.1,
+          "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 207559,
+            "raw_value": 207896,
             "share_score": 45.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4151,
-            "share_score": 35.1,
+            "raw_value": 4206,
+            "share_score": 34.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3064,
-            "share_score": 31.6,
+            "raw_value": 3131,
+            "share_score": 31.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.4,
+      "composite_score": 53.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.9,
+          "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 251564,
+            "raw_value": 251831,
             "share_score": 54.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7692,
-            "share_score": 64.9,
+            "raw_value": 7867,
+            "share_score": 65.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6632,
-            "share_score": 68.4,
+            "raw_value": 6820,
+            "share_score": 68.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292111
+        "count": 292125
       },
       {
         "country_code": "CN",
-        "count": 251564
+        "count": 251831
       },
       {
         "country_code": "US",
-        "count": 207559
+        "count": 207896
       },
       {
         "country_code": "DE",
-        "count": 175362
+        "count": 176750
       },
       {
         "country_code": "IN",
-        "count": 103587
+        "count": 103673
       },
       {
         "country_code": "GB",
-        "count": 55076
+        "count": 55157
       },
       {
         "country_code": "ID",
-        "count": 31958
+        "count": 32026
       },
       {
         "country_code": "FR",
-        "count": 30496
+        "count": 30516
       },
       {
         "country_code": "CA",
-        "count": 27877
+        "count": 27916
       },
       {
         "country_code": "IT",
-        "count": 27513
+        "count": 27537
       }
     ],
     "volume": {
-      "us": 207559,
-      "china": 251564,
-      "total": 2698657,
+      "us": 207896,
+      "china": 251831,
+      "total": 2705900,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4151,
-      "china": 7692,
-      "total": 18486,
+      "us": 4206,
+      "china": 7867,
+      "total": 18807,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3064,
-      "china": 6632,
-      "total": 15003,
+      "us": 3131,
+      "china": 6820,
+      "total": 15391,
       "data_ok": true
     }
   },
@@ -182,149 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7162756747",
-      "title": "Low Dose and High Contrast Biomedical Imaging Using SelfSupervised Deep Learning",
+      "id": "https://openalex.org/W7202128449",
+      "title": "HAMOS: A Fine-Grained Hotel Aspect-Based Multimodal Opinion and Sentiment Dataset",
       "authors": [
-        "Xiao Fan Ding",
-        "Xiaoman Duan",
-        "Ning Zhu"
+        "Tram Doan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-11",
+      "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164875079",
-      "title": "KAN-ER: Kolmogorov-Arnold Networks-based Entity Resolution in Data Lakes",
+      "id": "https://openalex.org/W7170177559",
+      "title": "Research data and code supporting \"Label-free biochemical imaging and time point analysis of neural organoids via deep learning–enhanced Raman microspectroscopy\"",
       "authors": [
-        "Bouabdelli, Lamisse, F",
-        "Fatma Abdelhedi",
-        "Slimane Hammoudi"
+        "Dimitar Georgiev",
+        "Ruoxiao Xie",
+        "Daniel Reumann"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202148569",
+      "title": "HAMOS: A Fine-Grained Hotel Aspect-Based Multimodal Opinion and Sentiment Dataset",
+      "authors": [
+        "Tram Doan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-11",
+      "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162787779",
-      "title": "Low Dose and High Contrast Biomedical Imaging Using SelfSupervised Deep Learning",
+      "id": "https://openalex.org/W7202141221",
+      "title": "The core code and data of the paper \"Development and Diagnosis of a Temporal-Context U-Net Deep Learning Surrogate Model for CMAQ Particulate Nitrate over China\"",
       "authors": [
-        "Xiao Fan Ding",
-        "Xiaoman Duan",
-        "Ning Zhu"
+        "Guoliang Shi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-11",
+      "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7108466842",
-      "title": "ontocast",
+      "id": "https://openalex.org/W7170193416",
+      "title": "Research data and code supporting \"Label-free biochemical imaging and time point analysis of neural organoids via deep learning–enhanced Raman microspectroscopy\"",
       "authors": [
-        "Belikov, Alexander"
+        "Dimitar Georgiev",
+        "Ruoxiao Xie",
+        "Daniel Reumann"
       ],
       "countries": [
-        "BG"
+        "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-08-10",
+      "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202044219",
-      "title": "An explainable machine learning framework integrating clinical and lipidomic signatures for early severity stratification of hypertriglyceridemic pancreatitis",
+      "id": "https://openalex.org/W7202136803",
+      "title": "The core code and data of the paper \"Development and Diagnosis of a Temporal-Context U-Net Deep Learning Surrogate Model for CMAQ Particulate Nitrate over China\"",
       "authors": [
-        "Yanrong Yao",
-        "Bo Yuan",
-        "Kai Wang"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202023669",
-      "title": "Investigating Bias in Bulgarian in the Context of Large Language Models",
-      "authors": [
-        "Ivelina Stoyanova"
-      ],
-      "countries": [
-        "BG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202049928",
-      "title": "Enhancing Gas Utilization and Revenue in Nigeria: A Machine Learning Framework for Production Forecasting",
-      "authors": [
-        "S. Dauda",
-        "A. O. Bakare",
-        "P. O. Enarevba"
-      ],
-      "countries": [
-        "NG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202056304",
-      "title": "Development and validation of an interpretable machine learning model for predicting multidrug-resistant infections in ICU patients",
-      "authors": [
-        "Yimeng Yang",
-        "Jianrui Lv",
-        "Junbin Tian"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202056909",
-      "title": "K Phase Transition Constraint M: Joint Surgery Protocol– Negative Information Encoding on Deadlock Interfaces and Cross-Series Mapping Exploration",
-      "authors": [
-        "changzheng zhou",
-        "ziqing zhou"
+        "Guoliang Shi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-10",
+      "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202033359",
-      "title": "Reliability-aware fusion of ocular thermal imaging and radiometric features for proof-of-concept classification of diabetic retinopathy vs. healthy controls",
+      "id": "https://openalex.org/W7202195217",
+      "title": "bs2026-v6-artifacts v1.0.1: model weights, predictions and evaluation code for IUCN Red List threatened bird classification from citizen-science images",
       "authors": [
-        "Persiya J",
-        "Sasithradevi A",
-        "Anand Rajendran"
+        "Takeshi Nishikawa"
       ],
       "countries": [
-        "IN"
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155495409",
+      "title": "PyCodeKG: Semantic Knowledge Graph for Python Codebases",
+      "authors": [
+        "Eric G. Suchanek"
+      ],
+      "countries": [
+        "CH"
       ],
       "primary_country": "Other",
-      "published": "2026-08-10",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202157290",
+      "title": "Supporting data and code for device-aware machine learning of ECG and blood-pressure waveforms in cardiovascular aging",
+      "authors": [
+        "Tsung-Neng Tsai",
+        "Yi‐Lin Chiu"
+      ],
+      "countries": [
+        "JP",
+        "US",
+        "TW"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202180463",
+      "title": "AuraOS Paper X — Relational World Compilation: Source-Resolvable Situated Reasoning, Semantic Activation, and Bounded Reconstitution (N101–N124)",
+      "authors": [
+        "Dallas Courchene"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"
     }

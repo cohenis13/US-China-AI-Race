@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-13T09:03:03.955086+00:00",
+  "fetched_at": "2026-08-13T11:00:57.659805+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -70,11 +70,11 @@
       "key": "diffusion",
       "label": "Diffusion",
       "radar_label": "Diffusion",
-      "us_score": 6.0,
-      "china_score": 4.0,
+      "us_score": 5.9,
+      "china_score": 4.1,
       "winner": "US",
-      "delta": 2.0,
-      "edge": "+2.0 US",
+      "delta": 1.8,
+      "edge": "+1.8 US",
       "confidence": "Lower confidence",
       "score_method": "composite_share_100",
       "caveat": "Share of combined US+China: HF open-model downloads (55%) + cloud platform footprint (45%). Undercounts Chinese model reach via ModelScope and domestic platforms. Does not capture closed-API usage or hardware export reach.",
@@ -145,11 +145,11 @@
     {
       "key": "diffusion",
       "dimension": "Diffusion",
-      "us": 6.0,
-      "china": 4.0,
+      "us": 5.9,
+      "china": 4.1,
       "winner": "US",
-      "delta": 2.0,
-      "edge": "+2.0 US"
+      "delta": 1.8,
+      "edge": "+1.8 US"
     },
     {
       "key": "energy",
@@ -183,7 +183,7 @@
       6.4,
       7.3,
       6.2,
-      6.0,
+      5.9,
       3.7,
       4.7
     ],
@@ -191,7 +191,7 @@
       3.6,
       2.7,
       7.4,
-      4.0,
+      4.1,
       7.4,
       5.3
     ]

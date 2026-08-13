@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-12T08:22:11.562739+00:00",
+  "fetched_at": "2026-08-13T08:24:53.605326+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 207896,
+            "raw_value": 208206,
             "share_score": 45.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4206,
+            "raw_value": 4217,
             "share_score": 34.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3131,
+            "raw_value": 3129,
             "share_score": 31.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 251831,
+            "raw_value": 252164,
             "share_score": 54.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7867,
+            "raw_value": 7888,
             "share_score": 65.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6820,
+            "raw_value": 6818,
             "share_score": 68.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292125
+        "count": 292176
       },
       {
         "country_code": "CN",
-        "count": 251831
+        "count": 252164
       },
       {
         "country_code": "US",
-        "count": 207896
+        "count": 208206
       },
       {
         "country_code": "DE",
-        "count": 176750
+        "count": 176831
       },
       {
         "country_code": "IN",
-        "count": 103673
+        "count": 103685
       },
       {
         "country_code": "GB",
-        "count": 55157
+        "count": 55273
       },
       {
         "country_code": "ID",
-        "count": 32026
+        "count": 32084
       },
       {
         "country_code": "FR",
-        "count": 30516
+        "count": 30543
       },
       {
         "country_code": "CA",
-        "count": 27916
+        "count": 27948
       },
       {
         "country_code": "IT",
-        "count": 27537
+        "count": 27586
       }
     ],
     "volume": {
-      "us": 207896,
-      "china": 251831,
-      "total": 2705900,
+      "us": 208206,
+      "china": 252164,
+      "total": 2711305,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4206,
-      "china": 7867,
-      "total": 18807,
+      "us": 4217,
+      "china": 7888,
+      "total": 18851,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3131,
-      "china": 6820,
-      "total": 15391,
+      "us": 3129,
+      "china": 6818,
+      "total": 15383,
       "data_ok": true
     }
   },
@@ -182,10 +182,40 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7202128449",
-      "title": "HAMOS: A Fine-Grained Hotel Aspect-Based Multimodal Opinion and Sentiment Dataset",
+      "id": "https://openalex.org/W7172001122",
+      "title": "References and Supplementary Material for the poster \"Structural Variability in Scientific Machine Learning by Context-Oriented Equation-based Modeling\" presented at JuliaCon 2026",
       "authors": [
-        "Tram Doan"
+        "Christian Gutsche"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172003996",
+      "title": "References and Supplementary Material for the poster \"Structural Variability in Scientific Machine Learning by Context-Oriented Equation-based Modeling\" presented at JuliaCon 2026",
+      "authors": [
+        "Christian Gutsche"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202156511",
+      "title": "Artificial intelligence in environmental etiology of autism spectrum disorder: progress, opportunities, and challenges",
+      "authors": [
+        "Ruizhi Zheng",
+        "Lin Wen",
+        "Yun Huang"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -194,15 +224,67 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7170177559",
-      "title": "Research data and code supporting \"Label-free biochemical imaging and time point analysis of neural organoids via deep learning–enhanced Raman microspectroscopy\"",
+      "id": "https://openalex.org/W7202188527",
+      "title": "GPRBase: A Free Library of Real-World Ground Penetrating Radar Datasets for Education, Training and Research",
       "authors": [
-        "Dimitar Georgiev",
-        "Ruoxiao Xie",
-        "Daniel Reumann"
+        "Jérôme XAVIER"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202217053",
+      "title": "An Enhanced UNet++ with InceptionNeXt Blocks and Feature-Scale Channel Attention for Ischemic Stroke Lesion Segmentation",
+      "authors": [
+        "Muhammad Hilmy Naufal",
+        "Wiharto Wiharto",
+        "Herdito Ibnu Dewangkoro"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202198174",
+      "title": "Sentiment Analysis of Indonesian National Team Player Composition Using the Convolutional Neural Network",
+      "authors": [
+        "Fishilia Saqila Istanti",
+        "Ahmad Riyadi Riyadi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202212177",
+      "title": "NeuroPhasor: Decoding Mental State Tensors from Brain-Computer Interfaces toward Quantum Ready Cognitive Modeling",
+      "authors": [
+        "Dibakar Sigdel"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202175583",
+      "title": "Artificial Intelligence in Enhancing Accessibility for Persons with Disabilities in Educational Settings",
+      "authors": [
+        "Attahiru Yahaya",
+        "Taibat Olaide Apanpa",
+        "Shehu Musa Maryam"
       ],
       "countries": [
-        "GB"
+        "NG",
+        "RU"
       ],
       "primary_country": "Other",
       "published": "2026-08-12",
@@ -210,10 +292,12 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202148569",
-      "title": "HAMOS: A Fine-Grained Hotel Aspect-Based Multimodal Opinion and Sentiment Dataset",
+      "id": "https://openalex.org/W7202192609",
+      "title": "An english financial audit anomaly detection system for construction industry based on machine learning",
       "authors": [
-        "Tram Doan"
+        "Lingyun Long",
+        "Shuang Xu",
+        "Aichao Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
@@ -222,98 +306,17 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202141221",
-      "title": "The core code and data of the paper \"Development and Diagnosis of a Temporal-Context U-Net Deep Learning Surrogate Model for CMAQ Particulate Nitrate over China\"",
+      "id": "https://openalex.org/W7202177606",
+      "title": "Analysing Korean children's speech data for early childhood educational services: age-specific insights from text and audio analysis",
       "authors": [
-        "Guoliang Shi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170193416",
-      "title": "Research data and code supporting \"Label-free biochemical imaging and time point analysis of neural organoids via deep learning–enhanced Raman microspectroscopy\"",
-      "authors": [
-        "Dimitar Georgiev",
-        "Ruoxiao Xie",
-        "Daniel Reumann"
+        "Haein Lee",
+        "Hae Sun Jung",
+        "Keon Chul Park"
       ],
       "countries": [
-        "GB"
+        "KR"
       ],
       "primary_country": "Other",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202136803",
-      "title": "The core code and data of the paper \"Development and Diagnosis of a Temporal-Context U-Net Deep Learning Surrogate Model for CMAQ Particulate Nitrate over China\"",
-      "authors": [
-        "Guoliang Shi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202195217",
-      "title": "bs2026-v6-artifacts v1.0.1: model weights, predictions and evaluation code for IUCN Red List threatened bird classification from citizen-science images",
-      "authors": [
-        "Takeshi Nishikawa"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155495409",
-      "title": "PyCodeKG: Semantic Knowledge Graph for Python Codebases",
-      "authors": [
-        "Eric G. Suchanek"
-      ],
-      "countries": [
-        "CH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202157290",
-      "title": "Supporting data and code for device-aware machine learning of ECG and blood-pressure waveforms in cardiovascular aging",
-      "authors": [
-        "Tsung-Neng Tsai",
-        "Yi‐Lin Chiu"
-      ],
-      "countries": [
-        "JP",
-        "US",
-        "TW"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202180463",
-      "title": "AuraOS Paper X — Relational World Compilation: Source-Resolvable Situated Reasoning, Semantic Activation, and Bounded Reconstitution (N101–N124)",
-      "authors": [
-        "Dallas Courchene"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-08-12",
       "cited_by_count": 0,
       "source": "openalex"

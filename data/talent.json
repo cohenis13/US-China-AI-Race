@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-13T08:24:53.605326+00:00",
+  "fetched_at": "2026-08-14T08:20:03.784689+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.5,
+      "composite_score": 46.4,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.9,
+          "share_score": 36.6,
           "paper_volume": {
-            "raw_value": 208206,
-            "share_score": 45.2,
+            "raw_value": 208990,
+            "share_score": 45.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4217,
-            "share_score": 34.8,
+            "raw_value": 4266,
+            "share_score": 34.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3129,
-            "share_score": 31.5,
+            "raw_value": 3176,
+            "share_score": 30.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.5,
+      "composite_score": 53.6,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.1,
+          "share_score": 63.4,
           "paper_volume": {
-            "raw_value": 252164,
-            "share_score": 54.8,
+            "raw_value": 252594,
+            "share_score": 54.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7888,
-            "share_score": 65.2,
+            "raw_value": 8183,
+            "share_score": 65.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6818,
-            "share_score": 68.5,
+            "raw_value": 7109,
+            "share_score": 69.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292176
+        "count": 292270
       },
       {
         "country_code": "CN",
-        "count": 252164
+        "count": 252594
       },
       {
         "country_code": "US",
-        "count": 208206
+        "count": 208990
       },
       {
         "country_code": "DE",
-        "count": 176831
+        "count": 176999
       },
       {
         "country_code": "IN",
-        "count": 103685
+        "count": 104079
       },
       {
         "country_code": "GB",
-        "count": 55273
+        "count": 55432
       },
       {
         "country_code": "ID",
-        "count": 32084
+        "count": 32299
       },
       {
         "country_code": "FR",
-        "count": 30543
+        "count": 30599
       },
       {
         "country_code": "CA",
-        "count": 27948
+        "count": 28037
       },
       {
         "country_code": "IT",
-        "count": 27586
+        "count": 27635
       }
     ],
     "volume": {
-      "us": 208206,
-      "china": 252164,
-      "total": 2711305,
+      "us": 208990,
+      "china": 252594,
+      "total": 2717598,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4217,
-      "china": 7888,
-      "total": 18851,
+      "us": 4266,
+      "china": 8183,
+      "total": 19267,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3129,
-      "china": 6818,
-      "total": 15383,
+      "us": 3176,
+      "china": 7109,
+      "total": 15794,
       "data_ok": true
     }
   },
@@ -182,13 +182,106 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7172001122",
-      "title": "References and Supplementary Material for the poster \"Structural Variability in Scientific Machine Learning by Context-Oriented Equation-based Modeling\" presented at JuliaCon 2026",
+      "id": "https://openalex.org/W7169641665",
+      "title": "Human-Centered Machine Learning",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172069187",
+      "title": "Replication and Extension of \"Validation of a Histology-Independent Prognostic Gene Signature for Early-Stage Non-Small-Cell Lung Cancer Including Stage IA Patients\"",
       "authors": [
-        "Christian Gutsche"
+        "Md Saif Uddin Rashed"
       ],
       "countries": [
-        "DE"
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202251256",
+      "title": "Analysis code for the anastomosable hiPSC-organ platform: lumen distance and transcriptome-proteome comparison",
+      "authors": [
+        "Tomomi Tadokoro"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202249827",
+      "title": "Analysis code for the anastomosable hiPSC-organ platform: lumen distance and transcriptome-proteome comparison",
+      "authors": [
+        "Tomomi Tadokoro"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202254952",
+      "title": "A physical soft-constraint interpretability-based multimodal deep learning model for small-sample fault diagnosis of pressurized water reactor coolant systems in nuclear power plants",
+      "authors": [
+        "You Keshun",
+        "Haidong Shao",
+        "Yajun Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202261349",
+      "title": "Interpretable machine learning prognostication of gastroenteropancreatic neuroendocrine tumors across Chinese and United States cohorts",
+      "authors": [
+        "Yangwei Fan",
+        "Yuqian Yang",
+        "Ke Wang"
+      ],
+      "countries": [
+        "CN",
+        "US"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-08-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202245315",
+      "title": "Αδιαλειπτως in the Remembrance Motif in Paul’s Letters",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202264666",
+      "title": "The Palavra Method (Ijeluwa)",
+      "authors": [
+        "Eberechukwu Owuamanam"
+      ],
+      "countries": [
+        "ZW"
       ],
       "primary_country": "Other",
       "published": "2026-08-13",
@@ -196,128 +289,28 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172003996",
-      "title": "References and Supplementary Material for the poster \"Structural Variability in Scientific Machine Learning by Context-Oriented Equation-based Modeling\" presented at JuliaCon 2026",
+      "id": "https://openalex.org/W7202302120",
+      "title": "PELAKSANAAN PEMBELAJARAN SOSIOLOGI DENGAN PENDEKATAN DEEP LEARNING DALAM MENINGKATKAN KEAKTIFAN BELAJAR PESERTA DIDIK DI KELAS X 3 SMAN 12 BUNGO",
       "authors": [
-        "Christian Gutsche"
+        "Indri Septi Ningsih",
+        "Buchari Nurdin",
+        "Yanti Sri Wahyuni"
       ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-08-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202156511",
-      "title": "Artificial intelligence in environmental etiology of autism spectrum disorder: progress, opportunities, and challenges",
+      "id": "https://openalex.org/W7172213844",
+      "title": "Set Theory New",
       "authors": [
-        "Ruizhi Zheng",
-        "Lin Wen",
-        "Yun Huang"
+        "Trần Lương Tuấn"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202188527",
-      "title": "GPRBase: A Free Library of Real-World Ground Penetrating Radar Datasets for Education, Training and Research",
-      "authors": [
-        "Jérôme XAVIER"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202217053",
-      "title": "An Enhanced UNet++ with InceptionNeXt Blocks and Feature-Scale Channel Attention for Ischemic Stroke Lesion Segmentation",
-      "authors": [
-        "Muhammad Hilmy Naufal",
-        "Wiharto Wiharto",
-        "Herdito Ibnu Dewangkoro"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202198174",
-      "title": "Sentiment Analysis of Indonesian National Team Player Composition Using the Convolutional Neural Network",
-      "authors": [
-        "Fishilia Saqila Istanti",
-        "Ahmad Riyadi Riyadi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202212177",
-      "title": "NeuroPhasor: Decoding Mental State Tensors from Brain-Computer Interfaces toward Quantum Ready Cognitive Modeling",
-      "authors": [
-        "Dibakar Sigdel"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202175583",
-      "title": "Artificial Intelligence in Enhancing Accessibility for Persons with Disabilities in Educational Settings",
-      "authors": [
-        "Attahiru Yahaya",
-        "Taibat Olaide Apanpa",
-        "Shehu Musa Maryam"
-      ],
-      "countries": [
-        "NG",
-        "RU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202192609",
-      "title": "An english financial audit anomaly detection system for construction industry based on machine learning",
-      "authors": [
-        "Lingyun Long",
-        "Shuang Xu",
-        "Aichao Li"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202177606",
-      "title": "Analysing Korean children's speech data for early childhood educational services: age-specific insights from text and audio analysis",
-      "authors": [
-        "Haein Lee",
-        "Hae Sun Jung",
-        "Keon Chul Park"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-12",
+      "published": "2026-08-13",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-08-14T07:36:20.070044+00:00",
+  "fetched_at": "2026-08-14T08:20:03.834125+00:00",
   "generated_from": [
     "frontier_models",
     "talent",
@@ -28,11 +28,11 @@
       "key": "talent",
       "label": "Talent",
       "radar_label": "Talent",
-      "us_score": 4.7,
-      "china_score": 5.3,
+      "us_score": 4.6,
+      "china_score": 5.4,
       "winner": "China",
-      "delta": 0.6,
-      "edge": "+0.6 CN",
+      "delta": 0.8,
+      "edge": "+0.8 CN",
       "confidence": "Medium confidence",
       "score_method": "count_share",
       "caveat": "Three-proxy talent pipeline index: research output quality (35%, OpenAlex paper volume + high-impact + top-cited), domestic PhD pipeline (25%, NSF SDR and China MoE annual graduate data), and elite researcher concentration + migration (40%, MacroPolo AI Talent Tracker). Paper volume alone overstates China's advantage; adding elite researcher placement (US captures ~72% of combined US+China top researchers) produces a near-tie. Key dynamic: China's universities produce 4× more AI-adjacent PhDs than the US, but the US absorbs a disproportionate share of elite talent from China and globally. China's domestic retention of top researchers has increased significantly since 2019.",
@@ -107,7 +107,7 @@
     },
     {
       "bold": "Talent is the most closely contested dimension",
-      "rest": " on these proxies (gap: 0.6 points on the 0–10 scale) — both countries are operating at broadly comparable levels here."
+      "rest": " on these proxies (gap: 0.8 points on the 0–10 scale) — both countries are operating at broadly comparable levels here."
     },
     {
       "bold": "The binding constraints differ structurally",
@@ -163,11 +163,11 @@
     {
       "key": "talent",
       "dimension": "Talent",
-      "us": 4.7,
-      "china": 5.3,
+      "us": 4.6,
+      "china": 5.4,
       "winner": "China",
-      "delta": 0.6,
-      "edge": "+0.6 CN"
+      "delta": 0.8,
+      "edge": "+0.8 CN"
     }
   ],
   "radar_chart_data": {
@@ -185,7 +185,7 @@
       6.2,
       5.9,
       3.7,
-      4.7
+      4.6
     ],
     "china": [
       3.6,
@@ -193,7 +193,7 @@
       7.4,
       4.1,
       7.4,
-      5.3
+      5.4
     ]
   },
   "normalization_note": "Frontier Models, Talent, and Compute are scored as share-of-combined (US + China = 10 by construction). Adoption, Diffusion, and Energy use their 0–100 composite scores divided by 10, giving independent scores that do not necessarily sum to 10.",

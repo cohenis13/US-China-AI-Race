@@ -4,8 +4,8 @@
   "title": "Global AI Diffusion — U.S. vs China",
   "subtitle": "Share of combined U.S.–China global AI diffusion footprint, measured by open-model ecosystem reach and cloud infrastructure coverage. U.S. + China scores sum to 100.",
   "description": "A two-proxy composite index measuring how far U.S. and Chinese AI stacks have spread beyond their home markets. Combines HF open-model monthly downloads (live, from data/labs.json tracked labs) with cloud AI platform international footprint (curated, annually reviewed). Both proxies are scored as share-of-combined so U.S. + China = 100.",
-  "fetched_at": "2026-08-14T10:57:38.076681+00:00",
-  "last_updated": "2026-08-14T10:57:38.076681+00:00",
+  "fetched_at": "2026-08-15T10:23:03.746627+00:00",
+  "last_updated": "2026-08-15T10:23:03.746627+00:00",
   "summary": {
     "US": {
       "composite_score": 59.3,
@@ -15,7 +15,7 @@
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": 504306833,
+          "raw_value": 511240158,
           "unit": "monthly downloads (HF Hub)",
           "share_score": 48.1,
           "coverage": "high",
@@ -24,7 +24,7 @@
             {
               "lab": "OpenAI",
               "author": "openai",
-              "downloads": 67928825
+              "downloads": 68286863
             },
             {
               "lab": "Anthropic",
@@ -34,7 +34,7 @@
             {
               "lab": "Google / DeepMind",
               "author": "google",
-              "downloads": 144092855
+              "downloads": 146573743
             },
             {
               "lab": "Google / DeepMind",
@@ -44,32 +44,32 @@
             {
               "lab": "Meta AI",
               "author": "facebook",
-              "downloads": 74070899
+              "downloads": 74915787
             },
             {
               "lab": "Meta AI",
               "author": "meta-llama",
-              "downloads": 34760494
+              "downloads": 34898251
             },
             {
               "lab": "Microsoft",
               "author": "microsoft",
-              "downloads": 45244388
+              "downloads": 45944617
             },
             {
               "lab": "NVIDIA",
               "author": "nvidia",
-              "downloads": 57348591
+              "downloads": 58417258
             },
             {
               "lab": "Allen Institute for AI",
               "author": "allenai",
-              "downloads": 7111149
+              "downloads": 7199944
             },
             {
               "lab": "Salesforce AI",
               "author": "Salesforce",
-              "downloads": 5733632
+              "downloads": 5857291
             },
             {
               "lab": "Cohere",
@@ -79,37 +79,37 @@
             {
               "lab": "Apple",
               "author": "apple",
-              "downloads": 2569650
+              "downloads": 2587754
             },
             {
               "lab": "Amazon",
               "author": "amazon",
-              "downloads": 46813674
+              "downloads": 47936920
             },
             {
               "lab": "Stability AI",
               "author": "stabilityai",
-              "downloads": 5017887
+              "downloads": 5089201
             },
             {
               "lab": "Together AI",
               "author": "togethercomputer",
-              "downloads": 18653
+              "downloads": 19108
             },
             {
               "lab": "xAI",
               "author": "xai-org",
-              "downloads": 8643
+              "downloads": 8758
             },
             {
               "lab": "IBM Research",
               "author": "ibm-granite",
-              "downloads": 13587373
+              "downloads": 13504533
             },
             {
               "lab": "Databricks / MosaicML",
               "author": "mosaicml",
-              "downloads": 120
+              "downloads": 130
             },
             {
               "lab": "Databricks / MosaicML",
@@ -136,7 +136,7 @@
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": 544217335,
+          "raw_value": 551892541,
           "unit": "monthly downloads (HF Hub)",
           "share_score": 51.9,
           "coverage": "high",
@@ -145,12 +145,12 @@
             {
               "lab": "Alibaba / Qwen",
               "author": "Qwen",
-              "downloads": 326801532
+              "downloads": 330737812
             },
             {
               "lab": "DeepSeek",
               "author": "deepseek-ai",
-              "downloads": 31257763
+              "downloads": 31186514
             },
             {
               "lab": "Zhipu AI / THUDM",
@@ -160,52 +160,52 @@
             {
               "lab": "01.AI",
               "author": "01-ai",
-              "downloads": 253533
+              "downloads": 260422
             },
             {
               "lab": "Baidu",
               "author": "baidu",
-              "downloads": 3416543
+              "downloads": 3499542
             },
             {
               "lab": "ByteDance",
               "author": "ByteDance-Seed",
-              "downloads": 1054868
+              "downloads": 1055786
             },
             {
               "lab": "Shanghai AI Lab",
               "author": "internlm",
-              "downloads": 1044559
+              "downloads": 1032492
             },
             {
               "lab": "Moonshot AI",
               "author": "moonshotai",
-              "downloads": 5524840
+              "downloads": 5623256
             },
             {
               "lab": "MiniMax",
               "author": "MiniMaxAI",
-              "downloads": 4592580
+              "downloads": 4810495
             },
             {
               "lab": "Tencent",
               "author": "tencent",
-              "downloads": 1161246
+              "downloads": 1214456
             },
             {
               "lab": "Huawei / Noah's Ark Lab",
               "author": "huawei-noah",
-              "downloads": 1095527
+              "downloads": 1110482
             },
             {
               "lab": "BAAI (Beijing Academy of AI)",
               "author": "BAAI",
-              "downloads": 167921259
+              "downloads": 171268381
             },
             {
               "lab": "Baichuan Intelligence",
               "author": "baichuan-inc",
-              "downloads": 93085
+              "downloads": 92903
             }
           ]
         },

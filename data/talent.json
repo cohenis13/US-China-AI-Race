@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-14T08:20:03.784689+00:00",
+  "fetched_at": "2026-08-15T07:35:01.894542+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.6,
           "paper_volume": {
-            "raw_value": 208990,
+            "raw_value": 209755,
             "share_score": 45.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4266,
+            "raw_value": 4272,
             "share_score": 34.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3176,
+            "raw_value": 3175,
             "share_score": 30.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.4,
           "paper_volume": {
-            "raw_value": 252594,
+            "raw_value": 253524,
             "share_score": 54.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8183,
+            "raw_value": 8195,
             "share_score": 65.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7109,
+            "raw_value": 7113,
             "share_score": 69.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292270
+        "count": 292371
       },
       {
         "country_code": "CN",
-        "count": 252594
+        "count": 253524
       },
       {
         "country_code": "US",
-        "count": 208990
+        "count": 209755
       },
       {
         "country_code": "DE",
-        "count": 176999
+        "count": 177177
       },
       {
         "country_code": "IN",
-        "count": 104079
+        "count": 104362
       },
       {
         "country_code": "GB",
-        "count": 55432
+        "count": 55641
       },
       {
         "country_code": "ID",
-        "count": 32299
+        "count": 32435
       },
       {
         "country_code": "FR",
-        "count": 30599
+        "count": 30701
       },
       {
         "country_code": "CA",
-        "count": 28037
+        "count": 28122
       },
       {
         "country_code": "IT",
-        "count": 27635
+        "count": 27714
       }
     ],
     "volume": {
-      "us": 208990,
-      "china": 252594,
-      "total": 2717598,
+      "us": 209755,
+      "china": 253524,
+      "total": 2724823,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4266,
-      "china": 8183,
-      "total": 19267,
+      "us": 4272,
+      "china": 8195,
+      "total": 19297,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3176,
-      "china": 7109,
-      "total": 15794,
+      "us": 3175,
+      "china": 7113,
+      "total": 15800,
       "data_ok": true
     }
   },
@@ -182,135 +182,156 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169641665",
-      "title": "Human-Centered Machine Learning",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172069187",
-      "title": "Replication and Extension of \"Validation of a Histology-Independent Prognostic Gene Signature for Early-Stage Non-Small-Cell Lung Cancer Including Stage IA Patients\"",
+      "id": "https://openalex.org/W7166264527",
+      "title": "How Students Learn with Generative AI: Evidence from Student–AI Interactions",
       "authors": [
-        "Md Saif Uddin Rashed"
+        "Yang Kai",
+        "Wei Zhang",
+        "Kui Du"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-14",
+      "published": "2026-08-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202251256",
-      "title": "Analysis code for the anastomosable hiPSC-organ platform: lumen distance and transcriptome-proteome comparison",
+      "id": "https://openalex.org/W7166269979",
+      "title": "The Ethical Boundaries of Emotion-Aware AI in Decision-Making Systems",
       "authors": [
-        "Tomomi Tadokoro"
+        "Martina Albarelli",
+        "David Eisenberg",
+        "Jorge Fresneda"
       ],
       "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202249827",
-      "title": "Analysis code for the anastomosable hiPSC-organ platform: lumen distance and transcriptome-proteome comparison",
-      "authors": [
-        "Tomomi Tadokoro"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202254952",
-      "title": "A physical soft-constraint interpretability-based multimodal deep learning model for small-sample fault diagnosis of pressurized water reactor coolant systems in nuclear power plants",
-      "authors": [
-        "You Keshun",
-        "Haidong Shao",
-        "Yajun Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202261349",
-      "title": "Interpretable machine learning prognostication of gastroenteropancreatic neuroendocrine tumors across Chinese and United States cohorts",
-      "authors": [
-        "Yangwei Fan",
-        "Yuqian Yang",
-        "Ke Wang"
-      ],
-      "countries": [
-        "CN",
         "US"
       ],
-      "primary_country": "Mixed",
-      "published": "2026-08-13",
+      "primary_country": "US",
+      "published": "2026-08-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202245315",
-      "title": "Αδιαλειπτως in the Remembrance Motif in Paul’s Letters",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202264666",
-      "title": "The Palavra Method (Ijeluwa)",
+      "id": "https://openalex.org/W7164624079",
+      "title": "Calibration-Free Tidal Volume Estimation for Scalable Digital Health Systems",
       "authors": [
-        "Eberechukwu Owuamanam"
+        "Szymon Pawłowski",
+        "Julian Szymański"
       ],
       "countries": [
-        "ZW"
+        "PL"
       ],
       "primary_country": "Other",
-      "published": "2026-08-13",
+      "published": "2026-08-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202302120",
-      "title": "PELAKSANAAN PEMBELAJARAN SOSIOLOGI DENGAN PENDEKATAN DEEP LEARNING DALAM MENINGKATKAN KEAKTIFAN BELAJAR PESERTA DIDIK DI KELAS X 3 SMAN 12 BUNGO",
+      "id": "https://openalex.org/W7164452883",
+      "title": "Designing Complementary AI Teammates: A KSAO-Based Configuration Framework",
       "authors": [
-        "Indri Septi Ningsih",
-        "Buchari Nurdin",
-        "Yanti Sri Wahyuni"
+        "Maximilian Schatz",
+        "Maximilian J. Blaschke"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-13",
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172213844",
-      "title": "Set Theory New",
+      "id": "https://openalex.org/W7164454956",
+      "title": "EVALUATING FINE-TUNED LLMS FOR MENTAL HEALTH SUPPORT: TEXT AND AUDIO MODALITIES",
       "authors": [
-        "Trần Lương Tuấn"
+        "Lakshika Vaishnav",
+        "Ram Gopal Reddy Jonnala",
+        "Sanjay Goel"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-13",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164455565",
+      "title": "From Augmentation to Substitution: Governing Human–AI Boundaries in Generative Ecosystems",
+      "authors": [
+        "Fred Ahrens",
+        "Paul Hong"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166260830",
+      "title": "Evaluating Trajectories in Agentic Systems",
+      "authors": [
+        "Nagraj Naidu"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160911126",
+      "title": "Morphology-, noise-, and resolution-robust ultrasound elasticity imaging with Fourier neural operator.",
+      "authors": [
+        "Heekyu Kim",
+        "H Lee",
+        "Minwoo Park"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164453324",
+      "title": "Toward a New Model of GenAI Acceptance: Extending TAM and UTAUT",
+      "authors": [
+        "Sunny Sun",
+        "Abeer Alkwaldi"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164449105",
+      "title": "AI Study Buddy: Does Physical Presence Help?",
+      "authors": [
+        "Jacob Dishman",
+        "Colton Grimshaw",
+        "Garrett Ashcroft"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

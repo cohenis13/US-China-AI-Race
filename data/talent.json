@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-16T07:35:24.505616+00:00",
+  "fetched_at": "2026-08-17T07:55:03.594061+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.5,
           "paper_volume": {
-            "raw_value": 210216,
+            "raw_value": 210532,
             "share_score": 45.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4282,
+            "raw_value": 4281,
             "share_score": 34.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3175,
-            "share_score": 30.8,
+            "raw_value": 3169,
+            "share_score": 30.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.5,
           "paper_volume": {
-            "raw_value": 253855,
+            "raw_value": 254252,
             "share_score": 54.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8215,
+            "raw_value": 8214,
             "share_score": 65.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7147,
-            "share_score": 69.2,
+            "raw_value": 7144,
+            "share_score": 69.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292420
+        "count": 292460
       },
       {
         "country_code": "CN",
-        "count": 253855
+        "count": 254252
       },
       {
         "country_code": "US",
-        "count": 210216
+        "count": 210532
       },
       {
         "country_code": "DE",
-        "count": 177264
+        "count": 177313
       },
       {
         "country_code": "IN",
-        "count": 104688
+        "count": 104734
       },
       {
         "country_code": "GB",
-        "count": 55782
+        "count": 55858
       },
       {
         "country_code": "ID",
-        "count": 32463
+        "count": 32508
       },
       {
         "country_code": "FR",
-        "count": 30709
+        "count": 30736
       },
       {
         "country_code": "CA",
-        "count": 28181
+        "count": 28203
       },
       {
         "country_code": "IT",
-        "count": 27769
+        "count": 27805
       }
     ],
     "volume": {
-      "us": 210216,
-      "china": 253855,
-      "total": 2728905,
+      "us": 210532,
+      "china": 254252,
+      "total": 2733588,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4282,
-      "china": 8215,
-      "total": 19317,
+      "us": 4281,
+      "china": 8214,
+      "total": 19307,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3175,
-      "china": 7147,
-      "total": 15850,
+      "us": 3169,
+      "china": 7144,
+      "total": 15839,
       "data_ok": true
     }
   },
@@ -182,138 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7203459187",
-      "title": "Temporal Coherence in Video-Language Models for Long-Form Narrative Understanding",
+      "id": "https://openalex.org/W7167446483",
+      "title": "RAGDNet: A Region-Adjacency Graph for Semantic Segmentation of Mechanical Drawings Using Graph Neural Networks",
       "authors": [
-        "T Subeesh M M"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202398477",
-      "title": "A COMPREHENSIVE STUDY OF UDAKVAHA SROTAS WITH SPECIAL REFERENCE TO APPROACH FOR STRUCTURAL DETERMINATION OF \"KLOMA\"",
-      "authors": [
-        "Dr. Sanjiv Sexena2 Dr. Archana Gautam*1"
+        "Alexandre Monnier Weil",
+        "Nicolas Hili",
+        "Yves Ledru"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-16",
+      "published": "2026-08-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172380059",
-      "title": "Automated detection of sea pens for benthic habitat monitoring using Danish underwater television (UWTV) survey data",
+      "id": "https://openalex.org/W7165289824",
+      "title": "Beyond Image-Level Evaluation: Specimen-Aware Multi-View Feature Fusion for Wood Charcoal Classification",
       "authors": [
-        "Alexandros Theocharis"
-      ],
-      "countries": [
-        "DK",
-        "GR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202340543",
-      "title": "ARTIFICIAL INTELLIGENCE IN PHARMACEUTICAL MANUFACTURING AND QUALITY CONTROL: A COMPREHENSIVE REVIEW",
-      "authors": [
-        "Pooja Joshi2* Isha Bhatt1"
+        "Dieu-Donné Fangnon",
+        "Diane Lingrand",
+        "Marco Corneli"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-16",
+      "published": "2026-08-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202357450",
-      "title": "ARTIFICIAL INTELLIGENCE IN PHARMACEUTICAL MANUFACTURING AND QUALITY CONTROL: A COMPREHENSIVE REVIEW",
+      "id": "https://openalex.org/W7167304340",
+      "title": "Self-supervised Pose Representation Learning For Nonhuman Primates",
       "authors": [
-        "Pooja Joshi2* Isha Bhatt1"
+        "Kenza Qitout",
+        "Xavier Desquesnes",
+        "Audrey Maille"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-16",
+      "published": "2026-08-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172449195",
-      "title": "Automated detection of sea pens for benthic habitat monitoring using Danish underwater television (UWTV) survey data",
+      "id": "https://openalex.org/W7154923116",
+      "title": "Unifying Runtime Monitoring Approaches for Safety-Critical Machine Learning: Application to Vision-Based Landing",
       "authors": [
-        "Alexandros Theocharis"
-      ],
-      "countries": [
-        "DK",
-        "GR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202359242",
-      "title": "A COMPREHENSIVE STUDY OF UDAKVAHA SROTAS WITH SPECIAL REFERENCE TO APPROACH FOR STRUCTURAL DETERMINATION OF \"KLOMA\"",
-      "authors": [
-        "Dr. Sanjiv Sexena2 Dr. Archana Gautam*1"
+        "Mathieu Dario",
+        "Florent Chenevier",
+        "Kévin Delmas"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-16",
+      "published": "2026-08-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203491536",
-      "title": "Temporal Coherence in Video-Language Models for Long-Form Narrative Understanding",
+      "id": "https://openalex.org/W7162155436",
+      "title": "Directional Selective Filters for Guiding Spiking Neural Networks in Event-Based Optical Flow Estimation",
       "authors": [
-        "T Subeesh M M"
+        "Doha Benjelloun",
+        "David Roussel",
+        "Fabien Bonardi"
       ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-16",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203535245",
-      "title": "FigureLab: a browser-based tool for assembling publication-quality scientific figures",
+      "id": "https://openalex.org/W7163786229",
+      "title": "Aggregation of ensemble of classifiers with fuzzy learning: Application for land cover classification on SAR images",
       "authors": [
-        "Michael Baffour Awuah"
+        "Matthieu Gallet",
+        "Abdourrahmane Atto",
+        "Fatima Karbou"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164874039",
+      "title": "Generalizable Deepfake Detection via Simplicity-Bias-Aware CLIP Adaptation",
+      "authors": [
+        "Charbel Yahchouchi",
+        "N. Roggero",
+        "Laurent Saroul"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161611045",
+      "title": "LiDAR-driven morphological feature spaces for interactive scene analysis",
+      "authors": [
+        "Florent Guiotte",
+        "Sébastien Lefèvre",
+        "Thomas Corpetti"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165224848",
+      "title": "HFVideoSwin: High-Frequency Spatio-Temporal Features for More Generalizable Deepfake Video Detection",
+      "authors": [
+        "Mehdi Atamna",
+        "Iuliia Tkachenko",
+        "Serge Miguet"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172334228",
+      "title": "Genomic signatures of recent human adaptation to the Foraging-to-Farming Transition",
+      "authors": [
+        "Bridget Chak",
+        "Evan Bei Wu",
+        "Luis B. Barreiro"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166264527",
-      "title": "How Students Learn with Generative AI: Evidence from Student–AI Interactions",
-      "authors": [
-        "Yang Kai",
-        "Wei Zhang",
-        "Kui Du"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-15",
+      "published": "2026-08-17",
       "cited_by_count": 0,
       "source": "openalex"
     }

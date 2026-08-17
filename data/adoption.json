@@ -4,8 +4,8 @@
   "title": "AI Adoption Index — U.S. vs China",
   "subtitle": "Public proxies for AI adoption inside the U.S. and Chinese economies — not a complete measure of total usage.",
   "description": "A two-proxy composite index approximating economy-wide AI adoption. Combines enterprise AI adoption rates (survey-based, McKinsey 2024) with industrial automation density (IFR robot density, 2022 data). Neither proxy alone is a perfect measure of AI usage; together they provide a transparent, country-comparable directional signal.",
-  "fetched_at": "2026-08-10T10:22:53.863844+00:00",
-  "last_updated": "2026-08-10T10:22:53.863844+00:00",
+  "fetched_at": "2026-08-17T09:49:40.894883+00:00",
+  "last_updated": "2026-08-17T09:49:40.894883+00:00",
   "summary": {
     "US": {
       "composite_score": 61.7,

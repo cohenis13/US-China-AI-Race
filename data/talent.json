@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-18T07:42:31.297550+00:00",
+  "fetched_at": "2026-08-19T07:42:55.986577+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.4,
+      "composite_score": 46.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.5,
+          "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 210259,
-            "share_score": 45.3,
+            "raw_value": 227100,
+            "share_score": 45.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4268,
-            "share_score": 34.3,
+            "raw_value": 4323,
+            "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3161,
-            "share_score": 30.7,
+            "raw_value": 3199,
+            "share_score": 30.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.6,
+      "composite_score": 53.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.5,
+          "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 254118,
-            "share_score": 54.7,
+            "raw_value": 269766,
+            "share_score": 54.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8189,
-            "share_score": 65.7,
+            "raw_value": 8230,
+            "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7122,
-            "share_score": 69.3,
+            "raw_value": 7169,
+            "share_score": 69.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292431
+        "count": 294352
       },
       {
         "country_code": "CN",
-        "count": 254118
+        "count": 269766
       },
       {
         "country_code": "US",
-        "count": 210259
+        "count": 227100
       },
       {
         "country_code": "DE",
-        "count": 177277
+        "count": 181014
       },
       {
         "country_code": "IN",
-        "count": 104710
+        "count": 111538
       },
       {
         "country_code": "GB",
-        "count": 55824
+        "count": 60787
       },
       {
         "country_code": "ID",
-        "count": 32468
+        "count": 33363
       },
       {
         "country_code": "FR",
-        "count": 30699
+        "count": 32632
       },
       {
         "country_code": "CA",
-        "count": 28186
+        "count": 31011
       },
       {
         "country_code": "IT",
-        "count": 27771
+        "count": 29447
       }
     ],
     "volume": {
-      "us": 210259,
-      "china": 254118,
-      "total": 2731632,
+      "us": 227100,
+      "china": 269766,
+      "total": 2739821,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4268,
-      "china": 8189,
-      "total": 19242,
+      "us": 4323,
+      "china": 8230,
+      "total": 19277,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3161,
-      "china": 7122,
-      "total": 15795,
+      "us": 3199,
+      "china": 7169,
+      "total": 15857,
       "data_ok": true
     }
   },
@@ -182,16 +182,99 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7202332345",
-      "title": "Risk of Bias-Tool for Adapted Alternating Treatments Designs",
+      "id": "https://openalex.org/W7169712871",
+      "title": "Grandezas e medidas",
       "authors": [
-        "Maximilian Barth",
-        "Patrick Onghena",
-        "Timo Lüke"
+        "Nivea Regina Pereira da SILVA",
+        "Fábio José da Costa Alves"
       ],
       "countries": [
-        "AT",
-        "DE",
+        "BR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169726825",
+      "title": "Grandezas e medidas",
+      "authors": [
+        "Nivea Regina Pereira da SILVA",
+        "Fábio José da Costa Alves"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203600515",
+      "title": "Joint-RPCA: domain-aware multi-omics integration for systems microbiology",
+      "authors": [
+        "Bianca Cordazzo Vargas",
+        "Cameron Martino",
+        "Amanda Hazel Dilmore"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203636988",
+      "title": "SLURRY: A Protocol for the Multi-Axis Characterization of Synthetic and Suspect Media",
+      "authors": [
+        "Jon Nealon"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203640038",
+      "title": "Harnessing FLAML-optimized machine learning to enhance the thermal performance of Bodewadt flow with interfacial layer effects",
+      "authors": [
+        "V. Vinay Kumar",
+        "Ram Prakash Sharma"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203608968",
+      "title": "MACACHOR_FIRST_DERIVATIVE_v2.0.pdf",
+      "authors": [
+        "Christopher Macachor"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203626095",
+      "title": "An agentic AI workflow for spine history taking and surgeon-facing clinical synthesis",
+      "authors": [
+        "Begüm Aslantaş Kaplan",
+        "Ali Kaplan",
+        "Ali Aydilek"
+      ],
+      "countries": [
+        "GB",
+        "TR",
+        "AG",
+        "SO",
         "BE"
       ],
       "primary_country": "Other",
@@ -200,128 +283,42 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167446483",
-      "title": "RAGDNet: A Region-Adjacency Graph for Semantic Segmentation of Mechanical Drawings Using Graph Neural Networks",
+      "id": "https://openalex.org/W7203641757",
+      "title": "pydreg",
       "authors": [
-        "Alexandre Monnier Weil",
-        "Nicolas Hili",
-        "Yves Ledru"
+        "Adam Youlin He"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-17",
+      "published": "2026-08-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165289824",
-      "title": "Beyond Image-Level Evaluation: Specimen-Aware Multi-View Feature Fusion for Wood Charcoal Classification",
+      "id": "https://openalex.org/W7203635800",
+      "title": "KongMen: Real-Time Dialogue Purification via Training-Free Entity-Redundancy Gating",
       "authors": [
-        "Dieu-Donné Fangnon",
-        "Diane Lingrand",
-        "Marco Corneli"
+        "Jiangang Chen"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167304340",
-      "title": "Self-supervised Pose Representation Learning For Nonhuman Primates",
+      "id": "https://openalex.org/W7203644036",
+      "title": "KongMen: Real-Time Dialogue Purification via Training-Free Entity-Redundancy Gating",
       "authors": [
-        "Kenza Qitout",
-        "Xavier Desquesnes",
-        "Audrey Maille"
+        "Jiangang Chen"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154923116",
-      "title": "Unifying Runtime Monitoring Approaches for Safety-Critical Machine Learning: Application to Vision-Based Landing",
-      "authors": [
-        "Mathieu Dario",
-        "Florent Chenevier",
-        "Kévin Delmas"
+      "countries": [
+        "JP"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162155436",
-      "title": "Directional Selective Filters for Guiding Spiking Neural Networks in Event-Based Optical Flow Estimation",
-      "authors": [
-        "Doha Benjelloun",
-        "David Roussel",
-        "Fabien Bonardi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163786229",
-      "title": "Aggregation of ensemble of classifiers with fuzzy learning: Application for land cover classification on SAR images",
-      "authors": [
-        "Matthieu Gallet",
-        "Abdourrahmane Atto",
-        "Fatima Karbou"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164874039",
-      "title": "Generalizable Deepfake Detection via Simplicity-Bias-Aware CLIP Adaptation",
-      "authors": [
-        "Charbel Yahchouchi",
-        "N. Roggero",
-        "Laurent Saroul"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161611045",
-      "title": "LiDAR-driven morphological feature spaces for interactive scene analysis",
-      "authors": [
-        "Florent Guiotte",
-        "Sébastien Lefèvre",
-        "Thomas Corpetti"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165224848",
-      "title": "HFVideoSwin: High-Frequency Spatio-Temporal Features for More Generalizable Deepfake Video Detection",
-      "authors": [
-        "Mehdi Atamna",
-        "Iuliia Tkachenko",
-        "Serge Miguet"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-17",
+      "primary_country": "Other",
+      "published": "2026-08-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

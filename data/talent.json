@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-19T07:42:55.986577+00:00",
+  "fetched_at": "2026-08-20T07:46:12.100975+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,12 +17,12 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 227100,
-            "share_score": 45.7,
+            "raw_value": 227687,
+            "share_score": 45.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4323,
+            "raw_value": 4333,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
@@ -30,7 +30,7 @@
           },
           "top_cited": {
             "raw_value": 3199,
-            "share_score": 30.9,
+            "share_score": 30.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 269766,
-            "share_score": 54.3,
+            "raw_value": 269857,
+            "share_score": 54.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8230,
+            "raw_value": 8254,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7169,
-            "share_score": 69.1,
+            "raw_value": 7177,
+            "share_score": 69.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294352
+        "count": 294396
       },
       {
         "country_code": "CN",
-        "count": 269766
+        "count": 269857
       },
       {
         "country_code": "US",
-        "count": 227100
+        "count": 227687
       },
       {
         "country_code": "DE",
-        "count": 181014
+        "count": 181062
       },
       {
         "country_code": "IN",
-        "count": 111538
+        "count": 111893
       },
       {
         "country_code": "GB",
-        "count": 60787
+        "count": 60897
       },
       {
         "country_code": "ID",
-        "count": 33363
+        "count": 33442
       },
       {
         "country_code": "FR",
-        "count": 32632
+        "count": 32687
       },
       {
         "country_code": "CA",
-        "count": 31011
+        "count": 31054
       },
       {
         "country_code": "IT",
-        "count": 29447
+        "count": 29469
       }
     ],
     "volume": {
-      "us": 227100,
-      "china": 269766,
-      "total": 2739821,
+      "us": 227687,
+      "china": 269857,
+      "total": 2732209,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4323,
-      "china": 8230,
-      "total": 19277,
+      "us": 4333,
+      "china": 8254,
+      "total": 19346,
       "data_ok": true
     },
     "top_cited": {
       "us": 3199,
-      "china": 7169,
-      "total": 15857,
+      "china": 7177,
+      "total": 15890,
       "data_ok": true
     }
   },
@@ -182,143 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169712871",
-      "title": "Grandezas e medidas",
+      "id": "https://openalex.org/W7202177152",
+      "title": "[Prediction and verification of therapeutic drugs for triple-negative breast cancer using a knowledge graph-based drug repurposing model].",
       "authors": [
-        "Nivea Regina Pereira da SILVA",
-        "Fábio José da Costa Alves"
+        "Diheng Wu",
+        "Zhanfa Xu",
+        "Yi Li"
       ],
       "countries": [
-        "BR"
+        "CN"
       ],
-      "primary_country": "Other",
+      "primary_country": "China",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202182549",
+      "title": "[Development and validation of a machine learning-based prediction model for fatty liver in Wilson disease].",
+      "authors": [
+        "Shiheng Shi",
+        "Daiping Hua",
+        "Shang XIANG"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167324668",
+      "title": "Bridging the AI Divide: Digital Capabilities, AI Literacy, and Life Satisfaction in a National Sample",
+      "authors": [
+        "Ruiz Mondragon",
+        "Marina Ivette",
+        "Marco Antonio"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202177377",
+      "title": "[A semi-supervised MRI image segmentation dual-network model for regions with ambiguous boundaries and heterogeneous regions].",
+      "authors": [
+        "Lingxiao Huang",
+        "XU Haizhe",
+        "Lingyan Huang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203582838",
+      "title": "3D Human Blastoid/Blastocyst-Endometrial Assembloid Co-Culture",
+      "authors": [
+        "zftu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203590007",
+      "title": "3D Human Blastoid/Blastocyst-Endometrial Assembloid Co-Culture",
+      "authors": [
+        "zftu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202159129",
+      "title": "[Motion parameter decoupling and motion constraint-driven optimization for correcting rigid motion artifacts in cone-beam computed tomography].",
+      "authors": [
+        "Haotao Jiang",
+        "Yongbo Wang",
+        "Zhaoying Bian"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203704245",
+      "title": "Correction: A generative adversarial neural network formodelling state-dependent sand behaviour",
+      "authors": [
+        "Q. Chen",
+        "Eky Febrianto",
+        "Zhiwei Gao"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-08-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169726825",
-      "title": "Grandezas e medidas",
+      "id": "https://openalex.org/W7203702738",
+      "title": "Review of: \"vPID: Virtual Processing-In-Disk Architecture for Sub-Millisecond Multi-Model LLM Inference Switching\"",
       "authors": [
-        "Nivea Regina Pereira da SILVA",
-        "Fábio José da Costa Alves"
+        "Yoshihide Sawada"
       ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-08-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203600515",
-      "title": "Joint-RPCA: domain-aware multi-omics integration for systems microbiology",
+      "id": "https://openalex.org/W7203685645",
+      "title": "Predicting Urban Bus Crash Injury Severity in Imbalanced Datasets Using Optimised Machine Learning",
       "authors": [
-        "Bianca Cordazzo Vargas",
-        "Cameron Martino",
-        "Amanda Hazel Dilmore"
+        "B.M. Assaduzzaman"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203636988",
-      "title": "SLURRY: A Protocol for the Multi-Axis Characterization of Synthetic and Suspect Media",
-      "authors": [
-        "Jon Nealon"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203640038",
-      "title": "Harnessing FLAML-optimized machine learning to enhance the thermal performance of Bodewadt flow with interfacial layer effects",
-      "authors": [
-        "V. Vinay Kumar",
-        "Ram Prakash Sharma"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203608968",
-      "title": "MACACHOR_FIRST_DERIVATIVE_v2.0.pdf",
-      "authors": [
-        "Christopher Macachor"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203626095",
-      "title": "An agentic AI workflow for spine history taking and surgeon-facing clinical synthesis",
-      "authors": [
-        "Begüm Aslantaş Kaplan",
-        "Ali Kaplan",
-        "Ali Aydilek"
-      ],
-      "countries": [
-        "GB",
-        "TR",
-        "AG",
-        "SO",
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203641757",
-      "title": "pydreg",
-      "authors": [
-        "Adam Youlin He"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203635800",
-      "title": "KongMen: Real-Time Dialogue Purification via Training-Free Entity-Redundancy Gating",
-      "authors": [
-        "Jiangang Chen"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203644036",
-      "title": "KongMen: Real-Time Dialogue Purification via Training-Free Entity-Redundancy Gating",
-      "authors": [
-        "Jiangang Chen"
-      ],
-      "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-18",
+      "published": "2026-08-19",
       "cited_by_count": 0,
       "source": "openalex"
     }

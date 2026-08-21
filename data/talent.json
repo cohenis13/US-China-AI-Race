@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-20T07:46:12.100975+00:00",
+  "fetched_at": "2026-08-21T07:48:07.396025+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.7,
+          "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 227687,
+            "raw_value": 227387,
             "share_score": 45.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4333,
-            "share_score": 34.4,
+            "raw_value": 4323,
+            "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3199,
+            "raw_value": 3187,
             "share_score": 30.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.3,
+          "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 269857,
+            "raw_value": 269262,
             "share_score": 54.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8254,
-            "share_score": 65.6,
+            "raw_value": 8222,
+            "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7177,
+            "raw_value": 7148,
             "share_score": 69.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,123 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294396
+        "count": 294350
       },
       {
         "country_code": "CN",
-        "count": 269857
+        "count": 269262
       },
       {
         "country_code": "US",
-        "count": 227687
+        "count": 227387
       },
       {
         "country_code": "DE",
-        "count": 181062
+        "count": 180998
       },
       {
         "country_code": "IN",
-        "count": 111893
+        "count": 111577
       },
       {
         "country_code": "GB",
-        "count": 60897
+        "count": 60799
       },
       {
         "country_code": "ID",
-        "count": 33442
+        "count": 33367
       },
       {
         "country_code": "FR",
-        "count": 32687
+        "count": 32643
       },
       {
         "country_code": "CA",
-        "count": 31054
+        "count": 31003
       },
       {
         "country_code": "IT",
-        "count": 29469
+        "count": 29413
       }
     ],
     "volume": {
-      "us": 227687,
-      "china": 269857,
-      "total": 2732209,
+      "us": 227387,
+      "china": 269262,
+      "total": 2729444,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4333,
-      "china": 8254,
-      "total": 19346,
+      "us": 4323,
+      "china": 8222,
+      "total": 19294,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3199,
-      "china": 7177,
-      "total": 15890,
+      "us": 3187,
+      "china": 7148,
+      "total": 15835,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7170999561",
+      "title": "Rule-Selection Surrogates for Tractable Neurosymbolic Inference",
+      "authors": [
+        "David Debot",
+        "Giuseppe Marra"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165834022",
+      "title": "Neural Pattern Mining in Spatiotemporal Multigraphs: A Pan-European Land-Use Study",
+      "authors": [
+        "Assaad Zeghina",
+        "Aurélie Leborgne",
+        "Florence Le Ber"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7124398513",
+      "title": "Get into a 'Back to School' State of Mind with the TMC Library",
+      "authors": [
+        "Jesse Gonzalez",
+        "Ryan Casantosan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7196939101",
+      "title": "Auditable unit-aware thresholds in symbolic regression via logistic-gated operators.",
+      "authors": [
+        "Ou Deng",
+        "Ruichen Cong",
+        "Jianting Xu"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7202177152",
       "title": "[Prediction and verification of therapeutic drugs for triple-negative breast cancer using a knowledge graph-based drug repurposing model].",
@@ -264,60 +320,6 @@
       "countries": [],
       "primary_country": "Unknown",
       "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202159129",
-      "title": "[Motion parameter decoupling and motion constraint-driven optimization for correcting rigid motion artifacts in cone-beam computed tomography].",
-      "authors": [
-        "Haotao Jiang",
-        "Yongbo Wang",
-        "Zhaoying Bian"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203704245",
-      "title": "Correction: A generative adversarial neural network formodelling state-dependent sand behaviour",
-      "authors": [
-        "Q. Chen",
-        "Eky Febrianto",
-        "Zhiwei Gao"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203702738",
-      "title": "Review of: \"vPID: Virtual Processing-In-Disk Architecture for Sub-Millisecond Multi-Model LLM Inference Switching\"",
-      "authors": [
-        "Yoshihide Sawada"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203685645",
-      "title": "Predicting Urban Bus Crash Injury Severity in Imbalanced Datasets Using Optimised Machine Learning",
-      "authors": [
-        "B.M. Assaduzzaman"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-19",
       "cited_by_count": 0,
       "source": "openalex"
     }

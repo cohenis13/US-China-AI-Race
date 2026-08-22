@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-21T07:48:07.396025+00:00",
+  "fetched_at": "2026-08-22T07:35:49.376877+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.8,
+          "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 227387,
+            "raw_value": 228984,
             "share_score": 45.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4323,
-            "share_score": 34.5,
+            "raw_value": 4338,
+            "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3187,
-            "share_score": 30.8,
+            "raw_value": 3163,
+            "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.2,
+          "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 269262,
+            "raw_value": 271508,
             "share_score": 54.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8222,
-            "share_score": 65.5,
+            "raw_value": 8264,
+            "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7148,
-            "share_score": 69.2,
+            "raw_value": 7178,
+            "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,137 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294350
+        "count": 294571
       },
       {
         "country_code": "CN",
-        "count": 269262
+        "count": 271508
       },
       {
         "country_code": "US",
-        "count": 227387
+        "count": 228984
       },
       {
         "country_code": "DE",
-        "count": 180998
+        "count": 181397
       },
       {
         "country_code": "IN",
-        "count": 111577
+        "count": 112212
       },
       {
         "country_code": "GB",
-        "count": 60799
+        "count": 61475
       },
       {
         "country_code": "ID",
-        "count": 33367
+        "count": 33615
       },
       {
         "country_code": "FR",
-        "count": 32643
+        "count": 32753
       },
       {
         "country_code": "CA",
-        "count": 31003
+        "count": 31317
       },
       {
         "country_code": "IT",
-        "count": 29413
+        "count": 29676
       }
     ],
     "volume": {
-      "us": 227387,
-      "china": 269262,
-      "total": 2729444,
+      "us": 228984,
+      "china": 271508,
+      "total": 2733997,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4323,
-      "china": 8222,
-      "total": 19294,
+      "us": 4338,
+      "china": 8264,
+      "total": 19411,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3187,
-      "china": 7148,
-      "total": 15835,
+      "us": 3163,
+      "china": 7178,
+      "total": 16004,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7203600295",
+      "title": "[T-000]The Void Principle",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166823190",
+      "title": "CrossSurf-Ceramic: A Cross-Smartphone Raw and ISP Dataset of Low-Texture Object Surfaces with Dental Ceramics",
+      "authors": [
+        "Johannes Schuiki",
+        "Heinz Hofbauer",
+        "Christof Kauba"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203614351",
+      "title": "[T-000]The Void Principle",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166265629",
+      "title": "Monocular Visual SLAM that works with Pre-built Point Cloud Maps using Point and Line Features",
+      "authors": [
+        "Zenong Liu",
+        "Guillaume Caron",
+        "Fumio Kanehiro"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166842504",
+      "title": "CrossSurf-Ceramic: A Cross-Smartphone Raw and ISP Dataset of Low-Texture Object Surfaces with Dental Ceramics",
+      "authors": [
+        "Johannes Schuiki",
+        "Heinz Hofbauer",
+        "Christof Kauba"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7170999561",
       "title": "Rule-Selection Surrogates for Tractable Neurosymbolic Inference",
@@ -222,6 +292,22 @@
       "source": "openalex"
     },
     {
+      "id": "https://openalex.org/W7203795865",
+      "title": "Credit-to-Ranking Alignment for Ordered Task Allocation in Hierarchical Multi-Agent Reinforcement Learning for Vehicular Edge Computing: Reproducibility Package",
+      "authors": [
+        "Jihad Mohammed Siddig",
+        "Chen Xianqiao",
+        "Bing Shi"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
       "id": "https://openalex.org/W7196939101",
       "title": "Auditable unit-aware thresholds in symbolic regression via logistic-gated operators.",
       "authors": [
@@ -234,92 +320,6 @@
       ],
       "primary_country": "Other",
       "published": "2026-08-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202177152",
-      "title": "[Prediction and verification of therapeutic drugs for triple-negative breast cancer using a knowledge graph-based drug repurposing model].",
-      "authors": [
-        "Diheng Wu",
-        "Zhanfa Xu",
-        "Yi Li"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202182549",
-      "title": "[Development and validation of a machine learning-based prediction model for fatty liver in Wilson disease].",
-      "authors": [
-        "Shiheng Shi",
-        "Daiping Hua",
-        "Shang XIANG"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167324668",
-      "title": "Bridging the AI Divide: Digital Capabilities, AI Literacy, and Life Satisfaction in a National Sample",
-      "authors": [
-        "Ruiz Mondragon",
-        "Marina Ivette",
-        "Marco Antonio"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202177377",
-      "title": "[A semi-supervised MRI image segmentation dual-network model for regions with ambiguous boundaries and heterogeneous regions].",
-      "authors": [
-        "Lingxiao Huang",
-        "XU Haizhe",
-        "Lingyan Huang"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203582838",
-      "title": "3D Human Blastoid/Blastocyst-Endometrial Assembloid Co-Culture",
-      "authors": [
-        "zftu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203590007",
-      "title": "3D Human Blastoid/Blastocyst-Endometrial Assembloid Co-Culture",
-      "authors": [
-        "zftu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-20",
       "cited_by_count": 0,
       "source": "openalex"
     }

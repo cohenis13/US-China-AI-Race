@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-22T07:35:49.376877+00:00",
+  "fetched_at": "2026-08-23T07:37:39.947603+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 228984,
-            "share_score": 45.8,
+            "raw_value": 230192,
+            "share_score": 45.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4338,
+            "raw_value": 4340,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3163,
-            "share_score": 30.6,
+            "raw_value": 3160,
+            "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 271508,
-            "share_score": 54.2,
+            "raw_value": 271631,
+            "share_score": 54.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8264,
+            "raw_value": 8282,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7178,
-            "share_score": 69.4,
+            "raw_value": 7188,
+            "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294571
+        "count": 294626
       },
       {
         "country_code": "CN",
-        "count": 271508
+        "count": 271631
       },
       {
         "country_code": "US",
-        "count": 228984
+        "count": 230192
       },
       {
         "country_code": "DE",
-        "count": 181397
+        "count": 181576
       },
       {
         "country_code": "IN",
-        "count": 112212
+        "count": 112044
       },
       {
         "country_code": "GB",
-        "count": 61475
+        "count": 61771
       },
       {
         "country_code": "ID",
-        "count": 33615
+        "count": 33723
       },
       {
         "country_code": "FR",
-        "count": 32753
+        "count": 32892
       },
       {
         "country_code": "CA",
-        "count": 31317
+        "count": 31412
       },
       {
         "country_code": "IT",
-        "count": 29676
+        "count": 29749
       }
     ],
     "volume": {
-      "us": 228984,
-      "china": 271508,
-      "total": 2733997,
+      "us": 230192,
+      "china": 271631,
+      "total": 2743443,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4338,
-      "china": 8264,
-      "total": 19411,
+      "us": 4340,
+      "china": 8282,
+      "total": 19424,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3163,
-      "china": 7178,
-      "total": 16004,
+      "us": 3160,
+      "china": 7188,
+      "total": 15993,
       "data_ok": true
     }
   },
@@ -182,144 +182,158 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7203600295",
-      "title": "[T-000]The Void Principle",
+      "id": "https://openalex.org/W7161217698",
+      "title": "A Formal Framework for Evaluating Cognitive Emulation Models in Human Digital Twins",
       "authors": [
-        "Erystela Thevale"
+        "Sukriti Bhattacharya",
+        "Ben Gaffinet",
+        "Yannick Naudet"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-22",
+      "published": "2026-08-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166823190",
-      "title": "CrossSurf-Ceramic: A Cross-Smartphone Raw and ISP Dataset of Low-Texture Object Surfaces with Dental Ceramics",
+      "id": "https://openalex.org/W7203938811",
+      "title": "mCAS",
       "authors": [
-        "Johannes Schuiki",
-        "Heinz Hofbauer",
-        "Christof Kauba"
+        "Andreas E. Vasdekis"
       ],
       "countries": [
-        "AT"
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172565806",
+      "title": "Back From the Dead: Using Stellar PSF Calibration to Recover Operational Value From a Defocused SkySat Telescope",
+      "authors": [
+        "Phillip Linden",
+        "Hira Nadeem",
+        "Ross Losher"
+      ],
+      "countries": [
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-08-22",
+      "published": "2026-08-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203614351",
-      "title": "[T-000]The Void Principle",
+      "id": "https://openalex.org/W7172566901",
+      "title": "Mechanical Design of a 100-ChipSat Suborbital Deployer for the DeSCENT Mission",
       "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166265629",
-      "title": "Monocular Visual SLAM that works with Pre-built Point Cloud Maps using Point and Line Features",
-      "authors": [
-        "Zenong Liu",
-        "Guillaume Caron",
-        "Fumio Kanehiro"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166842504",
-      "title": "CrossSurf-Ceramic: A Cross-Smartphone Raw and ISP Dataset of Low-Texture Object Surfaces with Dental Ceramics",
-      "authors": [
-        "Johannes Schuiki",
-        "Heinz Hofbauer",
-        "Christof Kauba"
+        "Richard Zheng",
+        "Ocean Saric",
+        "Will Kully"
       ],
       "countries": [
-        "AT"
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172586831",
+      "title": "Scaling Orbital Dynamics to the Laboratory: An Industrial-Robot Hardware-in-the-Loop Testbed for Small Satellites",
+      "authors": [
+        "Kelsey Tresemer",
+        "Shawn Higbee",
+        "Eric Albin"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172577364",
+      "title": "DANTE: A Spaceborne Radar Constellation for Debris Detection and Tracking",
+      "authors": [
+        "Leonardo Carrer",
+        "Davide Giudici",
+        "Bernhard Niedermayer"
+      ],
+      "countries": [
+        "NO"
       ],
       "primary_country": "Other",
-      "published": "2026-08-22",
+      "published": "2026-08-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7170999561",
-      "title": "Rule-Selection Surrogates for Tractable Neurosymbolic Inference",
+      "id": "https://openalex.org/W7172587883",
+      "title": "Energy-Aware Dynamic Tasking for Earth Observing Satellites With Deep Reinforcement Learning",
       "authors": [
-        "David Debot",
-        "Giuseppe Marra"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165834022",
-      "title": "Neural Pattern Mining in Spatiotemporal Multigraphs: A Pan-European Land-Use Study",
-      "authors": [
-        "Assaad Zeghina",
-        "Aurélie Leborgne",
-        "Florence Le Ber"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7124398513",
-      "title": "Get into a 'Back to School' State of Mind with the TMC Library",
-      "authors": [
-        "Jesse Gonzalez",
-        "Ryan Casantosan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203795865",
-      "title": "Credit-to-Ranking Alignment for Ordered Task Allocation in Hierarchical Multi-Agent Reinforcement Learning for Vehicular Edge Computing: Reproducibility Package",
-      "authors": [
-        "Jihad Mohammed Siddig",
-        "Chen Xianqiao",
-        "Bing Shi"
+        "Nicholas Nordlund",
+        "Tim Upthegrove",
+        "Leandros Tassiulas"
       ],
       "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7196939101",
-      "title": "Auditable unit-aware thresholds in symbolic regression via logistic-gated operators.",
-      "authors": [
-        "Ou Deng",
-        "Ruichen Cong",
-        "Jianting Xu"
-      ],
-      "countries": [
-        "JP"
+        "NO"
       ],
       "primary_country": "Other",
-      "published": "2026-08-21",
+      "published": "2026-08-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172593859",
+      "title": "Multi-Modal Detection and Attribution Algorithm for Low Power Edge Compute Hardware",
+      "authors": [
+        "Margaret Michelsen",
+        "Jackson Gardner",
+        "Shawn Jones"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203581800",
+      "title": "An Improved AI-Driven LVAC Network Fault Detection and Classification",
+      "authors": [
+        "James Yu",
+        "Yue Qi",
+        "Jiwei Li"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172589357",
+      "title": "Evaluating Performance of Hardware-Accelerated Vessel Detection Algorithms",
+      "authors": [
+        "Michael Tietz",
+        "John Warner",
+        "Quinton Davidson"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

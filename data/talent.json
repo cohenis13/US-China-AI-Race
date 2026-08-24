@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-23T07:37:39.947603+00:00",
+  "fetched_at": "2026-08-24T07:59:38.337448+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 230192,
+            "raw_value": 230915,
             "share_score": 45.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4340,
+            "raw_value": 4339,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3160,
+            "raw_value": 3150,
             "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 271631,
+            "raw_value": 272469,
             "share_score": 54.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8282,
+            "raw_value": 8274,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7188,
+            "raw_value": 7176,
             "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294626
+        "count": 294662
       },
       {
         "country_code": "CN",
-        "count": 271631
+        "count": 272469
       },
       {
         "country_code": "US",
-        "count": 230192
+        "count": 230915
       },
       {
         "country_code": "DE",
-        "count": 181576
+        "count": 181720
       },
       {
         "country_code": "IN",
-        "count": 112044
+        "count": 112472
       },
       {
         "country_code": "GB",
-        "count": 61771
+        "count": 61996
       },
       {
         "country_code": "ID",
-        "count": 33723
+        "count": 33751
       },
       {
         "country_code": "FR",
-        "count": 32892
+        "count": 32959
       },
       {
         "country_code": "CA",
-        "count": 31412
+        "count": 31540
       },
       {
         "country_code": "IT",
-        "count": 29749
+        "count": 29826
       }
     ],
     "volume": {
-      "us": 230192,
-      "china": 271631,
-      "total": 2743443,
+      "us": 230915,
+      "china": 272469,
+      "total": 2743918,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4340,
-      "china": 8282,
-      "total": 19424,
+      "us": 4339,
+      "china": 8274,
+      "total": 19400,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3160,
-      "china": 7188,
-      "total": 15993,
+      "us": 3150,
+      "china": 7176,
+      "total": 15935,
       "data_ok": true
     }
   },
@@ -182,116 +182,98 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7161217698",
-      "title": "A Formal Framework for Evaluating Cognitive Emulation Models in Human Digital Twins",
+      "id": "https://openalex.org/W7168112815",
+      "title": "A Matrix-based Calculus for Classification in $\\Eb\\Lb^{+}_{\\bot}$",
       "authors": [
-        "Sukriti Bhattacharya",
-        "Ben Gaffinet",
-        "Yannick Naudet"
+        "Youssef Amari",
+        "Philippe Leleux",
+        "Hélène Waeselynck"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-23",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203938811",
-      "title": "mCAS",
+      "id": "https://openalex.org/W7203451506",
+      "title": "[Aortic dilatation diseases: opportunities and challenges in mechanisms research and translation toward precision diagnosis and treatment].",
       "authors": [
-        "Andreas E. Vasdekis"
+        "M Hu",
+        "K X Liu",
+        "H Tian"
       ],
       "countries": [
-        "US"
+        "CN"
       ],
-      "primary_country": "US",
-      "published": "2026-08-23",
+      "primary_country": "China",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172565806",
-      "title": "Back From the Dead: Using Stellar PSF Calibration to Recover Operational Value From a Defocused SkySat Telescope",
+      "id": "https://openalex.org/W7204014431",
+      "title": "Mission-Driven System-Level Design of a 1U-Constrained Reaction Wheel Assembly for Agile CubeSat Missions",
       "authors": [
-        "Phillip Linden",
-        "Hira Nadeem",
-        "Ross Losher"
+        "Xixi Zhang",
+        "Ghadi M. Al-Amer",
+        "Teef A. AlHarthi"
       ],
       "countries": [
-        "DE"
+        "SA"
       ],
       "primary_country": "Other",
-      "published": "2026-08-23",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172566901",
-      "title": "Mechanical Design of a 100-ChipSat Suborbital Deployer for the DeSCENT Mission",
+      "id": "https://openalex.org/W7172475533",
+      "title": "LiSSEN: Generating Language-Grounded Safe Social Navigation in Crowded Environments",
       "authors": [
-        "Richard Zheng",
-        "Ocean Saric",
-        "Will Kully"
+        "Jordan Cosio",
+        "Dhimiter Pikuli",
+        "Thibaut Lopez"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-23",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172586831",
-      "title": "Scaling Orbital Dynamics to the Laboratory: An Industrial-Robot Hardware-in-the-Loop Testbed for Small Satellites",
+      "id": "https://openalex.org/W7167857722",
+      "title": "HyFALO: Detecting Communities in Hypergraphs with Formal Concept Analysis",
       "authors": [
-        "Kelsey Tresemer",
-        "Shawn Higbee",
-        "Eric Albin"
+        "Martin Waffo Kemgne",
+        "Jean‐Loup Guillaume",
+        "Christophe Demko"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-23",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172577364",
-      "title": "DANTE: A Spaceborne Radar Constellation for Debris Detection and Tracking",
+      "id": "https://openalex.org/W7204021203",
+      "title": "Characterizing Rolling-Shutter Distortions in a 1U CubeSat Camera Using LED Strobe Imaging",
       "authors": [
-        "Leonardo Carrer",
-        "Davide Giudici",
-        "Bernhard Niedermayer"
+        "Sharon Chan",
+        "Arseniy Dolgov",
+        "Andrea Schildhorn"
       ],
       "countries": [
-        "NO"
+        "CA"
       ],
       "primary_country": "Other",
-      "published": "2026-08-23",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172587883",
-      "title": "Energy-Aware Dynamic Tasking for Earth Observing Satellites With Deep Reinforcement Learning",
-      "authors": [
-        "Nicholas Nordlund",
-        "Tim Upthegrove",
-        "Leandros Tassiulas"
-      ],
-      "countries": [
-        "NO"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172593859",
-      "title": "Multi-Modal Detection and Attribution Algorithm for Low Power Edge Compute Hardware",
+      "id": "https://openalex.org/W7204021539",
+      "title": "Advanced AI Deployment on SmallSats: A Mixed Precision Approach to Onboard Perception and FPGA-Gated Inference",
       "authors": [
         "Margaret Michelsen",
         "Jackson Gardner",
@@ -301,38 +283,47 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-23",
+      "published": "2026-08-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203581800",
-      "title": "An Improved AI-Driven LVAC Network Fault Detection and Classification",
+      "id": "https://openalex.org/W7171343742",
+      "title": "A Knowledge Graph for Machine Learning Artifact Management Systems",
       "authors": [
-        "James Yu",
-        "Yue Qi",
-        "Jiwei Li"
+        "Tom Gimat",
+        "Gabriela de Moraes",
+        "Pierre Bisquert"
       ],
       "countries": [
-        "GB"
+        "FR",
+        "BR"
       ],
       "primary_country": "Other",
+      "published": "2026-08-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203984701",
+      "title": "polar-coupling-fractal-v2",
+      "authors": [
+        "Lin Xiaohei"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-08-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172589357",
-      "title": "Evaluating Performance of Hardware-Accelerated Vessel Detection Algorithms",
+      "id": "https://openalex.org/W7204006725",
+      "title": "Functional Consciousness: Pillar 10 Philosophy of Humans, AI, and AGI",
       "authors": [
-        "Michael Tietz",
-        "John Warner",
-        "Quinton Davidson"
+        "Charles Richard Walker (C. Rich)"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
+      "countries": [],
+      "primary_country": "Unknown",
       "published": "2026-08-23",
       "cited_by_count": 0,
       "source": "openalex"

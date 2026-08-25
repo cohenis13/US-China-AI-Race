@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-24T07:59:38.337448+00:00",
+  "fetched_at": "2026-08-25T07:48:54.378205+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 230915,
+            "raw_value": 231271,
             "share_score": 45.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4339,
+            "raw_value": 4332,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3150,
-            "share_score": 30.5,
+            "raw_value": 3134,
+            "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 272469,
+            "raw_value": 272793,
             "share_score": 54.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8274,
+            "raw_value": 8259,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7176,
-            "share_score": 69.5,
+            "raw_value": 7114,
+            "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294662
+        "count": 294699
       },
       {
         "country_code": "CN",
-        "count": 272469
+        "count": 272793
       },
       {
         "country_code": "US",
-        "count": 230915
+        "count": 231271
       },
       {
         "country_code": "DE",
-        "count": 181720
+        "count": 181783
       },
       {
         "country_code": "IN",
-        "count": 112472
+        "count": 112673
       },
       {
         "country_code": "GB",
-        "count": 61996
+        "count": 62131
       },
       {
         "country_code": "ID",
-        "count": 33751
+        "count": 33783
       },
       {
         "country_code": "FR",
-        "count": 32959
+        "count": 32997
       },
       {
         "country_code": "CA",
-        "count": 31540
+        "count": 31588
       },
       {
         "country_code": "IT",
-        "count": 29826
+        "count": 29841
       }
     ],
     "volume": {
-      "us": 230915,
-      "china": 272469,
-      "total": 2743918,
+      "us": 231271,
+      "china": 272793,
+      "total": 2747338,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4339,
-      "china": 8274,
-      "total": 19400,
+      "us": 4332,
+      "china": 8259,
+      "total": 19360,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3150,
-      "china": 7176,
-      "total": 15935,
+      "us": 3134,
+      "china": 7114,
+      "total": 15836,
       "data_ok": true
     }
   },
@@ -182,149 +182,130 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7168112815",
-      "title": "A Matrix-based Calculus for Classification in $\\Eb\\Lb^{+}_{\\bot}$",
+      "id": "https://openalex.org/W7202349716",
+      "title": "SIROJIDDIN SAYID SHE'RLARIDA SINONIMIK VOSITALARNING USLUBIY IMKONIYATLARI",
       "authors": [
-        "Youssef Amari",
-        "Philippe Leleux",
-        "Hélène Waeselynck"
+        "Qo'shaqova Gulnora Abdurahmonovna"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-24",
+      "published": "2026-08-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203451506",
-      "title": "[Aortic dilatation diseases: opportunities and challenges in mechanisms research and translation toward precision diagnosis and treatment].",
+      "id": "https://openalex.org/W7204040396",
+      "title": "Big Data, Behavioral Biometrics, and the Era of Continuous Authentication - A Review",
       "authors": [
-        "M Hu",
-        "K X Liu",
-        "H Tian"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204014431",
-      "title": "Mission-Driven System-Level Design of a 1U-Constrained Reaction Wheel Assembly for Agile CubeSat Missions",
-      "authors": [
-        "Xixi Zhang",
-        "Ghadi M. Al-Amer",
-        "Teef A. AlHarthi"
-      ],
-      "countries": [
-        "SA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172475533",
-      "title": "LiSSEN: Generating Language-Grounded Safe Social Navigation in Crowded Environments",
-      "authors": [
-        "Jordan Cosio",
-        "Dhimiter Pikuli",
-        "Thibaut Lopez"
+        "A. Shaji George"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-24",
+      "published": "2026-08-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167857722",
-      "title": "HyFALO: Detecting Communities in Hypergraphs with Formal Concept Analysis",
+      "id": "https://openalex.org/W7203656732",
+      "title": "Smaakontwikkeling in melk en hybride kaas: datagedreven interpretatie, modellering en sturing",
       "authors": [
-        "Martin Waffo Kemgne",
-        "Jean‐Loup Guillaume",
-        "Christophe Demko"
+        "Huabin Luo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-24",
+      "published": "2026-08-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204021203",
-      "title": "Characterizing Rolling-Shutter Distortions in a 1U CubeSat Camera Using LED Strobe Imaging",
+      "id": "https://openalex.org/W7203501110",
+      "title": "SHUKUR XOLMIRZAYEV IJODIDA KOLORITNING BADIIY IFODASI",
       "authors": [
-        "Sharon Chan",
-        "Arseniy Dolgov",
-        "Andrea Schildhorn"
+        "Temirova Nazira Akboyevna"
       ],
-      "countries": [
-        "CA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-24",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204021539",
-      "title": "Advanced AI Deployment on SmallSats: A Mixed Precision Approach to Onboard Perception and FPGA-Gated Inference",
+      "id": "https://openalex.org/W7204020217",
+      "title": "An Operator-in-the-Loop SmallSat Operations Simulation for Classroom Training",
       "authors": [
-        "Margaret Michelsen",
-        "Jackson Gardner",
-        "Shawn Jones"
+        "Samuil Nikolov",
+        "Kaelyn Tindall",
+        "Lana Laskey"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-24",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171343742",
-      "title": "A Knowledge Graph for Machine Learning Artifact Management Systems",
+      "id": "https://openalex.org/W7203473740",
+      "title": "XX ASR IKKINCHI YARMI HINDIY NASRIDA \"BEGONALASHUV\" KONSEPSIYASINING BADIIY-FALSAFIY TALQINI (Nirmal Varma hikoyalari misolida)",
       "authors": [
-        "Tom Gimat",
-        "Gabriela de Moraes",
-        "Pierre Bisquert"
+        "Tilovmurodova Shamsiqamar Furqat qizi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203480491",
+      "title": "ME'MORIY OBIDALAR BEZAKLARINI RAQAMLI VOSITALARDA QAYTA YARATISH: \"TRADIGITAL\" YONDASHUV",
+      "authors": [
+        "Xudoyberdiyeva Xulkar Zoxid qizi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203500010",
+      "title": "BOSHLANGʻICH TA'LIMDA INNOVATSION TA'LIM TEXNOLOGIYALARI ASOSIDA OʻQITISHNI TAKOMILLASHTIRISH",
+      "authors": [
+        "Norova Nargiza Xalmamat qizi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203462336",
+      "title": "O'ZBEK VA INGLIZ TILLARIDA NUTQ FE'LLARINING TADQIQI",
+      "authors": [
+        "Gʻofurova Nargizabonu Muzaffarjon qizi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202432705",
+      "title": "Selective responses to ordered sequences of letters and numbers with EEG frequency tagging",
+      "authors": [
+        "Talia Retter",
+        "Mila Marinova",
+        "Handy Bonnin"
       ],
       "countries": [
         "FR",
-        "BR"
+        "BE",
+        "LU"
       ],
       "primary_country": "Other",
-      "published": "2026-08-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203984701",
-      "title": "polar-coupling-fractal-v2",
-      "authors": [
-        "Lin Xiaohei"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204006725",
-      "title": "Functional Consciousness: Pillar 10 Philosophy of Humans, AI, and AGI",
-      "authors": [
-        "Charles Richard Walker (C. Rich)"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-23",
+      "published": "2026-08-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

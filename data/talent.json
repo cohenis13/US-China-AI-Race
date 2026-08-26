@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-25T07:48:54.378205+00:00",
+  "fetched_at": "2026-08-26T07:50:50.891549+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 231271,
+            "raw_value": 231882,
             "share_score": 45.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4332,
+            "raw_value": 4345,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3134,
-            "share_score": 30.6,
+            "raw_value": 3140,
+            "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 272793,
+            "raw_value": 273411,
             "share_score": 54.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8259,
+            "raw_value": 8272,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7114,
-            "share_score": 69.4,
+            "raw_value": 7145,
+            "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294699
+        "count": 294785
       },
       {
         "country_code": "CN",
-        "count": 272793
+        "count": 273411
       },
       {
         "country_code": "US",
-        "count": 231271
+        "count": 231882
       },
       {
         "country_code": "DE",
-        "count": 181783
+        "count": 181530
       },
       {
         "country_code": "IN",
-        "count": 112673
+        "count": 113099
       },
       {
         "country_code": "GB",
-        "count": 62131
+        "count": 61508
       },
       {
         "country_code": "ID",
-        "count": 33783
+        "count": 33864
       },
       {
         "country_code": "FR",
-        "count": 32997
+        "count": 33043
       },
       {
         "country_code": "CA",
-        "count": 31588
+        "count": 31639
       },
       {
         "country_code": "IT",
-        "count": 29841
+        "count": 29899
       }
     ],
     "volume": {
-      "us": 231271,
-      "china": 272793,
-      "total": 2747338,
+      "us": 231882,
+      "china": 273411,
+      "total": 2753563,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4332,
-      "china": 8259,
-      "total": 19360,
+      "us": 4345,
+      "china": 8272,
+      "total": 19392,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3134,
-      "china": 7114,
-      "total": 15836,
+      "us": 3140,
+      "china": 7145,
+      "total": 15883,
       "data_ok": true
     }
   },
@@ -182,130 +182,146 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7202349716",
-      "title": "SIROJIDDIN SAYID SHE'RLARIDA SINONIMIK VOSITALARNING USLUBIY IMKONIYATLARI",
+      "id": "https://openalex.org/W7140350618",
+      "title": "Building a reflexive space for scientific dialogue through the digital reconstruction case of the Palais Stoclet dining room",
       "authors": [
-        "Qo'shaqova Gulnora Abdurahmonovna"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204040396",
-      "title": "Big Data, Behavioral Biometrics, and the Era of Continuous Authentication - A Review",
-      "authors": [
-        "A. Shaji George"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203656732",
-      "title": "Smaakontwikkeling in melk en hybride kaas: datagedreven interpretatie, modellering en sturing",
-      "authors": [
-        "Huabin Luo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203501110",
-      "title": "SHUKUR XOLMIRZAYEV IJODIDA KOLORITNING BADIIY IFODASI",
-      "authors": [
-        "Temirova Nazira Akboyevna"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204020217",
-      "title": "An Operator-in-the-Loop SmallSat Operations Simulation for Classroom Training",
-      "authors": [
-        "Samuil Nikolov",
-        "Kaelyn Tindall",
-        "Lana Laskey"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203473740",
-      "title": "XX ASR IKKINCHI YARMI HINDIY NASRIDA \"BEGONALASHUV\" KONSEPSIYASINING BADIIY-FALSAFIY TALQINI (Nirmal Varma hikoyalari misolida)",
-      "authors": [
-        "Tilovmurodova Shamsiqamar Furqat qizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203480491",
-      "title": "ME'MORIY OBIDALAR BEZAKLARINI RAQAMLI VOSITALARDA QAYTA YARATISH: \"TRADIGITAL\" YONDASHUV",
-      "authors": [
-        "Xudoyberdiyeva Xulkar Zoxid qizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203500010",
-      "title": "BOSHLANGʻICH TA'LIMDA INNOVATSION TA'LIM TEXNOLOGIYALARI ASOSIDA OʻQITISHNI TAKOMILLASHTIRISH",
-      "authors": [
-        "Norova Nargiza Xalmamat qizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203462336",
-      "title": "O'ZBEK VA INGLIZ TILLARIDA NUTQ FE'LLARINING TADQIQI",
-      "authors": [
-        "Gʻofurova Nargizabonu Muzaffarjon qizi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202432705",
-      "title": "Selective responses to ordered sequences of letters and numbers with EEG frequency tagging",
-      "authors": [
-        "Talia Retter",
-        "Mila Marinova",
-        "Handy Bonnin"
+        "Flavius-Teofil Neaga",
+        "Denis Derycke",
+        "David Lo Buglio"
       ],
       "countries": [
-        "FR",
-        "BE",
-        "LU"
+        "BE"
       ],
       "primary_country": "Other",
-      "published": "2026-08-25",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160581875",
+      "title": "Is There a Principled Exception to the Epistemic Criterion of Controversiality?",
+      "authors": [
+        "Michael Hand"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162198711",
+      "title": "A Controlled Benchmark of Prompt Design for Instruction-Following Reliability in Large Language Models",
+      "authors": [
+        "Imanuela Sharon Graciel Kalengkongan",
+        "sasmoko",
+        "Faisal Binsar"
+      ],
+      "countries": [
+        "ID",
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162199449",
+      "title": "A Controlled Benchmark of Prompt Design for Instruction-Following Reliability in Large Language Models",
+      "authors": [
+        "Imanuela Sharon Graciel Kalengkongan",
+        "sasmoko",
+        "Faisal Binsar"
+      ],
+      "countries": [
+        "ID",
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165990611",
+      "title": "Session 6: Sensors II",
+      "authors": [
+        "Dr. Gustavo B.H. de Azevedo",
+        "Edgar E. Prada",
+        "Kevin A. Adkins"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169643402",
+      "title": "Hoe zou jij dat doen? Probleemoplossend vermogen evalueren in de kleuterklas",
+      "authors": [
+        "Joris Van Elsen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202248296",
+      "title": "The Silicon Vertex Tracker subsystem for the ePIC experiment",
+      "authors": [
+        "Maria Teresa Camerlingo"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202258029",
+      "title": "The Silicon Vertex Tracker subsystem for the ePIC experiment",
+      "authors": [
+        "Maria Teresa Camerlingo"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202271240",
+      "title": "The Silicon Vertex Tracker subsystem for the ePIC experiment",
+      "authors": [
+        "Maria Teresa Camerlingo"
+      ],
+      "countries": [
+        "IT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202327487",
+      "title": "Van detectie tot dominantie: een grafenleerbenadering voor de analyse van varkensgedrag",
+      "authors": [
+        "Andrea Parmiggiani"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-26",
       "cited_by_count": 0,
       "source": "openalex"
     }

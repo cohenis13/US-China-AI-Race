@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-26T07:50:50.891549+00:00",
+  "fetched_at": "2026-08-27T18:10:38.984181+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.7,
           "paper_volume": {
-            "raw_value": 231882,
+            "raw_value": 233173,
             "share_score": 45.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4345,
+            "raw_value": 4369,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3140,
+            "raw_value": 3158,
             "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.3,
           "paper_volume": {
-            "raw_value": 273411,
+            "raw_value": 274478,
             "share_score": 54.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8272,
+            "raw_value": 8333,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7145,
+            "raw_value": 7197,
             "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 294785
+        "count": 295134
       },
       {
         "country_code": "CN",
-        "count": 273411
+        "count": 274478
       },
       {
         "country_code": "US",
-        "count": 231882
+        "count": 233173
       },
       {
         "country_code": "DE",
-        "count": 181530
+        "count": 181810
       },
       {
         "country_code": "IN",
-        "count": 113099
+        "count": 113462
       },
       {
         "country_code": "GB",
-        "count": 61508
+        "count": 61881
       },
       {
         "country_code": "ID",
-        "count": 33864
+        "count": 33905
       },
       {
         "country_code": "FR",
-        "count": 33043
+        "count": 33214
       },
       {
         "country_code": "CA",
-        "count": 31639
+        "count": 31792
       },
       {
         "country_code": "IT",
-        "count": 29899
+        "count": 30065
       }
     ],
     "volume": {
-      "us": 231882,
-      "china": 273411,
-      "total": 2753563,
+      "us": 233173,
+      "china": 274478,
+      "total": 2793461,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4345,
-      "china": 8272,
-      "total": 19392,
+      "us": 4369,
+      "china": 8333,
+      "total": 19515,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3140,
-      "china": 7145,
-      "total": 15883,
+      "us": 3158,
+      "china": 7197,
+      "total": 15970,
       "data_ok": true
     }
   },
@@ -182,146 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7140350618",
-      "title": "Building a reflexive space for scientific dialogue through the digital reconstruction case of the Palais Stoclet dining room",
+      "id": "https://openalex.org/W7154935976",
+      "title": "CellPos: a multi-task learning framework enabling accurate spatial positioning of single-cell RNA sequencing data",
       "authors": [
-        "Flavius-Teofil Neaga",
-        "Denis Derycke",
-        "David Lo Buglio"
-      ],
-      "countries": [
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160581875",
-      "title": "Is There a Principled Exception to the Epistemic Criterion of Controversiality?",
-      "authors": [
-        "Michael Hand"
+        "Sixuan Wang",
+        "Yang Zhou",
+        "Hua Fan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-26",
+      "published": "2026-08-27",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162198711",
-      "title": "A Controlled Benchmark of Prompt Design for Instruction-Following Reliability in Large Language Models",
+      "id": "https://openalex.org/W7155832098",
+      "title": "Benchmarking Data and Code, and Figure Data for scUnique: Measuring Ongoing Chromosomal Instability",
       "authors": [
-        "Imanuela Sharon Graciel Kalengkongan",
-        "sasmoko",
-        "Faisal Binsar"
+        "Michael Philipp Schneider",
+        "Shadi Darvish Shafighi",
+        "Amy E Cullen"
       ],
       "countries": [
-        "ID",
-        "IN"
+        "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-08-26",
+      "published": "2026-08-27",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162199449",
-      "title": "A Controlled Benchmark of Prompt Design for Instruction-Following Reliability in Large Language Models",
+      "id": "https://openalex.org/W7156119567",
+      "title": "Benchmarking Data and Code, and Figure Data for scUnique: Measuring Ongoing Chromosomal Instability",
       "authors": [
-        "Imanuela Sharon Graciel Kalengkongan",
-        "sasmoko",
-        "Faisal Binsar"
+        "Michael Philipp Schneider",
+        "Shadi Darvish Shafighi",
+        "Amy E Cullen"
       ],
       "countries": [
-        "ID",
-        "IN"
+        "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-08-26",
+      "published": "2026-08-27",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165990611",
-      "title": "Session 6: Sensors II",
+      "id": "https://openalex.org/W7161415910",
+      "title": "The Eagar Corpus: the recorded teaching of Thomas W. Eagar (MIT, 2011-2022)",
       "authors": [
-        "Dr. Gustavo B.H. de Azevedo",
-        "Edgar E. Prada",
-        "Kevin A. Adkins"
+        "Richard H. Taylor"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161473490",
+      "title": "BasisSimulator.jl: Open-source polychromatic CT simulation with a GPU-portable reconstruction stack",
+      "authors": [
+        "Dale Black",
+        "Hamidreza Khodajou-Chokami",
+        "Sabee Molloi"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-26",
+      "published": "2026-08-27",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169643402",
-      "title": "Hoe zou jij dat doen? Probleemoplossend vermogen evalueren in de kleuterklas",
+      "id": "https://openalex.org/W7165633609",
+      "title": "U-Net-based hybrid framework for accelerating deterministic rough-surface mixed lubrication simulations",
       "authors": [
-        "Joris Van Elsen"
+        "Filimonas Kaliafetis",
+        "Suhaib Ardah",
+        "James P. Ewen"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-08-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167312476",
+      "title": "An accessibility-marking analysis to use of anaphoric expressions in Chinese",
+      "authors": [
+        "Pingli Wang",
+        "Ying Zhou",
+        "Yingzi Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-26",
+      "published": "2026-08-27",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202248296",
-      "title": "The Silicon Vertex Tracker subsystem for the ePIC experiment",
+      "id": "https://openalex.org/W7169482343",
+      "title": "Tempo: Reconstructing Synchronous Reactive Programming with OCaml 5 Effects",
       "authors": [
-        "Maria Teresa Camerlingo"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202258029",
-      "title": "The Silicon Vertex Tracker subsystem for the ePIC experiment",
-      "authors": [
-        "Maria Teresa Camerlingo"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202271240",
-      "title": "The Silicon Vertex Tracker subsystem for the ePIC experiment",
-      "authors": [
-        "Maria Teresa Camerlingo"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202327487",
-      "title": "Van detectie tot dominantie: een grafenleerbenadering voor de analyse van varkensgedrag",
-      "authors": [
-        "Andrea Parmiggiani"
+        "Frédéric Dabrowski"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-26",
+      "published": "2026-08-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170059408",
+      "title": "jansky-research: A CPU-first, reproducible toolkit for amateur radio-astronomy analyses",
+      "authors": [
+        "Joseph Barbere"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7196977982",
+      "title": "Kitchen robotic manipulation utilizing foundation models",
+      "authors": [
+        "Myung–Hwan Jeon",
+        "Sankalp Yamsani",
+        "Joohyung Kim"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-27",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-27T18:10:38.984181+00:00",
+  "fetched_at": "2026-08-28T19:21:01.037382+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.7,
+          "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 233173,
-            "share_score": 45.9,
+            "raw_value": 233744,
+            "share_score": 46.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4369,
-            "share_score": 34.4,
+            "raw_value": 4398,
+            "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3158,
-            "share_score": 30.5,
+            "raw_value": 3194,
+            "share_score": 30.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.3,
+          "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 274478,
-            "share_score": 54.1,
+            "raw_value": 274756,
+            "share_score": 54.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8333,
-            "share_score": 65.6,
+            "raw_value": 8354,
+            "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7197,
-            "share_score": 69.5,
+            "raw_value": 7224,
+            "share_score": 69.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295134
+        "count": 295186
       },
       {
         "country_code": "CN",
-        "count": 274478
+        "count": 274756
       },
       {
         "country_code": "US",
-        "count": 233173
+        "count": 233744
       },
       {
         "country_code": "DE",
-        "count": 181810
+        "count": 181954
       },
       {
         "country_code": "IN",
-        "count": 113462
+        "count": 113758
       },
       {
         "country_code": "GB",
-        "count": 61881
+        "count": 61998
       },
       {
         "country_code": "ID",
-        "count": 33905
+        "count": 33906
       },
       {
         "country_code": "FR",
-        "count": 33214
+        "count": 33274
       },
       {
         "country_code": "CA",
-        "count": 31792
+        "count": 31818
       },
       {
         "country_code": "IT",
-        "count": 30065
+        "count": 30115
       }
     ],
     "volume": {
-      "us": 233173,
-      "china": 274478,
-      "total": 2793461,
+      "us": 233744,
+      "china": 274756,
+      "total": 2795846,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4369,
-      "china": 8333,
-      "total": 19515,
+      "us": 4398,
+      "china": 8354,
+      "total": 19679,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3158,
-      "china": 7197,
-      "total": 15970,
+      "us": 3194,
+      "china": 7224,
+      "total": 16163,
       "data_ok": true
     }
   },
@@ -182,144 +182,141 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7154935976",
-      "title": "CellPos: a multi-task learning framework enabling accurate spatial positioning of single-cell RNA sequencing data",
+      "id": "https://openalex.org/W4416247192",
+      "title": "Can You Trust What You See? Alpha Channel No-Box Attacks on Video Object Detection",
       "authors": [
-        "Sixuan Wang",
-        "Yang Zhou",
-        "Hua Fan"
+        "Ariana Yi",
+        "Ce Zhou",
+        "Liyang Xiao"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-27",
+      "published": "2026-08-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155832098",
-      "title": "Benchmarking Data and Code, and Figure Data for scUnique: Measuring Ongoing Chromosomal Instability",
+      "id": "https://openalex.org/W4416781489",
+      "title": "Dataset Poisoning Attacks on Behavioral Cloning Policies",
       "authors": [
-        "Michael Philipp Schneider",
-        "Shadi Darvish Shafighi",
-        "Amy E Cullen"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7156119567",
-      "title": "Benchmarking Data and Code, and Figure Data for scUnique: Measuring Ongoing Chromosomal Instability",
-      "authors": [
-        "Michael Philipp Schneider",
-        "Shadi Darvish Shafighi",
-        "Amy E Cullen"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161415910",
-      "title": "The Eagar Corpus: the recorded teaching of Thomas W. Eagar (MIT, 2011-2022)",
-      "authors": [
-        "Richard H. Taylor"
+        "Akansha Kalra",
+        "Soumil Datta",
+        "E. C. Gilmore"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-27",
+      "published": "2026-08-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161473490",
-      "title": "BasisSimulator.jl: Open-source polychromatic CT simulation with a GPU-portable reconstruction stack",
+      "id": "https://openalex.org/W4417004377",
+      "title": "Property-Guided Cyber-Physical Reduction and Surrogation for Safety Analysis in Robotic Vehicles",
       "authors": [
-        "Dale Black",
-        "Hamidreza Khodajou-Chokami",
-        "Sabee Molloi"
+        "Nazmus Shakib Sayom",
+        "Luis García"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7118770764",
+      "title": "Engineering Attack Vectors and Detecting Anomalies in Additive Manufacturing",
+      "authors": [
+        "Mahbub Hasan",
+        "Marcus Sternhagen",
+        "Krishna Chandra Roy"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128450676",
+      "title": "DynamicBUS: restoring temporal dynamics from static ultrasound for improved breast cancer diagnosis",
+      "authors": [
+        "Zhikai Yang",
+        "Yaofang Liu",
+        "Tianhao Bai"
+      ],
+      "countries": [
+        "SE",
+        "HK",
+        "CN",
+        "GB"
+      ],
+      "primary_country": "China",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130841888",
+      "title": "Neurodesk Tutorial: conda",
+      "authors": [
+        "Fernanda L. Ribeiro"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130931329",
+      "title": "Neurodesk Notebook: DIPY_1",
+      "authors": [
+        "Monika Doerig"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130933550",
+      "title": "Neurodesk Notebook: DIPY_2",
+      "authors": [
+        "Monika Doerig"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7133461644",
+      "title": "Silent Sabotage: Internal State Triggered Backdoor Attacks on LLM-Powered Robotic Systems",
+      "authors": [
+        "Doniyorkhon Obidov",
+        "Shivayogi Akki",
+        "Tan Chen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161560258",
+      "title": "Data: Sequence-based regulatory prediction with AlphaGenome complements TWAS for GWAS gene prioritization beyond eQTL-model coverage",
+      "authors": [
+        "Xinyu Guo",
+        "LL Chen"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165633609",
-      "title": "U-Net-based hybrid framework for accelerating deterministic rough-surface mixed lubrication simulations",
-      "authors": [
-        "Filimonas Kaliafetis",
-        "Suhaib Ardah",
-        "James P. Ewen"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167312476",
-      "title": "An accessibility-marking analysis to use of anaphoric expressions in Chinese",
-      "authors": [
-        "Pingli Wang",
-        "Ying Zhou",
-        "Yingzi Li"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169482343",
-      "title": "Tempo: Reconstructing Synchronous Reactive Programming with OCaml 5 Effects",
-      "authors": [
-        "Frédéric Dabrowski"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170059408",
-      "title": "jansky-research: A CPU-first, reproducible toolkit for amateur radio-astronomy analyses",
-      "authors": [
-        "Joseph Barbere"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7196977982",
-      "title": "Kitchen robotic manipulation utilizing foundation models",
-      "authors": [
-        "Myung–Hwan Jeon",
-        "Sankalp Yamsani",
-        "Joohyung Kim"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-27",
+      "published": "2026-08-28",
       "cited_by_count": 0,
       "source": "openalex"
     }

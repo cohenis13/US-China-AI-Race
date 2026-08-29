@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-28T19:21:01.037382+00:00",
+  "fetched_at": "2026-08-29T13:05:18.735013+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 233744,
+            "raw_value": 233397,
             "share_score": 46.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4398,
+            "raw_value": 4390,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3194,
-            "share_score": 30.7,
+            "raw_value": 3172,
+            "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 274756,
+            "raw_value": 273989,
             "share_score": 54.0,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8354,
+            "raw_value": 8335,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7224,
-            "share_score": 69.3,
+            "raw_value": 7186,
+            "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295186
+        "count": 295119
       },
       {
         "country_code": "CN",
-        "count": 274756
+        "count": 273989
       },
       {
         "country_code": "US",
-        "count": 233744
+        "count": 233397
       },
       {
         "country_code": "DE",
-        "count": 181954
+        "count": 181845
       },
       {
         "country_code": "IN",
-        "count": 113758
+        "count": 113527
       },
       {
         "country_code": "GB",
-        "count": 61998
+        "count": 61868
       },
       {
         "country_code": "ID",
-        "count": 33906
+        "count": 33749
       },
       {
         "country_code": "FR",
-        "count": 33274
+        "count": 33213
       },
       {
         "country_code": "CA",
-        "count": 31818
+        "count": 31757
       },
       {
         "country_code": "IT",
-        "count": 30115
+        "count": 30056
       }
     ],
     "volume": {
-      "us": 233744,
-      "china": 274756,
-      "total": 2795846,
+      "us": 233397,
+      "china": 273989,
+      "total": 2792679,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4398,
-      "china": 8354,
-      "total": 19679,
+      "us": 4390,
+      "china": 8335,
+      "total": 19630,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3194,
-      "china": 7224,
-      "total": 16163,
+      "us": 3172,
+      "china": 7186,
+      "total": 16060,
       "data_ok": true
     }
   },

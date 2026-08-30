@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-29T13:05:18.735013+00:00",
+  "fetched_at": "2026-08-30T12:42:05.234773+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 233397,
-            "share_score": 46.0,
+            "raw_value": 234111,
+            "share_score": 46.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4390,
+            "raw_value": 4404,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3172,
+            "raw_value": 3188,
             "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 273989,
-            "share_score": 54.0,
+            "raw_value": 273788,
+            "share_score": 53.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8335,
+            "raw_value": 8351,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7186,
+            "raw_value": 7231,
             "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295119
+        "count": 295208
       },
       {
         "country_code": "CN",
-        "count": 273989
+        "count": 273788
       },
       {
         "country_code": "US",
-        "count": 233397
+        "count": 234111
       },
       {
         "country_code": "DE",
-        "count": 181845
+        "count": 182029
       },
       {
         "country_code": "IN",
-        "count": 113527
+        "count": 113434
       },
       {
         "country_code": "GB",
-        "count": 61868
+        "count": 62095
       },
       {
         "country_code": "ID",
-        "count": 33749
+        "count": 33921
       },
       {
         "country_code": "FR",
-        "count": 33213
+        "count": 33267
       },
       {
         "country_code": "CA",
-        "count": 31757
+        "count": 31844
       },
       {
         "country_code": "IT",
-        "count": 30056
+        "count": 30106
       }
     ],
     "volume": {
-      "us": 233397,
-      "china": 273989,
-      "total": 2792679,
+      "us": 234111,
+      "china": 273788,
+      "total": 2804323,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4390,
-      "china": 8335,
-      "total": 19630,
+      "us": 4404,
+      "china": 8351,
+      "total": 19686,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3172,
-      "china": 7186,
-      "total": 16060,
+      "us": 3188,
+      "china": 7231,
+      "total": 16171,
       "data_ok": true
     }
   },
@@ -182,141 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4416247192",
-      "title": "Can You Trust What You See? Alpha Channel No-Box Attacks on Video Object Detection",
+      "id": "https://openalex.org/W4414564088",
+      "title": "What one sees depends on how far the eye has moved",
       "authors": [
-        "Ariana Yi",
-        "Ce Zhou",
-        "Liyang Xiao"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4416781489",
-      "title": "Dataset Poisoning Attacks on Behavioral Cloning Policies",
-      "authors": [
-        "Akansha Kalra",
-        "Soumil Datta",
-        "E. C. Gilmore"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4417004377",
-      "title": "Property-Guided Cyber-Physical Reduction and Surrogation for Safety Analysis in Robotic Vehicles",
-      "authors": [
-        "Nazmus Shakib Sayom",
-        "Luis García"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7118770764",
-      "title": "Engineering Attack Vectors and Detecting Anomalies in Additive Manufacturing",
-      "authors": [
-        "Mahbub Hasan",
-        "Marcus Sternhagen",
-        "Krishna Chandra Roy"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128450676",
-      "title": "DynamicBUS: restoring temporal dynamics from static ultrasound for improved breast cancer diagnosis",
-      "authors": [
-        "Zhikai Yang",
-        "Yaofang Liu",
-        "Tianhao Bai"
-      ],
-      "countries": [
-        "SE",
-        "HK",
-        "CN",
-        "GB"
-      ],
-      "primary_country": "China",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130841888",
-      "title": "Neurodesk Tutorial: conda",
-      "authors": [
-        "Fernanda L. Ribeiro"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130931329",
-      "title": "Neurodesk Notebook: DIPY_1",
-      "authors": [
-        "Monika Doerig"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130933550",
-      "title": "Neurodesk Notebook: DIPY_2",
-      "authors": [
-        "Monika Doerig"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133461644",
-      "title": "Silent Sabotage: Internal State Triggered Backdoor Attacks on LLM-Powered Robotic Systems",
-      "authors": [
-        "Doniyorkhon Obidov",
-        "Shivayogi Akki",
-        "Tan Chen"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161560258",
-      "title": "Data: Sequence-based regulatory prediction with AlphaGenome complements TWAS for GWAS gene prioritization beyond eQTL-model coverage",
-      "authors": [
-        "Xinyu Guo",
-        "LL Chen"
+        "Yuanhao H. Li",
+        "Michele A. Cox",
+        "Jonathan D. Victor"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-08-28",
+      "published": "2026-08-30",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166121543",
+      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "authors": [
+        "Lijun Shao",
+        "Li Wang",
+        "C Xu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166254204",
+      "title": "Longest-Path-Based Task Splitting for Homogeneous Platforms",
+      "authors": [
+        "T Morin",
+        "Nathalie Furmento",
+        "Abdou Guermouche"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7196926561",
+      "title": "Supplementary Table S1 – 48 studies included in a systematic review of interpretable machine learning for urban heat islands",
+      "authors": [
+        "Anonymous Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7197047988",
+      "title": "Supplementary Table S1 – 48 studies included in a systematic review of interpretable machine learning for urban heat islands",
+      "authors": [
+        "Anonymous Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202352201",
+      "title": "Artifact of \"Automatically Generating ML Compiler Backends from Tensor Accelerator ISA Descriptions\"",
+      "authors": [
+        "Devansh Jain",
+        "Akash Pardeshi",
+        "Marco Frigo"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202361096",
+      "title": "Artifact of \"Automatically Generating ML Compiler Backends from Tensor Accelerator ISA Descriptions\"",
+      "authors": [
+        "Devansh Jain",
+        "Akash Pardeshi",
+        "Marco Frigo"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203892652",
+      "title": "AI Model Drift Detection and Self-Adaptation in Real-World Intelligent Systems",
+      "authors": [
+        "Mr. Sandeep Kumar Singh,   Mr. Gaurav Kushwaha,  Mr. Sandeep Kumar Mishra,  Ms. Alka Singh,   Mr. Vibhanshu Tripathi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203903697",
+      "title": "AI Model Drift Detection and Self-Adaptation in Real-World Intelligent Systems",
+      "authors": [
+        "Mr. Sandeep Kumar Singh,   Mr. Gaurav Kushwaha,  Mr. Sandeep Kumar Mishra,  Ms. Alka Singh,   Mr. Vibhanshu Tripathi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204525154",
+      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
+      "authors": [
+        "Lujun Shao",
+        "Li Wang",
+        "Cheng Xu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

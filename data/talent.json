@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-30T12:42:05.234773+00:00",
+  "fetched_at": "2026-08-31T14:58:15.169099+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 234111,
+            "raw_value": 234526,
             "share_score": 46.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4404,
+            "raw_value": 4394,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3188,
+            "raw_value": 3174,
             "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 273788,
+            "raw_value": 273726,
             "share_score": 53.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8351,
+            "raw_value": 8327,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7231,
+            "raw_value": 7199,
             "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295208
+        "count": 295205
       },
       {
         "country_code": "CN",
-        "count": 273788
+        "count": 273726
       },
       {
         "country_code": "US",
-        "count": 234111
+        "count": 234526
       },
       {
         "country_code": "DE",
-        "count": 182029
+        "count": 182453
       },
       {
         "country_code": "IN",
-        "count": 113434
+        "count": 113433
       },
       {
         "country_code": "GB",
-        "count": 62095
+        "count": 62106
       },
       {
         "country_code": "ID",
-        "count": 33921
+        "count": 33895
       },
       {
         "country_code": "FR",
-        "count": 33267
+        "count": 33269
       },
       {
         "country_code": "CA",
-        "count": 31844
+        "count": 31850
       },
       {
         "country_code": "IT",
-        "count": 30106
+        "count": 30110
       }
     ],
     "volume": {
-      "us": 234111,
-      "china": 273788,
-      "total": 2804323,
+      "us": 234526,
+      "china": 273726,
+      "total": 2807574,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4404,
-      "china": 8351,
-      "total": 19686,
+      "us": 4394,
+      "china": 8327,
+      "total": 19628,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3188,
-      "china": 7231,
-      "total": 16171,
+      "us": 3174,
+      "china": 7199,
+      "total": 16095,
       "data_ok": true
     }
   },
@@ -182,140 +182,135 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4414564088",
-      "title": "What one sees depends on how far the eye has moved",
+      "id": "https://openalex.org/W7116121109",
+      "title": "phonokit: a toolkit to create phonological representations",
       "authors": [
-        "Yuanhao H. Li",
-        "Michele A. Cox",
-        "Jonathan D. Victor"
+        "Garcia, Guilherme D."
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125941974",
+      "title": "Analysing toponium at the LHC using Recursive Jigsaw Reconstruction",
+      "authors": [
+        "Aman Desai",
+        "Amelia Lovison",
+        "Paul Jackson"
       ],
       "countries": [
-        "US"
+        "AU"
       ],
-      "primary_country": "US",
-      "published": "2026-08-30",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166121543",
-      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
-      "authors": [
-        "Lijun Shao",
-        "Li Wang",
-        "C Xu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-30",
+      "primary_country": "Other",
+      "published": "2026-08-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166254204",
-      "title": "Longest-Path-Based Task Splitting for Homogeneous Platforms",
+      "id": "https://openalex.org/W7134098514",
+      "title": "Datasheets as ESP Genres: Translation and MT Use by Student-Engineers",
       "authors": [
-        "T Morin",
-        "Nathalie Furmento",
-        "Abdou Guermouche"
+        "Amelia Rucart-Rus"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-30",
+      "published": "2026-08-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7196926561",
-      "title": "Supplementary Table S1 – 48 studies included in a systematic review of interpretable machine learning for urban heat islands",
+      "id": "https://openalex.org/W7159899462",
+      "title": "Effects of medium, text structure and participant characteristics on reading comprehension in young readers",
       "authors": [
-        "Anonymous Anonymous"
+        "Aisha Futura Tüchler",
+        "Kate Cain"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-30",
+      "published": "2026-08-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7197047988",
-      "title": "Supplementary Table S1 – 48 studies included in a systematic review of interpretable machine learning for urban heat islands",
+      "id": "https://openalex.org/W7160849536",
+      "title": "Arabic POS & Lemma Evaluation Corpus: Stanza, Farasa, and CAMeL Tools on Classical and Modern Texts",
       "authors": [
-        "Anonymous Anonymous"
+        "Rayhana Al-Ansari"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-30",
+      "published": "2026-08-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202352201",
-      "title": "Artifact of \"Automatically Generating ML Compiler Backends from Tensor Accelerator ISA Descriptions\"",
+      "id": "https://openalex.org/W7160850789",
+      "title": "Arabic POS & Lemma Evaluation Corpus: Stanza, Farasa, and CAMeL Tools on Classical and Modern Texts",
       "authors": [
-        "Devansh Jain",
-        "Akash Pardeshi",
-        "Marco Frigo"
+        "Rayhana Al-Ansari"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161466198",
+      "title": "Scalable Fusion of Multiple Multispectral and Hyperspectral Images via Tucker Decomposition",
+      "authors": [
+        "Fatima Zahrae M'Rani",
+        "Matthieu Puigt",
+        "Cédric Jamet"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162151273",
+      "title": "A Rigid Motion Compensated Optimization Approach for Medical Image Reconstruction",
+      "authors": [
+        "Vuk Ignjatović",
+        "Nora Ouzir",
+        "Cyril Riddell"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-08-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162920684",
+      "title": "Developing high-throughput methods for the discovery of microbiome-derived pro-longevity compounds",
+      "authors": [
+        "Andreea Aprodu"
       ],
       "countries": [
-        "US"
+        "DE"
       ],
-      "primary_country": "US",
-      "published": "2026-08-30",
+      "primary_country": "Other",
+      "published": "2026-08-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202361096",
-      "title": "Artifact of \"Automatically Generating ML Compiler Backends from Tensor Accelerator ISA Descriptions\"",
+      "id": "https://openalex.org/W7162971650",
+      "title": "Multiresolution Neural Network for One-Class Learning of Machine Sounds",
       "authors": [
-        "Devansh Jain",
-        "Akash Pardeshi",
-        "Marco Frigo"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-08-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203892652",
-      "title": "AI Model Drift Detection and Self-Adaptation in Real-World Intelligent Systems",
-      "authors": [
-        "Mr. Sandeep Kumar Singh,   Mr. Gaurav Kushwaha,  Mr. Sandeep Kumar Mishra,  Ms. Alka Singh,   Mr. Vibhanshu Tripathi"
+        "Xiran Zhang",
+        "Vincent Lostanlen",
+        "Mathieu Lagrange"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203903697",
-      "title": "AI Model Drift Detection and Self-Adaptation in Real-World Intelligent Systems",
-      "authors": [
-        "Mr. Sandeep Kumar Singh,   Mr. Gaurav Kushwaha,  Mr. Sandeep Kumar Mishra,  Ms. Alka Singh,   Mr. Vibhanshu Tripathi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204525154",
-      "title": "Reproducibility code and SQL queries for an interpretable machine-learning model of in-hospital mortality in ICU patients with aspiration pneumonia (MIMIC-IV and eICU-CRD)",
-      "authors": [
-        "Lujun Shao",
-        "Li Wang",
-        "Cheng Xu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-30",
+      "published": "2026-08-31",
       "cited_by_count": 0,
       "source": "openalex"
     }

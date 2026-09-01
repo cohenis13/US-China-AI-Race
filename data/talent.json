@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-08-31T14:58:15.169099+00:00",
+  "fetched_at": "2026-09-01T12:28:56.757207+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 234526,
-            "share_score": 46.1,
+            "raw_value": 235186,
+            "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4394,
+            "raw_value": 4389,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3174,
+            "raw_value": 3182,
             "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 273726,
-            "share_score": 53.9,
+            "raw_value": 274391,
+            "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8327,
+            "raw_value": 8320,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7199,
+            "raw_value": 7212,
             "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295205
+        "count": 295253
       },
       {
         "country_code": "CN",
-        "count": 273726
+        "count": 274391
       },
       {
         "country_code": "US",
-        "count": 234526
+        "count": 235186
       },
       {
         "country_code": "DE",
-        "count": 182453
+        "count": 182560
       },
       {
         "country_code": "IN",
-        "count": 113433
+        "count": 113534
       },
       {
         "country_code": "GB",
-        "count": 62106
+        "count": 62270
       },
       {
         "country_code": "ID",
-        "count": 33895
+        "count": 33982
       },
       {
         "country_code": "FR",
-        "count": 33269
+        "count": 33338
       },
       {
         "country_code": "CA",
-        "count": 31850
+        "count": 31899
       },
       {
         "country_code": "IT",
-        "count": 30110
+        "count": 30132
       }
     ],
     "volume": {
-      "us": 234526,
-      "china": 273726,
-      "total": 2807574,
+      "us": 235186,
+      "china": 274391,
+      "total": 2821813,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4394,
-      "china": 8327,
-      "total": 19628,
+      "us": 4389,
+      "china": 8320,
+      "total": 19595,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3174,
-      "china": 7199,
-      "total": 16095,
+      "us": 3182,
+      "china": 7212,
+      "total": 16121,
       "data_ok": true
     }
   },
@@ -182,136 +182,149 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7116121109",
-      "title": "phonokit: a toolkit to create phonological representations",
+      "id": "https://openalex.org/W4414932055",
+      "title": "Universal Audio Generation",
       "authors": [
-        "Garcia, Guilherme D."
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7125941974",
-      "title": "Analysing toponium at the LHC using Recursive Jigsaw Reconstruction",
-      "authors": [
-        "Aman Desai",
-        "Amelia Lovison",
-        "Paul Jackson"
+        "Antoine Laurent",
+        "Sameer Khurana",
+        "Anthony Larcher"
       ],
       "countries": [
-        "AU"
+        "FR",
+        "US",
+        "ES",
+        "CZ"
       ],
-      "primary_country": "Other",
-      "published": "2026-08-31",
+      "primary_country": "US",
+      "published": "2026-09-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134098514",
-      "title": "Datasheets as ESP Genres: Translation and MT Use by Student-Engineers",
+      "id": "https://openalex.org/W4415223692",
+      "title": "The impact of visual imagery absence on fine-grained memory for object colour and size: an aphantasia study",
       "authors": [
-        "Amelia Rucart-Rus"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159899462",
-      "title": "Effects of medium, text structure and participant characteristics on reading comprehension in young readers",
-      "authors": [
-        "Aisha Futura Tüchler",
-        "Kate Cain"
+        "Xiangqi Luo",
+        "Minhong Zhu",
+        "CUI Zhenjiang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-31",
+      "published": "2026-09-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160849536",
-      "title": "Arabic POS & Lemma Evaluation Corpus: Stanza, Farasa, and CAMeL Tools on Classical and Modern Texts",
+      "id": "https://openalex.org/W7111114026",
+      "title": "Poriscope",
       "authors": [
-        "Rayhana Al-Ansari"
+        "Briggs, Kyle",
+        "González González, Alejandra Carolina",
+        "Wadhwa, Deekshant"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-31",
+      "published": "2026-09-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160850789",
-      "title": "Arabic POS & Lemma Evaluation Corpus: Stanza, Farasa, and CAMeL Tools on Classical and Modern Texts",
+      "id": "https://openalex.org/W7118878751",
+      "title": "Integration of functional magnetic resonance imaging and artificial intelligence in Alzheimer’s disease",
       "authors": [
-        "Rayhana Al-Ansari"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161466198",
-      "title": "Scalable Fusion of Multiple Multispectral and Hyperspectral Images via Tucker Decomposition",
-      "authors": [
-        "Fatima Zahrae M'Rani",
-        "Matthieu Puigt",
-        "Cédric Jamet"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162151273",
-      "title": "A Rigid Motion Compensated Optimization Approach for Medical Image Reconstruction",
-      "authors": [
-        "Vuk Ignjatović",
-        "Nora Ouzir",
-        "Cyril Riddell"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-08-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162920684",
-      "title": "Developing high-throughput methods for the discovery of microbiome-derived pro-longevity compounds",
-      "authors": [
-        "Andreea Aprodu"
+        "Liqin Yang",
+        "Yuxin Li",
+        "Kuangyu Shi"
       ],
       "countries": [
-        "DE"
+        "AT"
       ],
       "primary_country": "Other",
-      "published": "2026-08-31",
+      "published": "2026-09-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162971650",
-      "title": "Multiresolution Neural Network for One-Class Learning of Machine Sounds",
+      "id": "https://openalex.org/W7119858498",
+      "title": "Applied Machine Learning for CNS Clinical Trial Risk Assessment: An Interpretable Framework with an ALS Case Study",
       "authors": [
-        "Xiran Zhang",
-        "Vincent Lostanlen",
-        "Mathieu Lagrange"
+        "Andrew Matelis"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7120050045",
+      "title": "Applied Machine Learning for CNS Clinical Trial Risk Assessment: An Interpretable Framework with an ALS Case Study",
+      "authors": [
+        "Andrew Matelis"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7124484990",
+      "title": "HERA: Hierarchical-Compensatory, Effect-Size-Driven Ranking Algorithm",
+      "authors": [
+        "Lukas von Erdmannsdorff"
+      ],
+      "countries": [
+        "DE",
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7126282717",
+      "title": "Exploring Complementarity Problems: Applications and Specialized Algorithms",
+      "authors": [
+        "Valentina Sessa"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-08-31",
+      "published": "2026-09-01",
       "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134888680",
+      "title": "Artificial intelligence for detection, grading, and prognostication in prostate cancer pathology: A scoping review.",
+      "authors": [
+        "Ranjitha Pratap Nair",
+        "Wei Du",
+        "Lin Mei"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140307500",
+      "title": "Agent Knowledge Cycle (AKC)",
+      "authors": [
+        "Tatsuya Shimomoto"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-01",
+      "cited_by_count": 21,
       "source": "openalex"
     }
   ]

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-01T12:28:56.757207+00:00",
+  "fetched_at": "2026-09-02T12:01:54.208113+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 235186,
+            "raw_value": 233835,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4389,
+            "raw_value": 4384,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3182,
-            "share_score": 30.6,
+            "raw_value": 3157,
+            "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 274391,
+            "raw_value": 272178,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8320,
+            "raw_value": 8308,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7212,
-            "share_score": 69.4,
+            "raw_value": 7190,
+            "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,159 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295253
+        "count": 295072
       },
       {
         "country_code": "CN",
-        "count": 274391
+        "count": 272178
       },
       {
         "country_code": "US",
-        "count": 235186
+        "count": 233835
       },
       {
         "country_code": "DE",
-        "count": 182560
+        "count": 182222
       },
       {
         "country_code": "IN",
-        "count": 113534
+        "count": 112938
       },
       {
         "country_code": "GB",
-        "count": 62270
+        "count": 61857
       },
       {
         "country_code": "ID",
-        "count": 33982
+        "count": 33812
       },
       {
         "country_code": "FR",
-        "count": 33338
+        "count": 33143
       },
       {
         "country_code": "CA",
-        "count": 31899
+        "count": 31700
       },
       {
         "country_code": "IT",
-        "count": 30132
+        "count": 29954
       }
     ],
     "volume": {
-      "us": 235186,
-      "china": 274391,
-      "total": 2821813,
+      "us": 233835,
+      "china": 272178,
+      "total": 2812822,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4389,
-      "china": 8320,
-      "total": 19595,
+      "us": 4384,
+      "china": 8308,
+      "total": 19572,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3182,
-      "china": 7212,
-      "total": 16121,
+      "us": 3157,
+      "china": 7190,
+      "total": 16024,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7163612818",
+      "title": "Deductive Verification of a Patricia Trie with Creusot",
+      "authors": [
+        "Téo Bernier",
+        "Frédéric Loulergue",
+        "Nikolaï Kosmatov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202417899",
+      "title": "Naar betrouwbare en autonome data-gedreven modellering voor machine-niveau Digital Twins: van fysisch-gedreven ontwerp tot betrouwbaarheidsanalyse",
+      "authors": [
+        "Francisco Ambrosio Garcia"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203850621",
+      "title": "Event-based 6-DoF Visual Servoing for Dynamic Objects",
+      "authors": [
+        "Yufan Kang",
+        "Arren Glover",
+        "Guillaume Caron"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204624344",
+      "title": "Six Stages of Blessed Learning and Six Facades of Solid Training",
+      "authors": [
+        "Hung-ping Tsao"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204663544",
+      "title": "Six Stages of Blessed Learning and Six Facades of Solid Training",
+      "authors": [
+        "Hung-ping Tsao"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204739817",
+      "title": "L'enseignement supérieur face aux IA : l'approchesociocognitive pour analyser les transformations à l'oeuvre",
+      "authors": [
+        "Fatiha Tali-Otmani"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204744308",
+      "title": "Dancing with machines: humanoid robots and techno-choreographic co-agency",
+      "authors": [
+        "Z Xu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W4414932055",
       "title": "Universal Audio Generation",
@@ -226,105 +318,6 @@
       "primary_country": "Unknown",
       "published": "2026-09-01",
       "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7118878751",
-      "title": "Integration of functional magnetic resonance imaging and artificial intelligence in Alzheimer’s disease",
-      "authors": [
-        "Liqin Yang",
-        "Yuxin Li",
-        "Kuangyu Shi"
-      ],
-      "countries": [
-        "AT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7119858498",
-      "title": "Applied Machine Learning for CNS Clinical Trial Risk Assessment: An Interpretable Framework with an ALS Case Study",
-      "authors": [
-        "Andrew Matelis"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7120050045",
-      "title": "Applied Machine Learning for CNS Clinical Trial Risk Assessment: An Interpretable Framework with an ALS Case Study",
-      "authors": [
-        "Andrew Matelis"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7124484990",
-      "title": "HERA: Hierarchical-Compensatory, Effect-Size-Driven Ranking Algorithm",
-      "authors": [
-        "Lukas von Erdmannsdorff"
-      ],
-      "countries": [
-        "DE",
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7126282717",
-      "title": "Exploring Complementarity Problems: Applications and Specialized Algorithms",
-      "authors": [
-        "Valentina Sessa"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134888680",
-      "title": "Artificial intelligence for detection, grading, and prognostication in prostate cancer pathology: A scoping review.",
-      "authors": [
-        "Ranjitha Pratap Nair",
-        "Wei Du",
-        "Lin Mei"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140307500",
-      "title": "Agent Knowledge Cycle (AKC)",
-      "authors": [
-        "Tatsuya Shimomoto"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-01",
-      "cited_by_count": 21,
       "source": "openalex"
     }
   ]

@@ -4,27 +4,27 @@
   "title": "Global AI Diffusion — U.S. vs China",
   "subtitle": "Share of combined U.S.–China global AI diffusion footprint, measured by open-model ecosystem reach and cloud infrastructure coverage. U.S. + China scores sum to 100.",
   "description": "A two-proxy composite index measuring how far U.S. and Chinese AI stacks have spread beyond their home markets. Combines HF open-model monthly downloads (live, from data/labs.json tracked labs) with cloud AI platform international footprint (curated, annually reviewed). Both proxies are scored as share-of-combined so U.S. + China = 100.",
-  "fetched_at": "2026-09-02T14:09:09.564067+00:00",
-  "last_updated": "2026-09-02T14:09:09.564067+00:00",
+  "fetched_at": "2026-09-03T14:11:31.243068+00:00",
+  "last_updated": "2026-09-03T14:11:31.243068+00:00",
   "summary": {
     "US": {
-      "composite_score": 58.9,
+      "composite_score": 58.8,
       "effective_weights": {
         "hf_downloads": 0.55,
         "cloud_footprint": 0.45
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": 453345494,
+          "raw_value": 438590271,
           "unit": "monthly downloads (HF Hub)",
-          "share_score": 47.2,
+          "share_score": 47.1,
           "coverage": "high",
           "note": "Sum of monthly downloads across top-100 models per US-attributed lab on Hugging Face Hub. Labs sourced from data/labs.json.",
           "lab_detail": [
             {
               "lab": "OpenAI",
               "author": "openai",
-              "downloads": 62681786
+              "downloads": 61363234
             },
             {
               "lab": "Anthropic",
@@ -34,7 +34,7 @@
             {
               "lab": "Google / DeepMind",
               "author": "google",
-              "downloads": 137411446
+              "downloads": 134105127
             },
             {
               "lab": "Google / DeepMind",
@@ -44,32 +44,32 @@
             {
               "lab": "Meta AI",
               "author": "facebook",
-              "downloads": 65004984
+              "downloads": 63022090
             },
             {
               "lab": "Meta AI",
               "author": "meta-llama",
-              "downloads": 26573709
+              "downloads": 25761588
             },
             {
               "lab": "Microsoft",
               "author": "microsoft",
-              "downloads": 42600001
+              "downloads": 41429081
             },
             {
               "lab": "NVIDIA",
               "author": "nvidia",
-              "downloads": 49277100
+              "downloads": 46650040
             },
             {
               "lab": "Allen Institute for AI",
               "author": "allenai",
-              "downloads": 6415893
+              "downloads": 6235401
             },
             {
               "lab": "Salesforce AI",
               "author": "Salesforce",
-              "downloads": 4612516
+              "downloads": 4484945
             },
             {
               "lab": "Cohere",
@@ -79,37 +79,37 @@
             {
               "lab": "Apple",
               "author": "apple",
-              "downloads": 2293559
+              "downloads": 2261491
             },
             {
               "lab": "Amazon",
               "author": "amazon",
-              "downloads": 40128257
+              "downloads": 37430009
             },
             {
               "lab": "Stability AI",
               "author": "stabilityai",
-              "downloads": 4583644
+              "downloads": 4502260
             },
             {
               "lab": "Together AI",
               "author": "togethercomputer",
-              "downloads": 21977
+              "downloads": 21603
             },
             {
               "lab": "xAI",
               "author": "xai-org",
-              "downloads": 10004
+              "downloads": 10131
             },
             {
               "lab": "IBM Research",
               "author": "ibm-granite",
-              "downloads": 11730413
+              "downloads": 11313065
             },
             {
               "lab": "Databricks / MosaicML",
               "author": "mosaicml",
-              "downloads": 205
+              "downloads": 206
             },
             {
               "lab": "Databricks / MosaicML",
@@ -129,28 +129,28 @@
       }
     },
     "China": {
-      "composite_score": 41.1,
+      "composite_score": 41.2,
       "effective_weights": {
         "hf_downloads": 0.55,
         "cloud_footprint": 0.45
       },
       "proxies": {
         "hf_downloads": {
-          "raw_value": 506659892,
+          "raw_value": 491703375,
           "unit": "monthly downloads (HF Hub)",
-          "share_score": 52.8,
+          "share_score": 52.9,
           "coverage": "high",
           "note": "Sum of monthly downloads across top-100 models per China-attributed lab on Hugging Face Hub. Labs sourced from data/labs.json.",
           "lab_detail": [
             {
               "lab": "Alibaba / Qwen",
               "author": "Qwen",
-              "downloads": 299556338
+              "downloads": 289867260
             },
             {
               "lab": "DeepSeek",
               "author": "deepseek-ai",
-              "downloads": 24279724
+              "downloads": 22967431
             },
             {
               "lab": "Zhipu AI / THUDM",
@@ -160,52 +160,52 @@
             {
               "lab": "01.AI",
               "author": "01-ai",
-              "downloads": 271212
+              "downloads": 267289
             },
             {
               "lab": "Baidu",
               "author": "baidu",
-              "downloads": 3388173
+              "downloads": 3173929
             },
             {
               "lab": "ByteDance",
               "author": "ByteDance-Seed",
-              "downloads": 855732
+              "downloads": 753951
             },
             {
               "lab": "Shanghai AI Lab",
               "author": "internlm",
-              "downloads": 557888
+              "downloads": 489113
             },
             {
               "lab": "Moonshot AI",
               "author": "moonshotai",
-              "downloads": 5171707
+              "downloads": 4867820
             },
             {
               "lab": "MiniMax",
               "author": "MiniMaxAI",
-              "downloads": 8127831
+              "downloads": 7580739
             },
             {
               "lab": "Tencent",
               "author": "tencent",
-              "downloads": 1556347
+              "downloads": 1518025
             },
             {
               "lab": "Huawei / Noah's Ark Lab",
               "author": "huawei-noah",
-              "downloads": 483655
+              "downloads": 440753
             },
             {
               "lab": "BAAI (Beijing Academy of AI)",
               "author": "BAAI",
-              "downloads": 162333504
+              "downloads": 159702157
             },
             {
               "lab": "Baichuan Intelligence",
               "author": "baichuan-inc",
-              "downloads": 77781
+              "downloads": 74908
             }
           ]
         },
@@ -220,7 +220,7 @@
       }
     }
   },
-  "interpretive_sentence": "U.S.-origin AI stacks account for approximately 58.9% of the measured U.S.–China global diffusion footprint (17.8-point lead over China). On open-model downloads, China accounts for 52.8% of the combined U.S.–China total.",
+  "interpretive_sentence": "U.S.-origin AI stacks account for approximately 58.8% of the measured U.S.–China global diffusion footprint (17.6-point lead over China). On open-model downloads, China accounts for 52.9% of the combined U.S.–China total.",
   "composite_construction": {
     "method": "Both proxies are scored as share-of-combined (US + China = 100). HF downloads: (country_downloads / total_downloads) × 100. Cloud footprint: (country_countries / total_countries) × 100. Composite = 0.55 × hf_share + 0.45 × cloud_share. By construction, US composite + China composite = 100.",
     "weights": {

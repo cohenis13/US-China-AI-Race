@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-02T12:01:54.208113+00:00",
+  "fetched_at": "2026-09-03T12:01:17.337374+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 233835,
+            "raw_value": 234608,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4384,
+            "raw_value": 4397,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3157,
+            "raw_value": 3168,
             "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 272178,
+            "raw_value": 273294,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8308,
+            "raw_value": 8353,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7190,
+            "raw_value": 7231,
             "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295072
+        "count": 295137
       },
       {
         "country_code": "CN",
-        "count": 272178
+        "count": 273294
       },
       {
         "country_code": "US",
-        "count": 233835
+        "count": 234608
       },
       {
         "country_code": "DE",
-        "count": 182222
+        "count": 182305
       },
       {
         "country_code": "IN",
-        "count": 112938
+        "count": 113156
       },
       {
         "country_code": "GB",
-        "count": 61857
+        "count": 62048
       },
       {
         "country_code": "ID",
-        "count": 33812
+        "count": 33892
       },
       {
         "country_code": "FR",
-        "count": 33143
+        "count": 33194
       },
       {
         "country_code": "CA",
-        "count": 31700
+        "count": 31782
       },
       {
         "country_code": "IT",
-        "count": 29954
+        "count": 30004
       }
     ],
     "volume": {
-      "us": 233835,
-      "china": 272178,
-      "total": 2812822,
+      "us": 234608,
+      "china": 273294,
+      "total": 2822536,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4384,
-      "china": 8308,
-      "total": 19572,
+      "us": 4397,
+      "china": 8353,
+      "total": 19674,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3157,
-      "china": 7190,
-      "total": 16024,
+      "us": 3168,
+      "china": 7231,
+      "total": 16105,
       "data_ok": true
     }
   },
@@ -182,50 +182,120 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163612818",
-      "title": "Deductive Verification of a Patricia Trie with Creusot",
+      "id": "https://openalex.org/W7134249972",
+      "title": "Dual-Memory Dissociation Under Partial Observability: An Identifiability-Governed Phase Transition",
       "authors": [
-        "Téo Bernier",
-        "Frédéric Loulergue",
-        "Nikolaï Kosmatov"
+        "Austin Ollar"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-02",
+      "published": "2026-09-03",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134251213",
+      "title": "Dual-Memory Dissociation Under Partial Observability: An Identifiability-Governed Phase Transition",
+      "authors": [
+        "Austin Ollar"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202417899",
-      "title": "Naar betrouwbare en autonome data-gedreven modellering voor machine-niveau Digital Twins: van fysisch-gedreven ontwerp tot betrouwbaarheidsanalyse",
+      "id": "https://openalex.org/W7134266313",
+      "title": "A technical comparison of spatial transcriptomics platforms across six cancer types - Visium/VisiumCytAssist/VisiumHD",
       "authors": [
-        "Francisco Ambrosio Garcia"
+        "Sergi Cervilla",
+        "Daniela Grases Mendoza",
+        "Eduard Porta-Pardo"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-02",
+      "countries": [
+        "ES"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203850621",
-      "title": "Event-based 6-DoF Visual Servoing for Dynamic Objects",
+      "id": "https://openalex.org/W7134819038",
+      "title": "The Generation-Governance Impedance Mismatch: Protocol-Governed Systems in the AI Era",
       "authors": [
-        "Yufan Kang",
-        "Arren Glover",
-        "Guillaume Caron"
+        "Bhash Ganti",
+        "Bhash Ganti"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-02",
+      "published": "2026-09-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204624344",
-      "title": "Six Stages of Blessed Learning and Six Facades of Solid Training",
+      "id": "https://openalex.org/W7134841021",
+      "title": "The Generation-Governance Impedance Mismatch: Protocol-Governed Systems in the AI Era",
       "authors": [
-        "Hung-ping Tsao"
+        "Bhash Ganti",
+        "Bhash Ganti"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159736837",
+      "title": "Adapting Without Surrendering: Assignments That Work in the AI Era",
+      "authors": [
+        "Melanie Meeker"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7159741696",
+      "title": "The Cognitive Shift: Engineering Institutional AI Fluency for Faculty and Staff",
+      "authors": [
+        "Joe Faith",
+        "Boone, John, M.S.I.S."
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204983749",
+      "title": "“Who Is to Blame?” and “What Is to Be Done?”: A Formal Study of Counterfactual Approaches to Responsibility and Causation in (Multi-Agent) AI Systems",
+      "authors": [
+        "Maksim Gladyshev",
+        "Sub Intelligent Systems",
+        "Mehdi Dastani"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4386271039",
+      "title": "Information Geometric Regularization of the Barotropic Euler Equation",
+      "authors": [
+        "Ruijia Cao",
+        "Florian Schaefer"
       ],
       "countries": [
         "US"
@@ -236,87 +306,18 @@
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204663544",
-      "title": "Six Stages of Blessed Learning and Six Facades of Solid Training",
+      "id": "https://openalex.org/W4398795162",
+      "title": "Representation Stability in the Intrinsic Hyperplane Arrangements Associated to Irreducible Representations of the Symmetric Groups",
       "authors": [
-        "Hung-ping Tsao"
+        "Ian Flynn",
+        "Eric Ramos",
+        "Benjamin Young"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
       "published": "2026-09-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204739817",
-      "title": "L'enseignement supérieur face aux IA : l'approchesociocognitive pour analyser les transformations à l'oeuvre",
-      "authors": [
-        "Fatiha Tali-Otmani"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204744308",
-      "title": "Dancing with machines: humanoid robots and techno-choreographic co-agency",
-      "authors": [
-        "Z Xu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4414932055",
-      "title": "Universal Audio Generation",
-      "authors": [
-        "Antoine Laurent",
-        "Sameer Khurana",
-        "Anthony Larcher"
-      ],
-      "countries": [
-        "FR",
-        "US",
-        "ES",
-        "CZ"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4415223692",
-      "title": "The impact of visual imagery absence on fine-grained memory for object colour and size: an aphantasia study",
-      "authors": [
-        "Xiangqi Luo",
-        "Minhong Zhu",
-        "CUI Zhenjiang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7111114026",
-      "title": "Poriscope",
-      "authors": [
-        "Briggs, Kyle",
-        "González González, Alejandra Carolina",
-        "Wadhwa, Deekshant"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

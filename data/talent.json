@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-04T12:03:48.871879+00:00",
+  "fetched_at": "2026-09-05T11:12:26.196208+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.8,
+          "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 234755,
+            "raw_value": 235679,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4395,
+            "raw_value": 4428,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3169,
-            "share_score": 30.5,
+            "raw_value": 3207,
+            "share_score": 30.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.2,
+          "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 273266,
+            "raw_value": 274519,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8339,
+            "raw_value": 8390,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7212,
-            "share_score": 69.5,
+            "raw_value": 7241,
+            "share_score": 69.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295061
+        "count": 295328
       },
       {
         "country_code": "CN",
-        "count": 273266
+        "count": 274519
       },
       {
         "country_code": "US",
-        "count": 234755
+        "count": 235679
       },
       {
         "country_code": "DE",
-        "count": 182422
+        "count": 182695
       },
       {
         "country_code": "IN",
-        "count": 112911
+        "count": 113210
       },
       {
         "country_code": "GB",
-        "count": 62088
+        "count": 62418
       },
       {
         "country_code": "ID",
-        "count": 33806
+        "count": 33910
       },
       {
         "country_code": "FR",
-        "count": 33180
+        "count": 33301
       },
       {
         "country_code": "CA",
-        "count": 31792
+        "count": 31939
       },
       {
         "country_code": "IT",
-        "count": 29993
+        "count": 30093
       }
     ],
     "volume": {
-      "us": 234755,
-      "china": 273266,
-      "total": 2828949,
+      "us": 235679,
+      "china": 274519,
+      "total": 2850104,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4395,
-      "china": 8339,
-      "total": 19640,
+      "us": 4428,
+      "china": 8390,
+      "total": 19750,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3169,
-      "china": 7212,
-      "total": 16075,
+      "us": 3207,
+      "china": 7241,
+      "total": 16199,
       "data_ok": true
     }
   },
@@ -182,154 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7151929862",
-      "title": "A Stability-Theoretic Foundation of Artificial General Intelligence",
+      "id": "https://openalex.org/W4414552496",
+      "title": "Is Empathic AI Possible?",
       "authors": [
-        "Roman Lukin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152595143",
-      "title": "A Stability-Theoretic Foundation of Artificial General Intelligence",
-      "authors": [
-        "Roman Lukin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160265444",
-      "title": "AI-POWERED PREDICTIVE ANALYTICS FOR INTELLIGENT DECISION SUPPORT SYSTEMS",
-      "authors": [
-        "Mr PRAVEEN NAINAR BALASUBRAMANIAN",
-        "Dr A ANANTHI CHRISTY",
-        "Dr A K DASARATHY"
-      ],
-      "countries": [
-        "US",
-        "IN"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160335382",
-      "title": "AI-POWERED PREDICTIVE ANALYTICS FOR INTELLIGENT DECISION SUPPORT SYSTEMS",
-      "authors": [
-        "Mr PRAVEEN NAINAR BALASUBRAMANIAN",
-        "Dr A ANANTHI CHRISTY",
-        "Dr A K DASARATHY"
-      ],
-      "countries": [
-        "US",
-        "IN"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166263851",
-      "title": "The AI Moment Isn't About AI: Lessons in Learning, Leadership, and Trust",
-      "authors": [
-        "Jennifer Grevis",
-        "Amanda Perez",
-        "Lee Lewis"
+        "Mohammad Atari",
+        "Firat Seker",
+        "Aliah Zewail"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-09-04",
+      "published": "2026-09-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7170074878",
-      "title": "DifFoundMAD: Foundation Models meet Differential Morphing Attack Detection",
+      "id": "https://openalex.org/W7105178425",
+      "title": "Wasteland, E. 3",
       "authors": [
-        "Lázaro J. González‐Soler",
-        "A. Dörsch",
-        "Christian Rathgeb"
+        "Casaccia, Alexandre"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7114630985",
+      "title": "Practical Capacities, Empathy, and Human-Centered Artificial Intelligence",
+      "authors": [
+        "Brett Karlan"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161818428",
+      "title": "BVDOutbreakSize: estimating the current size of the 2026 DRC Bundibugyo virus outbreak",
+      "authors": [
+        "Sam Abbott (bot)",
+        "Katharine Sherratt",
+        "Samuel Brand"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202034087",
+      "title": "RenewableXAI: Model-Exact Explanation Stability for Renewable Energy Forecasting – Software and Evaluation Artifact",
+      "authors": [
+        "Павел Матренин",
+        "Alexandra I. Khalyasmaa",
+        "Stanislav A. Eroshenko"
       ],
       "countries": [
-        "DE",
-        "NO"
+        "RU"
       ],
       "primary_country": "Other",
-      "published": "2026-09-04",
+      "published": "2026-09-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7170084445",
-      "title": "DifFoundMAD: Foundation Models meet Differential Morphing Attack Detection",
+      "id": "https://openalex.org/W7202042953",
+      "title": "RenewableXAI: Model-Exact Explanation Stability for Renewable Energy Forecasting – Software and Evaluation Artifact",
       "authors": [
-        "Lázaro J. González‐Soler",
-        "A. Dörsch",
-        "Christian Rathgeb"
+        "Павел Матренин",
+        "Alexandra I. Khalyasmaa",
+        "Stanislav A. Eroshenko"
       ],
       "countries": [
-        "DE",
-        "NO"
+        "RU"
       ],
       "primary_country": "Other",
-      "published": "2026-09-04",
+      "published": "2026-09-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202017161",
-      "title": "The data management crisis behind AI-based brain MRI diagnosis:Heterogeneity, governance, and reproducibility",
+      "id": "https://openalex.org/W7204170124",
+      "title": "Trans-SAC: gamification design for sustained user engagement in residential demand response",
       "authors": [
-        "Tanmoy Debnath",
-        "Miroslaw Narbutt",
-        "Katarzyna Anna Kazimierczak"
+        "Tianxiao Peng"
+      ],
+      "countries": [
+        "YE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204490481",
+      "title": "Bristlecone: an F# library for the long-term ecological detective",
+      "authors": [
+        "Andrew Martin"
+      ],
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204750108",
+      "title": "[T-014] Principle of Equivalent Return between Symbol and Matter",
+      "authors": [
+        "Erystela Thevale"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-04",
+      "published": "2026-09-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203983728",
-      "title": "PrecipGNN: Physics-Informed Spatiotemporal Graph Neural Networks for High-Resolution Precipitation Nowcasting at Continental Scale",
+      "id": "https://openalex.org/W7204857664",
+      "title": "[T-014] Principle of Equivalent Return between Symbol and Matter",
       "authors": [
-        "Hridoy Irfan Ali",
-        "Rodriguez Elena"
+        "Erystela Thevale"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203988796",
-      "title": "PrecipGNN: Physics-Informed Spatiotemporal Graph Neural Networks for High-Resolution Precipitation Nowcasting at Continental Scale",
-      "authors": [
-        "Hridoy Irfan Ali",
-        "Rodriguez Elena"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-04",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-05",
       "cited_by_count": 0,
       "source": "openalex"
     }

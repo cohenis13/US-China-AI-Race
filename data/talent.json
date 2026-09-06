@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-05T11:12:26.196208+00:00",
+  "fetched_at": "2026-09-06T11:35:18.484881+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 235679,
+            "raw_value": 235401,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4428,
-            "share_score": 34.5,
+            "raw_value": 4422,
+            "share_score": 34.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3207,
+            "raw_value": 3192,
             "share_score": 30.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 274519,
+            "raw_value": 273869,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8390,
-            "share_score": 65.5,
+            "raw_value": 8370,
+            "share_score": 65.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7241,
+            "raw_value": 7213,
             "share_score": 69.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,101 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295328
+        "count": 295285
       },
       {
         "country_code": "CN",
-        "count": 274519
+        "count": 273869
       },
       {
         "country_code": "US",
-        "count": 235679
+        "count": 235401
       },
       {
         "country_code": "DE",
-        "count": 182695
+        "count": 182635
       },
       {
         "country_code": "IN",
-        "count": 113210
+        "count": 112804
       },
       {
         "country_code": "GB",
-        "count": 62418
+        "count": 62322
       },
       {
         "country_code": "ID",
-        "count": 33910
+        "count": 33879
       },
       {
         "country_code": "FR",
-        "count": 33301
+        "count": 33262
       },
       {
         "country_code": "CA",
-        "count": 31939
+        "count": 31900
       },
       {
         "country_code": "IT",
-        "count": 30093
+        "count": 30060
       }
     ],
     "volume": {
-      "us": 235679,
-      "china": 274519,
-      "total": 2850104,
+      "us": 235401,
+      "china": 273869,
+      "total": 2847521,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4428,
-      "china": 8390,
-      "total": 19750,
+      "us": 4422,
+      "china": 8370,
+      "total": 19713,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3207,
-      "china": 7241,
-      "total": 16199,
+      "us": 3192,
+      "china": 7213,
+      "total": 16138,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7165653864",
+      "title": "Automatic classification of cyber incidents using privacy-preserving artificial intelligence",
+      "authors": [
+        "Loya Caroldene Haughton",
+        "Eduardo Fidalgo",
+        "David Lewis"
+      ],
+      "countries": [
+        "MX",
+        "IE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165690856",
+      "title": "Automatic classification of cyber incidents using privacy-preserving artificial intelligence",
+      "authors": [
+        "Loya Caroldene Haughton",
+        "Eduardo Fidalgo",
+        "David Lewis"
+      ],
+      "countries": [
+        "MX",
+        "IE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W4414552496",
       "title": "Is Empathic AI Possible?",
@@ -291,30 +325,6 @@
         "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-09-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204750108",
-      "title": "[T-014] Principle of Equivalent Return between Symbol and Matter",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204857664",
-      "title": "[T-014] Principle of Equivalent Return between Symbol and Matter",
-      "authors": [
-        "Erystela Thevale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
       "published": "2026-09-05",
       "cited_by_count": 0,
       "source": "openalex"

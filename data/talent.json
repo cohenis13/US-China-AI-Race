@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-06T11:35:18.484881+00:00",
+  "fetched_at": "2026-09-07T13:24:50.330903+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.9,
+          "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 235401,
+            "raw_value": 235502,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4422,
-            "share_score": 34.6,
+            "raw_value": 4414,
+            "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3192,
-            "share_score": 30.7,
+            "raw_value": 3186,
+            "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.1,
+          "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 273869,
+            "raw_value": 274008,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8370,
-            "share_score": 65.4,
+            "raw_value": 8378,
+            "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7213,
-            "share_score": 69.3,
+            "raw_value": 7215,
+            "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295285
+        "count": 295310
       },
       {
         "country_code": "CN",
-        "count": 273869
+        "count": 274008
       },
       {
         "country_code": "US",
-        "count": 235401
+        "count": 235502
       },
       {
         "country_code": "DE",
-        "count": 182635
+        "count": 182762
       },
       {
         "country_code": "IN",
-        "count": 112804
+        "count": 112960
       },
       {
         "country_code": "GB",
-        "count": 62322
+        "count": 62379
       },
       {
         "country_code": "ID",
-        "count": 33879
+        "count": 33931
       },
       {
         "country_code": "FR",
-        "count": 33262
+        "count": 33285
       },
       {
         "country_code": "CA",
-        "count": 31900
+        "count": 31964
       },
       {
         "country_code": "IT",
-        "count": 30060
+        "count": 30065
       }
     ],
     "volume": {
-      "us": 235401,
-      "china": 273869,
-      "total": 2847521,
+      "us": 235502,
+      "china": 274008,
+      "total": 2854264,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4422,
-      "china": 8370,
-      "total": 19713,
+      "us": 4414,
+      "china": 8378,
+      "total": 19694,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3192,
-      "china": 7213,
-      "total": 16138,
+      "us": 3186,
+      "china": 7215,
+      "total": 16121,
       "data_ok": true
     }
   },
@@ -182,150 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7165653864",
-      "title": "Automatic classification of cyber incidents using privacy-preserving artificial intelligence",
+      "id": "https://openalex.org/W7140299278",
+      "title": "Graph Transformer Transferability for Flood Scusceptibility mapping in contrasting regions",
       "authors": [
-        "Loya Caroldene Haughton",
-        "Eduardo Fidalgo",
-        "David Lewis"
+        "Sreenath Vemula",
+        "Filippo Gatti",
+        "Pierre Jehel"
       ],
       "countries": [
-        "MX",
-        "IE"
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-09-06",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165690856",
-      "title": "Automatic classification of cyber incidents using privacy-preserving artificial intelligence",
+      "id": "https://openalex.org/W7162223295",
+      "title": "PersiSTabNet: Persistence Statistics Tabular Network for Point Cloud Classification",
       "authors": [
-        "Loya Caroldene Haughton",
-        "Eduardo Fidalgo",
-        "David Lewis"
-      ],
-      "countries": [
-        "MX",
-        "IE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-06",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4414552496",
-      "title": "Is Empathic AI Possible?",
-      "authors": [
-        "Mohammad Atari",
-        "Firat Seker",
-        "Aliah Zewail"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7105178425",
-      "title": "Wasteland, E. 3",
-      "authors": [
-        "Casaccia, Alexandre"
+        "Inés Castilla Rieso",
+        "Samuel Peltier",
+        "Philippe Carré"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-05",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7114630985",
-      "title": "Practical Capacities, Empathy, and Human-Centered Artificial Intelligence",
+      "id": "https://openalex.org/W7163834164",
+      "title": "Counterfactual learning of new adaptive instructional policies using logged data",
       "authors": [
-        "Brett Karlan"
+        "Samuel Girard",
+        "Sein Minn",
+        "Amel Bouzeghoub"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-05",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161818428",
-      "title": "BVDOutbreakSize: estimating the current size of the 2026 DRC Bundibugyo virus outbreak",
+      "id": "https://openalex.org/W7164872883",
+      "title": "tsseg: An Interactive Toolkit for Time Series Segmentation",
       "authors": [
-        "Sam Abbott (bot)",
-        "Katharine Sherratt",
-        "Samuel Brand"
+        "F Chavelli",
+        "Arik Ermshaus",
+        "Fan Yang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-05",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202034087",
-      "title": "RenewableXAI: Model-Exact Explanation Stability for Renewable Energy Forecasting – Software and Evaluation Artifact",
+      "id": "https://openalex.org/W7165294833",
+      "title": "What Streaming Anomaly Detection Finds (and Misses) in Industrial Time Series",
       "authors": [
-        "Павел Матренин",
-        "Alexandra I. Khalyasmaa",
-        "Stanislav A. Eroshenko"
+        "Magali Parrino",
+        "Antoine Ajenjo",
+        "Emmanuel Remy"
       ],
-      "countries": [
-        "RU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202042953",
-      "title": "RenewableXAI: Model-Exact Explanation Stability for Renewable Energy Forecasting – Software and Evaluation Artifact",
+      "id": "https://openalex.org/W7165436700",
+      "title": "CLARTE - Channel-adaptive Lightweight Aggregation for Retrieval and Temporal Explainability",
       "authors": [
-        "Павел Матренин",
-        "Alexandra I. Khalyasmaa",
-        "Stanislav A. Eroshenko"
+        "Martin Royer",
+        "Maxence Gagnant",
+        "Martin Gonzalez"
       ],
-      "countries": [
-        "RU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204170124",
-      "title": "Trans-SAC: gamification design for sustained user engagement in residential demand response",
+      "id": "https://openalex.org/W7165983931",
+      "title": "Content Learning for Metadata Extraction and Enrichment of Historical Hand-Drawn Illustrations",
       "authors": [
-        "Tianxiao Peng"
+        "Rajae El-Idrissi",
+        "Juba Agoun",
+        "Jérôme Darmont"
       ],
-      "countries": [
-        "YE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204490481",
-      "title": "Bristlecone: an F# library for the long-term ecological detective",
+      "id": "https://openalex.org/W7166617759",
+      "title": "X-Insight: Interactive Dashboard for Explainable Unsupervised Learning",
       "authors": [
-        "Andrew Martin"
+        "MN Bouziane",
+        "Julien Sottiaux",
+        "Vincent Sobanski"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167791520",
+      "title": "An Explainable Machine Learning Model and Bedside Nomogram Support Hemodialysis Decision-Making in Lithium Poisoning",
+      "authors": [
+        "Kamran Rezaei",
+        "Shahin Shadnia",
+        "Babak Mostafazadeh"
       ],
       "countries": [
-        "GB"
+        "IR"
       ],
       "primary_country": "Other",
-      "published": "2026-09-05",
+      "published": "2026-09-07",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167794247",
+      "title": "An Explainable Machine Learning Model and Bedside Nomogram Support Hemodialysis Decision-Making in Lithium Poisoning",
+      "authors": [
+        "Kamran Rezaei",
+        "Shahin Shadnia",
+        "Babak Mostafazadeh"
+      ],
+      "countries": [
+        "IR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-07",
       "cited_by_count": 0,
       "source": "openalex"
     }

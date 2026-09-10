@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-09T12:14:47.204717+00:00",
+  "fetched_at": "2026-09-10T12:08:52.284095+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 235946,
+            "raw_value": 236935,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4413,
-            "share_score": 34.5,
+            "raw_value": 4449,
+            "share_score": 34.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3205,
+            "raw_value": 3225,
             "share_score": 30.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 274512,
+            "raw_value": 275806,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8363,
-            "share_score": 65.5,
+            "raw_value": 8418,
+            "share_score": 65.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7237,
+            "raw_value": 7271,
             "share_score": 69.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295327
+        "count": 295446
       },
       {
         "country_code": "CN",
-        "count": 274512
+        "count": 275806
       },
       {
         "country_code": "US",
-        "count": 235946
+        "count": 236935
       },
       {
         "country_code": "DE",
-        "count": 184062
+        "count": 184318
       },
       {
         "country_code": "IN",
-        "count": 113084
+        "count": 113592
       },
       {
         "country_code": "GB",
-        "count": 62475
+        "count": 62811
       },
       {
         "country_code": "ID",
-        "count": 34006
+        "count": 34285
       },
       {
         "country_code": "FR",
-        "count": 33323
+        "count": 33449
       },
       {
         "country_code": "CA",
-        "count": 32014
+        "count": 32144
       },
       {
         "country_code": "IT",
-        "count": 30001
+        "count": 30101
       }
     ],
     "volume": {
-      "us": 235946,
-      "china": 274512,
-      "total": 2868081,
+      "us": 236935,
+      "china": 275806,
+      "total": 2882530,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4413,
-      "china": 8363,
-      "total": 19694,
+      "us": 4449,
+      "china": 8418,
+      "total": 19816,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3205,
-      "china": 7237,
-      "total": 16191,
+      "us": 3225,
+      "china": 7271,
+      "total": 16285,
       "data_ok": true
     }
   },
@@ -182,141 +182,132 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7163616298",
-      "title": "The Role of Industrial IoT and Machine Learning in Smart Transportation: A Systematic Literature Review",
+      "id": "https://openalex.org/W7131281314",
+      "title": "Recovery as Structural Property: Operational Criteria for Restoration Completion in Multi-Agent AI Systems",
       "authors": [
-        "Cynthia Chedrawi",
-        "Elena Kornyshova",
-        "Laurent Boutal"
+        "Bin Seol"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-09",
+      "published": "2026-09-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163782342",
-      "title": "Hybridizing AI pipelines with Ontologically Explainable Classifiers",
+      "id": "https://openalex.org/W7131410779",
+      "title": "Persistent Failure Modes in Tool Augmented AI Systems: Constraint Use and Trajectory Intervention, Evidence Review and Candidate Monitoring Protocols",
       "authors": [
-        "Arnaud Lewandowski",
-        "Grégory Bourguin",
-        "Mourad Bouneffa"
+        "Bin Seol"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-09",
+      "published": "2026-09-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163783104",
-      "title": "RODO: A modular ontology for integrative knowledge representation in rare orodental diseases",
+      "id": "https://openalex.org/W7131881575",
+      "title": "Network Architecture Theory: Topology, Routing, and Expansion Principles for Resolution-Governed Multi-Agent Systems",
       "authors": [
-        "Socrates Waka Onyando",
-        "Ali Ayadi",
-        "Marzena Kawczynski"
+        "Bin Seol"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-09",
+      "published": "2026-09-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165281045",
-      "title": "WAKER: Weight Attribution based on Kolmogorov-Arnold Networks for Entity Resolution",
+      "id": "https://openalex.org/W7204725738",
+      "title": "Slide: Algebraic Model Counting for Global Analysis of Optimal Decision Trees",
       "authors": [
-        "Bouabdelli, Lamisse, F",
-        "Fatma Abdelhedi",
-        "Slimane Hammoudi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165984232",
-      "title": "PAMPR: Predictability-Aware Motion Planning for Robots",
-      "authors": [
-        "FELIX ULRICH-OLTEAN",
-        "IAIN JOHN BATE",
-        "PENGCHENG LIU"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167452257",
-      "title": "Dual-Stream CNN-ViT Cross-Attention Architecture for Alzheimer's Disease Diagnosis and MCI Progression Scoring from Structural MRI",
-      "authors": [
-        "Hadil Belanes",
-        "Mohamed Hamroun",
-        "Benoît Crespin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202009875",
-      "title": "Notes on the Bilingual Virgilian Glossary PSI VII 756 (CLTP IV.10)",
-      "authors": [
-        "Bruno Rochette"
+        "Hiroki Arimura"
       ],
       "countries": [
-        "BE"
+        "JP"
       ],
       "primary_country": "Other",
-      "published": "2026-09-09",
+      "published": "2026-09-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202102510",
-      "title": "A Hybrid Triple-Stream Architecture for Arabic Sign Language Recognition: The Architectural Necessity of Multimodality",
+      "id": "https://openalex.org/W7204734560",
+      "title": "Slide: Algebraic Model Counting for Global Analysis of Optimal Decision Trees",
       "authors": [
-        "Ibtihel Mansour",
-        "Mohamed Hamroun",
-        "Sonia Lajmi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204741959",
-      "title": "Geautomatiseerde objectmanipulatie in hardfruitboomgaarden – Robotisch snoeien en oogsten",
-      "authors": [
-        "Rafaël Verbiest"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204780020",
-      "title": "Hybrid Intelligent PV Forecasting with Runtime Validation and Qualification",
-      "authors": [
-        "Leila Sakli",
-        "Seifeddine Ben Elghali"
+        "Hiroki Arimura"
       ],
       "countries": [
-        "FR"
+        "JP"
       ],
       "primary_country": "Other",
-      "published": "2026-09-09",
+      "published": "2026-09-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204848770",
+      "title": "Replication package (anonymised for peer review): Compositional Integration: Anthropology's Four Fields on One Shelf, 1888-2025",
+      "authors": [
+        "Anonymous (author name withheld for peer review)"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7205343238",
+      "title": "Intentiebewuste mens-robotsamenwerking bij assemblage",
+      "authors": [
+        "Martijn Cramer"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7208808424",
+      "title": "Data and analysis code for \"Ethical reflection on invisible human labour behind AI: An asymmetric pattern among university design students in mainland China\"",
+      "authors": [
+        "YILAN HUANG",
+        "Xiaoying Tang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-09-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7208819478",
+      "title": "Data and analysis code for \"Ethical reflection on invisible human labour behind AI: An asymmetric pattern among university design students in mainland China\"",
+      "authors": [
+        "YILAN HUANG",
+        "Xiaoying Tang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-09-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7208918783",
+      "title": "Inzicht in therapeutische uitkomsten bij inflammatoire darmziekten vanuit clinicomics, proteomics en transcriptomics",
+      "authors": [
+        "Dahham Alsoud"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-10",
       "cited_by_count": 0,
       "source": "openalex"
     }

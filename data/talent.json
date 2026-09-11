@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-10T12:08:52.284095+00:00",
+  "fetched_at": "2026-09-11T12:06:50.640653+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 236935,
+            "raw_value": 236647,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4449,
+            "raw_value": 4435,
             "share_score": 34.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3225,
-            "share_score": 30.7,
+            "raw_value": 3213,
+            "share_score": 30.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 275806,
+            "raw_value": 275258,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8418,
+            "raw_value": 8385,
             "share_score": 65.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7271,
-            "share_score": 69.3,
+            "raw_value": 7228,
+            "share_score": 69.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295446
+        "count": 295365
       },
       {
         "country_code": "CN",
-        "count": 275806
+        "count": 275258
       },
       {
         "country_code": "US",
-        "count": 236935
+        "count": 236647
       },
       {
         "country_code": "DE",
-        "count": 184318
+        "count": 184232
       },
       {
         "country_code": "IN",
-        "count": 113592
+        "count": 113235
       },
       {
         "country_code": "GB",
-        "count": 62811
+        "count": 62716
       },
       {
         "country_code": "ID",
-        "count": 34285
+        "count": 34185
       },
       {
         "country_code": "FR",
-        "count": 33449
+        "count": 33396
       },
       {
         "country_code": "CA",
-        "count": 32144
+        "count": 32094
       },
       {
         "country_code": "IT",
-        "count": 30101
+        "count": 30049
       }
     ],
     "volume": {
-      "us": 236935,
-      "china": 275806,
-      "total": 2882530,
+      "us": 236647,
+      "china": 275258,
+      "total": 2879784,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4449,
-      "china": 8418,
-      "total": 19816,
+      "us": 4435,
+      "china": 8385,
+      "total": 19735,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3225,
-      "china": 7271,
-      "total": 16285,
+      "us": 3213,
+      "china": 7228,
+      "total": 16207,
       "data_ok": true
     }
   },
@@ -182,132 +182,161 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7131281314",
-      "title": "Recovery as Structural Property: Operational Criteria for Restoration Completion in Multi-Agent AI Systems",
+      "id": "https://openalex.org/W7170145873",
+      "title": "Construct Validation and Design Relevance of Neurophysiological Measures in TEL: A Scoping Review Dataset",
       "authors": [
-        "Bin Seol"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7131410779",
-      "title": "Persistent Failure Modes in Tool Augmented AI Systems: Constraint Use and Trajectory Intervention, Evidence Review and Candidate Monitoring Protocols",
-      "authors": [
-        "Bin Seol"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7131881575",
-      "title": "Network Architecture Theory: Topology, Routing, and Expansion Principles for Resolution-Governed Multi-Agent Systems",
-      "authors": [
-        "Bin Seol"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204725738",
-      "title": "Slide: Algebraic Model Counting for Global Analysis of Optimal Decision Trees",
-      "authors": [
-        "Hiroki Arimura"
+        "Harshith B. Nair",
+        "Ashutosh Mohanty",
+        "Seyedeh Golafrooz Ramezani"
       ],
       "countries": [
-        "JP"
+        "IN",
+        "FI"
       ],
       "primary_country": "Other",
-      "published": "2026-09-10",
+      "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204734560",
-      "title": "Slide: Algebraic Model Counting for Global Analysis of Optimal Decision Trees",
+      "id": "https://openalex.org/W7170166952",
+      "title": "Construct Validation and Design Relevance of Neurophysiological Measures in TEL: A Scoping Review Dataset",
       "authors": [
-        "Hiroki Arimura"
+        "Harshith B. Nair",
+        "Ashutosh Mohanty",
+        "Seyedeh Golafrooz Ramezani"
       ],
       "countries": [
-        "JP"
+        "IN",
+        "FI"
       ],
       "primary_country": "Other",
-      "published": "2026-09-10",
+      "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204848770",
-      "title": "Replication package (anonymised for peer review): Compositional Integration: Anthropology's Four Fields on One Shelf, 1888-2025",
+      "id": "https://openalex.org/W7202238240",
+      "title": "Diversity-Aware Social Robots for Education and Social Assistance",
       "authors": [
-        "Anonymous (author name withheld for peer review)"
+        "L. Saettone"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-10",
+      "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7205343238",
-      "title": "Intentiebewuste mens-robotsamenwerking bij assemblage",
+      "id": "https://openalex.org/W7202383008",
+      "title": "VoxAura : A Context-Aware Hybrid AI Framework for Multilingual Speech Emotion Recognition and Intelligent Music Recommendation",
       "authors": [
-        "Martijn Cramer"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7208808424",
-      "title": "Data and analysis code for \"Ethical reflection on invisible human labour behind AI: An asymmetric pattern among university design students in mainland China\"",
-      "authors": [
-        "YILAN HUANG",
-        "Xiaoying Tang"
+        "M.D.S. Amaya",
+        "C.D. Padmaperuma"
       ],
       "countries": [
-        "CN"
+        "LK"
       ],
-      "primary_country": "China",
-      "published": "2026-09-10",
+      "primary_country": "Other",
+      "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7208819478",
-      "title": "Data and analysis code for \"Ethical reflection on invisible human labour behind AI: An asymmetric pattern among university design students in mainland China\"",
+      "id": "https://openalex.org/W7202384735",
+      "title": "VoxAura : A Context-Aware Hybrid AI Framework for Multilingual Speech Emotion Recognition and Intelligent Music Recommendation",
       "authors": [
-        "YILAN HUANG",
-        "Xiaoying Tang"
+        "M.D.S. Amaya",
+        "C.D. Padmaperuma"
       ],
       "countries": [
-        "CN"
+        "LK"
       ],
-      "primary_country": "China",
-      "published": "2026-09-10",
+      "primary_country": "Other",
+      "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7208918783",
-      "title": "Inzicht in therapeutische uitkomsten bij inflammatoire darmziekten vanuit clinicomics, proteomics en transcriptomics",
+      "id": "https://openalex.org/W7204069968",
+      "title": "CNN-BASED DOG EMOTIONS DETECTION THROUGH VOCAL SIGNAL ANALYSIS",
       "authors": [
-        "Dahham Alsoud"
+        "M.A.K. Amaya",
+        "W.M.M.J.U. Perera"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-10",
+      "countries": [
+        "LK"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204071842",
+      "title": "STAGE-BASED MACHINE LEARNING FOR TICKET-LEVEL DELAY PREDICTION IN HYBRID SOFTWARE PROJECTS",
+      "authors": [
+        "G.S.I. Hassen",
+        "S.M.S.A. Senarathne",
+        "Y. Yamashita"
+      ],
+      "countries": [
+        "LK",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204072465",
+      "title": "MELANOMA SKIN CANCER DETECTION MOBILE APPLICATION USING DEEP LEARNING",
+      "authors": [
+        "G. W. H. Maneesha",
+        "T. Bandara",
+        "D.B. M. Jyathilke"
+      ],
+      "countries": [
+        "LK",
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204090603",
+      "title": "SMART INGREDIENT AWARE CONVERSATIONAL RECIPE RECOMMENDATION SYSTEM FOR HOUSEHOLD FOOD WASTE REDUCTION USING NLP AND TF - IDF SIMILARITY MODELING",
+      "authors": [
+        "S. Safiuddeen",
+        "T. Bandara",
+        "D. B. M. Jayathilake"
+      ],
+      "countries": [
+        "LK",
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204112552",
+      "title": "SMART INGREDIENT AWARE CONVERSATIONAL RECIPE RECOMMENDATION SYSTEM FOR HOUSEHOLD FOOD WASTE REDUCTION USING NLP AND TF - IDF SIMILARITY MODELING",
+      "authors": [
+        "S. Safiuddeen",
+        "T. Bandara",
+        "D. B. M. Jayathilake"
+      ],
+      "countries": [
+        "LK",
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"
     }

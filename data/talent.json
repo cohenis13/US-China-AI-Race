@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-11T12:06:50.640653+00:00",
+  "fetched_at": "2026-09-12T11:32:45.729340+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 236647,
+            "raw_value": 237320,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4435,
-            "share_score": 34.6,
+            "raw_value": 4429,
+            "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3213,
+            "raw_value": 3218,
             "share_score": 30.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 275258,
+            "raw_value": 276273,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8385,
-            "share_score": 65.4,
+            "raw_value": 8398,
+            "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7228,
+            "raw_value": 7226,
             "share_score": 69.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,176 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295365
+        "count": 295466
       },
       {
         "country_code": "CN",
-        "count": 275258
+        "count": 276273
       },
       {
         "country_code": "US",
-        "count": 236647
+        "count": 237320
       },
       {
         "country_code": "DE",
-        "count": 184232
+        "count": 184385
       },
       {
         "country_code": "IN",
-        "count": 113235
+        "count": 113679
       },
       {
         "country_code": "GB",
-        "count": 62716
+        "count": 62952
       },
       {
         "country_code": "ID",
-        "count": 34185
+        "count": 34188
       },
       {
         "country_code": "FR",
-        "count": 33396
+        "count": 33482
       },
       {
         "country_code": "CA",
-        "count": 32094
+        "count": 32123
       },
       {
         "country_code": "IT",
-        "count": 30049
+        "count": 30136
       }
     ],
     "volume": {
-      "us": 236647,
-      "china": 275258,
-      "total": 2879784,
+      "us": 237320,
+      "china": 276273,
+      "total": 2875761,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4435,
-      "china": 8385,
-      "total": 19735,
+      "us": 4429,
+      "china": 8398,
+      "total": 19749,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3213,
-      "china": 7228,
-      "total": 16207,
+      "us": 3218,
+      "china": 7226,
+      "total": 16226,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7208809094",
+      "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
+      "authors": [
+        "Kornpob Bhirombhakdi"
+      ],
+      "countries": [
+        "GB",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7208809853",
+      "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
+      "authors": [
+        "Kornpob Bhirombhakdi"
+      ],
+      "countries": [
+        "GB",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7208837369",
+      "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
+      "authors": [
+        "Kornpob Bhirombhakdi"
+      ],
+      "countries": [
+        "GB",
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125795482",
+      "title": "Bidirectional Causal Inference for Binary Outcomes in the Presence of Unmeasured Confounding",
+      "authors": [
+        "Yafang Deng",
+        "Kang Shuai",
+        "Shanshan Luo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7131078006",
+      "title": "YOLOZU Manual 4.8.0",
+      "authors": [
+        "YOLOZU contributors"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7131114808",
+      "title": "YOLOZU",
+      "authors": [
+        "YOLOZU contributors"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7165137145",
+      "title": "MIRL Aftermath: a condition dossier for damaged heritage",
+      "authors": [
+        "Jeff O'Brien"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169664914",
+      "title": "betula-cluster",
+      "authors": [
+        "Ilia Gradina"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7170145873",
       "title": "Construct Validation and Design Relevance of Neurophysiological Measures in TEL: A Scoping Review Dataset",
@@ -209,131 +318,6 @@
       "countries": [
         "IN",
         "FI"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202238240",
-      "title": "Diversity-Aware Social Robots for Education and Social Assistance",
-      "authors": [
-        "L. Saettone"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202383008",
-      "title": "VoxAura : A Context-Aware Hybrid AI Framework for Multilingual Speech Emotion Recognition and Intelligent Music Recommendation",
-      "authors": [
-        "M.D.S. Amaya",
-        "C.D. Padmaperuma"
-      ],
-      "countries": [
-        "LK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202384735",
-      "title": "VoxAura : A Context-Aware Hybrid AI Framework for Multilingual Speech Emotion Recognition and Intelligent Music Recommendation",
-      "authors": [
-        "M.D.S. Amaya",
-        "C.D. Padmaperuma"
-      ],
-      "countries": [
-        "LK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204069968",
-      "title": "CNN-BASED DOG EMOTIONS DETECTION THROUGH VOCAL SIGNAL ANALYSIS",
-      "authors": [
-        "M.A.K. Amaya",
-        "W.M.M.J.U. Perera"
-      ],
-      "countries": [
-        "LK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204071842",
-      "title": "STAGE-BASED MACHINE LEARNING FOR TICKET-LEVEL DELAY PREDICTION IN HYBRID SOFTWARE PROJECTS",
-      "authors": [
-        "G.S.I. Hassen",
-        "S.M.S.A. Senarathne",
-        "Y. Yamashita"
-      ],
-      "countries": [
-        "LK",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204072465",
-      "title": "MELANOMA SKIN CANCER DETECTION MOBILE APPLICATION USING DEEP LEARNING",
-      "authors": [
-        "G. W. H. Maneesha",
-        "T. Bandara",
-        "D.B. M. Jyathilke"
-      ],
-      "countries": [
-        "LK",
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204090603",
-      "title": "SMART INGREDIENT AWARE CONVERSATIONAL RECIPE RECOMMENDATION SYSTEM FOR HOUSEHOLD FOOD WASTE REDUCTION USING NLP AND TF - IDF SIMILARITY MODELING",
-      "authors": [
-        "S. Safiuddeen",
-        "T. Bandara",
-        "D. B. M. Jayathilake"
-      ],
-      "countries": [
-        "LK",
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204112552",
-      "title": "SMART INGREDIENT AWARE CONVERSATIONAL RECIPE RECOMMENDATION SYSTEM FOR HOUSEHOLD FOOD WASTE REDUCTION USING NLP AND TF - IDF SIMILARITY MODELING",
-      "authors": [
-        "S. Safiuddeen",
-        "T. Bandara",
-        "D. B. M. Jayathilake"
-      ],
-      "countries": [
-        "LK",
-        "GB"
       ],
       "primary_country": "Other",
       "published": "2026-09-11",

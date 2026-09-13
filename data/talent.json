@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-12T11:32:45.729340+00:00",
+  "fetched_at": "2026-09-13T12:38:41.294678+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 237320,
-            "share_score": 46.2,
+            "raw_value": 237093,
+            "share_score": 46.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4429,
+            "raw_value": 4415,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3218,
+            "raw_value": 3196,
             "share_score": 30.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 276273,
-            "share_score": 53.8,
+            "raw_value": 275335,
+            "share_score": 53.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8398,
+            "raw_value": 8368,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7226,
+            "raw_value": 7192,
             "share_score": 69.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,107 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295466
+        "count": 295439
       },
       {
         "country_code": "CN",
-        "count": 276273
+        "count": 275335
       },
       {
         "country_code": "US",
-        "count": 237320
+        "count": 237093
       },
       {
         "country_code": "DE",
-        "count": 184385
+        "count": 184324
       },
       {
         "country_code": "IN",
-        "count": 113679
+        "count": 113398
       },
       {
         "country_code": "GB",
-        "count": 62952
+        "count": 62865
       },
       {
         "country_code": "ID",
-        "count": 34188
+        "count": 34046
       },
       {
         "country_code": "FR",
-        "count": 33482
+        "count": 33445
       },
       {
         "country_code": "CA",
-        "count": 32123
+        "count": 32075
       },
       {
         "country_code": "IT",
-        "count": 30136
+        "count": 30092
       }
     ],
     "volume": {
-      "us": 237320,
-      "china": 276273,
-      "total": 2875761,
+      "us": 237093,
+      "china": 275335,
+      "total": 2873164,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4429,
-      "china": 8398,
-      "total": 19749,
+      "us": 4415,
+      "china": 8368,
+      "total": 19680,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3218,
-      "china": 7226,
-      "total": 16226,
+      "us": 3196,
+      "china": 7192,
+      "total": 16140,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7135157869",
+      "title": "Unsupervised domain adaptation in biomedical images segmentation with guided diffusion generative prior",
+      "authors": [
+        "Alexandre Stenger",
+        "Étienne Baudrier",
+        "Nicolas Passat"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168229103",
+      "title": "The Signature of the Mono-Oxo Bonding in Protactinium(V) in the M4-Edge HERFD spectrum: a theoretical and experimental study",
+      "authors": [
+        "Tamara Shaaban",
+        "C. Le Naour",
+        "Hanna Oher"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7211982962",
+      "title": "Slide-Seq: From Sample Preparation to Spatial Transcriptome Analysis",
+      "authors": [
+        "Nathalie Beaujean"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W7208809094",
       "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
@@ -274,52 +314,6 @@
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169664914",
-      "title": "betula-cluster",
-      "authors": [
-        "Ilia Gradina"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170145873",
-      "title": "Construct Validation and Design Relevance of Neurophysiological Measures in TEL: A Scoping Review Dataset",
-      "authors": [
-        "Harshith B. Nair",
-        "Ashutosh Mohanty",
-        "Seyedeh Golafrooz Ramezani"
-      ],
-      "countries": [
-        "IN",
-        "FI"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170166952",
-      "title": "Construct Validation and Design Relevance of Neurophysiological Measures in TEL: A Scoping Review Dataset",
-      "authors": [
-        "Harshith B. Nair",
-        "Ashutosh Mohanty",
-        "Seyedeh Golafrooz Ramezani"
-      ],
-      "countries": [
-        "IN",
-        "FI"
-      ],
-      "primary_country": "Other",
       "published": "2026-09-11",
       "cited_by_count": 0,
       "source": "openalex"

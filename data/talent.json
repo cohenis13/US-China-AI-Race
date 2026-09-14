@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-13T12:38:41.294678+00:00",
+  "fetched_at": "2026-09-14T13:48:11.738663+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 237093,
-            "share_score": 46.3,
+            "raw_value": 238601,
+            "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4415,
+            "raw_value": 4434,
             "share_score": 34.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3196,
+            "raw_value": 3216,
             "share_score": 30.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 275335,
-            "share_score": 53.7,
+            "raw_value": 277311,
+            "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8368,
+            "raw_value": 8425,
             "share_score": 65.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7192,
+            "raw_value": 7240,
             "share_score": 69.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295439
+        "count": 295638
       },
       {
         "country_code": "CN",
-        "count": 275335
+        "count": 277311
       },
       {
         "country_code": "US",
-        "count": 237093
+        "count": 238601
       },
       {
         "country_code": "DE",
-        "count": 184324
+        "count": 184987
       },
       {
         "country_code": "IN",
-        "count": 113398
+        "count": 113780
       },
       {
         "country_code": "GB",
-        "count": 62865
+        "count": 63308
       },
       {
         "country_code": "ID",
-        "count": 34046
+        "count": 34270
       },
       {
         "country_code": "FR",
-        "count": 33445
+        "count": 33639
       },
       {
         "country_code": "CA",
-        "count": 32075
+        "count": 32280
       },
       {
         "country_code": "IT",
-        "count": 30092
+        "count": 30324
       }
     ],
     "volume": {
-      "us": 237093,
-      "china": 275335,
-      "total": 2873164,
+      "us": 238601,
+      "china": 277311,
+      "total": 2890974,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4415,
-      "china": 8368,
-      "total": 19680,
+      "us": 4434,
+      "china": 8425,
+      "total": 19759,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3196,
-      "china": 7192,
-      "total": 16140,
+      "us": 3216,
+      "china": 7240,
+      "total": 16228,
       "data_ok": true
     }
   },
@@ -182,139 +182,143 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7135157869",
-      "title": "Unsupervised domain adaptation in biomedical images segmentation with guided diffusion generative prior",
+      "id": "https://openalex.org/W7154195647",
+      "title": "Damage State-Dependent Fragility Models for Multi-Hazard Interactions based on Bayesian Modeling with Interpretable Effects Guided by a Causal Directed Acyclic Graph",
       "authors": [
-        "Alexandre Stenger",
-        "Étienne Baudrier",
-        "Nicolas Passat"
+        "Konstantinos Trevlopoulos",
+        "Pierre Gehl",
+        "Caterina Negulescu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-13",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7168229103",
-      "title": "The Signature of the Mono-Oxo Bonding in Protactinium(V) in the M4-Edge HERFD spectrum: a theoretical and experimental study",
+      "id": "https://openalex.org/W7159894632",
+      "title": "BCI-based Intelligent Tutoring Systems: A Literature Review and Meta-Analysis on Neuroadaptive ITS",
       "authors": [
-        "Tamara Shaaban",
-        "C. Le Naour",
-        "Hanna Oher"
+        "Jimmy Petit",
+        "Marc J.-M. Macé",
+        "Anatole Lécuyer"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-13",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7211982962",
-      "title": "Slide-Seq: From Sample Preparation to Spatial Transcriptome Analysis",
+      "id": "https://openalex.org/W7163847882",
+      "title": "DASTMoE: A Spatio-Temporal Mixture-of-Experts Model for Distributed Acoustic Sensing",
       "authors": [
-        "Nathalie Beaujean"
+        "Michel Dione",
+        "Bilal Faye",
+        "Jerry Lonlac"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-13",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7208809094",
-      "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
+      "id": "https://openalex.org/W7163865219",
+      "title": "GraFlo — Graph Schema & Transformation Language (GSTL)",
       "authors": [
-        "Kornpob Bhirombhakdi"
+        "Alexander Belikov"
       ],
       "countries": [
-        "GB",
-        "US"
+        "BG"
       ],
-      "primary_country": "US",
-      "published": "2026-09-12",
+      "primary_country": "Other",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7208809853",
-      "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
+      "id": "https://openalex.org/W7167316205",
+      "title": "A predictive coding model for memory replay in the neocortex",
       "authors": [
-        "Kornpob Bhirombhakdi"
-      ],
-      "countries": [
-        "GB",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7208837369",
-      "title": "(presentation) jailbreak, agent vulnerabilities, and the grey mage tower",
-      "authors": [
-        "Kornpob Bhirombhakdi"
-      ],
-      "countries": [
-        "GB",
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7125795482",
-      "title": "Bidirectional Causal Inference for Binary Outcomes in the Presence of Unmeasured Confounding",
-      "authors": [
-        "Yafang Deng",
-        "Kang Shuai",
-        "Shanshan Luo"
+        "Lucie Fontaine",
+        "Frédéric Alexandre"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-11",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7131078006",
-      "title": "YOLOZU Manual 4.8.0",
+      "id": "https://openalex.org/W7167661383",
+      "title": "Wrapped One-Class Riemannian EEG classifier for BCI-based detection of anesthetic states",
       "authors": [
-        "YOLOZU contributors"
+        "Valérie Marissens Cueva",
+        "Thibault de Surrel",
+        "Laurent Bougrain"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-11",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7131114808",
-      "title": "YOLOZU",
+      "id": "https://openalex.org/W7167860785",
+      "title": "Benchmarking Machine Learning strategies to classify Steady-State Auditory Evoked Potentials",
       "authors": [
-        "YOLOZU contributors"
+        "Henrique Lefundes da Silva",
+        "Lenaïg Guého",
+        "Cyril Plapous"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-11",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7165137145",
-      "title": "MIRL Aftermath: a condition dossier for damaged heritage",
+      "id": "https://openalex.org/W7168109215",
+      "title": "Using brain network features in motor imagery-based BCI for stroke rehabilitation",
       "authors": [
-        "Jeff O'Brien"
+        "Camile Bousfiha",
+        "Camille Gabot",
+        "Diana Baili"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169729950",
+      "title": "SAFE-CARE Bench: A Benchmark Specification and Evaluation Protocol for Safety, Guardrails, and User Experience in Multi-Turn Healthcare AI Agent Conversations",
+      "authors": [
+        "Yassen Eltayeb",
+        "Monzir Hafez",
+        "Muaaz Abdelkarim"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-09-11",
+      "published": "2026-09-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171006699",
+      "title": "Neural networks for physical measurement: evaluation of measurement reliability by Self-Organizing Maps",
+      "authors": [
+        "Robin Matha",
+        "Aymane Hajjaoui",
+        "Stéphane Barland"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-14",
       "cited_by_count": 0,
       "source": "openalex"
     }

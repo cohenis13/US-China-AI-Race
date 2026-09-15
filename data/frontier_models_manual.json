@@ -1,0 +1,126 @@
+{
+  "schema_version": "2.0",
+  "description": "Manually maintained benchmark snapshot and platform supplement data for the Frontier Models dimension. Update this file when new Arena snapshots or Epoch AI exports are available.",
+  "last_updated": "2026-04-16",
+  "update_notes": "Initial V3 seed. Arena snapshot approximate Q1 2026. Epoch AI snapshot April 2026. ModelScope supplement is an estimated lower bound.",
+
+  "lmsys_arena": {
+    "source_name": "LMSYS Chatbot Arena",
+    "source_url": "https://chat.lmsys.org/",
+    "data_url": "https://huggingface.co/datasets/mathewhe/chatbot-arena-elo",
+    "snapshot_date": "2026-04-01",
+    "confidence": "Medium",
+    "coverage_note": "Arena ranks only models submitted for public human evaluation. Some frontier models run API-only and may not be submitted. Chinese models relying on domestic APIs may be structurally underrepresented relative to their actual capability.",
+    "top_n": 20,
+    "us_count": 12,
+    "china_count": 7,
+    "other_count": 1,
+    "models": [
+      {"rank": 1,  "developer": "OpenAI",          "country": "US",    "notes": "o3 / o3-mini"},
+      {"rank": 2,  "developer": "Anthropic",        "country": "US",    "notes": "Claude 3.7 Sonnet"},
+      {"rank": 3,  "developer": "Google DeepMind",  "country": "US",    "notes": "Gemini 2.5 Pro"},
+      {"rank": 4,  "developer": "OpenAI",           "country": "US",    "notes": "GPT-4o (latest)"},
+      {"rank": 5,  "developer": "DeepSeek",         "country": "China", "notes": "DeepSeek-R1"},
+      {"rank": 6,  "developer": "Anthropic",        "country": "US",    "notes": "Claude 3.5 Sonnet"},
+      {"rank": 7,  "developer": "Alibaba / Qwen",   "country": "China", "notes": "Qwen2.5-Max"},
+      {"rank": 8,  "developer": "Google DeepMind",  "country": "US",    "notes": "Gemini 2.0 Flash"},
+      {"rank": 9,  "developer": "OpenAI",           "country": "US",    "notes": "o1"},
+      {"rank": 10, "developer": "DeepSeek",         "country": "China", "notes": "DeepSeek-V3"},
+      {"rank": 11, "developer": "Meta AI",          "country": "US",    "notes": "Llama 3.3 70B"},
+      {"rank": 12, "developer": "Alibaba / Qwen",   "country": "China", "notes": "Qwen2.5-72B"},
+      {"rank": 13, "developer": "Microsoft",        "country": "US",    "notes": "Phi-4"},
+      {"rank": 14, "developer": "Zhipu AI / THUDM", "country": "China", "notes": "GLM-4"},
+      {"rank": 15, "developer": "Anthropic",        "country": "US",    "notes": "Claude 3 Haiku"},
+      {"rank": 16, "developer": "OpenAI",           "country": "US",    "notes": "GPT-4 Turbo"},
+      {"rank": 17, "developer": "ByteDance",        "country": "China", "notes": "Doubao-pro"},
+      {"rank": 18, "developer": "Google DeepMind",  "country": "US",    "notes": "Gemma 3 27B"},
+      {"rank": 19, "developer": "Moonshot AI",      "country": "China", "notes": "Kimi k1.5"},
+      {"rank": 20, "developer": "Mistral AI",       "country": "Other", "notes": "Mistral Large"}
+    ]
+  },
+
+  "epoch_ai_output": {
+    "source_name": "Epoch AI — Notable AI Models",
+    "source_url": "https://epoch.ai/data/notable-ai-models",
+    "snapshot_date": "2026-04-01",
+    "window_years": 2,
+    "confidence": "Medium-High",
+    "coverage_note": "Epoch AI applies a documented selection methodology for 'notable' models. Chinese lab models with limited English documentation or closed weights may be excluded. This creates a systematic undercount of China's model output relative to the raw volume on ModelScope.",
+    "us_count": 107,
+    "china_count": 65,
+    "other_count": 25,
+    "total": 197
+  },
+
+  "modelscope_supplement": {
+    "description": "Estimated 30-day model publication activity by Chinese labs that publish primarily on ModelScope (魔搭社区) and are not fully captured by Hugging Face Hub tracking. This is a conservative lower-bound estimate, not an API-derived count.",
+    "source_url": "https://modelscope.cn/models",
+    "snapshot_date": "2026-04-01",
+    "confidence": "Low",
+    "coverage_note": "ModelScope (Alibaba) is the dominant Chinese model platform with 100k+ hosted models. Labs already tracked via HF (Qwen, DeepSeek, THUDM, etc.) are NOT double-counted here. This supplement captures estimated activity from labs with limited HF presence.",
+    "labs": [
+      {
+        "name": "BAAI (Beijing Academy of AI)",
+        "hf_author": "BAAI",
+        "country": "China",
+        "estimated_30d_models": 5,
+        "notes": "FlagAI, FlagEmbedding, AquilaChat series. Primarily ModelScope distribution."
+      },
+      {
+        "name": "Baichuan Intelligence",
+        "hf_author": "baichuan-inc",
+        "country": "China",
+        "estimated_30d_models": 4,
+        "notes": "Baichuan2, Baichuan3 series. Significant domestic platform presence."
+      },
+      {
+        "name": "Kuaishou AI",
+        "hf_author": null,
+        "country": "China",
+        "estimated_30d_models": 3,
+        "notes": "Kling video generation, Kolors image models. Primarily domestic distribution."
+      },
+      {
+        "name": "Sensetime / SenseNova",
+        "hf_author": null,
+        "country": "China",
+        "estimated_30d_models": 2,
+        "notes": "SenseNova 5.5 series. Enterprise-focused, primarily closed/API."
+      },
+      {
+        "name": "Vivo AI / BlueLM",
+        "hf_author": "vivo-ai",
+        "country": "China",
+        "estimated_30d_models": 2,
+        "notes": "BlueLM on-device series. Primarily ModelScope distribution."
+      }
+    ],
+    "total_supplement_estimate": 16,
+    "confidence_interval": "10–25 models per 30-day window",
+    "methodology_note": "Estimates are based on observed ModelScope activity patterns from public pages and prior monitoring. These numbers should be treated as directional, not precise. A proper ModelScope API integration would replace this supplement."
+  },
+
+  "ecosystem_breadth": {
+    "description": "Platform distribution scores estimating each country's open-model reach across HuggingFace (global) and ModelScope (China-primary). Scored as US% / China% share of combined.",
+    "snapshot_date": "2026-04-01",
+    "hf_downloads": {
+      "source": "Hugging Face Hub API (from diffusion pipeline)",
+      "us_share_pct": 76,
+      "china_share_pct": 24,
+      "confidence": "Medium-High",
+      "coverage_note": "US open-source models (Llama series, Stable Diffusion, Phi) dominate HF global downloads. Chinese model HF downloads come primarily from Qwen and DeepSeek."
+    },
+    "modelscope_presence": {
+      "source": "Manual estimate — ModelScope public pages",
+      "us_share_pct": 10,
+      "china_share_pct": 90,
+      "confidence": "Low",
+      "coverage_note": "Chinese labs dominate ModelScope. US labs (Meta, Microsoft) have limited ModelScope presence relative to their HF footprint. Estimate based on top-1000 model list composition."
+    },
+    "platform_weights": {
+      "hf": 0.55,
+      "modelscope": 0.45,
+      "rationale": "HF weighted higher as it represents global reach. ModelScope weighted at 0.45 to reflect its large but primarily China-domestic distribution."
+    }
+  }
+}

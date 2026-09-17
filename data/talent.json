@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-15T12:33:55.517309+00:00",
+  "fetched_at": "2026-09-17T12:30:47.701611+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.9,
+          "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 239345,
-            "share_score": 46.3,
+            "raw_value": 240408,
+            "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4421,
-            "share_score": 34.5,
+            "raw_value": 4439,
+            "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3222,
-            "share_score": 30.7,
+            "raw_value": 3228,
+            "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.1,
+          "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 278127,
-            "share_score": 53.7,
+            "raw_value": 280415,
+            "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8405,
-            "share_score": 65.5,
+            "raw_value": 8452,
+            "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7268,
-            "share_score": 69.3,
+            "raw_value": 7324,
+            "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295743
+        "count": 295880
       },
       {
         "country_code": "CN",
-        "count": 278127
+        "count": 280415
       },
       {
         "country_code": "US",
-        "count": 239345
+        "count": 240408
       },
       {
         "country_code": "DE",
-        "count": 185138
+        "count": 185512
       },
       {
         "country_code": "IN",
-        "count": 113990
+        "count": 114602
       },
       {
         "country_code": "GB",
-        "count": 63577
+        "count": 63992
       },
       {
         "country_code": "ID",
-        "count": 34306
+        "count": 34358
       },
       {
         "country_code": "FR",
-        "count": 33753
+        "count": 33860
       },
       {
         "country_code": "CA",
-        "count": 32358
+        "count": 32566
       },
       {
         "country_code": "IT",
-        "count": 30395
+        "count": 30572
       }
     ],
     "volume": {
-      "us": 239345,
-      "china": 278127,
-      "total": 2898772,
+      "us": 240408,
+      "china": 280415,
+      "total": 2914675,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4421,
-      "china": 8405,
-      "total": 19715,
+      "us": 4439,
+      "china": 8452,
+      "total": 19810,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3222,
-      "china": 7268,
-      "total": 16257,
+      "us": 3228,
+      "china": 7324,
+      "total": 16358,
       "data_ok": true
     }
   },
@@ -182,136 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7112408212",
-      "title": "Impact of context on second language fluency assessment",
+      "id": "https://openalex.org/W4416020120",
+      "title": "Watermarking large language models in Europe: interpreting the AI act in light of technology",
       "authors": [
-        "Wright, Clare",
-        "Tavakoli, Parvaneh"
+        "Thomas Souverain"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7116104684",
-      "title": "GRETIL: Integrating Indology's Largest Corpus into the TextGrid Repository (Preprint)",
+      "id": "https://openalex.org/W7153451231",
+      "title": "Photovoltaic panels affect arthropod and plant communities: a systematic review",
       "authors": [
-        "Herting, David",
-        "Calvo Tello, José",
-        "Mehner, Maximilian"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7118177740",
-      "title": "ACCELERATING PATHOLOGY REPORT DIGITIZATION: A MULTI-ENGINE OCR AND LLM FRAMEWORK FOR HEALTHCARE APPLICATIONS",
-      "authors": [
-        "Journal of Theoretical and Applied Information Technology"
+        "Alix Lafitte",
+        "Dakis‐Yaoba Ouédraogo",
+        "Shinichi Nakagawa"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7118180743",
-      "title": "ACCELERATING PATHOLOGY REPORT DIGITIZATION: A MULTI-ENGINE OCR AND LLM FRAMEWORK FOR HEALTHCARE APPLICATIONS",
+      "id": "https://openalex.org/W7154659690",
+      "title": "Data protection law, the GDPR and artificial intelligence",
       "authors": [
-        "Journal of Theoretical and Applied Information Technology"
+        "Lilian Edwards",
+        "Zihao Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7151991440",
-      "title": "Moltbook Social Interactions Dataset",
+      "id": "https://openalex.org/W7169702046",
+      "title": "The Effect of Color-Space Representations on Deepfake Detection: A Benchmark Study",
       "authors": [
-        "Taksch Dubé"
-      ],
-      "countries": [
-        "HR",
-        "RU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162153907",
-      "title": "Capacity-Aware Deep Learning for Generalizable Traffic Volume Estimation Across Links and Cities",
-      "authors": [
-        "Léo Hein",
-        "Giovanni De Nunzio",
-        "Aurélie Pirayre"
+        "Javaid, Kashif, Ali",
+        "Alain Trémeau",
+        "Iuliia Tkachenko"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163292257",
-      "title": "Combining Accuracy and Precision in Macsum Aggregation Learning",
+      "id": "https://openalex.org/W7204280453",
+      "title": "Reproducibility archive for time-resolved surface-fault displacement during the 2026 Kumamoto earthquake",
       "authors": [
-        "Isaac Kinane",
-        "Christophe Marsala",
-        "Agnès Rico"
+        "Bogdan Enescu",
+        "Shinji Toda",
+        "Yuji Yagi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7163835786",
-      "title": "Motion Planning in Urban Environments via Self-Play Reinforcement Learning",
+      "id": "https://openalex.org/W7204980599",
+      "title": "EQUAINE: Asking machines to understand equine data and keep learning from it",
       "authors": [
-        "Islem Kobbi",
-        "Tiago Rocha Gonçalves",
-        "Fawzi Nashashibi"
+        "Jeanne Isabelle Monette Parmentier",
+        "Locomotion - Integrating Sciences",
+        "Heelkunde"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202372761",
-      "title": "Information-Geometric Trajectory Routing",
+      "id": "https://openalex.org/W7212226382",
+      "title": "INTEGRATED ASSESSMENT OF PHYSICAL, COGNITIVE AND EMOTIONAL WELL-BEING IN AN INDUSTRIAL PAINTING WORKSTATION: TRANSITION TO INDUSTRY 5.0",
       "authors": [
-        "Stefan Trauth"
+        "Inês de Oliveira Maia",
+        "Ana Margarida do Carmo",
+        "Pedro Soares Morim"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203602958",
-      "title": "Explainable AI for Autonomous Systems: Interpretable Decision Making in Self-Driving and Intelligent Robots",
+      "id": "https://openalex.org/W7212231616",
+      "title": "ARTIFICIAL INTELLIGENCE IN PROJECT MANAGEMENT: A SYSTEMATIC LITERATURE REVIEW IN THE CONTEXT OF INDUSTRY 5.0",
       "authors": [
-        "Dr Nitin Shekapure, Dr Manoj Bauskar, Mr S S Kallurkar, Mr Y R Chandwade, Mr M L Chanpur"
+        "Teresa Silva",
+        "Juliana Salvadorinho",
+        "Leonor Teixeira"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-15",
+      "published": "2026-09-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212257347",
+      "title": "INTEGRATED ASSESSMENT OF PHYSICAL, COGNITIVE AND EMOTIONAL WELL-BEING IN AN INDUSTRIAL PAINTING WORKSTATION: TRANSITION TO INDUSTRY 5.0",
+      "authors": [
+        "Inês de Oliveira Maia",
+        "Ana Margarida do Carmo",
+        "Pedro Soares Morim"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212271481",
+      "title": "EXPLORING THE USE OF GENERATIVE AI TOOLS IN INDUSTRIAL ENGINEERING AND MANAGEMENT PROFESSIONALS: AN APPLIED UTAUT2-INFORMED STUDY",
+      "authors": [
+        "Ana Sofia Ferreira",
+        "Gonçalo Monteiro",
+        "Matilde Azevedo dos Santos"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-17",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-17T12:30:47.701611+00:00",
+  "fetched_at": "2026-09-18T12:09:01.356875+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 240408,
+            "raw_value": 240801,
             "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4439,
+            "raw_value": 4440,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3228,
+            "raw_value": 3231,
             "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 280415,
+            "raw_value": 280786,
             "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8452,
+            "raw_value": 8469,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7324,
+            "raw_value": 7331,
             "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295880
+        "count": 295915
       },
       {
         "country_code": "CN",
-        "count": 280415
+        "count": 280786
       },
       {
         "country_code": "US",
-        "count": 240408
+        "count": 240801
       },
       {
         "country_code": "DE",
-        "count": 185512
+        "count": 185557
       },
       {
         "country_code": "IN",
-        "count": 114602
+        "count": 114668
       },
       {
         "country_code": "GB",
-        "count": 63992
+        "count": 64117
       },
       {
         "country_code": "ID",
-        "count": 34358
+        "count": 34482
       },
       {
         "country_code": "FR",
-        "count": 33860
+        "count": 33887
       },
       {
         "country_code": "CA",
-        "count": 32566
+        "count": 32593
       },
       {
         "country_code": "IT",
-        "count": 30572
+        "count": 30606
       }
     ],
     "volume": {
-      "us": 240408,
-      "china": 280415,
-      "total": 2914675,
+      "us": 240801,
+      "china": 280786,
+      "total": 2920664,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4439,
-      "china": 8452,
-      "total": 19810,
+      "us": 4440,
+      "china": 8469,
+      "total": 19843,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3228,
-      "china": 7324,
-      "total": 16358,
+      "us": 3231,
+      "china": 7331,
+      "total": 16387,
       "data_ok": true
     }
   },
@@ -182,139 +182,127 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4416020120",
-      "title": "Watermarking large language models in Europe: interpreting the AI act in light of technology",
+      "id": "https://openalex.org/W7103886976",
+      "title": "CDFDatasets.jl",
       "authors": [
-        "Thomas Souverain"
+        "Zhang, Zijin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7153451231",
-      "title": "Photovoltaic panels affect arthropod and plant communities: a systematic review",
+      "id": "https://openalex.org/W7128403463",
+      "title": "Learning human visual attention on 3D surfaces through geometry-queried semantic priors",
       "authors": [
-        "Alix Lafitte",
-        "Dakis‐Yaoba Ouédraogo",
-        "Shinichi Nakagawa"
+        "Soham Pahari",
+        "Sandeep Chand Kumain"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7154659690",
-      "title": "Data protection law, the GDPR and artificial intelligence",
+      "id": "https://openalex.org/W7164003417",
+      "title": "splatreg: composable SE(3)/Sim(3) registration for 3D Gaussian Splatting",
       "authors": [
-        "Lilian Edwards",
-        "Zihao Li"
+        "Krishi Attri"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169702046",
-      "title": "The Effect of Color-Space Representations on Deepfake Detection: A Benchmark Study",
+      "id": "https://openalex.org/W7167693371",
+      "title": "KeepTrack: Open-Source Satellite Tracking and Orbital Visualization Platform",
       "authors": [
-        "Javaid, Kashif, Ali",
-        "Alain Trémeau",
-        "Iuliia Tkachenko"
+        "Theodore Kruczek"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204280453",
-      "title": "Reproducibility archive for time-resolved surface-fault displacement during the 2026 Kumamoto earthquake",
+      "id": "https://openalex.org/W7168039007",
+      "title": "Analysis code, results and derived data for: How much of a generative-AI prevalence estimate is the word list? Seven word lists compared on Japanese society journals and on PubMed",
       "authors": [
-        "Bogdan Enescu",
-        "Shinji Toda",
-        "Yuji Yagi"
+        "Tengfei Shao"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204980599",
-      "title": "EQUAINE: Asking machines to understand equine data and keep learning from it",
+      "id": "https://openalex.org/W7170032440",
+      "title": "ActionABI: Evidence-first auditing of robot action-tensor contracts",
       "authors": [
-        "Jeanne Isabelle Monette Parmentier",
-        "Locomotion - Integrating Sciences",
-        "Heelkunde"
+        "Krishi Attri"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212226382",
-      "title": "INTEGRATED ASSESSMENT OF PHYSICAL, COGNITIVE AND EMOTIONAL WELL-BEING IN AN INDUSTRIAL PAINTING WORKSTATION: TRANSITION TO INDUSTRY 5.0",
+      "id": "https://openalex.org/W7170046954",
+      "title": "ActionShift: Hidden compositional action-interface adaptation benchmark",
       "authors": [
-        "Inês de Oliveira Maia",
-        "Ana Margarida do Carmo",
-        "Pedro Soares Morim"
+        "Krishi Attri"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212231616",
-      "title": "ARTIFICIAL INTELLIGENCE IN PROJECT MANAGEMENT: A SYSTEMATIC LITERATURE REVIEW IN THE CONTEXT OF INDUSTRY 5.0",
+      "id": "https://openalex.org/W7170075319",
+      "title": "AURA: Calibrated Per-Carrier Confidence and Certified Pruning for Gaussian-Splat Assets",
       "authors": [
-        "Teresa Silva",
-        "Juliana Salvadorinho",
-        "Leonor Teixeira"
+        "Krishi Attri"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212257347",
-      "title": "INTEGRATED ASSESSMENT OF PHYSICAL, COGNITIVE AND EMOTIONAL WELL-BEING IN AN INDUSTRIAL PAINTING WORKSTATION: TRANSITION TO INDUSTRY 5.0",
+      "id": "https://openalex.org/W7171161097",
+      "title": "Label-Free Detection of Poisoned Dependencies: The Reachable Frontier and Its Seam — reproduction artifact (code, frozen corpora, and results)",
       "authors": [
-        "Inês de Oliveira Maia",
-        "Ana Margarida do Carmo",
-        "Pedro Soares Morim"
+        "Adrian Asher"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212271481",
-      "title": "EXPLORING THE USE OF GENERATIVE AI TOOLS IN INDUSTRIAL ENGINEERING AND MANAGEMENT PROFESSIONALS: AN APPLIED UTAUT2-INFORMED STUDY",
+      "id": "https://openalex.org/W7172178240",
+      "title": "Kinship Reasoning as a Testbed for Neuro-Symbolic Architectures: Comparing LLM–Prolog Integration Strategies and Assessing Cultural Bias",
       "authors": [
-        "Ana Sofia Ferreira",
-        "Gonçalo Monteiro",
-        "Matilde Azevedo dos Santos"
+        "Thamer Aljohani",
+        "Tianda Sun",
+        "DIMITAR LUBOMIROV KAZAKOV"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-17",
+      "published": "2026-09-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

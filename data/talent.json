@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-19T11:51:46.356780+00:00",
+  "fetched_at": "2026-09-20T12:10:14.392637+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 241322,
-            "share_score": 46.2,
+            "raw_value": 241265,
+            "share_score": 46.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4442,
+            "raw_value": 4435,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3227,
+            "raw_value": 3218,
             "share_score": 30.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 281232,
-            "share_score": 53.8,
+            "raw_value": 280106,
+            "share_score": 53.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8470,
+            "raw_value": 8467,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7342,
+            "raw_value": 7319,
             "share_score": 69.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295950
+        "count": 295923
       },
       {
         "country_code": "CN",
-        "count": 281232
+        "count": 280106
       },
       {
         "country_code": "US",
-        "count": 241322
+        "count": 241265
       },
       {
         "country_code": "DE",
-        "count": 185685
+        "count": 185707
       },
       {
         "country_code": "IN",
-        "count": 114886
+        "count": 114574
       },
       {
         "country_code": "GB",
-        "count": 64272
+        "count": 64216
       },
       {
         "country_code": "ID",
-        "count": 34494
+        "count": 34520
       },
       {
         "country_code": "FR",
-        "count": 33915
+        "count": 33897
       },
       {
         "country_code": "CA",
-        "count": 32650
+        "count": 32621
       },
       {
         "country_code": "IT",
-        "count": 30694
+        "count": 30685
       }
     ],
     "volume": {
-      "us": 241322,
-      "china": 281232,
-      "total": 2927551,
+      "us": 241265,
+      "china": 280106,
+      "total": 2927834,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4442,
-      "china": 8470,
-      "total": 19841,
+      "us": 4435,
+      "china": 8467,
+      "total": 19826,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3227,
-      "china": 7342,
-      "total": 16394,
+      "us": 3218,
+      "china": 7319,
+      "total": 16345,
       "data_ok": true
     }
   },
@@ -182,133 +182,132 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7133202361",
-      "title": "Technical Report v1.19.1: The DB-Building Pipeline Behind Technical Reports v1.12–v1.16, Released for Reuse on Any Dataset",
+      "id": "https://openalex.org/W7151829461",
+      "title": "The Revelation of Artificial Intelligence through the Lens of Biblical Knowledge and the Ifa Corpus among the Yoruba of Southwest Nigeria",
       "authors": [
-        "neco mohumohu"
+        "Jacob Boluwatife Micheal"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7147259206",
-      "title": "Nika",
+      "id": "https://openalex.org/W7151989759",
+      "title": "The Revelation of Artificial Intelligence through the Lens of Biblical Knowledge and the Ifa Corpus among the Yoruba of Southwest Nigeria",
       "authors": [
-        "SuperNovae Studio"
+        "Jacob Boluwatife Micheal"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7161818428",
-      "title": "BVDOutbreakSize: estimating the current size of the 2026 DRC Bundibugyo virus outbreak",
+      "id": "https://openalex.org/W7164702165",
+      "title": "Real-Time Interactive MWA Planning via Probabilistic Inverse Inference",
       "authors": [
-        "Sam Abbott (bot)",
-        "Katharine Sherratt",
-        "Samuel Brand"
+        "Francesco Dettori",
+        "Ilias Nahmed",
+        "Michel Duprez"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164751760",
-      "title": "Ndvi2Gif: A Python Package for Multi-Seasonal Remote Sensing Analysis with Google Earth Engine",
+      "id": "https://openalex.org/W7165775508",
+      "title": "Supplementary data for systems-level transcriptomic and cellular analysis of the human striatum in schizophrenia and bipolar psychosis",
       "authors": [
-        "Diego García Díaz"
+        "Wei-Hung Chan",
+        "Shih-Ming Huang",
+        "Hui-Chen Su"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166577091",
+      "title": "nirs4all: Open spectroscopy workflows for reproducible NIR chemometrics",
+      "authors": [
+        "Grégory Beurier",
+        "Lauriane Rouan",
+        "Denis Cornet"
       ],
       "countries": [
-        "ES"
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172513859",
-      "title": "An enhanced hierarchical Mamba-based cardiac segmentation network for cardiovascular analysis and disease diagnosis using multiple MRI datasets",
+      "id": "https://openalex.org/W7169863494",
+      "title": "gp3sequences: Transparent Analysis of Ordered Categorical Sequences",
       "authors": [
-        "Uroosa Sehar",
-        "Nouman Ahmad",
-        "Zeeshan Tariq"
+        "Stefanos Balaskas"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203699052",
-      "title": "Asymmetric Prefrontal Representations for Leader-Follower Dynamics",
+      "id": "https://openalex.org/W7170074912",
+      "title": "gp3ml: Governance-First Predictive Modelling for Gazepoint Research",
       "authors": [
-        "Yuan Cheng"
+        "Stefanos Balaskas"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204190850",
-      "title": "Plainbook: Natural Language Notebooks",
+      "id": "https://openalex.org/W7170178976",
+      "title": "gp3bayes: Contract-First Bayesian Workflows for Hierarchical Behavioural Data",
       "authors": [
-        "Luca de Alfaro",
-        "Mathis Aubert",
-        "Ranjit Jhala"
+        "Stefanos Balaskas"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172441477",
+      "title": "Quiltwright: Holographic Output for Looking Glass Displays",
+      "authors": [
+        "Eric G. Suchanek"
       ],
       "countries": [
-        "US",
-        "IT"
+        "CH"
       ],
-      "primary_country": "US",
-      "published": "2026-09-19",
+      "primary_country": "Other",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7208832449",
-      "title": "Leaderboard measurement toolkit: how much of a ranking survives its own sampling error",
+      "id": "https://openalex.org/W7197045994",
+      "title": "Unified Ornstein–Uhlenbeck–Lévy–Branching Framework",
       "authors": [
-        "Ilpo Väätäinen"
+        "Seung-Hwan Kim"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213514813",
-      "title": "HISTORY OF BUSOGA LUGANDA VERSION 1921 BY Y.K LUBOGO ORIGINAL MANUSCRIPT",
-      "authors": [
-        "Isaac Lubogo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213523391",
-      "title": "HISTORY OF BUSOGA LUGANDA VERSION 1921 BY Y.K LUBOGO ORIGINAL MANUSCRIPT",
-      "authors": [
-        "Isaac Lubogo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-19",
+      "published": "2026-09-20",
       "cited_by_count": 0,
       "source": "openalex"
     }

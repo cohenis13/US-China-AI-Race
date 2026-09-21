@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-20T12:10:14.392637+00:00",
+  "fetched_at": "2026-09-21T13:48:29.096174+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 241265,
+            "raw_value": 241152,
             "share_score": 46.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4435,
+            "raw_value": 4424,
             "share_score": 34.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3218,
-            "share_score": 30.5,
+            "raw_value": 3209,
+            "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 280106,
+            "raw_value": 279932,
             "share_score": 53.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8467,
+            "raw_value": 8441,
             "share_score": 65.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7319,
-            "share_score": 69.5,
+            "raw_value": 7288,
+            "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295923
+        "count": 295904
       },
       {
         "country_code": "CN",
-        "count": 280106
+        "count": 279932
       },
       {
         "country_code": "US",
-        "count": 241265
+        "count": 241152
       },
       {
         "country_code": "DE",
-        "count": 185707
+        "count": 185669
       },
       {
         "country_code": "IN",
-        "count": 114574
+        "count": 114513
       },
       {
         "country_code": "GB",
-        "count": 64216
+        "count": 64164
       },
       {
         "country_code": "ID",
-        "count": 34520
+        "count": 34459
       },
       {
         "country_code": "FR",
-        "count": 33897
+        "count": 33878
       },
       {
         "country_code": "CA",
-        "count": 32621
+        "count": 32606
       },
       {
         "country_code": "IT",
-        "count": 30685
+        "count": 30669
       }
     ],
     "volume": {
-      "us": 241265,
-      "china": 280106,
-      "total": 2927834,
+      "us": 241152,
+      "china": 279932,
+      "total": 2926897,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4435,
-      "china": 8467,
-      "total": 19826,
+      "us": 4424,
+      "china": 8441,
+      "total": 19767,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3218,
-      "china": 7319,
-      "total": 16345,
+      "us": 3209,
+      "china": 7288,
+      "total": 16278,
       "data_ok": true
     }
   },
@@ -182,132 +182,142 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7151829461",
-      "title": "The Revelation of Artificial Intelligence through the Lens of Biblical Knowledge and the Ifa Corpus among the Yoruba of Southwest Nigeria",
+      "id": "https://openalex.org/W7140200562",
+      "title": "HOFIZ O'BAHIYNING \"TUHFAT UL-AHBOB\" LUG'ATIDA LUG'AVIY BIRLIKLARNING IZOHLANISHI",
       "authors": [
-        "Jacob Boluwatife Micheal"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7151989759",
-      "title": "The Revelation of Artificial Intelligence through the Lens of Biblical Knowledge and the Ifa Corpus among the Yoruba of Southwest Nigeria",
-      "authors": [
-        "Jacob Boluwatife Micheal"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164702165",
-      "title": "Real-Time Interactive MWA Planning via Probabilistic Inverse Inference",
-      "authors": [
-        "Francesco Dettori",
-        "Ilias Nahmed",
-        "Michel Duprez"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165775508",
-      "title": "Supplementary data for systems-level transcriptomic and cellular analysis of the human striatum in schizophrenia and bipolar psychosis",
-      "authors": [
-        "Wei-Hung Chan",
-        "Shih-Ming Huang",
-        "Hui-Chen Su"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166577091",
-      "title": "nirs4all: Open spectroscopy workflows for reproducible NIR chemometrics",
-      "authors": [
-        "Grégory Beurier",
-        "Lauriane Rouan",
-        "Denis Cornet"
+        "Vaxidova, Gulnoza"
       ],
       "countries": [
-        "FR"
+        "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-09-20",
+      "published": "2026-09-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169863494",
-      "title": "gp3sequences: Transparent Analysis of Ordered Categorical Sequences",
+      "id": "https://openalex.org/W7140220549",
+      "title": "HOFIZ O'BAHIYNING \"TUHFAT UL-AHBOB\" LUG'ATIDA LUG'AVIY BIRLIKLARNING IZOHLANISHI",
       "authors": [
-        "Stefanos Balaskas"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170074912",
-      "title": "gp3ml: Governance-First Predictive Modelling for Gazepoint Research",
-      "authors": [
-        "Stefanos Balaskas"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7170178976",
-      "title": "gp3bayes: Contract-First Bayesian Workflows for Hierarchical Behavioural Data",
-      "authors": [
-        "Stefanos Balaskas"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172441477",
-      "title": "Quiltwright: Holographic Output for Looking Glass Displays",
-      "authors": [
-        "Eric G. Suchanek"
+        "Vaxidova, Gulnoza"
       ],
       "countries": [
-        "CH"
+        "UZ"
       ],
       "primary_country": "Other",
-      "published": "2026-09-20",
+      "published": "2026-09-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7197045994",
-      "title": "Unified Ornstein–Uhlenbeck–Lévy–Branching Framework",
+      "id": "https://openalex.org/W7210275166",
+      "title": "Oclusão vascular por preenchedor: reconhecimento, hialuronidase e ultrassom",
       "authors": [
-        "Seung-Hwan Kim"
+        "Talita Almeida"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7210808097",
+      "title": "Revisiting the SHINE high-contrast imaging exoplanet survey using the Regime Switching Model",
+      "authors": [
+        "Mariam Sabalbal"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213511271",
+      "title": "ИННОВАЦИОННАЯ СИСТЕМА КОНТРОЛЯ ГЛЮКОЗЫ И ВВЕДЕНИЯ ИНСУЛИНА - SUGAR SENSE",
+      "authors": [
+        "Гаибназаров Сардорхон Суннатиллаевич"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-20",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213525851",
+      "title": "ИННОВАЦИОННАЯ СИСТЕМА КОНТРОЛЯ ГЛЮКОЗЫ И ВВЕДЕНИЯ ИНСУЛИНА - SUGAR SENSE",
+      "authors": [
+        "Гаибназаров Сардорхон Суннатиллаевич"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213601162",
+      "title": "Chapter 2 – Organizational Hierarchy of Physiological Systems",
+      "authors": [
+        "Erik P. Silldorff",
+        "Gerald Robinson"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213606563",
+      "title": "Chapter 2 – Organizational Hierarchy of Physiological Systems",
+      "authors": [
+        "Erik P. Silldorff",
+        "Gerald Robinson"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213608104",
+      "title": "Hybrid Loss-Based Deep Learning Framework Using EfficientNet-B3 for Multi-Class Colorectal Cancer Detection",
+      "authors": [
+        "Chandrakanta Mahanty",
+        "Nallamalla Anusha"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213609915",
+      "title": "Hybrid Loss-Based Deep Learning Framework Using EfficientNet-B3 for Multi-Class Colorectal Cancer Detection",
+      "authors": [
+        "Chandrakanta Mahanty",
+        "Nallamalla Anusha"
+      ],
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-21",
       "cited_by_count": 0,
       "source": "openalex"
     }

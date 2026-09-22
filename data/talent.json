@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-21T13:48:29.096174+00:00",
+  "fetched_at": "2026-09-22T12:29:58.803987+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 241152,
-            "share_score": 46.3,
+            "raw_value": 241904,
+            "share_score": 46.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4424,
-            "share_score": 34.4,
+            "raw_value": 4420,
+            "share_score": 34.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3209,
+            "raw_value": 3229,
             "share_score": 30.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 279932,
-            "share_score": 53.7,
+            "raw_value": 281270,
+            "share_score": 53.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8441,
-            "share_score": 65.6,
+            "raw_value": 8463,
+            "share_score": 65.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7288,
+            "raw_value": 7326,
             "share_score": 69.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 295904
+        "count": 296078
       },
       {
         "country_code": "CN",
-        "count": 279932
+        "count": 281270
       },
       {
         "country_code": "US",
-        "count": 241152
+        "count": 241904
       },
       {
         "country_code": "DE",
-        "count": 185669
+        "count": 185873
       },
       {
         "country_code": "IN",
-        "count": 114513
+        "count": 115229
       },
       {
         "country_code": "GB",
-        "count": 64164
+        "count": 64460
       },
       {
         "country_code": "ID",
-        "count": 34459
+        "count": 35112
       },
       {
         "country_code": "FR",
-        "count": 33878
+        "count": 34061
       },
       {
         "country_code": "CA",
-        "count": 32606
+        "count": 32743
       },
       {
         "country_code": "IT",
-        "count": 30669
+        "count": 30810
       }
     ],
     "volume": {
-      "us": 241152,
-      "china": 279932,
-      "total": 2926897,
+      "us": 241904,
+      "china": 281270,
+      "total": 2938995,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4424,
-      "china": 8441,
-      "total": 19767,
+      "us": 4420,
+      "china": 8463,
+      "total": 19792,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3209,
-      "china": 7288,
-      "total": 16278,
+      "us": 3229,
+      "china": 7326,
+      "total": 16363,
       "data_ok": true
     }
   },
@@ -182,142 +182,154 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7140200562",
-      "title": "HOFIZ O'BAHIYNING \"TUHFAT UL-AHBOB\" LUG'ATIDA LUG'AVIY BIRLIKLARNING IZOHLANISHI",
+      "id": "https://openalex.org/W2292081050",
+      "title": "The Climate Model Output Rewriter (CMOR)",
       "authors": [
-        "Vaxidova, Gulnoza"
+        "Mauzey, Chris",
+        "Charles M. Doutriaux",
+        "D. Nadeau"
       ],
       "countries": [
-        "UZ"
+        "US",
+        "ES",
+        "GB",
+        "EG",
+        "JP",
+        "DE"
+      ],
+      "primary_country": "US",
+      "published": "2026-09-22",
+      "cited_by_count": 3,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134924725",
+      "title": "A Bayesian Hierarchical Modelling Approach to the Cost-Effectiveness of Community-Based Health Systems in Ghana",
+      "authors": [
+        "Kwame Gyeabour Asante",
+        "Ama Serwaa Mensah",
+        "Kofi Agyeman-Badu"
+      ],
+      "countries": [
+        "GH"
       ],
       "primary_country": "Other",
-      "published": "2026-09-21",
+      "published": "2026-09-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140220549",
-      "title": "HOFIZ O'BAHIYNING \"TUHFAT UL-AHBOB\" LUG'ATIDA LUG'AVIY BIRLIKLARNING IZOHLANISHI",
+      "id": "https://openalex.org/W7134933261",
+      "title": "A Bayesian Hierarchical Modelling Approach to the Cost-Effectiveness of Community-Based Health Systems in Ghana",
       "authors": [
-        "Vaxidova, Gulnoza"
+        "Kwame Gyeabour Asante",
+        "Ama Serwaa Mensah",
+        "Kofi Agyeman-Badu"
       ],
       "countries": [
-        "UZ"
+        "GH"
       ],
       "primary_country": "Other",
-      "published": "2026-09-21",
+      "published": "2026-09-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7210275166",
-      "title": "Oclusão vascular por preenchedor: reconhecimento, hialuronidase e ultrassom",
+      "id": "https://openalex.org/W7143441627",
+      "title": "AnCiR: Analysis of Chronobiological Rhythms",
       "authors": [
-        "Talita Almeida"
+        "DaveCumin"
       ],
       "countries": [
-        "JP"
+        "NZ"
       ],
       "primary_country": "Other",
-      "published": "2026-09-21",
-      "cited_by_count": 0,
+      "published": "2026-09-22",
+      "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7210808097",
-      "title": "Revisiting the SHINE high-contrast imaging exoplanet survey using the Regime Switching Model",
+      "id": "https://openalex.org/W7159045683",
+      "title": "Digital Minds or Digital Mines? Digitale Archäologie als Kritische Archäologie des Digitalen",
       "authors": [
-        "Mariam Sabalbal"
-      ],
-      "countries": [
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213511271",
-      "title": "ИННОВАЦИОННАЯ СИСТЕМА КОНТРОЛЯ ГЛЮКОЗЫ И ВВЕДЕНИЯ ИНСУЛИНА - SUGAR SENSE",
-      "authors": [
-        "Гаибназаров Сардорхон Суннатиллаевич"
+        "Arbeitsgemeinschaft Theorien in der Archäologie",
+        "NFDI4Objects",
+        "Propylaeum - Fachinformationsdienst Altertumswissenschaften"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-21",
+      "published": "2026-09-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213525851",
-      "title": "ИННОВАЦИОННАЯ СИСТЕМА КОНТРОЛЯ ГЛЮКОЗЫ И ВВЕДЕНИЯ ИНСУЛИНА - SUGAR SENSE",
+      "id": "https://openalex.org/W7160375061",
+      "title": "GutenbergKG: The Knowledge Press",
       "authors": [
-        "Гаибназаров Сардорхон Суннатиллаевич"
+        "Eric G. Suchanek"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162322698",
+      "title": "WaveRider: Manifold-Aware Geometric Machine Learning",
+      "authors": [
+        "Eric G. Suchanek"
+      ],
+      "countries": [
+        "CH"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164979299",
+      "title": "A Projection-Based Surrogate Gradient Interpretation for Neural Codec Wrappers",
+      "authors": [
+        "Esteban Pesnel",
+        "Julien Le Tanou",
+        "Michaël Ropert"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-21",
+      "published": "2026-09-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213601162",
-      "title": "Chapter 2 – Organizational Hierarchy of Physiological Systems",
+      "id": "https://openalex.org/W7167288261",
+      "title": "A Benchmark Suite for Evaluating Feature Selection Methods on Synthetic and Semi-Synthetic Data",
       "authors": [
-        "Erik P. Silldorff",
-        "Gerald Robinson"
+        "Athina Bikaki",
+        "Ioannis A. Kakadiaris"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-09-21",
+      "published": "2026-09-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213606563",
-      "title": "Chapter 2 – Organizational Hierarchy of Physiological Systems",
+      "id": "https://openalex.org/W7201858778",
+      "title": "Shabti KI Engine (SKE) — A Domain-Specialised AI System for the Scholarly Analysis of Ancient Egyptian Shabtis",
       "authors": [
-        "Erik P. Silldorff",
-        "Gerald Robinson"
+        "Dirk Beckers"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213608104",
-      "title": "Hybrid Loss-Based Deep Learning Framework Using EfficientNet-B3 for Multi-Class Colorectal Cancer Detection",
-      "authors": [
-        "Chandrakanta Mahanty",
-        "Nallamalla Anusha"
-      ],
-      "countries": [
-        "IN"
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-09-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213609915",
-      "title": "Hybrid Loss-Based Deep Learning Framework Using EfficientNet-B3 for Multi-Class Colorectal Cancer Detection",
-      "authors": [
-        "Chandrakanta Mahanty",
-        "Nallamalla Anusha"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-21",
+      "published": "2026-09-22",
       "cited_by_count": 0,
       "source": "openalex"
     }

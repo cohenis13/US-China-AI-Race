@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-23T12:40:22.273331+00:00",
+  "fetched_at": "2026-09-24T12:38:33.460608+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 34.4,
           "paper_volume": {
-            "raw_value": 183007,
+            "raw_value": 183166,
             "share_score": 39.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4365,
+            "raw_value": 4369,
             "share_score": 33.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3139,
+            "raw_value": 3140,
             "share_score": 29.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 65.6,
           "paper_volume": {
-            "raw_value": 276262,
+            "raw_value": 276582,
             "share_score": 60.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8534,
+            "raw_value": 8555,
             "share_score": 66.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7424,
+            "raw_value": 7416,
             "share_score": 70.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292792
+        "count": 292573
       },
       {
         "country_code": "CN",
-        "count": 276262
+        "count": 276582
       },
       {
         "country_code": "US",
-        "count": 183007
+        "count": 183166
       },
       {
         "country_code": "DE",
-        "count": 182251
+        "count": 182334
       },
       {
         "country_code": "IN",
-        "count": 104511
+        "count": 104604
       },
       {
         "country_code": "GB",
-        "count": 57716
+        "count": 57792
       },
       {
         "country_code": "ID",
-        "count": 34577
+        "count": 34619
       },
       {
         "country_code": "FR",
-        "count": 30689
+        "count": 30687
       },
       {
         "country_code": "IT",
-        "count": 29225
+        "count": 29253
       },
       {
         "country_code": "CA",
-        "count": 26915
+        "count": 26942
       }
     ],
     "volume": {
-      "us": 183007,
-      "china": 276262,
-      "total": 2951082,
+      "us": 183166,
+      "china": 276582,
+      "total": 2957965,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4365,
-      "china": 8534,
-      "total": 19942,
+      "us": 4369,
+      "china": 8555,
+      "total": 19987,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3139,
-      "china": 7424,
-      "total": 16594,
+      "us": 3140,
+      "china": 7416,
+      "total": 16595,
       "data_ok": true
     }
   },
@@ -182,145 +182,145 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4386555392",
-      "title": "Three Hardness Results for Graph Similarity Problems",
+      "id": "https://openalex.org/W7128041212",
+      "title": "Collaborative 360-Degree Video Streaming: A Multi-User Synchronization Solution with Socket.IO",
       "authors": [
-        "He Sun",
-        "Danny Vagnozzi"
+        "Simiscuka, Anderson",
+        "FADDA, Gianluca",
+        "MURRONI, MAURIZIO"
       ],
       "countries": [
-        "GB"
+        "IE",
+        "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-09-23",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4414587820",
-      "title": "Systems of twinned systems: a systematic literature review",
+      "id": "https://openalex.org/W7161594041",
+      "title": "Descriptor-free closed-loop compositional discovery: code and precomputed results",
       "authors": [
-        "Feyi Adesanya",
-        "Kanan Castro Silva",
-        "Valdemar Vicente Graciano Neto"
+        "Chih‐Yang Cheng",
+        "Hsin-Ying Ting",
+        "Yi‐Huan Wu"
+      ],
+      "countries": [
+        "TW"
+      ],
+      "primary_country": "Other",
+      "published": "2026-09-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169655354",
+      "title": "Reproduction Package: Quantitative Toxicophore Discovery through Interpretable Deep Learning",
+      "authors": [
+        "Anonymous"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-23",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4417114785",
-      "title": "Numerical Investigation of Sequence Modeling Theory using Controllable Memory Functions",
+      "id": "https://openalex.org/W7171349609",
+      "title": "TI-Toolbox",
       "authors": [
-        "Haotian Jiang",
-        "Zeyu Bao",
-        "Shida Wang"
+        "I. Haber",
+        "A. Jackson",
+        "A. Thielscher"
       ],
-      "countries": [
-        "SG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-23",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7105135027",
-      "title": "Explainable deep learning-based classification of Wolff-Parkinson-White electrocardiographic signals",
+      "id": "https://openalex.org/W7171580596",
+      "title": "plant-genomics-mcp: 52 plant-genomics locus-lookup tools over 23 public backends via the Model Context Protocol",
       "authors": [
-        "Alice Ragonesi",
-        "Stefania Fresca",
-        "Karli Gillette"
+        "Jaret Arnold"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7172427939",
+      "title": "AIDRIN - AI Data Readiness Infrastructure",
+      "authors": [
+        "Kaveen Hiniduma",
+        "Suren Byna",
+        "Jean Luca Bez"
       ],
       "countries": [
-        "AT",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-09-23",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7106159402",
-      "title": "Can artificial intelligence accelerate technological progress? Researchers' perspectives on AI in manufacturing and materials science",
+      "id": "https://openalex.org/W7203731325",
+      "title": "The Causal Partition of Information — Evidence Record",
       "authors": [
-        "John P. Nelson",
-        "Olajide E. Olugbade",
-        "Philip Shapira"
+        "Hon Lun Yip"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-23",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163791435",
-      "title": "A benchmark of three local, model agnostic XAI methods applied to healthcare",
-      "authors": [
-        "Samuel Gbenga Faluyi",
-        "Yousra Chabchoub",
-        "Maurras Ulbricht Togbe"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-23",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166837026",
-      "title": "EasyScan_HEP 2: LLM-agent parameter-scan workflows in high energy physics",
+      "id": "https://openalex.org/W7204199497",
+      "title": "Phenotypic evolution of broomcorn millet (Panicum miliaceum) in ancient Turpan, Xinjiang, China",
       "authors": [
-        "Y H Xiao",
-        "Yuanfang Yue",
-        "Yang Zhang"
+        "Ruohan Wang",
+        "Yuyang Tian",
+        "Long Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7208765472",
+      "title": "THE USE OF ARTIFICIAL INTELLIGENCE IN POLICE CRIME RESPONSE",
+      "authors": [
+        "Ivana Bjelovuk",
+        "Tanja Kesić",
+        "Marija Tasić"
       ],
       "countries": [
+        "RS",
+        "HR",
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-09-23",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204368437",
-      "title": "Perception on social media:Mechanisms and dynamics of polarisation",
+      "id": "https://openalex.org/W7210169310",
+      "title": "Stochastische modellering van complete poriënnetwerken voor poreuze bouwmaterialen",
       "authors": [
-        "François Thomas t’Serstevens"
+        "Chengnan Shi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204714274",
-      "title": "Simulado EUF",
-      "authors": [
-        "Taylor Hoffmann"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212331489",
-      "title": "L’introduction de l’intelligence artificielle en radiothérapie : transformations de l’activité et de l’organisation du travail.",
-      "authors": [
-        "Jeanne Grimault",
-        "Alexandre Largier"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-23",
+      "published": "2026-09-24",
       "cited_by_count": 0,
       "source": "openalex"
     }

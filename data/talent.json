@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-24T12:38:33.460608+00:00",
+  "fetched_at": "2026-09-25T12:39:57.197515+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 45.7,
+      "composite_score": 45.6,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 34.4,
+          "share_score": 34.2,
           "paper_volume": {
-            "raw_value": 183166,
-            "share_score": 39.8,
+            "raw_value": 168671,
+            "share_score": 38.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4369,
+            "raw_value": 4374,
             "share_score": 33.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3140,
-            "share_score": 29.7,
+            "raw_value": 3164,
+            "share_score": 29.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 54.3,
+      "composite_score": 54.4,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 65.6,
+          "share_score": 65.8,
           "paper_volume": {
-            "raw_value": 276582,
-            "share_score": 60.2,
+            "raw_value": 264554,
+            "share_score": 61.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8555,
+            "raw_value": 8563,
             "share_score": 66.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7416,
-            "share_score": 70.3,
+            "raw_value": 7435,
+            "share_score": 70.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292573
+        "count": 291159
       },
       {
         "country_code": "CN",
-        "count": 276582
-      },
-      {
-        "country_code": "US",
-        "count": 183166
+        "count": 264554
       },
       {
         "country_code": "DE",
-        "count": 182334
+        "count": 179416
+      },
+      {
+        "country_code": "US",
+        "count": 168671
       },
       {
         "country_code": "IN",
-        "count": 104604
+        "count": 103234
       },
       {
         "country_code": "GB",
-        "count": 57792
+        "count": 54065
       },
       {
         "country_code": "ID",
-        "count": 34619
+        "count": 34605
       },
       {
         "country_code": "FR",
-        "count": 30687
+        "count": 29082
       },
       {
         "country_code": "IT",
-        "count": 29253
+        "count": 28085
       },
       {
         "country_code": "CA",
-        "count": 26942
+        "count": 24604
       }
     ],
     "volume": {
-      "us": 183166,
-      "china": 276582,
-      "total": 2957965,
+      "us": 168671,
+      "china": 264554,
+      "total": 2890636,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4369,
-      "china": 8555,
-      "total": 19987,
+      "us": 4374,
+      "china": 8563,
+      "total": 20005,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3140,
-      "china": 7416,
-      "total": 16595,
+      "us": 3164,
+      "china": 7435,
+      "total": 16657,
       "data_ok": true
     }
   },
@@ -182,145 +182,141 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7128041212",
-      "title": "Collaborative 360-Degree Video Streaming: A Multi-User Synchronization Solution with Socket.IO",
+      "id": "https://openalex.org/W4415097464",
+      "title": "VA-Adapter: Adapting Ultrasound Foundation Model to Echocardiography Probe Guidance",
       "authors": [
-        "Simiscuka, Anderson",
-        "FADDA, Gianluca",
-        "MURRONI, MAURIZIO"
-      ],
-      "countries": [
-        "IE",
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7161594041",
-      "title": "Descriptor-free closed-loop compositional discovery: code and precomputed results",
-      "authors": [
-        "Chih‐Yang Cheng",
-        "Hsin-Ying Ting",
-        "Yi‐Huan Wu"
-      ],
-      "countries": [
-        "TW"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169655354",
-      "title": "Reproduction Package: Quantitative Toxicophore Discovery through Interpretable Deep Learning",
-      "authors": [
-        "Anonymous"
+        "Teng Wang",
+        "Haojun Jiang",
+        "Yuxuan Wang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-24",
+      "published": "2026-09-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171349609",
-      "title": "TI-Toolbox",
+      "id": "https://openalex.org/W7124360152",
+      "title": "Efficient Database Translation",
       "authors": [
-        "I. Haber",
-        "A. Jackson",
-        "A. Thielscher"
+        "Sonya Fogg",
+        "Tracy Ashby"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-24",
+      "published": "2026-09-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171580596",
-      "title": "plant-genomics-mcp: 52 plant-genomics locus-lookup tools over 23 public backends via the Model Context Protocol",
+      "id": "https://openalex.org/W7133329590",
+      "title": "UltraStar: Semantic-Aware Star Graph Modeling for Echocardiography Navigation",
       "authors": [
-        "Jaret Arnold"
+        "Teng Wang",
+        "Haojun Jiang",
+        "Chenxi Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-24",
+      "published": "2026-09-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172427939",
-      "title": "AIDRIN - AI Data Readiness Infrastructure",
+      "id": "https://openalex.org/W7133336926",
+      "title": "Percept-Aware Surgical Planning for Visual Cortical Prostheses with Vascular Avoidance",
       "authors": [
-        "Kaveen Hiniduma",
-        "Suren Byna",
-        "Jean Luca Bez"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-09-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203731325",
-      "title": "The Causal Partition of Information — Evidence Record",
-      "authors": [
-        "Hon Lun Yip"
+        "Galen Pogoncheff",
+        "Alvin Wang",
+        "Jacob Granley"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-24",
+      "published": "2026-09-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204199497",
-      "title": "Phenotypic evolution of broomcorn millet (Panicum miliaceum) in ancient Turpan, Xinjiang, China",
+      "id": "https://openalex.org/W7135083228",
+      "title": "Robotic Ultrasound Makes CBCT Alive",
       "authors": [
-        "Ruohan Wang",
-        "Yuyang Tian",
-        "Long Wang"
+        "Feng Li",
+        "Ziyuan Li",
+        "Zhongliang Jiang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-24",
+      "published": "2026-09-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7208765472",
-      "title": "THE USE OF ARTIFICIAL INTELLIGENCE IN POLICE CRIME RESPONSE",
+      "id": "https://openalex.org/W7137142414",
+      "title": "SAW: Toward a Surgical Action World Model via Controllable and Scalable Video Generation",
       "authors": [
-        "Ivana Bjelovuk",
-        "Tanja Kesić",
-        "Marija Tasić"
-      ],
-      "countries": [
-        "RS",
-        "HR",
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-09-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7210169310",
-      "title": "Stochastische modellering van complete poriënnetwerken voor poreuze bouwmaterialen",
-      "authors": [
-        "Chengnan Shi"
+        "Sampath Rapuri",
+        "Lalithkumar Seenivasan",
+        "Dominik Schneider"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-24",
+      "published": "2026-09-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138312747",
+      "title": "From Scanning Guidelines to Action: A Robotic Ultrasound Agent with LLM-Based Reasoning",
+      "authors": [
+        "Yuan Bi",
+        "Yiping Zhou",
+        "Pei Liu"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147069775",
+      "title": "SutureFormer: Learning Surgical Trajectories via Goal-Conditioned Offline RL in Pixel Space",
+      "authors": [
+        "Huanrong Liu",
+        "Chunlin Tian",
+        "Tongyu Jia"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7147169280",
+      "title": "All-in-One Augmented Reality Guided Head and Neck Tumor Resection",
+      "authors": [
+        "Yue Yang",
+        "Matthieu Chabanas",
+        "Carrie Reale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7151556028",
+      "title": "OpenRC: An Open-Source Robotic Colonoscopy Framework for Multimodal Data Acquisition and Autonomy Research",
+      "authors": [
+        "Siddhartha Kapuria",
+        "Mohammad Rafiee Javazm",
+        "Naruhiko Ikoma"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

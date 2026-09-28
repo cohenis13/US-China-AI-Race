@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-27T12:53:38.742837+00:00",
+  "fetched_at": "2026-09-28T15:12:09.881475+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 45.6,
+      "composite_score": 45.0,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 34.2,
+          "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 169077,
-            "share_score": 39.0,
+            "raw_value": 142420,
+            "share_score": 35.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4369,
-            "share_score": 33.8,
+            "raw_value": 4257,
+            "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3162,
-            "share_score": 29.9,
+            "raw_value": 2996,
+            "share_score": 28.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 54.4,
+      "composite_score": 55.0,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 65.8,
+          "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 264006,
-            "share_score": 61.0,
+            "raw_value": 262872,
+            "share_score": 64.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8548,
-            "share_score": 66.2,
+            "raw_value": 8541,
+            "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7421,
-            "share_score": 70.1,
+            "raw_value": 7389,
+            "share_score": 71.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 291212
+        "count": 290076
       },
       {
         "country_code": "CN",
-        "count": 264006
+        "count": 262872
       },
       {
         "country_code": "DE",
-        "count": 179624
+        "count": 179117
       },
       {
         "country_code": "US",
-        "count": 169077
+        "count": 142420
       },
       {
         "country_code": "IN",
-        "count": 103340
+        "count": 94046
       },
       {
         "country_code": "GB",
-        "count": 54325
+        "count": 49447
       },
       {
         "country_code": "ID",
-        "count": 34555
+        "count": 32772
       },
       {
         "country_code": "FR",
-        "count": 29186
+        "count": 28033
       },
       {
         "country_code": "IT",
-        "count": 28262
+        "count": 27916
       },
       {
-        "country_code": "CA",
-        "count": 24710
+        "country_code": "KR",
+        "count": 23065
       }
     ],
     "volume": {
-      "us": 169077,
-      "china": 264006,
-      "total": 2898665,
+      "us": 142420,
+      "china": 262872,
+      "total": 2898623,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4369,
-      "china": 8548,
-      "total": 19971,
+      "us": 4257,
+      "china": 8541,
+      "total": 19930,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3162,
-      "china": 7421,
-      "total": 16627,
+      "us": 2996,
+      "china": 7389,
+      "total": 16570,
       "data_ok": true
     }
   },
@@ -182,138 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7126197901",
-      "title": "Physical AI for Oncology Clinical Trials",
+      "id": "https://openalex.org/W2964121744",
+      "title": "AutoResearch Lite: a reproducible paper-inspired experiment runner (Adam mechanism reproduction and convergence-speed comparison)",
       "authors": [
-        "Kevin Kawchak"
+        "He, Zhen"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-27",
+      "published": "2026-09-28",
+      "cited_by_count": 49999,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160535352",
+      "title": "Event-based early warning of vineyard disease risk from environmental time series",
+      "authors": [
+        "Ivica Dimitrovski",
+        "Ivan Kitanovski",
+        "Danco P. Davcev"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162534642",
-      "title": "Pore Segmentation Suite",
+      "id": "https://openalex.org/W7164201002",
+      "title": "FightSafe AI: Availability-Aware Interpretable Temporal Event Pipeline",
       "authors": [
-        "Murat Sert"
+        "Cesar Andres",
+        "David Martín-Moncunill"
       ],
       "countries": [
-        "TR"
+        "ES"
       ],
       "primary_country": "Other",
-      "published": "2026-09-27",
+      "published": "2026-09-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164876434",
-      "title": "TDScore: Learning Synthetic Speech Quality Predictors from TTS Training Dynamics without Human annotation",
+      "id": "https://openalex.org/W7166261612",
+      "title": "Crying as the Primordial Unknown-State Emotion: An Emotional Saturation Threshold Model with Cross-Sectional Survey Validation",
       "authors": [
-        "Natacha Miniconi",
-        "Meysam Shamsi",
-        "Anthony Larcher"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167295445",
-      "title": "Bridging Languages and Modalities: Lightweight Cross-Lingual Text and Speech Summarization for Low-Resource Scenarios",
-      "authors": [
-        "Chaimae Chellaf",
-        "Salima Mdhaffar",
-        "Yannick Estève"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167297962",
-      "title": "BEST-RQ-2 : contextualiser puis prédire, une approche en deux étapes pour l’apprentissage auto-supervisé de représentations audio",
-      "authors": [
-        "Ludovic Tuncay",
-        "Étienne Labbé",
-        "Thomas Pellegrini"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167354650",
-      "title": "nirs4all-methods: A portable Partial Least Squares engine with a stable C ABI",
-      "authors": [
-        "Grégory Beurier"
+        "Akbar Anbar Jafari",
+        "Gholamreza Anbarjafari"
       ],
       "countries": [
-        "FR"
+        "EE"
       ],
       "primary_country": "Other",
-      "published": "2026-09-27",
+      "published": "2026-09-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167649533",
-      "title": "Deep Learning for Fast CARS Signal Phase Retrieval: High-Fidelity Imaging of Human Skin via Synthetic Training",
+      "id": "https://openalex.org/W7167287655",
+      "title": "Semantic Dropdown Search",
       "authors": [
-        "Jesús Giovanni Estrada Cárdenas",
-        "Vincent Tombelaine",
-        "Josselin Breugnot"
+        "Don Michael Feeney Jr."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-27",
+      "published": "2026-09-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171580596",
-      "title": "plant-genomics-mcp: 56 plant-genomics locus-lookup tools over 23 public backends via the Model Context Protocol",
+      "id": "https://openalex.org/W7167311749",
+      "title": "Description generation of JSON data for fuzzy joins processing",
       "authors": [
-        "Jaret Arnold"
+        "Alan Petit",
+        "Laurent d’Orazio",
+        "Matthew Damigos"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-27",
+      "published": "2026-09-28",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7201850721",
-      "title": "Dexamethasone and lidocaine converge on noise-responsive cochlear targets at the GRM5 locus: a subpopulation-resolved multi-omic mapping",
+      "id": "https://openalex.org/W7201834778",
+      "title": "Copy That? The Influence of Process Model Representation Format on LLM Comprehension",
       "authors": [
-        "Xiaobo Ma"
+        "Fabian Rybinski",
+        "Nadja Kruse",
+        "Adrian Wilhelm"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202062500",
+      "title": "Un graphe de Frangi pour l'extraction multi-modale et sans entraînement des réseaux de fissures sur image",
+      "authors": [
+        "Louis Hauseux",
+        "Raphaël Antoine",
+        "Philippe Foucher"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212411703",
+      "title": "Datagedreven modellering van celvormen en -bewegingen in multicellulaire systemen",
+      "authors": [
+        "Wim Thiels"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-28",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212425969",
+      "title": "Historical review training value declines as current labels accumulate in an automotive classification benchmark",
+      "authors": [
+        "Yuan Chen",
+        "Jiawei Xu"
       ],
       "countries": [
-        "CN"
+        "CN",
+        "GB"
       ],
       "primary_country": "China",
-      "published": "2026-09-27",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202426210",
-      "title": "Readability Does Not Predict Speech Recognition Errors: Contrasting Human and Machine Perception",
-      "authors": [
-        "Ramonda Baptiste",
-        "Laurianne Sitbon",
-        "Julien Pinquier"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-27",
+      "published": "2026-09-28",
       "cited_by_count": 0,
       "source": "openalex"
     }

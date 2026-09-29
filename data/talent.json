@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-28T15:12:09.881475+00:00",
+  "fetched_at": "2026-09-29T13:54:17.774129+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 142420,
+            "raw_value": 142352,
             "share_score": 35.1,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4257,
+            "raw_value": 4246,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 2996,
+            "raw_value": 2986,
             "share_score": 28.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 262872,
+            "raw_value": 262748,
             "share_score": 64.9,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8541,
+            "raw_value": 8516,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7389,
+            "raw_value": 7374,
             "share_score": 71.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 290076
+        "count": 290059
       },
       {
         "country_code": "CN",
-        "count": 262872
+        "count": 262748
       },
       {
         "country_code": "DE",
-        "count": 179117
+        "count": 179096
       },
       {
         "country_code": "US",
-        "count": 142420
+        "count": 142352
       },
       {
         "country_code": "IN",
-        "count": 94046
+        "count": 94007
       },
       {
         "country_code": "GB",
-        "count": 49447
+        "count": 49423
       },
       {
         "country_code": "ID",
-        "count": 32772
+        "count": 32730
       },
       {
         "country_code": "FR",
-        "count": 28033
+        "count": 28020
       },
       {
         "country_code": "IT",
-        "count": 27916
+        "count": 27899
       },
       {
         "country_code": "KR",
-        "count": 23065
+        "count": 23054
       }
     ],
     "volume": {
-      "us": 142420,
-      "china": 262872,
-      "total": 2898623,
+      "us": 142352,
+      "china": 262748,
+      "total": 2897686,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4257,
-      "china": 8541,
-      "total": 19930,
+      "us": 4246,
+      "china": 8516,
+      "total": 19874,
       "data_ok": true
     },
     "top_cited": {
-      "us": 2996,
-      "china": 7389,
-      "total": 16570,
+      "us": 2986,
+      "china": 7374,
+      "total": 16531,
       "data_ok": true
     }
   },
@@ -182,140 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W2964121744",
-      "title": "AutoResearch Lite: a reproducible paper-inspired experiment runner (Adam mechanism reproduction and convergence-speed comparison)",
+      "id": "https://openalex.org/W7161206003",
+      "title": "Learning-Enabled Autonomous Systems: Control, Verification, and Monitoring",
       "authors": [
-        "He, Zhen"
+        "Jianglin Lan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-28",
-      "cited_by_count": 49999,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160535352",
-      "title": "Event-based early warning of vineyard disease risk from environmental time series",
-      "authors": [
-        "Ivica Dimitrovski",
-        "Ivan Kitanovski",
-        "Danco P. Davcev"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-28",
+      "published": "2026-09-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164201002",
-      "title": "FightSafe AI: Availability-Aware Interpretable Temporal Event Pipeline",
+      "id": "https://openalex.org/W7171335399",
+      "title": "Accessibility Estimation in Demand-Responsive Transport: A Multi-Task Transfer Learning Approach",
       "authors": [
-        "Cesar Andres",
-        "David Martín-Moncunill"
+        "Mohamed Ourahou",
+        "Andrea Araldo",
+        "Mohamed Abouelela"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171337281",
+      "title": "Knowledge Graph Re-engineering Along the Ontological Continuum",
+      "authors": [
+        "Enrico Daga",
+        "Valentina Tamma",
+        "Terry R. Payne"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203545255",
+      "title": "Code Generation from Regression Trees for Microsecond-Scale Decisions in Operating Systems",
+      "authors": [
+        "Daniel Friesel"
       ],
       "countries": [
-        "ES"
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-09-28",
+      "published": "2026-09-29",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204675481",
+      "title": "Matching analysis for peer-to-peer car-sharing using synthetic populations in France",
+      "authors": [
+        "Ali Naaman",
+        "Negin Alisoltani",
+        "Sebastian Hörl"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166261612",
-      "title": "Crying as the Primordial Unknown-State Emotion: An Emotional Saturation Threshold Model with Cross-Sectional Survey Validation",
+      "id": "https://openalex.org/W7213688290",
+      "title": "Physics-Based Joint Reconstruction and Magnetic Field Mapping in Ultra-Low-Field MRI Using Reversed Readout Gradients",
       "authors": [
-        "Akbar Anbar Jafari",
-        "Gholamreza Anbarjafari"
+        "Robin Schnabel",
+        "Lucile Quillien",
+        "Baumann, Moritz"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214129590",
+      "title": "Pedestrian behaviour when interacting with micro-mobility vehicles: a virtual reality experiment",
+      "authors": [
+        "Fatemeh Rashidimameghani",
+        "Ludovic Leclercq",
+        "Natasha Merat"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214233523",
+      "title": "Modelos de Otimização Inteira para Coloração Dinâmica de Grafos Sujeitos a Perturbações",
+      "authors": [
+        "Victor Augusto do Carmo Duarte",
+        "Thiago Mauro de Lima Moraes",
+        "Victória Oliveira Porfhirio dos Santos"
       ],
       "countries": [
-        "EE"
+        "BR"
       ],
       "primary_country": "Other",
-      "published": "2026-09-28",
+      "published": "2026-09-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167287655",
-      "title": "Semantic Dropdown Search",
+      "id": "https://openalex.org/W7214237051",
+      "title": "Modelos de Otimização Inteira para Coloração Dinâmica de Grafos Sujeitos a Perturbações",
       "authors": [
-        "Don Michael Feeney Jr."
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167311749",
-      "title": "Description generation of JSON data for fuzzy joins processing",
-      "authors": [
-        "Alan Petit",
-        "Laurent d’Orazio",
-        "Matthew Damigos"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201834778",
-      "title": "Copy That? The Influence of Process Model Representation Format on LLM Comprehension",
-      "authors": [
-        "Fabian Rybinski",
-        "Nadja Kruse",
-        "Adrian Wilhelm"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202062500",
-      "title": "Un graphe de Frangi pour l'extraction multi-modale et sans entraînement des réseaux de fissures sur image",
-      "authors": [
-        "Louis Hauseux",
-        "Raphaël Antoine",
-        "Philippe Foucher"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212411703",
-      "title": "Datagedreven modellering van celvormen en -bewegingen in multicellulaire systemen",
-      "authors": [
-        "Wim Thiels"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212425969",
-      "title": "Historical review training value declines as current labels accumulate in an automotive classification benchmark",
-      "authors": [
-        "Yuan Chen",
-        "Jiawei Xu"
+        "Victor Augusto do Carmo Duarte",
+        "Thiago Mauro de Lima Moraes",
+        "Victória Oliveira Porfhirio dos Santos"
       ],
       "countries": [
-        "CN",
-        "GB"
+        "BR"
       ],
-      "primary_country": "China",
-      "published": "2026-09-28",
+      "primary_country": "Other",
+      "published": "2026-09-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214510833",
+      "title": "Assessing the Impact of Fleet Size on Crowdsourced Mapping Using a Dissimilarity Measure",
+      "authors": [
+        "Marie-Ngoïe Badibanga Kalenda",
+        "Philippe Bonnifait",
+        "Marie-Anne Mittet"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-29",
       "cited_by_count": 0,
       "source": "openalex"
     }

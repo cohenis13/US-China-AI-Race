@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-29T13:54:17.774129+00:00",
+  "fetched_at": "2026-09-30T13:30:49.078788+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 45.0,
+      "composite_score": 45.2,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.5,
+          "share_score": 33.1,
           "paper_volume": {
-            "raw_value": 142352,
-            "share_score": 35.1,
+            "raw_value": 166013,
+            "share_score": 36.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4246,
-            "share_score": 33.3,
+            "raw_value": 4310,
+            "share_score": 33.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 2986,
-            "share_score": 28.8,
+            "raw_value": 3048,
+            "share_score": 29.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 55.0,
+      "composite_score": 54.8,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.5,
+          "share_score": 66.9,
           "paper_volume": {
-            "raw_value": 262748,
-            "share_score": 64.9,
+            "raw_value": 285084,
+            "share_score": 63.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8516,
-            "share_score": 66.7,
+            "raw_value": 8601,
+            "share_score": 66.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7374,
-            "share_score": 71.2,
+            "raw_value": 7442,
+            "share_score": 70.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 290059
+        "count": 292680
       },
       {
         "country_code": "CN",
-        "count": 262748
+        "count": 285084
       },
       {
         "country_code": "DE",
-        "count": 179096
+        "count": 184154
       },
       {
         "country_code": "US",
-        "count": 142352
+        "count": 166013
       },
       {
         "country_code": "IN",
-        "count": 94007
+        "count": 97147
       },
       {
         "country_code": "GB",
-        "count": 49423
+        "count": 55290
       },
       {
         "country_code": "ID",
-        "count": 32730
+        "count": 34320
       },
       {
         "country_code": "FR",
-        "count": 28020
+        "count": 32602
       },
       {
         "country_code": "IT",
-        "count": 27899
+        "count": 30011
       },
       {
         "country_code": "KR",
-        "count": 23054
+        "count": 25677
       }
     ],
     "volume": {
-      "us": 142352,
-      "china": 262748,
-      "total": 2897686,
+      "us": 166013,
+      "china": 285084,
+      "total": 2908951,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4246,
-      "china": 8516,
-      "total": 19874,
+      "us": 4310,
+      "china": 8601,
+      "total": 20010,
       "data_ok": true
     },
     "top_cited": {
-      "us": 2986,
-      "china": 7374,
-      "total": 16531,
+      "us": 3048,
+      "china": 7442,
+      "total": 16654,
       "data_ok": true
     }
   },
@@ -182,144 +182,134 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7161206003",
-      "title": "Learning-Enabled Autonomous Systems: Control, Verification, and Monitoring",
+      "id": "https://openalex.org/W7128938020",
+      "title": "CIRCLE: A framework for evaluating AI from a real-world lens",
       "authors": [
-        "Jianglin Lan"
+        "Carina E. I. Westling",
+        "R. Schwartz",
+        "M. Briggs"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171335399",
-      "title": "Accessibility Estimation in Demand-Responsive Transport: A Multi-Task Transfer Learning Approach",
+      "id": "https://openalex.org/W7130899254",
+      "title": "Clickbait or supplementary sources: embedding social media as a contextual learning tool in legal education",
       "authors": [
-        "Mohamed Ourahou",
-        "Andrea Araldo",
-        "Mohamed Abouelela"
+        "Liam; id_orcid 0000-0003-0332-3908 Sunner"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171337281",
-      "title": "Knowledge Graph Re-engineering Along the Ontological Continuum",
+      "id": "https://openalex.org/W7162466946",
+      "title": "Mahabbat and the Two Wings: Quantum Physics as Structural Convergence with Bahá'í Relational Ontology",
       "authors": [
-        "Enrico Daga",
-        "Valentina Tamma",
-        "Terry R. Payne"
+        "Joshua Adams"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203545255",
-      "title": "Code Generation from Regression Trees for Microsecond-Scale Decisions in Operating Systems",
+      "id": "https://openalex.org/W7162725668",
+      "title": "Estimation of SV2A PET-Derived Synaptic Density from Quantitative MRI Using Data-Driven Methods",
       "authors": [
-        "Daniel Friesel"
+        "Axel Ruymaekers",
+        "François Meyer",
+        "Jiqing Huang"
       ],
       "countries": [
-        "DE"
+        "BE"
       ],
       "primary_country": "Other",
-      "published": "2026-09-29",
-      "cited_by_count": 1,
+      "published": "2026-09-30",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204675481",
-      "title": "Matching analysis for peer-to-peer car-sharing using synthetic populations in France",
+      "id": "https://openalex.org/W7166653316",
+      "title": "An Image Dataset for Appearance Defect Detection of Cigarette Packets",
       "authors": [
-        "Ali Naaman",
-        "Negin Alisoltani",
-        "Sebastian Hörl"
+        "海璐 郭",
+        "Tao Liu",
+        "Xinan Yang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213688290",
-      "title": "Physics-Based Joint Reconstruction and Magnetic Field Mapping in Ultra-Low-Field MRI Using Reversed Readout Gradients",
+      "id": "https://openalex.org/W7166704764",
+      "title": "An Image Dataset for Appearance Defect Detection of Cigarette Packets",
       "authors": [
-        "Robin Schnabel",
-        "Lucile Quillien",
-        "Baumann, Moritz"
+        "海璐 郭",
+        "Tao Liu",
+        "Xinan Yang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214129590",
-      "title": "Pedestrian behaviour when interacting with micro-mobility vehicles: a virtual reality experiment",
+      "id": "https://openalex.org/W7169638532",
+      "title": "Philosophy of Artificial Intelligence: From Turing to Large Language Models",
       "authors": [
-        "Fatemeh Rashidimameghani",
-        "Ludovic Leclercq",
-        "Natasha Merat"
+        "Donald A. Gillies",
+        "Marco Fyfe Pietro Gillies"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214233523",
-      "title": "Modelos de Otimização Inteira para Coloração Dinâmica de Grafos Sujeitos a Perturbações",
+      "id": "https://openalex.org/W7202123782",
+      "title": "Mekânın Deneyime Dönüşmesi Temalı Kafeler Üzerine Benjaminci Bir Okuma",
       "authors": [
-        "Victor Augusto do Carmo Duarte",
-        "Thiago Mauro de Lima Moraes",
-        "Victória Oliveira Porfhirio dos Santos"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214237051",
-      "title": "Modelos de Otimização Inteira para Coloração Dinâmica de Grafos Sujeitos a Perturbações",
-      "authors": [
-        "Victor Augusto do Carmo Duarte",
-        "Thiago Mauro de Lima Moraes",
-        "Victória Oliveira Porfhirio dos Santos"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-09-29",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214510833",
-      "title": "Assessing the Impact of Fleet Size on Crowdsourced Mapping Using a Dissimilarity Measure",
-      "authors": [
-        "Marie-Ngoïe Badibanga Kalenda",
-        "Philippe Bonnifait",
-        "Marie-Anne Mittet"
+        "Batgi Gamze"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-29",
+      "published": "2026-09-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202146683",
+      "title": "Mekânın Deneyime Dönüşmesi Temalı Kafeler Üzerine Benjaminci Bir Okuma",
+      "authors": [
+        "Batgi Gamze"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203964641",
+      "title": "egkjk\"Vªkrhy xzaFkky; o ekfgrh'kkL= fo\"k;krhy la'kks/kdkauk ih,p-Mh- uksan.kh ÁfØ;snjE;ku vkysY;k vMp.kh% ,d fo'ys\"k.kkRed v/;;u",
+      "authors": [
+        "vferk gksejkt ikVhy",
+        "MkW- jktsaæ ekf. kdiqjs"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-09-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

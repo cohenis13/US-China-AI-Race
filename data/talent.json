@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-09-30T13:30:49.078788+00:00",
+  "fetched_at": "2026-10-01T14:20:54.598859+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 33.1,
+          "share_score": 33.0,
           "paper_volume": {
-            "raw_value": 166013,
-            "share_score": 36.8,
+            "raw_value": 165488,
+            "share_score": 36.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4310,
-            "share_score": 33.4,
+            "raw_value": 4186,
+            "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3048,
-            "share_score": 29.1,
+            "raw_value": 3052,
+            "share_score": 29.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 66.9,
+          "share_score": 67.0,
           "paper_volume": {
-            "raw_value": 285084,
-            "share_score": 63.2,
+            "raw_value": 285396,
+            "share_score": 63.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8601,
-            "share_score": 66.6,
+            "raw_value": 8375,
+            "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7442,
-            "share_score": 70.9,
+            "raw_value": 7457,
+            "share_score": 71.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292680
+        "count": 292659
       },
       {
         "country_code": "CN",
-        "count": 285084
+        "count": 285396
       },
       {
         "country_code": "DE",
-        "count": 184154
+        "count": 184060
       },
       {
         "country_code": "US",
-        "count": 166013
+        "count": 165488
       },
       {
         "country_code": "IN",
-        "count": 97147
+        "count": 97039
       },
       {
         "country_code": "GB",
-        "count": 55290
+        "count": 55272
       },
       {
         "country_code": "ID",
-        "count": 34320
+        "count": 34029
       },
       {
         "country_code": "FR",
-        "count": 32602
+        "count": 32530
       },
       {
         "country_code": "IT",
-        "count": 30011
+        "count": 29940
       },
       {
         "country_code": "KR",
-        "count": 25677
+        "count": 25686
       }
     ],
     "volume": {
-      "us": 166013,
-      "china": 285084,
-      "total": 2908951,
+      "us": 165488,
+      "china": 285396,
+      "total": 2914129,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4310,
-      "china": 8601,
-      "total": 20010,
+      "us": 4186,
+      "china": 8375,
+      "total": 19606,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3048,
-      "china": 7442,
-      "total": 16654,
+      "us": 3052,
+      "china": 7457,
+      "total": 16665,
       "data_ok": true
     }
   },
@@ -182,134 +182,139 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7128938020",
-      "title": "CIRCLE: A framework for evaluating AI from a real-world lens",
+      "id": "https://openalex.org/W7112568246",
+      "title": "The Environmental Scan as a method for digital source criticism at scale",
       "authors": [
-        "Carina E. I. Westling",
-        "R. Schwartz",
-        "M. Briggs"
+        "Beelen, Kaspar",
+        "Ahnert, Ruth",
+        "Lawrence, Jon"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130899254",
-      "title": "Clickbait or supplementary sources: embedding social media as a contextual learning tool in legal education",
+      "id": "https://openalex.org/W7113284141",
+      "title": "MapReader : Software and Principles for Computational Map Studies",
       "authors": [
-        "Liam; id_orcid 0000-0003-0332-3908 Sunner"
+        "McDonough, Katherine",
+        "Ahnert, Ruth",
+        "Beelen, Kaspar"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162466946",
-      "title": "Mahabbat and the Two Wings: Quantum Physics as Structural Convergence with Bahá'í Relational Ontology",
+      "id": "https://openalex.org/W7113527000",
+      "title": "Detouring with Jeff Buckley:Writing across time and space",
       "authors": [
-        "Joshua Adams"
+        "Wegener, Charlotte"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162725668",
-      "title": "Estimation of SV2A PET-Derived Synaptic Density from Quantitative MRI Using Data-Driven Methods",
+      "id": "https://openalex.org/W7118178365",
+      "title": "Replication Package for Creating the FairMedQA Benchmark and Conducting the Related Empirical Investigation",
       "authors": [
-        "Axel Ruymaekers",
-        "François Meyer",
-        "Jiqing Huang"
+        "Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7122534877",
+      "title": "Data and custom code for: \"Spin-correlated radical pair dynamics controlled by magnetic resonance in vivo\"",
+      "authors": [
+        "S. C. Burd",
+        "Nahal Bagheri"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130823743",
+      "title": "Cross-modal Image Recommendation for News Articles by Multimodal Foundation Models-based Retrieval-Reranking",
+      "authors": [
+        "Damianos Galanopoulos",
+        "Andreas Goulas",
+        "Vasileios Mezaris"
       ],
       "countries": [
-        "BE"
+        "GR"
       ],
       "primary_country": "Other",
-      "published": "2026-09-30",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166653316",
-      "title": "An Image Dataset for Appearance Defect Detection of Cigarette Packets",
+      "id": "https://openalex.org/W7130885347",
+      "title": "Cross-modal Image Recommendation for News Articles by Multimodal Foundation Models-based Retrieval-Reranking",
       "authors": [
-        "海璐 郭",
-        "Tao Liu",
-        "Xinan Yang"
+        "Damianos Galanopoulos",
+        "Andreas Goulas",
+        "Vasileios Mezaris"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "countries": [
+        "GR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7166704764",
-      "title": "An Image Dataset for Appearance Defect Detection of Cigarette Packets",
+      "id": "https://openalex.org/W7133330027",
+      "title": "AI Topics Module 2: Education",
       "authors": [
-        "海璐 郭",
-        "Tao Liu",
-        "Xinan Yang"
+        "Xavier Honablue M.Ed"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169638532",
-      "title": "Philosophy of Artificial Intelligence: From Turing to Large Language Models",
+      "id": "https://openalex.org/W7143316772",
+      "title": "DevMemory: A Structured Memory Management Architecture for Persistent Knowledge in AI Coding Agents",
       "authors": [
-        "Donald A. Gillies",
-        "Marco Fyfe Pietro Gillies"
+        "Abhijeet Patil"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202123782",
-      "title": "Mekânın Deneyime Dönüşmesi Temalı Kafeler Üzerine Benjaminci Bir Okuma",
+      "id": "https://openalex.org/W7147642147",
+      "title": "DevMemory: A Structured Memory Management Architecture for Persistent Knowledge in AI Coding Agents",
       "authors": [
-        "Batgi Gamze"
+        "Abhijeet Patil"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202146683",
-      "title": "Mekânın Deneyime Dönüşmesi Temalı Kafeler Üzerine Benjaminci Bir Okuma",
-      "authors": [
-        "Batgi Gamze"
+      "countries": [
+        "US"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203964641",
-      "title": "egkjk\"Vªkrhy xzaFkky; o ekfgrh'kkL= fo\"k;krhy la'kks/kdkauk ih,p-Mh- uksan.kh ÁfØ;snjE;ku vkysY;k vMp.kh% ,d fo'ys\"k.kkRed v/;;u",
-      "authors": [
-        "vferk gksejkt ikVhy",
-        "MkW- jktsaæ ekf. kdiqjs"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-09-30",
+      "primary_country": "US",
+      "published": "2026-10-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-01T14:20:54.598859+00:00",
+  "fetched_at": "2026-10-02T13:43:03.801322+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,8 +17,8 @@
           "weight": 0.35,
           "share_score": 33.0,
           "paper_volume": {
-            "raw_value": 165488,
-            "share_score": 36.7,
+            "raw_value": 164677,
+            "share_score": 36.6,
             "window": "12m"
           },
           "high_impact": {
@@ -29,7 +29,7 @@
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3052,
+            "raw_value": 3035,
             "share_score": 29.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.0,
           "paper_volume": {
-            "raw_value": 285396,
-            "share_score": 63.3,
+            "raw_value": 284990,
+            "share_score": 63.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8375,
+            "raw_value": 8384,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7457,
+            "raw_value": 7442,
             "share_score": 71.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292659
+        "count": 292411
       },
       {
         "country_code": "CN",
-        "count": 285396
+        "count": 284990
       },
       {
         "country_code": "DE",
-        "count": 184060
+        "count": 183951
       },
       {
         "country_code": "US",
-        "count": 165488
+        "count": 164677
       },
       {
         "country_code": "IN",
-        "count": 97039
+        "count": 96943
       },
       {
         "country_code": "GB",
-        "count": 55272
+        "count": 55142
       },
       {
         "country_code": "ID",
-        "count": 34029
+        "count": 34928
       },
       {
         "country_code": "FR",
-        "count": 32530
+        "count": 32445
       },
       {
         "country_code": "IT",
-        "count": 29940
+        "count": 29760
       },
       {
         "country_code": "KR",
-        "count": 25686
+        "count": 25628
       }
     ],
     "volume": {
-      "us": 165488,
-      "china": 285396,
-      "total": 2914129,
+      "us": 164677,
+      "china": 284990,
+      "total": 2917609,
       "data_ok": true
     },
     "high_impact": {
       "us": 4186,
-      "china": 8375,
-      "total": 19606,
+      "china": 8384,
+      "total": 19623,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3052,
-      "china": 7457,
-      "total": 16665,
+      "us": 3035,
+      "china": 7442,
+      "total": 16591,
       "data_ok": true
     }
   },
@@ -182,139 +182,136 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7112568246",
-      "title": "The Environmental Scan as a method for digital source criticism at scale",
+      "id": "https://openalex.org/W4416178457",
+      "title": "Mal'cev clones over a three-element set up to minor-equivalence",
       "authors": [
-        "Beelen, Kaspar",
-        "Ahnert, Ruth",
-        "Lawrence, Jon"
+        "Stefano Fioravanti",
+        "Michael Kompatscher",
+        "Bernardo Rossi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-01",
+      "published": "2026-10-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7113284141",
-      "title": "MapReader : Software and Principles for Computational Map Studies",
+      "id": "https://openalex.org/W7153814312",
+      "title": "OptimaSolver.jl: Julia-native primal-dual interior-point solver for Gibbs-energy minimization",
       "authors": [
-        "McDonough, Katherine",
-        "Ahnert, Ruth",
-        "Beelen, Kaspar"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7113527000",
-      "title": "Detouring with Jeff Buckley:Writing across time and space",
-      "authors": [
-        "Wegener, Charlotte"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7118178365",
-      "title": "Replication Package for Creating the FairMedQA Benchmark and Conducting the Related Empirical Investigation",
-      "authors": [
-        "Anonymous"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7122534877",
-      "title": "Data and custom code for: \"Spin-correlated radical pair dynamics controlled by magnetic resonance in vivo\"",
-      "authors": [
-        "S. C. Burd",
-        "Nahal Bagheri"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7130823743",
-      "title": "Cross-modal Image Recommendation for News Articles by Multimodal Foundation Models-based Retrieval-Reranking",
-      "authors": [
-        "Damianos Galanopoulos",
-        "Andreas Goulas",
-        "Vasileios Mezaris"
+        "Jean‐François Barthélémy"
       ],
       "countries": [
-        "GR"
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-01",
+      "published": "2026-10-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130885347",
-      "title": "Cross-modal Image Recommendation for News Articles by Multimodal Foundation Models-based Retrieval-Reranking",
+      "id": "https://openalex.org/W7163581795",
+      "title": "turbo-picard",
       "authors": [
-        "Damianos Galanopoulos",
-        "Andreas Goulas",
-        "Vasileios Mezaris"
-      ],
-      "countries": [
-        "GR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133330027",
-      "title": "AI Topics Module 2: Education",
-      "authors": [
-        "Xavier Honablue M.Ed"
+        "Donncha O'Toole"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-01",
+      "published": "2026-10-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7143316772",
-      "title": "DevMemory: A Structured Memory Management Architecture for Persistent Knowledge in AI Coding Agents",
+      "id": "https://openalex.org/W7165616784",
+      "title": "De-identified dataset and analysis script for: Interactive virtual reality for evaluating affective responses in memorial transition spaces: a pilot feasibility study",
       "authors": [
-        "Abhijeet Patil"
+        "Shaoqian Wang",
+        "J Huang",
+        "Chao Wang"
       ],
       "countries": [
-        "US"
+        "CN"
       ],
-      "primary_country": "US",
-      "published": "2026-10-01",
+      "primary_country": "China",
+      "published": "2026-10-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7147642147",
-      "title": "DevMemory: A Structured Memory Management Architecture for Persistent Knowledge in AI Coding Agents",
+      "id": "https://openalex.org/W7172443264",
+      "title": "Yonderdrake",
       "authors": [
-        "Abhijeet Patil"
+        "Timon S. Gutleb"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7201843832",
+      "title": "Medora: A Consent-Aware Bilingual Platform for Healthcare Management and Consultation with Assistive AI",
+      "authors": [
+        "Sarwad Hasan Siddiqui",
+        "Adiba Tahsin",
+        "Kazi Saeed Alam"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202189291",
+      "title": "ClimateNetAI: Reliability-Aware Climate-Adaptive 5G Intelligence",
+      "authors": [
+        "Olohimai Juliet Michael"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7203568491",
+      "title": "AdverseMed-500: A Hand-Verified False-Premise Benchmark for Measuring Miscalibration in Medical Language Models",
+      "authors": [
+        "Dyuthi Vallamsetty"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204643702",
+      "title": "Expanse: clean-room Judy arrays in Rust with a drop-in libjudy C ABI",
+      "authors": [
+        "Nicolas Brousse"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212425969",
+      "title": "Historical review transfer depends on the training objective in an automotive classification benchmark",
+      "authors": [
+        "Yuan Chen",
+        "Jiawei Xu"
       ],
       "countries": [
-        "US"
+        "CN",
+        "GB"
       ],
-      "primary_country": "US",
-      "published": "2026-10-01",
+      "primary_country": "China",
+      "published": "2026-10-02",
       "cited_by_count": 0,
       "source": "openalex"
     }

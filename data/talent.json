@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-02T13:43:03.801322+00:00",
+  "fetched_at": "2026-10-03T12:23:06.913126+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 33.0,
           "paper_volume": {
-            "raw_value": 164677,
+            "raw_value": 164362,
             "share_score": 36.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4186,
+            "raw_value": 4178,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3035,
-            "share_score": 29.0,
+            "raw_value": 3021,
+            "share_score": 28.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 67.0,
           "paper_volume": {
-            "raw_value": 284990,
+            "raw_value": 284708,
             "share_score": 63.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8384,
+            "raw_value": 8366,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7442,
-            "share_score": 71.0,
+            "raw_value": 7425,
+            "share_score": 71.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,67 +120,147 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292411
+        "count": 292383
       },
       {
         "country_code": "CN",
-        "count": 284990
+        "count": 284708
       },
       {
         "country_code": "DE",
-        "count": 183951
+        "count": 183886
       },
       {
         "country_code": "US",
-        "count": 164677
+        "count": 164362
       },
       {
         "country_code": "IN",
-        "count": 96943
+        "count": 96868
       },
       {
         "country_code": "GB",
-        "count": 55142
+        "count": 55063
       },
       {
         "country_code": "ID",
-        "count": 34928
+        "count": 34870
       },
       {
         "country_code": "FR",
-        "count": 32445
+        "count": 32397
       },
       {
         "country_code": "IT",
-        "count": 29760
+        "count": 29715
       },
       {
         "country_code": "KR",
-        "count": 25628
+        "count": 25594
       }
     ],
     "volume": {
-      "us": 164677,
-      "china": 284990,
-      "total": 2917609,
+      "us": 164362,
+      "china": 284708,
+      "total": 2915798,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4186,
-      "china": 8384,
-      "total": 19623,
+      "us": 4178,
+      "china": 8366,
+      "total": 19578,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3035,
-      "china": 7442,
-      "total": 16591,
+      "us": 3021,
+      "china": 7425,
+      "total": 16538,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7167796140",
+      "title": "Artifact for the Paper \"Testing Static Taint Analyzers with Equivalence Modulo Taint\", ISSTA'26",
+      "authors": [
+        "Maria Christakis",
+        "Anastasia Isychev",
+        "Samuel Pilz"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167828537",
+      "title": "Artifact for the Paper \"Testing Static Taint Analyzers with Equivalence Modulo Taint\", ISSTA'26",
+      "authors": [
+        "Maria Christakis",
+        "Anastasia Isychev",
+        "Samuel Pilz"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214663926",
+      "title": "[T-031] Mythological Structural Analysis Protocol: Extraction of Archetypal and Strategic Structures Excluding Moral Lessons",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214679247",
+      "title": "[T-031] Mythological Structural Analysis Protocol: Extraction of Archetypal and Strategic Structures Excluding Moral Lessons",
+      "authors": [
+        "Erystela Thevale"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215089484",
+      "title": "When Accepted Answers Become Evidence: Feedback Loops in Self-Updating Retrieval",
+      "authors": [
+        "Pavan Kumar Guthikonda"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215121156",
+      "title": "When Accepted Answers Become Evidence: Feedback Loops in Self-Updating Retrieval",
+      "authors": [
+        "Pavan Kumar Guthikonda"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W4416178457",
       "title": "Mal'cev clones over a three-element set up to minor-equivalence",
@@ -231,84 +311,6 @@
       ],
       "countries": [
         "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172443264",
-      "title": "Yonderdrake",
-      "authors": [
-        "Timon S. Gutleb"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201843832",
-      "title": "Medora: A Consent-Aware Bilingual Platform for Healthcare Management and Consultation with Assistive AI",
-      "authors": [
-        "Sarwad Hasan Siddiqui",
-        "Adiba Tahsin",
-        "Kazi Saeed Alam"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202189291",
-      "title": "ClimateNetAI: Reliability-Aware Climate-Adaptive 5G Intelligence",
-      "authors": [
-        "Olohimai Juliet Michael"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203568491",
-      "title": "AdverseMed-500: A Hand-Verified False-Premise Benchmark for Measuring Miscalibration in Medical Language Models",
-      "authors": [
-        "Dyuthi Vallamsetty"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204643702",
-      "title": "Expanse: clean-room Judy arrays in Rust with a drop-in libjudy C ABI",
-      "authors": [
-        "Nicolas Brousse"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212425969",
-      "title": "Historical review transfer depends on the training objective in an automotive classification benchmark",
-      "authors": [
-        "Yuan Chen",
-        "Jiawei Xu"
-      ],
-      "countries": [
-        "CN",
-        "GB"
       ],
       "primary_country": "China",
       "published": "2026-10-02",

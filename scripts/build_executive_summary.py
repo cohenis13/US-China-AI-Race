@@ -57,10 +57,13 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "Reflects 30-day model update activity on Hugging Face Hub — a proxy for "
-            "lab output velocity, not a definitive capability ranking. China's frontier "
-            "capability (DeepSeek R1, Qwen series) is broader than HF Hub counts alone "
-            "capture. Counts reflect only US- and China-attributed labs in data/labs.json."
+            "Three-proxy composite: release activity on HuggingFace Hub + ModelScope supplement (35%), "
+            "benchmark performance via LMSYS Arena and Epoch AI notable models (45%), "
+            "and ecosystem breadth across HF and ModelScope platforms (20%). "
+            "Does NOT capture closed-model capability (GPT-4o, Claude, Qwen API, Doubao). "
+            "China's HF-only activity is a systematic undercount — ModelScope supplement and "
+            "ecosystem breadth proxy partially correct for this. "
+            "See data/frontier_models_manual.json for benchmark snapshots and methodology notes."
         ),
     },
     "talent": {
@@ -69,9 +72,16 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "Reflects AI research paper volume from OpenAlex over 12 months — a proxy "
-            "for research output, not researcher quality, citation impact, or headcount. "
-            "China leads on volume; the US tends to lead on top-cited work."
+            "Three-proxy talent pipeline index: research output quality (35%, OpenAlex "
+            "paper volume + high-impact + top-cited), domestic PhD pipeline (25%, NSF SDR "
+            "and China MoE annual graduate data), and elite researcher concentration + "
+            "migration (40%, MacroPolo AI Talent Tracker). "
+            "Paper volume alone overstates China's advantage; adding elite researcher "
+            "placement (US captures ~72% of combined US+China top researchers) produces "
+            "a near-tie. Key dynamic: China's universities produce 4× more AI-adjacent "
+            "PhDs than the US, but the US absorbs a disproportionate share of elite talent "
+            "from China and globally. China's domestic retention of top researchers has "
+            "increased significantly since 2019."
         ),
     },
     "compute": {
@@ -80,12 +90,15 @@ DIMS = {
         "confidence":  "Medium confidence",
         "method":      "count_share",
         "caveat":      (
-            "Based on cumulative AI training compute (FLOPs) for notable models since 2023 "
-            "(Epoch AI). US ~86%, China ~14% of disclosed training compute. Understates "
-            "China: frontier closed models (Qwen-max, Doubao, Hunyuan) do not disclose "
-            "compute; Huawei Ascend deployments are also excluded. The real gap is likely "
-            "narrower than the score suggests — estimated 3-5x in frontier AI clusters, "
-            "not the 6x implied by the training-compute share alone."
+            "Triangulated index: training compute (40%, Epoch AI disclosed FLOPs), "
+            "hardware supply (40%, NVIDIA FY2025 10-K geographic revenue + Huawei Ascend "
+            "deployment estimates), and visible HPC (20%, TOP500 + China non-submission "
+            "corrections + US private clusters). "
+            "Systematic gaps remain: China's frontier closed models do not disclose compute; "
+            "Huawei Ascend deployment scale relies on analyst estimates; China stopped "
+            "submitting most HPC systems to TOP500 after 2023. "
+            "A separate hidden-compute uncertainty band (China 20–42% est.) is shown in "
+            "the detail panel — the scored composite (25%) is a conservative lower bound."
         ),
     },
     "adoption": {
@@ -141,26 +154,41 @@ def extract_raw(key: str, data: dict) -> tuple[float | None, float | None]:
     s = data.get("summary", {})
 
     if key == "frontier_models":
-        us = s.get("US")
-        cn = s.get("China")
-        return (float(us) if us is not None else None,
-                float(cn) if cn is not None else None)
+        us_val = s.get("US")
+        cn_val = s.get("China")
+        # Schema v2.0: summary.US is an object with composite_score
+        if isinstance(us_val, dict):
+            return (us_val.get("composite_score"), cn_val.get("composite_score") if isinstance(cn_val, dict) else None)
+        # Legacy schema: summary.US is a raw count integer
+        return (float(us_val) if us_val is not None else None,
+                float(cn_val) if cn_val is not None else None)
 
     if key == "talent":
-        us = s.get("US")
-        cn = s.get("China")
-        return (float(us) if us is not None else None,
-                float(cn) if cn is not None else None)
+        us_val = s.get("US")
+        cn_val = s.get("China")
+        # Schema v2.0: composite_score (triangulated index — US+China sums to 100)
+        if isinstance(us_val, dict) and us_val.get("composite_score") is not None:
+            return (us_val.get("composite_score"),
+                    cn_val.get("composite_score") if isinstance(cn_val, dict) else None)
+        # Legacy schema: plain integer paper counts
+        return (float(us_val) if us_val is not None else None,
+                float(cn_val) if cn_val is not None else None)
 
     if key == "compute":
-        # Prefer Epoch AI training compute (primary); fall back to TOP500 Rmax
-        us_flop = s.get("US", {}).get("training_compute_flop")
-        cn_flop = s.get("China", {}).get("training_compute_flop")
+        us_val = s.get("US")
+        cn_val = s.get("China")
+        # Schema v2.0: composite_score (triangulated index — US+China sums to 100)
+        if isinstance(us_val, dict) and us_val.get("composite_score") is not None:
+            return (us_val.get("composite_score"),
+                    cn_val.get("composite_score") if isinstance(cn_val, dict) else None)
+        # Pre-v2.0: Epoch AI training compute FLOPs
+        us_flop = (us_val or {}).get("training_compute_flop")
+        cn_flop = (cn_val or {}).get("training_compute_flop")
         if us_flop is not None and cn_flop is not None:
             return float(us_flop), float(cn_flop)
-        # Legacy / fallback: TOP500 Rmax
-        us = s.get("US", {}).get("rmax_pflops")
-        cn = s.get("China", {}).get("rmax_pflops")
+        # Legacy: TOP500 Rmax
+        us = (us_val or {}).get("rmax_pflops")
+        cn = (cn_val or {}).get("rmax_pflops")
         return (float(us) if us is not None else None,
                 float(cn) if cn is not None else None)
 
@@ -235,7 +263,7 @@ def make_current_read(dims: list[dict]) -> str:
     ties    = [d for d in dims if d["winner"] == "Tie"]
 
     def strategic(d: dict) -> str:
-        return STRATEGIC_LABEL.get(d["id"], d["label"].lower())
+        return STRATEGIC_LABEL.get(d["key"], d["label"].lower())
 
     clauses = []
     if us_wins:
@@ -400,14 +428,15 @@ def main() -> None:
             "divided by 10, giving independent scores that do not necessarily sum to 10."
         ),
         "confidence_note": (
-            "Compute score (TOP500 only) significantly understates China\u2019s actual HPC "
-            "capacity. Frontier Models score reflects HF Hub activity only. "
-            "See data/executive_summary.json dimension caveats and docs/methodology.html "
-            "for full details."
+            "Compute score is a triangulated lower bound — China's true compute share "
+            "is likely 25\u201340% (see hidden_compute_band in data/compute.json). "
+            "Frontier Models score reflects the open model ecosystem (HF + ModelScope); "
+            "closed-model capability not captured. "
+            "See dimension caveats and docs/methodology.html for full details."
         ),
     }
 
-    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False))
+    OUTPUT.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"Wrote {OUTPUT}")
     for d in scored:

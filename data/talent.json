@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-03T12:23:06.913126+00:00",
+  "fetched_at": "2026-10-04T13:06:24.517454+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 45.2,
+      "composite_score": 45.1,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 33.0,
+          "share_score": 32.9,
           "paper_volume": {
-            "raw_value": 164362,
-            "share_score": 36.6,
+            "raw_value": 166092,
+            "share_score": 36.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4178,
-            "share_score": 33.3,
+            "raw_value": 4182,
+            "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3021,
-            "share_score": 28.9,
+            "raw_value": 3027,
+            "share_score": 28.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 54.8,
+      "composite_score": 54.9,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.0,
+          "share_score": 67.1,
           "paper_volume": {
-            "raw_value": 284708,
-            "share_score": 63.4,
+            "raw_value": 286753,
+            "share_score": 63.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8366,
-            "share_score": 66.7,
+            "raw_value": 8400,
+            "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7425,
-            "share_score": 71.1,
+            "raw_value": 7479,
+            "share_score": 71.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 292383
+        "count": 390205
       },
       {
         "country_code": "CN",
-        "count": 284708
+        "count": 286753
       },
       {
         "country_code": "DE",
-        "count": 183886
+        "count": 184252
       },
       {
         "country_code": "US",
-        "count": 164362
+        "count": 166092
       },
       {
         "country_code": "IN",
-        "count": 96868
+        "count": 97584
       },
       {
         "country_code": "GB",
-        "count": 55063
+        "count": 55666
       },
       {
         "country_code": "ID",
-        "count": 34870
+        "count": 36106
       },
       {
         "country_code": "FR",
-        "count": 32397
+        "count": 32566
       },
       {
         "country_code": "IT",
-        "count": 29715
+        "count": 29929
       },
       {
         "country_code": "KR",
-        "count": 25594
+        "count": 25881
       }
     ],
     "volume": {
-      "us": 164362,
-      "china": 284708,
-      "total": 2915798,
+      "us": 166092,
+      "china": 286753,
+      "total": 3043331,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4178,
-      "china": 8366,
-      "total": 19578,
+      "us": 4182,
+      "china": 8400,
+      "total": 19640,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3021,
-      "china": 7425,
-      "total": 16538,
+      "us": 3027,
+      "china": 7479,
+      "total": 16627,
       "data_ok": true
     }
   },
@@ -182,138 +182,122 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7167796140",
-      "title": "Artifact for the Paper \"Testing Static Taint Analyzers with Equivalence Modulo Taint\", ISSTA'26",
+      "id": "https://openalex.org/W4205478776",
+      "title": "Advances in Image and Video Processing",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 8,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4231219438",
+      "title": "Transactions on Machine Learning and Artificial Intelligence",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 29,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415088080",
+      "title": "Bayesian model updating via streamlined Bayesian active learning cubature",
       "authors": [
-        "Maria Christakis",
-        "Anastasia Isychev",
-        "Samuel Pilz"
+        "Pei‐Pei Li",
+        "Chao Dang",
+        "Cristóbal H. Acevedo"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7108466842",
+      "title": "ontocast",
+      "authors": [
+        "Belikov, Alexander"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7128038583",
+      "title": "RegNetAgents: A Multi-Agent System for Gene Regulatory Network Interpretation",
+      "authors": [
+        "Jose Bird"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7153321707",
+      "title": "Coherence Theory in Higher Identity Types Analytical Formalization of the Gnomonic Computation Model",
+      "authors": [
+        "Roberto Lombardi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154604207",
+      "title": "Coherence Theory in Higher Identity Types Analytical Formalization of the Gnomonic Computation Model",
+      "authors": [
+        "Roberto Lombardi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-04",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7164818121",
+      "title": "On-Device, Privacy-Preserving Knowledge Retrieval for Context-Aware Assistants: A Multi-Engine Embedded-Retrieval Characterization on Real Multilingual Corpora (Replication Package)",
+      "authors": [
+        "Mehmet Kızıldağ"
       ],
       "countries": [
-        "AT"
+        "TR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-03",
+      "published": "2026-10-04",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167828537",
-      "title": "Artifact for the Paper \"Testing Static Taint Analyzers with Equivalence Modulo Taint\", ISSTA'26",
+      "id": "https://openalex.org/W7167287655",
+      "title": "Semantic Dropdown Search",
       "authors": [
-        "Maria Christakis",
-        "Anastasia Isychev",
-        "Samuel Pilz"
-      ],
-      "countries": [
-        "AT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-03",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214663926",
-      "title": "[T-031] Mythological Structural Analysis Protocol: Extraction of Archetypal and Strategic Structures Excluding Moral Lessons",
-      "authors": [
-        "Erystela Thevale"
+        "Don Michael Feeney Jr."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-03",
+      "published": "2026-10-04",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214679247",
-      "title": "[T-031] Mythological Structural Analysis Protocol: Extraction of Archetypal and Strategic Structures Excluding Moral Lessons",
+      "id": "https://openalex.org/W7168791847",
+      "title": "CuraFrame",
       "authors": [
-        "Erystela Thevale"
+        "Don Michael Feeney Jr."
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-03",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7215089484",
-      "title": "When Accepted Answers Become Evidence: Feedback Loops in Self-Updating Retrieval",
-      "authors": [
-        "Pavan Kumar Guthikonda"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-03",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7215121156",
-      "title": "When Accepted Answers Become Evidence: Feedback Loops in Self-Updating Retrieval",
-      "authors": [
-        "Pavan Kumar Guthikonda"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-03",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4416178457",
-      "title": "Mal'cev clones over a three-element set up to minor-equivalence",
-      "authors": [
-        "Stefano Fioravanti",
-        "Michael Kompatscher",
-        "Bernardo Rossi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153814312",
-      "title": "OptimaSolver.jl: Julia-native primal-dual interior-point solver for Gibbs-energy minimization",
-      "authors": [
-        "Jean‐François Barthélémy"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163581795",
-      "title": "turbo-picard",
-      "authors": [
-        "Donncha O'Toole"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7165616784",
-      "title": "De-identified dataset and analysis script for: Interactive virtual reality for evaluating affective responses in memorial transition spaces: a pilot feasibility study",
-      "authors": [
-        "Shaoqian Wang",
-        "J Huang",
-        "Chao Wang"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-10-02",
+      "published": "2026-10-04",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-04T13:06:24.517454+00:00",
+  "fetched_at": "2026-10-05T15:46:07.013006+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.9,
           "paper_volume": {
-            "raw_value": 166092,
+            "raw_value": 166499,
             "share_score": 36.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4182,
+            "raw_value": 4171,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3027,
+            "raw_value": 3018,
             "share_score": 28.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.1,
           "paper_volume": {
-            "raw_value": 286753,
+            "raw_value": 286866,
             "share_score": 63.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8400,
+            "raw_value": 8384,
             "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7479,
+            "raw_value": 7469,
             "share_score": 71.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 390205
+        "count": 409447
       },
       {
         "country_code": "CN",
-        "count": 286753
+        "count": 286866
       },
       {
         "country_code": "DE",
-        "count": 184252
+        "count": 184300
       },
       {
         "country_code": "US",
-        "count": 166092
+        "count": 166499
       },
       {
         "country_code": "IN",
-        "count": 97584
+        "count": 97902
       },
       {
         "country_code": "GB",
-        "count": 55666
+        "count": 55788
       },
       {
         "country_code": "ID",
-        "count": 36106
+        "count": 37126
       },
       {
         "country_code": "FR",
-        "count": 32566
+        "count": 32711
       },
       {
         "country_code": "IT",
-        "count": 29929
+        "count": 29962
       },
       {
         "country_code": "KR",
-        "count": 25881
+        "count": 25930
       }
     ],
     "volume": {
-      "us": 166092,
-      "china": 286753,
-      "total": 3043331,
+      "us": 166499,
+      "china": 286866,
+      "total": 3073657,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4182,
-      "china": 8400,
-      "total": 19640,
+      "us": 4171,
+      "china": 8384,
+      "total": 19593,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3027,
-      "china": 7479,
-      "total": 16627,
+      "us": 3018,
+      "china": 7469,
+      "total": 16587,
       "data_ok": true
     }
   },
@@ -182,122 +182,128 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4205478776",
-      "title": "Advances in Image and Video Processing",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 8,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4231219438",
-      "title": "Transactions on Machine Learning and Artificial Intelligence",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 29,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4415088080",
-      "title": "Bayesian model updating via streamlined Bayesian active learning cubature",
+      "id": "https://openalex.org/W7114919546",
+      "title": "IBBI: A Python package for the detection and classification of bark and ambrosia beetles",
       "authors": [
-        "Pei‐Pei Li",
-        "Chao Dang",
-        "Cristóbal H. Acevedo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7108466842",
-      "title": "ontocast",
-      "authors": [
-        "Belikov, Alexander"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128038583",
-      "title": "RegNetAgents: A Multi-Agent System for Gene Regulatory Network Interpretation",
-      "authors": [
-        "Jose Bird"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7153321707",
-      "title": "Coherence Theory in Higher Identity Types Analytical Formalization of the Gnomonic Computation Model",
-      "authors": [
-        "Roberto Lombardi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154604207",
-      "title": "Coherence Theory in Higher Identity Types Analytical Formalization of the Gnomonic Computation Model",
-      "authors": [
-        "Roberto Lombardi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-04",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164818121",
-      "title": "On-Device, Privacy-Preserving Knowledge Retrieval for Context-Aware Assistants: A Multi-Engine Embedded-Retrieval Characterization on Real Multilingual Corpora (Replication Package)",
-      "authors": [
-        "Mehmet Kızıldağ"
+        "Marais, Christopher",
+        "Kuo, Eric",
+        "Hulcr, Jiri"
       ],
       "countries": [
-        "TR"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-10-04",
+      "primary_country": "US",
+      "published": "2026-10-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7167287655",
-      "title": "Semantic Dropdown Search",
+      "id": "https://openalex.org/W7130855589",
+      "title": "Neurodesk Tutorial: matlab",
       "authors": [
-        "Don Michael Feeney Jr."
+        "Fernanda L. Ribeiro"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-04",
+      "published": "2026-10-05",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7168791847",
-      "title": "CuraFrame",
+      "id": "https://openalex.org/W7130857967",
+      "title": "Neurodesk Tutorial: fmriprep",
       "authors": [
-        "Don Michael Feeney Jr."
+        "Kelly G. Garner"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-04",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130925698",
+      "title": "Neurodesk Notebook: AFNI_processing_task_based",
+      "authors": [
+        "Paul A. Taylor (SSCC, NIMH, NIH, USA)"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130934337",
+      "title": "Neurodesk Notebook: Magic_commands",
+      "authors": [
+        "Monika Doerig"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130934523",
+      "title": "Neurodesk Notebook: qsmxt",
+      "authors": [
+        "Ashley Stewart"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134064382",
+      "title": "Neurodesk Notebook: brain_extraction_different_tools",
+      "authors": [
+        "Monika Doerig"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7136120296",
+      "title": "Neurodesk Notebook: swi",
+      "authors": [
+        "Steffen Bollmann",
+        "Michèle Masson‐Trottier"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7136217807",
+      "title": "Neurodesk Notebook: unwrapping",
+      "authors": [
+        "Steffen Bollmann",
+        "Michèle Masson‐Trottier"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154705603",
+      "title": "Neurodesk Notebook: Demo_fmriprep_FEAT",
+      "authors": [
+        "David V. Smith"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-05",
       "cited_by_count": 0,
       "source": "openalex"
     }

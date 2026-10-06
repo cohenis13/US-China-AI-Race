@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-05T15:46:07.013006+00:00",
+  "fetched_at": "2026-10-06T14:03:10.809189+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 45.1,
+      "composite_score": 45.2,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.9,
+          "share_score": 33.0,
           "paper_volume": {
-            "raw_value": 166499,
-            "share_score": 36.7,
+            "raw_value": 167051,
+            "share_score": 36.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4171,
+            "raw_value": 4168,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3018,
+            "raw_value": 3022,
             "share_score": 28.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 54.9,
+      "composite_score": 54.8,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.1,
+          "share_score": 67.0,
           "paper_volume": {
-            "raw_value": 286866,
-            "share_score": 63.3,
+            "raw_value": 286928,
+            "share_score": 63.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8384,
+            "raw_value": 8387,
             "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7469,
+            "raw_value": 7474,
             "share_score": 71.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -124,57 +124,57 @@
       },
       {
         "country_code": "CN",
-        "count": 286866
+        "count": 286928
       },
       {
         "country_code": "DE",
-        "count": 184300
+        "count": 184465
       },
       {
         "country_code": "US",
-        "count": 166499
+        "count": 167051
       },
       {
         "country_code": "IN",
-        "count": 97902
+        "count": 98349
       },
       {
         "country_code": "GB",
-        "count": 55788
+        "count": 55907
       },
       {
         "country_code": "ID",
-        "count": 37126
+        "count": 39802
       },
       {
         "country_code": "FR",
-        "count": 32711
+        "count": 32760
       },
       {
         "country_code": "IT",
-        "count": 29962
+        "count": 30046
       },
       {
         "country_code": "KR",
-        "count": 25930
+        "count": 26006
       }
     ],
     "volume": {
-      "us": 166499,
-      "china": 286866,
-      "total": 3073657,
+      "us": 167051,
+      "china": 286928,
+      "total": 3077882,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4171,
-      "china": 8384,
+      "us": 4168,
+      "china": 8387,
       "total": 19593,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3018,
-      "china": 7469,
-      "total": 16587,
+      "us": 3022,
+      "china": 7474,
+      "total": 16604,
       "data_ok": true
     }
   },
@@ -182,128 +182,137 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7114919546",
-      "title": "IBBI: A Python package for the detection and classification of bark and ambrosia beetles",
+      "id": "https://openalex.org/W7114771305",
+      "title": "Sentiment analysis in rural areas: a systematic review of applications and approaches",
       "authors": [
-        "Marais, Christopher",
-        "Kuo, Eric",
-        "Hulcr, Jiri"
+        "Emilio Hernández-López",
+        "Laura Martínez-Carrasco",
+        "Margarita Brugarolas"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125370655",
+      "title": "ClinVar-GKM",
+      "authors": [
+        "Lawrence Babb",
+        "Kyle Ferriter",
+        "Terry O'Neill"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130855589",
-      "title": "Neurodesk Tutorial: matlab",
+      "id": "https://openalex.org/W7125650763",
+      "title": "none",
       "authors": [
-        "Fernanda L. Ribeiro"
+        "Huifen Guo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130857967",
-      "title": "Neurodesk Tutorial: fmriprep",
+      "id": "https://openalex.org/W7125653046",
+      "title": "none",
       "authors": [
-        "Kelly G. Garner"
+        "Huifen Guo"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130925698",
-      "title": "Neurodesk Notebook: AFNI_processing_task_based",
+      "id": "https://openalex.org/W7140462290",
+      "title": "The Luna Bound Propagator for Formal Analysis of Neural Networks",
       "authors": [
-        "Paul A. Taylor (SSCC, NIMH, NIH, USA)"
+        "Henry LeCates",
+        "Haoze Wu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130934337",
-      "title": "Neurodesk Notebook: Magic_commands",
+      "id": "https://openalex.org/W7155534569",
+      "title": "CSEM-MIDL: Python package for accessing MIDL data",
       "authors": [
-        "Monika Doerig"
+        "Connor C. DiMarco"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130934523",
-      "title": "Neurodesk Notebook: qsmxt",
+      "id": "https://openalex.org/W7155544860",
+      "title": "MIDL: Merged Interplanetary Data from L1 processing software",
       "authors": [
-        "Ashley Stewart"
+        "Connor C. DiMarco",
+        "Gabor Toth",
+        "Tuija I. Pulkkinen"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134064382",
-      "title": "Neurodesk Notebook: brain_extraction_different_tools",
+      "id": "https://openalex.org/W7161165045",
+      "title": "e2er (End-to-End Research)",
       "authors": [
-        "Monika Doerig"
+        "Björn Hanneke"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7136120296",
-      "title": "Neurodesk Notebook: swi",
+      "id": "https://openalex.org/W7163865219",
+      "title": "GraFlo — Graph Schema & Transformation Language (GSTL)",
       "authors": [
-        "Steffen Bollmann",
-        "Michèle Masson‐Trottier"
+        "Alexander Belikov"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7136217807",
-      "title": "Neurodesk Notebook: unwrapping",
+      "id": "https://openalex.org/W7164140592",
+      "title": "The Colonised Voice: Phonological Paradox, Somatic Memory, and the Oblicist Framework — A Theoretical Framework and Preliminary Protocols",
       "authors": [
-        "Steffen Bollmann",
-        "Michèle Masson‐Trottier"
+        "Francis Brice Siewe Mingueu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154705603",
-      "title": "Neurodesk Notebook: Demo_fmriprep_FEAT",
-      "authors": [
-        "David V. Smith"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-05",
+      "published": "2026-10-06",
       "cited_by_count": 0,
       "source": "openalex"
     }

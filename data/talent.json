@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-08T14:28:52.489394+00:00",
+  "fetched_at": "2026-10-09T14:15:48.955077+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 45.1,
+      "composite_score": 44.9,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.9,
+          "share_score": 32.3,
           "paper_volume": {
-            "raw_value": 164171,
-            "share_score": 36.4,
+            "raw_value": 147274,
+            "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4184,
-            "share_score": 33.3,
+            "raw_value": 4182,
+            "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3064,
+            "raw_value": 3085,
             "share_score": 29.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 54.9,
+      "composite_score": 55.1,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.1,
+          "share_score": 67.7,
           "paper_volume": {
-            "raw_value": 286331,
-            "share_score": 63.6,
+            "raw_value": 280292,
+            "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8399,
-            "share_score": 66.7,
+            "raw_value": 8431,
+            "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7517,
+            "raw_value": 7539,
             "share_score": 71.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 409107
+        "count": 407221
       },
       {
         "country_code": "CN",
-        "count": 286331
-      },
-      {
-        "country_code": "DE",
-        "count": 183296
+        "count": 280292
       },
       {
         "country_code": "US",
-        "count": 164171
+        "count": 147274
+      },
+      {
+        "country_code": "DE",
+        "count": 103883
       },
       {
         "country_code": "IN",
-        "count": 96249
+        "count": 94744
       },
       {
         "country_code": "GB",
-        "count": 53991
+        "count": 46906
       },
       {
         "country_code": "ID",
-        "count": 41389
+        "count": 40818
       },
       {
         "country_code": "FR",
-        "count": 32143
+        "count": 28049
       },
       {
         "country_code": "IT",
-        "count": 29324
+        "count": 25580
       },
       {
         "country_code": "KR",
-        "count": 25825
+        "count": 24369
       }
     ],
     "volume": {
-      "us": 164171,
-      "china": 286331,
-      "total": 2917787,
+      "us": 147274,
+      "china": 280292,
+      "total": 2608938,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4184,
-      "china": 8399,
-      "total": 19618,
+      "us": 4182,
+      "china": 8431,
+      "total": 19625,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3064,
-      "china": 7517,
-      "total": 16720,
+      "us": 3085,
+      "china": 7539,
+      "total": 16727,
       "data_ok": true
     }
   },
@@ -182,143 +182,143 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7155658227",
-      "title": "Navigating Philosophy:Find your way through big ideas",
+      "id": "https://openalex.org/W4417446105",
+      "title": "Active inference with reusable state-dependent value profiles",
       "authors": [
-        "Laura; id_orcid 0000-0003-0797-6623 D'Olimpio"
+        "Jacob Poschl"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-08",
+      "published": "2026-10-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203517692",
-      "title": "Methodology of Developing an Interactive 3D Visualization of Sensory Input Mapping in the Mouse Spinal Cord",
+      "id": "https://openalex.org/W7133272143",
+      "title": "Shared Control for Assistive and Collaborative Robotics",
       "authors": [
-        "Summer Skelton",
-        "Magdalena Redondo Canales",
-        "Matthieu Poyade"
+        "Claudio Pacchierotti",
+        "Divyaksh Subhash Chander",
+        "Louise Devigne"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-08",
+      "published": "2026-10-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212124341",
-      "title": "Locus of Focus: A Metric for Temporal Qualities of Interpersonal Interaction",
+      "id": "https://openalex.org/W7155051214",
+      "title": "PdrQC: Pauli-space Discriminative Representations based Quantum Classifier",
       "authors": [
-        "Anonymous"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212136787",
-      "title": "Locus of Focus: A Metric for Temporal Qualities of Interpersonal Interaction",
-      "authors": [
-        "Anonymous"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212425969",
-      "title": "Historical review transfer depends on the training objective in an automotive classification benchmark",
-      "authors": [
-        "Yuan Chen",
-        "Jiawei Xu"
+        "Yuhang Tu",
+        "Jinfan Wang",
+        "Hao Huang"
       ],
       "countries": [
-        "CN",
-        "GB"
+        "CN"
       ],
       "primary_country": "China",
-      "published": "2026-10-08",
+      "published": "2026-10-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214135209",
-      "title": "Integrating component trees into neural networks as a learnable layer",
+      "id": "https://openalex.org/W7164345488",
+      "title": "Precision Dosing, Adaptive Algorithms and AI driven Prescribing",
       "authors": [
-        "Wonder Alves",
-        "Lucas de P. O. Santos",
-        "Ronaldo F. Hashimoto"
+        "Rajan Ethiraj Ugandar",
+        "Rangu Naga Sai Sindhuja",
+        "Regati Pujitha Reddy"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7206038714",
+      "title": "Allomorphy and infixation in the Tashlhiyt imperfective",
+      "authors": [
+        "David Embick",
+        "Mohamed Lahrouchi"
       ],
       "countries": [
+        "US",
         "FR"
       ],
-      "primary_country": "Other",
-      "published": "2026-10-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214725431",
-      "title": "Ignored Intertexts: New Approaches to Greek-to-Latin Allusions",
-      "authors": [
-        "Ludwig-Maximilians-Universität München",
-        "University of Lille"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220673982",
-      "title": "Historical review transfer depends on the training objective in an automotive classification benchmark",
-      "authors": [
-        "Yuan Chen",
-        "Jiawei Xu"
-      ],
-      "countries": [
-        "CN",
-        "GB"
-      ],
-      "primary_country": "China",
-      "published": "2026-10-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W3213227675",
-      "title": "Quantum variance for holomorphic Hecke cusp forms on the vertical geodesic",
-      "authors": [
-        "Peter Zenz"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4296415474",
-      "title": "Differentiable Bilevel Programming for Stackelberg Congestion Games",
-      "authors": [
-        "Jiayang Li",
-        "Jing Yu",
-        "Qianni Wang"
-      ],
-      "countries": [
-        "HK",
-        "US"
-      ],
       "primary_country": "US",
-      "published": "2026-10-07",
-      "cited_by_count": 3,
+      "published": "2026-10-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212112136",
+      "title": "When Clinical Experience Becomes Systems Knowledge - drawn from Complex Decision making in Special Education Settings",
+      "authors": [
+        "John Richard Smith",
+        "SHAI / HATI3"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220892764",
+      "title": "AADL: a lightweight anti-aliased multi-scale network for CT pulmonary nodule detection",
+      "authors": [
+        "Yu Wang",
+        "Xu Sun",
+        "Sun Linkai"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220893655",
+      "title": "Analyzing GPT-5 performance in general chemistry",
+      "authors": [
+        "Emilie Ernst",
+        "Jennifer R. DeRosa",
+        "Brian G. Ernst"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220893961",
+      "title": "Specialists’ agreement and construct validation of a visual scale for assessing mucosal healing after third molar extraction",
+      "authors": [
+        "Júlia Gomes Lúcio de Araújo",
+        "Beatriz Campos Pereira",
+        "Lais Albuquerque FERNANDES"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220894524",
+      "title": "Mathematical Coding as an Application of Graph Theory: A Sustainable Approach to Urban Structure Analysis",
+      "authors": [
+        "T. Mutaz",
+        "Zainab Khalid"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-09",
+      "cited_by_count": 0,
       "source": "openalex"
     }
   ]

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-09T14:15:48.955077+00:00",
+  "fetched_at": "2026-10-10T13:28:39.805362+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 32.3,
           "paper_volume": {
-            "raw_value": 147274,
-            "share_score": 34.4,
+            "raw_value": 147771,
+            "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4182,
-            "share_score": 33.2,
+            "raw_value": 4180,
+            "share_score": 33.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
             "raw_value": 3085,
-            "share_score": 29.0,
+            "share_score": 29.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 67.7,
           "paper_volume": {
-            "raw_value": 280292,
-            "share_score": 65.6,
+            "raw_value": 281045,
+            "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8431,
-            "share_score": 66.8,
+            "raw_value": 8436,
+            "share_score": 66.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7539,
-            "share_score": 71.0,
+            "raw_value": 7526,
+            "share_score": 70.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407221
+        "count": 407259
       },
       {
         "country_code": "CN",
-        "count": 280292
+        "count": 281045
       },
       {
         "country_code": "US",
-        "count": 147274
+        "count": 147771
       },
       {
         "country_code": "DE",
-        "count": 103883
+        "count": 103975
       },
       {
         "country_code": "IN",
-        "count": 94744
+        "count": 94815
       },
       {
         "country_code": "GB",
-        "count": 46906
+        "count": 47033
       },
       {
         "country_code": "ID",
-        "count": 40818
+        "count": 41549
       },
       {
         "country_code": "FR",
-        "count": 28049
+        "count": 28109
       },
       {
         "country_code": "IT",
-        "count": 25580
+        "count": 25709
       },
       {
         "country_code": "KR",
-        "count": 24369
+        "count": 24429
       }
     ],
     "volume": {
-      "us": 147274,
-      "china": 280292,
-      "total": 2608938,
+      "us": 147771,
+      "china": 281045,
+      "total": 2616536,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4182,
-      "china": 8431,
-      "total": 19625,
+      "us": 4180,
+      "china": 8436,
+      "total": 19620,
       "data_ok": true
     },
     "top_cited": {
       "us": 3085,
-      "china": 7539,
-      "total": 16727,
+      "china": 7526,
+      "total": 16723,
       "data_ok": true
     }
   },
@@ -182,142 +182,134 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4417446105",
-      "title": "Active inference with reusable state-dependent value profiles",
+      "id": "https://openalex.org/W7118854458",
+      "title": "AUTOMATING RATIONALITY: THE POTENTIAL OF ROBO-ADVISORS IN REDUCING BEHAVIORAL BIASES",
       "authors": [
-        "Jacob Poschl"
+        "DR. MOUMITA SAHA",
+        "DR. MEGHOOT GHOSH"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7133272143",
-      "title": "Shared Control for Assistive and Collaborative Robotics",
+      "id": "https://openalex.org/W7172203309",
+      "title": "A REVIEW OF MULTIBAND IMAGING TECHNIQUES IN AGRICULTURE",
       "authors": [
-        "Claudio Pacchierotti",
-        "Divyaksh Subhash Chander",
-        "Louise Devigne"
+        "Indian Journal of Science and Research"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7155051214",
-      "title": "PdrQC: Pauli-space Discriminative Representations based Quantum Classifier",
+      "id": "https://openalex.org/W7172233362",
+      "title": "Evaluation of behind-the-ear EEG as a wearable modality for lobe-specific seizure detection",
       "authors": [
-        "Yuhang Tu",
-        "Jinfan Wang",
-        "Hao Huang"
+        "Javier Sáez Acuña",
+        "Enrique Germany Morrison",
+        "Vicky Loulas"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213484533",
+      "title": "SPS: Simulate. Predict. Secure; Pre-Silicon Validation of Embedded Kernels via ML-Enhanced Cycle-Accurate Simulation and Anomaly Detection",
+      "authors": [
+        "Muhammad Awais",
+        "Maria Mushtaq",
+        "Lírida Naviner"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213945411",
+      "title": "Discriminating baryonium and final-state-interaction interpretations of $X(2356)$",
+      "authors": [
+        "Bing-Dong Wan",
+        "Sheng‐Qi Zhang"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164345488",
-      "title": "Precision Dosing, Adaptive Algorithms and AI driven Prescribing",
+      "id": "https://openalex.org/W7221066617",
+      "title": "Interpretable Models vs Post-Hoc Explanations: True Cost Comparison for Enterprise AI",
       "authors": [
-        "Rajan Ethiraj Ugandar",
-        "Rangu Naga Sai Sindhuja",
-        "Regati Pujitha Reddy"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7206038714",
-      "title": "Allomorphy and infixation in the Tashlhiyt imperfective",
-      "authors": [
-        "David Embick",
-        "Mohamed Lahrouchi"
+        "Oleh Ivchenko"
       ],
       "countries": [
-        "US",
-        "FR"
+        "UA"
       ],
-      "primary_country": "US",
-      "published": "2026-10-09",
+      "primary_country": "Other",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212112136",
-      "title": "When Clinical Experience Becomes Systems Knowledge - drawn from Complex Decision making in Special Education Settings",
+      "id": "https://openalex.org/W7221075586",
+      "title": "Ava Lovelace Zeno: a hand-crafted, CPU-only agent clears all 25 public ARC-AGI-3 games",
       "authors": [
-        "John Richard Smith",
-        "SHAI / HATI3"
+        "Singaraj B"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7220892764",
-      "title": "AADL: a lightweight anti-aliased multi-scale network for CT pulmonary nodule detection",
+      "id": "https://openalex.org/W7221077205",
+      "title": "AILEE Trust Layer",
       "authors": [
-        "Yu Wang",
-        "Xu Sun",
-        "Sun Linkai"
+        "Don Michael Feeney"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7220893655",
-      "title": "Analyzing GPT-5 performance in general chemistry",
-      "authors": [
-        "Emilie Ernst",
-        "Jennifer R. DeRosa",
-        "Brian G. Ernst"
-      ],
+      "id": "https://openalex.org/W7221077256",
+      "title": "Corrigendum: Mapping the role of artificial intelligence in renewable energy and the clean energy transition: a bibliometric review",
+      "authors": [],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7220893961",
-      "title": "Specialists’ agreement and construct validation of a visual scale for assessing mucosal healing after third molar extraction",
+      "id": "https://openalex.org/W7221079530",
+      "title": "A two-stage cascaded prediction framework for urban inundation depth using a dual-branch CNN-ConvLSTM network",
       "authors": [
-        "Júlia Gomes Lúcio de Araújo",
-        "Beatriz Campos Pereira",
-        "Lais Albuquerque FERNANDES"
+        "Tongxin Ren",
+        "Zhenghui Lu",
+        "江江 夏"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220894524",
-      "title": "Mathematical Coding as an Application of Graph Theory: A Sustainable Approach to Urban Structure Analysis",
-      "authors": [
-        "T. Mutaz",
-        "Zainab Khalid"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-09",
+      "published": "2026-10-10",
       "cited_by_count": 0,
       "source": "openalex"
     }

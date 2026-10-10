@@ -164,6 +164,30 @@
       "country": "China",
       "hf_authors": ["huawei-noah"],
       "notes": "Shenzhen. Pangu model series."
+    },
+    {
+      "name": "BAAI (Beijing Academy of AI)",
+      "country": "China",
+      "hf_authors": ["BAAI"],
+      "notes": "Beijing. FlagAI, FlagEmbedding, AquilaChat, Emu series. State-backed research institute."
+    },
+    {
+      "name": "Baichuan Intelligence",
+      "country": "China",
+      "hf_authors": ["baichuan-inc"],
+      "notes": "Beijing. Baichuan2, Baichuan3 series. Strong ModelScope presence."
+    },
+    {
+      "name": "IBM Research",
+      "country": "US",
+      "hf_authors": ["ibm-granite"],
+      "notes": "Armonk, NY. Granite series (code, instruct). Enterprise-focused open models."
+    },
+    {
+      "name": "Databricks / MosaicML",
+      "country": "US",
+      "hf_authors": ["mosaicml", "databricks"],
+      "notes": "San Francisco, CA. DBRX, MPT series."
     }
   ]
 }

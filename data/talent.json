@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-11T13:52:47.845540+00:00",
+  "fetched_at": "2026-10-12T16:37:39.112196+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 44.9,
+      "composite_score": 45.0,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.3,
+          "share_score": 32.4,
           "paper_volume": {
-            "raw_value": 147052,
+            "raw_value": 146089,
             "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4171,
-            "share_score": 33.1,
+            "raw_value": 4195,
+            "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3077,
-            "share_score": 29.1,
+            "raw_value": 3135,
+            "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 55.1,
+      "composite_score": 55.0,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.7,
+          "share_score": 67.6,
           "paper_volume": {
-            "raw_value": 279968,
+            "raw_value": 278926,
             "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8432,
-            "share_score": 66.9,
+            "raw_value": 8424,
+            "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7501,
-            "share_score": 70.9,
+            "raw_value": 7519,
+            "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407199
+        "count": 407116
       },
       {
         "country_code": "CN",
-        "count": 279968
+        "count": 278926
       },
       {
         "country_code": "US",
-        "count": 147052
+        "count": 146089
       },
       {
         "country_code": "DE",
-        "count": 103866
+        "count": 103631
       },
       {
         "country_code": "IN",
-        "count": 94524
+        "count": 94373
       },
       {
         "country_code": "GB",
-        "count": 46885
+        "count": 46675
       },
       {
         "country_code": "ID",
-        "count": 41986
+        "count": 42309
       },
       {
         "country_code": "FR",
-        "count": 28064
+        "count": 28059
       },
       {
         "country_code": "IT",
-        "count": 25666
+        "count": 25536
       },
       {
         "country_code": "KR",
-        "count": 24270
+        "count": 24184
       }
     ],
     "volume": {
-      "us": 147052,
-      "china": 279968,
-      "total": 2614903,
+      "us": 146089,
+      "china": 278926,
+      "total": 2608830,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4171,
-      "china": 8432,
-      "total": 19604,
+      "us": 4195,
+      "china": 8424,
+      "total": 19605,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3077,
-      "china": 7501,
-      "total": 16668,
+      "us": 3135,
+      "china": 7519,
+      "total": 16713,
       "data_ok": true
     }
   },
@@ -182,151 +182,138 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7171943072",
-      "title": "Evaluation Code for: Disassembly-Augmented Root Cause Analysis for C/C++ Segmentation Faults",
+      "id": "https://openalex.org/W7143352533",
+      "title": "Adapting Segment Anything Model 3 for concept-driven lesion segmentation in medical images: an experimental study",
       "authors": [
-        "Jihoon Jung",
-        "Chansong You",
-        "Jingun Hong"
+        "Guoping Xu",
+        "Jayaram K. Udupa",
+        "Yubing Tong"
       ],
-      "countries": [
-        "DE",
-        "KR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-11",
-      "cited_by_count": 1,
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-12",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204344563",
-      "title": "Joint Data-Driven Anomaly Detection and Identification in Smart Grid Communication Layer",
+      "id": "https://openalex.org/W7209591902",
+      "title": "Handling non-standard cases in computing: from user and model perspectives",
       "authors": [
-        "Priya Mittal",
-        "Sharon A. Boamah",
-        "Michel Caraballo"
+        "Julie R. Pivin-Bachler",
+        "Sub Cybernetics",
+        "Egon L. van den Broek"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213934545",
+      "title": "Frequency-specific oscillations track parallel processing of linguistic structural and lexical-semantic information from perception to decision",
+      "authors": [
+        "Yanlin Fu",
+        "Zhao Xu",
+        "Qinhui Yao"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214959078",
+      "title": "[Artificial intelligence-driven early warning for severe pneumonia: pathways and challenges from data integration to clinical decision-making].",
+      "authors": [
+        "H Y He"
       ],
       "countries": [
-        "US",
-        "FR"
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-10-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7219269256",
+      "title": "Dictionary of eye care and vision science",
+      "authors": [
+        "Matt J. Dunn"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221015205",
+      "title": "Supplementary material for Paper \"Dissecting the Landscape of Multiobjective Feature Selection\"",
+      "authors": [
+        "Anonymous"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221096358",
+      "title": "AnnZarro",
+      "authors": [
+        "Dominik J. Otto",
+        "Siddharth Baasri",
+        "Manu N. Setty"
+      ],
+      "countries": [
+        "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-11",
+      "published": "2026-10-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213386914",
-      "title": "Teaching Structure Otherwise",
+      "id": "https://openalex.org/W7221191260",
+      "title": "Traditional Chinese medicine body constitution is associated with mobile phone addiction among Chinese university students",
       "authors": [
-        "Mads Thygesen"
+        "Hong Yang",
+        "Xuan Zhou",
+        "Ruining Qi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-11",
+      "published": "2026-10-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221028123",
-      "title": "Poster: Towards Building a Multimodal IoT Dataset for Post-Compromise Detection in Consumer IoT Environments",
+      "id": "https://openalex.org/W7221196567",
+      "title": "Improving Fraud Detection Accuracy Through Data Preprocessing and Decision Tree Machine Learning",
       "authors": [
-        "Muhammad Idris",
-        "Joachim Posegga",
-        "Marc Daciér"
-      ],
-      "countries": [
-        "DE",
-        "SA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221058751",
-      "title": "EyeLab",
-      "authors": [
-        "Giulia Sedda",
-        "Giulia Olla",
-        "Sonia Massa"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221172127",
-      "title": "EyeLab",
-      "authors": [
-        "Giulia Sedda",
-        "Giulia Olla",
-        "Sonia Massa"
-      ],
-      "countries": [
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221306004",
-      "title": "An adaptive federated deep learning approach for efficient DDoS detection in IoT edge networks",
-      "authors": [
-        "Prachi Kumar",
-        "Pallavi Pallavi",
-        "Praneet Saurabh"
+        "Darshan Aher"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-11",
+      "published": "2026-10-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221306517",
-      "title": "Preserving neighborhoods in tissue sampling",
+      "id": "https://openalex.org/W7221432841",
+      "title": "RBLA-Net: an efficient deep learning model for time-dependent probabilistic stability analysis of reservoir slope",
       "authors": [
-        "Anonymous study author"
+        "Zhiping Deng",
+        "Hou-Yuan Yu",
+        "Peng Lan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221306817",
-      "title": "Overcoming a Learning Bottleneck in Impartial Games: A Circuit Complexity Approach — interactive paper and Lean formalisation",
-      "authors": [
-        "Søren Riis"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221307011",
-      "title": "Evaluation and validation of a reproducible mNGS workflow for gut Microbiome analysis",
-      "authors": [
-        "Yingying Zheng",
-        "Hailing Wanghu",
-        "Zhongkui Xia"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-11",
+      "published": "2026-10-12",
       "cited_by_count": 0,
       "source": "openalex"
     }

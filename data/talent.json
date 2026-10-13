@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-12T16:37:39.112196+00:00",
+  "fetched_at": "2026-10-13T14:54:28.317583+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.4,
+          "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 146089,
+            "raw_value": 146490,
             "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4195,
-            "share_score": 33.2,
+            "raw_value": 4203,
+            "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3135,
+            "raw_value": 3146,
             "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.6,
+          "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 278926,
+            "raw_value": 279565,
             "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8424,
-            "share_score": 66.8,
+            "raw_value": 8429,
+            "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7519,
+            "raw_value": 7545,
             "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407116
+        "count": 407127
       },
       {
         "country_code": "CN",
-        "count": 278926
+        "count": 279565
       },
       {
         "country_code": "US",
-        "count": 146089
+        "count": 146490
       },
       {
         "country_code": "DE",
-        "count": 103631
+        "count": 103747
       },
       {
         "country_code": "IN",
-        "count": 94373
+        "count": 94628
       },
       {
         "country_code": "GB",
-        "count": 46675
+        "count": 46805
       },
       {
         "country_code": "ID",
-        "count": 42309
+        "count": 42488
       },
       {
         "country_code": "FR",
-        "count": 28059
+        "count": 28100
       },
       {
         "country_code": "IT",
-        "count": 25536
+        "count": 25610
       },
       {
         "country_code": "KR",
-        "count": 24184
+        "count": 24252
       }
     ],
     "volume": {
-      "us": 146089,
-      "china": 278926,
-      "total": 2608830,
+      "us": 146490,
+      "china": 279565,
+      "total": 2614822,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4195,
-      "china": 8424,
-      "total": 19605,
+      "us": 4203,
+      "china": 8429,
+      "total": 19626,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3135,
-      "china": 7519,
-      "total": 16713,
+      "us": 3146,
+      "china": 7545,
+      "total": 16763,
       "data_ok": true
     }
   },
@@ -182,138 +182,135 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7143352533",
-      "title": "Adapting Segment Anything Model 3 for concept-driven lesion segmentation in medical images: an experimental study",
+      "id": "https://openalex.org/W4206659779",
+      "title": "International Journal of Image, Graphics and Signal Processing",
+      "authors": [],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-13",
+      "cited_by_count": 94,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4414818609",
+      "title": "ActiNet: an open-source tool for activity intensity classification of wrist-worn accelerometry using self-supervised deep learning",
       "authors": [
-        "Guoping Xu",
-        "Jayaram K. Udupa",
-        "Yubing Tong"
+        "Aidan Acquah",
+        "Shing Chan",
+        "Aiden Doherty"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-12",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7209591902",
-      "title": "Handling non-standard cases in computing: from user and model perspectives",
+      "id": "https://openalex.org/W7202381452",
+      "title": "Real-Time Synchronized Multi-Axis Platform for Microscopic Image Acquisition and Matrix-Based Fusion",
       "authors": [
-        "Julie R. Pivin-Bachler",
-        "Sub Cybernetics",
-        "Egon L. van den Broek"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213934545",
-      "title": "Frequency-specific oscillations track parallel processing of linguistic structural and lexical-semantic information from perception to decision",
-      "authors": [
-        "Yanlin Fu",
-        "Zhao Xu",
-        "Qinhui Yao"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214959078",
-      "title": "[Artificial intelligence-driven early warning for severe pneumonia: pathways and challenges from data integration to clinical decision-making].",
-      "authors": [
-        "H Y He"
+        "Cihan Yalcin",
+        "Mevlüt Ersoy"
       ],
       "countries": [
-        "CN"
+        "TR"
       ],
-      "primary_country": "China",
-      "published": "2026-10-12",
+      "primary_country": "Other",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7219269256",
-      "title": "Dictionary of eye care and vision science",
+      "id": "https://openalex.org/W7214135427",
+      "title": "Towards a Virtual Embryo: A new approach methodology for probabilistic assessment of neural tube closure defects",
       "authors": [
-        "Matt J. Dunn"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221015205",
-      "title": "Supplementary material for Paper \"Dissecting the Landscape of Multiobjective Feature Selection\"",
-      "authors": [
-        "Anonymous"
+        "Job Berkhout",
+        "IRAS – One Health Toxicology",
+        "IRAS OH Toxicology"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-12",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221096358",
-      "title": "AnnZarro",
+      "id": "https://openalex.org/W7215236827",
+      "title": "Precise Android Malware Detection using CARET Model Checking",
       "authors": [
-        "Dominik J. Otto",
-        "Siddharth Baasri",
-        "Manu N. Setty"
+        "Tayssir Touili",
+        "Olzhas Zhangeldinov"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220234638",
+      "title": "Human-Centred AI Compliance in Common European Data Spaces",
+      "authors": [
+        "Pietro Giovanni Bizzaro"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221445196",
+      "title": "Generative AI and Scientific Publishing: Preserving Accountability, Trust, and Governance",
+      "authors": [
+        "Yandong Jiang",
+        "James P. Rathmell"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-12",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221191260",
-      "title": "Traditional Chinese medicine body constitution is associated with mobile phone addiction among Chinese university students",
+      "id": "https://openalex.org/W7221470406",
+      "title": "Novel methods for fine-scaled positioning",
       "authors": [
-        "Hong Yang",
-        "Xuan Zhou",
-        "Ruining Qi"
+        "James Campbell"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-12",
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221196567",
-      "title": "Improving Fraud Detection Accuracy Through Data Preprocessing and Decision Tree Machine Learning",
+      "id": "https://openalex.org/W7221503376",
+      "title": "Doctrine index (triadic)",
       "authors": [
-        "Darshan Aher"
+        "Gary Giles"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-12",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221432841",
-      "title": "RBLA-Net: an efficient deep learning model for time-dependent probabilistic stability analysis of reservoir slope",
+      "id": "https://openalex.org/W7221503446",
+      "title": "mojolearn: bitwise-identical GPU machine learning in Mojo on Apple Metal, NVIDIA CUDA and AMD HIP",
       "authors": [
-        "Zhiping Deng",
-        "Hou-Yuan Yu",
-        "Peng Lan"
+        "Andrew Hendel"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-12",
+      "published": "2026-10-13",
       "cited_by_count": 0,
       "source": "openalex"
     }

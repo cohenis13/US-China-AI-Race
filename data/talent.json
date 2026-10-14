@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-13T14:54:28.317583+00:00",
+  "fetched_at": "2026-10-14T12:46:20.750438+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 146490,
+            "raw_value": 146260,
             "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4203,
+            "raw_value": 4199,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3146,
+            "raw_value": 3137,
             "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 279565,
+            "raw_value": 279119,
             "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8429,
+            "raw_value": 8413,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7545,
+            "raw_value": 7537,
             "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,67 +120,127 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407127
+        "count": 407088
       },
       {
         "country_code": "CN",
-        "count": 279565
+        "count": 279119
       },
       {
         "country_code": "US",
-        "count": 146490
+        "count": 146260
       },
       {
         "country_code": "DE",
-        "count": 103747
+        "count": 103693
       },
       {
         "country_code": "IN",
-        "count": 94628
+        "count": 94519
       },
       {
         "country_code": "GB",
-        "count": 46805
+        "count": 46723
       },
       {
         "country_code": "ID",
-        "count": 42488
+        "count": 42383
       },
       {
         "country_code": "FR",
-        "count": 28100
+        "count": 28018
       },
       {
         "country_code": "IT",
-        "count": 25610
+        "count": 25559
       },
       {
         "country_code": "KR",
-        "count": 24252
+        "count": 24208
       }
     ],
     "volume": {
-      "us": 146490,
-      "china": 279565,
-      "total": 2614822,
+      "us": 146260,
+      "china": 279119,
+      "total": 2612666,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4203,
-      "china": 8429,
-      "total": 19626,
+      "us": 4199,
+      "china": 8413,
+      "total": 19596,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3146,
-      "china": 7545,
-      "total": 16763,
+      "us": 3137,
+      "china": 7537,
+      "total": 16735,
       "data_ok": true
     }
   },
   "manual_data_snapshot": "2026-04-16",
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
+    {
+      "id": "https://openalex.org/W7204740080",
+      "title": "Some Users Are Easier to Re-identify: Evidence from Mobility Profiles and Embedding Geometry",
+      "authors": [
+        "Tiziano Martin Bernal",
+        "Anne Josiane Kouam",
+        "Mariano G. Beiró"
+      ],
+      "countries": [
+        "DE",
+        "FR",
+        "AR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213095339",
+      "title": "Impact of artificial intelligence on project planning, scheduling, and control",
+      "authors": [
+        "Paulson Geo Philip"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214417852",
+      "title": "Edge on Wheels: Forecasting Bus Fleet Compute with Calibrated Uncertainty",
+      "authors": [
+        "Wellington Lobato",
+        "Nadjib Achir",
+        "Aline Carneiro Viana"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221504093",
+      "title": "Proteomics in the age of artificial intelligence",
+      "authors": [
+        "Wout Bittremieux"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-14",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
     {
       "id": "https://openalex.org/W4206659779",
       "title": "International Journal of Image, Graphics and Signal Processing",
@@ -254,59 +314,6 @@
       "title": "Human-Centred AI Compliance in Common European Data Spaces",
       "authors": [
         "Pietro Giovanni Bizzaro"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221445196",
-      "title": "Generative AI and Scientific Publishing: Preserving Accountability, Trust, and Governance",
-      "authors": [
-        "Yandong Jiang",
-        "James P. Rathmell"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221470406",
-      "title": "Novel methods for fine-scaled positioning",
-      "authors": [
-        "James Campbell"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221503376",
-      "title": "Doctrine index (triadic)",
-      "authors": [
-        "Gary Giles"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221503446",
-      "title": "mojolearn: bitwise-identical GPU machine learning in Mojo on Apple Metal, NVIDIA CUDA and AMD HIP",
-      "authors": [
-        "Andrew Hendel"
       ],
       "countries": [],
       "primary_country": "Unknown",

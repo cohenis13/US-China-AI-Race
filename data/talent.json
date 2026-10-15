@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-14T12:46:20.750438+00:00",
+  "fetched_at": "2026-10-15T12:33:07.126644+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.5,
+          "share_score": 32.4,
           "paper_volume": {
-            "raw_value": 146260,
+            "raw_value": 146894,
             "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4199,
+            "raw_value": 4243,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3137,
-            "share_score": 29.4,
+            "raw_value": 3164,
+            "share_score": 29.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.5,
+          "share_score": 67.6,
           "paper_volume": {
-            "raw_value": 279119,
+            "raw_value": 280132,
             "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8413,
+            "raw_value": 8509,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7537,
-            "share_score": 70.6,
+            "raw_value": 7619,
+            "share_score": 70.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407088
+        "count": 407166
       },
       {
         "country_code": "CN",
-        "count": 279119
+        "count": 280132
       },
       {
         "country_code": "US",
-        "count": 146260
+        "count": 146894
       },
       {
         "country_code": "DE",
-        "count": 103693
+        "count": 103790
       },
       {
         "country_code": "IN",
-        "count": 94519
+        "count": 94862
       },
       {
         "country_code": "GB",
-        "count": 46723
+        "count": 46940
       },
       {
         "country_code": "ID",
-        "count": 42383
+        "count": 42534
       },
       {
         "country_code": "FR",
-        "count": 28018
+        "count": 28057
       },
       {
         "country_code": "IT",
-        "count": 25559
+        "count": 25643
       },
       {
         "country_code": "KR",
-        "count": 24208
+        "count": 24078
       }
     ],
     "volume": {
-      "us": 146260,
-      "china": 279119,
-      "total": 2612666,
+      "us": 146894,
+      "china": 280132,
+      "total": 2624506,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4199,
-      "china": 8413,
-      "total": 19596,
+      "us": 4243,
+      "china": 8509,
+      "total": 19796,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3137,
-      "china": 7537,
-      "total": 16735,
+      "us": 3164,
+      "china": 7619,
+      "total": 16919,
       "data_ok": true
     }
   },
@@ -182,142 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7204740080",
-      "title": "Some Users Are Easier to Re-identify: Evidence from Mobility Profiles and Embedding Geometry",
+      "id": "https://openalex.org/W7166264928",
+      "title": "Reliable LLM-Based Natural Language Orchestration for 5G Network Slicing using a Hybrid MCP-Agent",
       "authors": [
-        "Tiziano Martin Bernal",
-        "Anne Josiane Kouam",
-        "Mariano G. Beiró"
-      ],
-      "countries": [
-        "DE",
-        "FR",
-        "AR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213095339",
-      "title": "Impact of artificial intelligence on project planning, scheduling, and control",
-      "authors": [
-        "Paulson Geo Philip"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214417852",
-      "title": "Edge on Wheels: Forecasting Bus Fleet Compute with Calibrated Uncertainty",
-      "authors": [
-        "Wellington Lobato",
-        "Nadjib Achir",
-        "Aline Carneiro Viana"
+        "Moetaz Ebnel Hadj Youssef",
+        "Hassan Hassan",
+        "Khalil Drira"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-14",
+      "published": "2026-10-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221504093",
-      "title": "Proteomics in the age of artificial intelligence",
+      "id": "https://openalex.org/W7168424991",
+      "title": "Experimental Data for Implementation-Aware Real-Time Benchmark of Incremental PI and Mamdani Fuzzy Logic Speed Control for a Brushed DC Motor",
       "authors": [
-        "Wout Bittremieux"
+        "Saeed Basiri",
+        "Daniel Heredero-Peris",
+        "Oriol Subirats Rillo"
+      ],
+      "countries": [
+        "ES"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7201902742",
+      "title": "The Closed Geodetic Game: algorithms and strategies",
+      "authors": [
+        "Antoine Dailly",
+        "Harmender Gahlawat",
+        "Zin Mar Myint"
+      ],
+      "countries": [
+        "FR",
+        "IL",
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212918339",
+      "title": "Complete Patient-Level Leakage Among Traceable Images in a Widely Used Brain Tumor MRI Benchmark",
+      "authors": [
+        "Jaiveer Singh Bassi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214704508",
+      "title": "PVRoof-SH: A Rooftop-State Semantic Segmentation Dataset for Urban Photovoltaic Mapping",
+      "authors": [
+        "Jiayuan Peng"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215165289",
+      "title": "Intellectual property (IP) laws' recognition of the evolving concept of 'art', including in the context of artificial intelligence (AI)-assisted creation, and its impacts on the boundaries between different IP rights, and on the role of those rights in enabling innovation, investment, and the monetization of creative outputs - Belgian report",
+      "authors": [
+        "Jérôme De Cooman",
+        "Pauline Ansion"
       ],
       "countries": [
         "BE"
       ],
       "primary_country": "Other",
-      "published": "2026-10-14",
+      "published": "2026-10-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4206659779",
-      "title": "International Journal of Image, Graphics and Signal Processing",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-13",
-      "cited_by_count": 94,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4414818609",
-      "title": "ActiNet: an open-source tool for activity intensity classification of wrist-worn accelerometry using self-supervised deep learning",
+      "id": "https://openalex.org/W7220953041",
+      "title": "Splitting Is Stressful but Merging Is Manageable: Co-contextual Typing for Substructural and Session Types (Extended version)",
       "authors": [
-        "Aidan Acquah",
-        "Shing Chan",
-        "Aiden Doherty"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202381452",
-      "title": "Real-Time Synchronized Multi-Axis Platform for Microscopic Image Acquisition and Matrix-Based Fusion",
-      "authors": [
-        "Cihan Yalcin",
-        "Mevlüt Ersoy"
+        "Olivia Hartley Weston",
+        "Simon Fowler"
       ],
       "countries": [
-        "TR"
+        "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-10-13",
+      "published": "2026-10-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214135427",
-      "title": "Towards a Virtual Embryo: A new approach methodology for probabilistic assessment of neural tube closure defects",
+      "id": "https://openalex.org/W7221747120",
+      "title": "Artificial Intelligence and Machine Learning for Stock Market Prediction: A Systematic Literature Review of Methods, Emerging Paradigms, Reproducibility, and Evaluation Gaps (2016-2026)",
       "authors": [
-        "Job Berkhout",
-        "IRAS – One Health Toxicology",
-        "IRAS OH Toxicology"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-13",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7215236827",
-      "title": "Precise Android Malware Detection using CARET Model Checking",
-      "authors": [
-        "Tayssir Touili",
-        "Olzhas Zhangeldinov"
+        "Akshatha Srikantha",
+        "Manpreet Singh",
+        "Rahul Joshi"
       ],
       "countries": [
-        "FR"
+        "US",
+        "IN",
+        "KR"
       ],
-      "primary_country": "Other",
-      "published": "2026-10-13",
+      "primary_country": "US",
+      "published": "2026-10-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7220234638",
-      "title": "Human-Centred AI Compliance in Common European Data Spaces",
+      "id": "https://openalex.org/W7221747864",
+      "title": "The Suleimanzadeh Doctrine: Legal-Philosophical Framework and Procedural Rules for Synthetic Persons",
       "authors": [
-        "Pietro Giovanni Bizzaro"
+        "Hawar Suleimanzadeh"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-13",
+      "published": "2026-10-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221748724",
+      "title": "Counts, not Weights: The first stage of LOCUS: filing novels with no neural network",
+      "authors": [
+        "Sebastian Harvey Vaderaa"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

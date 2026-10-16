@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-15T12:33:07.126644+00:00",
+  "fetched_at": "2026-10-16T12:12:25.163368+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.4,
+          "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 146894,
+            "raw_value": 147032,
             "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4243,
+            "raw_value": 4291,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3164,
-            "share_score": 29.3,
+            "raw_value": 3206,
+            "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.6,
+          "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 280132,
+            "raw_value": 280248,
             "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8509,
+            "raw_value": 8595,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7619,
-            "share_score": 70.7,
+            "raw_value": 7687,
+            "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407166
+        "count": 407184
       },
       {
         "country_code": "CN",
-        "count": 280132
+        "count": 280248
       },
       {
         "country_code": "US",
-        "count": 146894
+        "count": 147032
       },
       {
         "country_code": "DE",
-        "count": 103790
+        "count": 103853
       },
       {
         "country_code": "IN",
-        "count": 94862
+        "count": 94898
       },
       {
         "country_code": "GB",
-        "count": 46940
+        "count": 47111
       },
       {
         "country_code": "ID",
-        "count": 42534
+        "count": 42452
       },
       {
         "country_code": "FR",
-        "count": 28057
+        "count": 28053
       },
       {
         "country_code": "IT",
-        "count": 25643
+        "count": 25681
       },
       {
         "country_code": "KR",
-        "count": 24078
+        "count": 24120
       }
     ],
     "volume": {
-      "us": 146894,
-      "china": 280132,
-      "total": 2624506,
+      "us": 147032,
+      "china": 280248,
+      "total": 2629318,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4243,
-      "china": 8509,
-      "total": 19796,
+      "us": 4291,
+      "china": 8595,
+      "total": 19989,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3164,
-      "china": 7619,
-      "total": 16919,
+      "us": 3206,
+      "china": 7687,
+      "total": 17055,
       "data_ok": true
     }
   },
@@ -182,148 +182,143 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7166264928",
-      "title": "Reliable LLM-Based Natural Language Orchestration for 5G Network Slicing using a Hybrid MCP-Agent",
+      "id": "https://openalex.org/W7161100528",
+      "title": "Inductive Biases in Field-level Cosmological Inference from Galaxy Catalogs",
       "authors": [
-        "Moetaz Ebnel Hadj Youssef",
-        "Hassan Hassan",
-        "Khalil Drira"
+        "James O'Connor Baldwin",
+        "Shy Genel",
+        "Francisco Villaescusa-Navarro"
       ],
       "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168424991",
-      "title": "Experimental Data for Implementation-Aware Real-Time Benchmark of Incremental PI and Mamdani Fuzzy Logic Speed Control for a Brushed DC Motor",
-      "authors": [
-        "Saeed Basiri",
-        "Daniel Heredero-Peris",
-        "Oriol Subirats Rillo"
-      ],
-      "countries": [
-        "ES"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201902742",
-      "title": "The Closed Geodetic Game: algorithms and strategies",
-      "authors": [
-        "Antoine Dailly",
-        "Harmender Gahlawat",
-        "Zin Mar Myint"
-      ],
-      "countries": [
-        "FR",
-        "IL",
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212918339",
-      "title": "Complete Patient-Level Leakage Among Traceable Images in a Widely Used Brain Tumor MRI Benchmark",
-      "authors": [
-        "Jaiveer Singh Bassi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214704508",
-      "title": "PVRoof-SH: A Rooftop-State Semantic Segmentation Dataset for Urban Photovoltaic Mapping",
-      "authors": [
-        "Jiayuan Peng"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7215165289",
-      "title": "Intellectual property (IP) laws' recognition of the evolving concept of 'art', including in the context of artificial intelligence (AI)-assisted creation, and its impacts on the boundaries between different IP rights, and on the role of those rights in enabling innovation, investment, and the monetization of creative outputs - Belgian report",
-      "authors": [
-        "Jérôme De Cooman",
-        "Pauline Ansion"
-      ],
-      "countries": [
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220953041",
-      "title": "Splitting Is Stressful but Merging Is Manageable: Co-contextual Typing for Substructural and Session Types (Extended version)",
-      "authors": [
-        "Olivia Hartley Weston",
-        "Simon Fowler"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-15",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221747120",
-      "title": "Artificial Intelligence and Machine Learning for Stock Market Prediction: A Systematic Literature Review of Methods, Emerging Paradigms, Reproducibility, and Evaluation Gaps (2016-2026)",
-      "authors": [
-        "Akshatha Srikantha",
-        "Manpreet Singh",
-        "Rahul Joshi"
-      ],
-      "countries": [
-        "US",
-        "IN",
-        "KR"
+        "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-15",
+      "published": "2026-10-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221747864",
-      "title": "The Suleimanzadeh Doctrine: Legal-Philosophical Framework and Procedural Rules for Synthetic Persons",
+      "id": "https://openalex.org/W7213573518",
+      "title": "Resisting AI with Paper: Possibilities, Concerns and Protest",
       "authors": [
-        "Hawar Suleimanzadeh"
+        "Laura Evans"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-15",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221748724",
-      "title": "Counts, not Weights: The first stage of LOCUS: filing novels with no neural network",
+      "id": "https://openalex.org/W7214130745",
+      "title": "Uitbraakbeheer optimaliseren met fylogenetica, ensemblemethoden en taalmodellen",
       "authors": [
-        "Sebastian Harvey Vaderaa"
+        "Jonathan Thibaut"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-15",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214132765",
+      "title": "Crafting Resilient AI policies for Education",
+      "authors": [
+        "Delight Ejiaka",
+        "Miranda Hannasch",
+        "Branden Cunningham"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214142567",
+      "title": "From “I’m Not a Coder” to “I Built a Website”: Teaching Business Concepts Through AI Vibe Coding",
+      "authors": [
+        "Jean Jeon"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215005082",
+      "title": "Core Mathematics Applications using AI",
+      "authors": [
+        "Zachary Porter"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215511413",
+      "title": "AI Tutors, Worksheets, and Task Design: Matching AI Tools to Learning Structure",
+      "authors": [
+        "Brock Casselman@unlv.edu"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7216785841",
+      "title": "AI for Everyone: Designing an Introductory AI Course Across Disciplines",
+      "authors": [
+        "Jesse J. Fitts",
+        "Waleed Faris"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7218244705",
+      "title": "A Student-Centered Model for Ethically Evaluating AI Integration in Learning Support Services and Beyond",
+      "authors": [
+        "Cristina Caputo"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-16",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220875604",
+      "title": "Machine learning om de prognose van multiple sclerose patiënten te modelleren",
+      "authors": [
+        "Robbe D’hondt"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-16",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-16T12:12:25.163368+00:00",
+  "fetched_at": "2026-10-17T11:29:59.576819+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 147032,
-            "share_score": 34.4,
+            "raw_value": 147635,
+            "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4291,
+            "raw_value": 4289,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3206,
+            "raw_value": 3202,
             "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 280248,
-            "share_score": 65.6,
+            "raw_value": 280878,
+            "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8595,
+            "raw_value": 8602,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7687,
+            "raw_value": 7678,
             "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 407184
+        "count": 569395
       },
       {
         "country_code": "CN",
-        "count": 280248
+        "count": 280878
       },
       {
         "country_code": "US",
-        "count": 147032
+        "count": 147635
       },
       {
         "country_code": "DE",
-        "count": 103853
+        "count": 104330
       },
       {
         "country_code": "IN",
-        "count": 94898
+        "count": 95097
       },
       {
         "country_code": "GB",
-        "count": 47111
+        "count": 47269
       },
       {
         "country_code": "ID",
-        "count": 42452
+        "count": 42501
       },
       {
         "country_code": "FR",
-        "count": 28053
+        "count": 28086
       },
       {
         "country_code": "IT",
-        "count": 25681
+        "count": 25743
       },
       {
         "country_code": "KR",
-        "count": 24120
+        "count": 24187
       }
     ],
     "volume": {
-      "us": 147032,
-      "china": 280248,
-      "total": 2629318,
+      "us": 147635,
+      "china": 280878,
+      "total": 2795945,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4291,
-      "china": 8595,
-      "total": 19989,
+      "us": 4289,
+      "china": 8602,
+      "total": 19998,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3206,
-      "china": 7687,
-      "total": 17055,
+      "us": 3202,
+      "china": 7678,
+      "total": 17027,
       "data_ok": true
     }
   },
@@ -182,143 +182,130 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7161100528",
-      "title": "Inductive Biases in Field-level Cosmological Inference from Galaxy Catalogs",
+      "id": "https://openalex.org/W7221554508",
+      "title": "[T-005] Public Principle Separation Theory",
       "authors": [
-        "James O'Connor Baldwin",
-        "Shy Genel",
-        "Francisco Villaescusa-Navarro"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213573518",
-      "title": "Resisting AI with Paper: Possibilities, Concerns and Protest",
-      "authors": [
-        "Laura Evans"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214130745",
-      "title": "Uitbraakbeheer optimaliseren met fylogenetica, ensemblemethoden en taalmodellen",
-      "authors": [
-        "Jonathan Thibaut"
+        "Erystela Thevale"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-16",
+      "published": "2026-10-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214132765",
-      "title": "Crafting Resilient AI policies for Education",
+      "id": "https://openalex.org/W7221743739",
+      "title": "Generative Artificial Intelligence and Academic Integrity Violations: Implications for Undergraduate Research",
       "authors": [
-        "Delight Ejiaka",
-        "Miranda Hannasch",
-        "Branden Cunningham"
+        "David Reamer"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-16",
+      "published": "2026-10-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214142567",
-      "title": "From “I’m Not a Coder” to “I Built a Website”: Teaching Business Concepts Through AI Vibe Coding",
+      "id": "https://openalex.org/W7221940931",
+      "title": "Project Based Learning Berbantuan Media YouTube terhadap Kemampuan Menulis Teks Berita",
       "authors": [
-        "Jean Jeon"
+        "Aprilia Putri Nabila",
+        "Aisiyah Aztry",
+        "Charles Sibutar Butar"
       ],
       "countries": [
-        "US"
+        "ID"
       ],
-      "primary_country": "US",
-      "published": "2026-10-16",
+      "primary_country": "Other",
+      "published": "2026-10-17",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7215005082",
-      "title": "Core Mathematics Applications using AI",
+      "id": "https://openalex.org/W7222398021",
+      "title": "Do New AI Model Generations Restart the Demand for Evidence? Pre-registration of a Prospective Test on Trial Registrations, 2026-2029 (AIF-2)",
       "authors": [
-        "Zachary Porter"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7215511413",
-      "title": "AI Tutors, Worksheets, and Task Design: Matching AI Tools to Learning Structure",
-      "authors": [
-        "Brock Casselman@unlv.edu"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7216785841",
-      "title": "AI for Everyone: Designing an Introductory AI Course Across Disciplines",
-      "authors": [
-        "Jesse J. Fitts",
-        "Waleed Faris"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7218244705",
-      "title": "A Student-Centered Model for Ethically Evaluating AI Integration in Learning Support Services and Beyond",
-      "authors": [
-        "Cristina Caputo"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-16",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220875604",
-      "title": "Machine learning om de prognose van multiple sclerose patiënten te modelleren",
-      "authors": [
-        "Robbe D’hondt"
+        "Hon Lun Yip"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-16",
+      "published": "2026-10-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222413522",
+      "title": "EL-RAKHAWI GRAND TREATISE ON UNIFIED MATHEMATICS From Causal Topology to Cognitive Geometry A New Mathematical Foundation for the 21st Century",
+      "authors": [
+        "m el-rakhawi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222419097",
+      "title": "Papiamento: open data for Aruban Papiamento",
+      "authors": [
+        "Papiamento Open Data contributors"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222432721",
+      "title": "Gate H pre-registration: fresh human relevance labels for 20 WANDS queries (supplementary study, v0.4)",
+      "authors": [
+        "Xize Han",
+        "Xiudong Chen",
+        "xin Xie"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222446196",
+      "title": "Versioned definition records and conformance tests: research package (working version)",
+      "authors": [
+        "Andreas Ehstand"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222447291",
+      "title": "Dimensiones Complejas Explicadas de Forma Intuitiva Usando el Cubo de Rubik",
+      "authors": [
+        "Yosmel Silva Llanes"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-17",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222454064",
+      "title": "3D лазерный интерферометрический комплекс детекции спин-гравитонного поля: Отчёт о патентном поиске (Чесноков Ю. А., Патент №1)",
+      "authors": [
+        "Yuri A. Chesnokov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-17",
       "cited_by_count": 0,
       "source": "openalex"
     }

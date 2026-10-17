@@ -67,17 +67,14 @@
 
   <h4>Count-share (Frontier Models, Talent, Compute)</h4>
   <p>
-    Raw counts (model updates, paper counts, Rmax PFlop/s) are converted to a U.S. share of the
-    combined U.S.&thinsp;+&thinsp;China total, then scaled to 0&ndash;10 and clamped to [0.5,&thinsp;9.5]
-    to avoid extreme poles when data quality is low:
+    For Frontier Models, Talent, and Compute, each dimension produces a composite score that
+    already sums to 100 across US+China (share-of-combined). This is then scaled to 0&ndash;10
+    and clamped to [0.5,&thinsp;9.5]:
   </p>
   <pre>us_score  = clamp( (US / (US + China)) &times; 10, 0.5, 9.5 )
 china_score = 10.0 &minus; us_score</pre>
   <p>
     By construction, U.S.&thinsp;+&thinsp;China&thinsp;=&thinsp;10 for these dimensions.
-    The 9.5 ceiling on the Compute score is the primary visible effect of the clamp &mdash;
-    the raw TOP500 share would yield ~9.7 for the U.S., but this reflects the TOP500 undercount
-    for China rather than true dominance.
   </p>
 
   <h4>Independent composite / 10 (Adoption, Energy)</h4>
@@ -112,16 +109,16 @@ china_score = 10.0 &minus; us_score</pre>
   <p>
     The &ldquo;Current read&rdquo; sentence and four strategic insight bullets are generated programmatically
     from the scored dimensions. The current read lists dimensions by winner (U.S. vs. China), sorted by margin
-    (largest advantage first). The insights follow a fixed template: (1) strongest U.S. advantage, with a special
-    case for the Compute dimension to flag the TOP500 undercount caveat; (2) strongest China advantage;
-    (3) most closely contested dimension by gap; (4) a standing note on binding structural constraints.
+    (largest advantage first). The insights follow a fixed template: (1) strongest U.S. advantage;
+    (2) strongest China advantage; (3) most closely contested dimension by gap;
+    (4) a standing note on binding structural constraints.
   </p>
 
   <h3>Key caveats</h3>
   <ul>
-    <li><strong>Compute score (9.5 US / 0.5 China):</strong> Extreme values reflect TOP500 submission gaps, not actual capability parity. China operates exascale-class systems not listed on TOP500. Treat with very low confidence as a relative measure.</li>
-    <li><strong>Frontier Models score:</strong> Reflects Hugging Face Hub activity only. China&rsquo;s closed-model ecosystem (DeepSeek, Qwen API) is materially broader than this captures.</li>
-    <li><strong>Talent score:</strong> Paper volume, not quality or headcount. China leads on volume; the U.S. leads on top-cited work and lab concentration.</li>
+    <li><strong>Compute score (~7.6 US / ~2.4 China):</strong> Triangulated lower bound. China&rsquo;s true share is likely 25&ndash;40% — the scored composite (~25%) reflects systematic non-reporting, not actual compute absence. The separate hidden-compute band in the UI documents this explicitly.</li>
+    <li><strong>Frontier Models score:</strong> Reflects open model ecosystem (HuggingFace + ModelScope supplement). Closed-model capability (GPT-4o, Claude, Qwen API, Doubao) is not captured.</li>
+    <li><strong>Talent score (~5.0/5.0 near-tie):</strong> Composite of research output, PhD pipeline, and elite researcher placement. China leads heavily on pipeline and output volume; the US leads on elite lab concentration. The near-tie reflects a real structural tension — if China-to-US talent flows changed materially, China's score would rise.</li>
     <li><strong>Adoption and Energy scores:</strong> Based on curated reference data with annual update cadence &mdash; not live signals.</li>
   </ul>
 
@@ -400,180 +397,664 @@ china_score = 10.0 &minus; us_score</pre>
   </ul>
 
   <!-- ── Energy ────────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Energy</span> Energy &amp; Power Constraints &mdash; AI Scaling Capacity</h2>
+  <h2><span class="dim-badge">Energy</span> Energy &amp; Power Constraints &mdash; AI Scaling Capacity (v2)</h2>
 
   <h3>What this measures</h3>
   <p>
     How well the U.S. and China can sustain large-scale AI compute growth from an
     energy and power infrastructure perspective. This is <strong>not</strong> a measure
-    of total electricity generation or consumption. It focuses specifically on:
+    of total electricity generation or consumption. It focuses on four AI-relevant factors:
   </p>
   <ul>
-    <li>The pace of electricity supply expansion (can new capacity be built fast enough?)</li>
-    <li>Available headroom in the grid before AI/data center demand becomes a constraint</li>
+    <li>The pace of electricity supply expansion (can new capacity be built fast enough to meet AI demand?)</li>
+    <li>Available headroom in the grid before AI/data center demand becomes a binding constraint</li>
     <li>The speed at which new power capacity can actually reach data center operators</li>
+    <li>The cost and access environment for AI data center operators (electricity pricing, DC siting support)</li>
   </ul>
   <p>
     A country may have vast total electricity capacity but still face AI-specific
-    energy bottlenecks if grid connection is slow, permitting is blocked, or data
-    center demand is already consuming a large share of available generation.
+    bottlenecks if grid connection is slow, permitting is blocked, data center demand
+    is already saturating the grid, or electricity prices make large-scale AI compute
+    economically infeasible.
   </p>
+  <div class="caveat">
+    <p>
+      <strong>Important caveat &mdash; intermittency of new capacity:</strong> The majority
+      of new electricity capacity in both countries is variable renewable (solar and wind).
+      In 2024, roughly 80% of US additions and &gt;95% of China&rsquo;s additions were
+      variable renewable. AI data centers require firm, continuous 24/7 power; solar and
+      wind provide power only when conditions are favorable. The raw capacity addition rate
+      therefore slightly overstates AI-usable capacity expansion. Battery storage deployment
+      is increasing but does not yet provide multi-day firm capacity at scale. This limitation
+      is noted but not adjusted in the normalized score &mdash; annual addition rate remains
+      the best available signal for long-run energy supply expansion.
+    </p>
+  </div>
 
-  <h3>Proxy 1 &mdash; Electricity Capacity Addition Rate (40% weight)</h3>
+  <h3>Proxy 1 &mdash; Electricity Capacity Addition Rate (30% weight)</h3>
   <p>
-    <strong>Sources:</strong> U.S. EIA, <em>Electric Power Monthly</em> (January 2024);
-    IEA, <em>World Energy Outlook 2024</em> (October 2024); China National Energy
-    Administration (NEA) 2023 Annual Report.
+    <strong>Sources:</strong> U.S. EIA, <em>Electric Power Monthly</em> (February 2025);
+    IEA, <em>Renewables 2024</em> (November 2024);
+    China National Energy Administration (NEA) 2024 Annual Report
+    (国家能源局2024年能源工作综述).
   </p>
   <p>
     <strong>Definition:</strong> Annual additions to installed electricity generation
-    capacity, expressed as a percentage of the existing installed base. Captures the
-    pace of energy supply expansion &mdash; the most important long-run factor for
-    sustaining AI compute growth.
+    capacity, expressed as a percentage of the existing installed base. Updated to
+    2024 data (from 2023 in the previous version).
   </p>
   <p>
-    <strong>Values used:</strong>
-    U.S.: ~3.7% (46 GW added in 2023; 1,247 GW installed base).
-    China: ~11.9% (345 GW added in 2023; 2,900 GW installed base &mdash;
-    driven by ~217 GW solar, ~75 GW wind; China has led global capacity
-    additions every year since 2013).
+    <strong>Values used (2024):</strong>
+    U.S.: ~4.8% (~60 GW added; ~1,250 GW base. Solar ~35 GW, battery storage ~18 GW,
+    wind ~7 GW).
+    China: ~13.1% (~380 GW added; ~2,900 GW base. Record solar year: &ge;280 GW solar,
+    ~80 GW wind. China installed more solar in 2024 than the rest of the world combined.)
   </p>
   <p>
     <strong>Normalization:</strong> (rate &divide; 15%) &times; 100, capped at 100.
-    15% is above any major economy&rsquo;s sustained growth rate and provides
-    meaningful spread between U.S. (~25) and China (~79).
+  </p>
+  <p>
+    <strong>Weight reduced from 40% to 30%</strong> compared to v1, to partially reflect
+    the intermittency caveat above. Raw addition rate slightly overstates near-term AI-usable
+    expansion; the weight reduction moderates the influence of this proxy without eliminating it.
   </p>
 
-  <h3>Proxy 2 &mdash; Data Center Power Demand Headroom (35% weight)</h3>
+  <h3>Proxy 2 &mdash; Data Center Power Demand Headroom (25% weight)</h3>
   <p>
-    <strong>Source:</strong> IEA, <em>Energy and AI</em> (January 2025);
-    EIA Electric Power Annual 2023 (US generation total);
-    NBS China Statistical Yearbook 2023 (China generation total).
+    <strong>Sources:</strong> IEA, <em>Energy and AI</em> (January 2025);
+    IEA, <em>Electricity 2025</em> (January 2025);
+    EIA (US generation total); NBS China Statistical Yearbook 2024 (中国统计年鉴2024).
+    Updated to 2024 estimates.
   </p>
   <p>
     <strong>Definition:</strong> Data center electricity consumption as a percentage
     of total national electricity generation, inverted to a headroom score.
-    Lower data center share = more capacity available for AI scaling = higher score.
+    Lower DC share = more capacity available for future AI scaling = higher score.
   </p>
   <p>
-    <strong>Values used:</strong>
-    U.S.: ~4.8% DC share (200 TWh / 4,178 TWh) &rarr; headroom score 52.0.
-    China: ~2.5% DC share (220 TWh / 8,900 TWh) &rarr; headroom score 75.0.
-    China&rsquo;s lower share reflects its significantly larger generation base.
+    <strong>Values used (2024 est.):</strong>
+    U.S.: ~6.2% DC share (~260 TWh / ~4,200 TWh) &rarr; headroom score 38.0.
+    China: ~2.6% DC share (~250 TWh / ~9,500 TWh) &rarr; headroom score 74.0.
   </p>
   <p>
     <strong>Normalization:</strong>
     Headroom score = (10 &minus; dc_share%) &divide; 10 &times; 100.
-    At 10% DC share, headroom = 0 (fully pressured); at 0%, headroom = 100.
-    IEA projects US data center demand could exceed 500 TWh by 2030 under a
-    high-AI scenario, which would push DC share above 10% &mdash; making this
-    the binding constraint for US AI scaling by late decade.
+    At 10% DC share, headroom = 0 (fully pressured).
+  </p>
+  <p>
+    <strong>Asymmetric trajectory:</strong> The US DC share rose from ~4.8% (2023) to ~6.2%
+    (2024) &mdash; a significant one-year jump driven by the AI data center buildout.
+    IEA projects US DC demand could exceed 500 TWh by 2030 under a high-AI scenario
+    (~12% of generation), which would fully exhaust current headroom. China&rsquo;s very
+    large generation base (~9,500 TWh) provides substantially more buffer at the same
+    absolute DC demand level.
   </p>
   <div class="caveat">
     <p>
       <strong>Confidence note &mdash; China:</strong> China&rsquo;s data center electricity
-      statistics are less granular than US figures. The ~220 TWh estimate from IEA covers
-      ICT workloads broadly; AI-specific demand is a subset. Treat as directional.
+      statistics are less granular than US figures. The ~250 TWh estimate from IEA covers
+      ICT workloads broadly; AI-specific demand is a subset.
+      Confidence: medium. The US figure is high confidence (IEA + EIA corroboration).
     </p>
   </div>
 
   <h3>Proxy 3 &mdash; Grid Connection Speed Score (25% weight)</h3>
   <p>
     <strong>Sources:</strong> Lawrence Berkeley National Laboratory (LBNL),
-    <em>Queued Up: Characteristics of Power Plants Seeking Transmission Interconnection</em>
-    (2024 edition); IEA, <em>Energy and AI</em> (January 2025); China NDRC/NEA.
+    <em>Queued Up 2025</em>; IEA, <em>Energy and AI</em> (January 2025); China NDRC/NEA.
   </p>
   <p>
     <strong>Definition:</strong> A curated 0&ndash;100 score reflecting how quickly new
     electricity generation capacity can be connected to the grid and made available to
     data center operators. Combines interconnection queue depth, regulatory speed, and
-    state capacity for infrastructure direction.
+    national capacity for infrastructure direction.
   </p>
   <p>
     <strong>Values used:</strong>
-    U.S.: 30/100 &mdash; LBNL 2024 reports 2,600+ GW of generation waiting in US
-    interconnection queues; median wait exceeds 5 years. FERC Order 2023 reforms
-    are in progress but have not yet cleared the backlog. Multiple AI data center
-    projects have been delayed by grid connection timelines.
-    China: 65/100 &mdash; State-directed permitting (NDRC) enables faster execution.
-    Score is moderated from higher by: (a) renewable curtailment in some western
-    regions; (b) transmission bottlenecks between western generation and eastern
-    demand centers, partially addressed by Ultra-High-Voltage (UHV) buildout.
+    U.S.: 30/100 &mdash; LBNL Queued Up 2025: 2,600+ GW in queues; median wait &gt;5 years.
+    FERC Order 2023 cluster-based reforms are underway but the backlog remains severe.
+    Virginia and Texas AI data center clusters are already straining local grid capacity.
+    China: 65/100 &mdash; NDRC/NEA state-directed permitting enables compressed timelines
+    for strategic AI infrastructure. The East Data West Compute (东数西算, EDWC) program
+    pre-approves sites and grid connections at 8 national computing power hub nodes.
+    Score moderated by: (a) renewable curtailment in western provinces (Inner Mongolia,
+    Xinjiang) means data centers sited for cheap power may face reliability issues;
+    (b) west-to-east transmission gap partially addressed by Ultra-High-Voltage (UHV) buildout.
   </p>
   <div class="caveat">
     <p>
-      <strong>Confidence note:</strong> Grid connection speed is a curated qualitative-
-      quantitative composite, not a single directly measured metric. Confidence is
-      medium for both countries. The US score may improve if FERC Order 2023 reforms
-      meaningfully reduce interconnection timelines over 2025&ndash;2027.
+      <strong>Confidence note:</strong> Grid connection speed is a curated composite
+      assessment, not a single directly measured metric. Confidence: medium for both countries.
     </p>
   </div>
+
+  <h3>Proxy 4 &mdash; Energy Cost &amp; DC Power Access (20% weight)</h3>
+  <p>
+    <strong>Sources:</strong> EIA Annual Energy Outlook 2025 (US industrial electricity prices);
+    China NBS Statistical Yearbook 2024 / 中国统计年鉴2024 (China national electricity prices);
+    NDRC East Data West Compute policy documents 2022&ndash;2024.
+  </p>
+  <p>
+    <strong>Definition:</strong> A curated 0&ndash;100 score combining three sub-factors:
+    (a) industrial electricity price (lower = better AI ROI on compute),
+    (b) PPA market depth (availability of long-term Power Purchase Agreements at favorable rates),
+    (c) government and utility support for AI data center siting and preferential power pricing.
+  </p>
+  <p>
+    <strong>Values used:</strong>
+    U.S.: 50/100 &mdash; Industrial electricity ~7.7 cents/kWh avg (EIA 2024), rising 8%
+    year-over-year as AI demand increases. PPA market is deep: hyperscalers execute multi-GW
+    contracts at 3.5&ndash;6 cents/kWh in best markets (Pacific NW, Texas, Midwest).
+    IRA clean energy credits improve economics for large operators.
+    Rising grid connection fees and energy price competition in key markets (Northern Virginia,
+    Texas) offset the PPA advantage.
+    China: 65/100 &mdash; National industrial electricity ~7.5 cents/kWh (comparable to US).
+    Significant cost advantage in NDRC-designated AI computing zones:
+    Inner Mongolia, Xinjiang, Guizhou, Sichuan offer ~2&ndash;4 cents/kWh to qualifying
+    computing facilities. Government-directed 东数西算 (East Data West Compute) policy
+    provides structured access to cheap western power for eastern AI workloads.
+    Offset by: west-to-east transmission costs; renewable curtailment in cheapest zones.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Confidence note:</strong> Retail/industrial prices differ from actual contracted
+      rates for large operators; PPA terms are commercially sensitive; Chinese zone pricing
+      requires NDRC qualification. Confidence: medium for both countries.
+    </p>
+  </div>
+
+  <h3>Supplementary &mdash; AI Data Center Pipeline (not scored)</h3>
+  <p>
+    Announced and under-construction AI data center capacity (2024&ndash;2026 pipeline)
+    is included in the raw data as context only &mdash; it is <strong>not</strong> used
+    in the composite score. Reason: announced capacity frequently diverges from what is
+    actually built on schedule; grid connection timelines mean announced capacity and
+    available power can diverge by years; and comparing private commercial commitments
+    (US hyperscalers) with government policy targets (China NDRC) is methodologically
+    inconsistent.
+  </p>
+  <p>
+    Indicative estimates: US ~60&ndash;80 GW equivalent (Microsoft, Google, Amazon, Meta,
+    combined CapEx exceeding $300B for 2025). China ~30&ndash;50 GW equivalent (Alibaba,
+    ByteDance, Tencent, Huawei Cloud + EDWC national nodes; NDRC 10M rack target).
+  </p>
 
   <h3>Composite construction</h3>
   <p>
     <strong>Formula:</strong>
-    Composite = 0.40 &times; capacity_score + 0.35 &times; headroom_score + 0.25 &times; grid_score
+    Composite = 0.30 &times; capacity_score + 0.25 &times; headroom_score
+    + 0.25 &times; grid_score + 0.20 &times; energy_cost_score
   </p>
   <p>
-    Capacity addition rate (40%) is weighted highest because it directly measures the
-    rate of energy supply expansion &mdash; the most important factor for long-run AI
-    scaling. Headroom (35%) captures near-term grid slack. Grid speed (25%) captures
-    the infrastructure bottleneck that can prevent theoretical capacity from being
-    practically usable.
+    Capacity addition rate (30%) measures long-run supply expansion.
+    DC demand headroom (25%) captures near-term grid slack for additional AI load.
+    Grid connection speed (25%) captures whether capacity can reach data centers quickly.
+    Energy cost &amp; access (20%) captures the economic feasibility of scaling AI compute.
+  </p>
+  <p>
+    <strong>Result (2024 data):</strong> US composite ~36.6, China ~73.9.
+    China&rsquo;s strong lead reflects: substantially faster capacity addition,
+    more grid headroom relative to its large generation base, faster state-directed
+    permitting, and preferential power pricing in EDWC zones.
+    The US&rsquo;s primary constraint is grid interconnection backlog; its PPA market
+    provides some cost mitigation.
   </p>
 
   <h3>Update cadence</h3>
   <p>
     The script runs weekly via GitHub Actions (Monday 11:00 UTC). Underlying data
-    updates annually: EIA Electric Power Monthly (~January, US capacity additions);
-    IEA World Energy Outlook (~October, China capacity); IEA Energy and AI (irregular,
-    data center demand); LBNL Queued Up (~April&ndash;May, US interconnection queue).
+    updates annually: EIA Electric Power Monthly (~February, US capacity additions);
+    IEA Renewables (~November, global capacity); China NEA Annual Report (~January);
+    IEA Energy and AI (irregular, data center demand); LBNL Queued Up (~April&ndash;May);
+    EIA Annual Energy Outlook (~February); NBS Statistical Yearbook (~October).
     When new editions are published, update reference values in
     <code>scripts/fetch_energy.py</code>.
   </p>
 
   <h3>What this composite does NOT capture</h3>
   <ul>
-    <li>Total electricity generation or consumption</li>
-    <li>Energy cost (electricity price per kWh, which affects AI ROI)</li>
+    <li>Total electricity generation or consumption (not an AI-relevant measure on its own)</li>
+    <li>Capacity factor / firmness of power &mdash; solar/wind additions provide fewer AI-usable MWh than nameplate MW implies</li>
     <li>Carbon intensity or renewable mix of AI-relevant power</li>
-    <li>Nuclear power capacity expansion (US SMR pipeline; China nuclear buildout)</li>
-    <li>Private or off-grid power arrangements for specific AI campuses</li>
-    <li>Long-run transmission infrastructure adequacy (UHV lines, HVDC)</li>
-    <li>Water availability constraints for data center cooling</li>
+    <li>Nuclear power expansion (US SMR pipeline; China has 23+ units under construction as of 2024)</li>
+    <li>Private or off-grid power arrangements (natural gas generators co-located with AI campuses)</li>
+    <li>Water availability constraints for data center cooling (increasingly binding in arid US SW)</li>
+    <li>Long-run transmission adequacy (UHV buildout pace in China; US long-distance HVDC projects)</li>
+    <li>Actual PPA prices for specific hyperscaler contracts (commercially sensitive)</li>
+    <li>Regional grid reliability scores (NERC region data for US; provincial reliability in China)</li>
   </ul>
 
   <!-- ── Frontier Models ───────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Frontier Models</span> Model Update Activity</h2>
+  <h2><span class="dim-badge">Frontier Models</span> Open Model Ecosystem Index &mdash; Three-Proxy Composite</h2>
+
+  <h3>What this measures</h3>
   <p>
-    Measures public model update activity on Hugging Face Hub from a curated list of tracked
-    AI labs. Counts new model versions published by US-attributed vs China-attributed labs
-    in the rolling 12-month window.
+    A three-proxy composite measuring U.S. and Chinese AI model activity across public release
+    output, benchmark performance on independent evaluations, and cross-platform ecosystem
+    distribution. Scored as a share of combined U.S.&thinsp;+&thinsp;China activity, so scores
+    sum to 100.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Critical editorial constraint:</strong> This composite measures <em>open-model activity
+      and public benchmark performance</em>. It does <strong>not</strong> measure closed-model
+      capability. The most capable U.S. models (GPT-4o, Claude 3.7, Gemini 2.5) and Chinese models
+      (Qwen API, Doubao, Hunyuan) are closed and not fully reflected here. The score is best
+      interpreted as a measure of lab output velocity and open-ecosystem reach, not a definitive
+      ranking of national frontier AI capability.
+    </p>
+  </div>
+
+  <h3>Why move beyond Hugging Face Hub alone?</h3>
+  <p>
+    The previous version of this dimension counted model update activity on Hugging Face Hub
+    only. This created a systematic undercount of China for two reasons:
+  </p>
+  <ul>
+    <li>
+      <strong>Platform bias:</strong> HuggingFace Hub is the dominant global open-source platform,
+      but Chinese AI labs also distribute widely through ModelScope (魔搭社区, operated by Alibaba),
+      Gitee AI, and Baidu AI Studio. Labs that publish primarily to domestic platforms
+      are invisible in HF-only counts.
+    </li>
+    <li>
+      <strong>Activity &ne; capability:</strong> Model update counts on HF measure lab output
+      velocity, not benchmark performance. A lab releasing many fine-tuned variants scores
+      high; a lab releasing one highly capable model scores low.
+    </li>
+  </ul>
+  <p>
+    The new composite addresses both issues: it adds a ModelScope supplement for Chinese labs
+    with limited HF presence, adds a benchmark performance proxy, and adds an ecosystem breadth
+    proxy that explicitly weights cross-platform distribution.
+  </p>
+
+  <h3>Proxy 1 &mdash; Release Activity (35% weight)</h3>
+  <p>
+    <strong>Sources:</strong> Hugging Face Hub API (automated, daily); ModelScope supplement
+    (manual estimate in <code>data/frontier_models_manual.json</code>).
   </p>
   <p>
-    <strong>What this does not capture:</strong> Closed models (GPT-4o, Claude, Gemini Ultra)
-    are not counted. Labs are classified by country of the primary organization.
+    <strong>Definition:</strong> Count of model versions published by tracked labs
+    (see <code>data/labs.json</code>) in the rolling 30-day window on Hugging Face Hub,
+    plus an estimated supplement for Chinese labs that publish primarily on ModelScope
+    and are not fully tracked via HF.
+  </p>
+  <p>
+    <strong>Tracked labs:</strong> 31 labs as of April 2026 (16 US-attributed,
+    12 China-attributed, 1 Other, 2 additional US labs). See <code>data/labs.json</code>
+    for the full list. Labs are classified by primary country of headquarters.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Coverage note &mdash; ModelScope supplement:</strong> The supplement is a
+      conservative lower-bound estimate based on observed ModelScope activity for labs not
+      already tracked via HF (BAAI, Baichuan Intelligence, Kuaishou AI, Sensetime, Vivo AI/BlueLM).
+      Labs already tracked via HF (Qwen, DeepSeek, THUDM, etc.) are <em>not</em> double-counted.
+      Confidence: Low. A proper ModelScope API integration would replace this manual supplement
+      in a future version.
+    </p>
+  </div>
+  <div class="caveat">
+    <p>
+      <strong>Coverage note &mdash; Gitee AI and Baidu AI Studio:</strong> These platforms
+      are not currently tracked. Gitee AI is China&rsquo;s open-source code platform with a
+      growing model repository; Baidu AI Studio hosts PaddlePaddle-based models. Integrating
+      these sources would further reduce the China undercount.
+    </p>
+  </div>
+
+  <h3>Proxy 2 &mdash; Benchmark Performance (45% weight)</h3>
+  <p>
+    <strong>Sources:</strong> LMSYS Chatbot Arena Elo leaderboard (manual snapshot);
+    Epoch AI Notable AI Models dataset (manual snapshot). Both stored in
+    <code>data/frontier_models_manual.json</code>.
+  </p>
+  <p>
+    <strong>Definition:</strong> Average of two sub-proxies, equally weighted (50% each):
+  </p>
+  <ul>
+    <li>
+      <strong>LMSYS Chatbot Arena top-20 share:</strong> Count of U.S.- and China-attributed
+      models in the top 20 by Elo rating, scored as (US / US+China) &times; 100.
+      Arena Elo is the most widely cited independent third-party benchmark for general
+      instruction-following capability.
+    </li>
+    <li>
+      <strong>Epoch AI notable models (2-year window) share:</strong> Count of notable AI
+      models since a rolling 2-year cutoff, attributed to U.S. or Chinese labs.
+      Epoch AI applies a documented selection methodology based on training compute,
+      benchmark performance, and research significance.
+    </li>
+  </ul>
+  <p>
+    <strong>Why benchmark performance gets the highest weight (45%):</strong> It is the most
+    analytically defensible proxy for the dimension&rsquo;s intended concept &mdash; how capable
+    are each country&rsquo;s AI models? Release activity counts alone conflate volume with quality.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Limitations:</strong> Arena Elo only covers models submitted for public human
+      evaluation. Some frontier models (e.g., internal enterprise API variants) may not be
+      submitted. Chinese models relying on domestic-only APIs may be structurally
+      underrepresented in Arena despite comparable real-world capability. Epoch AI&rsquo;s
+      selection criteria, while documented, may systematically exclude Chinese lab models with
+      limited English documentation. Both sources are updated by manual snapshot in this tracker
+      &mdash; they do not auto-update daily.
+    </p>
+  </div>
+
+  <h3>Proxy 3 &mdash; Ecosystem Breadth (20% weight)</h3>
+  <p>
+    <strong>Sources:</strong> Hugging Face Hub API (monthly downloads, automated);
+    ModelScope platform presence (manual estimate). Both in
+    <code>data/frontier_models_manual.json</code>.
+  </p>
+  <p>
+    <strong>Definition:</strong> A platform-weighted distribution score capturing how broadly
+    each country&rsquo;s open models are used across the two largest model platforms globally:
+    HuggingFace Hub and ModelScope. Scored as (US share / US+China) &times; 100.
+  </p>
+  <p>
+    <strong>Formula:</strong>
+    Ecosystem score = 0.55 &times; HF_download_share + 0.45 &times; ModelScope_presence_share
+  </p>
+  <p>
+    <strong>Key result:</strong> China leads on ecosystem breadth when ModelScope is included,
+    because Chinese labs dominate ModelScope (the second-largest global model platform) even as
+    U.S. models dominate HuggingFace downloads. This is analytically important: a HF-only
+    view structurally undercounts the reach of China&rsquo;s open AI ecosystem.
+  </p>
+  <div class="caveat">
+    <p>
+      <strong>Confidence note &mdash; ModelScope presence:</strong> The ModelScope share is a
+      manual estimate based on the top-1000 model list composition. Confidence: Low.
+      HF weighted at 55% (global reach, higher confidence) vs ModelScope at 45%
+      (China-primary, lower confidence). A direct ModelScope API integration would improve this.
+    </p>
+  </div>
+
+  <h3>Composite construction</h3>
+  <p>
+    <strong>Formula:</strong>
+    Composite = 0.35 &times; release_activity_share + 0.45 &times; benchmark_share + 0.20 &times; ecosystem_share
+  </p>
+  <p>
+    By construction, US composite + China composite = 100. The executive summary score is
+    composite / 10, giving a 0&ndash;10 scale where US + China = 10.
+  </p>
+  <p>
+    Benchmark performance is weighted highest (45%) because it most directly measures
+    the dimension&rsquo;s intended concept. Release activity (35%) captures lab output
+    velocity and is the most automatable proxy. Ecosystem breadth (20%) captures
+    platform distribution but relies partly on manual estimates.
+  </p>
+
+  <h3>Labs tracked and country classification</h3>
+  <p>
+    Labs are classified by the country of the primary organization&rsquo;s headquarters.
+    The full list is in <code>data/labs.json</code>. Notable inclusions and edge cases:
+  </p>
+  <ul>
+    <li><strong>Google / DeepMind:</strong> Classified as US. DeepMind is UK-based but
+    Google (US) is the parent organization.</li>
+    <li><strong>Cohere:</strong> Classified as US. Incorporated in Canada/US, primarily
+    US-funded frontier model lab.</li>
+    <li><strong>Mistral AI:</strong> Classified as Other (France). The only non-US,
+    non-China lab tracked.</li>
+    <li><strong>NVIDIA:</strong> Classified as US. Note that NVIDIA publishes models across
+    many specialized domains (robotics, medical imaging, weather) and re-hosts some
+    third-party weights; its raw count may not reflect general-purpose frontier capability.</li>
+    <li><strong>BAAI (Beijing Academy of AI):</strong> Classified as China. State-backed
+    research institute; publishes FlagAI, FlagEmbedding, AquilaChat.</li>
+    <li><strong>Baichuan Intelligence:</strong> Classified as China. Strong ModelScope
+    presence alongside HF.</li>
+  </ul>
+
+  <h3>What this composite does NOT capture</h3>
+  <ul>
+    <li>Closed-model capability: GPT-4o, Claude, Gemini Ultra, Qwen API, Doubao, Hunyuan</li>
+    <li>Government or defense AI development programs (non-public)</li>
+    <li>Gitee AI, Baidu AI Studio, or other Chinese platforms (not yet integrated)</li>
+    <li>Model quality or downstream task performance beyond Arena Elo</li>
+    <li>Multimodal capability, embodied AI, or specialized domain models</li>
+    <li>Lab research output not yet released as a public model</li>
+  </ul>
+
+  <h3>Update cadence</h3>
+  <p>
+    Release activity (HF Hub) is fetched daily via GitHub Actions.
+    Benchmark snapshots (Arena, Epoch AI) are manually updated in
+    <code>data/frontier_models_manual.json</code> when new data is available &mdash;
+    approximately monthly for Arena and quarterly for Epoch AI.
+    ModelScope supplement and ecosystem breadth estimates are reviewed quarterly.
   </p>
 
   <!-- ── Compute ────────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Compute</span> High-Performance Computing Capacity</h2>
+  <h2><span class="dim-badge">Compute</span> Triangulated Compute Index</h2>
   <p>
-    Aggregate HPL Rmax benchmark performance (PFlop/s) and system count from the full TOP500
-    supercomputer list, grouped by country. Updated twice yearly (June and November).
+    The compute dimension uses a triangulated index combining three complementary proxies.
+    No single source has complete visibility into AI compute — each proxy fills different
+    blind spots. The composite score always represents US share of combined US+China compute.
+  </p>
+
+  <h3>Why triangulation is necessary</h3>
+  <p>
+    Three systematic gaps prevent any single source from being reliable:
+  </p>
+  <ol>
+    <li><strong>China&rsquo;s exascale HPC:</strong> China stopped submitting most major
+    supercomputers to TOP500 after 2023. The November 2025 list shows 40 Chinese systems
+    at ~205 PFlops — analysts estimate China&rsquo;s actual capacity is 10&times; higher.</li>
+    <li><strong>Private AI clusters:</strong> xAI Colossus, Meta&rsquo;s AI datacenters, and
+    ByteDance clusters are not in TOP500 and not publicly benchmarked.</li>
+    <li><strong>Domestic Chinese chips:</strong> Huawei Ascend deployment scale is not
+    officially reported — the adjustment relies on analyst estimates and procurement data.</li>
+  </ol>
+
+  <h3>Proxy 1 — Training Compute (weight 40%)</h3>
+  <p>
+    Source: <strong>Epoch AI &ldquo;Notable AI Models&rdquo;</strong> CSV, models published
+    since 2023 with disclosed training compute &ge;10<sup>20</sup> FLOPs.
+    US labs hold ~85% of disclosed training FLOPs; China ~15%.
   </p>
   <p>
-    <strong>What this does not capture:</strong> Private AI clusters, cloud GPU farms, and
-    systems not submitted to TOP500. China operates exascale systems not in TOP500, so its
-    disclosed capacity is likely a significant undercount.
+    <strong>Known undercount for China:</strong> Frontier closed models &mdash;
+    Qwen-Max, Doubao, Hunyuan, Gemini (Google) &mdash; do not publish training compute.
+    DeepSeek R1 and Qwen-open are included; most ByteDance and Baidu frontier models are not.
+    The 85/15 split is a lower bound for how much China has invested in training.
+  </p>
+
+  <h3>Proxy 2 — Hardware Supply (weight 40%)</h3>
+  <p>
+    Measures the <em>flow of AI compute hardware</em> to each country, not just disclosed
+    training runs. Two inputs:
+  </p>
+  <ul>
+    <li><strong>NVIDIA geographic data center revenue (FY2025 10-K)</strong>: US customers
+    (AWS, Azure, Google, Meta) received 47% of NVIDIA&rsquo;s $115B data center revenue
+    ($54.1B). China received 13% ($15.0B), constrained by A100/H100 export controls since
+    Oct 2023. <em>Confidence: high (audited SEC filing).</em></li>
+    <li><strong>Huawei Ascend adjustment</strong>: ~1.5M Ascend 910B chips deployed (analyst
+    estimates). At 35% H100 efficiency (640 vs. 1,979 TFLOPS BF16), this equals ~525K
+    H100-equivalents or ~$10.5B in hardware value. Adding this brings China&rsquo;s hardware
+    supply share to ~32%. <em>Confidence: low &mdash; not officially confirmed; treat as
+    order-of-magnitude.</em></li>
+  </ul>
+  <p>Adjusted totals: US 68%, China 32%.</p>
+
+  <h3>Proxy 3 — Visible HPC (weight 20%)</h3>
+  <p>
+    Source: <strong>TOP500 list</strong> (updated June/November) plus manually maintained
+    corrections for systems not submitted.
+  </p>
+  <ul>
+    <li><strong>US:</strong> TOP500 raw (6,961 PFlops) + private AI cluster estimates
+    (xAI Colossus ~600, Meta ~900, Microsoft ~800 PFlops = +2,300) = 9,261 PFlops adjusted.</li>
+    <li><strong>China:</strong> TOP500 raw (205 PFlops) + non-submission corrections
+    (Tianhe-3 ~1,400, Sunway NG ~1,000, Beijing AI Center ~400, EDWC aggregate ~500 = +3,300)
+    = 3,505 PFlops adjusted.</li>
+  </ul>
+  <p>Adjusted totals: US 72.5%, China 27.5%. Uncertainty range: China 24&ndash;32%.</p>
+
+  <h3>Composite and hidden-compute band</h3>
+  <p>
+    The composite is a weighted average of the three share scores:
+    0.40 &times; training&nbsp;compute + 0.40 &times; hardware&nbsp;supply +
+    0.20 &times; visible&nbsp;HPC &asymp; US 75.7%, China 24.3%.
+    Converted to the 0&ndash;10 scale: approximately US 7.6, China 2.4.
+  </p>
+  <p>
+    A separate <strong>hidden-compute uncertainty band</strong> is displayed in the UI but
+    is not used in scoring. Expert synthesis incorporating all three gaps suggests China&rsquo;s
+    true share of combined US+China compute capacity is likely <strong>25&ndash;40%</strong>
+    (point estimate 30%). The scored composite (~25%) is a conservative lower bound reflecting
+    the systematic non-reporting described above.
+  </p>
+  <p>
+    Manual inputs (hardware supply adjustments, HPC corrections) are maintained in
+    <code>data/compute_manual.json</code> and should be updated when new NVIDIA 10-K filings,
+    Huawei product announcements, or HPC disclosures become available.
   </p>
 
   <!-- ── Talent ─────────────────────────────────────────────────────────────── -->
-  <h2><span class="dim-badge">Talent</span> AI Research Output</h2>
+  <h2><span class="dim-badge">Talent</span> AI Talent Pipeline Index</h2>
   <p>
-    Volume of AI research papers from US- and China-affiliated institutions, sourced from
-    OpenAlex over the last 12 months. A proxy for research output, not researcher headcount
-    or citation impact. Papers with multinational authorship are counted in each country
-    represented.
+    A multi-source index combining three complementary views of the talent competition:
+    where AI research is being produced (research output), where researchers are being trained
+    (domestic pipeline), and where the world&rsquo;s best AI researchers actually work
+    (elite concentration). Each captures a different part of the talent story &mdash; none alone
+    is sufficient.
+  </p>
+
+  <h3>Why a single metric is insufficient</h3>
+  <p>
+    The talent competition is layered, and different metrics tell very different stories:
+  </p>
+  <ul>
+    <li><strong>Paper volume alone</strong> puts China at ~64% of the US+China total and
+    implies a large China lead. This is real &mdash; China produces far more AI research papers
+    &mdash; but paper volume does not measure where elite researchers work, or which papers
+    drive frontier AI systems.</li>
+    <li><strong>Elite researcher placement alone</strong> puts the US at ~72% and implies
+    a large US lead. This is also real &mdash; US frontier labs concentrate a disproportionate
+    share of the world&rsquo;s top AI researchers &mdash; but it ignores China&rsquo;s massive
+    production pipeline that supplies global AI talent.</li>
+    <li><strong>PhD pipeline alone</strong> implies near-total China dominance (~81%), but
+    many China-trained researchers work in the US or Europe after graduation.</li>
+  </ul>
+  <p>
+    The composite deliberately balances these perspectives, yielding a near-tie (&asymp;50/50)
+    that reflects the genuine complexity of the talent competition.
+  </p>
+
+  <h3>Proxy 1 &mdash; Research Output Quality (weight 35%)</h3>
+  <p>
+    Source: <strong>OpenAlex API</strong>. Three sub-signals, each counted by institution
+    country of at least one author:
+  </p>
+  <ul>
+    <li><strong>Paper volume (30% within proxy):</strong> AI/ML/NLP/CV concept papers published
+    in the last 12 months. Includes all indexed venues. China leads substantially (~64% share).
+    Papers with multinational authorship are counted in each country &mdash; the sum of country
+    counts exceeds the paper total. <em>Concepts: Artificial Intelligence, Machine Learning,
+    NLP, Computer Vision (OpenAlex concept IDs).</em></li>
+    <li><strong>High-impact papers (40% within proxy):</strong> Papers published in the last 3
+    years with &ge;50 citations. Filters to work with demonstrated impact beyond volume.
+    US leads (~54% share). <em>Note: cited_by_count is the current total, not a 3-year count
+    &mdash; newer papers are disadvantaged. OpenAlex filter may not be available on all
+    instances; seeded estimates are used as fallback.</em></li>
+    <li><strong>Top-cited papers (30% within proxy):</strong> Papers published in the last 2
+    years with &ge;25 citations. Intermediate quality threshold. US slight lead (~52% share).
+    Same fallback caveat as high-impact.</li>
+  </ul>
+  <p>
+    <strong>Key bias:</strong> OpenAlex counts affiliation at time of publication, not
+    nationality. A China-born researcher at MIT is counted as a US author. This inflates the
+    US share in all OpenAlex metrics &mdash; the true &ldquo;Chinese-origin&rdquo; research
+    contribution is higher than country-of-institution counting shows.
+  </p>
+  <p>
+    <strong>Chinese-language sources:</strong> Chinese researchers increasingly publish in
+    Chinese-language journals and conference proceedings not indexed in OpenAlex
+    (e.g., <em>计算机学报 (Journal of Computer Science)</em>,
+    <em>中国科学：信息科学 (SCIENCE CHINA Information Sciences)</em>,
+    <em>CNKI</em> preprints). This systematically undercounts China&rsquo;s true research
+    output volume in OpenAlex. The 64% paper-volume share for China is likely an undercount.
+  </p>
+
+  <h3>Proxy 2 &mdash; Domestic Talent Pipeline (weight 25%)</h3>
+  <p>
+    Sources: <strong>NSF Survey of Earned Doctorates 2022</strong> (US) and
+    <strong>China Ministry of Education statistics 2022</strong> (China,
+    <a href="http://www.moe.gov.cn/jyb_sjzl/moe_560/2022/">教育部统计数据</a>).
+  </p>
+  <ul>
+    <li><strong>US:</strong> ~10,477 CS doctoral degrees awarded in 2022 (NSF SED). Estimated
+    35% AI-adjacent = ~3,667 AI-related PhDs. ~66% of US CS PhD recipients are foreign-born;
+    ~28% are China-born. The metric counts graduates at US universities regardless of nationality.
+    <em>Confidence: high (government survey, comprehensive).</em></li>
+    <li><strong>China:</strong> ~52,000 CS/IT doctoral degrees awarded in 2022 (MoE). Estimated
+    30% AI-adjacent = ~15,600 AI-related PhDs. China&rsquo;s broad CS classification includes
+    applied engineering not classified as AI research in Western databases; the adjusted figure
+    is conservative. ~12% pursue graduate training abroad, primarily in the US.
+    <em>Confidence: medium (official statistics, but AI classification is broader and
+    peer-reviewed verification is limited).</em></li>
+  </ul>
+  <p>
+    China produces approximately 4&times; more AI-adjacent PhDs per year.
+    China share: ~81%; US share: ~19%.
+    This is a <em>flow</em> metric (graduates per year), not a stock metric (total
+    active researchers). It measures long-run production capacity of the university system.
+  </p>
+
+  <h3>Proxy 3 &mdash; Elite Researcher Concentration + Migration (weight 40%)</h3>
+  <p>
+    Source: <strong>MacroPolo AI Talent Tracker 2023</strong>, covering the institutional
+    affiliations of the top 2,000 AI researchers by citation count at NeurIPS, ICML, and ICLR.
+  </p>
+  <p>
+    Key findings used in this proxy:
+  </p>
+  <ul>
+    <li>~57% of the world&rsquo;s top AI researchers work at US institutions.
+    ~22% work at Chinese institutions. US share of US+China combined: ~72.2%.
+    <em>Confidence: medium-high (systematic methodology on public data; ~1-2 year lag).</em></li>
+    <li><strong>Migration pattern:</strong> ~36% of China-undergraduate AI researchers in the
+    global top-tier work at US institutions. ~34% work at Chinese institutions (up from ~25%
+    in 2019). This is the primary talent flow: China trains the pipeline, the US captures
+    much of the elite, but China&rsquo;s domestic retention is rising.</li>
+    <li><strong>US frontier lab concentration:</strong> OpenAI, Google DeepMind, Meta AI,
+    and Microsoft Research collectively hold the largest concentrations of top-cited AI
+    researchers globally. Chinese counterparts (BAAI, Shanghai AI Lab, ByteDance Research)
+    are growing but smaller in absolute scale.</li>
+  </ul>
+  <p>
+    This proxy receives the highest weight (40%) because placement at frontier labs has the
+    most direct connection to producing breakthrough AI systems. The US advantage here is real
+    and large, but China&rsquo;s trajectory is important: domestic retention has improved
+    significantly, and Chinese frontier labs have become serious research institutions.
+  </p>
+
+  <h3>Composite and interpretation</h3>
+  <p>
+    The composite (weights 35/25/40) produces a near-tie: US ~50%, China ~50%.
+    This is a meaningful result, not a rounding artifact. It reflects a genuine structural
+    tension: China leads strongly on pipeline volume (proxy 2), and leads slightly on
+    research output quantity (proxy 1); the US leads substantially on elite researcher
+    capture (proxy 3). These effects nearly cancel out at the composite level.
+  </p>
+  <p>
+    The key policy-relevant insight is not &ldquo;who is winning&rdquo; but the underlying
+    dynamic: the US benefits disproportionately from Chinese-trained researchers, and if
+    US-China talent flows were severed or China continued accelerating domestic retention,
+    China&rsquo;s composite score would rise substantially.
+  </p>
+  <p>
+    Manual inputs (PhD stats, MacroPolo data) are maintained in
+    <code>data/talent_manual.json</code>. The MacroPolo Tracker is released annually;
+    the NSF SDR and China MoE data are released approximately 18&ndash;24 months after
+    the reference year.
   </p>
 
   <hr style="border:none;border-top:1px solid var(--border);margin:40px 0 24px;" />

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-17T11:29:59.576819+00:00",
+  "fetched_at": "2026-10-18T11:59:27.707623+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 147635,
+            "raw_value": 147299,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4289,
+            "raw_value": 4290,
             "share_score": 33.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3202,
+            "raw_value": 3195,
             "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 280878,
+            "raw_value": 280048,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8602,
+            "raw_value": 8608,
             "share_score": 66.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7678,
+            "raw_value": 7666,
             "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569395
+        "count": 569408
       },
       {
         "country_code": "CN",
-        "count": 280878
+        "count": 280048
       },
       {
         "country_code": "US",
-        "count": 147635
+        "count": 147299
       },
       {
         "country_code": "DE",
-        "count": 104330
+        "count": 104111
       },
       {
         "country_code": "IN",
-        "count": 95097
+        "count": 95145
       },
       {
         "country_code": "GB",
-        "count": 47269
+        "count": 47125
       },
       {
         "country_code": "ID",
-        "count": 42501
+        "count": 42562
       },
       {
         "country_code": "FR",
-        "count": 28086
+        "count": 27747
       },
       {
         "country_code": "IT",
-        "count": 25743
+        "count": 25637
       },
       {
         "country_code": "KR",
-        "count": 24187
+        "count": 24181
       }
     ],
     "volume": {
-      "us": 147635,
-      "china": 280878,
-      "total": 2795945,
+      "us": 147299,
+      "china": 280048,
+      "total": 2793299,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4289,
-      "china": 8602,
-      "total": 19998,
+      "us": 4290,
+      "china": 8608,
+      "total": 19980,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3202,
-      "china": 7678,
-      "total": 17027,
+      "us": 3195,
+      "china": 7666,
+      "total": 16996,
       "data_ok": true
     }
   },
@@ -182,130 +182,147 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7221554508",
-      "title": "[T-005] Public Principle Separation Theory",
+      "id": "https://openalex.org/W7219752157",
+      "title": "A Dataset for AI Literacy in Secondary Schools in Tanzania:",
       "authors": [
-        "Erystela Thevale"
+        "Alcardo Alex Barakabitze"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221743739",
-      "title": "Generative Artificial Intelligence and Academic Integrity Violations: Implications for Undergraduate Research",
+      "id": "https://openalex.org/W7221209149",
+      "title": "From Zoom to the Room: A Practical Model for Holographic Instructor Presence in Multi-Campus DPT Education",
       "authors": [
-        "David Reamer"
+        "Stacie Mae Larreau Christensen",
+        "Brad Dexter"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-17",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221940931",
-      "title": "Project Based Learning Berbantuan Media YouTube terhadap Kemampuan Menulis Teks Berita",
+      "id": "https://openalex.org/W7221296038",
+      "title": "Robustness of the ROSALI algorithm to violations of the unidimensionality assumption: a simulation study: Can Multidimensionality Mimic Response Shift ?",
       "authors": [
-        "Aprilia Putri Nabila",
-        "Aisiyah Aztry",
-        "Charles Sibutar Butar"
+        "Angèle Boisbras",
+        "Véronique Sebille",
+        "Yseulys Dubuy"
       ],
       "countries": [
-        "ID"
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-17",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222398021",
-      "title": "Do New AI Model Generations Restart the Demand for Evidence? Pre-registration of a Prospective Test on Trial Registrations, 2026-2029 (AIF-2)",
+      "id": "https://openalex.org/W7222765942",
+      "title": "[Explore the potential diagnostic markers of primary Sjögren syndrome by bioinformatics combined with machine learning].",
       "authors": [
-        "Hon Lun Yip"
+        "Bingle Li",
+        "Li Bai",
+        "王永福"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222413522",
-      "title": "EL-RAKHAWI GRAND TREATISE ON UNIFIED MATHEMATICS From Causal Topology to Cognitive Geometry A New Mathematical Foundation for the 21st Century",
+      "id": "https://openalex.org/W7222765996",
+      "title": "[Application of sample-efficient neural network in predicting postoperative facial profiles in skeletal class Ⅱ orthognathic patients].",
       "authors": [
-        "m el-rakhawi"
+        "Yuxin Li",
+        "Jiachen Dong",
+        "Xiaojing Liu"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222419097",
-      "title": "Papiamento: open data for Aruban Papiamento",
+      "id": "https://openalex.org/W7222766003",
+      "title": "[Design and implementation of a clinical trial image medical record desensitization system based on artificial intelligence technology].",
       "authors": [
-        "Papiamento Open Data contributors"
+        "Zhili Zhang",
+        "Zhiying Fu",
+        "Min Jiang"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "countries": [
+        "ET"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222432721",
-      "title": "Gate H pre-registration: fresh human relevance labels for 20 WANDS queries (supplementary study, v0.4)",
+      "id": "https://openalex.org/W7222783340",
+      "title": "Code and results: Diversity-Aware Flip-Budget Control for Wrapper Gene Selection in Acute Lymphoblastic Leukaemia",
       "authors": [
-        "Xize Han",
-        "Xiudong Chen",
-        "xin Xie"
+        "Ismail Jamiu Okunlola",
+        "Kamil Kayode Saka",
+        "Aliu Adebayo Seriki"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222446196",
-      "title": "Versioned definition records and conformance tests: research package (working version)",
+      "id": "https://openalex.org/W7222783495",
+      "title": "UMAEF synthetic forecasting, allocation and CLPU restoration experiment",
       "authors": [
-        "Andreas Ehstand"
+        "Zaher Fadhil Raham"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222447291",
-      "title": "Dimensiones Complejas Explicadas de Forma Intuitiva Usando el Cubo de Rubik",
+      "id": "https://openalex.org/W7222789094",
+      "title": "LONGITUDINAL DEVICE MIGRATION AND MEANING CONTINUITY AT THE LIMIT Device Replacement × Model Bridging × Control Semantics STARLI RESEARCH WORKS | INSTITUTE XXIV | FLAGSHIP 24 Feng Cheng-en 33 × Starli Research Works This research monograph investigates a deceptively difficult question in long-term brain–computer interfaces: when sensors, acquisition electronics, firmware, electrode geometry, or decoding models change, what would justify the claim that a user's task-grounded control meaning has been preserved? Numerical signal alignment alone cannot establish continuity of intention. Two systems may encode different signals while supporting the same functional command, or produce nearly identical latent representations while mapping to incompatible actions. The volume formulates meaning continuity as a conditional, falsifiable engineering and scientific hypothesis. It connects device-specific observation models, neural recording instability, task and action ontologies, paired old/new sensing periods, latent manifold bridging, longitudinal recalibration, calibrated abstention, functional validation, and an accessible right to reject the proposed migration. Its central commitment is that no amount of predictive accuracy can compensate for invalid authorization, an unverified physical reference, or loss of independent control. The research atlas comprises thirty connected mathematical derivations, eighty-two research chapters, and 410 independently paginated chapter sections that examine observables, inverse explanations, discriminating experiments, uncertainty and noncompensable safeguards, and independent requalification. Two hundred detailed Research Gates propose future falsification and handoff programs, while thirty-three Phoenix Answer Embryos preserve revisable candidate approaches rather than immutable conclusions. A claim-scoped DOI evidence ledger connects the study to published work on neural recording drift, decoder adaptation, manifold alignment, longitudinal neural interfaces, speech BCIs, user preferences, and neurotechnology ethics. The book is designed for both human researchers and future AI research systems. Its formulas, chapter cross-links, DOI anchors, competing models, negative-result requirements, and successor-focused research cards provide structured entry points for independent reconstruction and informed disagreement. The visual presentation combines ivory pages, navy and teal typography, and large gold mathematical plates, while mathematical expressions are also recorded in searchable source notation and a separate Excel reference index. This is a prospective, nonclinical research architecture. It does not report new patient experiments, demonstrate safe autonomous human neurovascular microrobots, establish a universal device-migration system, or claim continuity of private thoughts, consciousness, or personal identity. Scientific benefit remains conditional on explicit task definitions, qualified device evidence, legitimate permissions, external validation, and the successor's freedom to reject a failed bridge. Research question: What should remain invariant when an interface changes, and who has the authority to say that its meaning has changed?",
       "authors": [
-        "Yosmel Silva Llanes"
+        "33"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222454064",
-      "title": "3D лазерный интерферометрический комплекс детекции спин-гравитонного поля: Отчёт о патентном поиске (Чесноков Ю. А., Патент №1)",
+      "id": "https://openalex.org/W7222789931",
+      "title": "dermsr: a reference implementation of the DERMS-R model-selection score",
       "authors": [
-        "Yuri A. Chesnokov"
+        "Edgar Rene Ramos-Acosta"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-17",
+      "countries": [
+        "MX"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

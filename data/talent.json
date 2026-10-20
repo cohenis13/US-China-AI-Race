@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-19T14:30:31.875573+00:00",
+  "fetched_at": "2026-10-20T12:37:39.067491+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 147549,
-            "share_score": 34.5,
+            "raw_value": 146713,
+            "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4276,
+            "raw_value": 4263,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3187,
-            "share_score": 29.4,
+            "raw_value": 3191,
+            "share_score": 29.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 280199,
-            "share_score": 65.5,
+            "raw_value": 279444,
+            "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8594,
+            "raw_value": 8574,
             "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7642,
-            "share_score": 70.6,
+            "raw_value": 7635,
+            "share_score": 70.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569413
+        "count": 569340
       },
       {
         "country_code": "CN",
-        "count": 280199
+        "count": 279444
       },
       {
         "country_code": "US",
-        "count": 147549
+        "count": 146713
       },
       {
         "country_code": "DE",
-        "count": 104171
+        "count": 103953
       },
       {
         "country_code": "IN",
-        "count": 95211
+        "count": 95421
       },
       {
         "country_code": "GB",
-        "count": 47185
+        "count": 46974
       },
       {
         "country_code": "ID",
-        "count": 42689
+        "count": 42859
       },
       {
         "country_code": "FR",
-        "count": 27788
+        "count": 27717
       },
       {
         "country_code": "IT",
-        "count": 25673
+        "count": 25624
       },
       {
         "country_code": "KR",
-        "count": 24193
+        "count": 23945
       }
     ],
     "volume": {
-      "us": 147549,
-      "china": 280199,
-      "total": 2795493,
+      "us": 146713,
+      "china": 279444,
+      "total": 2797707,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4276,
-      "china": 8594,
-      "total": 19943,
+      "us": 4263,
+      "china": 8574,
+      "total": 19914,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3187,
-      "china": 7642,
-      "total": 16939,
+      "us": 3191,
+      "china": 7635,
+      "total": 16937,
       "data_ok": true
     }
   },
@@ -182,158 +182,153 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7152341368",
-      "title": "Orchestration multimodale en accessibilité STEM : du découplage architecture-performance au rendement cognitif différentiel",
+      "id": "https://openalex.org/W4283066850",
+      "title": "Hermitian structures on a class of quaternionic Kähler manifolds",
       "authors": [
-        "Madjid Sadallah",
-        "Benoît Encelle"
+        "V. Cortés",
+        "Arpan Saha",
+        "D. Thung"
       ],
       "countries": [
-        "FR"
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-10-19",
+      "published": "2026-10-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212355112",
-      "title": "Scientific Agentic Engineering: A Framework for Reliable AI Agents in Research Software",
+      "id": "https://openalex.org/W7164511563",
+      "title": "Hyperparameter Optimization of Random Forest for Multiclass Classification of Student Academic Performance Using Multidimensional Factors",
       "authors": [
-        "Victor Weeks"
+        "Sri Nurhayati",
+        "Diana Effendi",
+        "Bobi Kurniawan Soegoto"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213403430",
-      "title": "Getting Perspectives on Quality in the Age of AI",
+      "id": "https://openalex.org/W7164555110",
+      "title": "Visual Trend Analysis of E-Commerce Thumbnails Using Parallel Computing for Image Big Data",
       "authors": [
-        "Connor Brynteson",
-        "Reed M. Milewicz",
-        "Ella Luedeke"
+        "Muhamad Tio Ariyanto",
+        "Haris Maulana",
+        "Muhammad Rifky  Afandi"
       ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213493086",
-      "title": "Back to Basics: Design-First Development in the Age of AI Coding Assistants",
+      "id": "https://openalex.org/W7212410564",
+      "title": "Robust Active Learning for More Efficient and Reliable Paths to Optimal Design",
       "authors": [
-        "Christopher Pond",
-        "Rob Kooper A",
-        "Marcos Frenkel"
+        "Hayriye Pehlivan Solak",
+        "Francesco Di Fiore",
+        "Jeroen Wackers"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213610973",
-      "title": "PALYIM: A Modular, Open-Source Science Gateway for AI-Enabled Palynology Image Analysis",
-      "authors": [
-        "Sandeep Puthanveetil Satheesan",
-        "Luigi Marini",
-        "Shu Kong"
-      ],
-      "countries": [
-        "US",
-        "MO",
-        "PA"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213749580",
-      "title": "From Laptop to Cluster: HPC Translation Patterns for AI Stacks",
-      "authors": [
-        "Parmanand Sinha"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213758893",
-      "title": "A Nonprofit's Google Summer of Code Experience in the Age of AI-Assisted Contributions",
-      "authors": [
-        "William Gearty"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213776747",
-      "title": "AnaloGUI Reasoning : Étude de l'influence des indices sémantiques sur l'apprentissage initial à travers des analogies spatiales et sémantiques",
-      "authors": [
-        "Raphaël Perraud",
-        "Gilles Bailly",
-        "Sylvain Malacria"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214295721",
-      "title": "Beyond human readers: designing domain-specific language notebooks for AI-assisted code generation",
-      "authors": [
-        "Rocco Caprara",
-        "Pariksheet Nanda",
-        "Ramakrishna Suresh"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-19",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214567470",
-      "title": "Tri-Level Distributed State Estimation with Redundancy-Constrained Spectral Partitioning",
-      "authors": [
-        "Michel Caraballo",
-        "Nnamdi C. Ejiofor",
-        "Arturo Suman Bretas"
-      ],
-      "countries": [
+        "GB",
         "FR",
-        "US"
+        "IT"
       ],
-      "primary_country": "US",
-      "published": "2026-10-19",
+      "primary_country": "Other",
+      "published": "2026-10-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212459432",
+      "title": "Assurance Burdens and AI Mediated Decision Architectures",
+      "authors": [
+        "Anna Morgan-Thomas",
+        "HAKAN SANRI",
+        "Alison Smart"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214274390",
+      "title": "TransparencIA: Uma Abordagem de IA Generativa para Consultas de Atos Normativos do Pará",
+      "authors": [
+        "Adelaide de Almeida Evangelista",
+        "Tatiane Botelho Borges",
+        "Adriana Nunes Teles Xisto"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214323067",
+      "title": "Compressão de modelo de aprendizado profundo aplicado a sistemas de detecção de intrusão para uso em equipamentos de indústria 4.0",
+      "authors": [
+        "Alan Laurentino Dias da Silva",
+        "Gabriel Ferreira",
+        "Verusca Severo de Lima"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214443986",
+      "title": "Uma Base de Dados Multimodal para Estudos de Envelhecimento de Fibras Ópticas Orientada a Aprendizado de Máquina",
+      "authors": [
+        "Obidiel Martins de Melo",
+        "Carmelo J. A. Bastos-Filho",
+        "Danilo Araújo"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214444033",
+      "title": "From Generation to Precision: A Systematic Review of Controllable Multimodal Diffusion",
+      "authors": [
+        "Guilherme C. Pereira",
+        "Carmelo J. A. Bastos-Filho"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214473855",
+      "title": "Simulação em MATLAB para Estudos da Eficiência Energética em Painéis Solares",
+      "authors": [
+        "Israel Aires Costa Leal",
+        "Karla Leite Vilas Boas",
+        "João Augusto do Nascimento de Queiroz"
+      ],
+      "countries": [
+        "BR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-20",
       "cited_by_count": 0,
       "source": "openalex"
     }

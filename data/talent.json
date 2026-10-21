@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-20T12:37:39.067491+00:00",
+  "fetched_at": "2026-10-21T12:49:22.944392+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 146713,
+            "raw_value": 146964,
             "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4263,
+            "raw_value": 4270,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3191,
+            "raw_value": 3201,
             "share_score": 29.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 279444,
+            "raw_value": 279967,
             "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8574,
+            "raw_value": 8590,
             "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7635,
+            "raw_value": 7665,
             "share_score": 70.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569340
+        "count": 569354
       },
       {
         "country_code": "CN",
-        "count": 279444
+        "count": 279967
       },
       {
         "country_code": "US",
-        "count": 146713
+        "count": 146964
       },
       {
         "country_code": "DE",
-        "count": 103953
+        "count": 103991
       },
       {
         "country_code": "IN",
-        "count": 95421
+        "count": 95609
       },
       {
         "country_code": "GB",
-        "count": 46974
+        "count": 47035
       },
       {
         "country_code": "ID",
-        "count": 42859
+        "count": 43049
       },
       {
         "country_code": "FR",
-        "count": 27717
+        "count": 27723
       },
       {
         "country_code": "IT",
-        "count": 25624
+        "count": 25651
       },
       {
         "country_code": "KR",
-        "count": 23945
+        "count": 23990
       }
     ],
     "volume": {
-      "us": 146713,
-      "china": 279444,
-      "total": 2797707,
+      "us": 146964,
+      "china": 279967,
+      "total": 2803672,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4263,
-      "china": 8574,
-      "total": 19914,
+      "us": 4270,
+      "china": 8590,
+      "total": 19934,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3191,
-      "china": 7635,
-      "total": 16937,
+      "us": 3201,
+      "china": 7665,
+      "total": 16986,
       "data_ok": true
     }
   },
@@ -182,153 +182,141 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4283066850",
-      "title": "Hermitian structures on a class of quaternionic Kähler manifolds",
+      "id": "https://openalex.org/W7128073427",
+      "title": "A multimodal biomechanics and electromyography dataset of drop vertical jump under virtual-reality visual height perturbations in individuals with and without chronic ankle instability",
       "authors": [
-        "V. Cortés",
-        "Arpan Saha",
-        "D. Thung"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164511563",
-      "title": "Hyperparameter Optimization of Random Forest for Multiclass Classification of Student Academic Performance Using Multidimensional Factors",
-      "authors": [
-        "Sri Nurhayati",
-        "Diana Effendi",
-        "Bobi Kurniawan Soegoto"
+        "Wanli Zang",
+        "Jiarong Wu",
+        "Chen Zhu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-20",
+      "published": "2026-10-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164555110",
-      "title": "Visual Trend Analysis of E-Commerce Thumbnails Using Parallel Computing for Image Big Data",
+      "id": "https://openalex.org/W7135035213",
+      "title": "Dynamics-informed deep learning for predicting extreme events",
       "authors": [
-        "Muhamad Tio Ariyanto",
-        "Haris Maulana",
-        "Muhammad Rifky  Afandi"
+        "Eirini Katsidoniotaki",
+        "Themistoklis P. Sapsis"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7155489955",
+      "title": "Efficacy of statistical and design interventions for improving reproducibility in biomedical research",
+      "authors": [
+        "Bernhard Voelkl",
+        "Rachel Heyard",
+        "Laura Caquelin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-20",
+      "published": "2026-10-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212410564",
-      "title": "Robust Active Learning for More Efficient and Reliable Paths to Optimal Design",
+      "id": "https://openalex.org/W7162027633",
+      "title": "Synthetic Data Enhanced Prediction of the neuropathological landscape of dementia before death using multimodal AI",
       "authors": [
-        "Hayriye Pehlivan Solak",
-        "Francesco Di Fiore",
-        "Jeroen Wackers"
-      ],
-      "countries": [
-        "GB",
-        "FR",
-        "IT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7212459432",
-      "title": "Assurance Burdens and AI Mediated Decision Architectures",
-      "authors": [
-        "Anna Morgan-Thomas",
-        "HAKAN SANRI",
-        "Alison Smart"
+        "Jinxin Liu",
+        "Yuan Shi"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-20",
+      "published": "2026-10-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214274390",
-      "title": "TransparencIA: Uma Abordagem de IA Generativa para Consultas de Atos Normativos do Pará",
+      "id": "https://openalex.org/W7167270644",
+      "title": "Learning Perceptual Hash Similarity for Image Copy Detection",
       "authors": [
-        "Adelaide de Almeida Evangelista",
-        "Tatiane Botelho Borges",
-        "Adriana Nunes Teles Xisto"
+        "Maria Eirini Pegia",
+        "Dimitrios Stefanopoulos",
+        "Björn Þór Jónsson"
+      ],
+      "countries": [
+        "GR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7207859516",
+      "title": "Physics-Informed Support Vector Regression for Predicting Copolymer LCST Depressions via Thermodynamic Hofmeister Featurization",
+      "authors": [
+        "Abhay Chauhan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-20",
+      "published": "2026-10-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214323067",
-      "title": "Compressão de modelo de aprendizado profundo aplicado a sistemas de detecção de intrusão para uso em equipamentos de indústria 4.0",
+      "id": "https://openalex.org/W7213911968",
+      "title": "TRACE: Deciphering Translation Grammar to Predict Translation Dynamics from RNA Sequences",
       "authors": [
-        "Alan Laurentino Dias da Silva",
-        "Gabriel Ferreira",
-        "Verusca Severo de Lima"
+        "Chunfu Xiao",
+        "Yao, Chao"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-10-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214136701",
+      "title": "RT-DETR Object Query Optimization for Deployment-Aware Performance Tuning",
+      "authors": [
+        "Nicola Zaupa",
+        "Zhuoran Dong",
+        "Wanangwa Nysulu"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-21",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222940376",
+      "title": "Управління фінансово-економічною діяльністю в закладах освіти: інтерактивний помічник: методичні рекомендації для організації самостійної роботи здобувачів другого (магістерського) рівня вищої освіти, галузі знань D Бізнес, право та адміністрування, спеціальності D3 Менеджмент «Управління закладом освіти» [електронне видання] / Харків. нац. пед. ун-т імені Г. С. Сковороди / Авт.-укл. В. В. Соляр. – Харків, Вид-во Іванченка І.С. 2026. – 107 с.",
+      "authors": [
+        "Viktoriia Soliar"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-20",
+      "published": "2026-10-21",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214443986",
-      "title": "Uma Base de Dados Multimodal para Estudos de Envelhecimento de Fibras Ópticas Orientada a Aprendizado de Máquina",
+      "id": "https://openalex.org/W7222992867",
+      "title": "SonoSK: medical ultrasound simulation in Python",
       "authors": [
-        "Obidiel Martins de Melo",
-        "Carmelo J. A. Bastos-Filho",
-        "Danilo Araújo"
+        "Soheil Kooklan"
       ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214444033",
-      "title": "From Generation to Precision: A Systematic Review of Controllable Multimodal Diffusion",
-      "authors": [
-        "Guilherme C. Pereira",
-        "Carmelo J. A. Bastos-Filho"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-20",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214473855",
-      "title": "Simulação em MATLAB para Estudos da Eficiência Energética em Painéis Solares",
-      "authors": [
-        "Israel Aires Costa Leal",
-        "Karla Leite Vilas Boas",
-        "João Augusto do Nascimento de Queiroz"
-      ],
-      "countries": [
-        "BR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-20",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-21",
       "cited_by_count": 0,
       "source": "openalex"
     }

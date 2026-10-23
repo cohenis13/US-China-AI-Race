@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-22T12:52:21.108413+00:00",
+  "fetched_at": "2026-10-23T12:30:50.978690+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 147473,
+            "raw_value": 148121,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4287,
+            "raw_value": 4292,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3203,
-            "share_score": 29.5,
+            "raw_value": 3217,
+            "share_score": 29.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 280152,
+            "raw_value": 281173,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8613,
+            "raw_value": 8635,
             "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7670,
-            "share_score": 70.5,
+            "raw_value": 7667,
+            "share_score": 70.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569345
+        "count": 569282
       },
       {
         "country_code": "CN",
-        "count": 280152
+        "count": 281173
       },
       {
         "country_code": "US",
-        "count": 147473
+        "count": 148121
       },
       {
         "country_code": "DE",
-        "count": 104049
+        "count": 104151
       },
       {
         "country_code": "IN",
-        "count": 95859
+        "count": 96115
       },
       {
         "country_code": "GB",
-        "count": 47046
+        "count": 47253
       },
       {
         "country_code": "ID",
-        "count": 43237
+        "count": 43454
       },
       {
         "country_code": "FR",
-        "count": 27721
+        "count": 27704
       },
       {
         "country_code": "IT",
-        "count": 25620
+        "count": 25587
       },
       {
         "country_code": "KR",
-        "count": 24026
+        "count": 24156
       }
     ],
     "volume": {
-      "us": 147473,
-      "china": 280152,
-      "total": 2808773,
+      "us": 148121,
+      "china": 281173,
+      "total": 2812649,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4287,
-      "china": 8613,
-      "total": 19995,
+      "us": 4292,
+      "china": 8635,
+      "total": 20036,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3203,
-      "china": 7670,
-      "total": 17005,
+      "us": 3217,
+      "china": 7667,
+      "total": 17041,
       "data_ok": true
     }
   },
@@ -182,151 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4403966615",
-      "title": "Classifying the surface-knot modules",
+      "id": "https://openalex.org/W7131706843",
+      "title": "Machine Learning Prediction of Transport Properties in Amorphous Polymer Electrolytes Using Chemically Informed Structural Descriptors",
       "authors": [
-        "Akio Kawauchi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163146044",
-      "title": "All datasets for the study: Cryo-EM structure of soluble VPS13C suggests its regulation by a conformational switch and by calmodulin.",
-      "authors": [
-        "Dazhi Li",
-        "Karin M. Reinisch"
+        "Srinithin Ganesh",
+        "Tyler Paupst",
+        "Paromita Nath"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-22",
+      "published": "2026-10-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7206213449",
-      "title": "In-cell structures visualize human pre-ribosome assembly in the nucleolus: model-map fitting",
+      "id": "https://openalex.org/W7171866915",
+      "title": "Mapping The Use of Generative Artificial Intelligence in Group Creative Processes: A Scoping Review",
       "authors": [
-        "Xiaohan Zhao",
-        "Yuki Hayashi",
-        "Herman K.H. Fung"
+        "Katusha Gerardini",
+        "Eleonora Diletta Sarcinella",
+        "Ilaria Vergine"
       ],
       "countries": [
-        "DE"
+        "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-10-22",
+      "published": "2026-10-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213477052",
-      "title": "A Gradient Boosting-Based Machine Learning Model for the Prediction of the Hardness of Thermoplastic Polymers",
+      "id": "https://openalex.org/W7214755031",
+      "title": "A Review of Deep-learning-based Seismic Data Denoising and Its Promising Paradigm Shift to Foundation Models",
       "authors": [
-        "Jose Sena Sanchez",
-        "Jonny James Blaker",
-        "Sam Hay"
-      ],
-      "countries": [
-        "DO",
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213989346",
-      "title": "Breakfast Keynote: Never Finished.",
-      "authors": [
-        "David Banker"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213997090",
-      "title": "Analysis of sepsis heterogeneity and subtype identification: a multidimensional clinical feature clustering study based on machine learning",
-      "authors": [
-        "Zhang Rui",
-        "Zhang Yingli",
-        "Wu Xirou"
+        "Xintong Dong",
+        "Zhengyi Yuan",
+        "Changxin Wei"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-10-22",
+      "published": "2026-10-23",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214134873",
-      "title": "Structure-from-Motion Covisibility-Guided Semantic Seeding for Joint Photo-Semantic 3D Gaussian Splatting",
+      "id": "https://openalex.org/W7221741380",
+      "title": "Psychophysical Assessment of Visual Function: From Contrast Sensitivity to Clinical Implications",
       "authors": [
-        "Zakaria Lotfi",
-        "Amine Kacete",
-        "Jérôme Royan"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214137140",
-      "title": "CrossKey: learning cross-modal keypoints for explainable MRI-TRUS rigid prostate registration",
-      "authors": [
-        "Manasi Kattel",
-        "Benjamin Billot",
-        "Federica Facente"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221117184",
-      "title": "Machine learning detection of small Strombolian eruptions in noisy multi-temporal infrared images: Toward continuous monitoring",
-      "authors": [
-        "Brian Dye",
-        "Gabriele Morra"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-10-22",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221240917",
-      "title": "Comparative analysis of graph-based metabolic network representations using graph Kernels",
-      "authors": [
-        "Irene García",
-        "Pere Palmer-Rodríguez",
-        "Bessem Chouaia"
+        "Assunta Di Vizio"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-22",
+      "published": "2026-10-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223196408",
+      "title": "An Anatomical Review of Berkovski's Analysis of Weber's Bureaucratic Paradox: Permanent Structures, Fluid Institutions, and the Evolution of State Systems under Artificial Intelligence",
+      "authors": [
+        "Syed Muntasir Mamun"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223196835",
+      "title": "Evaluation of virtual monochromatic imaging combined with metal artifact reduction in low-dose dual-energy computed tomography: a phantom study",
+      "authors": [
+        "Tingting Qu",
+        "Ganglian Fan",
+        "Yanan Li"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223198136",
+      "title": "BEYOND TECHNOSTRESS AI Fatigue as a Cumulative Adaptation Burden in Education and Work",
+      "authors": [
+        "Wael Badawy"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223198739",
+      "title": "Basketball Game Data Visualization and Prediction Model Based on Voting Ensemble Learning",
+      "authors": [
+        "Jun Li"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223198886",
+      "title": "Artificial Intelligence Applications in Pregnancy, Childbirth, and the Postpartum Period: A Scoping Review",
+      "authors": [
+        "Gustavo Gonçalves dos Santos",
+        "ANNA PAULA MENDES MARQUES DE LIMA FRANCO",
+        "Francini Castilha do Nascimento"
+      ],
+      "countries": [
+        "BR",
+        "PT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-23",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223199291",
+      "title": "Methods of artificial intelligence for stratification of the territorial risk profiles of stress-associated mental disorders in law enforcement officers",
+      "authors": [
+        "N. SHakhbazov",
+        "Ичитовкина Елена Геннадьевна"
+      ],
+      "countries": [
+        "RU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-23",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-24T11:54:44.621554+00:00",
+  "fetched_at": "2026-10-25T12:26:03.775324+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,13 +17,13 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 148211,
-            "share_score": 34.5,
+            "raw_value": 148364,
+            "share_score": 34.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4302,
-            "share_score": 33.2,
+            "raw_value": 4300,
+            "share_score": 33.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 281393,
-            "share_score": 65.5,
+            "raw_value": 280522,
+            "share_score": 65.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8666,
-            "share_score": 66.8,
+            "raw_value": 8679,
+            "share_score": 66.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7685,
+            "raw_value": 7682,
             "share_score": 70.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569347
+        "count": 569310
       },
       {
         "country_code": "CN",
-        "count": 281393
+        "count": 280522
       },
       {
         "country_code": "US",
-        "count": 148211
+        "count": 148364
       },
       {
         "country_code": "DE",
-        "count": 102692
+        "count": 102730
       },
       {
         "country_code": "IN",
-        "count": 96407
+        "count": 96308
       },
       {
         "country_code": "GB",
-        "count": 47314
+        "count": 47366
       },
       {
         "country_code": "ID",
-        "count": 43605
+        "count": 43909
       },
       {
         "country_code": "IT",
-        "count": 25466
+        "count": 25490
       },
       {
         "country_code": "KR",
-        "count": 24198
+        "count": 24213
       },
       {
         "country_code": "FR",
-        "count": 23723
+        "count": 23699
       }
     ],
     "volume": {
-      "us": 148211,
-      "china": 281393,
-      "total": 2807949,
+      "us": 148364,
+      "china": 280522,
+      "total": 2809568,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4302,
-      "china": 8666,
-      "total": 20086,
+      "us": 4300,
+      "china": 8679,
+      "total": 20092,
       "data_ok": true
     },
     "top_cited": {
       "us": 3219,
-      "china": 7685,
-      "total": 17074,
+      "china": 7682,
+      "total": 17054,
       "data_ok": true
     }
   },
@@ -182,150 +182,145 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4416437661",
-      "title": "Spin-adapted neural network wavefunctions in real space",
+      "id": "https://openalex.org/W7169739579",
+      "title": "Stochastic approximation with delayed updates: Asynchronous Machine Learning Algorithms study",
       "authors": [
-        "Ruichen Li",
-        "Yuzhi Liu A",
-        "Jiang Du"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-24",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204118301",
-      "title": "CERVINO: A Large-Scale Eye-Tracking Resource of Italian Legal Texts",
-      "authors": [
-        "Calogero Jerik Scozzaro",
-        "Matteo Delsanto",
-        "Sara Pasquet"
+        "Hong Phuc Nguyen",
+        "Aditya Mahajan",
+        "Silviu‐Iulian Niculescu"
       ],
       "countries": [
-        "IT"
+        "CA",
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-24",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212462806",
-      "title": "How Reliable Are LLM Annotators for Online Manipulation? Evidence from Phishing and Abuse Corpora",
+      "id": "https://openalex.org/W7213489780",
+      "title": "What Drives Schema Capture in Link Prediction?",
       "authors": [
-        "Senaid Popovic",
-        "Yannick Parmentier",
-        "Fabien Lauer"
+        "Nicolas Robert",
+        "Pierre Monnin",
+        "Catherine Faron Zucker"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-24",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7216328990",
-      "title": "UNSUR DRAMATIK DALAM NASKAH RANDAI SAGAN BADAYUANG HANYUIK SARANTAU VERSI SANGGAR RANAH TIGO RASO",
+      "id": "https://openalex.org/W7214134234",
+      "title": "Knowledge Graphs as External Memory for LLM-based Scientific Assistants",
       "authors": [
-        "Risa Novianis",
-        "Titiek Fujita Yusandra"
-      ],
-      "countries": [
-        "ID"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7217558862",
-      "title": "Anomaly Detection using Source-Reversed Flow Matching",
-      "authors": [
-        "Amine Youcef Khodja",
-        "Jérémie Pantin",
-        "Gaël Harry Dias"
+        "Benjamin Navet"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-24",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7219721761",
-      "title": "Neuromorphic Computing Architectures for Low-Power Edge Inference in IoT Applications",
+      "id": "https://openalex.org/W7219560911",
+      "title": "LettRAGraph at LLMs4OL 2026 Task Flagship: Prompt-Guided Ontology Extraction with Ensembling",
       "authors": [
-        "Letahun Nemeon",
-        "P. Kharabi"
-      ],
-      "countries": [
-        "ET",
-        "OM"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221428919",
-      "title": "Are Benchmarks a source of bias in LLMs? MMLU, CommonSenseQA and MGSM under the Microscope",
-      "authors": [
-        "Fanny Ducel",
-        "Shayan Ahmed Shariff",
-        "Ibrahim Al Kotob"
+        "Pasquale Lisena",
+        "Julien Plu",
+        "Oscar Moreno Escobar"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-10-24",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222918925",
-      "title": "[T-064] Principle of Exception Exclusion",
+      "id": "https://openalex.org/W7219650243",
+      "title": "SBLENDid Thesis Datasets",
       "authors": [
-        "Erystela Thevale"
+        "Rupprecht"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-24",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223260114",
-      "title": "SlangLane Digital Psychology, Emotional Regulation Idioms & Online Youth Well-Being Lexicon Dataset (2026 — Volume 24)",
+      "id": "https://openalex.org/W7221460346",
+      "title": "Physical AI Bridging the Digital Mind and the Material World",
       "authors": [
-        "SlangLane Sociolinguistics &amp; Applied Linguistics Lab"
+        "A. Shaji George"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-24",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223261094",
-      "title": "Anexo - Prova Prática em Python",
+      "id": "https://openalex.org/W7223072793",
+      "title": "Structured Agentic Retrieval over Knowledge Graphs with MCP and Query Containers",
       "authors": [
-        "Gabriela Leite Pereira",
-        "Sidney Marlon Lopes de Lima"
+        "Simone Fassio",
+        "Dario Gosmar",
+        "Fanfu Wei"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223075771",
+      "title": "STAR-Q: A Web-Based Platform for Annotating Qualified Knowledge Graph Statements in Texts and Tables",
+      "authors": [
+        "Thibault Ehrhart",
+        "Yoan Chabot",
+        "Raphaël Troncy A"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223132327",
+      "title": "Data and code for \"Sowing diversity and management shape plant and microbial recovery in cultivated grasslands on the Qinghai-Tibetan Plateau\"",
+      "authors": [
+        "Lei Hu"
       ],
       "countries": [
-        "BR"
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-10-24",
+      "primary_country": "China",
+      "published": "2026-10-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223192481",
+      "title": "Combining PageRank Modularization and Ontology Verbalization for LLM-Based Complex Ontology Matching",
+      "authors": [
+        "Igor Nascimento",
+        "Rinaldo Lima",
+        "Cassia Trojahn"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

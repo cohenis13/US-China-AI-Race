@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-25T12:26:03.775324+00:00",
+  "fetched_at": "2026-10-26T14:03:02.773011+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 148364,
-            "share_score": 34.6,
+            "raw_value": 147652,
+            "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4300,
-            "share_score": 33.1,
+            "raw_value": 4288,
+            "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3219,
+            "raw_value": 3207,
             "share_score": 29.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 280522,
-            "share_score": 65.4,
+            "raw_value": 279764,
+            "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8679,
-            "share_score": 66.9,
+            "raw_value": 8617,
+            "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7682,
+            "raw_value": 7653,
             "share_score": 70.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569310
+        "count": 569303
       },
       {
         "country_code": "CN",
-        "count": 280522
+        "count": 279764
       },
       {
         "country_code": "US",
-        "count": 148364
+        "count": 147652
       },
       {
         "country_code": "DE",
-        "count": 102730
+        "count": 102797
       },
       {
         "country_code": "IN",
-        "count": 96308
+        "count": 96380
       },
       {
         "country_code": "GB",
-        "count": 47366
+        "count": 47136
       },
       {
         "country_code": "ID",
-        "count": 43909
+        "count": 44139
       },
       {
         "country_code": "IT",
-        "count": 25490
+        "count": 25575
       },
       {
         "country_code": "KR",
-        "count": 24213
+        "count": 24256
       },
       {
         "country_code": "FR",
-        "count": 23699
+        "count": 23702
       }
     ],
     "volume": {
-      "us": 148364,
-      "china": 280522,
-      "total": 2809568,
+      "us": 147652,
+      "china": 279764,
+      "total": 2810814,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4300,
-      "china": 8679,
-      "total": 20092,
+      "us": 4288,
+      "china": 8617,
+      "total": 19996,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3219,
-      "china": 7682,
-      "total": 17054,
+      "us": 3207,
+      "china": 7653,
+      "total": 16993,
       "data_ok": true
     }
   },
@@ -182,145 +182,161 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7169739579",
-      "title": "Stochastic approximation with delayed updates: Asynchronous Machine Learning Algorithms study",
+      "id": "https://openalex.org/W4415320200",
+      "title": "MATHDance: Mamba-Transformer Architecture with Uniform Tokenization for High-Quality 3D Dance Generation",
       "authors": [
-        "Hong Phuc Nguyen",
-        "Aditya Mahajan",
-        "Silviu‐Iulian Niculescu"
-      ],
-      "countries": [
-        "CA",
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213489780",
-      "title": "What Drives Schema Capture in Link Prediction?",
-      "authors": [
-        "Nicolas Robert",
-        "Pierre Monnin",
-        "Catherine Faron Zucker"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214134234",
-      "title": "Knowledge Graphs as External Memory for LLM-based Scientific Assistants",
-      "authors": [
-        "Benjamin Navet"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7219560911",
-      "title": "LettRAGraph at LLMs4OL 2026 Task Flagship: Prompt-Guided Ontology Extraction with Ensembling",
-      "authors": [
-        "Pasquale Lisena",
-        "Julien Plu",
-        "Oscar Moreno Escobar"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7219650243",
-      "title": "SBLENDid Thesis Datasets",
-      "authors": [
-        "Rupprecht"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221460346",
-      "title": "Physical AI Bridging the Digital Mind and the Material World",
-      "authors": [
-        "A. Shaji George"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7223072793",
-      "title": "Structured Agentic Retrieval over Knowledge Graphs with MCP and Query Containers",
-      "authors": [
-        "Simone Fassio",
-        "Dario Gosmar",
-        "Fanfu Wei"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7223075771",
-      "title": "STAR-Q: A Web-Based Platform for Annotating Qualified Knowledge Graph Statements in Texts and Tables",
-      "authors": [
-        "Thibault Ehrhart",
-        "Yoan Chabot",
-        "Raphaël Troncy A"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-25",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7223132327",
-      "title": "Data and code for \"Sowing diversity and management shape plant and microbial recovery in cultivated grasslands on the Qinghai-Tibetan Plateau\"",
-      "authors": [
-        "Lei Hu"
+        "Kaixing Yang",
+        "Xulong Tang",
+        "Ziqiao Peng"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-10-25",
+      "published": "2026-10-26",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223192481",
-      "title": "Combining PageRank Modularization and Ontology Verbalization for LLM-Based Complex Ontology Matching",
+      "id": "https://openalex.org/W7160293247",
+      "title": "Position: how can graphs help large language models?",
       "authors": [
-        "Igor Nascimento",
-        "Rinaldo Lima",
-        "Cassia Trojahn"
+        "Xiyuan Wang",
+        "Yi Hu",
+        "Yanbo Wang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-25",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167603717",
+      "title": "Target-Guided Selective Reweighting for physics-informed neural network inverse problems: A transfer learning approach",
+      "authors": [
+        "Qian Hu",
+        "Bin Fan",
+        "Y H Xiao"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168327949",
+      "title": "Methodological challenges, solution pathways, and future priorities in Mendelian randomization research: a bibliometric and content analysis",
+      "authors": [
+        "Jiapeng Zhang",
+        "Ying Xiao",
+        "Feifei Feng"
+      ],
+      "countries": [
+        "CN",
+        "MO"
+      ],
+      "primary_country": "China",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7204154951",
+      "title": "Tomatoes, Potatoes, and Onions: Questioning the Need for Faces in Face Presentation Attack Detection",
+      "authors": [
+        "Guray Ozgur",
+        "Fadi Boutros",
+        "Naser Damer"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7206117002",
+      "title": "On the Feasibility of Reference-Free Tracking via Motion Sensors in Public Transport",
+      "authors": [
+        "Anne Josiane Kouam",
+        "Stefan Czybik",
+        "Konrad Rieck"
+      ],
+      "countries": [
+        "DE",
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212103168",
+      "title": "Stability-Aware Multi-Agent Reinforcement Learning for Dynamic Resource Management in Vehicular Edge Networks",
+      "authors": [
+        "Ali Bouriga",
+        "Rahim Kacimi",
+        "Riadh Dhaou"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212336905",
+      "title": "ISRiCH: Infrastructure-light Semi-passive Ranging for Collaborative Hybrid Localization",
+      "authors": [
+        "Benoît Perroux",
+        "Jérôme Ermont",
+        "Katia Jaffrès‐Runser"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214793165",
+      "title": "One Sensor, Whole Body — 3D Body Pose from a Single Consumer Earbud IMU",
+      "authors": [
+        "Zhilin Guo",
+        "Boqiao Zhang",
+        "Oszkár Urbán"
+      ],
+      "countries": [
+        "GB",
+        "SE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-26",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215179216",
+      "title": "From Symptoms to Root Causes: Uncovering Failure Propagation Paths from Multimodal Observability Data in Microservices",
+      "authors": [
+        "Sana Rekbi",
+        "Ahmad Atwi",
+        "Jhon-Sebastian Rojas-Rodriguez"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-26",
       "cited_by_count": 0,
       "source": "openalex"
     }

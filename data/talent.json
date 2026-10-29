@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-28T13:55:00.145107+00:00",
+  "fetched_at": "2026-10-29T14:01:11.897085+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,21 +15,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.6,
+          "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 150046,
+            "raw_value": 149957,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4319,
-            "share_score": 33.3,
+            "raw_value": 4321,
+            "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3239,
+            "raw_value": 3225,
             "share_score": 29.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -63,21 +63,21 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.4,
+          "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 284798,
+            "raw_value": 284689,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8665,
-            "share_score": 66.7,
+            "raw_value": 8679,
+            "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7693,
+            "raw_value": 7687,
             "share_score": 70.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569652
+        "count": 569636
       },
       {
         "country_code": "CN",
-        "count": 284798
+        "count": 284689
       },
       {
         "country_code": "US",
-        "count": 150046
+        "count": 149957
       },
       {
         "country_code": "IN",
-        "count": 103777
+        "count": 103701
       },
       {
         "country_code": "DE",
-        "count": 103637
+        "count": 103498
       },
       {
         "country_code": "GB",
-        "count": 47833
+        "count": 47725
       },
       {
         "country_code": "ID",
-        "count": 46883
+        "count": 46890
       },
       {
         "country_code": "IT",
-        "count": 26068
+        "count": 25988
       },
       {
         "country_code": "KR",
-        "count": 24461
+        "count": 24487
       },
       {
         "country_code": "FR",
-        "count": 24249
+        "count": 24135
       }
     ],
     "volume": {
-      "us": 150046,
-      "china": 284798,
-      "total": 2827860,
+      "us": 149957,
+      "china": 284689,
+      "total": 2832327,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4319,
-      "china": 8665,
-      "total": 20043,
+      "us": 4321,
+      "china": 8679,
+      "total": 20059,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3239,
-      "china": 7693,
-      "total": 17087,
+      "us": 3225,
+      "china": 7687,
+      "total": 17034,
       "data_ok": true
     }
   },
@@ -182,141 +182,129 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4407785632",
-      "title": "Supervising the search process produces reliable and generalizable information-seeking agents",
+      "id": "https://openalex.org/W4393248197",
+      "title": "A Family of Chatterjee's Correlation Coefficients and Their Properties",
       "authors": [
-        "Guangzhi Xiong",
-        "Qiao Jin",
-        "Xiao Wang"
+        "Muhong Gao",
+        "Qizhai Li"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-28",
+      "published": "2026-10-29",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4417291560",
-      "title": "Systematic Framework of Application Methods for Large Language Models in Language Sciences",
+      "id": "https://openalex.org/W7220650105",
+      "title": "YASHIL VA BARQAROR INVESTITSIYALAR: ESG, IQLIM MOLIYASI VA MAS'ULIYATLI INVESTITSIYALASH YASHIL IQTISODIYOT OMILI SIFATIDA",
       "authors": [
-        "Kun Sun",
-        "Rong Wang"
-      ],
-      "countries": [
-        "CN",
-        "DE"
-      ],
-      "primary_country": "China",
-      "published": "2026-10-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171534490",
-      "title": "ThermalHiddenObject-TR: A Thermal Imaging Dataset for Concealed Metallic Object Detection",
-      "authors": [
-        "HIDIR SELCUK NOGAY"
+        "Shaxnoza Ibragimova"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-28",
+      "published": "2026-10-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213476250",
-      "title": "DICF: Domain-Invariant Counterfactual Explanations",
+      "id": "https://openalex.org/W7221523955",
+      "title": "KIBER MAKONDA AXBOROT AGRESSIYASI, RAQAMLI ZOʻRAVONLIK VA FUQAROLARARO ISHONCH INQIROZI",
       "authors": [
-        "Ismail Bachchar",
-        "Françoise Fessant",
-        "Tassadit Bouadi"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214141095",
-      "title": "Learning Energy-Efficient Filterbanks for On-device Bioacoustic Classification",
-      "authors": [
-        "Yasmine Benhamadi",
-        "Vincent Lostanlen",
-        "Mathieu Lagrange"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214568185",
-      "title": "Ultrafast ultrasound vector flow imaging of the heart and brain",
-      "authors": [
-        "Yichuang Han"
+        "Xasanboy Nabijonovich Sultonov"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-28",
+      "published": "2026-10-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7215335040",
-      "title": "Four-Dimensional Ultrasound Imaging of the Brain",
+      "id": "https://openalex.org/W7221711594",
+      "title": "ZAMONAVIY TA'LIM VA SUN'IY INTELLEKT (AI): IMKONIYATLAR, MUAMMOLAR VA ISTIQBOLLAR",
       "authors": [
-        "Luuk Verhoef"
+        "Sayidov Nozimjon Abdulnosirovich",
+        "Zulhumor Odiljon qizi Ergashova",
+        "Jamila Rustamjon qizi Mirzaqosimova"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-28",
+      "published": "2026-10-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7220727800",
-      "title": "Agentic schema-guided extraction of materials process knowledge from scientific literature",
+      "id": "https://openalex.org/W7222814117",
+      "title": "TEXNOLOGIK TA'LIM YO'NALISHI TALABALARIGA AMALIY MASHG'ULOTLARDA KIYIMLARNI KOMPYUTERDA LOYIHALASH JARAYONINI O'RGATISH MOHIYATI",
       "authors": [
-        "Sameer Sadruddin",
-        "Jennifer D’Souza"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-28",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221746049",
-      "title": "Shearlet based Fourier compressed sensing",
-      "authors": [
-        "Ayşe Işıl Güleken"
+        "J.R. Muxitdinova",
+        "N.I Karimova"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-28",
+      "published": "2026-10-29",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222852528",
-      "title": "From scientific systems to artificial intelligence adoption:Knowledge, innovation and technological change in Latin America",
+      "id": "https://openalex.org/W7222933000",
+      "title": "GENERATIVE AI AS A SPARRING PARTNER IN PROJECT MANAGEMENT CASES: A FOUR-STAGE ASSESSMENT FRAMEWORK",
       "authors": [
-        "Fernando Esteban Vargas Cuevas"
+        "Safargul Turaevna Avazdurdieva"
       ],
-      "countries": [
-        "NL"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223078941",
+      "title": "Detection of parametric or contextual knowledge: are the schemas similar across modalities?",
+      "authors": [
+        "Remesh, Binesh, Arakkal",
+        "Thomas Gerald",
+        "Camille Guinaudeau"
       ],
-      "primary_country": "Other",
-      "published": "2026-10-28",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223456233",
+      "title": "Theoretical Proof of Alice Law — Tube: Interactive Animation and Explanatory Texts (2026)",
+      "authors": [
+        "Han Erim"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223696739",
+      "title": "FOSTERING ENGLISH READING SKILLS VIA VISUAL CLUSTERING FRAMEWORKS",
+      "authors": [
+        "Shukhrat Shernazarovich Eshankulov"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-29",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223862977",
+      "title": "TALABALARNING IJODIY FAOLIYATINI RIVOJLANTIRISHDA TA'LIM MUASSASALARINING O'RNI",
+      "authors": [
+        "Ergasheva Odina Raximjon qizi",
+        "Ibroximov Maqsadjon Axmedovich"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-29",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-29T14:01:11.897085+00:00",
+  "fetched_at": "2026-10-30T13:56:00.670637+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 149957,
+            "raw_value": 149889,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4321,
+            "raw_value": 4315,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3225,
+            "raw_value": 3223,
             "share_score": 29.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 284689,
+            "raw_value": 284343,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8679,
+            "raw_value": 8684,
             "share_score": 66.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7687,
+            "raw_value": 7683,
             "share_score": 70.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569636
+        "count": 569602
       },
       {
         "country_code": "CN",
-        "count": 284689
+        "count": 284343
       },
       {
         "country_code": "US",
-        "count": 149957
+        "count": 149889
       },
       {
         "country_code": "IN",
-        "count": 103701
+        "count": 103521
       },
       {
         "country_code": "DE",
-        "count": 103498
+        "count": 103431
       },
       {
         "country_code": "GB",
-        "count": 47725
+        "count": 47665
       },
       {
         "country_code": "ID",
-        "count": 46890
+        "count": 46705
       },
       {
         "country_code": "IT",
-        "count": 25988
+        "count": 25925
       },
       {
         "country_code": "KR",
-        "count": 24487
+        "count": 24456
       },
       {
         "country_code": "FR",
-        "count": 24135
+        "count": 24102
       }
     ],
     "volume": {
-      "us": 149957,
-      "china": 284689,
-      "total": 2832327,
+      "us": 149889,
+      "china": 284343,
+      "total": 2829816,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4321,
-      "china": 8679,
-      "total": 20059,
+      "us": 4315,
+      "china": 8684,
+      "total": 20050,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3225,
-      "china": 7687,
-      "total": 17034,
+      "us": 3223,
+      "china": 7683,
+      "total": 17017,
       "data_ok": true
     }
   },
@@ -182,129 +182,136 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4393248197",
-      "title": "A Family of Chatterjee's Correlation Coefficients and Their Properties",
+      "id": "https://openalex.org/W7171518548",
+      "title": "कतरम बदधमतततल परवगरह: महल वदयरथनचय उचच शकषणवर हणर दषपरणम",
       "authors": [
-        "Muhong Gao",
-        "Qizhai Li"
+        "दिलीप आप्पा जगताप"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-29",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220650105",
-      "title": "YASHIL VA BARQAROR INVESTITSIYALAR: ESG, IQLIM MOLIYASI VA MAS'ULIYATLI INVESTITSIYALASH YASHIL IQTISODIYOT OMILI SIFATIDA",
-      "authors": [
-        "Shaxnoza Ibragimova"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221523955",
-      "title": "KIBER MAKONDA AXBOROT AGRESSIYASI, RAQAMLI ZOʻRAVONLIK VA FUQAROLARARO ISHONCH INQIROZI",
+      "id": "https://openalex.org/W7171525961",
+      "title": "भरततल महल सकषरतच वकस परवस : लगवषमत आण समजक-आरथक परणमच सखल अभयस (१९५१–२०२१)",
       "authors": [
-        "Xasanboy Nabijonovich Sultonov"
+        "प्रतिभा येडूराव औताडे",
+        "महेश भाऊसाहेब थोरात"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221711594",
-      "title": "ZAMONAVIY TA'LIM VA SUN'IY INTELLEKT (AI): IMKONIYATLAR, MUAMMOLAR VA ISTIQBOLLAR",
+      "id": "https://openalex.org/W7171758975",
+      "title": "Een raamwerk voor patiëntspecifieke chirurgische simulatie van pedikelschroefplaatsing",
       "authors": [
-        "Sayidov Nozimjon Abdulnosirovich",
-        "Zulhumor Odiljon qizi Ergashova",
-        "Jamila Rustamjon qizi Mirzaqosimova"
+        "Adlina Taufik Syamlan"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222814117",
-      "title": "TEXNOLOGIK TA'LIM YO'NALISHI TALABALARIGA AMALIY MASHG'ULOTLARDA KIYIMLARNI KOMPYUTERDA LOYIHALASH JARAYONINI O'RGATISH MOHIYATI",
+      "id": "https://openalex.org/W7215045594",
+      "title": "Machine Learning and Deep Learning for Brain Tumor Prediction and Segmentation in MRI: A Systematic Review of Methods, Datasets and Open Challenges",
       "authors": [
-        "J.R. Muxitdinova",
-        "N.I Karimova"
+        "Namrata Vijayvargiya",
+        "Nirupma Singh"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7222933000",
-      "title": "GENERATIVE AI AS A SPARRING PARTNER IN PROJECT MANAGEMENT CASES: A FOUR-STAGE ASSESSMENT FRAMEWORK",
+      "id": "https://openalex.org/W7220008590",
+      "title": "“BADIIY KULOLCHILIKDA LOY MATERIALINING XUSUSIYATLARI VA UNDAN FOYDALANISH TEXNOLOGIYASI”",
       "authors": [
-        "Safargul Turaevna Avazdurdieva"
+        "Narkuziyeva Sayyoraxon"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223078941",
-      "title": "Detection of parametric or contextual knowledge: are the schemas similar across modalities?",
+      "id": "https://openalex.org/W7220225150",
+      "title": "“BADIIY KULOLCHILIKDA GEOMETRIK VA O‘SIMLIKSIMON NAQSHLARNING QO‘LLANILISHI”",
       "authors": [
-        "Remesh, Binesh, Arakkal",
-        "Thomas Gerald",
-        "Camille Guinaudeau"
+        "Narkuziyeva Sayyoraxon"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223456233",
-      "title": "Theoretical Proof of Alice Law — Tube: Interactive Animation and Explanatory Texts (2026)",
+      "id": "https://openalex.org/W7220401686",
+      "title": "From Digital Victims to Cyber Offenders Children, Artificial Intelligence and the Emerging Challenges of Criminal Accountability in India",
       "authors": [
-        "Han Erim"
+        "Dhanashri M. Chougale"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223696739",
-      "title": "FOSTERING ENGLISH READING SKILLS VIA VISUAL CLUSTERING FRAMEWORKS",
+      "id": "https://openalex.org/W7220405683",
+      "title": "Artificial Intelligence in Marketing",
       "authors": [
-        "Shukhrat Shernazarovich Eshankulov"
+        "Ravsaheb Bhaiya Kale"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "countries": [
+        "IN"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223862977",
-      "title": "TALABALARNING IJODIY FAOLIYATINI RIVOJLANTIRISHDA TA'LIM MUASSASALARINING O'RNI",
+      "id": "https://openalex.org/W7221756235",
+      "title": "Diffusion Posterior Sampling for High-Resolution 3D Lung CT Generation",
       "authors": [
-        "Ergasheva Odina Raximjon qizi",
-        "Ibroximov Maqsadjon Axmedovich"
+        "Gonçalo Fernandes",
+        "Pedro Sousa",
+        "Hélder P. Oliveira"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-29",
+      "countries": [
+        "PT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-30",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221775942",
+      "title": "3D Generative Modelling of Lung Segmentation Masks",
+      "authors": [
+        "Diogo Martins",
+        "Pedro Sousa",
+        "Hélder P. Oliveira"
+      ],
+      "countries": [
+        "PT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-30",
       "cited_by_count": 0,
       "source": "openalex"
     }

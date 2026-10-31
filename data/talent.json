@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-30T13:56:00.670637+00:00",
+  "fetched_at": "2026-10-31T13:28:55.131505+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 32.5,
           "paper_volume": {
-            "raw_value": 149889,
-            "share_score": 34.5,
+            "raw_value": 149985,
+            "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4315,
+            "raw_value": 4316,
             "share_score": 33.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3223,
+            "raw_value": 3218,
             "share_score": 29.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,8 +65,8 @@
           "weight": 0.35,
           "share_score": 67.5,
           "paper_volume": {
-            "raw_value": 284343,
-            "share_score": 65.5,
+            "raw_value": 285417,
+            "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
@@ -77,7 +77,7 @@
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7683,
+            "raw_value": 7669,
             "share_score": 70.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569602
+        "count": 569656
       },
       {
         "country_code": "CN",
-        "count": 284343
+        "count": 285417
       },
       {
         "country_code": "US",
-        "count": 149889
+        "count": 149985
       },
       {
         "country_code": "IN",
-        "count": 103521
+        "count": 103840
       },
       {
         "country_code": "DE",
-        "count": 103431
+        "count": 103508
       },
       {
         "country_code": "GB",
-        "count": 47665
+        "count": 47779
       },
       {
         "country_code": "ID",
-        "count": 46705
+        "count": 46694
       },
       {
         "country_code": "IT",
-        "count": 25925
+        "count": 26001
       },
       {
         "country_code": "KR",
-        "count": 24456
+        "count": 24515
       },
       {
         "country_code": "FR",
-        "count": 24102
+        "count": 24190
       }
     ],
     "volume": {
-      "us": 149889,
-      "china": 284343,
-      "total": 2829816,
+      "us": 149985,
+      "china": 285417,
+      "total": 2842080,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4315,
+      "us": 4316,
       "china": 8684,
-      "total": 20050,
+      "total": 20045,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3223,
-      "china": 7683,
-      "total": 17017,
+      "us": 3218,
+      "china": 7669,
+      "total": 16968,
       "data_ok": true
     }
   },
@@ -182,136 +182,143 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7171518548",
-      "title": "कतरम बदधमतततल परवगरह: महल वदयरथनचय उचच शकषणवर हणर दषपरणम",
+      "id": "https://openalex.org/W7112386125",
+      "title": "Physiotherapy students' perceptions of the ethical implications of artificial intelligence in professional practice: A qualitative study [Conference Abstract]",
       "authors": [
-        "दिलीप आप्पा जगताप"
+        "Ramshaw, Marc",
+        "Bendall, Amy"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-30",
+      "countries": [
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-10-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171525961",
-      "title": "भरततल महल सकषरतच वकस परवस : लगवषमत आण समजक-आरथक परणमच सखल अभयस (१९५१–२०२१)",
+      "id": "https://openalex.org/W7204064808",
+      "title": "High-accuracy prediction of Kβ/Kα intensity ratios via explainable stacked-ensemble learning : A web-based computational tool",
       "authors": [
-        "प्रतिभा येडूराव औताडे",
-        "महेश भाऊसाहेब थोरात"
+        "C.M. Yeşilkanat",
+        "E. Cengi̇z",
+        "Abdelhalim KAHOUL"
+      ],
+      "countries": [
+        "TR",
+        "DZ",
+        "GB",
+        "BE",
+        "IT",
+        "US",
+        "PT"
+      ],
+      "primary_country": "US",
+      "published": "2026-10-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214280029",
+      "title": "Course Recommendation System Using Machin Learning",
+      "authors": [
+        "Pratiksha S. Patil"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214312207",
+      "title": "Predictive Analytics for Student Academic Performance Using Educational Data",
+      "authors": [
+        "Alsaboor Khalil Sayyed"
       ],
       "countries": [
         "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-10-30",
+      "published": "2026-10-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171758975",
-      "title": "Een raamwerk voor patiëntspecifieke chirurgische simulatie van pedikelschroefplaatsing",
+      "id": "https://openalex.org/W7214318674",
+      "title": "Multi Eye disease Detection in fundus images: A Structured Review",
       "authors": [
-        "Adlina Taufik Syamlan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7215045594",
-      "title": "Machine Learning and Deep Learning for Brain Tumor Prediction and Segmentation in MRI: A Systematic Review of Methods, Datasets and Open Challenges",
-      "authors": [
-        "Namrata Vijayvargiya",
-        "Nirupma Singh"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220008590",
-      "title": "“BADIIY KULOLCHILIKDA LOY MATERIALINING XUSUSIYATLARI VA UNDAN FOYDALANISH TEXNOLOGIYASI”",
-      "authors": [
-        "Narkuziyeva Sayyoraxon"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220225150",
-      "title": "“BADIIY KULOLCHILIKDA GEOMETRIK VA O‘SIMLIKSIMON NAQSHLARNING QO‘LLANILISHI”",
-      "authors": [
-        "Narkuziyeva Sayyoraxon"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220401686",
-      "title": "From Digital Victims to Cyber Offenders Children, Artificial Intelligence and the Emerging Challenges of Criminal Accountability in India",
-      "authors": [
-        "Dhanashri M. Chougale"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-30",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220405683",
-      "title": "Artificial Intelligence in Marketing",
-      "authors": [
-        "Ravsaheb Bhaiya Kale"
+        "Sheetal Maruti Chougule"
       ],
       "countries": [
         "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-10-30",
+      "published": "2026-10-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221756235",
-      "title": "Diffusion Posterior Sampling for High-Resolution 3D Lung CT Generation",
+      "id": "https://openalex.org/W7214364618",
+      "title": "Edge AI for Energy-Efficient Smart IoT Systems: A Sustainable Computing Approach",
       "authors": [
-        "Gonçalo Fernandes",
-        "Pedro Sousa",
-        "Hélder P. Oliveira"
+        "Prathamesh Uttam Patil"
       ],
-      "countries": [
-        "PT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-30",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-31",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221775942",
-      "title": "3D Generative Modelling of Lung Segmentation Masks",
+      "id": "https://openalex.org/W7214759740",
+      "title": "Predictive Analytics for Student Academic Performance Using Educational Data",
       "authors": [
-        "Diogo Martins",
-        "Pedro Sousa",
-        "Hélder P. Oliveira"
+        "Alsaboor Khalil Sayyed"
       ],
       "countries": [
-        "PT"
+        "IN"
       ],
       "primary_country": "Other",
-      "published": "2026-10-30",
+      "published": "2026-10-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222466212",
+      "title": "Privacy And Data Protection Challenges in The Era of Artificial Intelligence",
+      "authors": [
+        "Varsha Vilas Nikam"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222711320",
+      "title": "Artificial Intelligence and Digital Transformation in Higher Education: A Systematic Review of Opportunities, Challenges and Emerging Trends",
+      "authors": [
+        "Ms. Komal Kamlesh Gaikwad"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-31",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223006138",
+      "title": "漫画画像と対応付いた日本語演技音声データセット（MangaVox）",
+      "authors": [
+        "高道慎之介（慶應義塾大学/産業技術総合研究所）",
+        "中村友彦（産業技術総合研究所）",
+        "須田仁志（産業技術総合研究所）"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-10-31",
       "cited_by_count": 0,
       "source": "openalex"
     }

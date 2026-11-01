@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-10-31T13:28:55.131505+00:00",
+  "fetched_at": "2026-11-01T14:10:06.665475+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 32.5,
+          "share_score": 32.4,
           "paper_volume": {
-            "raw_value": 149985,
-            "share_score": 34.4,
+            "raw_value": 148716,
+            "share_score": 34.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4316,
-            "share_score": 33.2,
+            "raw_value": 4298,
+            "share_score": 33.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3218,
-            "share_score": 29.6,
+            "raw_value": 3214,
+            "share_score": 29.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 67.5,
+          "share_score": 67.6,
           "paper_volume": {
-            "raw_value": 285417,
-            "share_score": 65.6,
+            "raw_value": 284228,
+            "share_score": 65.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8684,
-            "share_score": 66.8,
+            "raw_value": 8696,
+            "share_score": 66.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7669,
-            "share_score": 70.4,
+            "raw_value": 7687,
+            "share_score": 70.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569656
+        "count": 569494
       },
       {
         "country_code": "CN",
-        "count": 285417
+        "count": 284228
       },
       {
         "country_code": "US",
-        "count": 149985
+        "count": 148716
       },
       {
         "country_code": "IN",
-        "count": 103840
+        "count": 103999
       },
       {
         "country_code": "DE",
-        "count": 103508
+        "count": 103075
       },
       {
         "country_code": "GB",
-        "count": 47779
+        "count": 47333
       },
       {
         "country_code": "ID",
-        "count": 46694
+        "count": 46729
       },
       {
         "country_code": "IT",
-        "count": 26001
+        "count": 25821
       },
       {
         "country_code": "KR",
-        "count": 24515
+        "count": 24478
       },
       {
         "country_code": "FR",
-        "count": 24190
+        "count": 23905
       }
     ],
     "volume": {
-      "us": 149985,
-      "china": 285417,
-      "total": 2842080,
+      "us": 148716,
+      "china": 284228,
+      "total": 2832899,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4316,
-      "china": 8684,
-      "total": 20045,
+      "us": 4298,
+      "china": 8696,
+      "total": 20049,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3218,
-      "china": 7669,
-      "total": 16968,
+      "us": 3214,
+      "china": 7687,
+      "total": 17024,
       "data_ok": true
     }
   },
@@ -182,143 +182,144 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7112386125",
-      "title": "Physiotherapy students' perceptions of the ethical implications of artificial intelligence in professional practice: A qualitative study [Conference Abstract]",
+      "id": "https://openalex.org/W7133580866",
+      "title": "Improved data representation and data augmentation for segmentation of PolSAR imagery",
       "authors": [
-        "Ramshaw, Marc",
-        "Bendall, Amy"
+        "Victor Davi dos Santos Bastos"
       ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-31",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-01",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204064808",
-      "title": "High-accuracy prediction of Kβ/Kα intensity ratios via explainable stacked-ensemble learning : A web-based computational tool",
+      "id": "https://openalex.org/W7134816047",
+      "title": "EpiGenAI Extraction",
       "authors": [
-        "C.M. Yeşilkanat",
-        "E. Cengi̇z",
-        "Abdelhalim KAHOUL"
+        "Sergio Consoli"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7139209070",
+      "title": "Improving Deep Learning training data for TomoSAR focusing using reduced tomographic stacks",
+      "authors": [
+        "Victor Elias Vicentin"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163211410",
+      "title": "On the limits of detection of epistatic higher-order interactions, dataset",
+      "authors": [
+        "José Camacho-Mateu",
+        "Giulio Burgio",
+        "Isabel Quirós-Rodríguez"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7166408084",
+      "title": "Comprehensive guide towards the application of predictive maintenance approaches for rolling stock critical systems",
+      "authors": [
+        "Babakalli Alkali",
+        "Amit Kumar Jain"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7168064881",
+      "title": "Multi-dimensional hierarchical temporal alignment for improved temporal commonsense reasoning in large language models",
+      "authors": [
+        "Ge Yan",
+        "Hai-Tao Yu",
+        "Lei Chao"
       ],
       "countries": [
-        "TR",
-        "DZ",
-        "GB",
-        "BE",
-        "IT",
-        "US",
-        "PT"
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7201834462",
+      "title": "Correction: Diagnostic accuracy of deep learning vs. human raters for detecting osteoporotic vertebral compression fractures in routine CT scans.",
+      "authors": [
+        "Evamaria Olga Riedel",
+        "David Schinz",
+        "Matthias Keicher"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202008553",
+      "title": "Asymptotic properties of k-means and its bias correction for high-dimension, low-sample-size data",
+      "authors": [
+        "Kento Egashira",
+        "YATA Kazuyoshi",
+        "Makoto Aoshima"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202021378",
+      "title": "Semantic-structural decoupling: Disentangling semantic attention from structural bias in the attention manifold",
+      "authors": [
+        "Pengkun Jiao",
+        "Bin ZHU",
+        "Jingjing CHEN"
+      ],
+      "countries": [
+        "SG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-01",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7202068553",
+      "title": "Artificial Intelligence impact on decision-making regarding short-term ADT with prostate radiotherapy: ASTuTE clinical trial interim results.",
+      "authors": [
+        "Eric E. Wegener",
+        "Michael Ng",
+        "Mario Guerrieri"
+      ],
+      "countries": [
+        "AU",
+        "US"
       ],
       "primary_country": "US",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214280029",
-      "title": "Course Recommendation System Using Machin Learning",
-      "authors": [
-        "Pratiksha S. Patil"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214312207",
-      "title": "Predictive Analytics for Student Academic Performance Using Educational Data",
-      "authors": [
-        "Alsaboor Khalil Sayyed"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214318674",
-      "title": "Multi Eye disease Detection in fundus images: A Structured Review",
-      "authors": [
-        "Sheetal Maruti Chougule"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214364618",
-      "title": "Edge AI for Energy-Efficient Smart IoT Systems: A Sustainable Computing Approach",
-      "authors": [
-        "Prathamesh Uttam Patil"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214759740",
-      "title": "Predictive Analytics for Student Academic Performance Using Educational Data",
-      "authors": [
-        "Alsaboor Khalil Sayyed"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7222466212",
-      "title": "Privacy And Data Protection Challenges in The Era of Artificial Intelligence",
-      "authors": [
-        "Varsha Vilas Nikam"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7222711320",
-      "title": "Artificial Intelligence and Digital Transformation in Higher Education: A Systematic Review of Opportunities, Challenges and Emerging Trends",
-      "authors": [
-        "Ms. Komal Kamlesh Gaikwad"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-31",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7223006138",
-      "title": "漫画画像と対応付いた日本語演技音声データセット（MangaVox）",
-      "authors": [
-        "高道慎之介（慶應義塾大学/産業技術総合研究所）",
-        "中村友彦（産業技術総合研究所）",
-        "須田仁志（産業技術総合研究所）"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-10-31",
+      "published": "2026-11-01",
       "cited_by_count": 0,
       "source": "openalex"
     }

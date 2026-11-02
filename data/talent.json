@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-01T14:10:06.665475+00:00",
+  "fetched_at": "2026-11-02T16:56:07.388431+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 32.4,
           "paper_volume": {
-            "raw_value": 148716,
+            "raw_value": 148035,
             "share_score": 34.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4298,
+            "raw_value": 4291,
             "share_score": 33.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3214,
-            "share_score": 29.5,
+            "raw_value": 3186,
+            "share_score": 29.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 67.6,
           "paper_volume": {
-            "raw_value": 284228,
+            "raw_value": 283238,
             "share_score": 65.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8696,
+            "raw_value": 8672,
             "share_score": 66.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7687,
-            "share_score": 70.5,
+            "raw_value": 7635,
+            "share_score": 70.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569494
+        "count": 569378
       },
       {
         "country_code": "CN",
-        "count": 284228
+        "count": 283238
       },
       {
         "country_code": "US",
-        "count": 148716
+        "count": 148035
       },
       {
         "country_code": "IN",
-        "count": 103999
+        "count": 103542
       },
       {
         "country_code": "DE",
-        "count": 103075
+        "count": 102891
       },
       {
         "country_code": "GB",
-        "count": 47333
+        "count": 47076
       },
       {
         "country_code": "ID",
-        "count": 46729
+        "count": 46690
       },
       {
         "country_code": "IT",
-        "count": 25821
+        "count": 25682
       },
       {
         "country_code": "KR",
-        "count": 24478
+        "count": 24394
       },
       {
         "country_code": "FR",
-        "count": 23905
+        "count": 23739
       }
     ],
     "volume": {
-      "us": 148716,
-      "china": 284228,
-      "total": 2832899,
+      "us": 148035,
+      "china": 283238,
+      "total": 2827823,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4298,
-      "china": 8696,
-      "total": 20049,
+      "us": 4291,
+      "china": 8672,
+      "total": 19994,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3214,
-      "china": 7687,
-      "total": 17024,
+      "us": 3186,
+      "china": 7635,
+      "total": 16904,
       "data_ok": true
     }
   },
@@ -182,144 +182,151 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7133580866",
-      "title": "Improved data representation and data augmentation for segmentation of PolSAR imagery",
+      "id": "https://openalex.org/W7134907305",
+      "title": "A Bayesian Hierarchical Model for Yield Improvement Diagnostics in Ghanaian Manufacturing Systems",
       "authors": [
-        "Victor Davi dos Santos Bastos"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134816047",
-      "title": "EpiGenAI Extraction",
-      "authors": [
-        "Sergio Consoli"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139209070",
-      "title": "Improving Deep Learning training data for TomoSAR focusing using reduced tomographic stacks",
-      "authors": [
-        "Victor Elias Vicentin"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163211410",
-      "title": "On the limits of detection of epistatic higher-order interactions, dataset",
-      "authors": [
-        "José Camacho-Mateu",
-        "Giulio Burgio",
-        "Isabel Quirós-Rodríguez"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7166408084",
-      "title": "Comprehensive guide towards the application of predictive maintenance approaches for rolling stock critical systems",
-      "authors": [
-        "Babakalli Alkali",
-        "Amit Kumar Jain"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168064881",
-      "title": "Multi-dimensional hierarchical temporal alignment for improved temporal commonsense reasoning in large language models",
-      "authors": [
-        "Ge Yan",
-        "Hai-Tao Yu",
-        "Lei Chao"
+        "Kwame Gyeabour Asante",
+        "Ama Serwaa Mensah"
       ],
       "countries": [
-        "JP"
+        "GH"
       ],
       "primary_country": "Other",
-      "published": "2026-11-01",
+      "published": "2026-11-02",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7201834462",
-      "title": "Correction: Diagnostic accuracy of deep learning vs. human raters for detecting osteoporotic vertebral compression fractures in routine CT scans.",
+      "id": "https://openalex.org/W7213574412",
+      "title": "SIM 2.0: Floor Plan Vectorization via VLM Semantic Normalization with Pixel-Wise Self-Consistency",
       "authors": [
-        "Evamaria Olga Riedel",
-        "David Schinz",
-        "Matthias Keicher"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202008553",
-      "title": "Asymptotic properties of k-means and its bias correction for high-dimension, low-sample-size data",
-      "authors": [
-        "Kento Egashira",
-        "YATA Kazuyoshi",
-        "Makoto Aoshima"
+        "Brhanemesqel Halleluyah",
+        "Roberto Manduchi"
       ],
       "countries": [
-        "JP"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202021378",
-      "title": "Semantic-structural decoupling: Disentangling semantic attention from structural bias in the attention manifold",
-      "authors": [
-        "Pengkun Jiao",
-        "Bin ZHU",
-        "Jingjing CHEN"
-      ],
-      "countries": [
-        "SG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-01",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202068553",
-      "title": "Artificial Intelligence impact on decision-making regarding short-term ADT with prostate radiotherapy: ASTuTE clinical trial interim results.",
-      "authors": [
-        "Eric E. Wegener",
-        "Michael Ng",
-        "Mario Guerrieri"
-      ],
-      "countries": [
-        "AU",
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-11-01",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215934575",
+      "title": "Penerapan Metode Fuzzy Time Series Dalam Memprediksi Jumlah Peserta Didik Baru",
+      "authors": [
+        "Endra Ary Prasasty Marpaung",
+        "Martua Sitorus",
+        "Dedi Candro Parulian Sinaga"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220885862",
+      "title": "Towards closing gaps in livestock physiologically-based kinetic modeling: Machine learning prediction of total plasma clearance and tissue-plasma partition coefficients, and integration of growth in a physiologically-based kinetic model with a case study in PFOS",
+      "authors": [
+        "David Inauen",
+        "Institute for Risk Assesment Sciences",
+        "IRAS – Pharmacology & farmacotherapy"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7224137868",
+      "title": "Performance of AI Chatbots in Adult Reconstruction Education: A Comparative Evaluation Using AAOS ResStudy Questions.",
+      "authors": [
+        "Tarishi Parmar",
+        "Akshay Khanna",
+        "Jonathan Berg"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225034643",
+      "title": "Intelligent Hydraulic Fracturing Design Optimization Using Machine Learning",
+      "authors": [
+        "H. Al Tamimi",
+        "M. Mushaifri"
+      ],
+      "countries": [
+        "OM"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225034683",
+      "title": "The ROI of Failure: Using Bayesian Decision Trees to Value Surveillance and Innovation",
+      "authors": [
+        "L. C. Farias Rodriguez",
+        "M. C. Araya",
+        "L. A. Garibaldi"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225035135",
+      "title": "From Tender to Total Depth: Artificial Intelligence and Generative AI Agents Deployed Across Well Construction Planning and Execution",
+      "authors": [
+        "P. Sesboüé",
+        "D. F. Patino",
+        "O. Bustos Angel"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225035730",
+      "title": "A Multi-Agent Workflow for Structuring Development Planning Knowledge from Unstructured E&P Documents",
+      "authors": [
+        "Mengxin Song",
+        "Yinuo Feng",
+        "Dongmei He"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-02",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225036254",
+      "title": "Mapping gender, agency, and objectification in Arabic poetry: an ontology-guided computational study",
+      "authors": [
+        "Anoud Abdulaziz Alhamad",
+        "Wadee A. Nashir",
+        "Hassan Alshamrani"
+      ],
+      "countries": [
+        "SA"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-02",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "compute",
   "metric_key": "compute_triangulated_index",
   "description": "Triangulated compute index: training compute (40%, Epoch AI), hardware supply (40%, NVIDIA revenue + Huawei Ascend), and visible HPC (20%, TOP500 + corrections). Coverage gaps are explicitly documented in hidden_compute_band.",
-  "fetched_at": "2026-11-01T14:37:05.874642+00:00",
+  "fetched_at": "2026-11-02T17:34:30.938870+00:00",
   "weights": {
     "training_compute": 0.4,
     "hardware_supply": 0.4,
@@ -11,7 +11,7 @@
   },
   "summary": {
     "US": {
-      "composite_score": 76.8,
+      "composite_score": 74.7,
       "proxies": {
         "training_compute": {
           "weight": 0.4,
@@ -31,16 +31,16 @@
         },
         "visible_hpc": {
           "weight": 0.2,
-          "share_score": 72.5,
-          "top500_rmax_pflops": 0.0,
+          "share_score": 62.2,
+          "top500_rmax_pflops": 7031.4,
           "private_cluster_addition_pflops": 2300,
-          "adjusted_pflops": 9261.3,
+          "adjusted_pflops": 9331.4,
           "source": "TOP500 + private cluster estimates (xAI, Meta, Microsoft)"
         }
       }
     },
     "China": {
-      "composite_score": 23.2,
+      "composite_score": 25.3,
       "proxies": {
         "training_compute": {
           "weight": 0.4,
@@ -60,10 +60,10 @@
         },
         "visible_hpc": {
           "weight": 0.2,
-          "share_score": 27.5,
-          "top500_rmax_pflops": 0.0,
+          "share_score": 37.8,
+          "top500_rmax_pflops": 2377.2,
           "non_top500_correction_pflops": 3300,
-          "adjusted_pflops": 3505.0,
+          "adjusted_pflops": 5677.2,
           "source": "TOP500 + China non-submission corrections (Tianhe-3, Sunway NG, etc.)"
         }
       }
@@ -172,10 +172,148 @@
   "top500": {
     "source_url": "https://www.top500.org",
     "list_edition": "2026/06",
-    "data_available": false,
-    "total_systems": 0,
-    "summary": {},
-    "top_systems": [],
+    "data_available": true,
+    "total_systems": 500,
+    "summary": {
+      "US": {
+        "systems": 161,
+        "rmax_pflops": 7031.4
+      },
+      "China": {
+        "systems": 31,
+        "rmax_pflops": 2377.2
+      },
+      "Other": {
+        "systems": 308,
+        "rmax_pflops": 9324.1
+      },
+      "Unknown": {
+        "systems": 0,
+        "rmax_pflops": 0.0
+      }
+    },
+    "top_systems": [
+      {
+        "rank": 1,
+        "name": "LineShine",
+        "country": "China",
+        "rmax_pflops": 2198.4
+      },
+      {
+        "rank": 2,
+        "name": "El Capitan",
+        "country": "US",
+        "rmax_pflops": 1809.0
+      },
+      {
+        "rank": 3,
+        "name": "Frontier",
+        "country": "US",
+        "rmax_pflops": 1353.0
+      },
+      {
+        "rank": 4,
+        "name": "Aurora",
+        "country": "US",
+        "rmax_pflops": 1012.0
+      },
+      {
+        "rank": 5,
+        "name": "JUPITER Booster",
+        "country": "Other",
+        "rmax_pflops": 1000.0
+      },
+      {
+        "rank": 6,
+        "name": "HPC7",
+        "country": "Other",
+        "rmax_pflops": 571.5
+      },
+      {
+        "rank": 7,
+        "name": "Eagle",
+        "country": "US",
+        "rmax_pflops": 561.2
+      },
+      {
+        "rank": 8,
+        "name": "HPC6",
+        "country": "Other",
+        "rmax_pflops": 477.9
+      },
+      {
+        "rank": 9,
+        "name": "Supercomputer Fugaku",
+        "country": "Other",
+        "rmax_pflops": 442.01
+      },
+      {
+        "rank": 10,
+        "name": "Alps",
+        "country": "Other",
+        "rmax_pflops": 434.9
+      },
+      {
+        "rank": 11,
+        "name": "LUMI",
+        "country": "Other",
+        "rmax_pflops": 379.7
+      },
+      {
+        "rank": 12,
+        "name": "Leonardo",
+        "country": "Other",
+        "rmax_pflops": 241.2
+      },
+      {
+        "rank": 13,
+        "name": "Isambard-AI phase 2",
+        "country": "Other",
+        "rmax_pflops": 216.5
+      },
+      {
+        "rank": 14,
+        "name": "Tuolumne",
+        "country": "US",
+        "rmax_pflops": 208.1
+      },
+      {
+        "rank": 15,
+        "name": "ISEG2",
+        "country": "Other",
+        "rmax_pflops": 202.4
+      },
+      {
+        "rank": 16,
+        "name": "MareNostrum 5 ACC",
+        "country": "Other",
+        "rmax_pflops": 175.3
+      },
+      {
+        "rank": 17,
+        "name": "Discovery 6",
+        "country": "US",
+        "rmax_pflops": 164.2
+      },
+      {
+        "rank": 18,
+        "name": "Maximus-02",
+        "country": "US",
+        "rmax_pflops": 156.1
+      },
+      {
+        "rank": 19,
+        "name": "ABCI 3.0",
+        "country": "Other",
+        "rmax_pflops": 145.1
+      },
+      {
+        "rank": 20,
+        "name": "NIPA(NHN Cloud)-CL-1",
+        "country": "Other",
+        "rmax_pflops": 137.4
+      }
+    ],
     "china_non_submission_note": "China stopped submitting its major supercomputers to TOP500 starting in 2023. The November 2023 list showed only 40 Chinese systems at 205 PFlops total, but China's actual HPC capacity is known to be significantly larger based on government announcements. TOP500 alone is not a valid primary metric for China."
   }
 }

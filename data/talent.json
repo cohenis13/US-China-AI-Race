@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-02T16:56:07.388431+00:00",
+  "fetched_at": "2026-11-03T14:55:46.675404+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 32.4,
           "paper_volume": {
-            "raw_value": 148035,
+            "raw_value": 148483,
             "share_score": 34.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 4291,
+            "raw_value": 4303,
             "share_score": 33.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 3186,
-            "share_score": 29.4,
+            "raw_value": 3198,
+            "share_score": 29.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 67.6,
           "paper_volume": {
-            "raw_value": 283238,
+            "raw_value": 284596,
             "share_score": 65.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 8672,
+            "raw_value": 8683,
             "share_score": 66.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7635,
-            "share_score": 70.6,
+            "raw_value": 7655,
+            "share_score": 70.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569378
+        "count": 569427
       },
       {
         "country_code": "CN",
-        "count": 283238
+        "count": 284596
       },
       {
         "country_code": "US",
-        "count": 148035
+        "count": 148483
       },
       {
         "country_code": "IN",
-        "count": 103542
+        "count": 104097
       },
       {
         "country_code": "DE",
-        "count": 102891
+        "count": 102997
       },
       {
         "country_code": "GB",
-        "count": 47076
+        "count": 47205
       },
       {
         "country_code": "ID",
-        "count": 46690
+        "count": 46899
       },
       {
         "country_code": "IT",
-        "count": 25682
+        "count": 25783
       },
       {
         "country_code": "KR",
-        "count": 24394
+        "count": 24553
       },
       {
         "country_code": "FR",
-        "count": 23739
+        "count": 23803
       }
     ],
     "volume": {
-      "us": 148035,
-      "china": 283238,
-      "total": 2827823,
+      "us": 148483,
+      "china": 284596,
+      "total": 2827833,
       "data_ok": true
     },
     "high_impact": {
-      "us": 4291,
-      "china": 8672,
-      "total": 19994,
+      "us": 4303,
+      "china": 8683,
+      "total": 20021,
       "data_ok": true
     },
     "top_cited": {
-      "us": 3186,
-      "china": 7635,
-      "total": 16904,
+      "us": 3198,
+      "china": 7655,
+      "total": 16944,
       "data_ok": true
     }
   },
@@ -182,151 +182,164 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7134907305",
-      "title": "A Bayesian Hierarchical Model for Yield Improvement Diagnostics in Ghanaian Manufacturing Systems",
+      "id": "https://openalex.org/W4407012281",
+      "title": "GDformer: Going Beyond Subsequence Isolation for Multivariate Time Series Anomaly Detection",
       "authors": [
-        "Kwame Gyeabour Asante",
-        "Ama Serwaa Mensah"
+        "Qingxiang Liu",
+        "Xiaoliang Luo",
+        "Chenghao Liu"
       ],
       "countries": [
-        "GH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213574412",
-      "title": "SIM 2.0: Floor Plan Vectorization via VLM Semantic Normalization with Pixel-Wise Self-Consistency",
-      "authors": [
-        "Brhanemesqel Halleluyah",
-        "Roberto Manduchi"
-      ],
-      "countries": [
+        "CN",
         "US"
       ],
-      "primary_country": "US",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
+      "primary_country": "Mixed",
+      "published": "2026-11-03",
+      "cited_by_count": 5,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7215934575",
-      "title": "Penerapan Metode Fuzzy Time Series Dalam Memprediksi Jumlah Peserta Didik Baru",
+      "id": "https://openalex.org/W4407213747",
+      "title": "Large Language Model as Universal Retriever in Industrial-Scale Recommender System",
       "authors": [
-        "Endra Ary Prasasty Marpaung",
-        "Martua Sitorus",
-        "Dedi Candro Parulian Sinaga"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7220885862",
-      "title": "Towards closing gaps in livestock physiologically-based kinetic modeling: Machine learning prediction of total plasma clearance and tissue-plasma partition coefficients, and integration of growth in a physiologically-based kinetic model with a case study in PFOS",
-      "authors": [
-        "David Inauen",
-        "Institute for Risk Assesment Sciences",
-        "IRAS – Pharmacology & farmacotherapy"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7224137868",
-      "title": "Performance of AI Chatbots in Adult Reconstruction Education: A Comparative Evaluation Using AAOS ResStudy Questions.",
-      "authors": [
-        "Tarishi Parmar",
-        "Akshay Khanna",
-        "Jonathan Berg"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7225034643",
-      "title": "Intelligent Hydraulic Fracturing Design Optimization Using Machine Learning",
-      "authors": [
-        "H. Al Tamimi",
-        "M. Mushaifri"
-      ],
-      "countries": [
-        "OM"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7225034683",
-      "title": "The ROI of Failure: Using Bayesian Decision Trees to Value Surveillance and Innovation",
-      "authors": [
-        "L. C. Farias Rodriguez",
-        "M. C. Araya",
-        "L. A. Garibaldi"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7225035135",
-      "title": "From Tender to Total Depth: Artificial Intelligence and Generative AI Agents Deployed Across Well Construction Planning and Execution",
-      "authors": [
-        "P. Sesboüé",
-        "D. F. Patino",
-        "O. Bustos Angel"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-02",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7225035730",
-      "title": "A Multi-Agent Workflow for Structuring Development Planning Knowledge from Unstructured E&P Documents",
-      "authors": [
-        "Mengxin Song",
-        "Yinuo Feng",
-        "Dongmei He"
+        "Junguang Jiang",
+        "Yanwen Huang",
+        "Liu Bin"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-11-02",
+      "published": "2026-11-03",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225036254",
-      "title": "Mapping gender, agency, and objectification in Arabic poetry: an ontology-guided computational study",
+      "id": "https://openalex.org/W4407764327",
+      "title": "MCTS-KBQA: Monte Carlo Tree Search with Information Gain Rewards for Knowledge Base Question Answering",
       "authors": [
-        "Anoud Abdulaziz Alhamad",
-        "Wadee A. Nashir",
-        "Hassan Alshamrani"
+        "G.J. Xiong",
+        "Haochen Li",
+        "Zonghong Dai"
       ],
       "countries": [
-        "SA"
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4414458076",
+      "title": "Aligning the Spectrum: Hybrid Graph Pre-training and Prompt Tuning across Homophily and Heterophily",
+      "authors": [
+        "Haitong Luo",
+        "Suhang Wang",
+        "Weiyao Zhang"
+      ],
+      "countries": [
+        "CN",
+        "US"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-11-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4414567513",
+      "title": "Neutralizing Popularity Bias in LLM-based Recommendation via Counterfactual Reasoning Guidelines",
+      "authors": [
+        "Guanrong Li",
+        "Haolin Yang",
+        "Xinyu Liu"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-03",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4414681923",
+      "title": "FDA-Opt: Federated Fine-Tuning via Dynamic Update Schedules",
+      "authors": [
+        "Michail Theologitis",
+        "Vasilis Samoladas",
+        "Antonios Deligiannakis"
+      ],
+      "countries": [
+        "US",
+        "GR"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4414990890",
+      "title": "Unleashing the Power of LLMs in Dense Retrieval with Query Likelihood Modeling",
+      "authors": [
+        "Hengran Zhang",
+        "Keping Bi",
+        "Jiafeng Guo"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415158764",
+      "title": "Learning to Erase Private Knowledge from Multi-Documents for Retrieval-Augmented Large Language Models",
+      "authors": [
+        "Yujing Wang",
+        "Jinwen Chen",
+        "Hainan Zhang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415908272",
+      "title": "Discovering Hierarchy-Grounded Domains with Adaptive Granularity for Clinical Domain Generalization",
+      "authors": [
+        "Pengfei Hu",
+        "Xiaoxue Han",
+        "Fei Wang"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-03",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415916016",
+      "title": "Disrupting Networks: Amplifying Social Dissensus via Large Language Models",
+      "authors": [
+        "Erica Coppolillo",
+        "Giuseppe Manco"
+      ],
+      "countries": [
+        "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-11-02",
+      "published": "2026-11-03",
       "cited_by_count": 0,
       "source": "openalex"
     }

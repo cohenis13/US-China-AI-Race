@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-05T15:16:51.757627+00:00",
+  "fetched_at": "2026-11-06T14:53:58.562881+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 34.2,
+          "share_score": 34.1,
           "paper_volume": {
-            "raw_value": 152517,
-            "share_score": 34.5,
+            "raw_value": 152844,
+            "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
             "raw_value": 5248,
-            "share_score": 35.1,
+            "share_score": 35.0,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 4289,
-            "share_score": 32.6,
+            "raw_value": 4287,
+            "share_score": 32.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 65.8,
+          "share_score": 65.9,
           "paper_volume": {
-            "raw_value": 290104,
-            "share_score": 65.5,
+            "raw_value": 290936,
+            "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 9697,
-            "share_score": 64.9,
+            "raw_value": 9727,
+            "share_score": 65.0,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 8881,
-            "share_score": 67.4,
+            "raw_value": 8903,
+            "share_score": 67.5,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569697
+        "count": 569742
       },
       {
         "country_code": "CN",
-        "count": 290104
+        "count": 290936
       },
       {
         "country_code": "US",
-        "count": 152517
+        "count": 152844
       },
       {
         "country_code": "IN",
-        "count": 104476
+        "count": 104482
       },
       {
         "country_code": "DE",
-        "count": 103543
+        "count": 103620
       },
       {
         "country_code": "GB",
-        "count": 47982
+        "count": 48064
       },
       {
         "country_code": "ID",
-        "count": 46982
+        "count": 47030
       },
       {
         "country_code": "IT",
-        "count": 25973
+        "count": 26002
       },
       {
         "country_code": "KR",
-        "count": 25169
+        "count": 25255
       },
       {
         "country_code": "FR",
-        "count": 23468
+        "count": 23483
       }
     ],
     "volume": {
-      "us": 152517,
-      "china": 290104,
-      "total": 2811987,
+      "us": 152844,
+      "china": 290936,
+      "total": 2815761,
       "data_ok": true
     },
     "high_impact": {
       "us": 5248,
-      "china": 9697,
-      "total": 23838,
+      "china": 9727,
+      "total": 23857,
       "data_ok": true
     },
     "top_cited": {
-      "us": 4289,
-      "china": 8881,
-      "total": 21113,
+      "us": 4287,
+      "china": 8903,
+      "total": 21128,
       "data_ok": true
     }
   },
@@ -182,152 +182,149 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4414917911",
-      "title": "Towards practical and efficient home‑based facial geometry and appearance capture with consistent topology",
+      "id": "https://openalex.org/W7138846773",
+      "title": "Patient-level validation of a foundation-model pipeline for pediatric lung sounds: physician-annotated adventitious events are recognized, disease groups are not reliably predicted",
       "authors": [
-        "Xi-An Han",
-        "Meiping Xie"
+        "Izzet Turkalp Akbasli",
+        "Oğuzhan Serin"
+      ],
+      "countries": [
+        "TR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7171443785",
+      "title": "QuatHashing: perceptual hashing with quaternion discrete wavelet transform for reduced-reference visual security assessment",
+      "authors": [
+        "Yannan Ren",
+        "Jiantao Wang",
+        "Hua Wu"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-11-05",
+      "published": "2026-11-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4415159347",
-      "title": "An Image Is Worth K Topics: A Visual Structural Topic Model with Pretrained Image Embeddings",
+      "id": "https://openalex.org/W7221212035",
+      "title": "Generating Linguistically Diverse and Semantically Faithful Patient Reports",
       "authors": [
-        "Matías Piqueras",
-        "Alexandra Segerberg",
-        "Matteo Magnani"
-      ],
-      "countries": [
-        "SE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7105902347",
-      "title": "Artificial intelligence applications relevant to infective endocarditis in an oral–systemic context: a scoping review",
-      "authors": [
-        "Lara Ibrahim Ghannam",
-        "Ayah Abulehia",
-        "Lana Helal"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128108758",
-      "title": "Why It’s OK to Be a Moderate, written by Marcus Arvan",
-      "authors": [
-        "Kyle van Oosterum"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7152382081",
-      "title": "Uncertainty Estimation for Deep Reconstruction in Acuatic Disaster Scenarios with Autonomous Vehicles",
-      "authors": [
-        "Samuel Yanes Luis",
-        "Alejandro Casado Pérez",
-        "Alejandro Mendoza Barrionuevo"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162436919",
-      "title": "First, Do No Harm: Breaking Suicidogenic Echo Chambers in Media Recommendation",
-      "authors": [
-        "Alberto Díaz-Álvarez",
-        "Raúl Lara-Cabrera",
-        "Fernando Ortega Requena"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164491063",
-      "title": "Beyond Attack Success Rate: Examining Trigger Leakage in Vision-Language Agentic Systems",
-      "authors": [
-        "Jiamin Chang",
-        "Salil S. Kanhere",
-        "Piotr Koniusz"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-05",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169691478",
-      "title": "This Way Up: Evaluating Frequency–Elevation Mapping in Audio–Language Models",
-      "authors": [
-        "Vincent Lostanlen",
-        "Mathieu Lagrange"
+        "Alejandra Lorenzo",
+        "Adrien Coulet",
+        "Claire Gardent"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-05",
+      "published": "2026-11-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202120736",
-      "title": "A dual-stream Pyramid ViT–ConvFormer architecture leverages dynamic early stopping to classify diffuse large B-cell lymphoma",
+      "id": "https://openalex.org/W7223567760",
+      "title": "Simulated MRI Artifact Stress Test: model checkpoints, predictions and analysis outputs",
       "authors": [
-        "Gei Ki Tang",
-        "CHEE CHIN LIM",
-        "FAEZAHTUL ARBAEYAH HUSSAIN"
+        "Sarang Banakhede"
       ],
-      "countries": [
-        "MY"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-05",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-06",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7203962881",
-      "title": "Musical Pattern Discovery at Regular Time Intervals Through Mathematical Morphology: An Application to Polymetric Structure Analysis",
+      "id": "https://openalex.org/W7225137762",
+      "title": "ChemE-as-Code evaluation data: ammonia case study (fault injection, change propagation and reproducibility)",
       "authors": [
-        "Mathys Daniel",
-        "Paul Lascabettes",
-        "Moreno Andreatta D"
+        "Artur M. Schweidtmann"
       ],
       "countries": [
-        "FR"
+        "NL"
       ],
       "primary_country": "Other",
-      "published": "2026-11-05",
+      "published": "2026-11-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225225942",
+      "title": "Efektivitas Model Discovery Learning dalam Meningkatkan Pemahaman Konsep IPAS Siswa Kelas V SD",
+      "authors": [
+        "Masyitoh Hasibuan",
+        "Arafatul Soraya",
+        "Mhd Ali Wardana"
+      ],
+      "countries": [
+        "ID"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225291187",
+      "title": "PVSR-IQL: Offline Reinforcement Learning With Predictive Vehicle State Representation for Off-road Path Tracking",
+      "authors": [
+        "Seongwoo Moon",
+        "Hojin Ahn",
+        "Jehun Kang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225291438",
+      "title": "Multi-Constraint Optimization-Based Perception and Trajectory Planning for Robotic Strand Cutting and Roughening in Box Girder Anchor Recesses",
+      "authors": [
+        "Dongbo Yi",
+        "Yong Wang",
+        "Tengyue Ma"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225295435",
+      "title": "Correction to: Segmentation of MCF10A Mammary Cell Morphologies in 3D Culture: A Comparative Study of Mask R-CNN and U-Net++",
+      "authors": [
+        "Meryam Kechbal",
+        "Mohamed Boussount",
+        "Sidi Mohamed Douiri"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-06",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225296159",
+      "title": "When expertise fails: detection of artificial intelligence - generated vitiligo imagery across the spectrum of dermatological experience; a cross-sectional exploratory study",
+      "authors": [
+        "Jonathan Shapiro",
+        "Itay Cohen",
+        "Mor Atlas"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-06",
       "cited_by_count": 0,
       "source": "openalex"
     }

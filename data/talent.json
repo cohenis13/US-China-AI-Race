@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-07T13:50:12.316694+00:00",
+  "fetched_at": "2026-11-08T14:10:43.488494+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.6,
           "paper_volume": {
-            "raw_value": 152955,
-            "share_score": 34.4,
+            "raw_value": 152740,
+            "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7481,
+            "raw_value": 7479,
             "share_score": 38.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6975,
-            "share_score": 36.7,
+            "raw_value": 6958,
+            "share_score": 36.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.4,
           "paper_volume": {
-            "raw_value": 291607,
-            "share_score": 65.6,
+            "raw_value": 290445,
+            "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12106,
+            "raw_value": 12105,
             "share_score": 61.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12048,
-            "share_score": 63.3,
+            "raw_value": 12042,
+            "share_score": 63.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569746
+        "count": 569743
       },
       {
         "country_code": "CN",
-        "count": 291607
+        "count": 290445
       },
       {
         "country_code": "US",
-        "count": 152955
+        "count": 152740
       },
       {
         "country_code": "IN",
-        "count": 104168
+        "count": 103840
       },
       {
         "country_code": "DE",
-        "count": 103649
+        "count": 103615
       },
       {
         "country_code": "GB",
-        "count": 48105
+        "count": 48067
       },
       {
         "country_code": "ID",
-        "count": 47099
+        "count": 47143
       },
       {
         "country_code": "IT",
-        "count": 26025
+        "count": 26016
       },
       {
         "country_code": "KR",
-        "count": 25289
+        "count": 25266
       },
       {
         "country_code": "FR",
-        "count": 23480
+        "count": 23477
       }
     ],
     "volume": {
-      "us": 152955,
-      "china": 291607,
-      "total": 2819095,
+      "us": 152740,
+      "china": 290445,
+      "total": 2818358,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7481,
-      "china": 12106,
-      "total": 30624,
+      "us": 7479,
+      "china": 12105,
+      "total": 30625,
       "data_ok": true
     },
     "top_cited": {
-      "us": 6975,
-      "china": 12048,
-      "total": 29132,
+      "us": 6958,
+      "china": 12042,
+      "total": 29121,
       "data_ok": true
     }
   },
@@ -182,156 +182,151 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4403063794",
-      "title": "Mapping Future Energy Journeys Through Modeling the Global Transport of Synthetic Energy Carriers",
+      "id": "https://openalex.org/W7213569459",
+      "title": "End-to-End Hardware Validation of OSSDM Semantic Waveform for 6G Communications",
       "authors": [
-        "Uwe Langenmayr",
-        "Julia Schuler",
-        "Viktor Slednev"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4417530800",
-      "title": "Wrist photoplethysmography encodes dietary information",
-      "authors": [
-        "Kyle Verrier",
-        "Achille Nazaret",
-        "Joseph Futoma"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134921105",
-      "title": "Automating subjective regulatory justifications in building permit workflows using concept-guided retrieval-augmented generation (RAG) and human-in-the-loop verification",
-      "authors": [
-        "Ankan Karmakar",
-        "Inder Chhetiya",
-        "Venkata Santosh Kumar Delhi"
-      ],
-      "countries": [
-        "IN"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-07",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163826740",
-      "title": "Computational Compound Prioritization Strategy Incorporating Docking Variability and Interaction Energies Identifies Putative LRH-1 Binders",
-      "authors": [
-        "Ana Cristina Chang-Gonzalez",
-        "Alexis N. Campbell",
-        "Eric W. Bell"
-      ],
-      "countries": [
-        "US",
-        "DE"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167596070",
-      "title": "Axiomatics by Prompts with Prompted Prompts: Introducing Reality Pictures to Replace Language-Modelled with Existence-Guided Narrative Patterns",
-      "authors": [
-        "Dainis Zeps"
-      ],
-      "countries": [
-        "LV"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201867849",
-      "title": "Analysis R code for \"Dark-induced phase-shift of zebrafish behavioral rhythms is stabilized by Exorhodopsin\"",
-      "authors": [
-        "Yair Wexler",
-        "Yoav Gothilf"
-      ],
-      "countries": [
-        "IL"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203961487",
-      "title": "A COMPUTATIONAL MODEL FOR PREDICTING PERCEIVED TENSION IN ELECTRONIC DANCE MUSIC BUILDUPS",
-      "authors": [
-        "Stefanos Biliousis",
-        "Sofia Dahl"
-      ],
-      "countries": [
-        "DK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-07",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7203962881",
-      "title": "MUSICAL PATTERN DISCOVERY AT REGULAR TIME INTERVALS THROUGH MATHEMATICAL MORPHOLOGY: AN APPLICATION TO POLYMETRIC STRUCTURE ANALYSIS",
-      "authors": [
-        "Mathys Daniel",
-        "Paul Lascabettes",
-        "Moreno Andreatta"
+        "Lahcen Attijani",
+        "Panagiotis Vlachos",
+        "Mohamed Amine Hamoura"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-07",
+      "published": "2026-11-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212056391",
-      "title": "MambaSleepCVD for prediction of long term cardiovascular outcomes from polysomnography",
+      "id": "https://openalex.org/W7213990260",
+      "title": "Edge-Cloud Machine Learning for Integrity Attack Detection in Smart Grid Telemetry",
       "authors": [
-        "Alessia Calzoni",
-        "Andrew Dei Rossi",
-        "Giuliana Monachino"
+        "Eugênio da Costa Filho Paulo",
+        "Márcio Kreutz",
+        "Vicente Sousa"
       ],
       "countries": [
-        "IT",
-        "CH"
+        "BR",
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-07",
+      "published": "2026-11-08",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7224154268",
-      "title": "When Socratic Tutoring Scores Track Prompts: Sensitivity Analysis of Simulated Statistics Dialogues",
+      "id": "https://openalex.org/W7213994988",
+      "title": "Cloud-Edge Continuum for Telco-Cloud Infrastructures: An Integrated Support System for E2E Slicing",
       "authors": [
-        "Alexander J. Garnier",
-        "Lauren Mercer",
-        "Maya Kalyani Reed"
+        "Mathews Lima",
+        "Ion de Oliveira Nelson",
+        "Araújo de Andrade Rafael"
+      ],
+      "countries": [
+        "BR",
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213995348",
+      "title": "Packet-Loss-Aware Elastic Slicing for 5G Open RAN: User Satisfaction Evaluation",
+      "authors": [
+        "Carlos Lima",
+        "Do Nascimento, William M., C.",
+        "Silva, Ricardo Q. de F., H."
+      ],
+      "countries": [
+        "BR",
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221733624",
+      "title": "A Multi-Dimensional Score for Detecting Lesser-Known Points of Interest in Mountain Regions",
+      "authors": [
+        "Adriana Pompejano",
+        "Sébastien Laborie",
+        "Maxime Masson"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-07",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223079026",
+      "title": "Establishing the Precision of Liiving Polymerizations By Analyzing the Shape of the MWD",
+      "authors": [
+        "Damien Guironnet"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225083295",
+      "title": "[Progress in the pathologic application of artificial intelligence in predicting the efficacy of gastric cancer after neoadjuvant therapy].",
+      "authors": [
+        "J W Wang",
+        "L Ji",
+        "Y Xu"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225090414",
+      "title": "Cognitive Offloading and Competence Assessment in AI-Mediated Education",
+      "authors": [
+        "That Le"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225093760",
+      "title": "[Clinicopathological study of YAP1-fusion positive supratentorial ependymoma].",
+      "authors": [
+        "L M Wang",
+        "R J Zhao",
+        "Y L Xiong"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-08",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225138386",
+      "title": "पुत्रिकायन्त्राणि — Automata: Moving Dolls, Birds and Gatekeepers",
+      "authors": [
+        "Srinivasu Mantha"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-08",
       "cited_by_count": 0,
       "source": "openalex"
     }

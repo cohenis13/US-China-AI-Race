@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-08T14:10:43.488494+00:00",
+  "fetched_at": "2026-11-09T17:19:05.286728+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.6,
           "paper_volume": {
-            "raw_value": 152740,
+            "raw_value": 152646,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7479,
+            "raw_value": 7489,
             "share_score": 38.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6958,
-            "share_score": 36.6,
+            "raw_value": 6967,
+            "share_score": 36.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.4,
           "paper_volume": {
-            "raw_value": 290445,
+            "raw_value": 290055,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12105,
+            "raw_value": 12095,
             "share_score": 61.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12042,
-            "share_score": 63.4,
+            "raw_value": 12021,
+            "share_score": 63.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569743
+        "count": 569706
       },
       {
         "country_code": "CN",
-        "count": 290445
+        "count": 290055
       },
       {
         "country_code": "US",
-        "count": 152740
+        "count": 152646
       },
       {
         "country_code": "IN",
-        "count": 103840
+        "count": 103727
       },
       {
         "country_code": "DE",
-        "count": 103615
+        "count": 103524
       },
       {
         "country_code": "GB",
-        "count": 48067
+        "count": 47899
       },
       {
         "country_code": "ID",
-        "count": 47143
+        "count": 47174
       },
       {
         "country_code": "IT",
-        "count": 26016
+        "count": 25976
       },
       {
         "country_code": "KR",
-        "count": 25266
+        "count": 25240
       },
       {
         "country_code": "FR",
-        "count": 23477
+        "count": 23806
       }
     ],
     "volume": {
-      "us": 152740,
-      "china": 290445,
-      "total": 2818358,
+      "us": 152646,
+      "china": 290055,
+      "total": 2810428,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7479,
-      "china": 12105,
-      "total": 30625,
+      "us": 7489,
+      "china": 12095,
+      "total": 30622,
       "data_ok": true
     },
     "top_cited": {
-      "us": 6958,
-      "china": 12042,
-      "total": 29121,
+      "us": 6967,
+      "china": 12021,
+      "total": 29105,
       "data_ok": true
     }
   },
@@ -182,151 +182,152 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7213569459",
-      "title": "End-to-End Hardware Validation of OSSDM Semantic Waveform for 6G Communications",
+      "id": "https://openalex.org/W4403991893",
+      "title": "Quantifying structural variants in chromosomes using landmark-based disparity",
       "authors": [
-        "Lahcen Attijani",
-        "Panagiotis Vlachos",
-        "Mohamed Amine Hamoura"
+        "Ashwini V. Mohan",
+        "Anjali Goswami",
+        "Jeffrey W. Streicher"
       ],
       "countries": [
-        "FR"
+        "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-11-08",
+      "published": "2026-11-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7213990260",
-      "title": "Edge-Cloud Machine Learning for Integrity Attack Detection in Smart Grid Telemetry",
+      "id": "https://openalex.org/W4404310649",
+      "title": "Enhancing FMCW radar accuracy for adaptive cruise control using CFAR algorithms in adverse weather",
       "authors": [
-        "Eugênio da Costa Filho Paulo",
-        "Márcio Kreutz",
-        "Vicente Sousa"
-      ],
-      "countries": [
-        "BR",
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213994988",
-      "title": "Cloud-Edge Continuum for Telco-Cloud Infrastructures: An Integrated Support System for E2E Slicing",
-      "authors": [
-        "Mathews Lima",
-        "Ion de Oliveira Nelson",
-        "Araújo de Andrade Rafael"
-      ],
-      "countries": [
-        "BR",
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213995348",
-      "title": "Packet-Loss-Aware Elastic Slicing for 5G Open RAN: User Satisfaction Evaluation",
-      "authors": [
-        "Carlos Lima",
-        "Do Nascimento, William M., C.",
-        "Silva, Ricardo Q. de F., H."
-      ],
-      "countries": [
-        "BR",
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-08",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221733624",
-      "title": "A Multi-Dimensional Score for Detecting Lesser-Known Points of Interest in Mountain Regions",
-      "authors": [
-        "Adriana Pompejano",
-        "Sébastien Laborie",
-        "Maxime Masson"
+        "Md. Maniruz Zaman",
+        "Imam Hossain Shibly",
+        "Md. Selim Hossain"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-08",
+      "published": "2026-11-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223079026",
-      "title": "Establishing the Precision of Liiving Polymerizations By Analyzing the Shape of the MWD",
+      "id": "https://openalex.org/W4407186155",
+      "title": "Evaluating LLMs on Italian through multi-prompt: the Evalita-LLM benchmark",
       "authors": [
-        "Damien Guironnet"
+        "Bernardo Magnini",
+        "Roberto Zanoli",
+        "Michele Resta"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-08",
-      "cited_by_count": 0,
+      "published": "2026-11-09",
+      "cited_by_count": 10,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225083295",
-      "title": "[Progress in the pathologic application of artificial intelligence in predicting the efficacy of gastric cancer after neoadjuvant therapy].",
+      "id": "https://openalex.org/W4412967909",
+      "title": "Quantum neural networks for wind power prediction: a benchmark against classical machine learning models",
       "authors": [
-        "J W Wang",
-        "L Ji",
-        "Y Xu"
+        "Batuhan Hangun",
+        "Onder Eyecioglu",
+        "Mehar Ali"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-09",
+      "cited_by_count": 3,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415962175",
+      "title": "CurvEdgeNet: edge feature integration with Ricci curvature for circRNA-disease association prediction",
+      "authors": [
+        "Wenjie Fan",
+        "Hao Liu",
+        "Xiaoyi Lv"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-11-08",
+      "published": "2026-11-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225090414",
-      "title": "Cognitive Offloading and Competence Assessment in AI-Mediated Education",
+      "id": "https://openalex.org/W7133523950",
+      "title": "Community benchmarking of generative models for privacy-preserving synthetic bulk RNA-seq data generation",
       "authors": [
-        "That Le"
+        "Hakime Öztürk",
+        "Tejumade Afonja",
+        "Joonas Jälkö"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-08",
-      "cited_by_count": 0,
+      "published": "2026-11-09",
+      "cited_by_count": 3,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225093760",
-      "title": "[Clinicopathological study of YAP1-fusion positive supratentorial ependymoma].",
+      "id": "https://openalex.org/W7160655728",
+      "title": "Translation uniformity and evolutionary conservation are associated with microprotein mass spectrometry detectability",
       "authors": [
-        "L M Wang",
-        "R J Zhao",
-        "Y L Xiong"
+        "Ivo Fierro-Monti"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-09",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7170008775",
+      "title": "ProgressiVis: A Language and Environment for Progressive Data Analysis and Visualization",
+      "authors": [
+        "Jean‐Daniel Fekete",
+        "Christian Poli"
       ],
       "countries": [
-        "CN"
+        "FR"
       ],
-      "primary_country": "China",
-      "published": "2026-11-08",
+      "primary_country": "Other",
+      "published": "2026-11-09",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225138386",
-      "title": "पुत्रिकायन्त्राणि — Automata: Moving Dolls, Birds and Gatekeepers",
+      "id": "https://openalex.org/W7202007541",
+      "title": "Libra+: Compositional Interaction for Data Visualization",
       "authors": [
-        "Srinivasu Mantha"
+        "Luo Xu",
+        "Yue Zhao",
+        "Bongshin Lee"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-08",
+      "countries": [
+        "CN",
+        "KR",
+        "FR"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-09",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214692090",
+      "title": "Fast and Robust Information Spreading in the Noisy PULL Model",
+      "authors": [
+        "Archivio, Niccolò, D",
+        "Amos Korman",
+        "Emanuele Natale"
+      ],
+      "countries": [
+        "FR",
+        "IL"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-09",
       "cited_by_count": 0,
       "source": "openalex"
     }

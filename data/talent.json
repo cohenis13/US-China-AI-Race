@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-09T17:19:05.286728+00:00",
+  "fetched_at": "2026-11-10T15:29:10.641350+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.4,
+      "composite_score": 46.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.6,
+          "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 152646,
+            "raw_value": 152599,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7489,
-            "share_score": 38.2,
+            "raw_value": 7681,
+            "share_score": 38.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 6967,
-            "share_score": 36.7,
+            "raw_value": 7111,
+            "share_score": 36.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.6,
+      "composite_score": 53.5,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.4,
+          "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 290055,
+            "raw_value": 290019,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12095,
-            "share_score": 61.8,
+            "raw_value": 12325,
+            "share_score": 61.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12021,
-            "share_score": 63.3,
+            "raw_value": 12231,
+            "share_score": 63.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569706
+        "count": 569682
       },
       {
         "country_code": "CN",
-        "count": 290055
+        "count": 290019
       },
       {
         "country_code": "US",
-        "count": 152646
+        "count": 152599
       },
       {
         "country_code": "IN",
-        "count": 103727
+        "count": 103667
       },
       {
         "country_code": "DE",
-        "count": 103524
+        "count": 103514
       },
       {
         "country_code": "GB",
-        "count": 47899
+        "count": 47865
       },
       {
         "country_code": "ID",
-        "count": 47174
+        "count": 47157
       },
       {
         "country_code": "IT",
-        "count": 25976
+        "count": 25994
       },
       {
         "country_code": "KR",
-        "count": 25240
+        "count": 25242
       },
       {
         "country_code": "FR",
-        "count": 23806
+        "count": 23808
       }
     ],
     "volume": {
-      "us": 152646,
-      "china": 290055,
-      "total": 2810428,
+      "us": 152599,
+      "china": 290019,
+      "total": 2810439,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7489,
-      "china": 12095,
-      "total": 30622,
+      "us": 7681,
+      "china": 12325,
+      "total": 31214,
       "data_ok": true
     },
     "top_cited": {
-      "us": 6967,
-      "china": 12021,
-      "total": 29105,
+      "us": 7111,
+      "china": 12231,
+      "total": 29593,
       "data_ok": true
     }
   },
@@ -182,152 +182,149 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4403991893",
-      "title": "Quantifying structural variants in chromosomes using landmark-based disparity",
+      "id": "https://openalex.org/W7124239630",
+      "title": "Smart Manufacturing IIoT Anomaly Dataset (SMIAD25)",
       "authors": [
-        "Ashwini V. Mohan",
-        "Anjali Goswami",
-        "Jeffrey W. Streicher"
+        "Smart Manufacturing and Systems Research Group"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7218048112",
+      "title": "Prediction of Cognitive Flexibility Based on Attention Control, Working Memory, and Problem-Solving Skills in Adolescents Using CatBoost",
+      "authors": [
+        "Negin Sanjarinia"
+      ],
+      "countries": [
+        "IR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223140094",
+      "title": "Phenotyping Tenosynovial Giant Cell Tumor (TGCT) at Population Scale: Validated Large Language Model (LLM) Extraction From US Real-World Clinical Notes",
+      "authors": [
+        "Manjrekar Atharva",
+        "Hobbs Nicole",
+        "Patel Shrinal"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7224638026",
+      "title": "Data and Python scripts for \"Global Multi-Rate Kinetic Deconvolution of Lemon-Tree Pruning Wood Combustion: Lignocellulosic Pseudo-Component Kinetics Tested on Withheld Heating Rates\"",
+      "authors": [
+        "Suleiman Mousa",
+        "Ibrahim Dubdub",
+        "Mohammed E. Ali Mohsin"
+      ],
+      "countries": [
+        "SA"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7224975107",
+      "title": "MetaMatch: Reconciling Metadata for Aggregating Music Difficulty Annotations",
+      "authors": [
+        "Chris Willcocks",
+        "Megan Finch",
+        "Mark Gotham"
       ],
       "countries": [
         "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-11-09",
+      "published": "2026-11-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4404310649",
-      "title": "Enhancing FMCW radar accuracy for adaptive cruise control using CFAR algorithms in adverse weather",
+      "id": "https://openalex.org/W7225016178",
+      "title": "A Reproducible Decomposed Large Language Model Pipeline for Structured Abstraction of Multimodal Neuroimaging Reports: Development and Independent Validation in 1,669 Emergency Department Encounters for Dizziness and Vertigo",
       "authors": [
-        "Md. Maniruz Zaman",
-        "Imam Hossain Shibly",
-        "Md. Selim Hossain"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4407186155",
-      "title": "Evaluating LLMs on Italian through multi-prompt: the Evalita-LLM benchmark",
-      "authors": [
-        "Bernardo Magnini",
-        "Roberto Zanoli",
-        "Michele Resta"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-09",
-      "cited_by_count": 10,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4412967909",
-      "title": "Quantum neural networks for wind power prediction: a benchmark against classical machine learning models",
-      "authors": [
-        "Batuhan Hangun",
-        "Onder Eyecioglu",
-        "Mehar Ali"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-09",
-      "cited_by_count": 3,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4415962175",
-      "title": "CurvEdgeNet: edge feature integration with Ricci curvature for circRNA-disease association prediction",
-      "authors": [
-        "Wenjie Fan",
-        "Hao Liu",
-        "Xiaoyi Lv"
+        "Jai Shahani",
+        "Abdul Rahman Ousta",
+        "Shaul Shaulov"
       ],
       "countries": [
-        "CN"
+        "US"
       ],
-      "primary_country": "China",
-      "published": "2026-11-09",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133523950",
-      "title": "Community benchmarking of generative models for privacy-preserving synthetic bulk RNA-seq data generation",
-      "authors": [
-        "Hakime Öztürk",
-        "Tejumade Afonja",
-        "Joonas Jälkö"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-09",
-      "cited_by_count": 3,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160655728",
-      "title": "Translation uniformity and evolutionary conservation are associated with microprotein mass spectrometry detectability",
-      "authors": [
-        "Ivo Fierro-Monti"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-09",
+      "primary_country": "US",
+      "published": "2026-11-10",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7170008775",
-      "title": "ProgressiVis: A Language and Environment for Progressive Data Analysis and Visualization",
+      "id": "https://openalex.org/W7225273227",
+      "title": "उपमानम् — Knowing the Unseen through the Seen: Models and Analogy",
       "authors": [
-        "Jean‐Daniel Fekete",
-        "Christian Poli"
+        "Srinivasu Mantha"
       ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-09",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7202007541",
-      "title": "Libra+: Compositional Interaction for Data Visualization",
+      "id": "https://openalex.org/W7225385625",
+      "title": "Design and Experimental Validation of an Underactuated Anthropomorphic Robotic Hand Based on the Ball-Ring-Elliptical Mechanism",
       "authors": [
-        "Luo Xu",
-        "Yue Zhao",
-        "Bongshin Lee"
+        "Luis Ponce",
+        "Jonathan Camargo"
       ],
       "countries": [
-        "CN",
-        "KR",
-        "FR"
+        "CO"
       ],
-      "primary_country": "China",
-      "published": "2026-11-09",
+      "primary_country": "Other",
+      "published": "2026-11-10",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7214692090",
-      "title": "Fast and Robust Information Spreading in the Noisy PULL Model",
+      "id": "https://openalex.org/W7225398040",
+      "title": "Building an Integrated Framework for Artificial Intelligence-Assisted Predictive Maintenance of Rotating Machinery",
       "authors": [
-        "Archivio, Niccolò, D",
-        "Amos Korman",
-        "Emanuele Natale"
+        "Pedro Arístides Salas Velázquez Milagro Yesenia Montilla Dávila Domingo Alberto Alarcón",
+        "Wladimir Rodríguez Graterol",
+        "Francisco Manuel Leon Oviedo"
       ],
       "countries": [
-        "FR",
-        "IL"
+        "VE"
       ],
       "primary_country": "Other",
-      "published": "2026-11-09",
+      "published": "2026-11-10",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225402452",
+      "title": "KYNEMA: Design and Validation of Multi-Modal Robot Interaction for XR-Based Robotics Education",
+      "authors": [
+        "Jonathan Camargo",
+        "Manuel Torres",
+        "Diego Ojeda"
+      ],
+      "countries": [
+        "CO"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-10",
       "cited_by_count": 0,
       "source": "openalex"
     }

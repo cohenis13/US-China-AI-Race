@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-10T15:29:10.641350+00:00",
+  "fetched_at": "2026-11-11T15:00:11.027365+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,20 +17,20 @@
           "weight": 0.35,
           "share_score": 36.8,
           "paper_volume": {
-            "raw_value": 152599,
+            "raw_value": 153144,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7681,
-            "share_score": 38.4,
+            "raw_value": 7888,
+            "share_score": 38.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7111,
-            "share_score": 36.8,
+            "raw_value": 7370,
+            "share_score": 36.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -65,20 +65,20 @@
           "weight": 0.35,
           "share_score": 63.2,
           "paper_volume": {
-            "raw_value": 290019,
+            "raw_value": 290905,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12325,
-            "share_score": 61.6,
+            "raw_value": 12593,
+            "share_score": 61.5,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12231,
-            "share_score": 63.2,
+            "raw_value": 12624,
+            "share_score": 63.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569682
+        "count": 569762
       },
       {
         "country_code": "CN",
-        "count": 290019
+        "count": 290905
       },
       {
         "country_code": "US",
-        "count": 152599
+        "count": 153144
       },
       {
         "country_code": "IN",
-        "count": 103667
+        "count": 103967
       },
       {
         "country_code": "DE",
-        "count": 103514
+        "count": 103655
       },
       {
         "country_code": "GB",
-        "count": 47865
+        "count": 47943
       },
       {
         "country_code": "ID",
-        "count": 47157
+        "count": 47283
       },
       {
         "country_code": "IT",
-        "count": 25994
+        "count": 26151
       },
       {
         "country_code": "KR",
-        "count": 25242
+        "count": 25341
       },
       {
         "country_code": "FR",
-        "count": 23808
+        "count": 23917
       }
     ],
     "volume": {
-      "us": 152599,
-      "china": 290019,
-      "total": 2810439,
+      "us": 153144,
+      "china": 290905,
+      "total": 2820377,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7681,
-      "china": 12325,
-      "total": 31214,
+      "us": 7888,
+      "china": 12593,
+      "total": 31874,
       "data_ok": true
     },
     "top_cited": {
-      "us": 7111,
-      "china": 12231,
-      "total": 29593,
+      "us": 7370,
+      "china": 12624,
+      "total": 30522,
       "data_ok": true
     }
   },
@@ -182,149 +182,156 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7124239630",
-      "title": "Smart Manufacturing IIoT Anomaly Dataset (SMIAD25)",
+      "id": "https://openalex.org/W4409321331",
+      "title": "Self-paced silent speech brain-computer interface for device control",
       "authors": [
-        "Smart Manufacturing and Systems Research Group"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7218048112",
-      "title": "Prediction of Cognitive Flexibility Based on Attention Control, Working Memory, and Problem-Solving Skills in Adolescents Using CatBoost",
-      "authors": [
-        "Negin Sanjarinia"
+        "Shiyu Luo",
+        "Miguel Angrick",
+        "Christopher G. Coogan"
       ],
       "countries": [
-        "IR"
+        "US",
+        "NL"
       ],
-      "primary_country": "Other",
-      "published": "2026-11-10",
-      "cited_by_count": 0,
+      "primary_country": "US",
+      "published": "2026-11-11",
+      "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223140094",
-      "title": "Phenotyping Tenosynovial Giant Cell Tumor (TGCT) at Population Scale: Validated Large Language Model (LLM) Extraction From US Real-World Clinical Notes",
+      "id": "https://openalex.org/W4409851299",
+      "title": "Protocol for constructing correlation-based molecular networks from large-scale untargeted metabolomics data",
       "authors": [
-        "Manjrekar Atharva",
-        "Hobbs Nicole",
-        "Patel Shrinal"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7224638026",
-      "title": "Data and Python scripts for \"Global Multi-Rate Kinetic Deconvolution of Lemon-Tree Pruning Wood Combustion: Lignocellulosic Pseudo-Component Kinetics Tested on Withheld Heating Rates\"",
-      "authors": [
-        "Suleiman Mousa",
-        "Ibrahim Dubdub",
-        "Mohammed E. Ali Mohsin"
-      ],
-      "countries": [
-        "SA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7224975107",
-      "title": "MetaMatch: Reconciling Metadata for Aggregating Music Difficulty Annotations",
-      "authors": [
-        "Chris Willcocks",
-        "Megan Finch",
-        "Mark Gotham"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-10",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7225016178",
-      "title": "A Reproducible Decomposed Large Language Model Pipeline for Structured Abstraction of Multimodal Neuroimaging Reports: Development and Independent Validation in 1,669 Emergency Department Encounters for Dizziness and Vertigo",
-      "authors": [
-        "Jai Shahani",
-        "Abdul Rahman Ousta",
-        "Shaul Shaulov"
+        "Lin Huang",
+        "Lijun Zhang",
+        "Ali Lotfi"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-11-10",
-      "cited_by_count": 1,
+      "published": "2026-11-11",
+      "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225273227",
-      "title": "उपमानम् — Knowing the Unseen through the Seen: Models and Analogy",
+      "id": "https://openalex.org/W7122760456",
+      "title": "A Lightweight Browser-Based Facial Recognition Framework for Preventing Impersonation in Computer-Based Examinations",
       "authors": [
-        "Srinivasu Mantha"
+        "Muyideen Abdulraheem"
+      ],
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7167486062",
+      "title": "A high-precision measurement method for ruby balls based on multi-scale adaptive edge detection",
+      "authors": [
+        "Wen Sun"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7169681785",
+      "title": "علم صناعة الصواريخ التي تسافر الي الفضاء الزكية",
+      "authors": [
+        "ابوالقاسم ابايزيد السماني احمد"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-10",
+      "published": "2026-11-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225385625",
-      "title": "Design and Experimental Validation of an Underactuated Anthropomorphic Robotic Hand Based on the Ball-Ring-Elliptical Mechanism",
+      "id": "https://openalex.org/W7169732355",
+      "title": "Prospective evaluation of automated KU F40 fecal analysis versus microscopy for intestinal protozoa and illustrative labor costs",
       "authors": [
-        "Luis Ponce",
-        "Jonathan Camargo"
+        "Varol Tunalı",
+        "Nevın Turgay"
       ],
-      "countries": [
-        "CO"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-10",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225398040",
-      "title": "Building an Integrated Framework for Artificial Intelligence-Assisted Predictive Maintenance of Rotating Machinery",
+      "id": "https://openalex.org/W7204872610",
+      "title": "Artifacts for \"Purely Misleading: Examining Purity Evaluation for Online-Offline Stream Clustering [Experiment, Analysis, and Benchmark]\" (Part 2)",
       "authors": [
-        "Pedro Arístides Salas Velázquez Milagro Yesenia Montilla Dávila Domingo Alberto Alarcón",
-        "Wladimir Rodríguez Graterol",
-        "Francisco Manuel Leon Oviedo"
+        "Philipp Jahn",
+        "Walid Durani",
+        "Collin Leiber"
       ],
       "countries": [
-        "VE"
+        "DE",
+        "FI"
       ],
       "primary_country": "Other",
-      "published": "2026-11-10",
+      "published": "2026-11-11",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225402452",
-      "title": "KYNEMA: Design and Validation of Multi-Modal Robot Interaction for XR-Based Robotics Education",
+      "id": "https://openalex.org/W7204886797",
+      "title": "Artifacts for \"Purely Misleading: Examining Purity Evaluation for Online-Offline Stream Clustering [Experiment, Analysis, and Benchmark]\" (Part 1)",
       "authors": [
-        "Jonathan Camargo",
-        "Manuel Torres",
-        "Diego Ojeda"
+        "Philipp Jahn",
+        "Walid Durani",
+        "Collin Leiber"
       ],
       "countries": [
-        "CO"
+        "DE",
+        "FI"
       ],
       "primary_country": "Other",
-      "published": "2026-11-10",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7213338196",
+      "title": "Anatomical Segmentation and Pose Estimation of Honeybees in Near Infrared Comb Imagery",
+      "authors": [
+        "Zdeněk Rozsypálek",
+        "Tomáš Rouček",
+        "J. Ulrich"
+      ],
+      "countries": [
+        "CZ",
+        "AT",
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7219179202",
+      "title": "Energy-Aware Benchmarking of Deep Learning Algorithms for Time Series Forecasting",
+      "authors": [
+        "Idrissa Dicko",
+        "Mohamed Ibn Khedher",
+        "Faïcel Chamroukhi"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
       "cited_by_count": 0,
       "source": "openalex"
     }

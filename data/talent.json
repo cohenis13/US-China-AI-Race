@@ -1,235 +1,339 @@
 {
+  "schema_version": "2.0",
   "dimension": "talent",
-  "metric_key": "ai_papers_by_country_12m",
-  "description": "AI-related research papers (Artificial Intelligence, Machine Learning, NLP, Computer Vision concepts) published in the last 365 days, counted by country of author institution. Source: OpenAlex. A proxy for research output, not a complete measure of talent or capability.",
-  "fetched_at": "2026-03-25T10:11:05.975809+00:00",
-  "window_days": 365,
-  "source": {
-    "name": "OpenAlex API",
-    "url": "https://api.openalex.org/works",
-    "note": "group_by=authorships.institutions.country_code on AI/ML/NLP/CV concepts. Papers with authors from multiple countries are counted in each country. OpenAlex pre-computes institutional affiliations from publisher metadata."
+  "metric_key": "talent_pipeline_index",
+  "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
+  "fetched_at": "2026-11-11T15:00:11.027365+00:00",
+  "weights": {
+    "research_output": 0.35,
+    "pipeline": 0.25,
+    "elite_migration": 0.4
   },
   "summary": {
-    "US": 129604,
-    "China": 229729,
-    "Other": 658044,
-    "Unknown": 0,
-    "total_papers": 1498617,
-    "total_attributed": 1017377
-  },
-  "top_countries": [
-    {
-      "country_code": "CN",
-      "count": 229729
+    "US": {
+      "composite_score": 46.5,
+      "proxies": {
+        "research_output": {
+          "weight": 0.35,
+          "share_score": 36.8,
+          "paper_volume": {
+            "raw_value": 153144,
+            "share_score": 34.5,
+            "window": "12m"
+          },
+          "high_impact": {
+            "raw_value": 7888,
+            "share_score": 38.5,
+            "window": "3y",
+            "filter": "cited_by_count ≥ 50",
+            "data_ok": true
+          },
+          "top_cited": {
+            "raw_value": 7370,
+            "share_score": 36.9,
+            "window": "2y",
+            "filter": "cited_by_count ≥ 25",
+            "data_ok": true
+          },
+          "sub_weights": {
+            "volume": 0.3,
+            "high_impact": 0.4,
+            "top_cited": 0.3
+          }
+        },
+        "pipeline": {
+          "weight": 0.25,
+          "share_score": 19.0,
+          "phd_annual": 3667,
+          "source": "NSF Survey of Earned Doctorates (SED) 2022",
+          "confidence": "High — government survey covering all US PhD-granting institutions"
+        },
+        "elite_migration": {
+          "weight": 0.4,
+          "share_score": 72.2,
+          "researcher_count_est": 1140,
+          "source": "MacroPolo AI Talent Tracker 2023",
+          "confidence": "Medium-High — systematic methodology on public conference proceedings; lag of 1-2 years from latest venue; elite venue selection may not capture applied AI research",
+          "migration_note": "China's domestic retention of China-origin top researchers has increased from ~25% (2019 cohort) to ~34% (2022 cohort). The US share has declined slightly but remains dominant."
+        }
+      }
     },
-    {
-      "country_code": "US",
-      "count": 129604
-    },
-    {
-      "country_code": "JP",
-      "count": 79376
-    },
-    {
-      "country_code": "IN",
-      "count": 75877
-    },
-    {
-      "country_code": "GB",
-      "count": 40418
-    },
-    {
-      "country_code": "DE",
-      "count": 32370
-    },
-    {
-      "country_code": "ID",
-      "count": 26769
-    },
-    {
-      "country_code": "CA",
-      "count": 20686
-    },
-    {
-      "country_code": "IT",
-      "count": 20592
-    },
-    {
-      "country_code": "FR",
-      "count": 19935
+    "China": {
+      "composite_score": 53.5,
+      "proxies": {
+        "research_output": {
+          "weight": 0.35,
+          "share_score": 63.2,
+          "paper_volume": {
+            "raw_value": 290905,
+            "share_score": 65.5,
+            "window": "12m"
+          },
+          "high_impact": {
+            "raw_value": 12593,
+            "share_score": 61.5,
+            "window": "3y",
+            "filter": "cited_by_count ≥ 50",
+            "data_ok": true
+          },
+          "top_cited": {
+            "raw_value": 12624,
+            "share_score": 63.1,
+            "window": "2y",
+            "filter": "cited_by_count ≥ 25",
+            "data_ok": true
+          },
+          "sub_weights": {
+            "volume": 0.3,
+            "high_impact": 0.4,
+            "top_cited": 0.3
+          }
+        },
+        "pipeline": {
+          "weight": 0.25,
+          "share_score": 81.0,
+          "phd_annual": 15600,
+          "source": "China Ministry of Education (MoE) Statistics 2022 / 教育部统计数据",
+          "confidence": "Medium — official statistics, but classification of 'AI-related' is broader than Western definitions; peer-reviewed verification limited",
+          "coverage_note": "China MoE 2022 reports ~52,000 CS/IT-category doctoral graduates. Estimated 30% are AI/ML-adjacent. China's broad CS classification includes applied software engineering that would not typically be classified as AI research in Western databases. Adjusted estimate is conservative. Note: a significant share of top Chinese AI researchers do their PhD in the US or Europe."
+        },
+        "elite_migration": {
+          "weight": 0.4,
+          "share_score": 27.8,
+          "researcher_count_est": 438,
+          "source": "MacroPolo AI Talent Tracker 2023",
+          "confidence": "Medium-High — systematic methodology on public conference proceedings; lag of 1-2 years from latest venue; elite venue selection may not capture applied AI research",
+          "migration_note": "China's domestic retention of China-origin top researchers has increased from ~25% (2019 cohort) to ~34% (2022 cohort). The US share has declined slightly but remains dominant."
+        }
+      }
     }
-  ],
+  },
+  "openalex": {
+    "source_url": "https://api.openalex.org/works",
+    "concepts": "C154945302|C119857082|C204321447|C31972630",
+    "window_days_volume": 365,
+    "window_days_high_impact": 1095,
+    "window_days_top_cited": 730,
+    "high_impact_min_cites": 50,
+    "top_cited_min_cites": 25,
+    "methodology_note": "Papers counted once per country where ≥1 author has an identified institution. Multinational papers counted in both countries — sums exceed total paper count. High-impact and top-cited queries add a cited_by_count filter which may not work on all OpenAlex instances (falls back to seeded estimates if the filter returns zero results). OpenAlex does not de-duplicate authors across papers; a prolific researcher counts once per paper, not once per researcher.",
+    "top_countries": [
+      {
+        "country_code": "JP",
+        "count": 569762
+      },
+      {
+        "country_code": "CN",
+        "count": 290905
+      },
+      {
+        "country_code": "US",
+        "count": 153144
+      },
+      {
+        "country_code": "IN",
+        "count": 103967
+      },
+      {
+        "country_code": "DE",
+        "count": 103655
+      },
+      {
+        "country_code": "GB",
+        "count": 47943
+      },
+      {
+        "country_code": "ID",
+        "count": 47283
+      },
+      {
+        "country_code": "IT",
+        "count": 26151
+      },
+      {
+        "country_code": "KR",
+        "count": 25341
+      },
+      {
+        "country_code": "FR",
+        "count": 23917
+      }
+    ],
+    "volume": {
+      "us": 153144,
+      "china": 290905,
+      "total": 2820377,
+      "data_ok": true
+    },
+    "high_impact": {
+      "us": 7888,
+      "china": 12593,
+      "total": 31874,
+      "data_ok": true
+    },
+    "top_cited": {
+      "us": 7370,
+      "china": 12624,
+      "total": 30522,
+      "data_ok": true
+    }
+  },
+  "manual_data_snapshot": "2026-04-16",
+  "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7140015946",
-      "title": "Factors Predicting Onomatopoeia Use in Japanese Learners’ Production Data: An Exploratory Study Using Machine Learning",
+      "id": "https://openalex.org/W4409321331",
+      "title": "Self-paced silent speech brain-computer interface for device control",
       "authors": [
-        "沢奇 廉"
+        "Shiyu Luo",
+        "Miguel Angrick",
+        "Christopher G. Coogan"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "US",
+        "NL"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-11",
+      "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139027941",
-      "title": "A new dance culture in Indonesia: Designing the dance 'Bedhayan Gagrag Sumirat Puspito' with deep learning and Muhammadiyah philosophy",
+      "id": "https://openalex.org/W4409851299",
+      "title": "Protocol for constructing correlation-based molecular networks from large-scale untargeted metabolomics data",
       "authors": [
-        "Arina Restian",
-        "Ela Rohmatul Maulidah"
+        "Lin Huang",
+        "Lijun Zhang",
+        "Ali Lotfi"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-11",
+      "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140008268",
-      "title": "Hedges and Boosters Used by Japanese Learners in English Essays: Based on Regional and Topic Differences in ICNALE",
+      "id": "https://openalex.org/W7122760456",
+      "title": "A Lightweight Browser-Based Facial Recognition Framework for Preventing Impersonation in Computer-Based Examinations",
       "authors": [
-        "真之 飯島"
+        "Muyideen Abdulraheem"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140011089",
-      "title": "The Usage of Contrastive Linking Adverbials in English Essays Written by Chinese, Japanese Learners of English and English Native Speakers: Quantitative Research Based on Leaner Corpus",
+      "id": "https://openalex.org/W7167486062",
+      "title": "A high-precision measurement method for ruby balls based on multi-scale adaptive edge detection",
       "authors": [
-        "Gang FU"
+        "Wen Sun"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138886393",
-      "title": "From idea to character: A strategy for character construction and illustration in technical digital illustration training",
+      "id": "https://openalex.org/W7169681785",
+      "title": "علم صناعة الصواريخ التي تسافر الي الفضاء الزكية",
       "authors": [
-        "Sebastián Isidro Perdomo Buriticá"
+        "ابوالقاسم ابايزيد السماني احمد"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7128279038",
-      "title": "MPC-Informed Residual Reinforcement Learning for Hybrid Control",
+      "id": "https://openalex.org/W7169732355",
+      "title": "Prospective evaluation of automated KU F40 fecal analysis versus microscopy for intestinal protozoa and illustrative labor costs",
       "authors": [
-        "Senne Bogaerts",
-        "Flavia Sofia Acerbo",
-        "Jianye Xu"
+        "Varol Tunalı",
+        "Nevın Turgay"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7140012079",
-      "title": "Genre Differences and Stylistic Characteristics in the Part-of-Speech Usage of Sino-Japanese Verbal Nouns: A Frequency-Based and Keyword-Based Analysis",
+      "id": "https://openalex.org/W7204872610",
+      "title": "Artifacts for \"Purely Misleading: Examining Purity Evaluation for Online-Offline Stream Clustering [Experiment, Analysis, and Benchmark]\" (Part 2)",
       "authors": [
-        "迪 陳"
+        "Philipp Jahn",
+        "Walid Durani",
+        "Collin Leiber"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "DE",
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139583040",
-      "title": "Control-Oriented Identification Modeling for Ship Maneuvering: A Physics-Informed and Scenario-Based Approach",
+      "id": "https://openalex.org/W7204886797",
+      "title": "Artifacts for \"Purely Misleading: Examining Purity Evaluation for Online-Offline Stream Clustering [Experiment, Analysis, and Benchmark]\" (Part 1)",
       "authors": [
-        "Yanyun Zhang",
-        "Katrien Eloot",
-        "Jan Swevers"
+        "Philipp Jahn",
+        "Walid Durani",
+        "Collin Leiber"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "DE",
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7137878582",
-      "title": "Evaluation of the Impact of Progress Visualization on Motivation - RE & Evaluation Datasets",
+      "id": "https://openalex.org/W7213338196",
+      "title": "Anatomical Segmentation and Pose Estimation of Honeybees in Near Infrared Comb Imagery",
       "authors": [
-        "Sangaran Ramesch"
+        "Zdeněk Rozsypálek",
+        "Tomáš Rouček",
+        "J. Ulrich"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "countries": [
+        "CZ",
+        "AT",
+        "GB"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7139081735",
-      "title": "From idea to character: A strategy for character construction and illustration in technical digital illustration training",
+      "id": "https://openalex.org/W7219179202",
+      "title": "Energy-Aware Benchmarking of Deep Learning Algorithms for Time Series Forecasting",
       "authors": [
-        "Sebastián Isidro Perdomo Buriticá"
+        "Idrissa Dicko",
+        "Mohamed Ibn Khedher",
+        "Faïcel Chamroukhi"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140008748",
-      "title": "Proposal of an Empirical Research Method for Meaning through Intervention: The Meaning of Evaluative Expressions as Measured by Surprisal",
-      "authors": [
-        "裕三 森下"
+      "countries": [
+        "FR"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7133457349",
-      "title": "Studies on Perceptive Systems for Maritime Autonomous Surface Ships",
-      "authors": [
-        "Filippo Ponzini"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138852433",
-      "title": "Exploring perceptual boundaries: Assessing human ability to differentiate AI-cloned from real voices",
-      "authors": [
-        "Seyhan Canyakan"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140016346",
-      "title": "A Simple Exploratory Attempt on Extracting Constituent Elements of Humanities Journal Articles: For Comparing Instruction Contents and Actual Articles",
-      "authors": [
-        "桂子 中尾"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7139614341",
-      "title": "Mobiele beeldschermen van de volgende generatie met extra functies in het paneel",
-      "authors": [
-        "Aris Siskos"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-03-25",
+      "primary_country": "Other",
+      "published": "2026-11-11",
+      "cited_by_count": 0,
       "source": "openalex"
     }
-  ],
-  "methodology_note": "Paper counts are sourced from OpenAlex, which indexes most major academic publishers and preprint servers (including arXiv). Each paper is counted once for each country where at least one author has an identified institution. A paper with US and Chinese co-authors is counted in both US and China totals — the sum of country counts therefore exceeds the total paper count. Country classification relies on OpenAlex's institution-to-country mapping, which uses ISO 3166-1 alpha-2 country codes. Unknown = papers where no author has any identified institutional affiliation in OpenAlex. This metric measures output volume — it does not capture citation impact, researcher headcount, or research quality. Coverage may exclude some journals or publishers not indexed by OpenAlex. Chinese researchers may also publish to venues not well-indexed internationally."
+  ]
 }

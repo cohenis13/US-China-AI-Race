@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-11T15:00:11.027365+00:00",
+  "fetched_at": "2026-11-12T15:52:45.863714+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 36.8,
+          "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 153144,
+            "raw_value": 153468,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7888,
-            "share_score": 38.5,
+            "raw_value": 7959,
+            "share_score": 38.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7370,
-            "share_score": 36.9,
+            "raw_value": 7438,
+            "share_score": 37.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 63.2,
+          "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 290905,
+            "raw_value": 291296,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12593,
-            "share_score": 61.5,
+            "raw_value": 12644,
+            "share_score": 61.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12624,
-            "share_score": 63.1,
+            "raw_value": 12671,
+            "share_score": 63.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569762
+        "count": 569834
       },
       {
         "country_code": "CN",
-        "count": 290905
+        "count": 291296
       },
       {
         "country_code": "US",
-        "count": 153144
+        "count": 153468
       },
       {
         "country_code": "IN",
-        "count": 103967
+        "count": 104062
       },
       {
         "country_code": "DE",
-        "count": 103655
+        "count": 103780
       },
       {
         "country_code": "GB",
-        "count": 47943
+        "count": 48020
       },
       {
         "country_code": "ID",
-        "count": 47283
+        "count": 47267
       },
       {
         "country_code": "IT",
-        "count": 26151
+        "count": 26211
       },
       {
         "country_code": "KR",
-        "count": 25341
+        "count": 25397
       },
       {
         "country_code": "FR",
-        "count": 23917
+        "count": 23961
       }
     ],
     "volume": {
-      "us": 153144,
-      "china": 290905,
-      "total": 2820377,
+      "us": 153468,
+      "china": 291296,
+      "total": 2826818,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7888,
-      "china": 12593,
-      "total": 31874,
+      "us": 7959,
+      "china": 12644,
+      "total": 32080,
       "data_ok": true
     },
     "top_cited": {
-      "us": 7370,
-      "china": 12624,
-      "total": 30522,
+      "us": 7438,
+      "china": 12671,
+      "total": 30701,
       "data_ok": true
     }
   },
@@ -182,156 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4409321331",
-      "title": "Self-paced silent speech brain-computer interface for device control",
+      "id": "https://openalex.org/W7116721608",
+      "title": "ShapeUpLMD: Automated spatial optimization of laser microdissection for tissue sampling",
       "authors": [
-        "Shiyu Luo",
-        "Miguel Angrick",
-        "Christopher G. Coogan"
-      ],
-      "countries": [
-        "US",
-        "NL"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-11",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4409851299",
-      "title": "Protocol for constructing correlation-based molecular networks from large-scale untargeted metabolomics data",
-      "authors": [
-        "Lin Huang",
-        "Lijun Zhang",
-        "Ali Lotfi"
+        "Joshua P. Schaaf",
+        "Dave Mitchell",
+        "Jonathan D. Ogata"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-11-11",
+      "published": "2026-11-12",
       "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7122760456",
-      "title": "A Lightweight Browser-Based Facial Recognition Framework for Preventing Impersonation in Computer-Based Examinations",
-      "authors": [
-        "Muyideen Abdulraheem"
-      ],
-      "countries": [
-        "NG"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167486062",
-      "title": "A high-precision measurement method for ruby balls based on multi-scale adaptive edge detection",
-      "authors": [
-        "Wen Sun"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169681785",
-      "title": "علم صناعة الصواريخ التي تسافر الي الفضاء الزكية",
-      "authors": [
-        "ابوالقاسم ابايزيد السماني احمد"
-      ],
+      "id": "https://openalex.org/W7124235943",
+      "title": "Living with Machines : Computational Histories of the Age of Industry",
+      "authors": [],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-11",
+      "published": "2026-11-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169732355",
-      "title": "Prospective evaluation of automated KU F40 fecal analysis versus microscopy for intestinal protozoa and illustrative labor costs",
+      "id": "https://openalex.org/W7164199517",
+      "title": "Data-Driven Estimation of Ship Manoeuvring Hydrodynamic Derivatives using a Hybrid MARUS–PINN Framework with LLM-Guided Symbolic Discovery",
       "authors": [
-        "Varol Tunalı",
-        "Nevın Turgay"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204872610",
-      "title": "Artifacts for \"Purely Misleading: Examining Purity Evaluation for Online-Offline Stream Clustering [Experiment, Analysis, and Benchmark]\" (Part 2)",
-      "authors": [
-        "Philipp Jahn",
-        "Walid Durani",
-        "Collin Leiber"
+        "Paria Rezayan",
+        "Konstantinos Domdouzis",
+        "Yogang Singh"
       ],
       "countries": [
-        "DE",
-        "FI"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204886797",
-      "title": "Artifacts for \"Purely Misleading: Examining Purity Evaluation for Online-Offline Stream Clustering [Experiment, Analysis, and Benchmark]\" (Part 1)",
-      "authors": [
-        "Philipp Jahn",
-        "Walid Durani",
-        "Collin Leiber"
-      ],
-      "countries": [
-        "DE",
-        "FI"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-11",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7213338196",
-      "title": "Anatomical Segmentation and Pose Estimation of Honeybees in Near Infrared Comb Imagery",
-      "authors": [
-        "Zdeněk Rozsypálek",
-        "Tomáš Rouček",
-        "J. Ulrich"
-      ],
-      "countries": [
-        "CZ",
-        "AT",
         "GB"
       ],
       "primary_country": "Other",
-      "published": "2026-11-11",
+      "published": "2026-11-12",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7219179202",
-      "title": "Energy-Aware Benchmarking of Deep Learning Algorithms for Time Series Forecasting",
+      "id": "https://openalex.org/W7214372117",
+      "title": "Conserved amount, negotiable placement. Prompting perturbs one architecture, an AI reviewer both",
       "authors": [
-        "Idrissa Dicko",
-        "Mohamed Ibn Khedher",
-        "Faïcel Chamroukhi"
+        "Daniel Sagenschneider"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-12",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221495329",
+      "title": "GraPEX: GRAdual Pattern EXplainer for multivariate time series classification",
+      "authors": [
+        "Kamga Nguifo Durande Berluskoni",
+        "Jerry Lonlac",
+        "Anthony Fleury"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-11",
+      "published": "2026-11-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221579729",
+      "title": "Some linguistic markers to identify continuities and breaks in texts based on templates",
+      "authors": [
+        "Julie S. Lefebvre"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223076080",
+      "title": "From Answers to Questions: Generative AI andthe Future of Research & Learning",
+      "authors": [
+        "Mohammadi Bijan"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7224049538",
+      "title": "When Patients' Words Become Biomarkers: Narrative Phenotyping and the Human Phenotype Ontology in Long COVID",
+      "authors": [
+        "Marc Jamoulle",
+        "Tarik Jamoulle",
+        "Robert Vander Stichele"
+      ],
+      "countries": [
+        "BE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225235788",
+      "title": "वाक्यशेषः — Completing the Sentence: Ellipsis and Anuvṛtti",
+      "authors": [
+        "Srinivasu Mantha"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-12",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225369177",
+      "title": "Contextbewuste Anomaliedetectie voor Complexe en Dynamische Industriële Omgevingen",
+      "authors": [
+        "Louis Carpentier"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-12",
       "cited_by_count": 0,
       "source": "openalex"
     }

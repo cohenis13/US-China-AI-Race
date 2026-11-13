@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-12T15:52:45.863714+00:00",
+  "fetched_at": "2026-11-13T15:13:43.808791+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 153468,
+            "raw_value": 152825,
             "share_score": 34.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7959,
+            "raw_value": 7937,
             "share_score": 38.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7438,
+            "raw_value": 7423,
             "share_score": 37.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 291296,
+            "raw_value": 290716,
             "share_score": 65.5,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12644,
+            "raw_value": 12617,
             "share_score": 61.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12671,
+            "raw_value": 12642,
             "share_score": 63.0,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569834
+        "count": 569714
       },
       {
         "country_code": "CN",
-        "count": 291296
+        "count": 290716
       },
       {
         "country_code": "US",
-        "count": 153468
+        "count": 152825
       },
       {
         "country_code": "IN",
-        "count": 104062
+        "count": 103845
       },
       {
         "country_code": "DE",
-        "count": 103780
+        "count": 103665
       },
       {
         "country_code": "GB",
-        "count": 48020
+        "count": 47907
       },
       {
         "country_code": "ID",
-        "count": 47267
+        "count": 47106
       },
       {
         "country_code": "IT",
-        "count": 26211
+        "count": 26146
       },
       {
         "country_code": "KR",
-        "count": 25397
+        "count": 25288
       },
       {
         "country_code": "FR",
-        "count": 23961
+        "count": 23910
       }
     ],
     "volume": {
-      "us": 153468,
-      "china": 291296,
-      "total": 2826818,
+      "us": 152825,
+      "china": 290716,
+      "total": 2823039,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7959,
-      "china": 12644,
-      "total": 32080,
+      "us": 7937,
+      "china": 12617,
+      "total": 32016,
       "data_ok": true
     },
     "top_cited": {
-      "us": 7438,
-      "china": 12671,
-      "total": 30701,
+      "us": 7423,
+      "china": 12642,
+      "total": 30623,
       "data_ok": true
     }
   },
@@ -182,141 +182,138 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W7116721608",
-      "title": "ShapeUpLMD: Automated spatial optimization of laser microdissection for tissue sampling",
+      "id": "https://openalex.org/W7166464183",
+      "title": "AI-BASED MARKET INTELLIGENCE AND PRICE PREDICTION FOR AGRICULTURAL PRODUCE",
       "authors": [
-        "Joshua P. Schaaf",
-        "Dave Mitchell",
-        "Jonathan D. Ogata"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-12",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7124235943",
-      "title": "Living with Machines : Computational Histories of the Age of Industry",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7164199517",
-      "title": "Data-Driven Estimation of Ship Manoeuvring Hydrodynamic Derivatives using a Hybrid MARUS–PINN Framework with LLM-Guided Symbolic Discovery",
-      "authors": [
-        "Paria Rezayan",
-        "Konstantinos Domdouzis",
-        "Yogang Singh"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-12",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214372117",
-      "title": "Conserved amount, negotiable placement. Prompting perturbs one architecture, an AI reviewer both",
-      "authors": [
-        "Daniel Sagenschneider"
+        "*Catherine Mueni Peter1, Dr. Supriya1, Dr. Joginder Singh2 and Dr. Mwenjeri G.  W.3"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-12",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221495329",
-      "title": "GraPEX: GRAdual Pattern EXplainer for multivariate time series classification",
-      "authors": [
-        "Kamga Nguifo Durande Berluskoni",
-        "Jerry Lonlac",
-        "Anthony Fleury"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-12",
+      "published": "2026-11-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7221579729",
-      "title": "Some linguistic markers to identify continuities and breaks in texts based on templates",
+      "id": "https://openalex.org/W7221264983",
+      "title": "Naar Geünificeerde Ruimtelijke Multi-Omics Een Modaliteitsagnostisch Diep Generatief Model voor Gezamenlijke Integratie, Batchcorrectie en Cross-Modale Vertaling",
       "authors": [
-        "Julie S. Lefebvre"
+        "Jose Ignacio Alvira Larizgoitia"
       ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-12",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7223076080",
-      "title": "From Answers to Questions: Generative AI andthe Future of Research & Learning",
+      "id": "https://openalex.org/W7223080283",
+      "title": "Exploring Machine Learning Models to Detect Outliers and Multistep Forecasting of Temperature and Groundwater Sensor Networks",
       "authors": [
-        "Mohammadi Bijan"
+        "IRAM PARVEZ"
       ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-12",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7224049538",
-      "title": "When Patients' Words Become Biomarkers: Narrative Phenotyping and the Human Phenotype Ontology in Long COVID",
+      "id": "https://openalex.org/W7223080964",
+      "title": "Artificial Intelligence in Operations and Supply Chain Management",
       "authors": [
-        "Marc Jamoulle",
-        "Tarik Jamoulle",
-        "Robert Vander Stichele"
+        "Giorgio Scarton"
       ],
-      "countries": [
-        "BE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-12",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225235788",
-      "title": "वाक्यशेषः — Completing the Sentence: Ellipsis and Anuvṛtti",
+      "id": "https://openalex.org/W7225149098",
+      "title": "गोपनीयता — Bhoja's Secrecy Clause: Why the Texts Withhold Construction",
       "authors": [
         "Srinivasu Mantha"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-12",
+      "published": "2026-11-13",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7225369177",
-      "title": "Contextbewuste Anomaliedetectie voor Complexe en Dynamische Industriële Omgevingen",
+      "id": "https://openalex.org/W7225455623",
+      "title": "EMoB-P, Escala Motora Breve, Manual de aplicação, cotação e interpretação",
       "authors": [
-        "Louis Carpentier"
+        "Susana GUIMARÃES",
+        "Sofia Santos",
+        "Paula Lebre"
+      ],
+      "countries": [
+        "PT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225459567",
+      "title": "高齢者介護ケア・複雑性尿路感染症における 脱タゾピペ・ウロセプシス救命・胃ろう栄養統合支援システム β 版 ― 先行研究 60 件準拠・厳密有理数 (Q)&POSIX awk・Firth-Householder QR 監査基盤の新規性と実務有用性 ―",
+      "authors": [
+        "Yasuko Kawahata"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-13",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7225672098",
+      "title": "Machine learning for high-dimensional covariates and incomplete observations in non-life insurance",
+      "authors": [
+        "Paul Wilsens"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-12",
+      "published": "2026-11-13",
       "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4292218840",
+      "title": "Reinforcement Learning to Rank Using Coarse-grained Rewards",
+      "authors": [
+        "Yiteng Tu",
+        "Zhichao Xu",
+        "Tao Yang"
+      ],
+      "countries": [
+        "CN",
+        "US"
+      ],
+      "primary_country": "Mixed",
+      "published": "2026-11-12",
+      "cited_by_count": 7,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4407696149",
+      "title": "Personalized Ranking on Cascading Behavior Graphs for Accurate Multi-Behavior Recommendation",
+      "authors": [
+        "Geonwoo Ko",
+        "Minseo Jeon",
+        "Jinhong Jung"
+      ],
+      "countries": [
+        "KR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-12",
+      "cited_by_count": 2,
       "source": "openalex"
     }
   ]

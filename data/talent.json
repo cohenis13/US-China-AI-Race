@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-14T14:00:50.008544+00:00",
+  "fetched_at": "2026-11-15T14:37:19.740315+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 36.9,
           "paper_volume": {
-            "raw_value": 153357,
-            "share_score": 34.5,
+            "raw_value": 152865,
+            "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 7966,
+            "raw_value": 7970,
             "share_score": 38.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 7477,
+            "raw_value": 7480,
             "share_score": 37.1,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 63.1,
           "paper_volume": {
-            "raw_value": 291613,
-            "share_score": 65.5,
+            "raw_value": 291056,
+            "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 12661,
+            "raw_value": 12668,
             "share_score": 61.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 12699,
+            "raw_value": 12670,
             "share_score": 62.9,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "JP",
-        "count": 569806
+        "count": 547719
       },
       {
         "country_code": "CN",
-        "count": 291613
+        "count": 291056
       },
       {
         "country_code": "US",
-        "count": 153357
+        "count": 152865
       },
       {
         "country_code": "IN",
-        "count": 104056
+        "count": 104032
       },
       {
         "country_code": "DE",
-        "count": 104020
+        "count": 103705
       },
       {
         "country_code": "GB",
-        "count": 48022
+        "count": 47706
       },
       {
         "country_code": "ID",
-        "count": 47122
+        "count": 47220
       },
       {
         "country_code": "IT",
-        "count": 26204
+        "count": 26160
       },
       {
         "country_code": "KR",
-        "count": 25385
+        "count": 25430
       },
       {
         "country_code": "FR",
-        "count": 23952
+        "count": 23673
       }
     ],
     "volume": {
-      "us": 153357,
-      "china": 291613,
-      "total": 2830764,
+      "us": 152865,
+      "china": 291056,
+      "total": 2803789,
       "data_ok": true
     },
     "high_impact": {
-      "us": 7966,
-      "china": 12661,
-      "total": 32111,
+      "us": 7970,
+      "china": 12668,
+      "total": 32112,
       "data_ok": true
     },
     "top_cited": {
-      "us": 7477,
-      "china": 12699,
-      "total": 30779,
+      "us": 7480,
+      "china": 12670,
+      "total": 30761,
       "data_ok": true
     }
   },
@@ -182,154 +182,157 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4415336009",
-      "title": "STRAPSim: A Portfolio Similarity Metric for ETF Alignment and Portfolio Trades",
+      "id": "https://openalex.org/W7140280470",
+      "title": "AlphaDiffract: automated crystallographic analysis of powder X-ray diffraction data",
       "authors": [
-        "Mingshu Li",
-        "Dhruv Desai",
-        "Jerinsh Jeyapaulraj"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7117298730",
-      "title": "MetroSCREEN ref data",
-      "authors": [
-        "Ke Tang"
+        "Nina Andrejevic",
+        "Ming Du",
+        "Hemant Sharma"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-14",
-      "cited_by_count": 0,
+      "published": "2026-11-15",
+      "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125906216",
-      "title": "Whispering Water: Materializing Human-AI Dialogue as Interactive Ripples",
+      "id": "https://openalex.org/W7170231354",
+      "title": "The Anatomy of a Misprediction: Tracking Terrestrial and Orbital Radiation-Induced Errors in Systolic Arrays",
       "authors": [
-        "Ruipeng Wang",
-        "Tawab Safi",
-        "Yunge Wen"
+        "Rafael Billig Tonetto",
+        "Pedro Foletto Pimenta",
+        "Abraham Chan"
       ],
       "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128779860",
-      "title": "Time-Inhomogeneity in Risk Averse Objectives for Financial Applications of Reinforcement Learning",
-      "authors": [
-        "Federico Cacciamani",
-        "Roberto Daluiso",
-        "Marco Pinciroli"
-      ],
-      "countries": [
+        "FR",
+        "CA",
         "IT"
       ],
       "primary_country": "Other",
-      "published": "2026-11-14",
+      "published": "2026-11-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7134817666",
-      "title": "Generative Adversarial Regression (GAR): Learning Conditional Risk Scenarios",
+      "id": "https://openalex.org/W7213734592",
+      "title": "Communication Avoiding Parallel Sketching via Sparse Subspace Embeddings",
       "authors": [
-        "Saeed Asadi",
-        "Jonathan Yu-Meng Li"
+        "Hussam Al Daas",
+        "Grey Ballard",
+        "Laura Grigori"
       ],
       "countries": [
-        "CA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-14",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7138403822",
-      "title": "Mind the Shift: Decoding Monetary Policy Stance from FOMC Statements with Large Language Models",
-      "authors": [
-        "Yixuan Tang",
-        "Yi Yang"
-      ],
-      "countries": [
-        "HK"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7168380129",
-      "title": "Design and calibration of a division-of-pupil snapshot polarization imaging system",
-      "authors": [
-        "Yize Ju",
-        "Jiahang Li",
-        "Naixi Liu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-14",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169552255",
-      "title": "Political stance detection on X during the 2024 U.S. election: a comparative study of classical, neural, and transformer models",
-      "authors": [
-        "Qile Wang",
-        "Sahar Ostadrahimi",
-        "Safoura Faghri"
-      ],
-      "countries": [
-        "US"
+        "GB",
+        "US",
+        "CH",
+        "FR"
       ],
       "primary_country": "US",
-      "published": "2026-11-14",
+      "published": "2026-11-15",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7171557944",
-      "title": "PPanGGOLiN V2: technical enhancement and extended functionalities for prokaryotic pangenome analysis",
+      "id": "https://openalex.org/W7213928727",
+      "title": "BiNit: Nitpicking Semantic Bugs in x64 Binary Lifters",
       "authors": [
-        "Jérôme Arnoux",
-        "Jean Mainguy",
-        "Adelme Bazin"
+        "Jack Royer",
+        "Frédéric Tronel",
+        "Yaëlle Vinçont"
       ],
       "countries": [
         "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-14",
-      "cited_by_count": 1,
+      "published": "2026-11-15",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7172524470",
-      "title": "Amortized Interventional Forecasting for Multivariate CIR Processes",
+      "id": "https://openalex.org/W7213977518",
+      "title": "Confidence-gated forecasting of qPCR amplification curves for adaptive reporting",
       "authors": [
-        "Andreas Sauter",
-        "Sumit Sourabh",
-        "Drona Kandhai"
+        "Zhenwei Wu",
+        "Daojun Yu",
+        "Xueyan Dong"
       ],
       "countries": [
-        "NL"
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214635673",
+      "title": "Gradient affinity from a shared encoder guides multitask grouping of ADMET endpoints measured on largely disjoint compounds",
+      "authors": [
+        "Seoyoon Koo",
+        "Sungmin Ko",
+        "Seung‐Yong Seong"
+      ],
+      "countries": [
+        "KR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-14",
+      "published": "2026-11-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7217698498",
+      "title": "An LLVM Pass for Automatic Skeletonization of MPI Applications",
+      "authors": [
+        "Quentin Buot",
+        "Emmanuel Jeannot",
+        "Pierre Lemarinier"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7220164756",
+      "title": "EXPLORING LEARNING GAPS AND SUPPORT NEEDS IN DIFFERENTIATION AND INTEGRATION TOPIC",
+      "authors": [
+        "Maziharita Mohamood"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222247865",
+      "title": "RPS-Serve: Artifact for \"Rocks, Pebbles and Sand: Modality-aware Scheduling for Multimodal LLM Inference\" (SIGOPS ATC '26)",
+      "authors": [
+        "Konstantinos Papaioannou",
+        "Thaleia Dimitra Doudali"
+      ],
+      "countries": [
+        "ES"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-15",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7223652018",
+      "title": "The Scientific Approach as an Accelerator of Artificial Intelligence Adoption in Healthcare: The LifeLink Monitoring Mode",
+      "authors": [
+        "Николай Лазаров",
+        "Кирил Аначков"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-15",
       "cited_by_count": 0,
       "source": "openalex"
     }

@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-17T16:47:16.563571+00:00",
+  "fetched_at": "2026-11-18T16:18:29.105712+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.3,
           "paper_volume": {
-            "raw_value": 152467,
-            "share_score": 34.3,
+            "raw_value": 152618,
+            "share_score": 34.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 10893,
+            "raw_value": 10905,
             "share_score": 39.3,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 10318,
+            "raw_value": 10348,
             "share_score": 37.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 62.7,
           "paper_volume": {
-            "raw_value": 292577,
-            "share_score": 65.7,
+            "raw_value": 293009,
+            "share_score": 65.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 16820,
+            "raw_value": 16843,
             "share_score": 60.7,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 17154,
+            "raw_value": 17202,
             "share_score": 62.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 292577
+        "count": 293009
       },
       {
         "country_code": "US",
-        "count": 152467
+        "count": 152618
       },
       {
         "country_code": "IN",
-        "count": 104815
+        "count": 105053
       },
       {
         "country_code": "DE",
-        "count": 103679
+        "count": 103672
       },
       {
         "country_code": "ID",
-        "count": 47445
+        "count": 47682
       },
       {
         "country_code": "GB",
-        "count": 47386
+        "count": 47414
       },
       {
         "country_code": "IT",
-        "count": 26277
+        "count": 26322
       },
       {
         "country_code": "KR",
-        "count": 25528
+        "count": 25546
       },
       {
         "country_code": "JP",
-        "count": 24430
+        "count": 24415
       },
       {
         "country_code": "FR",
-        "count": 23761
+        "count": 23775
       }
     ],
     "volume": {
-      "us": 152467,
-      "china": 292577,
-      "total": 2291704,
+      "us": 152618,
+      "china": 293009,
+      "total": 2269102,
       "data_ok": true
     },
     "high_impact": {
-      "us": 10893,
-      "china": 16820,
-      "total": 43536,
+      "us": 10905,
+      "china": 16843,
+      "total": 43594,
       "data_ok": true
     },
     "top_cited": {
-      "us": 10318,
-      "china": 17154,
-      "total": 41838,
+      "us": 10348,
+      "china": 17202,
+      "total": 41958,
       "data_ok": true
     }
   },
@@ -182,152 +182,148 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4416103293",
-      "title": "Mathematical artificial data for operator learning",
+      "id": "https://openalex.org/W4411510996",
+      "title": "Robust UAV power line detection using transformer-based reinforcement learning in GPS-denied and wind-disturbed environments",
       "authors": [
-        "Wu Heng",
-        "Benzhuo Lu"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-17",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7127043528",
-      "title": "Phase Transition in Binary Compressed Sensing via Annealing with Adaptive Regularization",
-      "authors": [
-        "Xiaoxin Huang",
-        "Masayuki Ohzeki"
+        "Pengkai Wang",
+        "Mitra Ghergherehchi",
+        "Jonghoek Kim"
       ],
       "countries": [
-        "JP"
+        "KR",
+        "CN"
       ],
-      "primary_country": "Other",
-      "published": "2026-11-17",
+      "primary_country": "China",
+      "published": "2026-11-18",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160549366",
-      "title": "Improving FMQA via Initial Training Data Design Considering Marginal Bit Coverage in One-Hot Encoding",
+      "id": "https://openalex.org/W7108317401",
+      "title": "The use of cognitive bias modification to reduce body dissatisfaction: Manipulation of interpretation bias, perfectionism, and cognitive flexibility",
       "authors": [
-        "Taiga Hayashi",
-        "Yuya Seki",
-        "Kotaro Terada"
+        "Yen-Tzu Kung",
+        "Yun zhen, Wu",
+        "WEI-CHIEH CHIU"
       ],
-      "countries": [
-        "JP"
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154461826",
+      "title": "鸽子外纹体中颜色选择性神经元群体的神经表征",
+      "authors": [
+        "HE Qing-zhi",
+        "Juncai Zhu",
+        "Niu Xiao-Ke"
       ],
-      "primary_country": "Other",
-      "published": "2026-11-17",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7154507094",
+      "title": "环境胁迫下白蚁生殖可塑性的分子基础及基于机器学习的群体繁殖力预测",
+      "authors": [
+        "Ye Chenxu",
+        "Zhang Wenxiu",
+        "Wenxiu Zhang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7163322666",
+      "title": "深度学习揭示大蹄蝠回声定位声信号中稳定的个体特征",
+      "authors": [
+        "Aoqiang Li",
+        "Wantao Huang",
+        "Huang Wan-Tao"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-18",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164913453",
-      "title": "A Koopman-PINN Framework for Epidemic Models: Parameter Inference and Forecasting",
+      "id": "https://openalex.org/W7204130993",
+      "title": "Bankruptcy Prediction via Hybrid Resampling and Stacking Ensemble Techniques with Explainable Artificial Intelligence (XAI)-Driven Analysis",
       "authors": [
-        "Achraf Zinihi",
-        "Matthias Ehrhardt",
-        "Moulay Rchid Sidi Ammi"
+        "Obu-Amoah Ampomah",
+        "Edmund Fosu Agyemang",
+        "Kofi Acheampong"
       ],
       "countries": [
-        "DE",
-        "MA"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7167016259",
-      "title": "Firefly-Geni: Automated Iteration-Guided Generative Discovery of Thermally Activated Delayed Fluorescence Molecules",
-      "authors": [
-        "Boyuan Zhang",
-        "Xuerui Fang",
-        "De Yang"
-      ],
-      "countries": [
-        "CN",
-        "AU"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7171822292",
-      "title": "PRISM-Net: Patient-specific reference-guided inter-breast symmetry matching for three-class breast DCE-MRI classification",
-      "authors": [
-        "Boya Zhang",
-        "Shuaiwen Zhou",
-        "Di Kong"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172205487",
-      "title": "Phase reconstruction for dynamic shearography based on event streams and SLM phase encoding",
-      "authors": [
-        "Xiangfeng Ji",
-        "Liu Jing Ji",
-        "Boyang Zhang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7172240721",
-      "title": "The Impact of Actigraphic Data Processing on the Quantification and Pattern Analysis of Human Locomotor Activity",
-      "authors": [
-        "Bálint Maczák"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201872109",
-      "title": "Co-Folding Models Localize Enzyme Active Sites but Fail to Accurately Predict Enzyme–Substrate Complex Structures",
-      "authors": [
-        "Daniil Lepikhov",
-        "Ariane Nunes‐Alves"
-      ],
-      "countries": [
-        "DE"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-17",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7201884732",
-      "title": "A deep learning and TOPSIS framework for predictive maintenance scheduling in smart manufacturing: an Industry 4.0 approach",
-      "authors": [
-        "Md Mohsin Uddin Fahim",
-        "Amit J. Lopes"
-      ],
-      "countries": [
-        "US"
+        "US",
+        "CA",
+        "GH"
       ],
       "primary_country": "US",
-      "published": "2026-11-17",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7211843308",
+      "title": "Event-general concepts guide semantic generalizations during verb learning cross-linguistically",
+      "authors": [
+        "Sarah Hye-yeon Lee",
+        "Anna Papafragou"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7215022757",
+      "title": "Measuring the Operational Value of Identity-Driven Micro-Segmentation in Hybrid Environments: A Reproducible Comparison with ACL-Based Segmentation",
+      "authors": [
+        "Yulliwas Ameur",
+        "Daniel Tanier",
+        "Soumya Banerjee"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7221501402",
+      "title": "Literal or Repetitive? Exploring Lexical Diversity in Machine-generated Translations",
+      "authors": [
+        "Rudy Loock"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-18",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7222843668",
+      "title": "AI-to-AI Communication: Toward a New Paradigm of Intelligence Search",
+      "authors": [
+        "Hamid Shahrokh Shahraki"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-18",
       "cited_by_count": 0,
       "source": "openalex"
     }

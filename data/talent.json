@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-18T16:18:29.105712+00:00",
+  "fetched_at": "2026-11-19T16:27:42.364596+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -17,19 +17,19 @@
           "weight": 0.35,
           "share_score": 37.3,
           "paper_volume": {
-            "raw_value": 152618,
+            "raw_value": 152584,
             "share_score": 34.2,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 10905,
-            "share_score": 39.3,
+            "raw_value": 10951,
+            "share_score": 39.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 10348,
+            "raw_value": 10368,
             "share_score": 37.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -65,19 +65,19 @@
           "weight": 0.35,
           "share_score": 62.7,
           "paper_volume": {
-            "raw_value": 293009,
+            "raw_value": 293189,
             "share_score": 65.8,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 16843,
-            "share_score": 60.7,
+            "raw_value": 16877,
+            "share_score": 60.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 17202,
+            "raw_value": 17222,
             "share_score": 62.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 293009
+        "count": 293189
       },
       {
         "country_code": "US",
-        "count": 152618
+        "count": 152584
       },
       {
         "country_code": "IN",
-        "count": 105053
+        "count": 105040
       },
       {
         "country_code": "DE",
-        "count": 103672
+        "count": 103651
       },
       {
         "country_code": "ID",
-        "count": 47682
+        "count": 47756
       },
       {
         "country_code": "GB",
-        "count": 47414
+        "count": 47480
       },
       {
         "country_code": "IT",
-        "count": 26322
+        "count": 26327
       },
       {
         "country_code": "KR",
-        "count": 25546
+        "count": 25572
       },
       {
         "country_code": "JP",
-        "count": 24415
+        "count": 24354
       },
       {
         "country_code": "FR",
-        "count": 23775
+        "count": 23768
       }
     ],
     "volume": {
-      "us": 152618,
-      "china": 293009,
-      "total": 2269102,
+      "us": 152584,
+      "china": 293189,
+      "total": 2273167,
       "data_ok": true
     },
     "high_impact": {
-      "us": 10905,
-      "china": 16843,
-      "total": 43594,
+      "us": 10951,
+      "china": 16877,
+      "total": 43738,
       "data_ok": true
     },
     "top_cited": {
-      "us": 10348,
-      "china": 17202,
-      "total": 41958,
+      "us": 10368,
+      "china": 17222,
+      "total": 42015,
       "data_ok": true
     }
   },
@@ -182,149 +182,140 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4411510996",
-      "title": "Robust UAV power line detection using transformer-based reinforcement learning in GPS-denied and wind-disturbed environments",
+      "id": "https://openalex.org/W4414937598",
+      "title": "Evaluating Simplification Algorithms for Interpretability of Time Series Classification",
       "authors": [
-        "Pengkai Wang",
-        "Mitra Ghergherehchi",
-        "Jonghoek Kim"
+        "Brigt Håvardstun",
+        "Fèlix Martí-Pérez",
+        "Cèsar Ferri"
       ],
-      "countries": [
-        "KR",
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-18",
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7108317401",
-      "title": "The use of cognitive bias modification to reduce body dissatisfaction: Manipulation of interpretation bias, perfectionism, and cognitive flexibility",
+      "id": "https://openalex.org/W4415230279",
+      "title": "DeepChem-DEL: An Open-Source Framework for Reproducible DEL Modeling and Benchmarking",
       "authors": [
-        "Yen-Tzu Kung",
-        "Yun zhen, Wu",
-        "WEI-CHIEH CHIU"
+        "Aryan Amit Barsainyan",
+        "Riya Singh",
+        "Abhiraj Pravin Mengade"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154461826",
-      "title": "鸽子外纹体中颜色选择性神经元群体的神经表征",
-      "authors": [
-        "HE Qing-zhi",
-        "Juncai Zhu",
-        "Niu Xiao-Ke"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7154507094",
-      "title": "环境胁迫下白蚁生殖可塑性的分子基础及基于机器学习的群体繁殖力预测",
-      "authors": [
-        "Ye Chenxu",
-        "Zhang Wenxiu",
-        "Wenxiu Zhang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7163322666",
-      "title": "深度学习揭示大蹄蝠回声定位声信号中稳定的个体特征",
-      "authors": [
-        "Aoqiang Li",
-        "Wantao Huang",
-        "Huang Wan-Tao"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-18",
+      "published": "2026-11-19",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7204130993",
-      "title": "Bankruptcy Prediction via Hybrid Resampling and Stacking Ensemble Techniques with Explainable Artificial Intelligence (XAI)-Driven Analysis",
+      "id": "https://openalex.org/W4415329046",
+      "title": "Explainable Embeddings with Distance Explainer",
       "authors": [
-        "Obu-Amoah Ampomah",
-        "Edmund Fosu Agyemang",
-        "Kofi Acheampong"
-      ],
-      "countries": [
-        "US",
-        "CA",
-        "GH"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7211843308",
-      "title": "Event-general concepts guide semantic generalizations during verb learning cross-linguistically",
-      "authors": [
-        "Sarah Hye-yeon Lee",
-        "Anna Papafragou"
+        "Christiaan Meijer",
+        "Patrick Bos"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
+      "published": "2026-11-19",
+      "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7215022757",
-      "title": "Measuring the Operational Value of Identity-Driven Micro-Segmentation in Hybrid Environments: A Reproducible Comparison with ACL-Based Segmentation",
+      "id": "https://openalex.org/W4417459336",
+      "title": "XNNTab – Interpretable Neural Networks for Tabular Data Using Sparse Autoencoders",
       "authors": [
-        "Yulliwas Ameur",
-        "Daniel Tanier",
-        "Soumya Banerjee"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7221501402",
-      "title": "Literal or Repetitive? Exploring Lexical Diversity in Machine-generated Translations",
-      "authors": [
-        "Rudy Loock"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-18",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7222843668",
-      "title": "AI-to-AI Communication: Toward a New Paradigm of Intelligence Search",
-      "authors": [
-        "Hamid Shahrokh Shahraki"
+        "Khawla Elhadri",
+        "Jörg Schlötterer",
+        "Christin Seifert"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-18",
+      "published": "2026-11-19",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134260386",
+      "title": "Locating and Editing Figure-Ground Organization in Vision Transformers",
+      "authors": [
+        "Stefan Arnold",
+        "René Gröbner"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134818291",
+      "title": "Human–AI Divergence in Ego-Centric Action Recognition Under Spatial and Spatiotemporal Manipulations",
+      "authors": [
+        "Sadegh Rahmaniboldaji",
+        "Filip Rybansky",
+        "Quoc C. Vuong"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
       "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7137214220",
+      "title": "L2GTX: From Local to Global Time Series Explanations",
+      "authors": [
+        "Ephrem Tibebe Mekonnen",
+        "Lucas Rizzo",
+        "Pierpaolo Dondio"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7138974851",
+      "title": "FoMo-X: Modular Explainability Signals for Outlier Detection Foundation Models",
+      "authors": [
+        "Simon Klüttermann",
+        "Tim Katzke",
+        "Phuong Kim Thi Nguyen"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7140205654",
+      "title": "TREX: Trajectory Explanations for Multi-objective Reinforcement Learning",
+      "authors": [
+        "Dilina Chandika Rajapakse",
+        "Juan C. Rosero",
+        "Ivana Dusparić"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7146975649",
+      "title": "What-If Explanations Over Time: Counterfactuals for Time Series Classification",
+      "authors": [
+        "Udo Schlegel",
+        "Thomas Seidl"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-19",
+      "cited_by_count": 6,
       "source": "openalex"
     }
   ]

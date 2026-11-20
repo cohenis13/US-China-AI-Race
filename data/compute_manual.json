@@ -1,0 +1,182 @@
+{
+  "schema_version": "2.0",
+  "description": "Manually maintained data for the triangulated compute index. Includes hardware supply estimates, China HPC correction factors, and the hidden/private compute uncertainty band. Update when new NVIDIA earnings, Huawei announcements, or HPC disclosures become available.",
+  "last_updated": "2026-04-16",
+  "update_notes": "Initial V3 seed. NVIDIA data from FY2025 10-K (Jan 2025). Huawei Ascend estimates from public analyst reports and product announcements. HPC corrections based on Chinese government announcements.",
+
+  "coverage_warning": "No tracker has complete visibility into AI compute. Three systematic gaps exist: (1) China's exascale supercomputers — China stopped submitting most systems to TOP500 after 2023, so TOP500 dramatically understates China's visible HPC; (2) Private AI clusters — xAI Colossus, Meta AI datacenters, ByteDance, etc. are not publicly disclosed; (3) Domestic Chinese chips — Huawei Ascend deployment scale is not officially reported and relies on analyst estimates. The triangulated index partially corrects for all three gaps, but none can be fully observed with public data alone.",
+
+  "hardware_supply": {
+    "description": "Hardware supply proxy: NVIDIA geographic data center revenue + Huawei Ascend deployment adjustment. Measures the flow of AI compute hardware to each country rather than just disclosed training runs.",
+    "snapshot_date": "2026-04-16",
+
+    "nvidia_geographic_revenue": {
+      "source_name": "NVIDIA Corporation 10-K (FY2025)",
+      "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=NVDA&type=10-K",
+      "fiscal_year": "FY2025",
+      "period_end": "2025-01-26",
+      "confidence": "High — audited SEC filing",
+      "total_data_center_revenue_usd_b": 115.2,
+      "geography_note": "NVIDIA reports revenue by customer billing location. 'United States' captures domestic hyperscalers (AWS, Azure, Google, Meta). 'China' includes mainland China + HK; has been constrained by A100/H100 export controls since Oct 2023.",
+      "us_share_pct": 47,
+      "china_share_pct": 13,
+      "us_dc_revenue_usd_b": 54.1,
+      "china_dc_revenue_usd_b": 15.0,
+      "us_cn_only_us_share_pct": 78.3,
+      "us_cn_only_cn_share_pct": 21.7,
+      "export_control_note": "China's share has declined from ~17% in FY2024 to ~13% in FY2025 as H100/H200 are export-controlled. China customers can still receive A800/H800 (lower-spec) and older products, but are restricted from the highest-performance chips."
+    },
+
+    "huawei_ascend_adjustment": {
+      "source_name": "Public analyst estimates — SemiAnalysis, Omdia, company announcements",
+      "source_urls": [
+        "https://semianalysis.com/",
+        "https://www.huawei.com/en/products/computing/ascend"
+      ],
+      "confidence": "Low — not officially confirmed by Huawei; based on industry analysis and public procurement data",
+      "snapshot_date": "2026-04-01",
+      "estimated_ascend_chips_deployed": 1500000,
+      "ascend_chip_model": "Ascend 910B (primary)",
+      "h100_efficiency_ratio": 0.35,
+      "rationale": "Ascend 910B: ~640 TFLOPS BF16 vs H100's ~1979 TFLOPS BF16 in dense mode (~32%). Uses 0.35 as conservative estimate accounting for software/memory bandwidth differences.",
+      "h100_equivalent_units": 525000,
+      "estimated_value_usd_b": 10.5,
+      "value_methodology": "1.5M chips × 0.35 efficiency × $20K/H100-equivalent. Chip cost estimate (~$10K per Ascend 910B list price × 1.5M units = $15B), discounted for lower capability.",
+      "uncertainty_note": "Deployment figures are from analyst estimates and leaked procurement data; actual Huawei production and deployment may differ significantly. Treat as order-of-magnitude, not precise."
+    },
+
+    "adjusted_totals": {
+      "us_total_usd_b": 54.1,
+      "china_total_usd_b": 25.5,
+      "us_share_pct": 68.0,
+      "china_share_pct": 32.0,
+      "methodology": "NVIDIA US revenue ($54.1B) vs China NVIDIA revenue ($15.0B) + Huawei Ascend equivalent ($10.5B). No US adjustment for private/domestic chip sources (AMD MI300, Intel Gaudi) — this understates US slightly and is conservative in China's favor."
+    }
+  },
+
+  "hpc_capacity": {
+    "description": "Visible HPC capacity: TOP500 data (automated) plus China-announced systems not submitted to TOP500. The correction factor is required because China withdrew from TOP500 submissions for most major systems after 2023.",
+    "snapshot_date": "2026-04-16",
+
+    "top500_coverage_warning": "China stopped submitting its major supercomputers to TOP500 starting in 2023. The November 2023 list showed only 40 Chinese systems at 205 PFlops total, but China's actual HPC capacity is known to be significantly larger based on government announcements. TOP500 alone is not a valid primary metric for China.",
+
+    "china_non_top500_systems": {
+      "source_note": "Chinese government and institutional announcements. These are publicly announced but not submitted to TOP500 for independent benchmark verification.",
+      "confidence": "Low-Medium — announcements are public but performance claims are unverified; figures are based on cited peak performance, not HPL Rmax",
+      "systems": [
+        {
+          "name": "Tianhe-3 (National Supercomputing Center, Tianjin)",
+          "announced": "2023",
+          "estimated_peak_pflops": 2000,
+          "estimated_hpl_rmax_pflops": 1400,
+          "chip": "Phytium / domestic",
+          "status": "Operational (announced, not in TOP500)",
+          "source": "Chinese government/media announcements",
+          "confidence": "Low — performance estimate from announcements only"
+        },
+        {
+          "name": "Sunway Next Generation (NRCPC, Wuxi)",
+          "announced": "2021-2023",
+          "estimated_peak_pflops": 1500,
+          "estimated_hpl_rmax_pflops": 1000,
+          "chip": "Sunway SW26010-Pro",
+          "status": "Operational (not submitted to TOP500)",
+          "source": "SC23 paper authors, academic references",
+          "confidence": "Low-Medium — referenced in peer-reviewed publications"
+        },
+        {
+          "name": "Beijing AI Computing Center cluster (est.)",
+          "announced": "2022-2024",
+          "estimated_peak_pflops": 600,
+          "estimated_hpl_rmax_pflops": 400,
+          "chip": "Huawei Ascend 910 cluster",
+          "status": "Operational — capacity estimate",
+          "source": "CAICT reports, public procurement",
+          "confidence": "Low"
+        },
+        {
+          "name": "East Data West Compute (EDWC) cluster aggregate",
+          "announced": "2022-2025",
+          "estimated_peak_pflops": 800,
+          "estimated_hpl_rmax_pflops": 500,
+          "chip": "Mixed domestic",
+          "status": "Operational — aggregate of provincial nodes",
+          "source": "National Development and Reform Commission (NDRC) announcements",
+          "confidence": "Low — aggregate of many smaller systems"
+        }
+      ],
+      "total_estimated_additional_hpl_rmax_pflops": 3300,
+      "uncertainty_range_pflops": [2000, 5000],
+      "note": "Sum of point estimates: 1400+1000+400+500=3300. Range reflects uncertainty in performance claims."
+    },
+
+    "us_private_clusters": {
+      "source_note": "US private AI clusters not in TOP500 — company announcements and media reports.",
+      "confidence": "Low — not independently verified",
+      "systems": [
+        {
+          "name": "xAI Colossus (Memphis, TN)",
+          "announced": "2024",
+          "estimated_h100_equiv": 200000,
+          "estimated_hpl_rmax_pflops": 600,
+          "source": "xAI announcements, media reports"
+        },
+        {
+          "name": "Meta AI cluster aggregate (est.)",
+          "announced": "2024",
+          "estimated_h100_equiv": 350000,
+          "estimated_hpl_rmax_pflops": 900,
+          "source": "Meta earnings calls, media reports"
+        },
+        {
+          "name": "Microsoft/OpenAI Azure AI cluster (est.)",
+          "announced": "2024",
+          "estimated_h100_equiv": 300000,
+          "estimated_hpl_rmax_pflops": 800,
+          "source": "Microsoft earnings calls, media reports"
+        }
+      ],
+      "total_estimated_additional_hpl_rmax_pflops": 2300,
+      "note": "These are order-of-magnitude estimates. Actual cluster performance may differ significantly."
+    },
+
+    "adjusted_totals": {
+      "us_top500_pflops": 6961.3,
+      "us_private_addition_pflops": 2300,
+      "us_adjusted_pflops": 9261.3,
+      "china_top500_pflops": 205.0,
+      "china_correction_pflops": 3300,
+      "china_adjusted_pflops": 3505.0,
+      "us_share_pct": 72.5,
+      "china_share_pct": 27.5,
+      "us_share_range": [68.0, 76.0],
+      "china_share_range": [24.0, 32.0],
+      "methodology": "Point estimates only; uncertainty range reflects the min/max of the correction factors above."
+    }
+  },
+
+  "hidden_compute_estimate": {
+    "description": "Explicit uncertainty band for total (visible + estimated hidden) compute. Not used in the scored composite — shown separately in the UI as a coverage note.",
+    "snapshot_date": "2026-04-16",
+    "confidence": "Low — expert synthesis, not primary data",
+    "sources": [
+      "Georgetown CSET AI hardware assessments",
+      "SemiAnalysis AI infrastructure reports",
+      "Export control filing data (BIS entity list)",
+      "China NDRC National Computing Power reports"
+    ],
+    "china_true_share_estimate": {
+      "point_estimate_pct": 30,
+      "lower_bound_pct": 20,
+      "upper_bound_pct": 42,
+      "methodology": "The scored composite gives China ~25% of US+China combined. Adding estimates for: (1) undisclosed training compute for frontier Chinese models (+5pp), (2) full Huawei Ascend deployment if at high-end estimates (+5pp), (3) non-submitted HPC systems at high-end correction (+2pp). Summing these plausibly brings China's true share to 30-42% depending on assumptions.",
+      "narrative": "The scored composite (25%) is a lower bound based primarily on disclosed data. A more complete estimate, incorporating government announcements and analyst assessments of China's domestic AI chip deployment, suggests China's true share of combined US-China compute capacity is likely in the 25-40% range. The gap between the disclosed and estimated figures reflects systematic non-reporting rather than compute that doesn't exist."
+    },
+    "us_true_share_estimate": {
+      "point_estimate_pct": 70,
+      "lower_bound_pct": 58,
+      "upper_bound_pct": 80,
+      "methodology": "US private clusters are large but somewhat more visible than China's. Main uncertainty is in the scale of non-reported hyperscaler capacity."
+    }
+  }
+}

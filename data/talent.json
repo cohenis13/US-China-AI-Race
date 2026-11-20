@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-19T16:27:42.364596+00:00",
+  "fetched_at": "2026-11-20T15:59:02.584157+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.3,
+          "share_score": 37.4,
           "paper_volume": {
-            "raw_value": 152584,
-            "share_score": 34.2,
+            "raw_value": 153491,
+            "share_score": 34.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 10951,
+            "raw_value": 11016,
             "share_score": 39.4,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 10368,
-            "share_score": 37.6,
+            "raw_value": 10494,
+            "share_score": 37.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.7,
+          "share_score": 62.6,
           "paper_volume": {
-            "raw_value": 293189,
-            "share_score": 65.8,
+            "raw_value": 293178,
+            "share_score": 65.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 16877,
+            "raw_value": 16929,
             "share_score": 60.6,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 17222,
-            "share_score": 62.4,
+            "raw_value": 17290,
+            "share_score": 62.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 293189
+        "count": 293178
       },
       {
         "country_code": "US",
-        "count": 152584
+        "count": 153491
       },
       {
         "country_code": "IN",
-        "count": 105040
+        "count": 104785
       },
       {
         "country_code": "DE",
-        "count": 103651
-      },
-      {
-        "country_code": "ID",
-        "count": 47756
+        "count": 104572
       },
       {
         "country_code": "GB",
-        "count": 47480
+        "count": 48450
+      },
+      {
+        "country_code": "ID",
+        "count": 48419
       },
       {
         "country_code": "IT",
-        "count": 26327
+        "count": 26562
       },
       {
         "country_code": "KR",
-        "count": 25572
+        "count": 25565
       },
       {
         "country_code": "JP",
-        "count": 24354
+        "count": 24678
       },
       {
         "country_code": "FR",
-        "count": 23768
+        "count": 23823
       }
     ],
     "volume": {
-      "us": 152584,
-      "china": 293189,
-      "total": 2273167,
+      "us": 153491,
+      "china": 293178,
+      "total": 2273094,
       "data_ok": true
     },
     "high_impact": {
-      "us": 10951,
-      "china": 16877,
-      "total": 43738,
+      "us": 11016,
+      "china": 16929,
+      "total": 43920,
       "data_ok": true
     },
     "top_cited": {
-      "us": 10368,
-      "china": 17222,
-      "total": 42015,
+      "us": 10494,
+      "china": 17290,
+      "total": 42388,
       "data_ok": true
     }
   },
@@ -182,140 +182,150 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4414937598",
-      "title": "Evaluating Simplification Algorithms for Interpretability of Time Series Classification",
+      "id": "https://openalex.org/W4380714636",
+      "title": "Stability for Hyperplane Covers",
       "authors": [
-        "Brigt Håvardstun",
-        "Fèlix Martí-Pérez",
-        "Cèsar Ferri"
+        "Shagnik Das",
+        "Valjakas Djaljapayan",
+        "Yen-chi Roger Lin"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-19",
+      "published": "2026-11-20",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7108662188",
+      "title": "Code repository for From paper to pixels - digitized maps of vascular plant distributions in Denmark in the early 20th century",
+      "authors": [
+        "Ditte Marie Christiansen"
+      ],
+      "countries": [
+        "DK"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-20",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7113524219",
+      "title": "Methodological quality scale: convergent and discriminant validity evidence",
+      "authors": [
+        "Susana Sanduvete-Chaves",
+        "José Mena-Raposo",
+        "Daniel López-Arenas"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4415230279",
-      "title": "DeepChem-DEL: An Open-Source Framework for Reproducible DEL Modeling and Benchmarking",
+      "id": "https://openalex.org/W7160546213",
+      "title": "Carrion crows are sensitive to human head, but not eye, orientation",
       "authors": [
-        "Aryan Amit Barsainyan",
-        "Riya Singh",
-        "Abhiraj Pravin Mengade"
+        "Katy Ablett",
+        "Edward R. Morrison"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-19",
+      "published": "2026-11-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162866725",
+      "title": "Bayesian optimisation and graph-based rheology enable sequence-dependent modelling of DNA materials",
+      "authors": [
+        "Aaron Gadzekpo",
+        "Lennart Hilbert"
+      ],
+      "countries": [
+        "DE"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-20",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W4415329046",
-      "title": "Explainable Embeddings with Distance Explainer",
+      "id": "https://openalex.org/W7165795287",
+      "title": "Are Safety Guarantees in Neural Networks Safe? How to Compute Trustworthy Robustness Certifications",
       "authors": [
-        "Christiaan Meijer",
-        "Patrick Bos"
+        "Merkouris Papamichail",
+        "Konstantinos Varsos",
+        "Giorgos Flouris"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4417459336",
-      "title": "XNNTab – Interpretable Neural Networks for Tabular Data Using Sparse Autoencoders",
-      "authors": [
-        "Khawla Elhadri",
-        "Jörg Schlötterer",
-        "Christin Seifert"
+      "countries": [
+        "GR",
+        "ES"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134260386",
-      "title": "Locating and Editing Figure-Ground Organization in Vision Transformers",
-      "authors": [
-        "Stefan Arnold",
-        "René Gröbner"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7134818291",
-      "title": "Human–AI Divergence in Ego-Centric Action Recognition Under Spatial and Spatiotemporal Manipulations",
-      "authors": [
-        "Sadegh Rahmaniboldaji",
-        "Filip Rybansky",
-        "Quoc C. Vuong"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
+      "primary_country": "Other",
+      "published": "2026-11-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7137214220",
-      "title": "L2GTX: From Local to Global Time Series Explanations",
+      "id": "https://openalex.org/W7167936038",
+      "title": "Full-range 3D gradation estimation from rockfill image based on deep learning",
       "authors": [
-        "Ephrem Tibebe Mekonnen",
-        "Lucas Rizzo",
-        "Pierpaolo Dondio"
+        "Ketian Cai",
+        "Jian Wang",
+        "Yang Lu"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-19",
+      "published": "2026-11-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7138974851",
-      "title": "FoMo-X: Modular Explainability Signals for Outlier Detection Foundation Models",
+      "id": "https://openalex.org/W7213464454",
+      "title": "Combination of Criteria Importance Through Intercriteria Dependence and Simple Additive Weighting Methods for Multi-Criteria Barista Selection: A Decision Support Approach",
       "authors": [
-        "Simon Klüttermann",
-        "Tim Katzke",
-        "Phuong Kim Thi Nguyen"
+        "Verra Sofica",
+        "Titik Misriati"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7140205654",
-      "title": "TREX: Trajectory Explanations for Multi-objective Reinforcement Learning",
-      "authors": [
-        "Dilina Chandika Rajapakse",
-        "Juan C. Rosero",
-        "Ivana Dusparić"
+      "countries": [
+        "ID"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
+      "primary_country": "Other",
+      "published": "2026-11-20",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7146975649",
-      "title": "What-If Explanations Over Time: Counterfactuals for Time Series Classification",
+      "id": "https://openalex.org/W7213468282",
+      "title": "Hybrid Modification Preference Selection Index with Optimized Pairwise Ratio Analysis Method for Multi-Criteria Decision Making: An Integrated Weighting and Ranking Approach",
       "authors": [
-        "Udo Schlegel",
-        "Thomas Seidl"
+        "Tri Widodo",
+        "Dedi Darwis",
+        "Shaban Nassor"
       ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-19",
-      "cited_by_count": 6,
+      "countries": [
+        "ID",
+        "TZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-20",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7214158502",
+      "title": "What makes a strong decision letter to an author?",
+      "authors": [
+        "Diane B. Monsivais"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-20",
+      "cited_by_count": 0,
       "source": "openalex"
     }
   ]

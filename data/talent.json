@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-21T15:12:20.719579+00:00",
+  "fetched_at": "2026-11-22T15:09:52.243272+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,25 +11,25 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.8,
+      "composite_score": 46.9,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.7,
+          "share_score": 37.8,
           "paper_volume": {
-            "raw_value": 155301,
-            "share_score": 34.5,
+            "raw_value": 155129,
+            "share_score": 34.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 11423,
-            "share_score": 39.8,
+            "raw_value": 11487,
+            "share_score": 39.9,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 10934,
+            "raw_value": 10942,
             "share_score": 38.2,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -59,25 +59,25 @@
       }
     },
     "China": {
-      "composite_score": 53.2,
+      "composite_score": 53.1,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.3,
+          "share_score": 62.2,
           "paper_volume": {
-            "raw_value": 295159,
-            "share_score": 65.5,
+            "raw_value": 293477,
+            "share_score": 65.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 17281,
-            "share_score": 60.2,
+            "raw_value": 17331,
+            "share_score": 60.1,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 17686,
+            "raw_value": 17701,
             "share_score": 61.8,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 295159
+        "count": 293477
       },
       {
         "country_code": "US",
-        "count": 155301
+        "count": 155129
       },
       {
         "country_code": "DE",
-        "count": 105098
+        "count": 105024
       },
       {
         "country_code": "IN",
-        "count": 104973
+        "count": 104410
       },
       {
         "country_code": "GB",
-        "count": 49421
+        "count": 49364
       },
       {
         "country_code": "ID",
-        "count": 48640
-      },
-      {
-        "country_code": "IT",
-        "count": 26706
+        "count": 48565
       },
       {
         "country_code": "KR",
-        "count": 25886
+        "count": 27464
+      },
+      {
+        "country_code": "IT",
+        "count": 26687
       },
       {
         "country_code": "JP",
-        "count": 25001
+        "count": 24986
       },
       {
         "country_code": "FR",
-        "count": 23945
+        "count": 23938
       }
     ],
     "volume": {
-      "us": 155301,
-      "china": 295159,
-      "total": 2288149,
+      "us": 155129,
+      "china": 293477,
+      "total": 2282472,
       "data_ok": true
     },
     "high_impact": {
-      "us": 11423,
-      "china": 17281,
-      "total": 45057,
+      "us": 11487,
+      "china": 17331,
+      "total": 45316,
       "data_ok": true
     },
     "top_cited": {
-      "us": 10934,
-      "china": 17686,
-      "total": 43576,
+      "us": 10942,
+      "china": 17701,
+      "total": 43682,
       "data_ok": true
     }
   },
@@ -182,147 +182,162 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4395480950",
-      "title": "Deep multi-prototype capsule networks",
+      "id": "https://openalex.org/W4399406534",
+      "title": "Windex: Index-Driven Contextual Scheduler for Scalable Service Guarantees in NextG Cellular Networks",
       "authors": [
-        "Saeid Abbaasi",
-        "Kamaledin Ghiasi-Shirazi",
-        "Ahad Harati"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-21",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4417464350",
-      "title": "Federated Few-Shot Learning for Epileptic Seizure Detection Under Privacy Constraints",
-      "authors": [
-        "Ekaterina Sysoykova",
-        "Bernhard Anzengruber-Tánase",
-        "Michael Haslgrübler"
-      ],
-      "countries": [
-        "AT"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-21",
-      "cited_by_count": 3,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7128833378",
-      "title": "WaveFormer: Wavelet Embedding Transformer for Biomedical Signals",
-      "authors": [
-        "Habib Irani",
-        "Bikram De",
-        "Vangelis Metsis"
+        "Archana Bura",
+        "Ushasi Ghosh",
+        "Alexander Riedel"
       ],
       "countries": [
         "US"
       ],
       "primary_country": "US",
-      "published": "2026-11-21",
+      "published": "2026-11-22",
+      "cited_by_count": 4,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415142305",
+      "title": "P rism : Communication-efficient Distributed Inference for Foundation Models at Edge",
+      "authors": [
+        "Muhammad Azlan Qazi",
+        "Alexandros Iosifidis",
+        "Qi Zhang"
+      ],
+      "countries": [
+        "DK",
+        "FI"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-22",
+      "cited_by_count": 5,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4416158412",
+      "title": "Multi-agent AI Framework for Road Situation Detection and C-ITS Message Generation",
+      "authors": [
+        "Kailin Tong",
+        "Selim Solmaz",
+        "Kenan Mujkic"
+      ],
+      "countries": [
+        "AT",
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7117159154",
+      "title": "MEO: Mining Reliable Expert Signals for Offline Reinforcement Learning in Wireless Networks",
+      "authors": [
+        "Lipeng Zu",
+        "Hansong Zhou",
+        "Yu Qian"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134825941",
+      "title": "Pushing Bistatic Wireless Sensing toward High Accuracy at the Sub-Wavelength Scale",
+      "authors": [
+        "Wenwei Li",
+        "Jiarun Zhou",
+        "Qinxiao Quan"
+      ],
+      "countries": [
+        "CN",
+        "FR"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-22",
       "cited_by_count": 3,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7130536286",
-      "title": "KD4MT: A Survey of Knowledge Distillation for Machine Translation",
+      "id": "https://openalex.org/W7151602128",
+      "title": "Restless Bandits with Individual Penalty Constraints: Near-Optimal Indices and Deep Reinforcement Learning",
       "authors": [
-        "Ona de Gibert",
-        "Joseph Attieh",
-        "Timothee Mickus"
+        "Nida Zamir",
+        "I-Hong Hou"
       ],
       "countries": [
-        "FI"
+        "US"
       ],
-      "primary_country": "Other",
-      "published": "2026-11-21",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7162645895",
-      "title": "Resource-Constrained Affect Modelling via Variance Regularisation Pruning",
-      "authors": [
-        "Kosmas Pinitas",
-        "Konstantinos Katsifis"
-      ],
-      "countries": [
-        "GB"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-21",
+      "primary_country": "US",
+      "published": "2026-11-22",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7164021233",
-      "title": "Instrumental convergence and power seeking",
+      "id": "https://openalex.org/W7154722671",
+      "title": "Serving Chain-structured Jobs with Large Memory Footprints with Application to Large Foundation Model Serving",
       "authors": [
-        "David Thorstad"
+        "Tingyang Sun",
+        "Ting He",
+        "I-Hong Hou"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7161013998",
+      "title": "Visual capture of tactile motion: Evidence from a novel mirror box illusion",
+      "authors": [
+        "Anupama Nair",
+        "Stephanie Dietz",
+        "Jared Medina"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-21",
+      "published": "2026-11-22",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7212047062",
+      "title": "S kynet : Workflow-Level Anomaly Detection for Agentic AI via Semantic and Structural Modeling",
+      "authors": [
+        "Chaoyu Zhang",
+        "Hexuan Yu",
+        "Heng Jin"
+      ],
+      "countries": [
+        "US"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-22",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7169637818",
-      "title": "Pitfalls in Multispectral In-Field Strawberry Detection: Challenges and First Results for Ripeness Classification in Robotic Harvesting",
+      "id": "https://openalex.org/W7213476228",
+      "title": "Handling Data Heterogeneity in Edge IoT with Clustered Sequential Federated Learning",
       "authors": [
-        "Tomo Lange",
-        "Tim Tiedemann",
-        "Kai Von Luck"
+        "Aymene Boucha",
+        "Mario Südholt",
+        "Carlos Javier Gonzalez Santamaria"
       ],
       "countries": [
-        "DE",
-        "GB"
+        "FR"
       ],
       "primary_country": "Other",
-      "published": "2026-11-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7169772927",
-      "title": "Evolving scheduling heuristics via cartesian genetic programming for dynamic energy management",
-      "authors": [
-        "Rui Qi",
-        "Yiwen Zhang",
-        "Bing Jia"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7233549487",
-      "title": "Artificial Intelligence and the Changing Landscape of Global Cybercrime A Comparative Study of Judicial Responses Liability and Digital Evidence",
-      "authors": [
-        "S. Verma"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-21",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7233550238",
-      "title": "Beyond Technology Acceptance: A Conceptual Understanding Of Employee Readiness For Artificial Intelligence Adoption In Banks",
-      "authors": [
-        "B. E. Chamanlal",
-        "C. P. Thakor"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-21",
+      "published": "2026-11-22",
       "cited_by_count": 0,
       "source": "openalex"
     }

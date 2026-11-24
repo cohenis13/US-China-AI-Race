@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-23T19:06:57.034975+00:00",
+  "fetched_at": "2026-11-24T18:45:21.006152+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -15,22 +15,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 38.0,
+          "share_score": 37.9,
           "paper_volume": {
-            "raw_value": 156362,
+            "raw_value": 156488,
             "share_score": 34.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 11624,
+            "raw_value": 11637,
             "share_score": 40.0,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 11091,
-            "share_score": 38.5,
+            "raw_value": 11124,
+            "share_score": 38.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -63,22 +63,22 @@
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.0,
+          "share_score": 62.1,
           "paper_volume": {
-            "raw_value": 294437,
+            "raw_value": 294024,
             "share_score": 65.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 17418,
+            "raw_value": 17474,
             "share_score": 60.0,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 17753,
-            "share_score": 61.5,
+            "raw_value": 17811,
+            "share_score": 61.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 294437
+        "count": 294024
       },
       {
         "country_code": "US",
-        "count": 156362
-      },
-      {
-        "country_code": "DE",
-        "count": 105178
+        "count": 156488
       },
       {
         "country_code": "IN",
-        "count": 104455
+        "count": 105317
+      },
+      {
+        "country_code": "DE",
+        "count": 105241
       },
       {
         "country_code": "ID",
-        "count": 49421
+        "count": 49976
       },
       {
         "country_code": "GB",
-        "count": 48585
+        "count": 48639
       },
       {
         "country_code": "KR",
-        "count": 29704
+        "count": 29928
       },
       {
         "country_code": "IT",
-        "count": 26782
+        "count": 26848
       },
       {
         "country_code": "JP",
-        "count": 25086
+        "count": 25135
       },
       {
         "country_code": "FR",
-        "count": 24116
+        "count": 24081
       }
     ],
     "volume": {
-      "us": 156362,
-      "china": 294437,
-      "total": 2283954,
+      "us": 156488,
+      "china": 294024,
+      "total": 2287135,
       "data_ok": true
     },
     "high_impact": {
-      "us": 11624,
-      "china": 17418,
-      "total": 45687,
+      "us": 11637,
+      "china": 17474,
+      "total": 45823,
       "data_ok": true
     },
     "top_cited": {
-      "us": 11091,
-      "china": 17753,
-      "total": 44005,
+      "us": 11124,
+      "china": 17811,
+      "total": 44193,
       "data_ok": true
     }
   },
@@ -182,165 +182,159 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4417473712",
-      "title": "Context-Picker: Dynamic Context Selection Using Multi-stage Reinforcement Learning",
+      "id": "https://openalex.org/W4413839491",
+      "title": "Assessing the Creative Capabilities of Large Language Models in Generating Context from Multimodal Prompts",
       "authors": [
-        "Siyuan Zhu",
-        "Chengdong Xu",
-        "Kaiqiang Ke"
+        "Daniel Emakporuena",
+        "Okuna Rapheal",
+        "Olabamiji Ajisomo"
+      ],
+      "countries": [
+        "US",
+        "GB"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4414385029",
+      "title": "Quantization-Aware Neuromorphic Architecture for Skin Lesion Classification on Resource-Constrained Devices",
+      "authors": [
+        "Haitian Wang",
+        "Xia Cheng",
+        "Yiren Wang"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-24",
+      "cited_by_count": 3,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415937887",
+      "title": "AQBuc: Air Pollution Forecasting in Bucharest",
+      "authors": [
+        "Dragoş-Andrei Şerban",
+        "Răzvan-Alexandru Smădu",
+        "Dumitru-Clementin Cercel"
+      ],
+      "countries": [
+        "RO"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-24",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7125425852",
+      "title": "Rethinking Reinforcement Fine-Tuning of LLMs: A Multi-armed Bandit Learning Perspective",
+      "authors": [
+        "Xiao Hu",
+        "Hong Xie",
+        "Tao Tan"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-11-23",
-      "cited_by_count": 2,
+      "published": "2026-11-24",
+      "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7125141425",
-      "title": "Distill-Then-Replace: Efficient Task-Specific Hybrid Attention Model Construction",
+      "id": "https://openalex.org/W7155082334",
+      "title": "A Two-Stage Multi-modal MRI Framework for Lifespan Brain Age Prediction",
       "authors": [
-        "Xiaojie Xia",
-        "Huigang Zhang",
-        "Chaoliang Zhong"
-      ],
-      "countries": [
-        "CN",
-        "JP"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-23",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7202140860",
-      "title": "Performance of a self-supervised pretrained neural network for orthopedic radiograph classification",
-      "authors": [
-        "Rohan Bagchi",
-        "Nicholas J. Yee",
-        "John Y. Kwon"
-      ],
-      "countries": [
-        "US",
-        "CA"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-23",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7204569140",
-      "title": "Subgraph Filtering for Fair Graph Neural Networks",
-      "authors": [
-        "Haohui Lu",
-        "Jiyuan Tian",
-        "Fangyu Zhou"
+        "Dingyi Zhang",
+        "Ruiying Liu",
+        "Yun Wang"
       ],
       "countries": [],
       "primary_country": "Unknown",
-      "published": "2026-11-23",
+      "published": "2026-11-24",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7206211194",
-      "title": "A hybrid quantum-classical neural network for learning to route",
+      "id": "https://openalex.org/W7159630036",
+      "title": "Automatic Causal Fairness Analysis with LLM-Generated Reporting",
       "authors": [
-        "Marcus Ritt",
-        "Alexsandro Santos da Rosa Júnior",
-        "Marcos Vinicius Reballo"
+        "Alessia Berarducci",
+        "Eric Rossetto",
+        "Alessandro Antonucci"
       ],
       "countries": [
-        "BR"
+        "CH"
       ],
       "primary_country": "Other",
-      "published": "2026-11-23",
+      "published": "2026-11-24",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7160277167",
+      "title": "Needle-in-RAG: Event-Conditioned Character-Level Traceback of Poisoned Spans",
+      "authors": [
+        "Huining Cui",
+        "Wei Liu"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-24",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7212409633",
-      "title": "ETNA: EnTropy regularization for compressed Neural Avatar",
+      "id": "https://openalex.org/W7160535123",
+      "title": "Assessing Generalisation Capability of Machine Learning Models for Intrusion Detection",
       "authors": [
-        "Guillaume Loranchet",
-        "João Regateiro",
-        "Bharath Bhushan Damodaran"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214134674",
-      "title": "Exploring Utility-Fairness-Privacy Trade-offs in Synthetic Sensitive Tabular Data",
-      "authors": [
-        "Malek Adouani",
-        "Zaineb Chelly Dagdia"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7214141325",
-      "title": "Towards Fair and Private Synthetic Health Data: A Hybrid Generative Framework under Zero-Concentrated Differential Privacy",
-      "authors": [
-        "Malek Adouani",
-        "Nadia Ben Azzouna",
-        "Karine Zeitouni"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7223073594",
-      "title": "Plugging Language Models into GAMA Mobility Simulations: Generative Mode Choice Against a Real Household Travel Survey",
-      "authors": [
-        "Yves Bru",
-        "Benoît Gaudou",
-        "Kamaldeep Singh Oberoi"
-      ],
-      "countries": [
-        "FR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-23",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7223210136",
-      "title": "Semantic Distance Differently Modulates FPVS-EEG Responses to Words and Pictures",
-      "authors": [
-        "Angélique Volfart",
-        "Aliette Lochy",
-        "Bruno Rossion"
+        "Md. Zakir Hossain",
+        "Md Ayshik Rahman Khan",
+        "Md Shahidul Islam"
       ],
       "countries": [
         "AU",
-        "LU",
-        "BE",
-        "FR",
-        "GB"
+        "BD"
       ],
       "primary_country": "Other",
-      "published": "2026-11-23",
+      "published": "2026-11-24",
+      "cited_by_count": 5,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162334459",
+      "title": "Exploring Deep Learning for Event-Based Saliency Prediction with a Transformer-Based Model",
+      "authors": [
+        "Romaric Mazna",
+        "Sai Deepesh Pokala",
+        "Jean Martinet"
+      ],
+      "countries": [
+        "FR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-24",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7162600363",
+      "title": "Multimodal signal restoration with signed twofold graph learning",
+      "authors": [
+        "Haruki Yokota",
+        "Hiroshi Higashi",
+        "Yuichi Tanaka"
+      ],
+      "countries": [
+        "JP"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-24",
       "cited_by_count": 0,
       "source": "openalex"
     }

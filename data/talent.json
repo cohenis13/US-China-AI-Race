@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-24T18:45:21.006152+00:00",
+  "fetched_at": "2026-11-25T17:53:03.084931+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 46.9,
+      "composite_score": 47.0,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 37.9,
+          "share_score": 38.1,
           "paper_volume": {
-            "raw_value": 156488,
+            "raw_value": 156724,
             "share_score": 34.7,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 11637,
-            "share_score": 40.0,
+            "raw_value": 11892,
+            "share_score": 40.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 11124,
-            "share_score": 38.4,
+            "raw_value": 11410,
+            "share_score": 38.7,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.1,
+      "composite_score": 53.0,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 62.1,
+          "share_score": 61.9,
           "paper_volume": {
-            "raw_value": 294024,
+            "raw_value": 294480,
             "share_score": 65.3,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 17474,
-            "share_score": 60.0,
+            "raw_value": 17713,
+            "share_score": 59.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 17811,
-            "share_score": 61.6,
+            "raw_value": 18111,
+            "share_score": 61.3,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 294024
+        "count": 294480
       },
       {
         "country_code": "US",
-        "count": 156488
-      },
-      {
-        "country_code": "IN",
-        "count": 105317
+        "count": 156724
       },
       {
         "country_code": "DE",
-        "count": 105241
+        "count": 105356
+      },
+      {
+        "country_code": "IN",
+        "count": 105108
       },
       {
         "country_code": "ID",
-        "count": 49976
+        "count": 50138
       },
       {
         "country_code": "GB",
-        "count": 48639
+        "count": 48632
       },
       {
         "country_code": "KR",
-        "count": 29928
+        "count": 29964
       },
       {
         "country_code": "IT",
-        "count": 26848
+        "count": 26888
       },
       {
         "country_code": "JP",
-        "count": 25135
+        "count": 25236
       },
       {
         "country_code": "FR",
-        "count": 24081
+        "count": 24080
       }
     ],
     "volume": {
-      "us": 156488,
-      "china": 294024,
-      "total": 2287135,
+      "us": 156724,
+      "china": 294480,
+      "total": 2276556,
       "data_ok": true
     },
     "high_impact": {
-      "us": 11637,
-      "china": 17474,
-      "total": 45823,
+      "us": 11892,
+      "china": 17713,
+      "total": 46334,
       "data_ok": true
     },
     "top_cited": {
-      "us": 11124,
-      "china": 17811,
-      "total": 44193,
+      "us": 11410,
+      "china": 18111,
+      "total": 44924,
       "data_ok": true
     }
   },
@@ -182,159 +182,153 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4413839491",
-      "title": "Assessing the Creative Capabilities of Large Language Models in Generating Context from Multimodal Prompts",
+      "id": "https://openalex.org/W4406780103",
+      "title": "One-Class Domain Adaptation via Meta-learning",
       "authors": [
-        "Daniel Emakporuena",
-        "Okuna Rapheal",
-        "Olabamiji Ajisomo"
+        "Stephanie Holly",
+        "Thomas Bierweiler",
+        "Stefan von Dosky"
       ],
       "countries": [
-        "US",
-        "GB"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4414385029",
-      "title": "Quantization-Aware Neuromorphic Architecture for Skin Lesion Classification on Resource-Constrained Devices",
-      "authors": [
-        "Haitian Wang",
-        "Xia Cheng",
-        "Yiren Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-24",
-      "cited_by_count": 3,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4415937887",
-      "title": "AQBuc: Air Pollution Forecasting in Bucharest",
-      "authors": [
-        "Dragoş-Andrei Şerban",
-        "Răzvan-Alexandru Smădu",
-        "Dumitru-Clementin Cercel"
-      ],
-      "countries": [
-        "RO"
+        "AT",
+        "DE"
       ],
       "primary_country": "Other",
-      "published": "2026-11-24",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7125425852",
-      "title": "Rethinking Reinforcement Fine-Tuning of LLMs: A Multi-armed Bandit Learning Perspective",
-      "authors": [
-        "Xiao Hu",
-        "Hong Xie",
-        "Tao Tan"
-      ],
-      "countries": [
-        "CN"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7155082334",
-      "title": "A Two-Stage Multi-modal MRI Framework for Lifespan Brain Age Prediction",
-      "authors": [
-        "Dingyi Zhang",
-        "Ruiying Liu",
-        "Yun Wang"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7159630036",
-      "title": "Automatic Causal Fairness Analysis with LLM-Generated Reporting",
-      "authors": [
-        "Alessia Berarducci",
-        "Eric Rossetto",
-        "Alessandro Antonucci"
-      ],
-      "countries": [
-        "CH"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-24",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160277167",
-      "title": "Needle-in-RAG: Event-Conditioned Character-Level Traceback of Poisoned Spans",
-      "authors": [
-        "Huining Cui",
-        "Wei Liu"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "cited_by_count": 1,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160535123",
-      "title": "Assessing Generalisation Capability of Machine Learning Models for Intrusion Detection",
+      "id": "https://openalex.org/W4415036528",
+      "title": "Context-Aware Content Moderation for German Newspaper Comments",
       "authors": [
-        "Md. Zakir Hossain",
-        "Md Ayshik Rahman Khan",
-        "Md Shahidul Islam"
+        "Felix Krejca",
+        "Tobias Kietreiber",
+        "Alexander Buchelt"
       ],
       "countries": [
-        "AU",
-        "BD"
+        "AT"
       ],
       "primary_country": "Other",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
+      "cited_by_count": 4,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415064710",
+      "title": "Persistence-Based Line Detection in Hough Space",
+      "authors": [
+        "Johannes Ferner",
+        "Stefan Huber",
+        "Saverio Messineo"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-25",
       "cited_by_count": 5,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162334459",
-      "title": "Exploring Deep Learning for Event-Based Saliency Prediction with a Transformer-Based Model",
+      "id": "https://openalex.org/W4416621745",
+      "title": "Embedding the MLOps Lifecycle into OT Reference Models",
       "authors": [
-        "Romaric Mazna",
-        "Sai Deepesh Pokala",
-        "Jean Martinet"
+        "Simon Schindler",
+        "Christoph Binder",
+        "Lukas Lürzer"
       ],
       "countries": [
-        "FR"
+        "AT"
       ],
       "primary_country": "Other",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4417299453",
+      "title": "Topology-Driven Identification of Repetitions in Multi-variate Time Series",
+      "authors": [
+        "Simon Schindler",
+        "Elias Steffen Reich",
+        "Saverio Messineo"
+      ],
+      "countries": [
+        "AT"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-25",
       "cited_by_count": 2,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7162600363",
-      "title": "Multimodal signal restoration with signed twofold graph learning",
+      "id": "https://openalex.org/W7107944698",
+      "title": "The Architecture of Limitation: Manuscript I — Metaphysical Expression",
       "authors": [
-        "Haruki Yokota",
-        "Hiroshi Higashi",
-        "Yuichi Tanaka"
+        "Schaut, F.L."
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-25",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7127366585",
+      "title": "Conceptual Framework for the Development of Digital Humanities Based on Artificial Intelligence",
+      "authors": [
+        "Akram Fathian Dastgerdi",
+        "Saeed Bakhtiari"
+      ],
+      "countries": [],
+      "primary_country": "Unknown",
+      "published": "2026-11-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7127428019",
+      "title": "AI-Enabled Robust Performance-Based Budgeting: A Hybrid Neural–Optimization Approach for Smart Governance",
+      "authors": [
+        "Ameneh Khadivar",
+        "Saba Abdian"
       ],
       "countries": [
-        "JP"
+        "IR",
+        "NL"
       ],
       "primary_country": "Other",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
+      "cited_by_count": 1,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130325170",
+      "title": "Acoustic Shield: Lightweight Neural Network for Audio-Based Drone Detection and Classification",
+      "authors": [
+        "Fatemeh Alimadadi"
+      ],
+      "countries": [
+        "IR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-25",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7130387506",
+      "title": "Detection of Micro-UAVs in Visible Spectrum Using YOLO Algorithm",
+      "authors": [
+        "shahin mirzaei",
+        "S. Khazai"
+      ],
+      "countries": [
+        "IR"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-25",
       "cited_by_count": 0,
       "source": "openalex"
     }

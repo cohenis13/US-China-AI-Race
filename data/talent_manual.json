@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "description": "Manually maintained data for the talent pipeline index. Covers PhD pipeline and elite researcher concentration — sources that cannot be auto-fetched. Update annually when new NSF SDR, China MoE statistics, or MacroPolo Tracker releases become available.",
+  "last_updated": "2026-04-16",
+  "update_notes": "Initial V3 seed. PhD data from NSF SDR 2022 and China MoE 2022. Elite researcher data from MacroPolo AI Talent Tracker 2023 edition.",
+
+  "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
+
+  "pipeline": {
+    "description": "Annual domestic AI/CS PhD output. Measures the long-run talent production capacity of each country's universities. This is a flow metric (graduates per year), not a stock metric (total researchers).",
+    "snapshot_year": 2022,
+
+    "us": {
+      "source_name": "NSF Survey of Earned Doctorates (SED) 2022",
+      "source_url": "https://ncses.nsf.gov/pubs/nsf24300",
+      "confidence": "High — government survey covering all US PhD-granting institutions",
+      "total_cs_phds_awarded": 10477,
+      "ai_ml_estimated_share_pct": 35,
+      "ai_related_phds_estimated": 3667,
+      "methodology_note": "NSF SED 2022 reports 10,477 CS doctorates. Estimated 35% are AI/ML-adjacent based on research topic breakdowns in the report. Foreign-born students account for ~66% of US CS PhDs — this counts graduates working within US universities at time of graduation, not necessarily US citizens.",
+      "foreign_born_pct": 66,
+      "china_born_pct_of_total": 28
+    },
+
+    "china": {
+      "source_name": "China Ministry of Education (MoE) Statistics 2022 / 教育部统计数据",
+      "source_url": "http://www.moe.gov.cn/jyb_sjzl/moe_560/2022/",
+      "source_url_en": "https://en.moe.gov.cn/resources/statistics/",
+      "confidence": "Medium — official statistics, but classification of 'AI-related' is broader than Western definitions; peer-reviewed verification limited",
+      "total_cs_ict_phds_awarded": 52000,
+      "ai_ml_estimated_share_pct": 30,
+      "ai_related_phds_estimated": 15600,
+      "methodology_note": "China MoE 2022 reports ~52,000 CS/IT-category doctoral graduates. Estimated 30% are AI/ML-adjacent. China's broad CS classification includes applied software engineering that would not typically be classified as AI research in Western databases. Adjusted estimate is conservative. Note: a significant share of top Chinese AI researchers do their PhD in the US or Europe.",
+      "outbound_phd_pct": 12,
+      "us_destination_pct_of_outbound": 72
+    },
+
+    "adjusted_totals": {
+      "methodology": "Counts PhD graduates within each country's universities regardless of nationality. US figures include ~28% China-born PhD students (counted toward US in this proxy). If counting only nationals: China would be ~99%, US ~34% of combined. We count by institution location (where training occurs), not nationality — this is methodologically consistent with publication affiliation counting.",
+      "us_ai_phds": 3667,
+      "china_ai_phds": 15600,
+      "us_share_pct": 19.0,
+      "china_share_pct": 81.0
+    }
+  },
+
+  "elite_researchers": {
+    "description": "Where the world's top AI researchers work. MacroPolo's AI Talent Tracker codes the institutional affiliation of researchers in the top 2,000 papers at top AI venues (NeurIPS, ICML, ICLR). This is a stock metric (current affiliation), not a flow metric.",
+    "snapshot_year": 2023,
+
+    "source": {
+      "name": "MacroPolo AI Talent Tracker 2023",
+      "url": "https://macropolo.org/digital-projects/the-global-ai-talent-tracker/",
+      "methodology_note": "MacroPolo codes the institutional affiliation of researchers in the top 2,000 AI papers (by citations) at NeurIPS, ICML, and ICLR. This differs from OpenAlex paper volume in two key ways: (1) it is restricted to top-cited papers at elite venues, not all AI papers; (2) it counts researcher headcount (1 per researcher), not paper count (1 per paper per country). A researcher moving from China to MIT counts toward the US.",
+      "confidence": "Medium-High — systematic methodology on public conference proceedings; lag of 1-2 years from latest venue; elite venue selection may not capture applied AI research",
+      "data_vintage": "2022 conference proceedings",
+      "coverage": "Top 2,000 AI researchers by citation count at NeurIPS, ICML, ICLR"
+    },
+
+    "global_share": {
+      "us_pct_of_all": 57,
+      "china_pct_of_all": 22,
+      "eu_pct_of_all": 11,
+      "other_pct_of_all": 10
+    },
+
+    "us_china_share": {
+      "us_pct": 72.2,
+      "china_pct": 27.8,
+      "us_count_estimate": 1140,
+      "china_count_estimate": 438,
+      "note": "Share of combined US+China only. Based on 57/(57+22) ≈ 72.2%."
+    },
+
+    "migration_flows": {
+      "description": "Movement of China-origin AI researchers. These are researchers who did their undergraduate education in China.",
+      "source": "MacroPolo AI Talent Tracker 2023 + NSCAI Final Report 2021",
+      "china_born_at_us_institutions_pct": 36,
+      "china_born_at_china_institutions_pct": 34,
+      "china_born_at_other_institutions_pct": 30,
+      "note_on_interpretation": "A substantial share (~36%) of top AI researchers who did undergrad in China are now working at US institutions. This is the single largest talent flow in global AI: China trains the pipeline, the US (and to a lesser extent Europe) captures elite talent. However, the share at China institutions has been rising — from ~25% in 2019 to ~34% in 2022 — suggesting accelerating talent retention and repatriation.",
+      "trend": "China's domestic retention of China-origin top researchers has increased from ~25% (2019 cohort) to ~34% (2022 cohort). The US share has declined slightly but remains dominant."
+    },
+
+    "key_facts": {
+      "talent_concentration_at_us_labs": "OpenAI, DeepMind (UK/US), Google Brain, Meta AI, Microsoft Research hold the largest concentrations of top-cited AI researchers globally.",
+      "china_lab_presence": "Chinese labs in the top tier: BAAI (Beijing), Tsinghua IIIS, Shanghai AI Lab, ByteDance Research, Alibaba DAMO, Tencent AI Lab. Growing rapidly but smaller in absolute scale.",
+      "nscai_finding": "NSCAI (2021) found the US has the largest concentration of elite AI researchers but China is the primary feeder of global AI talent pipeline."
+    }
+  }
+}

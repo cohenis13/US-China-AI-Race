@@ -3,7 +3,7 @@
   "dimension": "talent",
   "metric_key": "talent_pipeline_index",
   "description": "Talent pipeline index: research output quality (35%, OpenAlex), domestic PhD pipeline (25%, NSF/MoE), and elite researcher concentration + migration (40%, MacroPolo). See talent_manual.json for pipeline and migration data sources.",
-  "fetched_at": "2026-11-26T17:38:09.165255+00:00",
+  "fetched_at": "2026-11-27T17:20:41.906809+00:00",
   "weights": {
     "research_output": 0.35,
     "pipeline": 0.25,
@@ -11,26 +11,26 @@
   },
   "summary": {
     "US": {
-      "composite_score": 47.0,
+      "composite_score": 46.9,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 38.1,
+          "share_score": 38.0,
           "paper_volume": {
-            "raw_value": 156927,
-            "share_score": 34.7,
+            "raw_value": 157070,
+            "share_score": 34.6,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 11931,
+            "raw_value": 11968,
             "share_score": 40.2,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 11455,
-            "share_score": 38.7,
+            "raw_value": 11482,
+            "share_score": 38.6,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -59,26 +59,26 @@
       }
     },
     "China": {
-      "composite_score": 53.0,
+      "composite_score": 53.1,
       "proxies": {
         "research_output": {
           "weight": 0.35,
-          "share_score": 61.9,
+          "share_score": 62.0,
           "paper_volume": {
-            "raw_value": 295766,
-            "share_score": 65.3,
+            "raw_value": 296288,
+            "share_score": 65.4,
             "window": "12m"
           },
           "high_impact": {
-            "raw_value": 17774,
+            "raw_value": 17836,
             "share_score": 59.8,
             "window": "3y",
             "filter": "cited_by_count ≥ 50",
             "data_ok": true
           },
           "top_cited": {
-            "raw_value": 18167,
-            "share_score": 61.3,
+            "raw_value": 18248,
+            "share_score": 61.4,
             "window": "2y",
             "filter": "cited_by_count ≥ 25",
             "data_ok": true
@@ -120,61 +120,61 @@
     "top_countries": [
       {
         "country_code": "CN",
-        "count": 295766
+        "count": 296288
       },
       {
         "country_code": "US",
-        "count": 156927
+        "count": 157070
       },
       {
         "country_code": "DE",
-        "count": 105532
+        "count": 105582
       },
       {
         "country_code": "IN",
-        "count": 105086
+        "count": 105231
       },
       {
         "country_code": "ID",
-        "count": 50139
+        "count": 50127
       },
       {
         "country_code": "GB",
-        "count": 48668
+        "count": 48692
       },
       {
         "country_code": "KR",
-        "count": 30338
+        "count": 30636
       },
       {
         "country_code": "IT",
-        "count": 27223
+        "count": 27220
       },
       {
         "country_code": "JP",
-        "count": 25359
+        "count": 25382
       },
       {
         "country_code": "FR",
-        "count": 24101
+        "count": 24117
       }
     ],
     "volume": {
-      "us": 156927,
-      "china": 295766,
-      "total": 2279531,
+      "us": 157070,
+      "china": 296288,
+      "total": 2282981,
       "data_ok": true
     },
     "high_impact": {
-      "us": 11931,
-      "china": 17774,
-      "total": 46553,
+      "us": 11968,
+      "china": 17836,
+      "total": 46724,
       "data_ok": true
     },
     "top_cited": {
-      "us": 11455,
-      "china": 18167,
-      "total": 45097,
+      "us": 11482,
+      "china": 18248,
+      "total": 45257,
       "data_ok": true
     }
   },
@@ -182,157 +182,163 @@
   "coverage_warning": "Three measurement gaps affect all talent assessments: (1) Affiliation vs. origin — a China-born researcher working at MIT is counted under the US, inflating the US share in publication-based metrics; (2) Quality vs. quantity — China produces 3-5x the PhD volume but the US captures a disproportionate share of elite researchers at frontier labs; (3) Migration direction — the US has historically attracted China-born AI talent, but return migration to China has accelerated since ~2019.",
   "papers": [
     {
-      "id": "https://openalex.org/W4205191117",
-      "title": "Synfacts",
-      "authors": [],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-26",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4412095727",
-      "title": "Real Time Classification of Cognitive Load Using fNIRS and EEGNet in a Driving Simulation Task",
+      "id": "https://openalex.org/W4414745519",
+      "title": "MoA-Off: Adaptive Heterogeneous Modality-Aware Offloading with Edge-Cloud Collaboration for Efficient Multimodal LLM Inference",
       "authors": [
-        "Mehshan Ahmed Khan",
-        "Houshyar Asadi",
-        "Mohammad Reza Chalak Qazani"
-      ],
-      "countries": [
-        "AU"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-26",
-      "cited_by_count": 1,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4414737873",
-      "title": "EigenTrack: Temporal Spectral Analysis of Hidden Activations for Hallucination and OOD Detection in Large Language and Vision Models",
-      "authors": [
-        "Davide Ettori",
-        "Nastaran Darabi",
-        "Sina Tayebati"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-26",
-      "cited_by_count": 13,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4414888085",
-      "title": "AI governance through the eyes of users: a large-scale study of online reviews",
-      "authors": [
-        "Stefan Pasch"
-      ],
-      "countries": [
-        "KR"
-      ],
-      "primary_country": "Other",
-      "published": "2026-11-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4415251104",
-      "title": "LoRALib: A Standardized Benchmark for Evaluating LoRA-MoE Methods",
-      "authors": [
-        "Shaoheng Wang",
-        "Lu Yao",
-        "Yuqi Li"
-      ],
-      "countries": [
-        "CN",
-        "SG",
-        "US",
-        "HK"
-      ],
-      "primary_country": "Mixed",
-      "published": "2026-11-26",
-      "cited_by_count": 3,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W4416273984",
-      "title": "GroupKAN: Efficient Kolmogorov-Arnold Networks via Grouped Spline Modeling",
-      "authors": [
-        "Guojie Li",
-        "Tianyi Liu",
-        "Anwar P. P. Abdul Majeed"
-      ],
-      "countries": [
-        "CN",
-        "GB",
-        "MY"
-      ],
-      "primary_country": "China",
-      "published": "2026-11-26",
-      "cited_by_count": 2,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7129092209",
-      "title": "Photometric classification of supernovae detected by the Zwicky Transient Facility using noise augmentation",
-      "authors": [
-        "A. Townsend",
-        "Jakob Nordin",
-        "M. Kowalski"
-      ],
-      "countries": [],
-      "primary_country": "Unknown",
-      "published": "2026-11-26",
-      "cited_by_count": 3,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7141865545",
-      "title": "The Geography of Nobel Prize Nomination, 1901–1975",
-      "authors": [
-        "Chad M. Topaz",
-        "Anvi Kurongonayini",
-        "Bennett Ptak"
-      ],
-      "countries": [
-        "US"
-      ],
-      "primary_country": "US",
-      "published": "2026-11-26",
-      "cited_by_count": 0,
-      "source": "openalex"
-    },
-    {
-      "id": "https://openalex.org/W7160895084",
-      "title": "HyNeuralMap: Hyperbolic Mapping of Visual Semantics to Neural Hierarchies",
-      "authors": [
-        "Zihan Ma",
-        "Tian Xia",
-        "Kexin Wang"
+        "Zheming Yang",
+        "Qi Guo",
+        "Yunqing Hu"
       ],
       "countries": [
         "CN"
       ],
       "primary_country": "China",
-      "published": "2026-11-26",
+      "published": "2026-11-27",
+      "cited_by_count": 16,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415088584",
+      "title": "How Auxiliary Reasoning Unleashes GUI Grounding in VLMs",
+      "authors": [
+        "Weiming Li",
+        "Yan Shao",
+        "Jing Yang"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-27",
+      "cited_by_count": 4,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4415316354",
+      "title": "Learning by Imagining: Debiased Feature Augmentation for Compositional Zero-Shot Learning",
+      "authors": [
+        "Haozhe Zhang",
+        "Chenchen Jing",
+        "Mingyu Liu"
+      ],
+      "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-27",
       "cited_by_count": 0,
       "source": "openalex"
     },
     {
-      "id": "https://openalex.org/W7160961002",
-      "title": "OUIDecay: Adaptive Layer-Wise Weight Decay for CNNs Using Online Activation Patterns",
+      "id": "https://openalex.org/W4416781495",
+      "title": "Subgoal Graph-Augmented Planning for LLM-Guided Reinforcement Learning",
       "authors": [
-        "Alberto Fernández-Hernández",
-        "Jose I. Mestre",
-        "Cristian Pérez-Corral"
+        "Shanwei Fan",
+        "Bin Zhang",
+        "Zhiwei Xu"
       ],
       "countries": [
+        "CN"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-27",
+      "cited_by_count": 2,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4416816339",
+      "title": "Tool-RoCo: An Agent-as-Tool Large Language Model Benchmark for Multi-robot Cooperation and Autonomy",
+      "authors": [
+        "Ke Zhang",
+        "Xiaoning Zhao",
+        "Ce Zheng"
+      ],
+      "countries": [
+        "CN",
+        "JP"
+      ],
+      "primary_country": "China",
+      "published": "2026-11-27",
+      "cited_by_count": 3,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W4416838560",
+      "title": "Verifying Glitches in Decision Tree Ensembles",
+      "authors": [
+        "Satyankar Chandra",
+        "Harsh Chaurasia",
+        "Ashutosh Gupta"
+      ],
+      "countries": [
+        "IN",
         "ES"
       ],
       "primary_country": "Other",
-      "published": "2026-11-26",
+      "published": "2026-11-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7117682932",
+      "title": "Fake News Classification in Urdu Through Domain Adaptation of Multilingual Language Models",
+      "authors": [
+        "Muhammad Zain Ali",
+        "Tony C. Smith",
+        "Bernhard Pfahringer"
+      ],
+      "countries": [
+        "NZ"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-27",
+      "cited_by_count": 3,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7133540265",
+      "title": "Implicit Bias in Deep Linear Discriminant Analysis",
+      "authors": [
+        "Jiawen Li"
+      ],
+      "countries": [
+        "AU"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7134931017",
+      "title": "MetaFraud-ICL: Gradient-Free Strategic Fraud Detection via In-Context Meta-Learning",
+      "authors": [
+        "Jiawei Xu",
+        "Arlo Octavia",
+        "Meade Cleti"
+      ],
+      "countries": [
+        "US",
+        "TH"
+      ],
+      "primary_country": "US",
+      "published": "2026-11-27",
+      "cited_by_count": 0,
+      "source": "openalex"
+    },
+    {
+      "id": "https://openalex.org/W7135037647",
+      "title": "ASSESSMENT OF SELECTED MACHINE LEARNING SYSTEMS IN PREDICTING THE RESILIENT MODULUS OF COHESIVE SOILS",
+      "authors": [
+        " O. M. Adebajo",
+        "Oluyemi-Ayibiowu B.D.",
+        " K. E. Falola"
+      ],
+      "countries": [
+        "NG"
+      ],
+      "primary_country": "Other",
+      "published": "2026-11-27",
       "cited_by_count": 0,
       "source": "openalex"
     }
